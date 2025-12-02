@@ -1,0 +1,223 @@
+# Copyright (C) 2025 MT Contact Forms
+# This file is distributed under the same license as the MT Contact Forms package.
+msgid ""
+msgstr ""
+"Project-Id-Version: MT Contact Forms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-12-31 11:04+0000\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin/class-mtcf-admin.php:93, admin/class-mtcf-admin.php:94, admin/partials/mtcf-admin-display.php:21
+msgid "MT Contact Forms"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:25
+msgid "General"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:26
+msgid "Google reCAPTCHA"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:27
+msgid "Turnstile"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:28
+msgid "Documentation"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:101
+msgid "Getting Started"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:102
+msgid "Welcome to MT Contact Forms! Use this lightweight, powerful plugin to add contact forms to your site."
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:106
+msgid "1. Using Shortcodes"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:107
+msgid "You can add a form to any page using the following shortcode:"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:113
+msgid "You can also specify a skin:"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:120
+msgid "2. Gutenberg Block"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:121
+msgid "In the Block Editor, search for %s to add it visually."
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:121, admin/partials/mtcf-admin-display.php:126, elementor/class-mtcf-widget.php:30
+msgid "MT Contact Form"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:125
+msgid "3. Elementor Widget"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:126
+msgid "In Elementor, drag and drop the %s widget."
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:78, admin/partials/mtcf-admin-display.php:46
+msgid "Cloudflare Turnstile"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:84, admin/partials/mtcf-admin-display.php:64
+msgid "Site Key"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:88, admin/partials/mtcf-admin-display.php:68
+msgid "Secret Key"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:58, admin/partials/mtcf-admin-display.php:45
+msgid "Google reCAPTCHA v2"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:35
+msgid "General Settings"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:41
+msgid "Captcha Provider"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:44
+msgid "None"
+msgstr ""
+
+#: admin/partials/mtcf-admin-display.php:48
+msgid "Select the validation service you want to use to prevent spam."
+msgstr ""
+
+#: elementor/class-mtcf-widget.php:63
+msgid "Content"
+msgstr ""
+
+#: elementor/class-mtcf-widget.php:71
+msgid "Skin"
+msgstr ""
+
+#: elementor/class-mtcf-widget.php:75
+msgid "Default"
+msgstr ""
+
+#: elementor/class-mtcf-widget.php:76
+msgid "Modern"
+msgstr ""
+
+#: elementor/class-mtcf-widget.php:77
+msgid "Dark"
+msgstr ""
+
+#: public/class-mtcf-public.php:90
+msgid "Name is required"
+msgstr ""
+
+#: public/class-mtcf-public.php:91
+msgid "Name must be at least 3 characters"
+msgstr ""
+
+#: public/class-mtcf-public.php:92
+msgid "Email is required"
+msgstr ""
+
+#: public/class-mtcf-public.php:93
+msgid "Email is invalid"
+msgstr ""
+
+#: public/class-mtcf-public.php:94
+msgid "Message is required"
+msgstr ""
+
+#: public/class-mtcf-public.php:95
+msgid "You must agree to the terms"
+msgstr ""
+
+#: public/class-mtcf-public.php:96
+msgid "Sending..."
+msgstr ""
+
+#: public/class-mtcf-public.php:97, public/partials/mtcf-public-display.php:60
+msgid "Send Message"
+msgstr ""
+
+#: public/class-mtcf-public.php:98
+msgid "An unexpected error occurred. Please try again."
+msgstr ""
+
+#: public/class-mtcf-public.php:135
+msgid "Security check failed."
+msgstr ""
+
+#: public/class-mtcf-public.php:146
+msgid "Please fill in all required fields."
+msgstr ""
+
+#: public/class-mtcf-public.php:150
+msgid "Invalid email address."
+msgstr ""
+
+#: public/class-mtcf-public.php:154
+msgid "You must accept the GDPR terms."
+msgstr ""
+
+#: public/class-mtcf-public.php:187
+msgid "Please complete the Captcha."
+msgstr ""
+
+#: public/class-mtcf-public.php:201
+msgid "Captcha verification failed."
+msgstr ""
+
+#: public/class-mtcf-public.php:165
+msgid "Please complete the reCAPTCHA."
+msgstr ""
+
+#: public/class-mtcf-public.php:179
+msgid "reCAPTCHA verification failed."
+msgstr ""
+
+#: public/class-mtcf-public.php:215
+msgid "Failed to send message. Please try again."
+msgstr ""
+
+#: public/class-mtcf-public.php:213
+msgid "Message sent successfully!"
+msgstr ""
+
+#: public/partials/mtcf-public-display.php:18
+msgid "Name"
+msgstr ""
+
+#: public/partials/mtcf-public-display.php:23
+msgid "Email"
+msgstr ""
+
+#: public/partials/mtcf-public-display.php:28
+msgid "Subject"
+msgstr ""
+
+#: public/partials/mtcf-public-display.php:33
+msgid "Message"
+msgstr ""
+
+#: public/partials/mtcf-public-display.php:40
+msgid "I consent to having this website store my submitted information so they can respond to my inquiry."
+msgstr ""

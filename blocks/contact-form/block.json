@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mtcf/contact-form",
+    "version": "1.0.0",
+    "title": "MT Contact Form",
+    "category": "widgets",
+    "icon": "email",
+    "description": "Display the MT Contact Form.",
+    "supports": {
+        "html": false
+    },
+    "textdomain": "mt-contact-forms",
+    "editorScript": "file:./build/index.js",
+    "attributes": {
+        "skin": {
+            "type": "string",
+            "default": "default"
+        }
+    }
+}
