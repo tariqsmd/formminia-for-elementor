@@ -1,2 +1,2 @@
-# mt-contact-forms
+# MTforms
 Modern and Easy Contact Forms
