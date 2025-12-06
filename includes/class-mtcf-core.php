@@ -11,7 +11,8 @@
  * @subpackage MT_Contact_Forms/includes
  * @author     Muhammad Tariq
  */
-class MTCF_Core {
+class MTCF_Core
+{
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -50,8 +51,9 @@ class MTCF_Core {
 	 *
 	 * @since    1.0.0
 	 */
-	public function __construct() {
-		if ( defined( 'MTCF_VERSION' ) ) {
+	public function __construct()
+	{
+		if (defined('MTCF_VERSION')) {
 			$this->version = MTCF_VERSION;
 		} else {
 			$this->version = '1.0.0';
@@ -78,40 +80,46 @@ class MTCF_Core {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function load_dependencies() {
+	private function load_dependencies()
+	{
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-mtcf-loader.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-mtcf-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-mtcf-i18n.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-mtcf-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-mtcf-admin.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-mtcf-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-mtcf-public.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-mtcf-public.php';
 
-        /**
-         * The class responsible for registering Gutenberg Blocks
-         */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-mtcf-blocks.php';
+		/**
+		 * The class responsible for registering Gutenberg Blocks
+		 */
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-mtcf-blocks.php';
 
-        /**
-         * The class responsible for registering Elementor Widgets
-         */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-mtcf-elementor.php';
+		/**
+		 * The class responsible for registering Elementor Widgets
+		 */
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-mtcf-elementor.php';
+
+		/**
+		 * The class responsible for rendering forms with all customization options
+		 */
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-mtcf-form-renderer.php';
 
 		$this->loader = new MTCF_Loader();
 
@@ -126,18 +134,19 @@ class MTCF_Core {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function set_locale() {
+	private function set_locale()
+	{
 
 		$plugin_i18n = new MTCF_i18n();
 
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+		$this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
 
-        // Register Blocks
-        $plugin_blocks = new MTCF_Blocks();
-        $this->loader->add_action( 'init', $plugin_blocks, 'register_blocks' );
+		// Register Blocks
+		$plugin_blocks = new MTCF_Blocks();
+		$this->loader->add_action('init', $plugin_blocks, 'register_blocks');
 
-        // Register Elementor Integration
-        new MTCF_Elementor();
+		// Register Elementor Integration
+		new MTCF_Elementor();
 
 	}
 
@@ -148,19 +157,20 @@ class MTCF_Core {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_admin_hooks() {
+	private function define_admin_hooks()
+	{
 
-		$plugin_admin = new MTCF_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new MTCF_Admin($this->get_plugin_name(), $this->get_version());
 
 		// Enqueue scripts and styles
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
+		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 
-        // Add Menu
-        $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_admin_menu' );
+		// Add Menu
+		$this->loader->add_action('admin_menu', $plugin_admin, 'add_admin_menu');
 
-        // Register Settings
-        $this->loader->add_action( 'admin_init', $plugin_admin, 'register_settings' );
+		// Register Settings
+		$this->loader->add_action('admin_init', $plugin_admin, 'register_settings');
 
 	}
 
@@ -171,19 +181,20 @@ class MTCF_Core {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_public_hooks() {
+	private function define_public_hooks()
+	{
 
-		$plugin_public = new MTCF_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new MTCF_Public($this->get_plugin_name(), $this->get_version());
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
+		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
 
 		// Register Shortcode
-		$this->loader->add_action( 'init', $plugin_public, 'register_shortcodes' );
+		$this->loader->add_action('init', $plugin_public, 'register_shortcodes');
 
-        // AJAX Action for form submission
-        $this->loader->add_action( 'wp_ajax_mtcf_submit_form', $plugin_public, 'handle_form_submission' );
-        $this->loader->add_action( 'wp_ajax_nopriv_mtcf_submit_form', $plugin_public, 'handle_form_submission' );
+		// AJAX Action for form submission
+		$this->loader->add_action('wp_ajax_mtcf_submit_form', $plugin_public, 'handle_form_submission');
+		$this->loader->add_action('wp_ajax_nopriv_mtcf_submit_form', $plugin_public, 'handle_form_submission');
 
 	}
 
@@ -192,7 +203,8 @@ class MTCF_Core {
 	 *
 	 * @since    1.0.0
 	 */
-	public function run() {
+	public function run()
+	{
 		$this->loader->run();
 	}
 
@@ -203,7 +215,8 @@ class MTCF_Core {
 	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
 	 */
-	public function get_plugin_name() {
+	public function get_plugin_name()
+	{
 		return $this->plugin_name;
 	}
 
@@ -213,7 +226,8 @@ class MTCF_Core {
 	 * @since     1.0.0
 	 * @return    MTCF_Loader    Orchestrates the hooks of the plugin.
 	 */
-	public function get_loader() {
+	public function get_loader()
+	{
 		return $this->loader;
 	}
 
@@ -223,7 +237,8 @@ class MTCF_Core {
 	 * @since     1.0.0
 	 * @return    string    The version number of the plugin.
 	 */
-	public function get_version() {
+	public function get_version()
+	{
 		return $this->version;
 	}
 
