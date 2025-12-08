@@ -3,10 +3,10 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       https://example.com
+ * @link       https://developer.developer.developer
  * @since      1.0.0
- * @package    MT_Contact_Forms
- * @subpackage MT_Contact_Forms/public
+ * @package    MTForms
+ * @subpackage MTForms/public
  */
 
 /**
@@ -15,8 +15,8 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    MT_Contact_Forms
- * @subpackage MT_Contact_Forms/public
+ * @package    MTForms
+ * @subpackage MTForms/public
  * @author     Muhammad Tariq
  */
 class MTCF_Public
@@ -91,16 +91,16 @@ class MTCF_Public
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('mtcf-submit-form'),
             'i18n' => array(
-                'name_required' => __('Name is required', 'mt-contact-forms'),
-                'name_min' => __('Name must be at least 2 characters', 'mt-contact-forms'),
-                'email_required' => __('Email is required', 'mt-contact-forms'),
-                'email_invalid' => __('Email is invalid', 'mt-contact-forms'),
-                'phone_invalid' => __('Please enter a valid phone number', 'mt-contact-forms'),
-                'message_required' => __('Message is required', 'mt-contact-forms'),
-                'gdpr_required' => __('You must agree to the terms', 'mt-contact-forms'),
-                'sending' => __('Sending...', 'mt-contact-forms'),
-                'send_message' => __('Send Message', 'mt-contact-forms'),
-                'error_generic' => __('An unexpected error occurred. Please try again.', 'mt-contact-forms'),
+                'name_required' => __('Name is required', MTCF_TEXT_DOMAIN),
+                'name_min' => __('Name must be at least 2 characters', MTCF_TEXT_DOMAIN),
+                'email_required' => __('Email is required', MTCF_TEXT_DOMAIN),
+                'email_invalid' => __('Email is invalid', MTCF_TEXT_DOMAIN),
+                'phone_invalid' => __('Please enter a valid phone number', MTCF_TEXT_DOMAIN),
+                'message_required' => __('Message is required', MTCF_TEXT_DOMAIN),
+                'gdpr_required' => __('You must agree to the terms', MTCF_TEXT_DOMAIN),
+                'sending' => __('Sending...', MTCF_TEXT_DOMAIN),
+                'send_message' => __('Send Message', MTCF_TEXT_DOMAIN),
+                'error_generic' => __('An unexpected error occurred. Please try again.', MTCF_TEXT_DOMAIN),
             ),
         ));
 
@@ -146,7 +146,7 @@ class MTCF_Public
     {
         // Verify Nonce
         if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'mtcf-submit-form')) {
-            wp_send_json_error(array('message' => __('Security check failed.', 'mt-contact-forms')));
+            wp_send_json_error(array('message' => __('Security check failed.', MTCF_TEXT_DOMAIN)));
         }
 
         // Validate Fields (PHP side validation as backup)
@@ -160,15 +160,15 @@ class MTCF_Public
 
         // Check required fields (name, email, message are typically required)
         if (empty($name) || empty($email) || empty($message)) {
-            wp_send_json_error(array('message' => __('Please fill in all required fields.', 'mt-contact-forms')));
+            wp_send_json_error(array('message' => __('Please fill in all required fields.', MTCF_TEXT_DOMAIN)));
         }
 
         if (!is_email($email)) {
-            wp_send_json_error(array('message' => __('Invalid email address.', 'mt-contact-forms')));
+            wp_send_json_error(array('message' => __('Invalid email address.', MTCF_TEXT_DOMAIN)));
         }
 
         if ($gdpr !== 'yes') {
-            wp_send_json_error(array('message' => __('You must accept the GDPR terms.', 'mt-contact-forms')));
+            wp_send_json_error(array('message' => __('You must accept the GDPR terms.', MTCF_TEXT_DOMAIN)));
         }
 
         // Verify Captcha based on settings
@@ -179,7 +179,7 @@ class MTCF_Public
             $response = isset($_POST['g-recaptcha-response']) ? sanitize_text_field($_POST['g-recaptcha-response']) : '';
 
             if (empty($response)) {
-                wp_send_json_error(array('message' => __('Please complete the reCAPTCHA.', 'mt-contact-forms')));
+                wp_send_json_error(array('message' => __('Please complete the reCAPTCHA.', MTCF_TEXT_DOMAIN)));
             }
 
             $verify = wp_remote_post('https://www.google.com/recaptcha/api/siteverify', array(
@@ -193,7 +193,7 @@ class MTCF_Public
             $result = json_decode($body);
 
             if (!isset($result->success) || !$result->success) {
-                wp_send_json_error(array('message' => __('reCAPTCHA verification failed.', 'mt-contact-forms')));
+                wp_send_json_error(array('message' => __('reCAPTCHA verification failed.', MTCF_TEXT_DOMAIN)));
             }
 
         } elseif ($captcha_provider === 'turnstile') {
@@ -201,7 +201,7 @@ class MTCF_Public
             $response = isset($_POST['cf-turnstile-response']) ? sanitize_text_field($_POST['cf-turnstile-response']) : '';
 
             if (empty($response)) {
-                wp_send_json_error(array('message' => __('Please complete the Captcha.', 'mt-contact-forms')));
+                wp_send_json_error(array('message' => __('Please complete the Captcha.', MTCF_TEXT_DOMAIN)));
             }
 
             $verify = wp_remote_post('https://challenges.cloudflare.com/turnstile/v0/siteverify', array(
@@ -215,41 +215,41 @@ class MTCF_Public
             $result = json_decode($body);
 
             if (!isset($result->success) || !$result->success) {
-                wp_send_json_error(array('message' => __('Captcha verification failed.', 'mt-contact-forms')));
+                wp_send_json_error(array('message' => __('Captcha verification failed.', MTCF_TEXT_DOMAIN)));
             }
         }
 
         // Build email body
         $email_parts = array();
-        $email_parts[] = '<strong>' . __('Name:', 'mt-contact-forms') . '</strong> ' . esc_html($name);
-        $email_parts[] = '<strong>' . __('Email:', 'mt-contact-forms') . '</strong> ' . esc_html($email);
+        $email_parts[] = '<strong>' . __('Name:', MTCF_TEXT_DOMAIN) . '</strong> ' . esc_html($name);
+        $email_parts[] = '<strong>' . __('Email:', MTCF_TEXT_DOMAIN) . '</strong> ' . esc_html($email);
 
         if (!empty($phone)) {
-            $email_parts[] = '<strong>' . __('Phone:', 'mt-contact-forms') . '</strong> ' . esc_html($phone);
+            $email_parts[] = '<strong>' . __('Phone:', MTCF_TEXT_DOMAIN) . '</strong> ' . esc_html($phone);
         }
 
         if (!empty($website)) {
-            $email_parts[] = '<strong>' . __('Website:', 'mt-contact-forms') . '</strong> ' . esc_url($website);
+            $email_parts[] = '<strong>' . __('Website:', MTCF_TEXT_DOMAIN) . '</strong> ' . esc_url($website);
         }
 
         if (!empty($subject)) {
-            $email_parts[] = '<strong>' . __('Subject:', 'mt-contact-forms') . '</strong> ' . esc_html($subject);
+            $email_parts[] = '<strong>' . __('Subject:', MTCF_TEXT_DOMAIN) . '</strong> ' . esc_html($subject);
         }
 
-        $email_parts[] = '<strong>' . __('Message:', 'mt-contact-forms') . '</strong><br>' . nl2br(esc_html($message));
+        $email_parts[] = '<strong>' . __('Message:', MTCF_TEXT_DOMAIN) . '</strong><br>' . nl2br(esc_html($message));
 
         // Send Email
         $to = get_option('admin_email');
         $headers = array('Content-Type: text/html; charset=UTF-8', 'Reply-To: ' . $name . ' <' . $email . '>');
-        $email_subject = !empty($subject) ? sprintf(__('New message from %s: %s', 'mt-contact-forms'), $name, $subject) : sprintf(__('New message from %s', 'mt-contact-forms'), $name);
+        $email_subject = !empty($subject) ? sprintf(__('New message from %s: %s', MTCF_TEXT_DOMAIN), $name, $subject) : sprintf(__('New message from %s', MTCF_TEXT_DOMAIN), $name);
         $email_body = implode('<br><br>', $email_parts);
 
         $sent = wp_mail($to, $email_subject, $email_body, $headers);
 
         if ($sent) {
-            wp_send_json_success(array('message' => __('Message sent successfully!', 'mt-contact-forms')));
+            wp_send_json_success(array('message' => __('Message sent successfully!', MTCF_TEXT_DOMAIN)));
         } else {
-            wp_send_json_error(array('message' => __('Failed to send message. Please try again.', 'mt-contact-forms')));
+            wp_send_json_error(array('message' => __('Failed to send message. Please try again.', MTCF_TEXT_DOMAIN)));
         }
     }
 

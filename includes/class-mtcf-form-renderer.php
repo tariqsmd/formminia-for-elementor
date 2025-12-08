@@ -6,8 +6,8 @@
  * Handles rendering of forms with different layouts, skins, and customization options
  *
  * @since      1.1.0
- * @package    MT_Contact_Forms
- * @subpackage MT_Contact_Forms/includes
+ * @package    MTForms
+ * @subpackage MTForms/includes
  */
 class MTCF_Form_Renderer {
 
@@ -16,16 +16,16 @@ class MTCF_Form_Renderer {
      */
     public static function get_skins() {
         return array(
-            'default'     => __( 'Default', 'mt-contact-forms' ),
-            'modern'      => __( 'Modern', 'mt-contact-forms' ),
-            'dark'        => __( 'Dark', 'mt-contact-forms' ),
-            'gradient'    => __( 'Gradient', 'mt-contact-forms' ),
-            'glassmorphism' => __( 'Glassmorphism', 'mt-contact-forms' ),
-            'minimal'     => __( 'Minimal', 'mt-contact-forms' ),
-            'card'        => __( 'Card', 'mt-contact-forms' ),
-            'neon'        => __( 'Neon', 'mt-contact-forms' ),
-            'elegant'     => __( 'Elegant', 'mt-contact-forms' ),
-            'brutalist'   => __( 'Brutalist', 'mt-contact-forms' ),
+            'default'     => __( 'Default', MTCF_TEXT_DOMAIN ),
+            'modern'      => __( 'Modern', MTCF_TEXT_DOMAIN ),
+            'dark'        => __( 'Dark', MTCF_TEXT_DOMAIN ),
+            'gradient'    => __( 'Gradient', MTCF_TEXT_DOMAIN ),
+            'glassmorphism' => __( 'Glassmorphism', MTCF_TEXT_DOMAIN ),
+            'minimal'     => __( 'Minimal', MTCF_TEXT_DOMAIN ),
+            'card'        => __( 'Card', MTCF_TEXT_DOMAIN ),
+            'neon'        => __( 'Neon', MTCF_TEXT_DOMAIN ),
+            'elegant'     => __( 'Elegant', MTCF_TEXT_DOMAIN ),
+            'brutalist'   => __( 'Brutalist', MTCF_TEXT_DOMAIN ),
         );
     }
 
@@ -34,12 +34,12 @@ class MTCF_Form_Renderer {
      */
     public static function get_layouts() {
         return array(
-            'stacked'        => __( 'Stacked (Default)', 'mt-contact-forms' ),
-            'inline'         => __( 'Inline Labels', 'mt-contact-forms' ),
-            'floating'       => __( 'Floating Labels', 'mt-contact-forms' ),
-            'material'       => __( 'Material Design', 'mt-contact-forms' ),
-            'side-by-side'   => __( 'Side by Side', 'mt-contact-forms' ),
-            'compact'        => __( 'Compact', 'mt-contact-forms' ),
+            'stacked'        => __( 'Stacked (Default)', MTCF_TEXT_DOMAIN ),
+            'inline'         => __( 'Inline Labels', MTCF_TEXT_DOMAIN ),
+            'floating'       => __( 'Floating Labels', MTCF_TEXT_DOMAIN ),
+            'material'       => __( 'Material Design', MTCF_TEXT_DOMAIN ),
+            'side-by-side'   => __( 'Side by Side', MTCF_TEXT_DOMAIN ),
+            'compact'        => __( 'Compact', MTCF_TEXT_DOMAIN ),
         );
     }
 
@@ -48,12 +48,12 @@ class MTCF_Form_Renderer {
      */
     public static function get_button_styles() {
         return array(
-            'solid'    => __( 'Solid', 'mt-contact-forms' ),
-            'outline'  => __( 'Outline', 'mt-contact-forms' ),
-            'gradient' => __( 'Gradient', 'mt-contact-forms' ),
-            'glow'     => __( 'Glow', 'mt-contact-forms' ),
-            'pill'     => __( 'Pill', 'mt-contact-forms' ),
-            '3d'       => __( '3D Effect', 'mt-contact-forms' ),
+            'solid'    => __( 'Solid', MTCF_TEXT_DOMAIN ),
+            'outline'  => __( 'Outline', MTCF_TEXT_DOMAIN ),
+            'gradient' => __( 'Gradient', MTCF_TEXT_DOMAIN ),
+            'glow'     => __( 'Glow', MTCF_TEXT_DOMAIN ),
+            'pill'     => __( 'Pill', MTCF_TEXT_DOMAIN ),
+            '3d'       => __( '3D Effect', MTCF_TEXT_DOMAIN ),
         );
     }
 
@@ -62,11 +62,11 @@ class MTCF_Form_Renderer {
      */
     public static function get_input_styles() {
         return array(
-            'default'    => __( 'Default', 'mt-contact-forms' ),
-            'underline'  => __( 'Underline Only', 'mt-contact-forms' ),
-            'rounded'    => __( 'Rounded', 'mt-contact-forms' ),
-            'pill'       => __( 'Pill Shape', 'mt-contact-forms' ),
-            'shadow'     => __( 'Shadow', 'mt-contact-forms' ),
+            'default'    => __( 'Default', MTCF_TEXT_DOMAIN ),
+            'underline'  => __( 'Underline Only', MTCF_TEXT_DOMAIN ),
+            'rounded'    => __( 'Rounded', MTCF_TEXT_DOMAIN ),
+            'pill'       => __( 'Pill Shape', MTCF_TEXT_DOMAIN ),
+            'shadow'     => __( 'Shadow', MTCF_TEXT_DOMAIN ),
         );
     }
 
@@ -75,12 +75,12 @@ class MTCF_Form_Renderer {
      */
     public static function get_animations() {
         return array(
-            'none'       => __( 'None', 'mt-contact-forms' ),
-            'fade-in'    => __( 'Fade In', 'mt-contact-forms' ),
-            'slide-up'   => __( 'Slide Up', 'mt-contact-forms' ),
-            'slide-left' => __( 'Slide Left', 'mt-contact-forms' ),
-            'zoom-in'    => __( 'Zoom In', 'mt-contact-forms' ),
-            'bounce'     => __( 'Bounce', 'mt-contact-forms' ),
+            'none'       => __( 'None', MTCF_TEXT_DOMAIN ),
+            'fade-in'    => __( 'Fade In', MTCF_TEXT_DOMAIN ),
+            'slide-up'   => __( 'Slide Up', MTCF_TEXT_DOMAIN ),
+            'slide-left' => __( 'Slide Left', MTCF_TEXT_DOMAIN ),
+            'zoom-in'    => __( 'Zoom In', MTCF_TEXT_DOMAIN ),
+            'bounce'     => __( 'Bounce', MTCF_TEXT_DOMAIN ),
         );
     }
 
@@ -109,24 +109,24 @@ class MTCF_Form_Renderer {
             // Labels
             'show_labels'           => 'yes',
             'show_placeholders'     => 'yes',
-            'label_name'            => __( 'Name', 'mt-contact-forms' ),
-            'label_email'           => __( 'Email', 'mt-contact-forms' ),
-            'label_phone'           => __( 'Phone', 'mt-contact-forms' ),
-            'label_subject'         => __( 'Subject', 'mt-contact-forms' ),
-            'label_message'         => __( 'Message', 'mt-contact-forms' ),
-            'label_website'         => __( 'Website', 'mt-contact-forms' ),
-            'gdpr_text'             => __( 'I consent to having this website store my submitted information so they can respond to my inquiry.', 'mt-contact-forms' ),
+            'label_name'            => __( 'Name', MTCF_TEXT_DOMAIN ),
+            'label_email'           => __( 'Email', MTCF_TEXT_DOMAIN ),
+            'label_phone'           => __( 'Phone', MTCF_TEXT_DOMAIN ),
+            'label_subject'         => __( 'Subject', MTCF_TEXT_DOMAIN ),
+            'label_message'         => __( 'Message', MTCF_TEXT_DOMAIN ),
+            'label_website'         => __( 'Website', MTCF_TEXT_DOMAIN ),
+            'gdpr_text'             => __( 'I consent to having this website store my submitted information so they can respond to my inquiry.', MTCF_TEXT_DOMAIN ),
 
             // Placeholders
-            'placeholder_name'      => __( 'Enter your name', 'mt-contact-forms' ),
-            'placeholder_email'     => __( 'Enter your email', 'mt-contact-forms' ),
-            'placeholder_phone'     => __( 'Enter your phone number', 'mt-contact-forms' ),
-            'placeholder_subject'   => __( 'Enter subject', 'mt-contact-forms' ),
-            'placeholder_message'   => __( 'Write your message here...', 'mt-contact-forms' ),
-            'placeholder_website'   => __( 'Your website URL', 'mt-contact-forms' ),
+            'placeholder_name'      => __( 'Enter your name', MTCF_TEXT_DOMAIN ),
+            'placeholder_email'     => __( 'Enter your email', MTCF_TEXT_DOMAIN ),
+            'placeholder_phone'     => __( 'Enter your phone number', MTCF_TEXT_DOMAIN ),
+            'placeholder_subject'   => __( 'Enter subject', MTCF_TEXT_DOMAIN ),
+            'placeholder_message'   => __( 'Write your message here...', MTCF_TEXT_DOMAIN ),
+            'placeholder_website'   => __( 'Your website URL', MTCF_TEXT_DOMAIN ),
 
             // Button
-            'button_text'           => __( 'Send Message', 'mt-contact-forms' ),
+            'button_text'           => __( 'Send Message', MTCF_TEXT_DOMAIN ),
             'button_style'          => 'solid',
             'button_width'          => 'auto',
             'button_align'          => 'left',
@@ -172,8 +172,8 @@ class MTCF_Form_Renderer {
             'button_box_shadow'     => 'none',
 
             // Success/Error Messages
-            'success_message'       => __( 'Thank you! Your message has been sent successfully.', 'mt-contact-forms' ),
-            'error_message'         => __( 'Oops! Something went wrong. Please try again.', 'mt-contact-forms' ),
+            'success_message'       => __( 'Thank you! Your message has been sent successfully.', MTCF_TEXT_DOMAIN ),
+            'error_message'         => __( 'Oops! Something went wrong. Please try again.', MTCF_TEXT_DOMAIN ),
 
             // Icon Settings (for fields)
             'show_icons'            => 'no',
@@ -652,11 +652,11 @@ class MTCF_Form_Renderer {
      */
     public static function get_button_icons() {
         return array(
-            'none'        => __( 'None', 'mt-contact-forms' ),
-            'send'        => __( 'Send', 'mt-contact-forms' ),
-            'arrow-right' => __( 'Arrow Right', 'mt-contact-forms' ),
-            'check'       => __( 'Check', 'mt-contact-forms' ),
-            'mail'        => __( 'Mail', 'mt-contact-forms' ),
+            'none'        => __( 'None', MTCF_TEXT_DOMAIN ),
+            'send'        => __( 'Send', MTCF_TEXT_DOMAIN ),
+            'arrow-right' => __( 'Arrow Right', MTCF_TEXT_DOMAIN ),
+            'check'       => __( 'Check', MTCF_TEXT_DOMAIN ),
+            'mail'        => __( 'Mail', MTCF_TEXT_DOMAIN ),
         );
     }
 

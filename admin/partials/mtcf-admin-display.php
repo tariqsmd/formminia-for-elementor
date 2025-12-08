@@ -20,21 +20,21 @@ $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'general
     <h1 class="wp-heading-inline">
         <span class="dashicons dashicons-email"
             style="font-size: 30px; width: 30px; height: 30px; margin-right: 10px;"></span>
-        <?php esc_html_e('MT Contact Forms', 'mt-contact-forms'); ?>
+        <?php esc_html_e('MTForms', MTCF_TEXT_DOMAIN); ?>
         <span
             style="font-size: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 3px 10px; border-radius: 12px; margin-left: 10px; font-weight: normal;">v1.1.0</span>
     </h1>
     <hr class="wp-header-end">
 
     <nav class="nav-tab-wrapper mtcf-nav-tab-wrapper">
-        <a href="?page=mt-contact-forms&tab=general"
-            class="nav-tab <?php echo $active_tab == 'general' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('General', 'mt-contact-forms'); ?></a>
-        <a href="?page=mt-contact-forms&tab=recaptcha"
-            class="nav-tab <?php echo $active_tab == 'recaptcha' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Google reCAPTCHA', 'mt-contact-forms'); ?></a>
-        <a href="?page=mt-contact-forms&tab=turnstile"
-            class="nav-tab <?php echo $active_tab == 'turnstile' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Turnstile', 'mt-contact-forms'); ?></a>
-        <a href="?page=mt-contact-forms&tab=docs"
-            class="nav-tab <?php echo $active_tab == 'docs' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Documentation', 'mt-contact-forms'); ?></a>
+        <a href="?page=mtforms&tab=general"
+            class="nav-tab <?php echo $active_tab == 'general' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('General', MTCF_TEXT_DOMAIN); ?></a>
+        <a href="?page=mtforms&tab=recaptcha"
+            class="nav-tab <?php echo $active_tab == 'recaptcha' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Google reCAPTCHA', MTCF_TEXT_DOMAIN); ?></a>
+        <a href="?page=mtforms&tab=turnstile"
+            class="nav-tab <?php echo $active_tab == 'turnstile' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Turnstile', MTCF_TEXT_DOMAIN); ?></a>
+        <a href="?page=mtforms&tab=docs"
+            class="nav-tab <?php echo $active_tab == 'docs' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e('Documentation', MTCF_TEXT_DOMAIN); ?></a>
     </nav>
 
     <div class="mtcf-tab-content">
@@ -51,7 +51,8 @@ $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'general
                             <td>
                                 <select name="mtcf_captcha_provider" id="mtcf_captcha_provider">
                                     <option value="none" <?php selected(get_option('mtcf_captcha_provider'), 'none'); ?>>
-                                        <?php esc_html_e('None', 'mt-contact-forms'); ?></option>
+                                        <?php esc_html_e('None', 'mt-contact-forms'); ?>
+                                    </option>
                                     <option value="recaptcha" <?php selected(get_option('mtcf_captcha_provider'), 'recaptcha'); ?>><?php esc_html_e('Google reCAPTCHA v2', 'mt-contact-forms'); ?>
                                     </option>
                                     <option value="turnstile" <?php selected(get_option('mtcf_captcha_provider'), 'turnstile'); ?>><?php esc_html_e('Cloudflare Turnstile', 'mt-contact-forms'); ?>
@@ -120,9 +121,9 @@ $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'general
             <div class="mtcf-docs-grid">
                 <!-- Getting Started -->
                 <div class="card mtcf-card mtcf-card-full">
-                    <h2>🚀 <?php esc_html_e('Getting Started', 'mt-contact-forms'); ?></h2>
+                    <h2>🚀 <?php esc_html_e('Getting Started', MTCF_TEXT_DOMAIN); ?></h2>
                     <p class="mtcf-intro">
-                        <?php esc_html_e('Welcome to MT Contact Forms! Create beautiful, customizable contact forms with multiple preset skins and extensive styling options.', 'mt-contact-forms'); ?>
+                        <?php esc_html_e('Welcome to MTForms! Create beautiful, customizable contact forms with multiple preset skins and extensive styling options.', MTCF_TEXT_DOMAIN); ?>
                     </p>
                 </div>
 
