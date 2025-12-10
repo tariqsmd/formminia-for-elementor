@@ -7,8 +7,8 @@
  * public-facing site hooks.
  *
  * @since      1.0.0
- * @package    MT_Contact_Forms
- * @subpackage MT_Contact_Forms/includes
+ * @package    MTForms
+ * @subpackage MTForms/includes
  * @author     Muhammad Tariq
  */
 class MTCF_Core
@@ -58,7 +58,7 @@ class MTCF_Core
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'mt-contact-forms';
+		$this->plugin_name = 'mtforms';
 
 		$this->load_dependencies();
 		$this->set_locale();

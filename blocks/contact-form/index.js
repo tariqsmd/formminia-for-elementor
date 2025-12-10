@@ -188,6 +188,26 @@
                             value: attributes.placeholder_email,
                             onChange: updateAttribute('placeholder_email')
                         }),
+                        attributes.show_phone === 'yes' && el(TextControl, {
+                            label: 'Phone Label',
+                            value: attributes.label_phone,
+                            onChange: updateAttribute('label_phone')
+                        }),
+                        attributes.show_phone === 'yes' && el(TextControl, {
+                            label: 'Phone Placeholder',
+                            value: attributes.placeholder_phone,
+                            onChange: updateAttribute('placeholder_phone')
+                        }),
+                        attributes.show_website === 'yes' && el(TextControl, {
+                            label: 'Website Label',
+                            value: attributes.label_website,
+                            onChange: updateAttribute('label_website')
+                        }),
+                        attributes.show_website === 'yes' && el(TextControl, {
+                            label: 'Website Placeholder',
+                            value: attributes.placeholder_website,
+                            onChange: updateAttribute('placeholder_website')
+                        }),
                         attributes.show_subject === 'yes' && el(TextControl, {
                             label: 'Subject Label',
                             value: attributes.label_subject,
@@ -301,7 +321,7 @@
                         }
                     },
                         el('div', { style: { fontSize: '48px', marginBottom: '15px' } }, '📧'),
-                        el('h3', { style: { margin: '0 0 10px', fontWeight: '600' } }, 'MT Contact Form'),
+                        el('h3', { style: { margin: '0 0 10px', fontWeight: '600' } }, 'MTForms'),
                         el('div', {
                             style: {
                                 display: 'flex',

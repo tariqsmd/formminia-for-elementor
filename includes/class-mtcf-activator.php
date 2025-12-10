@@ -3,10 +3,10 @@
 /**
  * Fired during plugin activation
  *
- * @link       https://example.com
+ * @link       https://developer.developer.developer
  * @since      1.0.0
- * @package    MT_Contact_Forms
- * @subpackage MT_Contact_Forms/includes
+ * @package    MTForms
+ * @subpackage MTForms/includes
  */
 
 /**
@@ -15,11 +15,12 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    MT_Contact_Forms
- * @subpackage MT_Contact_Forms/includes
+ * @package    MTForms
+ * @subpackage MTForms/includes
  * @author     Muhammad Tariq
  */
-class MTCF_Activator {
+class MTCF_Activator
+{
 
 	/**
 	 * Short Description. (use period)
@@ -28,7 +29,8 @@ class MTCF_Activator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function activate() {
+	public static function activate()
+	{
 
 	}
 

@@ -32,7 +32,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 	 */
 	public function get_title()
 	{
-		return esc_html__('MT Contact Form', 'mt-contact-forms');
+		return esc_html__('MTForms', MTCF_TEXT_DOMAIN);
 	}
 
 	/**
@@ -106,7 +106,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_preset',
 			[
-				'label' => esc_html__('Preset & Layout', 'mt-contact-forms'),
+				'label' => esc_html__('Preset & Layout', MTCF_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -114,7 +114,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'skin',
 			[
-				'label' => esc_html__('Preset Skin', 'mt-contact-forms'),
+				'label' => esc_html__('Preset Skin', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'default',
 				'options' => MTCF_Form_Renderer::get_skins(),
@@ -124,7 +124,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'layout',
 			[
-				'label' => esc_html__('Form Layout', 'mt-contact-forms'),
+				'label' => esc_html__('Form Layout', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'stacked',
 				'options' => MTCF_Form_Renderer::get_layouts(),
@@ -134,7 +134,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'animation',
 			[
-				'label' => esc_html__('Form Animation', 'mt-contact-forms'),
+				'label' => esc_html__('Form Animation', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'none',
 				'options' => MTCF_Form_Renderer::get_animations(),
@@ -144,19 +144,19 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'form_alignment',
 			[
-				'label' => esc_html__('Form Alignment', 'mt-contact-forms'),
+				'label' => esc_html__('Form Alignment', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__('Left', 'mt-contact-forms'),
+						'title' => esc_html__('Left', MTCF_TEXT_DOMAIN),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__('Center', 'mt-contact-forms'),
+						'title' => esc_html__('Center', MTCF_TEXT_DOMAIN),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__('Right', 'mt-contact-forms'),
+						'title' => esc_html__('Right', MTCF_TEXT_DOMAIN),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -170,7 +170,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_fields',
 			[
-				'label' => esc_html__('Form Fields', 'mt-contact-forms'),
+				'label' => esc_html__('Form Fields', MTCF_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -178,10 +178,10 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'show_name',
 			[
-				'label' => esc_html__('Show Name Field', 'mt-contact-forms'),
+				'label' => esc_html__('Show Name Field', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', 'mt-contact-forms'),
-				'label_off' => esc_html__('No', 'mt-contact-forms'),
+				'label_on' => esc_html__('Yes', MTCF_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTCF_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -190,10 +190,10 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'show_email',
 			[
-				'label' => esc_html__('Show Email Field', 'mt-contact-forms'),
+				'label' => esc_html__('Show Email Field', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', 'mt-contact-forms'),
-				'label_off' => esc_html__('No', 'mt-contact-forms'),
+				'label_on' => esc_html__('Yes', MTCF_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTCF_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -202,10 +202,10 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'show_phone',
 			[
-				'label' => esc_html__('Show Phone Field', 'mt-contact-forms'),
+				'label' => esc_html__('Show Phone Field', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', 'mt-contact-forms'),
-				'label_off' => esc_html__('No', 'mt-contact-forms'),
+				'label_on' => esc_html__('Yes', MTCF_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTCF_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
@@ -214,10 +214,10 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'show_website',
 			[
-				'label' => esc_html__('Show Website Field', 'mt-contact-forms'),
+				'label' => esc_html__('Show Website Field', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', 'mt-contact-forms'),
-				'label_off' => esc_html__('No', 'mt-contact-forms'),
+				'label_on' => esc_html__('Yes', MTCF_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTCF_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
@@ -226,10 +226,10 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'show_subject',
 			[
-				'label' => esc_html__('Show Subject Field', 'mt-contact-forms'),
+				'label' => esc_html__('Show Subject Field', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', 'mt-contact-forms'),
-				'label_off' => esc_html__('No', 'mt-contact-forms'),
+				'label_on' => esc_html__('Yes', MTCF_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTCF_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -238,10 +238,10 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'show_message',
 			[
-				'label' => esc_html__('Show Message Field', 'mt-contact-forms'),
+				'label' => esc_html__('Show Message Field', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', 'mt-contact-forms'),
-				'label_off' => esc_html__('No', 'mt-contact-forms'),
+				'label_on' => esc_html__('Yes', MTCF_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTCF_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -250,10 +250,10 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'show_gdpr',
 			[
-				'label' => esc_html__('Show GDPR Consent', 'mt-contact-forms'),
+				'label' => esc_html__('Show GDPR Consent', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', 'mt-contact-forms'),
-				'label_off' => esc_html__('No', 'mt-contact-forms'),
+				'label_on' => esc_html__('Yes', MTCF_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTCF_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -269,10 +269,10 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'show_labels',
 			[
-				'label' => esc_html__('Show Labels', 'mt-contact-forms'),
+				'label' => esc_html__('Show Labels', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', 'mt-contact-forms'),
-				'label_off' => esc_html__('No', 'mt-contact-forms'),
+				'label_on' => esc_html__('Yes', MTCF_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTCF_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -281,10 +281,10 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'show_placeholders',
 			[
-				'label' => esc_html__('Show Placeholders', 'mt-contact-forms'),
+				'label' => esc_html__('Show Placeholders', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', 'mt-contact-forms'),
-				'label_off' => esc_html__('No', 'mt-contact-forms'),
+				'label_on' => esc_html__('Yes', MTCF_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTCF_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -293,10 +293,10 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'show_icons',
 			[
-				'label' => esc_html__('Show Field Icons', 'mt-contact-forms'),
+				'label' => esc_html__('Show Field Icons', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', 'mt-contact-forms'),
-				'label_off' => esc_html__('No', 'mt-contact-forms'),
+				'label_on' => esc_html__('Yes', MTCF_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTCF_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
@@ -305,12 +305,12 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'icon_position',
 			[
-				'label' => esc_html__('Icon Position', 'mt-contact-forms'),
+				'label' => esc_html__('Icon Position', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'left',
 				'options' => [
-					'left' => esc_html__('Left', 'mt-contact-forms'),
-					'right' => esc_html__('Right', 'mt-contact-forms'),
+					'left' => esc_html__('Left', MTCF_TEXT_DOMAIN),
+					'right' => esc_html__('Right', MTCF_TEXT_DOMAIN),
 				],
 				'condition' => [
 					'show_icons' => 'yes',
@@ -324,7 +324,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_labels',
 			[
-				'label' => esc_html__('Labels & Placeholders', 'mt-contact-forms'),
+				'label' => esc_html__('Labels & Placeholders', MTCF_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -332,9 +332,9 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_name',
 			[
-				'label' => esc_html__('Name Label', 'mt-contact-forms'),
+				'label' => esc_html__('Name Label', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__('Name', 'mt-contact-forms'),
+				'default' => esc_html__('Name', MTCF_TEXT_DOMAIN),
 				'condition' => [
 					'show_name' => 'yes',
 				],
@@ -344,9 +344,9 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'placeholder_name',
 			[
-				'label' => esc_html__('Name Placeholder', 'mt-contact-forms'),
+				'label' => esc_html__('Name Placeholder', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__('Enter your name', 'mt-contact-forms'),
+				'default' => esc_html__('Enter your name', MTCF_TEXT_DOMAIN),
 				'condition' => [
 					'show_name' => 'yes',
 				],
@@ -366,9 +366,9 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_email',
 			[
-				'label' => esc_html__('Email Label', 'mt-contact-forms'),
+				'label' => esc_html__('Email Label', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__('Email', 'mt-contact-forms'),
+				'default' => esc_html__('Email', MTCF_TEXT_DOMAIN),
 				'condition' => [
 					'show_email' => 'yes',
 				],
@@ -378,9 +378,9 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'placeholder_email',
 			[
-				'label' => esc_html__('Email Placeholder', 'mt-contact-forms'),
+				'label' => esc_html__('Email Placeholder', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__('Enter your email', 'mt-contact-forms'),
+				'default' => esc_html__('Enter your email', MTCF_TEXT_DOMAIN),
 				'condition' => [
 					'show_email' => 'yes',
 				],
@@ -400,9 +400,9 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_phone',
 			[
-				'label' => esc_html__('Phone Label', 'mt-contact-forms'),
+				'label' => esc_html__('Phone Label', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__('Phone', 'mt-contact-forms'),
+				'default' => esc_html__('Phone', MTCF_TEXT_DOMAIN),
 				'condition' => [
 					'show_phone' => 'yes',
 				],
@@ -412,9 +412,9 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'placeholder_phone',
 			[
-				'label' => esc_html__('Phone Placeholder', 'mt-contact-forms'),
+				'label' => esc_html__('Phone Placeholder', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__('Enter your phone number', 'mt-contact-forms'),
+				'default' => esc_html__('Enter your phone number', MTCF_TEXT_DOMAIN),
 				'condition' => [
 					'show_phone' => 'yes',
 				],
@@ -434,9 +434,9 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_website',
 			[
-				'label' => esc_html__('Website Label', 'mt-contact-forms'),
+				'label' => esc_html__('Website Label', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__('Website', 'mt-contact-forms'),
+				'default' => esc_html__('Website', MTCF_TEXT_DOMAIN),
 				'condition' => [
 					'show_website' => 'yes',
 				],
@@ -446,9 +446,9 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'placeholder_website',
 			[
-				'label' => esc_html__('Website Placeholder', 'mt-contact-forms'),
+				'label' => esc_html__('Website Placeholder', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__('Your website URL', 'mt-contact-forms'),
+				'default' => esc_html__('Your website URL', MTCF_TEXT_DOMAIN),
 				'condition' => [
 					'show_website' => 'yes',
 				],
@@ -468,9 +468,9 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_subject',
 			[
-				'label' => esc_html__('Subject Label', 'mt-contact-forms'),
+				'label' => esc_html__('Subject Label', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__('Subject', 'mt-contact-forms'),
+				'default' => esc_html__('Subject', MTCF_TEXT_DOMAIN),
 				'condition' => [
 					'show_subject' => 'yes',
 				],
@@ -480,9 +480,9 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'placeholder_subject',
 			[
-				'label' => esc_html__('Subject Placeholder', 'mt-contact-forms'),
+				'label' => esc_html__('Subject Placeholder', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__('Enter subject', 'mt-contact-forms'),
+				'default' => esc_html__('Enter subject', MTCF_TEXT_DOMAIN),
 				'condition' => [
 					'show_subject' => 'yes',
 				],
@@ -502,9 +502,9 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_message',
 			[
-				'label' => esc_html__('Message Label', 'mt-contact-forms'),
+				'label' => esc_html__('Message Label', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__('Message', 'mt-contact-forms'),
+				'default' => esc_html__('Message', MTCF_TEXT_DOMAIN),
 				'condition' => [
 					'show_message' => 'yes',
 				],
@@ -514,9 +514,9 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'placeholder_message',
 			[
-				'label' => esc_html__('Message Placeholder', 'mt-contact-forms'),
+				'label' => esc_html__('Message Placeholder', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__('Write your message here...', 'mt-contact-forms'),
+				'default' => esc_html__('Write your message here...', MTCF_TEXT_DOMAIN),
 				'condition' => [
 					'show_message' => 'yes',
 				],
@@ -536,9 +536,9 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'gdpr_text',
 			[
-				'label' => esc_html__('GDPR Text', 'mt-contact-forms'),
+				'label' => esc_html__('GDPR Text', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
-				'default' => esc_html__('I consent to having this website store my submitted information so they can respond to my inquiry.', 'mt-contact-forms'),
+				'default' => esc_html__('I consent to having this website store my submitted information so they can respond to my inquiry.', MTCF_TEXT_DOMAIN),
 				'condition' => [
 					'show_gdpr' => 'yes',
 				],
@@ -551,7 +551,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_button',
 			[
-				'label' => esc_html__('Submit Button', 'mt-contact-forms'),
+				'label' => esc_html__('Submit Button', MTCF_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -559,16 +559,16 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_text',
 			[
-				'label' => esc_html__('Button Text', 'mt-contact-forms'),
+				'label' => esc_html__('Button Text', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__('Send Message', 'mt-contact-forms'),
+				'default' => esc_html__('Send Message', MTCF_TEXT_DOMAIN),
 			]
 		);
 
 		$this->add_control(
 			'button_style',
 			[
-				'label' => esc_html__('Button Style', 'mt-contact-forms'),
+				'label' => esc_html__('Button Style', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'solid',
 				'options' => MTCF_Form_Renderer::get_button_styles(),
@@ -578,12 +578,12 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_width',
 			[
-				'label' => esc_html__('Button Width', 'mt-contact-forms'),
+				'label' => esc_html__('Button Width', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'auto',
 				'options' => [
-					'auto' => esc_html__('Auto', 'mt-contact-forms'),
-					'full' => esc_html__('Full Width', 'mt-contact-forms'),
+					'auto' => esc_html__('Auto', MTCF_TEXT_DOMAIN),
+					'full' => esc_html__('Full Width', MTCF_TEXT_DOMAIN),
 				],
 			]
 		);
@@ -591,19 +591,19 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_align',
 			[
-				'label' => esc_html__('Button Alignment', 'mt-contact-forms'),
+				'label' => esc_html__('Button Alignment', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__('Left', 'mt-contact-forms'),
+						'title' => esc_html__('Left', MTCF_TEXT_DOMAIN),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__('Center', 'mt-contact-forms'),
+						'title' => esc_html__('Center', MTCF_TEXT_DOMAIN),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__('Right', 'mt-contact-forms'),
+						'title' => esc_html__('Right', MTCF_TEXT_DOMAIN),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -617,7 +617,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_icon',
 			[
-				'label' => esc_html__('Button Icon', 'mt-contact-forms'),
+				'label' => esc_html__('Button Icon', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'none',
 				'options' => MTCF_Form_Renderer::get_button_icons(),
@@ -627,12 +627,12 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_icon_position',
 			[
-				'label' => esc_html__('Icon Position', 'mt-contact-forms'),
+				'label' => esc_html__('Icon Position', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'right',
 				'options' => [
-					'left' => esc_html__('Before Text', 'mt-contact-forms'),
-					'right' => esc_html__('After Text', 'mt-contact-forms'),
+					'left' => esc_html__('Before Text', MTCF_TEXT_DOMAIN),
+					'right' => esc_html__('After Text', MTCF_TEXT_DOMAIN),
 				],
 				'condition' => [
 					'button_icon!' => 'none',
@@ -646,7 +646,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_messages',
 			[
-				'label' => esc_html__('Messages', 'mt-contact-forms'),
+				'label' => esc_html__('Messages', MTCF_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -654,18 +654,18 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'success_message',
 			[
-				'label' => esc_html__('Success Message', 'mt-contact-forms'),
+				'label' => esc_html__('Success Message', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
-				'default' => esc_html__('Thank you! Your message has been sent successfully.', 'mt-contact-forms'),
+				'default' => esc_html__('Thank you! Your message has been sent successfully.', MTCF_TEXT_DOMAIN),
 			]
 		);
 
 		$this->add_control(
 			'error_message',
 			[
-				'label' => esc_html__('Error Message', 'mt-contact-forms'),
+				'label' => esc_html__('Error Message', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
-				'default' => esc_html__('Oops! Something went wrong. Please try again.', 'mt-contact-forms'),
+				'default' => esc_html__('Oops! Something went wrong. Please try again.', MTCF_TEXT_DOMAIN),
 			]
 		);
 
@@ -679,7 +679,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_style_form',
 			[
-				'label' => esc_html__('Form Container', 'mt-contact-forms'),
+				'label' => esc_html__('Form Container', MTCF_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -687,7 +687,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'form_width',
 			[
-				'label' => esc_html__('Form Width', 'mt-contact-forms'),
+				'label' => esc_html__('Form Width', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => ['px', '%', 'vw'],
 				'range' => [
@@ -713,7 +713,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'form_max_width',
 			[
-				'label' => esc_html__('Max Width', 'mt-contact-forms'),
+				'label' => esc_html__('Max Width', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'range' => [
@@ -735,7 +735,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'bg_color',
 			[
-				'label' => esc_html__('Background Color', 'mt-contact-forms'),
+				'label' => esc_html__('Background Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtcf-container' => 'background-color: {{VALUE}};',
@@ -755,7 +755,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'form_padding',
 			[
-				'label' => esc_html__('Padding', 'mt-contact-forms'),
+				'label' => esc_html__('Padding', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'default' => [
@@ -782,7 +782,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'form_border_radius',
 			[
-				'label' => esc_html__('Border Radius', 'mt-contact-forms'),
+				'label' => esc_html__('Border Radius', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -805,7 +805,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_style_labels',
 			[
-				'label' => esc_html__('Labels', 'mt-contact-forms'),
+				'label' => esc_html__('Labels', MTCF_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_labels' => 'yes',
@@ -824,7 +824,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_color',
 			[
-				'label' => esc_html__('Label Color', 'mt-contact-forms'),
+				'label' => esc_html__('Label Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtcf-form-group label' => 'color: {{VALUE}};',
@@ -835,7 +835,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'required_color',
 			[
-				'label' => esc_html__('Required Asterisk Color', 'mt-contact-forms'),
+				'label' => esc_html__('Required Asterisk Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'default' => '#dc3232',
 				'selectors' => [
@@ -847,7 +847,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'label_spacing',
 			[
-				'label' => esc_html__('Label Bottom Spacing', 'mt-contact-forms'),
+				'label' => esc_html__('Label Bottom Spacing', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range' => [
@@ -872,7 +872,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_style_inputs',
 			[
-				'label' => esc_html__('Input Fields', 'mt-contact-forms'),
+				'label' => esc_html__('Input Fields', MTCF_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -880,7 +880,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'input_style',
 			[
-				'label' => esc_html__('Input Style', 'mt-contact-forms'),
+				'label' => esc_html__('Input Style', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'default',
 				'options' => MTCF_Form_Renderer::get_input_styles(),
@@ -890,13 +890,13 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'input_size',
 			[
-				'label' => esc_html__('Input Size', 'mt-contact-forms'),
+				'label' => esc_html__('Input Size', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'medium',
 				'options' => [
-					'small' => esc_html__('Small', 'mt-contact-forms'),
-					'medium' => esc_html__('Medium', 'mt-contact-forms'),
-					'large' => esc_html__('Large', 'mt-contact-forms'),
+					'small' => esc_html__('Small', MTCF_TEXT_DOMAIN),
+					'medium' => esc_html__('Medium', MTCF_TEXT_DOMAIN),
+					'large' => esc_html__('Large', MTCF_TEXT_DOMAIN),
 				],
 			]
 		);
@@ -912,7 +912,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'field_spacing',
 			[
-				'label' => esc_html__('Field Spacing', 'mt-contact-forms'),
+				'label' => esc_html__('Field Spacing', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range' => [
@@ -937,14 +937,14 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'tab_input_normal',
 			[
-				'label' => esc_html__('Normal', 'mt-contact-forms'),
+				'label' => esc_html__('Normal', MTCF_TEXT_DOMAIN),
 			]
 		);
 
 		$this->add_control(
 			'input_color',
 			[
-				'label' => esc_html__('Text Color', 'mt-contact-forms'),
+				'label' => esc_html__('Text Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtcf-input, {{WRAPPER}} .mtcf-textarea' => 'color: {{VALUE}};',
@@ -955,7 +955,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'placeholder_color',
 			[
-				'label' => esc_html__('Placeholder Color', 'mt-contact-forms'),
+				'label' => esc_html__('Placeholder Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtcf-input::placeholder, {{WRAPPER}} .mtcf-textarea::placeholder' => 'color: {{VALUE}};',
@@ -966,7 +966,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'input_bg_color',
 			[
-				'label' => esc_html__('Background Color', 'mt-contact-forms'),
+				'label' => esc_html__('Background Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtcf-input, {{WRAPPER}} .mtcf-textarea' => 'background-color: {{VALUE}};',
@@ -977,7 +977,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'input_border_color',
 			[
-				'label' => esc_html__('Border Color', 'mt-contact-forms'),
+				'label' => esc_html__('Border Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtcf-input, {{WRAPPER}} .mtcf-textarea' => 'border-color: {{VALUE}};',
@@ -991,14 +991,14 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'tab_input_focus',
 			[
-				'label' => esc_html__('Focus', 'mt-contact-forms'),
+				'label' => esc_html__('Focus', MTCF_TEXT_DOMAIN),
 			]
 		);
 
 		$this->add_control(
 			'input_focus_color',
 			[
-				'label' => esc_html__('Border Color', 'mt-contact-forms'),
+				'label' => esc_html__('Border Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtcf-input:focus, {{WRAPPER}} .mtcf-textarea:focus' => 'border-color: {{VALUE}}; box-shadow: 0 0 0 2px {{VALUE}}33;',
@@ -1009,7 +1009,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'input_focus_bg_color',
 			[
-				'label' => esc_html__('Background Color', 'mt-contact-forms'),
+				'label' => esc_html__('Background Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtcf-input:focus, {{WRAPPER}} .mtcf-textarea:focus' => 'background-color: {{VALUE}};',
@@ -1023,14 +1023,14 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'tab_input_error',
 			[
-				'label' => esc_html__('Error', 'mt-contact-forms'),
+				'label' => esc_html__('Error', MTCF_TEXT_DOMAIN),
 			]
 		);
 
 		$this->add_control(
 			'error_color',
 			[
-				'label' => esc_html__('Error Color', 'mt-contact-forms'),
+				'label' => esc_html__('Error Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'default' => '#dc3232',
 				'selectors' => [
@@ -1055,7 +1055,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'input_padding',
 			[
-				'label' => esc_html__('Padding', 'mt-contact-forms'),
+				'label' => esc_html__('Padding', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em'],
 				'selectors' => [
@@ -1067,7 +1067,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'input_border_width',
 			[
-				'label' => esc_html__('Border Width', 'mt-contact-forms'),
+				'label' => esc_html__('Border Width', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range' => [
@@ -1085,7 +1085,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'input_border_radius',
 			[
-				'label' => esc_html__('Border Radius', 'mt-contact-forms'),
+				'label' => esc_html__('Border Radius', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -1108,7 +1108,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_style_button',
 			[
-				'label' => esc_html__('Submit Button', 'mt-contact-forms'),
+				'label' => esc_html__('Submit Button', MTCF_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1127,14 +1127,14 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__('Normal', 'mt-contact-forms'),
+				'label' => esc_html__('Normal', MTCF_TEXT_DOMAIN),
 			]
 		);
 
 		$this->add_control(
 			'button_text_color',
 			[
-				'label' => esc_html__('Text Color', 'mt-contact-forms'),
+				'label' => esc_html__('Text Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtcf-submit-btn' => 'color: {{VALUE}};',
@@ -1145,7 +1145,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_bg_color',
 			[
-				'label' => esc_html__('Background Color', 'mt-contact-forms'),
+				'label' => esc_html__('Background Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtcf-submit-btn' => 'background-color: {{VALUE}};',
@@ -1176,14 +1176,14 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__('Hover', 'mt-contact-forms'),
+				'label' => esc_html__('Hover', MTCF_TEXT_DOMAIN),
 			]
 		);
 
 		$this->add_control(
 			'button_hover_text_color',
 			[
-				'label' => esc_html__('Text Color', 'mt-contact-forms'),
+				'label' => esc_html__('Text Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtcf-submit-btn:hover' => 'color: {{VALUE}};',
@@ -1194,7 +1194,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_hover_bg_color',
 			[
-				'label' => esc_html__('Background Color', 'mt-contact-forms'),
+				'label' => esc_html__('Background Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtcf-submit-btn:hover' => 'background-color: {{VALUE}};',
@@ -1205,7 +1205,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_hover_border_color',
 			[
-				'label' => esc_html__('Border Color', 'mt-contact-forms'),
+				'label' => esc_html__('Border Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtcf-submit-btn:hover' => 'border-color: {{VALUE}};',
@@ -1216,7 +1216,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label' => esc_html__('Hover Animation', 'mt-contact-forms'),
+				'label' => esc_html__('Hover Animation', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -1235,7 +1235,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label' => esc_html__('Padding', 'mt-contact-forms'),
+				'label' => esc_html__('Padding', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em'],
 				'selectors' => [
@@ -1247,7 +1247,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'button_border_radius',
 			[
-				'label' => esc_html__('Border Radius', 'mt-contact-forms'),
+				'label' => esc_html__('Border Radius', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -1270,7 +1270,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_style_messages',
 			[
-				'label' => esc_html__('Messages', 'mt-contact-forms'),
+				'label' => esc_html__('Messages', MTCF_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1286,7 +1286,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'success_color',
 			[
-				'label' => esc_html__('Success Color', 'mt-contact-forms'),
+				'label' => esc_html__('Success Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'default' => '#46b450',
 				'selectors' => [
@@ -1298,7 +1298,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'error_message_color',
 			[
-				'label' => esc_html__('Error Color', 'mt-contact-forms'),
+				'label' => esc_html__('Error Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'default' => '#dc3232',
 				'selectors' => [
@@ -1310,7 +1310,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'message_padding',
 			[
-				'label' => esc_html__('Padding', 'mt-contact-forms'),
+				'label' => esc_html__('Padding', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em'],
 				'selectors' => [
@@ -1322,7 +1322,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'message_border_radius',
 			[
-				'label' => esc_html__('Border Radius', 'mt-contact-forms'),
+				'label' => esc_html__('Border Radius', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -1337,7 +1337,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_style_icons',
 			[
-				'label' => esc_html__('Field Icons', 'mt-contact-forms'),
+				'label' => esc_html__('Field Icons', MTCF_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_icons' => 'yes',
@@ -1348,7 +1348,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'icon_color',
 			[
-				'label' => esc_html__('Icon Color', 'mt-contact-forms'),
+				'label' => esc_html__('Icon Color', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtcf-icon, {{WRAPPER}} .mtcf-field-icon' => 'color: {{VALUE}};',
@@ -1359,7 +1359,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label' => esc_html__('Icon Size', 'mt-contact-forms'),
+				'label' => esc_html__('Icon Size', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range' => [
@@ -1384,7 +1384,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_advanced',
 			[
-				'label' => esc_html__('Advanced', 'mt-contact-forms'),
+				'label' => esc_html__('Advanced', MTCF_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -1392,18 +1392,18 @@ class MTCF_Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'form_id',
 			[
-				'label' => esc_html__('Form ID', 'mt-contact-forms'),
+				'label' => esc_html__('Form ID', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'description' => esc_html__('Set a custom ID for this form instance.', 'mt-contact-forms'),
+				'description' => esc_html__('Set a custom ID for this form instance.', MTCF_TEXT_DOMAIN),
 			]
 		);
 
 		$this->add_control(
 			'custom_css_class',
 			[
-				'label' => esc_html__('Custom CSS Class', 'mt-contact-forms'),
+				'label' => esc_html__('Custom CSS Class', MTCF_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'description' => esc_html__('Add custom CSS class(es) to the form.', 'mt-contact-forms'),
+				'description' => esc_html__('Add custom CSS class(es) to the form.', MTCF_TEXT_DOMAIN),
 			]
 		);
 
@@ -1485,7 +1485,7 @@ class MTCF_Widget extends \Elementor\Widget_Base
 				<div
 					style="padding: 30px; background: #f9f9f9; border: 2px dashed #ddd; border-radius: 8px; text-align: center;">
 					<div style="font-size: 48px; margin-bottom: 10px;">📧</div>
-					<h3 style="margin: 0 0 10px; color: #333;">MT Contact Form</h3>
+					<h3 style="margin: 0 0 10px; color: #333;">MTForms</h3>
 					<p style="margin: 0; color: #666;">Skin: <strong>{{ settings.skin }}</strong> | Layout: <strong>{{
 							settings.layout }}</strong></p>
 					<p style="margin: 10px 0 0; color: #888; font-size: 12px;">Form preview will appear on the frontend</p>

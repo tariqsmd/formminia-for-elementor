@@ -3,17 +3,26 @@
     "apiVersion": 3,
     "name": "mtcf/contact-form",
     "version": "1.1.0",
-    "title": "MT Contact Form",
+    "title": "MTForms",
     "category": "widgets",
     "icon": "email",
-    "description": "A customizable contact form with multiple skins, layouts, and styling options.",
+    "description": "A customizable contact form with multiple skins, layouts, and styling options and GDPR support.",
     "supports": {
         "html": false,
-        "align": ["wide", "full"]
+        "align": [
+            "wide",
+            "full"
+        ]
     },
-    "textdomain": "mt-contact-forms",
+    "textdomain": "mtforms",
     "editorScript": "file:./build/index.js",
-    "keywords": ["contact", "form", "email", "message", "feedback"],
+    "keywords": [
+        "contact",
+        "form",
+        "email",
+        "message",
+        "feedback"
+    ],
     "attributes": {
         "skin": {
             "type": "string",
