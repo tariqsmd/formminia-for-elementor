@@ -72,7 +72,7 @@
         { label: 'Mail', value: 'mail' },
     ];
 
-    registerBlockType('mtcf/contact-form', {
+    registerBlockType('mtforms/contact-form', {
         edit: function (props) {
             var attributes = props.attributes;
             var setAttributes = props.setAttributes;

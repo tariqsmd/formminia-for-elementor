@@ -19,10 +19,10 @@ gulp.task('styles', function () {
 gulp.task('translate', function () {
     return gulp.src(['**/*.php', '!node_modules/**', '!vendor/**'])
         .pipe(wpPot({
-            domain: 'mt-contact-forms',
-            package: 'MT Contact Forms'
+            domain: 'mtforms',
+            package: 'MTForms'
         }))
-        .pipe(gulp.dest('languages/mt-contact-forms.pot'));
+        .pipe(gulp.dest('languages/mtforms.pot'));
 });
 
 // Zip the plugin
@@ -38,9 +38,9 @@ gulp.task('zip', function () {
         '!.git/**',
         '!.git',
         '!.vscode/**',
-        '!mt-contact-forms.zip'
+        '!mtforms.zip'
     ])
-        .pipe(zip('mt-contact-forms.zip'))
+        .pipe(zip('mtforms.zip'))
         .pipe(gulp.dest('.'));
 });
 

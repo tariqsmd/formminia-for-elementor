@@ -31,29 +31,29 @@ if (!defined('WPINC')) {
 /**
  * Plugin Constants
  */
-define('MTCF_VERSION', '1.1.0');
-define('MTCF_PLUGIN_DIR', plugin_dir_path(__FILE__));
-define('MTCF_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('MTCF_TEXT_DOMAIN', 'mtforms');
+define('MTFORMS_VERSION', '1.1.0');
+define('MTFORMS_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('MTFORMS_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('MTFORMS_TEXT_DOMAIN', 'mtforms');
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-mtcf-activator.php
+ * This action is documented in includes/class-mtforms-activator.php
  */
 function activate_mtforms()
 {
-	require_once plugin_dir_path(__FILE__) . 'includes/class-mtcf-activator.php';
-	MTCF_Activator::activate();
+	require_once plugin_dir_path(__FILE__) . 'includes/class-mtforms-activator.php';
+	MTForms_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-mtcf-deactivator.php
+ * This action is documented in includes/class-mtforms-deactivator.php
  */
 function deactivate_mtforms()
 {
-	require_once plugin_dir_path(__FILE__) . 'includes/class-mtcf-deactivator.php';
-	MTCF_Deactivator::deactivate();
+	require_once plugin_dir_path(__FILE__) . 'includes/class-mtforms-deactivator.php';
+	MTForms_Deactivator::deactivate();
 }
 
 register_activation_hook(__FILE__, 'activate_mtforms');
@@ -63,7 +63,7 @@ register_deactivation_hook(__FILE__, 'deactivate_mtforms');
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path(__FILE__) . 'includes/class-mtcf-core.php';
+require plugin_dir_path(__FILE__) . 'includes/class-mtforms-core.php';
 
 /**
  * Begins execution of the plugin.
@@ -77,7 +77,7 @@ require plugin_dir_path(__FILE__) . 'includes/class-mtcf-core.php';
 function run_mtforms()
 {
 
-	$plugin = new MTCF_Core();
+	$plugin = new MTForms_Core();
 	$plugin->run();
 
 }

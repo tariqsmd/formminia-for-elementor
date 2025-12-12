@@ -9,23 +9,23 @@
  * @package    MTForms
  * @subpackage MTForms/includes
  */
-class MTCF_Form_Renderer {
+class MTForms_Form_Renderer {
 
     /**
      * Available skins
      */
     public static function get_skins() {
         return array(
-            'default'     => __( 'Default', MTCF_TEXT_DOMAIN ),
-            'modern'      => __( 'Modern', MTCF_TEXT_DOMAIN ),
-            'dark'        => __( 'Dark', MTCF_TEXT_DOMAIN ),
-            'gradient'    => __( 'Gradient', MTCF_TEXT_DOMAIN ),
-            'glassmorphism' => __( 'Glassmorphism', MTCF_TEXT_DOMAIN ),
-            'minimal'     => __( 'Minimal', MTCF_TEXT_DOMAIN ),
-            'card'        => __( 'Card', MTCF_TEXT_DOMAIN ),
-            'neon'        => __( 'Neon', MTCF_TEXT_DOMAIN ),
-            'elegant'     => __( 'Elegant', MTCF_TEXT_DOMAIN ),
-            'brutalist'   => __( 'Brutalist', MTCF_TEXT_DOMAIN ),
+            'default'     => __( 'Default', MTFORMS_TEXT_DOMAIN ),
+            'modern'      => __( 'Modern', MTFORMS_TEXT_DOMAIN ),
+            'dark'        => __( 'Dark', MTFORMS_TEXT_DOMAIN ),
+            'gradient'    => __( 'Gradient', MTFORMS_TEXT_DOMAIN ),
+            'glassmorphism' => __( 'Glassmorphism', MTFORMS_TEXT_DOMAIN ),
+            'minimal'     => __( 'Minimal', MTFORMS_TEXT_DOMAIN ),
+            'card'        => __( 'Card', MTFORMS_TEXT_DOMAIN ),
+            'neon'        => __( 'Neon', MTFORMS_TEXT_DOMAIN ),
+            'elegant'     => __( 'Elegant', MTFORMS_TEXT_DOMAIN ),
+            'brutalist'   => __( 'Brutalist', MTFORMS_TEXT_DOMAIN ),
         );
     }
 
@@ -34,12 +34,12 @@ class MTCF_Form_Renderer {
      */
     public static function get_layouts() {
         return array(
-            'stacked'        => __( 'Stacked (Default)', MTCF_TEXT_DOMAIN ),
-            'inline'         => __( 'Inline Labels', MTCF_TEXT_DOMAIN ),
-            'floating'       => __( 'Floating Labels', MTCF_TEXT_DOMAIN ),
-            'material'       => __( 'Material Design', MTCF_TEXT_DOMAIN ),
-            'side-by-side'   => __( 'Side by Side', MTCF_TEXT_DOMAIN ),
-            'compact'        => __( 'Compact', MTCF_TEXT_DOMAIN ),
+            'stacked'        => __( 'Stacked (Default)', MTFORMS_TEXT_DOMAIN ),
+            'inline'         => __( 'Inline Labels', MTFORMS_TEXT_DOMAIN ),
+            'floating'       => __( 'Floating Labels', MTFORMS_TEXT_DOMAIN ),
+            'material'       => __( 'Material Design', MTFORMS_TEXT_DOMAIN ),
+            'side-by-side'   => __( 'Side by Side', MTFORMS_TEXT_DOMAIN ),
+            'compact'        => __( 'Compact', MTFORMS_TEXT_DOMAIN ),
         );
     }
 
@@ -48,12 +48,12 @@ class MTCF_Form_Renderer {
      */
     public static function get_button_styles() {
         return array(
-            'solid'    => __( 'Solid', MTCF_TEXT_DOMAIN ),
-            'outline'  => __( 'Outline', MTCF_TEXT_DOMAIN ),
-            'gradient' => __( 'Gradient', MTCF_TEXT_DOMAIN ),
-            'glow'     => __( 'Glow', MTCF_TEXT_DOMAIN ),
-            'pill'     => __( 'Pill', MTCF_TEXT_DOMAIN ),
-            '3d'       => __( '3D Effect', MTCF_TEXT_DOMAIN ),
+            'solid'    => __( 'Solid', MTFORMS_TEXT_DOMAIN ),
+            'outline'  => __( 'Outline', MTFORMS_TEXT_DOMAIN ),
+            'gradient' => __( 'Gradient', MTFORMS_TEXT_DOMAIN ),
+            'glow'     => __( 'Glow', MTFORMS_TEXT_DOMAIN ),
+            'pill'     => __( 'Pill', MTFORMS_TEXT_DOMAIN ),
+            '3d'       => __( '3D Effect', MTFORMS_TEXT_DOMAIN ),
         );
     }
 
@@ -62,11 +62,11 @@ class MTCF_Form_Renderer {
      */
     public static function get_input_styles() {
         return array(
-            'default'    => __( 'Default', MTCF_TEXT_DOMAIN ),
-            'underline'  => __( 'Underline Only', MTCF_TEXT_DOMAIN ),
-            'rounded'    => __( 'Rounded', MTCF_TEXT_DOMAIN ),
-            'pill'       => __( 'Pill Shape', MTCF_TEXT_DOMAIN ),
-            'shadow'     => __( 'Shadow', MTCF_TEXT_DOMAIN ),
+            'default'    => __( 'Default', MTFORMS_TEXT_DOMAIN ),
+            'underline'  => __( 'Underline Only', MTFORMS_TEXT_DOMAIN ),
+            'rounded'    => __( 'Rounded', MTFORMS_TEXT_DOMAIN ),
+            'pill'       => __( 'Pill Shape', MTFORMS_TEXT_DOMAIN ),
+            'shadow'     => __( 'Shadow', MTFORMS_TEXT_DOMAIN ),
         );
     }
 
@@ -75,12 +75,12 @@ class MTCF_Form_Renderer {
      */
     public static function get_animations() {
         return array(
-            'none'       => __( 'None', MTCF_TEXT_DOMAIN ),
-            'fade-in'    => __( 'Fade In', MTCF_TEXT_DOMAIN ),
-            'slide-up'   => __( 'Slide Up', MTCF_TEXT_DOMAIN ),
-            'slide-left' => __( 'Slide Left', MTCF_TEXT_DOMAIN ),
-            'zoom-in'    => __( 'Zoom In', MTCF_TEXT_DOMAIN ),
-            'bounce'     => __( 'Bounce', MTCF_TEXT_DOMAIN ),
+            'none'       => __( 'None', MTFORMS_TEXT_DOMAIN ),
+            'fade-in'    => __( 'Fade In', MTFORMS_TEXT_DOMAIN ),
+            'slide-up'   => __( 'Slide Up', MTFORMS_TEXT_DOMAIN ),
+            'slide-left' => __( 'Slide Left', MTFORMS_TEXT_DOMAIN ),
+            'zoom-in'    => __( 'Zoom In', MTFORMS_TEXT_DOMAIN ),
+            'bounce'     => __( 'Bounce', MTFORMS_TEXT_DOMAIN ),
         );
     }
 
@@ -109,24 +109,24 @@ class MTCF_Form_Renderer {
             // Labels
             'show_labels'           => 'yes',
             'show_placeholders'     => 'yes',
-            'label_name'            => __( 'Name', MTCF_TEXT_DOMAIN ),
-            'label_email'           => __( 'Email', MTCF_TEXT_DOMAIN ),
-            'label_phone'           => __( 'Phone', MTCF_TEXT_DOMAIN ),
-            'label_subject'         => __( 'Subject', MTCF_TEXT_DOMAIN ),
-            'label_message'         => __( 'Message', MTCF_TEXT_DOMAIN ),
-            'label_website'         => __( 'Website', MTCF_TEXT_DOMAIN ),
-            'gdpr_text'             => __( 'I consent to having this website store my submitted information so they can respond to my inquiry.', MTCF_TEXT_DOMAIN ),
+            'label_name'            => __( 'Name', MTFORMS_TEXT_DOMAIN ),
+            'label_email'           => __( 'Email', MTFORMS_TEXT_DOMAIN ),
+            'label_phone'           => __( 'Phone', MTFORMS_TEXT_DOMAIN ),
+            'label_subject'         => __( 'Subject', MTFORMS_TEXT_DOMAIN ),
+            'label_message'         => __( 'Message', MTFORMS_TEXT_DOMAIN ),
+            'label_website'         => __( 'Website', MTFORMS_TEXT_DOMAIN ),
+            'gdpr_text'             => __( 'I consent to having this website store my submitted information so they can respond to my inquiry.', MTFORMS_TEXT_DOMAIN ),
 
             // Placeholders
-            'placeholder_name'      => __( 'Enter your name', MTCF_TEXT_DOMAIN ),
-            'placeholder_email'     => __( 'Enter your email', MTCF_TEXT_DOMAIN ),
-            'placeholder_phone'     => __( 'Enter your phone number', MTCF_TEXT_DOMAIN ),
-            'placeholder_subject'   => __( 'Enter subject', MTCF_TEXT_DOMAIN ),
-            'placeholder_message'   => __( 'Write your message here...', MTCF_TEXT_DOMAIN ),
-            'placeholder_website'   => __( 'Your website URL', MTCF_TEXT_DOMAIN ),
+            'placeholder_name'      => __( 'Enter your name', MTFORMS_TEXT_DOMAIN ),
+            'placeholder_email'     => __( 'Enter your email', MTFORMS_TEXT_DOMAIN ),
+            'placeholder_phone'     => __( 'Enter your phone number', MTFORMS_TEXT_DOMAIN ),
+            'placeholder_subject'   => __( 'Enter subject', MTFORMS_TEXT_DOMAIN ),
+            'placeholder_message'   => __( 'Write your message here...', MTFORMS_TEXT_DOMAIN ),
+            'placeholder_website'   => __( 'Your website URL', MTFORMS_TEXT_DOMAIN ),
 
             // Button
-            'button_text'           => __( 'Send Message', MTCF_TEXT_DOMAIN ),
+            'button_text'           => __( 'Send Message', MTFORMS_TEXT_DOMAIN ),
             'button_style'          => 'solid',
             'button_width'          => 'auto',
             'button_align'          => 'left',
@@ -172,8 +172,8 @@ class MTCF_Form_Renderer {
             'button_box_shadow'     => 'none',
 
             // Success/Error Messages
-            'success_message'       => __( 'Thank you! Your message has been sent successfully.', MTCF_TEXT_DOMAIN ),
-            'error_message'         => __( 'Oops! Something went wrong. Please try again.', MTCF_TEXT_DOMAIN ),
+            'success_message'       => __( 'Thank you! Your message has been sent successfully.', MTFORMS_TEXT_DOMAIN ),
+            'error_message'         => __( 'Oops! Something went wrong. Please try again.', MTFORMS_TEXT_DOMAIN ),
 
             // Icon Settings (for fields)
             'show_icons'            => 'no',
@@ -190,7 +190,7 @@ class MTCF_Form_Renderer {
      */
     public static function generate_inline_styles( $settings, $unique_id ) {
         $styles = array();
-        $prefix = ".mtcf-form-{$unique_id}";
+        $prefix = ".mtforms-form-{$unique_id}";
 
         // Form container styles
         $form_styles = array();
@@ -200,7 +200,7 @@ class MTCF_Form_Renderer {
         }
         
         if ( ! empty( $settings['primary_color'] ) ) {
-            $styles[] = "{$prefix} { --mtcf-primary-color: {$settings['primary_color']}; }";
+            $styles[] = "{$prefix} { --mtforms-primary-color: {$settings['primary_color']}; }";
         }
 
         if ( ! empty( $settings['form_padding'] ) && is_array( $settings['form_padding'] ) ) {
@@ -236,7 +236,7 @@ class MTCF_Form_Renderer {
         }
 
         if ( ! empty( $form_styles ) ) {
-            $styles[] = "{$prefix} .mtcf-container { " . implode( '; ', $form_styles ) . "; }";
+            $styles[] = "{$prefix} .mtforms-container { " . implode( '; ', $form_styles ) . "; }";
         }
 
         // Input styles
@@ -271,24 +271,24 @@ class MTCF_Form_Renderer {
         }
 
         if ( ! empty( $input_styles ) ) {
-            $styles[] = "{$prefix} .mtcf-input, {$prefix} .mtcf-textarea { " . implode( '; ', $input_styles ) . "; }";
+            $styles[] = "{$prefix} .mtforms-input, {$prefix} .mtforms-textarea { " . implode( '; ', $input_styles ) . "; }";
         }
 
         // Focus styles
         if ( ! empty( $settings['input_focus_color'] ) ) {
-            $styles[] = "{$prefix} .mtcf-input:focus, {$prefix} .mtcf-textarea:focus { border-color: {$settings['input_focus_color']}; box-shadow: 0 0 0 2px {$settings['input_focus_color']}33; }";
+            $styles[] = "{$prefix} .mtforms-input:focus, {$prefix} .mtforms-textarea:focus { border-color: {$settings['input_focus_color']}; box-shadow: 0 0 0 2px {$settings['input_focus_color']}33; }";
         }
 
         // Label styles
         if ( ! empty( $settings['label_color'] ) ) {
-            $styles[] = "{$prefix} .mtcf-form-group label { color: {$settings['label_color']}; }";
+            $styles[] = "{$prefix} .mtforms-form-group label { color: {$settings['label_color']}; }";
         }
 
         if ( ! empty( $settings['label_spacing'] ) && is_array( $settings['label_spacing'] ) ) {
             $sp = $settings['label_spacing'];
             if ( isset( $sp['size'] ) ) {
                 $unit = isset( $sp['unit'] ) ? $sp['unit'] : 'px';
-                $styles[] = "{$prefix} .mtcf-form-group label { margin-bottom: {$sp['size']}{$unit}; }";
+                $styles[] = "{$prefix} .mtforms-form-group label { margin-bottom: {$sp['size']}{$unit}; }";
             }
         }
 
@@ -297,7 +297,7 @@ class MTCF_Form_Renderer {
             $sp = $settings['field_spacing'];
             if ( isset( $sp['size'] ) ) {
                 $unit = isset( $sp['unit'] ) ? $sp['unit'] : 'px';
-                $styles[] = "{$prefix} .mtcf-form-group { margin-bottom: {$sp['size']}{$unit}; }";
+                $styles[] = "{$prefix} .mtforms-form-group { margin-bottom: {$sp['size']}{$unit}; }";
             }
         }
 
@@ -321,25 +321,25 @@ class MTCF_Form_Renderer {
         }
 
         if ( ! empty( $button_styles ) ) {
-            $styles[] = "{$prefix} .mtcf-submit-btn { " . implode( '; ', $button_styles ) . "; }";
+            $styles[] = "{$prefix} .mtforms-submit-btn { " . implode( '; ', $button_styles ) . "; }";
         }
 
         if ( ! empty( $settings['button_hover_bg_color'] ) ) {
-            $styles[] = "{$prefix} .mtcf-submit-btn:hover { background-color: {$settings['button_hover_bg_color']}; }";
+            $styles[] = "{$prefix} .mtforms-submit-btn:hover { background-color: {$settings['button_hover_bg_color']}; }";
         }
 
         // Error/Success colors
         if ( ! empty( $settings['error_color'] ) ) {
-            $styles[] = "{$prefix} { --mtcf-error-color: {$settings['error_color']}; }";
+            $styles[] = "{$prefix} { --mtforms-error-color: {$settings['error_color']}; }";
         }
         
         if ( ! empty( $settings['success_color'] ) ) {
-            $styles[] = "{$prefix} { --mtcf-success-color: {$settings['success_color']}; }";
+            $styles[] = "{$prefix} { --mtforms-success-color: {$settings['success_color']}; }";
         }
 
         // Placeholder color
         if ( ! empty( $settings['placeholder_color'] ) ) {
-            $styles[] = "{$prefix} .mtcf-input::placeholder, {$prefix} .mtcf-textarea::placeholder { color: {$settings['placeholder_color']}; }";
+            $styles[] = "{$prefix} .mtforms-input::placeholder, {$prefix} .mtforms-textarea::placeholder { color: {$settings['placeholder_color']}; }";
         }
 
         return implode( "\n", $styles );
@@ -353,31 +353,31 @@ class MTCF_Form_Renderer {
         $settings = wp_parse_args( $settings, $defaults );
 
         // Generate unique ID for this form instance
-        $unique_id = 'mtcf-' . uniqid();
+        $unique_id = 'mtforms-' . uniqid();
         if ( ! empty( $settings['form_id'] ) ) {
             $unique_id = sanitize_html_class( $settings['form_id'] );
         }
 
         // Build CSS classes
         $container_classes = array(
-            'mtcf-container',
-            'mtcf-skin-' . sanitize_html_class( $settings['skin'] ),
-            'mtcf-layout-' . sanitize_html_class( $settings['layout'] ),
-            'mtcf-input-style-' . sanitize_html_class( $settings['input_style'] ),
-            'mtcf-button-style-' . sanitize_html_class( $settings['button_style'] ),
+            'mtforms-container',
+            'mtforms-skin-' . sanitize_html_class( $settings['skin'] ),
+            'mtforms-layout-' . sanitize_html_class( $settings['layout'] ),
+            'mtforms-input-style-' . sanitize_html_class( $settings['input_style'] ),
+            'mtforms-button-style-' . sanitize_html_class( $settings['button_style'] ),
         );
 
         if ( ! empty( $settings['animation'] ) && $settings['animation'] !== 'none' ) {
-            $container_classes[] = 'mtcf-animation-' . sanitize_html_class( $settings['animation'] );
+            $container_classes[] = 'mtforms-animation-' . sanitize_html_class( $settings['animation'] );
         }
 
         if ( $settings['show_icons'] === 'yes' ) {
-            $container_classes[] = 'mtcf-with-icons';
-            $container_classes[] = 'mtcf-icon-' . sanitize_html_class( $settings['icon_position'] );
+            $container_classes[] = 'mtforms-with-icons';
+            $container_classes[] = 'mtforms-icon-' . sanitize_html_class( $settings['icon_position'] );
         }
 
         if ( $settings['show_labels'] !== 'yes' ) {
-            $container_classes[] = 'mtcf-no-labels';
+            $container_classes[] = 'mtforms-no-labels';
         }
 
         if ( ! empty( $settings['custom_css_class'] ) ) {
@@ -386,14 +386,14 @@ class MTCF_Form_Renderer {
 
         // Button width class
         if ( $settings['button_width'] === 'full' ) {
-            $container_classes[] = 'mtcf-button-full';
+            $container_classes[] = 'mtforms-button-full';
         }
 
         // Form alignment
-        $container_classes[] = 'mtcf-align-' . sanitize_html_class( $settings['form_alignment'] );
+        $container_classes[] = 'mtforms-align-' . sanitize_html_class( $settings['form_alignment'] );
 
         // Input size
-        $container_classes[] = 'mtcf-input-size-' . sanitize_html_class( $settings['input_size'] );
+        $container_classes[] = 'mtforms-input-size-' . sanitize_html_class( $settings['input_size'] );
 
         // Generate inline styles
         $inline_styles = self::generate_inline_styles( $settings, $unique_id );
@@ -402,229 +402,229 @@ class MTCF_Form_Renderer {
         ?>
         
         <?php if ( ! empty( $inline_styles ) ) : ?>
-        <style>.mtcf-form-<?php echo esc_attr( $unique_id ); ?> { }
+        <style>.mtforms-form-<?php echo esc_attr( $unique_id ); ?> { }
 <?php echo $inline_styles; ?>
         </style>
         <?php endif; ?>
 
-        <div class="mtcf-form-<?php echo esc_attr( $unique_id ); ?> <?php echo esc_attr( implode( ' ', $container_classes ) ); ?>">
-            <form id="mtcf-form-<?php echo esc_attr( $unique_id ); ?>" class="mtcf-form" action="" method="POST" novalidate>
+        <div class="mtforms-form-<?php echo esc_attr( $unique_id ); ?> <?php echo esc_attr( implode( ' ', $container_classes ) ); ?>">
+            <form id="mtforms-form-<?php echo esc_attr( $unique_id ); ?>" class="mtforms-form" action="" method="POST" novalidate>
                 
                 <?php if ( $settings['show_name'] === 'yes' ) : ?>
-                <div class="mtcf-form-group mtcf-field-name">
+                <div class="mtforms-form-group mtforms-field-name">
                     <?php if ( $settings['show_labels'] === 'yes' ) : ?>
-                    <label for="mtcf_name_<?php echo esc_attr( $unique_id ); ?>">
+                    <label for="mtforms_name_<?php echo esc_attr( $unique_id ); ?>">
                         <?php if ( $settings['show_icons'] === 'yes' ) : ?>
-                        <span class="mtcf-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span>
+                        <span class="mtforms-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span>
                         <?php endif; ?>
                         <?php echo esc_html( $settings['label_name'] ); ?> <span class="required">*</span>
                     </label>
                     <?php endif; ?>
-                    <div class="mtcf-input-wrap">
+                    <div class="mtforms-input-wrap">
                         <?php if ( $settings['show_icons'] === 'yes' && $settings['show_labels'] !== 'yes' ) : ?>
-                        <span class="mtcf-field-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span>
+                        <span class="mtforms-field-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span>
                         <?php endif; ?>
                         <input type="text" 
-                               name="mtcf_name" 
-                               id="mtcf_name_<?php echo esc_attr( $unique_id ); ?>" 
-                               class="mtcf-input mtcf-input-name" 
+                               name="mtforms_name" 
+                               id="mtforms_name_<?php echo esc_attr( $unique_id ); ?>" 
+                               class="mtforms-input mtforms-input-name" 
                                <?php if ( $settings['show_placeholders'] === 'yes' ) : ?>
                                placeholder="<?php echo esc_attr( $settings['placeholder_name'] ); ?>"
                                <?php endif; ?>
                                required>
                         <?php if ( $settings['layout'] === 'floating' || $settings['layout'] === 'material' ) : ?>
-                        <label class="mtcf-floating-label" for="mtcf_name_<?php echo esc_attr( $unique_id ); ?>"><?php echo esc_html( $settings['label_name'] ); ?> <span class="required">*</span></label>
+                        <label class="mtforms-floating-label" for="mtforms_name_<?php echo esc_attr( $unique_id ); ?>"><?php echo esc_html( $settings['label_name'] ); ?> <span class="required">*</span></label>
                         <?php endif; ?>
                     </div>
                 </div>
                 <?php endif; ?>
 
                 <?php if ( $settings['show_email'] === 'yes' ) : ?>
-                <div class="mtcf-form-group mtcf-field-email">
+                <div class="mtforms-form-group mtforms-field-email">
                     <?php if ( $settings['show_labels'] === 'yes' ) : ?>
-                    <label for="mtcf_email_<?php echo esc_attr( $unique_id ); ?>">
+                    <label for="mtforms_email_<?php echo esc_attr( $unique_id ); ?>">
                         <?php if ( $settings['show_icons'] === 'yes' ) : ?>
-                        <span class="mtcf-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+                        <span class="mtforms-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
                         <?php endif; ?>
                         <?php echo esc_html( $settings['label_email'] ); ?> <span class="required">*</span>
                     </label>
                     <?php endif; ?>
-                    <div class="mtcf-input-wrap">
+                    <div class="mtforms-input-wrap">
                         <?php if ( $settings['show_icons'] === 'yes' && $settings['show_labels'] !== 'yes' ) : ?>
-                        <span class="mtcf-field-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+                        <span class="mtforms-field-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
                         <?php endif; ?>
                         <input type="email" 
-                               name="mtcf_email" 
-                               id="mtcf_email_<?php echo esc_attr( $unique_id ); ?>" 
-                               class="mtcf-input mtcf-input-email" 
+                               name="mtforms_email" 
+                               id="mtforms_email_<?php echo esc_attr( $unique_id ); ?>" 
+                               class="mtforms-input mtforms-input-email" 
                                <?php if ( $settings['show_placeholders'] === 'yes' ) : ?>
                                placeholder="<?php echo esc_attr( $settings['placeholder_email'] ); ?>"
                                <?php endif; ?>
                                required>
                         <?php if ( $settings['layout'] === 'floating' || $settings['layout'] === 'material' ) : ?>
-                        <label class="mtcf-floating-label" for="mtcf_email_<?php echo esc_attr( $unique_id ); ?>"><?php echo esc_html( $settings['label_email'] ); ?> <span class="required">*</span></label>
+                        <label class="mtforms-floating-label" for="mtforms_email_<?php echo esc_attr( $unique_id ); ?>"><?php echo esc_html( $settings['label_email'] ); ?> <span class="required">*</span></label>
                         <?php endif; ?>
                     </div>
                 </div>
                 <?php endif; ?>
 
                 <?php if ( $settings['show_phone'] === 'yes' ) : ?>
-                <div class="mtcf-form-group mtcf-field-phone">
+                <div class="mtforms-form-group mtforms-field-phone">
                     <?php if ( $settings['show_labels'] === 'yes' ) : ?>
-                    <label for="mtcf_phone_<?php echo esc_attr( $unique_id ); ?>">
+                    <label for="mtforms_phone_<?php echo esc_attr( $unique_id ); ?>">
                         <?php if ( $settings['show_icons'] === 'yes' ) : ?>
-                        <span class="mtcf-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></span>
+                        <span class="mtforms-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></span>
                         <?php endif; ?>
                         <?php echo esc_html( $settings['label_phone'] ); ?>
                     </label>
                     <?php endif; ?>
-                    <div class="mtcf-input-wrap">
+                    <div class="mtforms-input-wrap">
                         <?php if ( $settings['show_icons'] === 'yes' && $settings['show_labels'] !== 'yes' ) : ?>
-                        <span class="mtcf-field-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></span>
+                        <span class="mtforms-field-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></span>
                         <?php endif; ?>
                         <input type="tel" 
-                               name="mtcf_phone" 
-                               id="mtcf_phone_<?php echo esc_attr( $unique_id ); ?>" 
-                               class="mtcf-input mtcf-input-phone" 
+                               name="mtforms_phone" 
+                               id="mtforms_phone_<?php echo esc_attr( $unique_id ); ?>" 
+                               class="mtforms-input mtforms-input-phone" 
                                <?php if ( $settings['show_placeholders'] === 'yes' ) : ?>
                                placeholder="<?php echo esc_attr( $settings['placeholder_phone'] ); ?>"
                                <?php endif; ?>>
                         <?php if ( $settings['layout'] === 'floating' || $settings['layout'] === 'material' ) : ?>
-                        <label class="mtcf-floating-label" for="mtcf_phone_<?php echo esc_attr( $unique_id ); ?>"><?php echo esc_html( $settings['label_phone'] ); ?></label>
+                        <label class="mtforms-floating-label" for="mtforms_phone_<?php echo esc_attr( $unique_id ); ?>"><?php echo esc_html( $settings['label_phone'] ); ?></label>
                         <?php endif; ?>
                     </div>
                 </div>
                 <?php endif; ?>
 
                 <?php if ( $settings['show_website'] === 'yes' ) : ?>
-                <div class="mtcf-form-group mtcf-field-website">
+                <div class="mtforms-form-group mtforms-field-website">
                     <?php if ( $settings['show_labels'] === 'yes' ) : ?>
-                    <label for="mtcf_website_<?php echo esc_attr( $unique_id ); ?>">
+                    <label for="mtforms_website_<?php echo esc_attr( $unique_id ); ?>">
                         <?php if ( $settings['show_icons'] === 'yes' ) : ?>
-                        <span class="mtcf-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg></span>
+                        <span class="mtforms-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg></span>
                         <?php endif; ?>
                         <?php echo esc_html( $settings['label_website'] ); ?>
                     </label>
                     <?php endif; ?>
-                    <div class="mtcf-input-wrap">
+                    <div class="mtforms-input-wrap">
                         <?php if ( $settings['show_icons'] === 'yes' && $settings['show_labels'] !== 'yes' ) : ?>
-                        <span class="mtcf-field-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2z"/></svg></span>
+                        <span class="mtforms-field-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2z"/></svg></span>
                         <?php endif; ?>
                         <input type="url" 
-                               name="mtcf_website" 
-                               id="mtcf_website_<?php echo esc_attr( $unique_id ); ?>" 
-                               class="mtcf-input mtcf-input-website" 
+                               name="mtforms_website" 
+                               id="mtforms_website_<?php echo esc_attr( $unique_id ); ?>" 
+                               class="mtforms-input mtforms-input-website" 
                                <?php if ( $settings['show_placeholders'] === 'yes' ) : ?>
                                placeholder="<?php echo esc_attr( $settings['placeholder_website'] ); ?>"
                                <?php endif; ?>>
                         <?php if ( $settings['layout'] === 'floating' || $settings['layout'] === 'material' ) : ?>
-                        <label class="mtcf-floating-label" for="mtcf_website_<?php echo esc_attr( $unique_id ); ?>"><?php echo esc_html( $settings['label_website'] ); ?></label>
+                        <label class="mtforms-floating-label" for="mtforms_website_<?php echo esc_attr( $unique_id ); ?>"><?php echo esc_html( $settings['label_website'] ); ?></label>
                         <?php endif; ?>
                     </div>
                 </div>
                 <?php endif; ?>
 
                 <?php if ( $settings['show_subject'] === 'yes' ) : ?>
-                <div class="mtcf-form-group mtcf-field-subject">
+                <div class="mtforms-form-group mtforms-field-subject">
                     <?php if ( $settings['show_labels'] === 'yes' ) : ?>
-                    <label for="mtcf_subject_<?php echo esc_attr( $unique_id ); ?>">
+                    <label for="mtforms_subject_<?php echo esc_attr( $unique_id ); ?>">
                         <?php if ( $settings['show_icons'] === 'yes' ) : ?>
-                        <span class="mtcf-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></span>
+                        <span class="mtforms-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></span>
                         <?php endif; ?>
                         <?php echo esc_html( $settings['label_subject'] ); ?>
                     </label>
                     <?php endif; ?>
-                    <div class="mtcf-input-wrap">
+                    <div class="mtforms-input-wrap">
                         <?php if ( $settings['show_icons'] === 'yes' && $settings['show_labels'] !== 'yes' ) : ?>
-                        <span class="mtcf-field-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6z"/></svg></span>
+                        <span class="mtforms-field-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6z"/></svg></span>
                         <?php endif; ?>
                         <input type="text" 
-                               name="mtcf_subject" 
-                               id="mtcf_subject_<?php echo esc_attr( $unique_id ); ?>" 
-                               class="mtcf-input mtcf-input-subject" 
+                               name="mtforms_subject" 
+                               id="mtforms_subject_<?php echo esc_attr( $unique_id ); ?>" 
+                               class="mtforms-input mtforms-input-subject" 
                                <?php if ( $settings['show_placeholders'] === 'yes' ) : ?>
                                placeholder="<?php echo esc_attr( $settings['placeholder_subject'] ); ?>"
                                <?php endif; ?>>
                         <?php if ( $settings['layout'] === 'floating' || $settings['layout'] === 'material' ) : ?>
-                        <label class="mtcf-floating-label" for="mtcf_subject_<?php echo esc_attr( $unique_id ); ?>"><?php echo esc_html( $settings['label_subject'] ); ?></label>
+                        <label class="mtforms-floating-label" for="mtforms_subject_<?php echo esc_attr( $unique_id ); ?>"><?php echo esc_html( $settings['label_subject'] ); ?></label>
                         <?php endif; ?>
                     </div>
                 </div>
                 <?php endif; ?>
 
                 <?php if ( $settings['show_message'] === 'yes' ) : ?>
-                <div class="mtcf-form-group mtcf-field-message">
+                <div class="mtforms-form-group mtforms-field-message">
                     <?php if ( $settings['show_labels'] === 'yes' ) : ?>
-                    <label for="mtcf_message_<?php echo esc_attr( $unique_id ); ?>">
+                    <label for="mtforms_message_<?php echo esc_attr( $unique_id ); ?>">
                         <?php if ( $settings['show_icons'] === 'yes' ) : ?>
-                        <span class="mtcf-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg></span>
+                        <span class="mtforms-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg></span>
                         <?php endif; ?>
                         <?php echo esc_html( $settings['label_message'] ); ?> <span class="required">*</span>
                     </label>
                     <?php endif; ?>
-                    <div class="mtcf-input-wrap">
+                    <div class="mtforms-input-wrap">
                         <?php if ( $settings['show_icons'] === 'yes' && $settings['show_labels'] !== 'yes' ) : ?>
-                        <span class="mtcf-field-icon mtcf-field-icon-textarea"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></span>
+                        <span class="mtforms-field-icon mtforms-field-icon-textarea"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></span>
                         <?php endif; ?>
-                        <textarea name="mtcf_message" 
-                                  id="mtcf_message_<?php echo esc_attr( $unique_id ); ?>" 
-                                  class="mtcf-textarea mtcf-input-message" 
+                        <textarea name="mtforms_message" 
+                                  id="mtforms_message_<?php echo esc_attr( $unique_id ); ?>" 
+                                  class="mtforms-textarea mtforms-input-message" 
                                   rows="5" 
                                   <?php if ( $settings['show_placeholders'] === 'yes' ) : ?>
                                   placeholder="<?php echo esc_attr( $settings['placeholder_message'] ); ?>"
                                   <?php endif; ?>
                                   required></textarea>
                         <?php if ( $settings['layout'] === 'floating' || $settings['layout'] === 'material' ) : ?>
-                        <label class="mtcf-floating-label" for="mtcf_message_<?php echo esc_attr( $unique_id ); ?>"><?php echo esc_html( $settings['label_message'] ); ?> <span class="required">*</span></label>
+                        <label class="mtforms-floating-label" for="mtforms_message_<?php echo esc_attr( $unique_id ); ?>"><?php echo esc_html( $settings['label_message'] ); ?> <span class="required">*</span></label>
                         <?php endif; ?>
                     </div>
                 </div>
                 <?php endif; ?>
 
                 <?php if ( $settings['show_gdpr'] === 'yes' ) : ?>
-                <div class="mtcf-form-group mtcf-gdpr-group">
-                    <label class="mtcf-checkbox-label">
-                        <input type="checkbox" name="mtcf_gdpr" id="mtcf_gdpr_<?php echo esc_attr( $unique_id ); ?>" required>
-                        <span class="mtcf-checkbox-custom"></span>
-                        <span class="mtcf-checkbox-text"><?php echo esc_html( $settings['gdpr_text'] ); ?></span>
+                <div class="mtforms-form-group mtforms-gdpr-group">
+                    <label class="mtforms-checkbox-label">
+                        <input type="checkbox" name="mtforms_gdpr" id="mtforms_gdpr_<?php echo esc_attr( $unique_id ); ?>" required>
+                        <span class="mtforms-checkbox-custom"></span>
+                        <span class="mtforms-checkbox-text"><?php echo esc_html( $settings['gdpr_text'] ); ?></span>
                     </label>
                 </div>
                 <?php endif; ?>
 
                 <?php
                 // Captcha
-                $captcha_provider = get_option( 'mtcf_captcha_provider', 'none' );
+                $captcha_provider = get_option( 'mtforms_captcha_provider', 'none' );
                 if ( $captcha_provider === 'recaptcha' ) {
-                    $site_key = get_option( 'mtcf_recaptcha_site_key' );
+                    $site_key = get_option( 'mtforms_recaptcha_site_key' );
                     if ( ! empty( $site_key ) ) {
-                        echo '<div class="mtcf-captcha-wrap"><div class="g-recaptcha" data-sitekey="' . esc_attr( $site_key ) . '"></div></div>';
+                        echo '<div class="mtforms-captcha-wrap"><div class="g-recaptcha" data-sitekey="' . esc_attr( $site_key ) . '"></div></div>';
                     }
                 } elseif ( $captcha_provider === 'turnstile' ) {
-                    $site_key = get_option( 'mtcf_turnstile_site_key' );
+                    $site_key = get_option( 'mtforms_turnstile_site_key' );
                     if ( ! empty( $site_key ) ) {
-                        echo '<div class="mtcf-captcha-wrap"><div class="cf-turnstile" data-sitekey="' . esc_attr( $site_key ) . '"></div></div>';
+                        echo '<div class="mtforms-captcha-wrap"><div class="cf-turnstile" data-sitekey="' . esc_attr( $site_key ) . '"></div></div>';
                     }
                 }
                 ?>
 
-                <div class="mtcf-form-actions mtcf-button-align-<?php echo esc_attr( $settings['button_align'] ); ?>">
-                    <button type="submit" class="mtcf-submit-btn">
+                <div class="mtforms-form-actions mtforms-button-align-<?php echo esc_attr( $settings['button_align'] ); ?>">
+                    <button type="submit" class="mtforms-submit-btn">
                         <?php if ( $settings['button_icon'] !== 'none' && $settings['button_icon_position'] === 'left' ) : ?>
-                        <span class="mtcf-btn-icon mtcf-btn-icon-left">
+                        <span class="mtforms-btn-icon mtforms-btn-icon-left">
                             <?php echo self::get_button_icon( $settings['button_icon'] ); ?>
                         </span>
                         <?php endif; ?>
-                        <span class="mtcf-btn-text"><?php echo esc_html( $settings['button_text'] ); ?></span>
+                        <span class="mtforms-btn-text"><?php echo esc_html( $settings['button_text'] ); ?></span>
                         <?php if ( $settings['button_icon'] !== 'none' && $settings['button_icon_position'] === 'right' ) : ?>
-                        <span class="mtcf-btn-icon mtcf-btn-icon-right">
+                        <span class="mtforms-btn-icon mtforms-btn-icon-right">
                             <?php echo self::get_button_icon( $settings['button_icon'] ); ?>
                         </span>
                         <?php endif; ?>
-                        <span class="mtcf-spinner"></span>
+                        <span class="mtforms-spinner"></span>
                     </button>
                 </div>
 
-                <div class="mtcf-response-message"></div>
+                <div class="mtforms-response-message"></div>
 
             </form>
         </div>
@@ -652,11 +652,11 @@ class MTCF_Form_Renderer {
      */
     public static function get_button_icons() {
         return array(
-            'none'        => __( 'None', MTCF_TEXT_DOMAIN ),
-            'send'        => __( 'Send', MTCF_TEXT_DOMAIN ),
-            'arrow-right' => __( 'Arrow Right', MTCF_TEXT_DOMAIN ),
-            'check'       => __( 'Check', MTCF_TEXT_DOMAIN ),
-            'mail'        => __( 'Mail', MTCF_TEXT_DOMAIN ),
+            'none'        => __( 'None', MTFORMS_TEXT_DOMAIN ),
+            'send'        => __( 'Send', MTFORMS_TEXT_DOMAIN ),
+            'arrow-right' => __( 'Arrow Right', MTFORMS_TEXT_DOMAIN ),
+            'check'       => __( 'Check', MTFORMS_TEXT_DOMAIN ),
+            'mail'        => __( 'Mail', MTFORMS_TEXT_DOMAIN ),
         );
     }
 
