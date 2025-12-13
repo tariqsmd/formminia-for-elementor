@@ -403,7 +403,7 @@ class MTForms_Form_Renderer {
         
         <?php if ( ! empty( $inline_styles ) ) : ?>
         <style>.mtforms-form-<?php echo esc_attr( $unique_id ); ?> { }
-<?php echo $inline_styles; ?>
+<?php echo wp_strip_all_tags( $inline_styles ); ?>
         </style>
         <?php endif; ?>
 
@@ -582,6 +582,7 @@ class MTForms_Form_Renderer {
                 <?php endif; ?>
 
                 <?php if ( $settings['show_gdpr'] === 'yes' ) : ?>
+                <input type="hidden" name="mtforms_gdpr_enabled" value="yes">
                 <div class="mtforms-form-group mtforms-gdpr-group">
                     <label class="mtforms-checkbox-label">
                         <input type="checkbox" name="mtforms_gdpr" id="mtforms_gdpr_<?php echo esc_attr( $unique_id ); ?>" required>

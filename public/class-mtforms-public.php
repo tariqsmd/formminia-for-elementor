@@ -76,7 +76,7 @@ class MTForms_Public
     {
 
         // Enqueue JustValidate (using unpkg for demo, should be local for production)
-        wp_enqueue_script('just-validate', 'https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js', array(), '4.3.0', true);
+        wp_enqueue_script('just-validate', 'https://unpkg.com/just-validate@4.3.0/dist/just-validate.production.min.js', array(), '4.3.0', true);
 
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . '../assets/js/mtforms-public.js', array('jquery', 'just-validate'), $this->version, true);
 
@@ -157,6 +157,7 @@ class MTForms_Public
         $website = isset($_POST['mtforms_website']) ? esc_url_raw($_POST['mtforms_website']) : '';
         $subject = isset($_POST['mtforms_subject']) ? sanitize_text_field($_POST['mtforms_subject']) : '';
         $message = isset($_POST['mtforms_message']) ? sanitize_textarea_field($_POST['mtforms_message']) : '';
+        $gdpr_enabled = isset($_POST['mtforms_gdpr_enabled']) && sanitize_text_field($_POST['mtforms_gdpr_enabled']) === 'yes';
         $gdpr = isset($_POST['mtforms_gdpr']) ? 'yes' : 'no';
 
         // Check required fields (name, email, message are typically required)
@@ -168,7 +169,8 @@ class MTForms_Public
             wp_send_json_error(array('message' => __('Invalid email address.', MTFORMS_TEXT_DOMAIN)));
         }
 
-        if ($gdpr !== 'yes') {
+        // Only require GDPR consent if the GDPR field was shown on the form
+        if ($gdpr_enabled && $gdpr !== 'yes') {
             wp_send_json_error(array('message' => __('You must accept the GDPR terms.', MTFORMS_TEXT_DOMAIN)));
         }
 
