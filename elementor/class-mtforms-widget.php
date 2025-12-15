@@ -102,11 +102,11 @@ class MTForms_Widget extends \Elementor\Widget_Base
         // CONTENT TAB
         // =====================================================
 
-        // ---- Preset & Layout Section ----
+        // ---- Layouts & Presets Section ----
         $this->start_controls_section(
             'section_preset',
             [
-                'label' => esc_html__('Preset & Layout', MTFORMS_TEXT_DOMAIN),
+                'label' => esc_html__('Layouts & Presets', MTFORMS_TEXT_DOMAIN),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -118,6 +118,7 @@ class MTForms_Widget extends \Elementor\Widget_Base
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'default',
                 'options' => MTForms_Form_Renderer::get_skins(),
+                'description' => esc_html__('Choose a visual style for the form.', MTFORMS_TEXT_DOMAIN),
             ]
         );
 
@@ -128,16 +129,7 @@ class MTForms_Widget extends \Elementor\Widget_Base
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'stacked',
                 'options' => MTForms_Form_Renderer::get_layouts(),
-            ]
-        );
-
-        $this->add_control(
-            'animation',
-            [
-                'label' => esc_html__('Form Animation', MTFORMS_TEXT_DOMAIN),
-                'type' => \Elementor\Controls_Manager::SELECT,
-                'default' => 'none',
-                'options' => MTForms_Form_Renderer::get_animations(),
+                'description' => esc_html__('Controls how labels and fields are arranged.', MTFORMS_TEXT_DOMAIN),
             ]
         );
 
@@ -164,14 +156,13 @@ class MTForms_Widget extends \Elementor\Widget_Base
             ]
         );
 
-        $this->end_controls_section();
-
-        // ---- Fields Configuration Section ----
-        $this->start_controls_section(
-            'section_fields',
+        // ---- Form Fields Heading ----
+        $this->add_control(
+            'heading_form_fields',
             [
                 'label' => esc_html__('Form Fields', MTFORMS_TEXT_DOMAIN),
-                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
             ]
         );
 
@@ -260,7 +251,20 @@ class MTForms_Widget extends \Elementor\Widget_Base
         );
 
         $this->add_control(
-            'hr_labels_section',
+            'show_captcha',
+            [
+                'label' => esc_html__('Show Captcha', MTFORMS_TEXT_DOMAIN),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
+                'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'description' => esc_html__('Uses the captcha provider configured in MTForms settings.', MTFORMS_TEXT_DOMAIN),
+            ]
+        );
+
+        $this->add_control(
+            'hr_display_options',
             [
                 'type' => \Elementor\Controls_Manager::DIVIDER,
             ]
@@ -314,6 +318,56 @@ class MTForms_Widget extends \Elementor\Widget_Base
                 ],
                 'condition' => [
                     'show_icons' => 'yes',
+                ],
+            ]
+        );
+
+        // ---- Input Style Heading ----
+        $this->add_control(
+            'heading_input_style',
+            [
+                'label' => esc_html__('Input Options', MTFORMS_TEXT_DOMAIN),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'input_style',
+            [
+                'label' => esc_html__('Input Style', MTFORMS_TEXT_DOMAIN),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'default' => 'default',
+                'options' => MTForms_Form_Renderer::get_input_styles(),
+                'description' => esc_html__('Sets the visual style for input fields.', MTFORMS_TEXT_DOMAIN),
+            ]
+        );
+
+        $this->add_control(
+            'input_size',
+            [
+                'label' => esc_html__('Input Size', MTFORMS_TEXT_DOMAIN),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'default' => 'medium',
+                'options' => [
+                    'small' => esc_html__('Small', MTFORMS_TEXT_DOMAIN),
+                    'medium' => esc_html__('Medium', MTFORMS_TEXT_DOMAIN),
+                    'large' => esc_html__('Large', MTFORMS_TEXT_DOMAIN),
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'textarea_rows',
+            [
+                'label' => esc_html__('Textarea Rows', MTFORMS_TEXT_DOMAIN),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'min' => 2,
+                'max' => 20,
+                'step' => 1,
+                'default' => 5,
+                'condition' => [
+                    'show_message' => 'yes',
                 ],
             ]
         );
@@ -572,6 +626,7 @@ class MTForms_Widget extends \Elementor\Widget_Base
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'solid',
                 'options' => MTForms_Form_Renderer::get_button_styles(),
+                'description' => esc_html__('Choose the button visual style.', MTFORMS_TEXT_DOMAIN),
             ]
         );
 
@@ -732,17 +787,6 @@ class MTForms_Widget extends \Elementor\Widget_Base
             ]
         );
 
-        $this->add_control(
-            'bg_color',
-            [
-                'label' => esc_html__('Background Color', MTFORMS_TEXT_DOMAIN),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .mtforms-container' => 'background-color: {{VALUE}};',
-                ],
-            ]
-        );
-
         $this->add_group_control(
             \Elementor\Group_Control_Background::get_type(),
             [
@@ -758,13 +802,6 @@ class MTForms_Widget extends \Elementor\Widget_Base
                 'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
-                'default' => [
-                    'top' => 30,
-                    'right' => 30,
-                    'bottom' => 30,
-                    'left' => 30,
-                    'unit' => 'px',
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .mtforms-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
@@ -874,30 +911,6 @@ class MTForms_Widget extends \Elementor\Widget_Base
             [
                 'label' => esc_html__('Input Fields', MTFORMS_TEXT_DOMAIN),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'input_style',
-            [
-                'label' => esc_html__('Input Style', MTFORMS_TEXT_DOMAIN),
-                'type' => \Elementor\Controls_Manager::SELECT,
-                'default' => 'default',
-                'options' => MTForms_Form_Renderer::get_input_styles(),
-            ]
-        );
-
-        $this->add_control(
-            'input_size',
-            [
-                'label' => esc_html__('Input Size', MTFORMS_TEXT_DOMAIN),
-                'type' => \Elementor\Controls_Manager::SELECT,
-                'default' => 'medium',
-                'options' => [
-                    'small' => esc_html__('Small', MTFORMS_TEXT_DOMAIN),
-                    'medium' => esc_html__('Medium', MTFORMS_TEXT_DOMAIN),
-                    'large' => esc_html__('Large', MTFORMS_TEXT_DOMAIN),
-                ],
             ]
         );
 
@@ -1142,17 +1155,6 @@ class MTForms_Widget extends \Elementor\Widget_Base
             ]
         );
 
-        $this->add_control(
-            'button_bg_color',
-            [
-                'label' => esc_html__('Background Color', MTFORMS_TEXT_DOMAIN),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .mtforms-submit-btn' => 'background-color: {{VALUE}};',
-                ],
-            ]
-        );
-
         $this->add_group_control(
             \Elementor\Group_Control_Background::get_type(),
             [
@@ -1380,6 +1382,68 @@ class MTForms_Widget extends \Elementor\Widget_Base
 
         $this->end_controls_section();
 
+        // ---- GDPR Consent Style Section ----
+        $this->start_controls_section(
+            'section_style_gdpr',
+            [
+                'label' => esc_html__('GDPR Consent', MTFORMS_TEXT_DOMAIN),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'show_gdpr' => 'yes',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'gdpr_checkbox_color',
+            [
+                'label' => esc_html__('Checkbox Color', MTFORMS_TEXT_DOMAIN),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mtforms-checkbox-label input[type="checkbox"]:checked + .mtforms-checkbox-custom' => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'gdpr_text_typography',
+                'selector' => '{{WRAPPER}} .mtforms-checkbox-text',
+            ]
+        );
+
+        $this->add_control(
+            'gdpr_text_color',
+            [
+                'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mtforms-checkbox-text' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'gdpr_spacing',
+            [
+                'label' => esc_html__('Top Spacing', MTFORMS_TEXT_DOMAIN),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 40,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .mtforms-gdpr-group' => 'margin-top: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
         // ---- Advanced Section ----
         $this->start_controls_section(
             'section_advanced',
@@ -1422,46 +1486,48 @@ class MTForms_Widget extends \Elementor\Widget_Base
 
         // Prepare settings for the renderer
         $form_settings = array(
-            'skin' => $settings['skin'],
-            'layout' => $settings['layout'],
-            'animation' => $settings['animation'],
-            'form_alignment' => $settings['form_alignment'],
-            'show_name' => $settings['show_name'],
-            'show_email' => $settings['show_email'],
-            'show_phone' => $settings['show_phone'],
-            'show_website' => $settings['show_website'],
-            'show_subject' => $settings['show_subject'],
-            'show_message' => $settings['show_message'],
-            'show_gdpr' => $settings['show_gdpr'],
-            'show_labels' => $settings['show_labels'],
-            'show_placeholders' => $settings['show_placeholders'],
-            'show_icons' => $settings['show_icons'],
-            'icon_position' => $settings['icon_position'],
-            'label_name' => $settings['label_name'],
-            'label_email' => $settings['label_email'],
-            'label_phone' => isset($settings['label_phone']) ? $settings['label_phone'] : '',
-            'label_website' => isset($settings['label_website']) ? $settings['label_website'] : '',
-            'label_subject' => $settings['label_subject'],
-            'label_message' => $settings['label_message'],
-            'placeholder_name' => $settings['placeholder_name'],
-            'placeholder_email' => $settings['placeholder_email'],
-            'placeholder_phone' => isset($settings['placeholder_phone']) ? $settings['placeholder_phone'] : '',
-            'placeholder_website' => isset($settings['placeholder_website']) ? $settings['placeholder_website'] : '',
-            'placeholder_subject' => $settings['placeholder_subject'],
-            'placeholder_message' => $settings['placeholder_message'],
-            'gdpr_text' => $settings['gdpr_text'],
-            'button_text' => $settings['button_text'],
-            'button_style' => $settings['button_style'],
-            'button_width' => $settings['button_width'],
-            'button_align' => $settings['button_align'],
-            'button_icon' => $settings['button_icon'],
-            'button_icon_position' => $settings['button_icon_position'],
-            'input_style' => $settings['input_style'],
-            'input_size' => $settings['input_size'],
-            'success_message' => $settings['success_message'],
-            'error_message' => $settings['error_message'],
-            'form_id' => isset($settings['form_id']) ? $settings['form_id'] : '',
-            'custom_css_class' => isset($settings['custom_css_class']) ? $settings['custom_css_class'] : '',
+            'skin' => !empty($settings['skin']) ? $settings['skin'] : 'default',
+            'layout' => !empty($settings['layout']) ? $settings['layout'] : 'stacked',
+            'animation' => 'none',
+            'form_alignment' => !empty($settings['form_alignment']) ? $settings['form_alignment'] : 'center',
+            'show_name' => !empty($settings['show_name']) ? $settings['show_name'] : '',
+            'show_email' => !empty($settings['show_email']) ? $settings['show_email'] : '',
+            'show_phone' => !empty($settings['show_phone']) ? $settings['show_phone'] : '',
+            'show_website' => !empty($settings['show_website']) ? $settings['show_website'] : '',
+            'show_subject' => !empty($settings['show_subject']) ? $settings['show_subject'] : '',
+            'show_message' => !empty($settings['show_message']) ? $settings['show_message'] : '',
+            'show_gdpr' => !empty($settings['show_gdpr']) ? $settings['show_gdpr'] : '',
+            'show_captcha' => !empty($settings['show_captcha']) ? $settings['show_captcha'] : '',
+            'show_labels' => !empty($settings['show_labels']) ? $settings['show_labels'] : '',
+            'show_placeholders' => !empty($settings['show_placeholders']) ? $settings['show_placeholders'] : '',
+            'show_icons' => !empty($settings['show_icons']) ? $settings['show_icons'] : '',
+            'icon_position' => !empty($settings['icon_position']) ? $settings['icon_position'] : 'left',
+            'label_name' => !empty($settings['label_name']) ? $settings['label_name'] : '',
+            'label_email' => !empty($settings['label_email']) ? $settings['label_email'] : '',
+            'label_phone' => !empty($settings['label_phone']) ? $settings['label_phone'] : '',
+            'label_website' => !empty($settings['label_website']) ? $settings['label_website'] : '',
+            'label_subject' => !empty($settings['label_subject']) ? $settings['label_subject'] : '',
+            'label_message' => !empty($settings['label_message']) ? $settings['label_message'] : '',
+            'placeholder_name' => !empty($settings['placeholder_name']) ? $settings['placeholder_name'] : '',
+            'placeholder_email' => !empty($settings['placeholder_email']) ? $settings['placeholder_email'] : '',
+            'placeholder_phone' => !empty($settings['placeholder_phone']) ? $settings['placeholder_phone'] : '',
+            'placeholder_website' => !empty($settings['placeholder_website']) ? $settings['placeholder_website'] : '',
+            'placeholder_subject' => !empty($settings['placeholder_subject']) ? $settings['placeholder_subject'] : '',
+            'placeholder_message' => !empty($settings['placeholder_message']) ? $settings['placeholder_message'] : '',
+            'gdpr_text' => !empty($settings['gdpr_text']) ? $settings['gdpr_text'] : '',
+            'button_text' => !empty($settings['button_text']) ? $settings['button_text'] : '',
+            'button_style' => !empty($settings['button_style']) ? $settings['button_style'] : 'solid',
+            'button_width' => !empty($settings['button_width']) ? $settings['button_width'] : 'auto',
+            'button_align' => !empty($settings['button_align']) ? $settings['button_align'] : 'left',
+            'button_icon' => !empty($settings['button_icon']) ? $settings['button_icon'] : 'none',
+            'button_icon_position' => !empty($settings['button_icon_position']) ? $settings['button_icon_position'] : 'right',
+            'input_style' => !empty($settings['input_style']) ? $settings['input_style'] : 'default',
+            'input_size' => !empty($settings['input_size']) ? $settings['input_size'] : 'medium',
+            'textarea_rows' => !empty($settings['textarea_rows']) ? $settings['textarea_rows'] : 5,
+            'success_message' => !empty($settings['success_message']) ? $settings['success_message'] : '',
+            'error_message' => !empty($settings['error_message']) ? $settings['error_message'] : '',
+            'form_id' => !empty($settings['form_id']) ? $settings['form_id'] : '',
+            'custom_css_class' => !empty($settings['custom_css_class']) ? $settings['custom_css_class'] : '',
         );
 
         // Add hover animation class
@@ -1472,6 +1538,14 @@ class MTForms_Widget extends \Elementor\Widget_Base
         echo MTForms_Form_Renderer::render($form_settings);
     }
 
-
+    /**
+     * Render widget output in the editor (server-side rendered).
+     *
+     * @since 1.1.0
+     */
+    protected function content_template()
+    {
+        // Server-side rendered widget — no JS template needed
+    }
 
 }

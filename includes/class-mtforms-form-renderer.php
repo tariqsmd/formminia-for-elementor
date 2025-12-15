@@ -136,6 +136,7 @@ class MTForms_Form_Renderer {
             // Input Styling
             'input_style'           => 'default',
             'input_size'            => 'medium',
+            'textarea_rows'         => 5,
 
             // Typography (will be Elementor group controls)
             'label_color'           => '',
@@ -178,6 +179,9 @@ class MTForms_Form_Renderer {
             // Icon Settings (for fields)
             'show_icons'            => 'no',
             'icon_position'         => 'left',
+
+            // Captcha
+            'show_captcha'          => 'yes',
 
             // Advanced
             'custom_css_class'      => '',
@@ -569,7 +573,7 @@ class MTForms_Form_Renderer {
                         <textarea name="mtforms_message" 
                                   id="mtforms_message_<?php echo esc_attr( $unique_id ); ?>" 
                                   class="mtforms-textarea mtforms-input-message" 
-                                  rows="5" 
+                                  rows="<?php echo esc_attr( $settings['textarea_rows'] ); ?>" 
                                   <?php if ( $settings['show_placeholders'] === 'yes' ) : ?>
                                   placeholder="<?php echo esc_attr( $settings['placeholder_message'] ); ?>"
                                   <?php endif; ?>
@@ -593,23 +597,25 @@ class MTForms_Form_Renderer {
                 <?php endif; ?>
 
                 <?php
-                // Captcha
-                $captcha_provider = get_option( 'mtforms_captcha_provider', 'none' );
-                if ( $captcha_provider === 'recaptcha' ) {
-                    $site_key = get_option( 'mtforms_recaptcha_site_key' );
-                    if ( ! empty( $site_key ) ) {
-                        echo '<div class="mtforms-captcha-wrap"><div class="g-recaptcha" data-sitekey="' . esc_attr( $site_key ) . '"></div></div>';
-                    }
-                } elseif ( $captcha_provider === 'turnstile' ) {
-                    $site_key = get_option( 'mtforms_turnstile_site_key' );
-                    if ( ! empty( $site_key ) ) {
-                        echo '<div class="mtforms-captcha-wrap"><div class="cf-turnstile" data-sitekey="' . esc_attr( $site_key ) . '"></div></div>';
+                // Captcha (only if show_captcha is enabled)
+                if ( $settings['show_captcha'] === 'yes' ) {
+                    $captcha_provider = get_option( 'mtforms_captcha_provider', 'none' );
+                    if ( $captcha_provider === 'recaptcha' ) {
+                        $site_key = get_option( 'mtforms_recaptcha_site_key' );
+                        if ( ! empty( $site_key ) ) {
+                            echo '<div class="mtforms-captcha-wrap"><div class="g-recaptcha" data-sitekey="' . esc_attr( $site_key ) . '"></div></div>';
+                        }
+                    } elseif ( $captcha_provider === 'turnstile' ) {
+                        $site_key = get_option( 'mtforms_turnstile_site_key' );
+                        if ( ! empty( $site_key ) ) {
+                            echo '<div class="mtforms-captcha-wrap"><div class="cf-turnstile" data-sitekey="' . esc_attr( $site_key ) . '"></div></div>';
+                        }
                     }
                 }
                 ?>
 
                 <div class="mtforms-form-actions mtforms-button-align-<?php echo esc_attr( $settings['button_align'] ); ?>">
-                    <button type="submit" class="mtforms-submit-btn">
+                    <button type="submit" class="mtforms-submit-btn<?php echo ! empty( $settings['button_hover_class'] ) ? ' ' . esc_attr( $settings['button_hover_class'] ) : ''; ?>">
                         <?php if ( $settings['button_icon'] !== 'none' && $settings['button_icon_position'] === 'left' ) : ?>
                         <span class="mtforms-btn-icon mtforms-btn-icon-left">
                             <?php echo self::get_button_icon( $settings['button_icon'] ); ?>

@@ -13,7 +13,7 @@
  * @wordpress-plugin
  * Plugin Name:       MTForms
  * Plugin URI:        https://developer.developer.developer/mtforms
- * Description:       A modern, feature-rich contact form plugin with multiple skins, layouts, GDPR support, and Elementor/Gutenberg integration.
+ * Description:       A modern, feature-rich contact form plugin with multiple skins, layouts, GDPR support, and Elementor integration.
  * Version:           1.1.0
  * Author:            Muhammad Tariq
  * Author URI:        https://developer.developer.developer

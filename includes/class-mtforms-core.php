@@ -106,10 +106,6 @@ class MTForms_Core
          */
         require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-mtforms-public.php';
 
-        /**
-         * The class responsible for registering Gutenberg Blocks
-         */
-        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-mtforms-blocks.php';
 
         /**
          * The class responsible for registering Elementor Widgets
@@ -141,9 +137,6 @@ class MTForms_Core
 
         $this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
 
-        // Register Blocks
-        $plugin_blocks = new MTForms_Blocks();
-        $this->loader->add_action('init', $plugin_blocks, 'register_blocks');
 
         // Register Elementor Integration
         new MTForms_Elementor();

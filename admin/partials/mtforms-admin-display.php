@@ -61,8 +61,7 @@ $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'general
                             </th>
                             <td>
                                 <select name="mtforms_captcha_provider" id="mtforms_captcha_provider">
-                                    <option value="none" <?php selected(get_option('mtforms_captcha_provider'), 'none'); ?>
-                                        >
+                                    <option value="none" <?php selected(get_option('mtforms_captcha_provider'), 'none'); ?>>
                                         <?php esc_html_e('None', MTFORMS_TEXT_DOMAIN); ?>
                                     </option>
                                     <option value="recaptcha" <?php selected(get_option('mtforms_captcha_provider'), 'recaptcha'); ?>>
@@ -537,7 +536,7 @@ $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'general
                     </table>
                 </div>
 
-                <!-- Elementor & Gutenberg -->
+                <!-- Elementor Widget -->
                 <div class="card mtforms-card">
                     <h3>🎯
                         <?php esc_html_e('Elementor Widget', MTFORMS_TEXT_DOMAIN); ?>
@@ -567,34 +566,6 @@ $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'general
                     </ul>
                 </div>
 
-                <div class="card mtforms-card">
-                    <h3>📦
-                        <?php esc_html_e('Gutenberg Block', MTFORMS_TEXT_DOMAIN); ?>
-                    </h3>
-                    <p>
-                        <?php printf(esc_html__('In the Block Editor, add the %s block. Configure all settings in the block sidebar.', MTFORMS_TEXT_DOMAIN), '<strong>"MTForms"</strong>'); ?>
-                    </p>
-                    <ul style="margin-left: 20px;">
-                        <li>✅
-                            <?php esc_html_e('Full preset support', MTFORMS_TEXT_DOMAIN); ?>
-                        </li>
-                        <li>✅
-                            <?php esc_html_e('Layout selection', MTFORMS_TEXT_DOMAIN); ?>
-                        </li>
-                        <li>✅
-                            <?php esc_html_e('Field toggles', MTFORMS_TEXT_DOMAIN); ?>
-                        </li>
-                        <li>✅
-                            <?php esc_html_e('Custom labels & placeholders', MTFORMS_TEXT_DOMAIN); ?>
-                        </li>
-                        <li>✅
-                            <?php esc_html_e('Button customization', MTFORMS_TEXT_DOMAIN); ?>
-                        </li>
-                        <li>✅
-                            <?php esc_html_e('Success/error messages', MTFORMS_TEXT_DOMAIN); ?>
-                        </li>
-                    </ul>
-                </div>
             </div>
 
         <?php endif; ?>
