@@ -19,19 +19,17 @@
  * @subpackage MTForms/includes
  * @author     Muhammad Tariq
  */
-class MTForms_Activator
-{
+class MTForms_Activator {
 
-    /**
-     * Short Description. (use period)
-     *
-     * Long Description.
-     *
-     * @since    1.0.0
-     */
-    public static function activate()
-    {
+	/**
+	 * Short Description. (use period)
+	 *
+	 * Long Description.
+	 *
+	 * @since    1.0.0
+	 */
+	public static function activate() {
 
-    }
+	}
 
 }

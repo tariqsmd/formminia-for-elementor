@@ -5,8 +5,8 @@
  * @var array $args Partial arguments
  */
 
-if (!defined('ABSPATH')) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
 // This partial can be used to render the response message container

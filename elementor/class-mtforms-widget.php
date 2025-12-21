@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) {
 
 /**
  * Elementor Widget Class - MT Contact Form
- * 
+ *
  * Comprehensive contact form widget with extensive customization options
  *
  * @since 1.1.0
@@ -79,143 +79,7 @@ class MTForms_Widget extends \Elementor\Widget_Base
         return ['mtforms'];
     }
 
-    /**
-     * Get partial template file.
-     *
-     * @param string $template Template name.
-     * @param array  $args     Arguments to pass to the template.
-     */
-    public function get_partial($template, $args = [])
-    {
-        $path = MTFORMS_PLUGIN_DIR . 'elementor/partials/' . $template . '.php';
-        if (file_exists($path)) {
-            include $path;
-        }
-    }
 
-    /**
-     * Render a form field.
-     */
-    public function render_field($type, $settings, $unique_id)
-    {
-        $field_args = [
-            'settings' => $settings,
-            'unique_id' => $unique_id,
-            'type' => $type,
-            'required' => true, // Default to true for name, email, message
-            'field_id' => 'field-' . $type . '-' . $unique_id,
-        ];
-
-        switch ($type) {
-            case 'name':
-                $field_args['name'] = 'mtforms_name';
-                $field_args['label'] = $settings['label_name'];
-                $field_args['placeholder'] = $settings['placeholder_name'];
-                $field_args['icon_svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>';
-                break;
-            case 'email':
-                $field_args['name'] = 'mtforms_email';
-                $field_args['label'] = $settings['label_email'];
-                $field_args['placeholder'] = $settings['placeholder_email'];
-                $field_args['icon_svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>';
-                break;
-            case 'phone':
-                $field_args['name'] = 'mtforms_phone';
-                $field_args['label'] = $settings['label_phone'];
-                $field_args['placeholder'] = $settings['placeholder_phone'];
-                $field_args['type'] = 'tel';
-                $field_args['required'] = false;
-                $field_args['icon_svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>';
-                break;
-            case 'website':
-                $field_args['name'] = 'mtforms_website';
-                $field_args['label'] = $settings['label_website'];
-                $field_args['placeholder'] = $settings['placeholder_website'];
-                $field_args['type'] = 'url';
-                $field_args['required'] = false;
-                $field_args['icon_svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2z"/></svg>';
-                break;
-            case 'subject':
-                $field_args['name'] = 'mtforms_subject';
-                $field_args['label'] = $settings['label_subject'];
-                $field_args['placeholder'] = $settings['placeholder_subject'];
-                $field_args['required'] = false;
-                $field_args['icon_svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6z"/></svg>';
-                break;
-            case 'message':
-                $field_args['name'] = 'mtforms_message';
-                $field_args['label'] = $settings['label_message'];
-                $field_args['placeholder'] = $settings['placeholder_message'];
-                $field_args['type'] = 'textarea';
-                $field_args['icon_svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>';
-                break;
-        }
-
-        $this->get_partial('field-item', $field_args);
-    }
-
-    /**
-     * Render the submit button.
-     */
-    public function render_button($settings)
-    {
-        $icons = [
-            'send' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>',
-            'arrow-right' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>',
-            'check' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>',
-            'mail' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>',
-        ];
-
-        $icon_svg = isset($icons[$settings['button_icon']]) ? $icons[$settings['button_icon']] : '';
-
-        $this->get_partial('button', [
-            'settings' => $settings,
-            'icon_svg' => $icon_svg,
-        ]);
-    }
-
-    /**
-     * Render the form contents.
-     */
-    public function render_form_content($settings, $unique_id)
-    {
-        if ($settings['show_name'] === 'yes') {
-            $this->render_field('name', $settings, $unique_id);
-        }
-
-        if ($settings['show_email'] === 'yes') {
-            $this->render_field('email', $settings, $unique_id);
-        }
-
-        if ($settings['show_phone'] === 'yes') {
-            $this->render_field('phone', $settings, $unique_id);
-        }
-
-        if ($settings['show_website'] === 'yes') {
-            $this->render_field('website', $settings, $unique_id);
-        }
-
-        if ($settings['show_subject'] === 'yes') {
-            $this->render_field('subject', $settings, $unique_id);
-        }
-
-        if ($settings['show_message'] === 'yes') {
-            $this->render_field('message', $settings, $unique_id);
-        }
-
-        $this->get_partial('gdpr', [
-            'settings' => $settings,
-            'unique_id' => $unique_id,
-        ]);
-
-        $this->get_partial('captcha', [
-            'settings' => $settings,
-        ]);
-
-        $this->render_button($settings);
-
-        $this->get_partial('response', []);
-    }
 
     /**
      * Register widget controls.
@@ -240,7 +104,6 @@ class MTForms_Widget extends \Elementor\Widget_Base
         $this->register_message_controls();
         $this->register_advanced_controls();
     }
-
 
 
     /**
@@ -980,6 +843,9 @@ class MTForms_Widget extends \Elementor\Widget_Base
         $this->register_style_label_controls();
         $this->register_style_field_controls();
         $this->register_style_button_controls();
+        $this->register_style_message_controls();
+        $this->register_style_icon_controls();
+        $this->register_style_gdpr_controls();
     }
 
     /**
@@ -1544,75 +1410,11 @@ class MTForms_Widget extends \Elementor\Widget_Base
     /**
      * Style: Message Controls.
      */
-    protected function register_style_message_controls()
+    /**
+     * Style: Icon Controls.
+     */
+    protected function register_style_icon_controls()
     {
-        $this->start_controls_section(
-            'section_style_messages',
-            [
-                'label' => esc_html__('Messages', MTFORMS_TEXT_DOMAIN),
-                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_group_control(
-            \Elementor\Group_Control_Typography::get_type(),
-            [
-                'name' => 'message_typography',
-                'selector' => '{{WRAPPER}} .mtforms-response-message',
-            ]
-        );
-
-        $this->add_control(
-            'success_color',
-            [
-                'label' => esc_html__('Success Color', MTFORMS_TEXT_DOMAIN),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'default' => '#4caf50',
-                'selectors' => [
-                    '{{WRAPPER}} .mtforms-response-message.success' => 'color: {{VALUE}}; border-color: {{VALUE}}; background-color: {{VALUE}}1a;',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'error_message_color',
-            [
-                'label' => esc_html__('Error Color', MTFORMS_TEXT_DOMAIN),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'default' => '#dc3232',
-                'selectors' => [
-                    '{{WRAPPER}} .mtforms-response-message.error' => 'color: {{VALUE}}; border-color: {{VALUE}}; background-color: {{VALUE}}1a;',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'message_padding',
-            [
-                'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em'],
-                'selectors' => [
-                    '{{WRAPPER}} .mtforms-response-message' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'message_border_radius',
-            [
-                'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .mtforms-response-message' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // ---- Field Icons Style Section ----
         $this->start_controls_section(
             'section_style_icons',
             [
@@ -1658,8 +1460,13 @@ class MTForms_Widget extends \Elementor\Widget_Base
         );
 
         $this->end_controls_section();
+    }
 
-        // ---- GDPR Consent Style Section ----
+    /**
+     * Style: GDPR Controls.
+     */
+    protected function register_style_gdpr_controls()
+    {
         $this->start_controls_section(
             'section_style_gdpr',
             [
@@ -1720,36 +1527,6 @@ class MTForms_Widget extends \Elementor\Widget_Base
         );
 
         $this->end_controls_section();
-
-        // ---- Advanced Section ----
-        $this->start_controls_section(
-            'section_advanced',
-            [
-                'label' => esc_html__('Advanced', MTFORMS_TEXT_DOMAIN),
-                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
-            ]
-        );
-
-        $this->add_control(
-            'form_id',
-            [
-                'label' => esc_html__('Form ID', MTFORMS_TEXT_DOMAIN),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'description' => esc_html__('Set a custom ID for this form instance.', MTFORMS_TEXT_DOMAIN),
-            ]
-        );
-
-        $this->add_control(
-            'custom_css_class',
-            [
-                'label' => esc_html__('Custom CSS Class', MTFORMS_TEXT_DOMAIN),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'description' => esc_html__('Add custom CSS class(es) to the form.', MTFORMS_TEXT_DOMAIN),
-            ]
-        );
-
-        $this->end_controls_section();
-
     }
 
     /**
@@ -1758,7 +1535,7 @@ class MTForms_Widget extends \Elementor\Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-        $unique_id = substr(md5($this->get_id()), 0, 8);
+        $unique_id = $this->get_id();
 
         // Add hover animation class
         if (!empty($settings['button_hover_animation'])) {
@@ -1784,95 +1561,235 @@ class MTForms_Widget extends \Elementor\Widget_Base
     protected function _content_template()
     {
         ?>
-                <#
-                var unique_id = view.getID();
-                var container_classes = ['mtforms-form-wrapper', 'mtforms-skin-' + settings.skin];
-                if (settings.layout) {
-                    container_classes.push('mtforms-layout-' + settings.layout);
-                }
-                if (settings.custom_css_class) {
-                    container_classes.push(settings.custom_css_class);
-                }
+                <# var unique_id=view.getID(); var container_classes=['mtforms-form-wrapper', 'mtforms-skin-' + settings.skin]; if
+                    (settings.layout) { container_classes.push('mtforms-layout-' + settings.layout); } if (settings.custom_css_class) {
+                    container_classes.push(settings.custom_css_class); } var btn_classes=['mtforms-submit-btn']; if
+                    (settings.button_hover_animation) { btn_classes.push('elementor-animation-' + settings.button_hover_animation); } #>
 
-                var btn_classes = ['mtforms-submit-btn'];
-                if (settings.button_hover_animation) {
-                    btn_classes.push('elementor-animation-' + settings.button_hover_animation);
-                }
-                #>
-
-                <div class="{{ container_classes.join(' ') }}" id="mtforms-{{ unique_id }}">
-                    <form class="mtforms-form" id="{{ settings.form_id || 'mtforms-form-' + unique_id }}">
-                        <div class="mtforms-form-inner">
-                            <# if (settings.show_name === 'yes') { #>
-                                <div class="mtforms-form-group">
-                                    <# if (settings.show_labels === 'yes') { #>
-                                        <label>{{ settings.label_name }}</label>
+                    <div class="{{ container_classes.join(' ') }}" id="mtforms-{{ unique_id }}">
+                        <form class="mtforms-form" id="{{ settings.form_id || 'mtforms-form-' + unique_id }}">
+                            <div class="mtforms-form-inner">
+                                <# if (settings.show_name==='yes' ) { #>
+                                    <div class="mtforms-form-group">
+                                        <# if (settings.show_labels==='yes' ) { #>
+                                            <label>{{ settings.label_name }}</label>
+                                            <# } #>
+                                                <input type="text" class="mtforms-input"
+                                                    placeholder="{{ settings.show_placeholders === 'yes' ? settings.placeholder_name : '' }}">
+                                    </div>
                                     <# } #>
-                                    <input type="text" class="mtforms-input" placeholder="{{ settings.show_placeholders === 'yes' ? settings.placeholder_name : '' }}">
-                                </div>
-                            <# } #>
 
-                            <# if (settings.show_email === 'yes') { #>
-                                <div class="mtforms-form-group">
-                                    <# if (settings.show_labels === 'yes') { #>
-                                        <label>{{ settings.label_email }}</label>
-                                    <# } #>
-                                    <input type="email" class="mtforms-input" placeholder="{{ settings.show_placeholders === 'yes' ? settings.placeholder_email : '' }}">
-                                </div>
-                            <# } #>
+                                        <# if (settings.show_email==='yes' ) { #>
+                                            <div class="mtforms-form-group">
+                                                <# if (settings.show_labels==='yes' ) { #>
+                                                    <label>{{ settings.label_email }}</label>
+                                                    <# } #>
+                                                        <input type="email" class="mtforms-input"
+                                                            placeholder="{{ settings.show_placeholders === 'yes' ? settings.placeholder_email : '' }}">
+                                            </div>
+                                            <# } #>
 
-                            <# if (settings.show_phone === 'yes') { #>
-                                <div class="mtforms-form-group">
-                                    <# if (settings.show_labels === 'yes') { #>
-                                        <label>{{ settings.label_phone }}</label>
-                                    <# } #>
-                                    <input type="tel" class="mtforms-input" placeholder="{{ settings.show_placeholders === 'yes' ? settings.placeholder_phone : '' }}">
-                                </div>
-                            <# } #>
+                                                <# if (settings.show_phone==='yes' ) { #>
+                                                    <div class="mtforms-form-group">
+                                                        <# if (settings.show_labels==='yes' ) { #>
+                                                            <label>{{ settings.label_phone }}</label>
+                                                            <# } #>
+                                                                <input type="tel" class="mtforms-input"
+                                                                    placeholder="{{ settings.show_placeholders === 'yes' ? settings.placeholder_phone : '' }}">
+                                                    </div>
+                                                    <# } #>
 
-                            <# if (settings.show_subject === 'yes') { #>
-                                <div class="mtforms-form-group">
-                                    <# if (settings.show_labels === 'yes') { #>
-                                        <label>{{ settings.label_subject }}</label>
-                                    <# } #>
-                                    <input type="text" class="mtforms-input" placeholder="{{ settings.show_placeholders === 'yes' ? settings.placeholder_subject : '' }}">
-                                </div>
-                            <# } #>
+                                                        <# if (settings.show_subject==='yes' ) { #>
+                                                            <div class="mtforms-form-group">
+                                                                <# if (settings.show_labels==='yes' ) { #>
+                                                                    <label>{{ settings.label_subject }}</label>
+                                                                    <# } #>
+                                                                        <input type="text" class="mtforms-input"
+                                                                            placeholder="{{ settings.show_placeholders === 'yes' ? settings.placeholder_subject : '' }}">
+                                                            </div>
+                                                            <# } #>
 
-                            <# if (settings.show_message === 'yes') { #>
-                                <div class="mtforms-form-group">
-                                    <# if (settings.show_labels === 'yes') { #>
-                                        <label>{{ settings.label_message }}</label>
-                                    <# } #>
-                                    <textarea class="mtforms-textarea" rows="{{ settings.textarea_rows }}">{{ settings.show_placeholders === 'yes' ? settings.placeholder_message : '' }}</textarea>
-                                </div>
-                            <# } #>
+                                                                <# if (settings.show_message==='yes' ) { #>
+                                                                    <div class="mtforms-form-group">
+                                                                        <# if (settings.show_labels==='yes' ) { #>
+                                                                            <label>{{ settings.label_message }}</label>
+                                                                            <# } #>
+                                                                                <textarea class="mtforms-textarea"
+                                                                                    rows="{{ settings.textarea_rows }}">{{ settings.show_placeholders === 'yes' ? settings.placeholder_message : '' }}</textarea>
+                                                                    </div>
+                                                                    <# } #>
 
-                            <# if (settings.show_gdpr === 'yes') { #>
-                                <div class="mtforms-gdpr-consent">
-                                    <label>
-                                        <input type="checkbox"> {{{ settings.gdpr_text }}}
-                                    </label>
-                                </div>
-                            <# } #>
+                                                                        <# if (settings.show_gdpr==='yes' ) { #>
+                                                                            <div class="mtforms-gdpr-consent">
+                                                                                <label>
+                                                                                    <input type="checkbox"> {{{ settings.gdpr_text }}}
+                                                                                </label>
+                                                                            </div>
+                                                                            <# } #>
 
-                            <div class="mtforms-submit-container mtforms-align-{{ settings.button_align }}">
-                                <button type="submit" class="{{ btn_classes.join(' ') }} mtforms-btn-{{ settings.button_style }} mtforms-btn-w-{{ settings.button_width }}">
-                                    <# if (settings.button_icon !== 'none' && settings.button_icon_position === 'left') { #>
-                                        <i class="fas fa-{{ settings.button_icon }}"></i>
-                                    <# } #>
-                                    <span>{{ settings.button_text }}</span>
-                                    <# if (settings.button_icon !== 'none' && settings.button_icon_position === 'right') { #>
-                                        <i class="fas fa-{{ settings.button_icon }}"></i>
-                                    <# } #>
-                                </button>
+                                                                                <div
+                                                                                    class="mtforms-submit-container mtforms-align-{{ settings.button_align }}">
+                                                                                    <button type="submit"
+                                                                                        class="{{ btn_classes.join(' ') }} mtforms-btn-{{ settings.button_style }} mtforms-btn-w-{{ settings.button_width }}">
+                                                                                        <# if (settings.button_icon !=='none' &&
+                                                                                            settings.button_icon_position==='left' ) {
+                                                                                            #>
+                                                                                            <i
+                                                                                                class="fas fa-{{ settings.button_icon }}"></i>
+                                                                                            <# } #>
+                                                                                                <span>{{ settings.button_text }}</span>
+                                                                                                <# if (settings.button_icon !=='none' &&
+                                                                                                    settings.button_icon_position==='right'
+                                                                                                    ) { #>
+                                                                                                    <i
+                                                                                                        class="fas fa-{{ settings.button_icon }}"></i>
+                                                                                                    <# } #>
+                                                                                    </button>
+                                                                                </div>
+
+                                                                                <div class="mtforms-response-message"></div>
                             </div>
+                        </form>
+                    </div>
+                    <?php
+    }
 
-                            <div class="mtforms-response-message"></div>
-                        </div>
-                    </form>
-                </div>
-                <?php
+    /**
+     * Render the form contents.
+     */
+    public function render_form_content($settings, $unique_id)
+    {
+        if ($settings['show_name'] === 'yes') {
+            $this->render_field('name', $settings, $unique_id);
+        }
+
+        if ($settings['show_email'] === 'yes') {
+            $this->render_field('email', $settings, $unique_id);
+        }
+
+        if ($settings['show_phone'] === 'yes') {
+            $this->render_field('phone', $settings, $unique_id);
+        }
+
+        if ($settings['show_website'] === 'yes') {
+            $this->render_field('website', $settings, $unique_id);
+        }
+
+        if ($settings['show_subject'] === 'yes') {
+            $this->render_field('subject', $settings, $unique_id);
+        }
+
+        if ($settings['show_message'] === 'yes') {
+            $this->render_field('message', $settings, $unique_id);
+        }
+
+        $this->get_partial('gdpr', [
+            'settings' => $settings,
+            'unique_id' => $unique_id,
+        ]);
+
+        $this->get_partial('captcha', [
+            'settings' => $settings,
+        ]);
+
+        $this->render_button($settings);
+
+        $this->get_partial('response', []);
+    }
+
+    /**
+     * Render a form field.
+     */
+    public function render_field($type, $settings, $unique_id)
+    {
+        $field_args = [
+            'settings' => $settings,
+            'unique_id' => $unique_id,
+            'type' => $type,
+            'required' => true, // Default to true for name, email, message
+            'field_id' => 'field-' . $type . '-' . $unique_id,
+        ];
+
+        switch ($type) {
+            case 'name':
+                $field_args['name'] = 'mtforms_name';
+                $field_args['label'] = $settings['label_name'];
+                $field_args['placeholder'] = $settings['placeholder_name'];
+                $field_args['icon_svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>';
+                break;
+            case 'email':
+                $field_args['name'] = 'mtforms_email';
+                $field_args['label'] = $settings['label_email'];
+                $field_args['placeholder'] = $settings['placeholder_email'];
+                $field_args['icon_svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>';
+                break;
+            case 'phone':
+                $field_args['name'] = 'mtforms_phone';
+                $field_args['label'] = $settings['label_phone'];
+                $field_args['placeholder'] = $settings['placeholder_phone'];
+                $field_args['type'] = 'tel';
+                $field_args['required'] = false;
+                $field_args['icon_svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>';
+                break;
+            case 'website':
+                $field_args['name'] = 'mtforms_website';
+                $field_args['label'] = $settings['label_website'];
+                $field_args['placeholder'] = $settings['placeholder_website'];
+                $field_args['type'] = 'url';
+                $field_args['required'] = false;
+                $field_args['icon_svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2z"/></svg>';
+                break;
+            case 'subject':
+                $field_args['name'] = 'mtforms_subject';
+                $field_args['label'] = $settings['label_subject'];
+                $field_args['placeholder'] = $settings['placeholder_subject'];
+                $field_args['required'] = false;
+                $field_args['icon_svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6z"/></svg>';
+                break;
+            case 'message':
+                $field_args['name'] = 'mtforms_message';
+                $field_args['label'] = $settings['label_message'];
+                $field_args['placeholder'] = $settings['placeholder_message'];
+                $field_args['type'] = 'textarea';
+                $field_args['icon_svg'] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>';
+                break;
+        }
+
+        $this->get_partial('field-item', $field_args);
+    }
+
+    /**
+     * Render the submit button.
+     */
+    public function render_button($settings)
+    {
+        $icons = [
+            'send' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>',
+            'arrow-right' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>',
+            'check' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>',
+            'mail' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>',
+        ];
+
+        $icon_svg = isset($icons[$settings['button_icon']]) ? $icons[$settings['button_icon']] : '';
+
+        $this->get_partial('button', [
+            'settings' => $settings,
+            'icon_svg' => $icon_svg,
+        ]);
+    }
+
+    /**
+     * Get partial template file.
+     *
+     * @param string $template Template name.
+     * @param array  $args     Arguments to pass to the template.
+     */
+    public function get_partial($template, $args = [])
+    {
+        $path = MTFORMS_PLUGIN_DIR . 'elementor/partials/' . $template . '.php';
+        if (file_exists($path)) {
+            include $path;
+        }
     }
 
 }

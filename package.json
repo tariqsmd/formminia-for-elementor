@@ -1,21 +1,21 @@
 {
-    "name": "mtforms",
-    "version": "1.1.0",
-    "description": "A comprehensive contact form plugin for WordPress with MTForms branding.",
-    "main": "gulpfile.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "gulp"
-    },
-    "author": "Muhammad Tariq",
-    "license": "GPL-2.0-or-later",
-    "devDependencies": {
-        "gulp": "^4.0.2",
-        "gulp-clean-css": "^4.3.0",
-        "gulp-rename": "^2.0.0",
-        "gulp-sass": "^5.1.0",
-        "gulp-wp-pot": "^2.5.0",
-        "gulp-zip": "^5.1.0",
-        "sass": "^1.69.0"
-    }
+  "name": "mtforms",
+  "version": "1.1.0",
+  "description": "A comprehensive contact form plugin for WordPress with MTForms branding.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp"
+  },
+  "author": "Muhammad Tariq",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-wp-pot": "^2.5.0",
+    "gulp-zip": "^5.1.0",
+    "sass": "^1.69.0"
+  }
 }

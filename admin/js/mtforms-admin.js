@@ -1,4 +1,4 @@
-(function ($) {
+( function ( $ ) {
     'use strict';
 
     /**
@@ -9,4 +9,4 @@
      * admin side of the site.
      */
 
-})(jQuery);
+} )( jQuery );

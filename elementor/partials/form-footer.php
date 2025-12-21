@@ -5,10 +5,9 @@
  * @var array $args Partial arguments
  */
 
-if (!defined('ABSPATH')) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 ?>
 </div><!-- .mtforms-form-inner -->
-</form>
-</div><!-- .mtforms-form-wrapper -->
+</form></div><!-- .mtforms-form-wrapper -->
