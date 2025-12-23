@@ -1,14 +1,4 @@
 <?php
-
-/**
- * Register all actions and filters for the plugin
- *
- * @link       https://developer.developer.developer
- * @since      1.0.0
- * @package    MTForms
- * @subpackage MTForms/includes
- */
-
 /**
  * Register all actions and filters for the plugin.
  *
@@ -21,7 +11,6 @@
  * @author     Muhammad Tariq
  */
 class MTForms_Loader {
-
 	/**
 	 * The array of actions registered with WordPress.
 	 *
@@ -46,10 +35,8 @@ class MTForms_Loader {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-
 		$this->actions = array();
 		$this->filters = array();
-
 	}
 
 	/**

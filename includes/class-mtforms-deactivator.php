@@ -31,5 +31,4 @@ class MTForms_Deactivator {
 	public static function deactivate() {
 
 	}
-
 }

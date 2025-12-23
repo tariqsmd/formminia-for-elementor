@@ -828,6 +828,19 @@ class MTForms_Widget extends \Elementor\Widget_Base
             ]
         );
 
+        $this->add_control(
+            'show_captcha',
+            [
+                'label' => esc_html__('Show Captcha', MTFORMS_TEXT_DOMAIN),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Show', MTFORMS_TEXT_DOMAIN),
+                'label_off' => esc_html__('Hide', MTFORMS_TEXT_DOMAIN),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'description' => esc_html__('Enable or disable Captcha for this specific form instance.', MTFORMS_TEXT_DOMAIN),
+            ]
+        );
+
         $this->end_controls_section();
     }
     // =====================================================
@@ -1410,6 +1423,74 @@ class MTForms_Widget extends \Elementor\Widget_Base
     /**
      * Style: Message Controls.
      */
+    protected function register_style_message_controls()
+    {
+        $this->start_controls_section(
+            'section_style_messages',
+            [
+                'label' => esc_html__('Messages', MTFORMS_TEXT_DOMAIN),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'message_typography',
+                'selector' => '{{WRAPPER}} .mtforms-response-message',
+            ]
+        );
+
+        $this->add_control(
+            'success_color',
+            [
+                'label' => esc_html__('Success Color', MTFORMS_TEXT_DOMAIN),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#4caf50',
+                'selectors' => [
+                    '{{WRAPPER}} .mtforms-response-message.success' => 'color: {{VALUE}}; border-color: {{VALUE}}; background-color: {{VALUE}}1a;',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'error_message_color',
+            [
+                'label' => esc_html__('Error Color', MTFORMS_TEXT_DOMAIN),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#dc3232',
+                'selectors' => [
+                    '{{WRAPPER}} .mtforms-response-message.error' => 'color: {{VALUE}}; border-color: {{VALUE}}; background-color: {{VALUE}}1a;',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'message_padding',
+            [
+                'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .mtforms-response-message' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'message_border_radius',
+            [
+                'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .mtforms-response-message' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+    }
     /**
      * Style: Icon Controls.
      */
@@ -1561,41 +1642,51 @@ class MTForms_Widget extends \Elementor\Widget_Base
     protected function _content_template()
     {
         ?>
-                <# var unique_id=view.getID(); var container_classes=['mtforms-form-wrapper', 'mtforms-skin-' + settings.skin]; if
-                    (settings.layout) { container_classes.push('mtforms-layout-' + settings.layout); } if (settings.custom_css_class) {
-                    container_classes.push(settings.custom_css_class); } var btn_classes=['mtforms-submit-btn']; if
-                    (settings.button_hover_animation) { btn_classes.push('elementor-animation-' + settings.button_hover_animation); } #>
+        <# var unique_id=view.getID(); var container_classes=['mtforms-form-wrapper', 'mtforms-skin-' + settings.skin]; if
+            (settings.layout) { container_classes.push('mtforms-layout-' + settings.layout); } if (settings.custom_css_class) {
+            container_classes.push(settings.custom_css_class); } var btn_classes=['mtforms-submit-btn']; if
+            (settings.button_hover_animation) { btn_classes.push('elementor-animation-' + settings.button_hover_animation); } #>
 
-                    <div class="{{ container_classes.join(' ') }}" id="mtforms-{{ unique_id }}">
-                        <form class="mtforms-form" id="{{ settings.form_id || 'mtforms-form-' + unique_id }}">
-                            <div class="mtforms-form-inner">
-                                <# if (settings.show_name==='yes' ) { #>
+            <div class="{{ container_classes.join(' ') }}" id="mtforms-{{ unique_id }}">
+                <form class="mtforms-form" id="{{ settings.form_id || 'mtforms-form-' + unique_id }}">
+                    <div class="mtforms-form-inner">
+                        <# if (settings.show_name==='yes' ) { #>
+                            <div class="mtforms-form-group">
+                                <# if (settings.show_labels==='yes' ) { #>
+                                    <label>{{ settings.label_name }}</label>
+                                    <# } #>
+                                        <input type="text" class="mtforms-input"
+                                            placeholder="{{ settings.show_placeholders === 'yes' ? settings.placeholder_name : '' }}">
+                            </div>
+                            <# } #>
+
+                                <# if (settings.show_email==='yes' ) { #>
                                     <div class="mtforms-form-group">
                                         <# if (settings.show_labels==='yes' ) { #>
-                                            <label>{{ settings.label_name }}</label>
+                                            <label>{{ settings.label_email }}</label>
                                             <# } #>
-                                                <input type="text" class="mtforms-input"
-                                                    placeholder="{{ settings.show_placeholders === 'yes' ? settings.placeholder_name : '' }}">
+                                                <input type="email" class="mtforms-input"
+                                                    placeholder="{{ settings.show_placeholders === 'yes' ? settings.placeholder_email : '' }}">
                                     </div>
                                     <# } #>
 
-                                        <# if (settings.show_email==='yes' ) { #>
+                                        <# if (settings.show_phone==='yes' ) { #>
                                             <div class="mtforms-form-group">
                                                 <# if (settings.show_labels==='yes' ) { #>
-                                                    <label>{{ settings.label_email }}</label>
+                                                    <label>{{ settings.label_phone }}</label>
                                                     <# } #>
-                                                        <input type="email" class="mtforms-input"
-                                                            placeholder="{{ settings.show_placeholders === 'yes' ? settings.placeholder_email : '' }}">
+                                                        <input type="tel" class="mtforms-input"
+                                                            placeholder="{{ settings.show_placeholders === 'yes' ? settings.placeholder_phone : '' }}">
                                             </div>
                                             <# } #>
 
-                                                <# if (settings.show_phone==='yes' ) { #>
+                                                <# if (settings.show_website==='yes' ) { #>
                                                     <div class="mtforms-form-group">
                                                         <# if (settings.show_labels==='yes' ) { #>
-                                                            <label>{{ settings.label_phone }}</label>
+                                                            <label>{{ settings.label_website }}</label>
                                                             <# } #>
-                                                                <input type="tel" class="mtforms-input"
-                                                                    placeholder="{{ settings.show_placeholders === 'yes' ? settings.placeholder_phone : '' }}">
+                                                                <input type="url" class="mtforms-input"
+                                                                    placeholder="{{ settings.show_placeholders === 'yes' ? settings.placeholder_website : '' }}">
                                                     </div>
                                                     <# } #>
 
@@ -1622,7 +1713,8 @@ class MTForms_Widget extends \Elementor\Widget_Base
                                                                         <# if (settings.show_gdpr==='yes' ) { #>
                                                                             <div class="mtforms-gdpr-consent">
                                                                                 <label>
-                                                                                    <input type="checkbox"> {{{ settings.gdpr_text }}}
+                                                                                    <input type="checkbox"> {{{
+                                                                                    settings.gdpr_text }}}
                                                                                 </label>
                                                                             </div>
                                                                             <# } #>
@@ -1632,13 +1724,15 @@ class MTForms_Widget extends \Elementor\Widget_Base
                                                                                     <button type="submit"
                                                                                         class="{{ btn_classes.join(' ') }} mtforms-btn-{{ settings.button_style }} mtforms-btn-w-{{ settings.button_width }}">
                                                                                         <# if (settings.button_icon !=='none' &&
-                                                                                            settings.button_icon_position==='left' ) {
-                                                                                            #>
+                                                                                            settings.button_icon_position==='left'
+                                                                                            ) { #>
                                                                                             <i
                                                                                                 class="fas fa-{{ settings.button_icon }}"></i>
                                                                                             <# } #>
-                                                                                                <span>{{ settings.button_text }}</span>
-                                                                                                <# if (settings.button_icon !=='none' &&
+                                                                                                <span>{{ settings.button_text
+                                                                                                    }}</span>
+                                                                                                <# if (settings.button_icon
+                                                                                                    !=='none' &&
                                                                                                     settings.button_icon_position==='right'
                                                                                                     ) { #>
                                                                                                     <i
@@ -1648,10 +1742,10 @@ class MTForms_Widget extends \Elementor\Widget_Base
                                                                                 </div>
 
                                                                                 <div class="mtforms-response-message"></div>
-                            </div>
-                        </form>
                     </div>
-                    <?php
+                </form>
+            </div>
+            <?php
     }
 
     /**

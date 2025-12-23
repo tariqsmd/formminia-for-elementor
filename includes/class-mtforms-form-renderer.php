@@ -10,7 +10,6 @@
  * @subpackage MTForms/includes
  */
 class MTForms_Form_Renderer {
-
 	/**
 	 * Available skins
 	 */

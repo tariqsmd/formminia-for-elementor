@@ -20,7 +20,6 @@
  * @author     Muhammad Tariq
  */
 class MTForms_Activator {
-
 	/**
 	 * Short Description. (use period)
 	 *
@@ -31,5 +30,4 @@ class MTForms_Activator {
 	public static function activate() {
 
 	}
-
 }

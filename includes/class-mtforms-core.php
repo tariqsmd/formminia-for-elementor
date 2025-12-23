@@ -12,7 +12,6 @@
  * @author     Muhammad Tariq
  */
 class MTForms_Core {
-
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
 	 * the plugin.
@@ -62,7 +61,6 @@ class MTForms_Core {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
 	}
 
 	/**
@@ -79,7 +77,6 @@ class MTForms_Core {
 	 * @access   private
 	 */
 	private function load_dependencies() {
-
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
@@ -115,7 +112,6 @@ class MTForms_Core {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-mtforms-form-renderer.php';
 
 		$this->loader = new MTForms_Loader();
-
 	}
 
 	/**
@@ -128,15 +124,12 @@ class MTForms_Core {
 	 * @access   private
 	 */
 	private function set_locale() {
-
 		$plugin_i18n = new MTForms_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
-
 		// Register Elementor Integration
 		new MTForms_Elementor();
-
 	}
 
 	/**
@@ -147,7 +140,6 @@ class MTForms_Core {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-
 		$plugin_admin = new MTForms_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		// Enqueue scripts and styles
@@ -159,7 +151,6 @@ class MTForms_Core {
 
 		// Register Settings
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_settings' );
-
 	}
 
 	/**
@@ -170,7 +161,6 @@ class MTForms_Core {
 	 * @access   private
 	 */
 	private function define_public_hooks() {
-
 		$plugin_public = new MTForms_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
@@ -182,7 +172,6 @@ class MTForms_Core {
 		// AJAX Action for form submission
 		$this->loader->add_action( 'wp_ajax_mtforms_submit_form', $plugin_public, 'handle_form_submission' );
 		$this->loader->add_action( 'wp_ajax_nopriv_mtforms_submit_form', $plugin_public, 'handle_form_submission' );
-
 	}
 
 	/**

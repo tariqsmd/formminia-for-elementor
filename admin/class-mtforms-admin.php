@@ -19,7 +19,8 @@
  * @subpackage MTForms/admin
  * @author     Muhammad Tariq
  */
-class MTForms_Admin {
+class MTForms_Admin
+{
 
 	/**
 	 * The ID of this plugin.
@@ -47,10 +48,11 @@ class MTForms_Admin {
 	 * @param string $plugin_name The name of this plugin.
 	 * @param string $version     The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct($plugin_name, $version)
+	{
 
 		$this->plugin_name = $plugin_name;
-		$this->version     = $version;
+		$this->version = $version;
 
 	}
 
@@ -59,13 +61,14 @@ class MTForms_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles( $hook ) {
+	public function enqueue_styles($hook)
+	{
 
-		if ( 'toplevel_page_mtforms' !== $hook ) {
+		if ('toplevel_page_mtforms' !== $hook) {
 			return;
 		}
 
-		wp_enqueue_style( $this->plugin_name, plugins_url( '../assets/css/mtforms-admin.css', __FILE__ ), array(), $this->version, 'all' );
+		wp_enqueue_style($this->plugin_name, plugins_url('../assets/css/mtforms-admin.css', __FILE__), array(), $this->version, 'all');
 
 	}
 
@@ -74,13 +77,14 @@ class MTForms_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts( $hook ) {
+	public function enqueue_scripts($hook)
+	{
 
-		if ( 'toplevel_page_mtforms' !== $hook ) {
+		if ('toplevel_page_mtforms' !== $hook) {
 			return;
 		}
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/mtforms-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/mtforms-admin.js', array('jquery'), $this->version, false);
 
 	}
 
@@ -89,13 +93,14 @@ class MTForms_Admin {
 	 *
 	 * @since 1.0.0
 	 */
-	public function add_admin_menu() {
+	public function add_admin_menu()
+	{
 		add_menu_page(
-			__( 'MTForms', MTFORMS_TEXT_DOMAIN ),
-			__( 'MTForms', MTFORMS_TEXT_DOMAIN ),
+			__('MTForms', MTFORMS_TEXT_DOMAIN),
+			__('MTForms', MTFORMS_TEXT_DOMAIN),
 			'manage_options',
 			'mtforms',
-			array( $this, 'display_plugin_setup_page' ),
+			array($this, 'display_plugin_setup_page'),
 			'dashicons-email',
 			79 // Below Tools
 		);
@@ -104,12 +109,17 @@ class MTForms_Admin {
 	/**
 	 * Register settings
 	 */
-	public function register_settings() {
-		register_setting( 'mtforms_settings', 'mtforms_captcha_provider' );
-		register_setting( 'mtforms_settings', 'mtforms_recaptcha_site_key' );
-		register_setting( 'mtforms_settings', 'mtforms_recaptcha_secret_key' );
-		register_setting( 'mtforms_settings', 'mtforms_turnstile_site_key' );
-		register_setting( 'mtforms_settings', 'mtforms_turnstile_secret_key' );
+	public function register_settings()
+	{
+		register_setting('mtforms_settings', 'mtforms_captcha_provider');
+		register_setting('mtforms_settings', 'mtforms_recaptcha_site_key');
+		register_setting('mtforms_settings', 'mtforms_recaptcha_secret_key');
+		register_setting('mtforms_settings', 'mtforms_turnstile_site_key');
+		register_setting('mtforms_settings', 'mtforms_turnstile_secret_key');
+		register_setting('mtforms_settings', 'mtforms_admin_email');
+		register_setting('mtforms_settings', 'mtforms_email_subject');
+		register_setting('mtforms_settings', 'mtforms_email_from_name');
+		register_setting('mtforms_settings', 'mtforms_enable_html_email');
 	}
 
 	/**
@@ -117,8 +127,9 @@ class MTForms_Admin {
 	 *
 	 * @since 1.0.0
 	 */
-	public function display_plugin_setup_page() {
-		include_once plugin_dir_path( __FILE__ ) . 'partials/mtforms-admin-display.php';
+	public function display_plugin_setup_page()
+	{
+		include_once plugin_dir_path(__FILE__) . 'partials/mtforms-admin-display.php';
 	}
 
 }
