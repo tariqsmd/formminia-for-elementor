@@ -42,9 +42,6 @@ $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'general
         <a href="?page=mtforms&tab=email" class="nav-tab <?php echo $active_tab == 'email' ? 'nav-tab-active' : ''; ?>">
             <?php esc_html_e('Email Settings', MTFORMS_TEXT_DOMAIN); ?>
         </a>
-        <a href="?page=mtforms&tab=docs" class="nav-tab <?php echo $active_tab == 'docs' ? 'nav-tab-active' : ''; ?>">
-            <?php esc_html_e('Documentation', MTFORMS_TEXT_DOMAIN); ?>
-        </a>
     </nav>
 
     <div class="mtforms-tab-content">
@@ -210,436 +207,42 @@ $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'general
                 </form>
             </div>
 
-        <?php else: ?>
 
-            <div class="mtforms-docs-grid">
-                <!-- Getting Started -->
-                <div class="card mtforms-card mtforms-card-full">
-                    <h2>🚀
-                        <?php esc_html_e('Getting Started', MTFORMS_TEXT_DOMAIN); ?>
-                    </h2>
-                    <p class="mtforms-intro">
-                        <?php esc_html_e('Welcome to MTForms! Create beautiful, customizable contact forms with multiple preset skins and extensive styling options.', MTFORMS_TEXT_DOMAIN); ?>
-                    </p>
-                </div>
-
-                <!-- Shortcode Usage -->
-                <div class="card mtforms-card">
-                    <h3>📝
-                        <?php esc_html_e('Shortcode Usage', MTFORMS_TEXT_DOMAIN); ?>
-                    </h3>
-                    <p>
-                        <?php esc_html_e('Add a form to any page using shortcodes:', MTFORMS_TEXT_DOMAIN); ?>
-                    </p>
-
-                    <h4>
-                        <?php esc_html_e('Basic Usage', MTFORMS_TEXT_DOMAIN); ?>
-                    </h4>
-                    <div class="mtforms-code-block">
-                        <code>[mtforms]</code>
-                    </div>
-
-                    <h4>
-                        <?php esc_html_e('With Skin', MTFORMS_TEXT_DOMAIN); ?>
-                    </h4>
-                    <div class="mtforms-code-block">
-                        <code>[mtforms skin="modern"]</code>
-                    </div>
-
-                    <h4>
-                        <?php esc_html_e('Full Customization', MTFORMS_TEXT_DOMAIN); ?>
-                    </h4>
-                    <div class="mtforms-code-block">
-                        <code>[mtforms skin="dark" layout="floating" button_style="gradient" show_phone="yes"]</code>
-                    </div>
-                </div>
-
-                <!-- Available Skins -->
-                <div class="card mtforms-card">
-                    <h3>🎨
-                        <?php esc_html_e('Available Skins', MTFORMS_TEXT_DOMAIN); ?>
-                    </h3>
-                    <div class="mtforms-feature-grid">
-                        <div class="mtforms-feature">
-                            <span class="mtforms-feature-icon">🔵</span>
-                            <strong>default</strong>
-                            <span>
-                                <?php esc_html_e('Clean blue theme', MTFORMS_TEXT_DOMAIN); ?>
-                            </span>
-                        </div>
-                        <div class="mtforms-feature">
-                            <span class="mtforms-feature-icon">💜</span>
-                            <strong>modern</strong>
-                            <span>
-                                <?php esc_html_e('Purple gradient', MTFORMS_TEXT_DOMAIN); ?>
-                            </span>
-                        </div>
-                        <div class="mtforms-feature">
-                            <span class="mtforms-feature-icon">🌙</span>
-                            <strong>dark</strong>
-                            <span>
-                                <?php esc_html_e('Dark mode', MTFORMS_TEXT_DOMAIN); ?>
-                            </span>
-                        </div>
-                        <div class="mtforms-feature">
-                            <span class="mtforms-feature-icon">🌈</span>
-                            <strong>gradient</strong>
-                            <span>
-                                <?php esc_html_e('Colorful gradient', MTFORMS_TEXT_DOMAIN); ?>
-                            </span>
-                        </div>
-                        <div class="mtforms-feature">
-                            <span class="mtforms-feature-icon">✨</span>
-                            <strong>glassmorphism</strong>
-                            <span>
-                                <?php esc_html_e('Frosted glass effect', MTFORMS_TEXT_DOMAIN); ?>
-                            </span>
-                        </div>
-                        <div class="mtforms-feature">
-                            <span class="mtforms-feature-icon">⚪</span>
-                            <strong>minimal</strong>
-                            <span>
-                                <?php esc_html_e('Clean minimal', MTFORMS_TEXT_DOMAIN); ?>
-                            </span>
-                        </div>
-                        <div class="mtforms-feature">
-                            <span class="mtforms-feature-icon">🃏</span>
-                            <strong>card</strong>
-                            <span>
-                                <?php esc_html_e('Card style', MTFORMS_TEXT_DOMAIN); ?>
-                            </span>
-                        </div>
-                        <div class="mtforms-feature">
-                            <span class="mtforms-feature-icon">💚</span>
-                            <strong>neon</strong>
-                            <span>
-                                <?php esc_html_e('Neon glow', MTFORMS_TEXT_DOMAIN); ?>
-                            </span>
-                        </div>
-                        <div class="mtforms-feature">
-                            <span class="mtforms-feature-icon">🏆</span>
-                            <strong>elegant</strong>
-                            <span>
-                                <?php esc_html_e('Premium elegant', MTFORMS_TEXT_DOMAIN); ?>
-                            </span>
-                        </div>
-                        <div class="mtforms-feature">
-                            <span class="mtforms-feature-icon">⬛</span>
-                            <strong>brutalist</strong>
-                            <span>
-                                <?php esc_html_e('Bold brutalist', MTFORMS_TEXT_DOMAIN); ?>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Layouts -->
-                <div class="card mtforms-card">
-                    <h3>📐
-                        <?php esc_html_e('Form Layouts', MTFORMS_TEXT_DOMAIN); ?>
-                    </h3>
-                    <table class="mtforms-options-table">
-                        <tr>
-                            <td><code>stacked</code></td>
-                            <td>
-                                <?php esc_html_e('Labels above inputs (default)', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>inline</code></td>
-                            <td>
-                                <?php esc_html_e('Labels beside inputs', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>floating</code></td>
-                            <td>
-                                <?php esc_html_e('Floating animated labels', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>material</code></td>
-                            <td>
-                                <?php esc_html_e('Material Design style', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>side-by-side</code></td>
-                            <td>
-                                <?php esc_html_e('Two columns layout', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>compact</code></td>
-                            <td>
-                                <?php esc_html_e('Smaller padding and fonts', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-
-                <!-- Button Styles -->
-                <div class="card mtforms-card">
-                    <h3>🔘
-                        <?php esc_html_e('Button Styles', MTFORMS_TEXT_DOMAIN); ?>
-                    </h3>
-                    <table class="mtforms-options-table">
-                        <tr>
-                            <td><code>solid</code></td>
-                            <td>
-                                <?php esc_html_e('Solid background', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>outline</code></td>
-                            <td>
-                                <?php esc_html_e('Border only', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>gradient</code></td>
-                            <td>
-                                <?php esc_html_e('Gradient background', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>glow</code></td>
-                            <td>
-                                <?php esc_html_e('Glowing shadow', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>pill</code></td>
-                            <td>
-                                <?php esc_html_e('Rounded pill shape', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>3d</code></td>
-                            <td>
-                                <?php esc_html_e('3D pressed effect', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-
-                <!-- Input Styles -->
-                <div class="card mtforms-card">
-                    <h3>📄
-                        <?php esc_html_e('Input Styles', MTFORMS_TEXT_DOMAIN); ?>
-                    </h3>
-                    <table class="mtforms-options-table">
-                        <tr>
-                            <td><code>default</code></td>
-                            <td>
-                                <?php esc_html_e('Standard bordered', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>underline</code></td>
-                            <td>
-                                <?php esc_html_e('Bottom border only', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>rounded</code></td>
-                            <td>
-                                <?php esc_html_e('Rounded corners', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>pill</code></td>
-                            <td>
-                                <?php esc_html_e('Pill shape', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><code>shadow</code></td>
-                            <td>
-                                <?php esc_html_e('No border with shadow', MTFORMS_TEXT_DOMAIN); ?>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-
-                <!-- Shortcode Parameters -->
-                <div class="card mtforms-card mtforms-card-full">
-                    <h3>⚙️
-                        <?php esc_html_e('All Shortcode Parameters', MTFORMS_TEXT_DOMAIN); ?>
-                    </h3>
-                    <table class="mtforms-params-table widefat">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <?php esc_html_e('Parameter', MTFORMS_TEXT_DOMAIN); ?>
-                                </th>
-                                <th>
-                                    <?php esc_html_e('Default', MTFORMS_TEXT_DOMAIN); ?>
-                                </th>
-                                <th>
-                                    <?php esc_html_e('Description', MTFORMS_TEXT_DOMAIN); ?>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>skin</code></td>
-                                <td>default</td>
-                                <td>
-                                    <?php esc_html_e('Form skin/theme', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>layout</code></td>
-                                <td>stacked</td>
-                                <td>
-                                    <?php esc_html_e('Form layout style', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>animation</code></td>
-                                <td>none</td>
-                                <td>
-                                    <?php esc_html_e('Entry animation (fade-in, slide-up, zoom-in, bounce)', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>show_name</code></td>
-                                <td>yes</td>
-                                <td>
-                                    <?php esc_html_e('Show/hide name field', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>show_email</code></td>
-                                <td>yes</td>
-                                <td>
-                                    <?php esc_html_e('Show/hide email field', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>show_phone</code></td>
-                                <td>no</td>
-                                <td>
-                                    <?php esc_html_e('Show/hide phone field', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>show_website</code></td>
-                                <td>no</td>
-                                <td>
-                                    <?php esc_html_e('Show/hide website field', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>show_subject</code></td>
-                                <td>yes</td>
-                                <td>
-                                    <?php esc_html_e('Show/hide subject field', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>show_message</code></td>
-                                <td>yes</td>
-                                <td>
-                                    <?php esc_html_e('Show/hide message field', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>show_gdpr</code></td>
-                                <td>yes</td>
-                                <td>
-                                    <?php esc_html_e('Show/hide GDPR consent', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>show_labels</code></td>
-                                <td>yes</td>
-                                <td>
-                                    <?php esc_html_e('Show/hide field labels', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>show_icons</code></td>
-                                <td>no</td>
-                                <td>
-                                    <?php esc_html_e('Show field icons', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>button_text</code></td>
-                                <td>Send Message</td>
-                                <td>
-                                    <?php esc_html_e('Submit button text', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>button_style</code></td>
-                                <td>solid</td>
-                                <td>
-                                    <?php esc_html_e('Button appearance', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>button_icon</code></td>
-                                <td>none</td>
-                                <td>
-                                    <?php esc_html_e('Button icon (send, arrow-right, check, mail)', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>input_style</code></td>
-                                <td>default</td>
-                                <td>
-                                    <?php esc_html_e('Input field style', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><code>input_size</code></td>
-                                <td>medium</td>
-                                <td>
-                                    <?php esc_html_e('Input size (small, medium, large)', MTFORMS_TEXT_DOMAIN); ?>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Elementor Widget -->
-                <div class="card mtforms-card">
-                    <h3>🎯
-                        <?php esc_html_e('Elementor Widget', MTFORMS_TEXT_DOMAIN); ?>
-                    </h3>
-                    <p>
-                        <?php printf(esc_html__('In Elementor, search for %s and drag it to your page. All customization options are available in the sidebar!', MTFORMS_TEXT_DOMAIN), '<strong>"MTForms"</strong>'); ?>
-                    </p>
-                    <ul style="margin-left: 20px;">
-                        <li>✅
-                            <?php esc_html_e('50+ styling controls', MTFORMS_TEXT_DOMAIN); ?>
-                        </li>
-                        <li>✅
-                            <?php esc_html_e('Typography controls', MTFORMS_TEXT_DOMAIN); ?>
-                        </li>
-                        <li>✅
-                            <?php esc_html_e('Color pickers', MTFORMS_TEXT_DOMAIN); ?>
-                        </li>
-                        <li>✅
-                            <?php esc_html_e('Spacing & dimensions', MTFORMS_TEXT_DOMAIN); ?>
-                        </li>
-                        <li>✅
-                            <?php esc_html_e('Box shadows & borders', MTFORMS_TEXT_DOMAIN); ?>
-                        </li>
-                        <li>✅
-                            <?php esc_html_e('Hover animations', MTFORMS_TEXT_DOMAIN); ?>
-                        </li>
-                    </ul>
-                </div>
-
+            <!-- Elementor Widget -->
+            <div class="card mtforms-card">
+                <h3>🎯
+                    <?php esc_html_e('Elementor Widget', MTFORMS_TEXT_DOMAIN); ?>
+                </h3>
+                <p>
+                    <?php printf(esc_html__('In Elementor, search for %s and drag it to your page. All customization options are available in the sidebar!', MTFORMS_TEXT_DOMAIN), '<strong>"MTForms"</strong>'); ?>
+                </p>
+                <ul style="margin-left: 20px;">
+                    <li>✅
+                        <?php esc_html_e('50+ styling controls', MTFORMS_TEXT_DOMAIN); ?>
+                    </li>
+                    <li>✅
+                        <?php esc_html_e('Typography controls', MTFORMS_TEXT_DOMAIN); ?>
+                    </li>
+                    <li>✅
+                        <?php esc_html_e('Color pickers', MTFORMS_TEXT_DOMAIN); ?>
+                    </li>
+                    <li>✅
+                        <?php esc_html_e('Spacing & dimensions', MTFORMS_TEXT_DOMAIN); ?>
+                    </li>
+                    <li>✅
+                        <?php esc_html_e('Box shadows & borders', MTFORMS_TEXT_DOMAIN); ?>
+                    </li>
+                    <li>✅
+                        <?php esc_html_e('Hover animations', MTFORMS_TEXT_DOMAIN); ?>
+                    </li>
+                </ul>
             </div>
 
-        <?php endif; ?>
+        </div>
 
-    </div>
+    <?php endif; ?>
+
+</div>
 </div>
 
 <style>

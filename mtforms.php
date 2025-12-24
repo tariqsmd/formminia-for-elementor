@@ -10,8 +10,6 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       mtforms
  * Domain Path:       /languages
- *
- * @package MTForms
  */
 
 // If this file is called directly, abort.
