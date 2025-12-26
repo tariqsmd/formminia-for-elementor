@@ -84,30 +84,30 @@ class MTForms_Core
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-mtforms-loader.php';
+		require_once plugin_dir_path(__FILE__) . 'class-mtforms-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-mtforms-i18n.php';
+		require_once plugin_dir_path(__FILE__) . 'class-mtforms-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-mtforms-admin.php';
+		require_once plugin_dir_path(__FILE__) . 'admin/class-mtforms-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-mtforms-public.php';
+		require_once plugin_dir_path(__FILE__) . 'public/class-mtforms-public.php';
 
 
 		/**
 		 * The class responsible for registering Elementor Widgets
 		 */
-		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-mtforms-elementor.php';
+		require_once plugin_dir_path(__FILE__) . 'class-mtforms-elementor.php';
 
 		$this->loader = new MTForms_Loader();
 	}

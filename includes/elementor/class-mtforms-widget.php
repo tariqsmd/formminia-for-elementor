@@ -1880,7 +1880,7 @@ class MTForms_Widget extends \Elementor\Widget_Base
      */
     public function get_partial($template, $args = [])
     {
-        $path = MTFORMS_PLUGIN_DIR . 'elementor/partials/' . $template . '.php';
+        $path = MTFORMS_PLUGIN_DIR . 'includes/elementor/partials/' . $template . '.php';
         if (file_exists($path)) {
             include $path;
         }

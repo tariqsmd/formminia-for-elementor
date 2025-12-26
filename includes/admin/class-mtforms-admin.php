@@ -68,7 +68,7 @@ class MTForms_Admin
 			return;
 		}
 
-		wp_enqueue_style($this->plugin_name, plugins_url('../assets/css/mtforms-admin.css', __FILE__), array(), $this->version, 'all');
+		wp_enqueue_style($this->plugin_name, MTFORMS_PLUGIN_URL . 'assets/css/mtforms-admin.css', array(), $this->version, 'all');
 
 	}
 
