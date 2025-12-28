@@ -47,10 +47,9 @@ register_activation_hook( __FILE__, 'activate_mtforms' );
 register_deactivation_hook( __FILE__, 'deactivate_mtforms' );
 
 /**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
+ * Bootstrap the modern, namespaced core plugin.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-mtforms-core.php';
+require MTFORMS_PLUGIN_DIR . 'includes/Core/bootstrap.php';
 
 /**
  * Begins execution of the plugin.
@@ -62,7 +61,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-mtforms-core.php';
  * @since    1.0.0
  */
 function run_mtforms() {
-	$plugin = new MTForms_Core();
+	$plugin = \MTForms\Core\Plugin::get_instance();
 	$plugin->run();
 }
 

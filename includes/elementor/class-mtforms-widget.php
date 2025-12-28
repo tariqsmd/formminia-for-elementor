@@ -79,6 +79,17 @@ class MTForms_Widget extends \Elementor\Widget_Base
         return ['mtforms'];
     }
 
+    /**
+     * Get script dependencies.
+     *
+     * @since 1.1.0
+     * @return array Script handles.
+     */
+    public function get_script_depends()
+    {
+        return ['mtforms'];
+    }
+
 
 
     /**
