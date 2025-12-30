@@ -82,17 +82,10 @@ class Plugin {
 	 * Future refactors will move more of this into namespaced services.
 	 */
 	protected function load_dependencies() {
-		// Core loader and i18n.
+		// Core loader and i18n (legacy, still used).
 		require_once MTFORMS_PLUGIN_DIR . 'includes/class-mtforms-loader.php';
 		require_once MTFORMS_PLUGIN_DIR . 'includes/class-mtforms-i18n.php';
-
-		// Admin legacy class (will be wrapped by modern Admin layer later).
-		require_once MTFORMS_PLUGIN_DIR . 'includes/admin/class-mtforms-admin.php';
-
-		// Elementor integration bootstrap.
-		require_once MTFORMS_PLUGIN_DIR . 'includes/class-mtforms-elementor.php';
-
-		// Frontend/domain/infrastructure services are autoloaded via the MTForms namespace.
+		// All other modern classes are autoloaded via the MTForms namespace.
 
 		$this->loader = new Loader();
 	}
