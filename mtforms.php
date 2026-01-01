@@ -13,43 +13,38 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
+if (!defined('WPINC')) {
 	die;
 }
 
 /**
  * Plugin Constants
  */
-define( 'MTFORMS_VERSION', '1.1.0' );
-define( 'MTFORMS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-define( 'MTFORMS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'MTFORMS_TEXT_DOMAIN', 'mtforms' );
+define('MTFORMS_VERSION', '1.1.0');
+define('MTFORMS_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('MTFORMS_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('MTFORMS_TEXT_DOMAIN', 'mtforms');
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-mtforms-activator.php
  */
-function activate_mtforms() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-mtforms-activator.php';
-	MTForms_Activator::activate();
+function activate_mtforms()
+{
+	\MTForms\Core\Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-mtforms-deactivator.php
  */
-function deactivate_mtforms() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-mtforms-deactivator.php';
-	MTForms_Deactivator::deactivate();
+function deactivate_mtforms()
+{
+	\MTForms\Core\Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_mtforms' );
-register_deactivation_hook( __FILE__, 'deactivate_mtforms' );
+register_activation_hook(__FILE__, 'activate_mtforms');
+register_deactivation_hook(__FILE__, 'deactivate_mtforms');
 
-/**
- * Bootstrap the modern, namespaced core plugin.
- */
-require MTFORMS_PLUGIN_DIR . 'includes/Core/bootstrap.php';
+require MTFORMS_PLUGIN_DIR . 'includes/core/bootstrap.php';
 
 /**
  * Begins execution of the plugin.
@@ -60,7 +55,8 @@ require MTFORMS_PLUGIN_DIR . 'includes/Core/bootstrap.php';
  *
  * @since    1.0.0
  */
-function run_mtforms() {
+function run_mtforms()
+{
 	$plugin = \MTForms\Core\Plugin::get_instance();
 	$plugin->run();
 }

@@ -9,24 +9,25 @@
  * remaining fully compatible with WordPress' loading model.
  */
 
-if ( ! defined( 'MTFORMS_VERSION' ) ) {
+if (!defined('MTFORMS_VERSION')) {
 	// If the main plugin file hasn't defined constants yet, bail early.
 	return;
 }
 
 // Register a simple PSR-4 like autoloader for the MTForms namespace.
 spl_autoload_register(
-	static function ( $class ) {
-		if ( strpos( $class, 'MTForms\\' ) !== 0 ) {
+	static function ($class) {
+		if (strpos($class, 'MTForms\\') !== 0) {
 			return;
 		}
 
-		$relative = substr( $class, strlen( 'MTForms\\' ) );
-		$relative = str_replace( '\\', DIRECTORY_SEPARATOR, $relative );
+		$relative = substr($class, strlen('MTForms\\'));
+		$relative = str_replace('\\', DIRECTORY_SEPARATOR, $relative);
 
-		$file = MTFORMS_PLUGIN_DIR . 'includes/' . $relative . '.php';
+		// Convert to lowercase for consistent lowercase file naming.
+		$file = MTFORMS_PLUGIN_DIR . 'includes/' . strtolower($relative) . '.php';
 
-		if ( file_exists( $file ) ) {
+		if (file_exists($file)) {
 			require_once $file;
 		}
 	}
