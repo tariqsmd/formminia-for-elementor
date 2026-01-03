@@ -22,7 +22,7 @@ $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'general
             style="font-size: 30px; width: 30px; height: 30px; margin-right: 10px;"></span>
         <?php esc_html_e('MTForms', MTFORMS_TEXT_DOMAIN); ?>
         <span
-            style="font-size: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 3px 10px; border-radius: 12px; margin-left: 10px; font-weight: normal;">v1.1.0</span>
+            style="font-size: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 3px 10px; border-radius: 12px; margin-left: 10px; font-weight: normal;">v1.0.0</span>
     </h1>
     <hr class="wp-header-end">
 

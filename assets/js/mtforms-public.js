@@ -5,7 +5,7 @@
      * MTForms - Public JavaScript
      * Handles form validation and AJAX submission
      *
-     * @version 1.1.0
+     * @version 1.0.0
      */
 
     $( document ).ready( function () {

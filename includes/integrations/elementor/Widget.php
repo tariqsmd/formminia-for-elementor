@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
  *
  * Comprehensive contact form widget with extensive customization options.
  *
- * @since 1.1.0
+ * @since 1.0.0
  */
 class Widget extends \Elementor\Widget_Base
 {

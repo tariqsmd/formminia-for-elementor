@@ -3,7 +3,7 @@
  * Plugin Name:       MTForms
  * Plugin URI:        https://developer.developer.developer/mtforms
  * Description:       A modern, feature-rich contact form plugin with multiple skins, layouts, GDPR support, and Elementor integration.
- * Version:           1.1.0
+ * Version:           1.0.0
  * Author:            Muhammad Tariq
  * Author URI:        https://developer.developer.developer
  * License:           GPL-2.0+
@@ -20,7 +20,7 @@ if (!defined('WPINC')) {
 /**
  * Plugin Constants
  */
-define('MTFORMS_VERSION', '1.1.0');
+define('MTFORMS_VERSION', '1.0.0');
 define('MTFORMS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('MTFORMS_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('MTFORMS_TEXT_DOMAIN', 'mtforms');
