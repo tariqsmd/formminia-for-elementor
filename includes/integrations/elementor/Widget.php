@@ -130,14 +130,6 @@ class Widget extends \Elementor\Widget_Base
                 'options' => [
                     'default' => __('Default', MTFORMS_TEXT_DOMAIN),
                     'modern' => __('Modern', MTFORMS_TEXT_DOMAIN),
-                    'dark' => __('Dark', MTFORMS_TEXT_DOMAIN),
-                    'gradient' => __('Gradient', MTFORMS_TEXT_DOMAIN),
-                    'glassmorphism' => __('Glassmorphism', MTFORMS_TEXT_DOMAIN),
-                    'minimal' => __('Minimal', MTFORMS_TEXT_DOMAIN),
-                    'card' => __('Card', MTFORMS_TEXT_DOMAIN),
-                    'neon' => __('Neon', MTFORMS_TEXT_DOMAIN),
-                    'elegant' => __('Elegant', MTFORMS_TEXT_DOMAIN),
-                    'brutalist' => __('Brutalist', MTFORMS_TEXT_DOMAIN),
                 ],
                 'description' => esc_html__('Choose a visual style for the form.', MTFORMS_TEXT_DOMAIN),
             ]
@@ -152,10 +144,6 @@ class Widget extends \Elementor\Widget_Base
                 'options' => [
                     'stacked' => __('Stacked (Default)', MTFORMS_TEXT_DOMAIN),
                     'inline' => __('Inline Labels', MTFORMS_TEXT_DOMAIN),
-                    'floating' => __('Floating Labels', MTFORMS_TEXT_DOMAIN),
-                    'material' => __('Material Design', MTFORMS_TEXT_DOMAIN),
-                    'side-by-side' => __('Side by Side', MTFORMS_TEXT_DOMAIN),
-                    'compact' => __('Compact', MTFORMS_TEXT_DOMAIN),
                 ],
                 'description' => esc_html__('Controls how labels and fields are arranged.', MTFORMS_TEXT_DOMAIN),
             ]

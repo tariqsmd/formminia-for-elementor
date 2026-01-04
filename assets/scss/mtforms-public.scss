@@ -68,92 +68,6 @@
   }
 }
 
-/* Dark Mode */
-.mtforms-skin-dark {
-  --mtforms-bg: #111827;
-  --mtforms-text: #F9FAFB;
-  --mtforms-text-light: #9CA3AF;
-  --mtforms-input-bg: #1F2937;
-  --mtforms-input-border: #374151;
-  --mtforms-primary: #6366F1;
-
-  background: var(--mtforms-bg);
-  padding: 2rem;
-  border-radius: 12px;
-  color: var(--mtforms-text);
-
-  .mtforms-input,
-  .mtforms-textarea {
-    color: white;
-
-    &::placeholder {
-      color: #6B7280;
-    }
-  }
-}
-
-/* Glassmorphism */
-.mtforms-skin-glassmorphism {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
-  padding: 2.5rem;
-  border-radius: 16px;
-
-  .mtforms-input,
-  .mtforms-textarea {
-    background: rgba(255, 255, 255, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(4px);
-
-    &:focus {
-      background: rgba(255, 255, 255, 0.8);
-    }
-  }
-}
-
-/* Neon (Cyberpunk) */
-.mtforms-skin-neon {
-  --mtforms-bg: #000000;
-  --mtforms-primary: #0ff;
-  --mtforms-text: #fff;
-  --mtforms-input-border: #333;
-
-  background: #050505;
-  padding: 2rem;
-  border: 1px solid #333;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
-  border-radius: 0;
-
-  .mtforms-submit-btn {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    box-shadow: 0 0 10px var(--mtforms-primary);
-    border-radius: 0;
-
-    &:hover {
-      box-shadow: 0 0 20px var(--mtforms-primary);
-    }
-  }
-
-  .mtforms-input:focus,
-  .mtforms-textarea:focus {
-    border-color: var(--mtforms-primary);
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-  }
-}
-
-/* Gradient */
-.mtforms-skin-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
-  padding: 2rem;
-  border-radius: 16px;
-  border: 1px solid #fff;
-  box-shadow: 20px 20px 60px #d1d5db, -20px -20px 60px #ffffff;
-}
-
 /* -------------------------------------------------------------------------- */
 /*                                   Layouts                                  */
 /* -------------------------------------------------------------------------- */
@@ -213,15 +127,15 @@
     padding-top: 1.5rem;
     padding-bottom: 0.5rem;
 
-    &:placeholder-shown + .mtforms-floating-label {
+    &:placeholder-shown+.mtforms-floating-label {
       top: 50%;
       transform: translateY(-50%);
       font-size: 1rem;
       color: var(--mtforms-text-light);
     }
 
-    &:focus + .mtforms-floating-label,
-    &:not(:placeholder-shown) + .mtforms-floating-label {
+    &:focus+.mtforms-floating-label,
+    &:not(:placeholder-shown)+.mtforms-floating-label {
       top: 0.25rem;
       transform: translateY(0);
       font-size: 0.75rem;
@@ -231,7 +145,7 @@
   }
 
   .mtforms-textarea {
-    &:placeholder-shown + .mtforms-floating-label {
+    &:placeholder-shown+.mtforms-floating-label {
       top: 1.5rem;
     }
   }
