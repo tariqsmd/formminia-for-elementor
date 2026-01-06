@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $settings  = $args['settings'];
-$unique_id = $args['unique_id'];
+$widget_id = $args['widget_id'];
 
 // Build CSS classes
 $container_classes = array(
@@ -49,6 +49,6 @@ $container_classes[] = 'mtforms-input-size-' . sanitize_html_class( $settings['i
 // Inline styles are handled by Elementor or can be injected here
 ?>
 
-<div class="<?php echo esc_attr( implode( ' ', $container_classes ) ); ?>" id="<?php echo esc_attr( $unique_id ); ?>">
-    <form id="form-<?php echo esc_attr( $unique_id ); ?>" class="mtforms-form" action="" method="POST" novalidate>
+<div class="<?php echo esc_attr( implode( ' ', $container_classes ) ); ?>" id="<?php echo esc_attr( $widget_id ); ?>">
+    <form id="form-<?php echo esc_attr( $widget_id ); ?>" class="mtforms-form" action="" method="POST" novalidate>
         <div class="mtforms-form-inner">
