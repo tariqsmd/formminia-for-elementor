@@ -4,9 +4,6 @@
  * MTForms Core Bootstrap
  *
  * Registers a lightweight PSR-4 style autoloader for the MTForms namespace.
- *
- * This keeps all new, modern code under the `MTForms\` namespace while
- * remaining fully compatible with WordPress' loading model.
  */
 
 if (!defined('MTFORMS_VERSION')) {

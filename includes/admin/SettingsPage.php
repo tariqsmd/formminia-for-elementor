@@ -39,7 +39,7 @@ class SettingsPage
 
 		wp_enqueue_style(
 			$this->plugin_name,
-			MTFORMS_PLUGIN_URL . 'assets/css/mtforms-admin.css',
+			MTFORMS_PLUGIN_URL . 'assets/admin/css/mtforms-admin.css',
 			array(),
 			$this->version,
 			'all'
@@ -59,7 +59,7 @@ class SettingsPage
 
 		wp_enqueue_script(
 			$this->plugin_name,
-			MTFORMS_PLUGIN_URL . 'includes/admin/js/mtforms-admin.js',
+			MTFORMS_PLUGIN_URL . 'assets/admin/js/mtforms-admin.js',
 			array('jquery'),
 			$this->version,
 			false

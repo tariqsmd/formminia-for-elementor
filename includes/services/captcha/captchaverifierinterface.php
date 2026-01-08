@@ -1,13 +1,14 @@
 <?php
 
-namespace MTForms\Domain\Captcha;
+namespace MTForms\Services\Captcha;
 
-use MTForms\Domain\FormSubmission;
+use MTForms\Services\FormSubmission;
 
 /**
  * Contract for captcha verification providers.
  */
-interface CaptchaVerifierInterface {
+interface CaptchaVerifierInterface
+{
 
 	/**
 	 * Verify captcha for a submission.
@@ -17,6 +18,6 @@ interface CaptchaVerifierInterface {
 	 *
 	 * @return true|\WP_Error
 	 */
-	public function verify( FormSubmission $submission, array $request );
+	public function verify(FormSubmission $submission, array $request);
 }
 

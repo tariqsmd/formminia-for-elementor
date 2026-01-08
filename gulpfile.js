@@ -7,12 +7,23 @@ const sass = require('gulp-sass')(require('sass'));
 
 // Compile SCSS and Minify
 gulp.task('styles', function () {
-    return gulp.src('assets/scss/*.scss')
+    // Admin styles
+    const admin = gulp.src('assets/admin/scss/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('assets/admin/css'))
+        .pipe(cleanCSS())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest('assets/admin/css'));
+
+    // Public styles
+    const public = gulp.src('assets/scss/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('assets/css'))
         .pipe(cleanCSS())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('assets/css'));
+
+    return require('merge-stream')(admin, public);
 });
 
 // Generate POT file
@@ -46,7 +57,7 @@ gulp.task('zip', function () {
 
 // Watch Task
 gulp.task('watch', function () {
-    gulp.watch('assets/scss/**/*.scss', gulp.series('styles'));
+    gulp.watch('assets/**/*.scss', gulp.series('styles'));
 });
 
 // Default Task

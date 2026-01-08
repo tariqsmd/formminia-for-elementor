@@ -118,23 +118,23 @@ class Plugin
 	 */
 	protected function define_public_hooks()
 	{
-		$validator = new \MTForms\Domain\FormValidator();
+		$validator = new \MTForms\Services\FormValidator();
 
 		$provider = get_option('mtforms_captcha_provider', 'none');
 		if ($provider === 'recaptcha') {
 			$secret = get_option('mtforms_recaptcha_secret_key');
-			$captcha_verifier = new \MTForms\Domain\Captcha\RecaptchaVerifier((string) $secret);
+			$captcha_verifier = new \MTForms\Services\Captcha\RecaptchaVerifier((string) $secret);
 		} elseif ($provider === 'turnstile') {
 			$secret = get_option('mtforms_turnstile_secret_key');
-			$captcha_verifier = new \MTForms\Domain\Captcha\TurnstileVerifier((string) $secret);
+			$captcha_verifier = new \MTForms\Services\Captcha\TurnstileVerifier((string) $secret);
 		} else {
-			$captcha_verifier = new \MTForms\Domain\Captcha\NullCaptchaVerifier();
+			$captcha_verifier = new \MTForms\Services\Captcha\NullCaptchaVerifier();
 		}
 
-		$config = new \MTForms\Infrastructure\WpOptionsConfig();
-		$mailer = new \MTForms\Infrastructure\WpMailMailer();
+		$config = new \MTForms\Services\WpOptionsConfig();
+		$mailer = new \MTForms\Services\WpMailMailer();
 
-		$submission_mailer = new \MTForms\Domain\Email\SubmissionMailer($config, $mailer);
+		$submission_mailer = new \MTForms\Services\Email\SubmissionMailer($config, $mailer);
 
 		$controller = new \MTForms\Frontend\FormController(
 			$this->get_plugin_name(),
