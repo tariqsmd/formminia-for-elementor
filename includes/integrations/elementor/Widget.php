@@ -1238,7 +1238,7 @@ class Widget extends \Elementor\Widget_Base {
 	 * @param array  $args     Arguments to pass to the template.
 	 */
 	public function get_partial( $template, $args = [] ) {
-		$path = MTFORMS_PLUGIN_DIR . 'includes/templates/elementor/' . $template . '.php';
+		$path = MTFORMS_PLUGIN_DIR . 'includes/integrations/elementor/partials/' . $template . '.php';
 		if ( file_exists( $path ) ) {
 			include $path;
 		}

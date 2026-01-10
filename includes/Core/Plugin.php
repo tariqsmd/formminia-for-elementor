@@ -12,8 +12,7 @@ namespace MTForms\Core;
  *
  * It is the modern, namespaced counterpart to the legacy MTForms_Core class.
  */
-class Plugin
-{
+class Plugin {
 
 	/**
 	 * Singleton instance.
@@ -48,9 +47,8 @@ class Plugin
 	 *
 	 * @return Plugin
 	 */
-	public static function get_instance()
-	{
-		if (null === static::$instance) {
+	public static function get_instance() {
+		if ( null === static::$instance ) {
 			static::$instance = new static();
 		}
 
@@ -62,9 +60,8 @@ class Plugin
 	 *
 	 * Sets up configuration and registers hooks.
 	 */
-	protected function __construct()
-	{
-		if (defined('MTFORMS_VERSION')) {
+	protected function __construct() {
+		if ( defined( 'MTFORMS_VERSION' ) ) {
 			$this->version = MTFORMS_VERSION;
 		} else {
 			$this->version = '1.0.0';
@@ -81,8 +78,7 @@ class Plugin
 	/**
 	 * Load plugin dependencies.
 	 */
-	protected function load_dependencies()
-	{
+	protected function load_dependencies() {
 		// All classes are autoloaded via the MTForms namespace.
 		$this->loader = new Loader();
 	}
@@ -90,11 +86,10 @@ class Plugin
 	/**
 	 * Register text domain and Elementor integration.
 	 */
-	protected function set_locale()
-	{
+	protected function set_locale() {
 		$plugin_i18n = new I18n();
 
-		$this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
+		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
 		// Register Elementor integration (namespaced).
 		new \MTForms\Integrations\Elementor\Integration();
@@ -103,30 +98,28 @@ class Plugin
 	/**
 	 * Register admin hooks.
 	 */
-	protected function define_admin_hooks()
-	{
-		$plugin_admin = new \MTForms\Admin\SettingsPage($this->get_plugin_name(), $this->get_version());
+	protected function define_admin_hooks() {
+		$plugin_admin = new \MTForms\Admin\SettingsPage( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
-		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
-		$this->loader->add_action('admin_menu', $plugin_admin, 'add_admin_menu');
-		$this->loader->add_action('admin_init', $plugin_admin, 'register_settings');
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_admin_menu' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_settings' );
 	}
 
 	/**
 	 * Register public hooks.
 	 */
-	protected function define_public_hooks()
-	{
+	protected function define_public_hooks() {
 		$validator = new \MTForms\Services\FormValidator();
 
-		$provider = get_option('mtforms_captcha_provider', 'none');
-		if ($provider === 'recaptcha') {
-			$secret = get_option('mtforms_recaptcha_secret_key');
-			$captcha_verifier = new \MTForms\Services\Captcha\RecaptchaVerifier((string) $secret);
-		} elseif ($provider === 'turnstile') {
-			$secret = get_option('mtforms_turnstile_secret_key');
-			$captcha_verifier = new \MTForms\Services\Captcha\TurnstileVerifier((string) $secret);
+		$provider = get_option( 'mtforms_captcha_provider', 'none' );
+		if ( $provider === 'recaptcha' ) {
+			$secret           = get_option( 'mtforms_recaptcha_secret_key' );
+			$captcha_verifier = new \MTForms\Services\Captcha\RecaptchaVerifier( (string)$secret );
+		} else if ( $provider === 'turnstile' ) {
+			$secret           = get_option( 'mtforms_turnstile_secret_key' );
+			$captcha_verifier = new \MTForms\Services\Captcha\TurnstileVerifier( (string)$secret );
 		} else {
 			$captcha_verifier = new \MTForms\Services\Captcha\NullCaptchaVerifier();
 		}
@@ -134,7 +127,7 @@ class Plugin
 		$config = new \MTForms\Services\WpOptionsConfig();
 		$mailer = new \MTForms\Services\WpMailMailer();
 
-		$submission_mailer = new \MTForms\Services\Email\SubmissionMailer($config, $mailer);
+		$submission_mailer = new \MTForms\Services\Email\SubmissionMailer( $config, $mailer );
 
 		$controller = new \MTForms\Frontend\FormController(
 			$this->get_plugin_name(),
@@ -144,18 +137,17 @@ class Plugin
 			$submission_mailer
 		);
 
-		$this->loader->add_action('wp_enqueue_scripts', $controller, 'enqueue_styles');
-		$this->loader->add_action('wp_enqueue_scripts', $controller, 'enqueue_scripts');
+		$this->loader->add_action( 'wp_enqueue_scripts', $controller, 'enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $controller, 'enqueue_scripts' );
 
-		$this->loader->add_action('wp_ajax_mtforms_submit_form', $controller, 'handle_form_submission');
-		$this->loader->add_action('wp_ajax_nopriv_mtforms_submit_form', $controller, 'handle_form_submission');
+		$this->loader->add_action( 'wp_ajax_mtforms_submit_form', $controller, 'handle_form_submission' );
+		$this->loader->add_action( 'wp_ajax_nopriv_mtforms_submit_form', $controller, 'handle_form_submission' );
 	}
 
 	/**
 	 * Execute all registered hooks.
 	 */
-	public function run()
-	{
+	public function run() {
 		$this->loader->run();
 	}
 
@@ -164,8 +156,7 @@ class Plugin
 	 *
 	 * @return string
 	 */
-	public function get_plugin_name()
-	{
+	public function get_plugin_name() {
 		return $this->plugin_name;
 	}
 
@@ -174,8 +165,7 @@ class Plugin
 	 *
 	 * @return string
 	 */
-	public function get_version()
-	{
+	public function get_version() {
 		return $this->version;
 	}
 }

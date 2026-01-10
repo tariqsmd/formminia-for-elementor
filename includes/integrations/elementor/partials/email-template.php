@@ -1,22 +1,22 @@
 <?php
-if (!defined('ABSPATH')) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
 /**
  * Professional HTML Email Template for MTForms
  *
- * @var array $args {
- *     @type string $subject Form subject.
- *     @type array  $fields  Submitted form fields.
- *     @type string $date    Submission date.
- *     @type string $site_name Site name.
+ * @var array   $args      {
+ * @type string $subject   Form subject.
+ * @type array  $fields    Submitted form fields.
+ * @type string $date      Submission date.
+ * @type string $site_name Site name.
  * }
  */
 
-$fields = isset($args['fields']) ? $args['fields'] : [];
-$date = isset($args['date']) ? $args['date'] : current_time('mysql');
-$site_name = isset($args['site_name']) ? $args['site_name'] : get_bloginfo('name');
+$fields    = isset( $args['fields'] ) ? $args['fields'] : [];
+$date      = isset( $args['date'] ) ? $args['date'] : current_time( 'mysql' );
+$site_name = isset( $args['site_name'] ) ? $args['site_name'] : get_bloginfo( 'name' );
 ?>
 <!DOCTYPE html>
 <html>
@@ -108,37 +108,37 @@ $site_name = isset($args['site_name']) ? $args['site_name'] : get_bloginfo('name
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="container">
-            <div class="header">
-                <h1>
-                    <?php echo esc_html__('New Form Submission', MTFORMS_TEXT_DOMAIN); ?>
-                </h1>
-            </div>
-            <div class="content">
-                <?php foreach ($fields as $label => $value): ?>
-                    <div class="field-group">
+<div class="wrapper">
+    <div class="container">
+        <div class="header">
+            <h1>
+				<?php echo esc_html__( 'New Form Submission', MTFORMS_TEXT_DOMAIN ); ?>
+            </h1>
+        </div>
+        <div class="content">
+			<?php foreach ( $fields as $label => $value ): ?>
+                <div class="field-group">
                         <span class="label">
-                            <?php echo esc_html($label); ?>
+                            <?php echo esc_html( $label ); ?>
                         </span>
-                        <div class="value">
-                            <?php echo nl2br(esc_html($value)); ?>
-                        </div>
+                    <div class="value">
+						<?php echo nl2br( esc_html( $value ) ); ?>
                     </div>
-                <?php endforeach; ?>
-            </div>
-            <div class="footer">
-                <p>
-                    <?php printf(esc_html__('Submitted on %s via %s', MTFORMS_TEXT_DOMAIN), $date, $site_name); ?>
-                </p>
-                <p>&copy;
-                    <?php echo date('Y'); ?>
-                    <?php echo esc_html($site_name); ?>.
-                    <?php echo esc_html__('All rights reserved.', MTFORMS_TEXT_DOMAIN); ?>
-                </p>
-            </div>
+                </div>
+			<?php endforeach; ?>
+        </div>
+        <div class="footer">
+            <p>
+				<?php printf( esc_html__( 'Submitted on %s via %s', MTFORMS_TEXT_DOMAIN ), $date, $site_name ); ?>
+            </p>
+            <p>&copy;
+				<?php echo date( 'Y' ); ?>
+				<?php echo esc_html( $site_name ); ?>.
+				<?php echo esc_html__( 'All rights reserved.', MTFORMS_TEXT_DOMAIN ); ?>
+            </p>
         </div>
     </div>
+</div>
 </body>
 
 </html>

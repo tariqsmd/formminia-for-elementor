@@ -7,15 +7,15 @@ namespace MTForms\Admin;
  */
 class Options {
 
-	const GROUP_SETTINGS             = 'mtforms_settings';
-	const CAPTCHA_PROVIDER           = 'mtforms_captcha_provider';
-	const RECAPTCHA_SITE_KEY         = 'mtforms_recaptcha_site_key';
-	const RECAPTCHA_SECRET_KEY       = 'mtforms_recaptcha_secret_key';
-	const TURNSTILE_SITE_KEY         = 'mtforms_turnstile_site_key';
-	const TURNSTILE_SECRET_KEY       = 'mtforms_turnstile_secret_key';
-	const ADMIN_EMAIL                = 'mtforms_admin_email';
-	const EMAIL_SUBJECT              = 'mtforms_email_subject';
-	const EMAIL_FROM_NAME            = 'mtforms_email_from_name';
-	const ENABLE_HTML_EMAIL          = 'mtforms_enable_html_email';
+	const GROUP_SETTINGS       = 'mtforms_settings';
+	const CAPTCHA_PROVIDER     = 'mtforms_captcha_provider';
+	const RECAPTCHA_SITE_KEY   = 'mtforms_recaptcha_site_key';
+	const RECAPTCHA_SECRET_KEY = 'mtforms_recaptcha_secret_key';
+	const TURNSTILE_SITE_KEY   = 'mtforms_turnstile_site_key';
+	const TURNSTILE_SECRET_KEY = 'mtforms_turnstile_secret_key';
+	const ADMIN_EMAIL          = 'mtforms_admin_email';
+	const EMAIL_SUBJECT        = 'mtforms_email_subject';
+	const EMAIL_FROM_NAME      = 'mtforms_email_from_name';
+	const ENABLE_HTML_EMAIL    = 'mtforms_enable_html_email';
 }
 

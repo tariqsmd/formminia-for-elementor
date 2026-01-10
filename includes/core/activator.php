@@ -9,13 +9,11 @@ namespace MTForms\Core;
  * @package    MTForms
  * @author     Muhammad Tariq
  */
-class Activator
-{
-    /**
-     * Run activation logic.
-     */
-    public static function activate()
-    {
-        // Add activation logic here (e.g., custom database tables)
-    }
+class Activator {
+	/**
+	 * Run activation logic.
+	 */
+	public static function activate() {
+		// Add activation logic here (e.g., custom database tables)
+	}
 }

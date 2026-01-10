@@ -7,8 +7,7 @@ use MTForms\Services\FormSubmission;
 /**
  * Google reCAPTCHA v2 verifier.
  */
-class RecaptchaVerifier implements CaptchaVerifierInterface
-{
+class RecaptchaVerifier implements CaptchaVerifierInterface {
 
 	/** @var string */
 	protected $secret_key;
@@ -16,31 +15,29 @@ class RecaptchaVerifier implements CaptchaVerifierInterface
 	/**
 	 * @param string $secret_key Secret key from settings.
 	 */
-	public function __construct($secret_key)
-	{
-		$this->secret_key = (string) $secret_key;
+	public function __construct( $secret_key ) {
+		$this->secret_key = (string)$secret_key;
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function verify(FormSubmission $submission, array $request)
-	{
-		unset($submission); // Unused for now, kept for future extension.
+	public function verify( FormSubmission $submission, array $request ) {
+		unset( $submission ); // Unused for now, kept for future extension.
 
-		$response = isset($request['g-recaptcha-response']) ? sanitize_text_field(wp_unslash($request['g-recaptcha-response'])) : '';
+		$response = isset( $request['g-recaptcha-response'] ) ? sanitize_text_field( wp_unslash( $request['g-recaptcha-response'] ) ) : '';
 
-		if ($this->secret_key === '') {
+		if ( $this->secret_key === '' ) {
 			return new \WP_Error(
 				'mtforms_recaptcha_config',
-				__('reCAPTCHA is not configured correctly.', MTFORMS_TEXT_DOMAIN)
+				__( 'reCAPTCHA is not configured correctly.', MTFORMS_TEXT_DOMAIN )
 			);
 		}
 
-		if ($response === '') {
+		if ( $response === '' ) {
 			return new \WP_Error(
 				'mtforms_recaptcha_missing',
-				__('Please complete the reCAPTCHA.', MTFORMS_TEXT_DOMAIN)
+				__( 'Please complete the reCAPTCHA.', MTFORMS_TEXT_DOMAIN )
 			);
 		}
 
@@ -48,32 +45,32 @@ class RecaptchaVerifier implements CaptchaVerifierInterface
 			'https://www.google.com/recaptcha/api/siteverify',
 			array(
 				'timeout' => 10,
-				'body' => array(
-					'secret' => $this->secret_key,
+				'body'    => array(
+					'secret'   => $this->secret_key,
 					'response' => $response,
 				),
 			)
 		);
 
-		if (is_wp_error($remote)) {
+		if ( is_wp_error( $remote ) ) {
 			/**
 			 * Fires when reCAPTCHA verification fails due to HTTP error.
 			 */
-			do_action('mtforms_captcha_error', $remote, 'recaptcha');
+			do_action( 'mtforms_captcha_error', $remote, 'recaptcha' );
 
 			return new \WP_Error(
 				'mtforms_recaptcha_http_error',
-				__('reCAPTCHA verification request failed.', MTFORMS_TEXT_DOMAIN)
+				__( 'reCAPTCHA verification request failed.', MTFORMS_TEXT_DOMAIN )
 			);
 		}
 
-		$body = wp_remote_retrieve_body($remote);
-		$result = json_decode($body);
+		$body   = wp_remote_retrieve_body( $remote );
+		$result = json_decode( $body );
 
-		if (!isset($result->success) || !$result->success) {
+		if ( ! isset( $result->success ) || ! $result->success ) {
 			return new \WP_Error(
 				'mtforms_recaptcha_invalid',
-				__('reCAPTCHA verification failed.', MTFORMS_TEXT_DOMAIN)
+				__( 'reCAPTCHA verification failed.', MTFORMS_TEXT_DOMAIN )
 			);
 		}
 

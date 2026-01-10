@@ -26,7 +26,7 @@ if ( $settings['show_captcha'] === 'yes' ) {
 			);
 			echo '<div class="mtforms-captcha-wrap"><div class="g-recaptcha" data-sitekey="' . esc_attr( $site_key ) . '"></div></div>';
 		}
-	} elseif ( $captcha_provider === 'turnstile' ) {
+	} else if ( $captcha_provider === 'turnstile' ) {
 		$site_key = get_option( 'mtforms_turnstile_site_key' );
 		if ( ! empty( $site_key ) ) {
 			wp_enqueue_script(

@@ -247,15 +247,15 @@
   transition: .4s;
 }
 
-input:checked+.mtforms-slider {
+input:checked + .mtforms-slider {
   background-color: var(--mtforms-admin-primary);
 }
 
-input:focus+.mtforms-slider {
+input:focus + .mtforms-slider {
   box-shadow: 0 0 1px var(--mtforms-admin-primary);
 }
 
-input:checked+.mtforms-slider:before {
+input:checked + .mtforms-slider:before {
   transform: translateX(22px);
 }
 
