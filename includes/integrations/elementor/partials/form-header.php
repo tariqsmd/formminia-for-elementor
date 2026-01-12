@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $settings  = $args['settings'];
 $widget_id = $args['widget_id'];
 
-// Build CSS classes
+// Classes
 $container_classes = array(
 	'mtforms-form-wrapper',
 	'mtforms-container',
@@ -43,12 +43,9 @@ if ( $settings['button_width'] === 'full' ) {
 	$container_classes[] = 'mtforms-button-full';
 }
 
-$container_classes[] = 'mtforms-align-' . sanitize_html_class( $settings['form_alignment'] );
+//$container_classes[] = 'mtforms-align-' . sanitize_html_class( $settings['form_alignment'] );
 $container_classes[] = 'mtforms-input-size-' . sanitize_html_class( $settings['input_size'] );
-
-// Inline styles are handled by Elementor or can be injected here
 ?>
-
-<div class="<?php echo esc_attr( implode( ' ', $container_classes ) ); ?>" id="<?php echo esc_attr( $widget_id ); ?>">
-    <form id="form-<?php echo esc_attr( $widget_id ); ?>" class="mtforms-form" action="" method="POST" novalidate>
+<div id="<?php echo esc_attr( $widget_id ); ?>" class="<?php echo esc_attr( implode( ' ', $container_classes ) ); ?>">
+    <form id="mtforms-form-<?php echo esc_attr( $widget_id ); ?>" class="mtforms-form" action="" method="POST" novalidate>
         <div class="mtforms-form-inner">
