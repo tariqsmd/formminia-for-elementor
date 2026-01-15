@@ -15,11 +15,10 @@ $widget_id = $args['widget_id'];
 // Classes
 $container_classes = array(
 	'mtforms-form-wrapper',
-	'mtforms-container',
 	'mtforms-skin-' . sanitize_html_class( $settings['skin'] ),
 	'mtforms-layout-' . sanitize_html_class( $settings['layout'] ),
-	'mtforms-input-style-' . sanitize_html_class( $settings['input_style'] ),
-	'mtforms-button-style-' . sanitize_html_class( $settings['button_style'] ),
+//	'mtforms-input-style-' . sanitize_html_class( $settings['input_style'] ),
+//	'mtforms-button-style-' . sanitize_html_class( $settings['button_style'] ),
 );
 
 if ( ! empty( $settings['animation'] ) && $settings['animation'] !== 'none' ) {
@@ -46,6 +45,6 @@ if ( $settings['button_width'] === 'full' ) {
 //$container_classes[] = 'mtforms-align-' . sanitize_html_class( $settings['form_alignment'] );
 $container_classes[] = 'mtforms-input-size-' . sanitize_html_class( $settings['input_size'] );
 ?>
-<div id="<?php echo esc_attr( $widget_id ); ?>" class="<?php echo esc_attr( implode( ' ', $container_classes ) ); ?>">
+<div id="mtforms-wrapper-<?php echo esc_attr( $widget_id ); ?>" class="<?php echo esc_attr( implode( ' ', $container_classes ) ); ?>">
     <form id="mtforms-form-<?php echo esc_attr( $widget_id ); ?>" class="mtforms-form" action="" method="POST" novalidate>
         <div class="mtforms-form-inner">

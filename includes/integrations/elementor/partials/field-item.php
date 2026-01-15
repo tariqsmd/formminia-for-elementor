@@ -44,17 +44,10 @@ $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
 		<?php endif; ?>
 
 		<?php if ( 'textarea' === $type ): ?>
-            <textarea name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $field_id ); ?>" class="mtforms-textarea mtforms-input-<?php echo esc_attr( $type ); ?>" rows="<?php echo esc_attr( $settings['textarea_rows'] ); ?>" <?php if ( $settings['show_placeholders'] === 'yes' ): ?>
-                placeholder="<?php echo esc_attr( $placeholder ); ?>"
-			<?php endif; ?>
-				<?php echo $required; ?>></textarea>
+            <textarea name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $field_id ); ?>" class="mtforms-textarea mtforms-input-<?php echo esc_attr( $type ); ?>" rows="<?php echo esc_attr( $settings['textarea_rows'] ); ?>" <?php if ( $settings['show_placeholders'] === 'yes' ): ?>placeholder="<?php echo esc_attr( $placeholder ); ?>"<?php endif; ?><?php echo $required; ?>></textarea>
 		<?php else: ?>
-            <input type="<?php echo esc_attr( $type ); ?>" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $field_id ); ?>" class="mtforms-input mtforms-input-<?php echo esc_attr( $type ); ?>" <?php if ( $settings['show_placeholders'] === 'yes' ): ?>
-                placeholder="
-        <?php echo esc_attr( $placeholder ); ?>"
-			<?php endif; ?>
-				<?php echo $required; ?>>
-		<?php endif; ?>
+            <input type="<?php echo esc_attr( $type ); ?>" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $field_id ); ?>" class="mtforms-input mtforms-input-<?php echo esc_attr( $type ); ?>" <?php if ( $settings['show_placeholders'] === 'yes' ): ?>placeholder="<?php echo esc_attr( $placeholder ); ?>"<?php endif; ?><?php echo $required; ?>>
+        <?php endif; ?>
 
 		<?php if ( $settings['layout'] === 'floating' || $settings['layout'] === 'material' ): ?>
             <label class="mtforms-floating-label" for="<?php echo esc_attr( $field_id ); ?>">

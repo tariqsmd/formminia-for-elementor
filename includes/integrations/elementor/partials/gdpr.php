@@ -13,7 +13,6 @@ $settings  = $args['settings'];
 $widget_id = $args['widget_id'];
 
 if ( $settings['show_gdpr'] === 'yes' ): ?>
-    <input type="hidden" name="mtforms_gdpr_enabled" value="yes">
     <div class="mtforms-form-group mtforms-gdpr-group">
         <label class="mtforms-checkbox-label">
             <input type="checkbox" name="mtforms_gdpr" id="gdpr-<?php echo esc_attr( $widget_id ); ?>" required>
@@ -22,5 +21,6 @@ if ( $settings['show_gdpr'] === 'yes' ): ?>
                 <?php echo esc_html( $settings['gdpr_text'] ); ?>
             </span>
         </label>
+        <input type="hidden" name="mtforms_gdpr_enabled" value="yes">
     </div>
 <?php endif;
