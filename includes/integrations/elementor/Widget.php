@@ -125,7 +125,10 @@ class Widget extends \Elementor\Widget_Base {
 				'default'     => 'default',
 				'options'     => [
 					'default' => __( 'Default', MTFORMS_TEXT_DOMAIN ),
-//					'modern'  => __( 'Modern', MTFORMS_TEXT_DOMAIN ),
+					'02'  => __( 'Two', MTFORMS_TEXT_DOMAIN ),
+					'03'  => __( 'Two', MTFORMS_TEXT_DOMAIN ),
+					'04'  => __( 'Two', MTFORMS_TEXT_DOMAIN ),
+					'05'  => __( 'Two', MTFORMS_TEXT_DOMAIN ),
 				],
 				'description' => esc_html__( 'Choose a visual style for the form.', MTFORMS_TEXT_DOMAIN ),
 			]

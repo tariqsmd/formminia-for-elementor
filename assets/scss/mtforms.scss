@@ -1,42 +1,20 @@
-/**
- * MTForms Styles
- */
 :root {
-  /* Brand Colors - High contrast indigo */
   --mtforms-primary: #000;
   --mtforms-secondary: #1E293B;
-
   --mtforms-text: #0F172A;
   --mtforms-text-light: #475569;
   --mtforms-bg: #FFFFFF;
-
   --mtforms-input-bg: #F8FAFC;
   --mtforms-input-border: #CBD5E1;
   --mtforms-focus: rgba(67, 56, 202, 0.2);
-
   --mtforms-error: #DC2626;
   --mtforms-success: #059669;
-
   --mtforms-radius: 0.5rem;
   --mtforms-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
   --mtforms-transition: all 0.25s ease-in-out;
   --mtforms-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.mtforms {
-
-  &-form-wrapper {
-    font-family: var(--mtforms-font-family);
-    box-sizing: border-box;
-    color: var(--mtforms-text);
-
-    * {
-      box-sizing: border-box;
-    }
-  }
-}
-
-// Animations
 @keyframes mtforms-shake {
   10%, 90% {
     transform: translate3d(-1px, 0, 0);
@@ -52,9 +30,115 @@
   }
 }
 
-/**
- * MTForms Default Skin Styles
- */
+.mtforms-form-wrapper {
+  font-family: var(--mtforms-font-family);
+  box-sizing: border-box;
+  color: var(--mtforms-text);
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .mtforms-form-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mtforms-form-group {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      display: flex;
+      align-items: center;
+
+      .required {
+        color: var(--mtforms-error);
+      }
+    }
+  }
+
+  .mtforms-input-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mtforms-input,
+  .mtforms-textarea {
+    width: 100%;
+    font-family: inherit;
+    outline: none;
+    transition: var(--mtforms-transition);
+
+    &.just-validate-error-field {
+      border-color: var(--mtforms-error);
+      background-color: rgba(239, 68, 68, 0.05);
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+      }
+    }
+  }
+
+  .mtforms-textarea {
+    display: block;
+    resize: vertical;
+  }
+
+  .mtforms-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--mtforms-transition);
+    border: none;
+
+    .mtforms-btn-icon {
+      display: flex;
+    }
+  }
+
+  .mtforms-checkbox-label {
+    position: relative;
+    display: flex;
+    user-select: none;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      height: 0;
+      width: 0;
+
+      &:checked ~ .mtforms-checkbox-custom::after {
+        display: block;
+      }
+    }
+
+    .mtforms-checkbox-custom {
+      position: relative;
+      flex-shrink: 0;
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: none;
+        border: solid var(--mtforms-bg);
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  .just-validate-error-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--mtforms-error) !important;
+    animation: mtforms-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+}
+
 .mtforms-skin-default {
   width: 100%;
   margin: 0 auto;
@@ -64,41 +148,24 @@
   box-shadow: var(--mtforms-shadow);
 
   .mtforms-form-inner {
-    display: flex;
-    flex-direction: column;
     gap: 1.5rem;
   }
 
-  // Field Groups & Labels
   .mtforms-form-group {
-    display: flex;
-    flex-direction: column;
     gap: 0.5rem;
 
     label {
-      display: flex;
-      align-items: center;
       gap: 4px;
       font-size: 0.875rem;
       font-weight: 600;
-      color: var(--mtforms-text);
-
-      .required {
-        color: var(--mtforms-error);
-      }
     }
   }
 
-  // Inputs & Textarea
   .mtforms-input,
   .mtforms-textarea {
-    width: 100%;
     padding: 12px 16px;
-    font-family: inherit;
     font-size: 1rem;
-    outline: none;
     border-radius: var(--mtforms-radius);
-    transition: var(--mtforms-transition);
     border: 1px solid var(--mtforms-input-border);
     background-color: var(--mtforms-input-bg);
     color: var(--mtforms-text);
@@ -116,81 +183,41 @@
   }
 
   .mtforms-textarea {
-    display: block;
-    resize: vertical;
     min-height: 120px;
   }
 
-  // GDPR / Checkbox Section
   .mtforms-gdpr-group {
     .mtforms-checkbox-label {
-      position: relative;
-      display: flex;
       gap: 0.8rem;
-      align-items: flex-start;
       font-size: 0.875rem;
       line-height: 1.5;
-      user-select: none;
-      cursor: pointer;
       color: var(--mtforms-text-light);
 
       input[type="checkbox"] {
-        //width: 1.2rem;
-        //height: 1.2rem;
-        //margin: 2px 0 0;
-        //outline: none;
-        //accent-color: var(--mtforms-primary);
-
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-
         &:checked ~ .mtforms-checkbox-custom {
           background-color: var(--mtforms-text);
           border-color: var(--mtforms-text);
-
-          &::after {
-            display: block;
-          }
         }
 
         &.just-validate-error-field ~ .mtforms-checkbox-custom {
           border-color: var(--mtforms-error);
-          background-color: rgba(239, 68, 68, 0.05);
         }
       }
 
       .mtforms-checkbox-custom {
-        position: relative;
-        flex-shrink: 0;
         height: 20px;
         width: 20px;
         background-color: var(--mtforms-input-bg);
         border: 1px solid var(--mtforms-input-border);
         border-radius: 4px;
-        transition: var(--mtforms-transition);
         margin-top: 2px;
 
         &::after {
-          content: "";
-          position: absolute;
-          display: none;
           left: 6px;
           top: 2px;
           width: 6px;
           height: 11px;
-          border: solid var(--mtforms-bg);
-          border-width: 0 2px 2px 0;
-          transform: rotate(45deg);
         }
-      }
-
-      .mtforms-checkbox-text {
-        font-size: 0.875rem;
-        line-height: 1.5;
-        color: var(--mtforms-text-light);
       }
 
       &:hover .mtforms-checkbox-custom {
@@ -200,49 +227,33 @@
 
     .just-validate-error-label {
       padding-left: 32px;
+      margin-top: 4px;
     }
   }
 
-  // Submit Button
   .mtforms-submit-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 0.5rem;
     width: fit-content;
     padding: 1rem 2rem;
     font-size: 1rem;
     font-weight: 600;
-    line-height: 1;
-    cursor: pointer;
-    transition: var(--mtforms-transition);
     border-radius: var(--mtforms-radius);
-    border: none;
     background-color: var(--mtforms-primary);
     color: #ffffff;
 
     &:hover {
       background-color: var(--mtforms-secondary);
-    }
 
-    &:active {
-      transform: translateY(0);
+      svg {
+        transform: translateX(2px);
+      }
     }
 
     svg {
       transition: transform 0.2s ease;
     }
-
-    &:hover svg {
-      transform: translateX(1px);
-    }
-
-    .mtforms-btn-icon {
-      display: flex;
-    }
   }
 
-  // Response Messages
   .mtforms-response-message {
     width: 100%;
     font-size: 0.875rem;
@@ -252,30 +263,5 @@
       display: none;
     }
   }
-
-  .mtforms-input-wrap {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .mtforms-input,
-  .mtforms-textarea {
-    &.just-validate-error-field {
-      border-color: var(--mtforms-error);
-      background-color: rgba(239, 68, 68, 0.05);
-
-      &:focus {
-        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
-      }
-    }
-  }
-
-  .just-validate-error-label {
-    font-size: 12px;
-    font-weight: 500;
-    margin-top: 4px;
-    color: var(--mtforms-error) !important;
-    animation: mtforms-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  }
 }
+
