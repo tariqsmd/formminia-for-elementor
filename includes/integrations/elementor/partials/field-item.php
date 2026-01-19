@@ -25,14 +25,14 @@ $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
 	<?php if ( $settings['show_labels'] === 'yes' ): ?>
         <label for="<?php echo esc_attr( $field_id ); ?>">
 			<?php if ( $settings['show_icons'] === 'yes' && ! empty( $icon_svg ) ): ?>
-                <span class="mtforms-icon">
-                    <?php echo $icon_svg; ?>
-                </span>
+                <span class="mtforms-icon"><?php echo $icon_svg; ?></span>
 			<?php endif; ?>
-			<?php echo esc_html( $label ); ?>
-			<?php if ( $required ): ?>
-                <span class="required">*</span>
-			<?php endif; ?>
+            <span class="mtforms-label-text">
+			    <?php echo esc_html( $label ); ?>
+		        <?php if ( $required ): ?>
+                    <span class="required">*</span>
+		        <?php endif; ?>
+            </span>
         </label>
 	<?php endif; ?>
 
@@ -49,7 +49,7 @@ $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
             <input type="<?php echo esc_attr( $type ); ?>" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $field_id ); ?>" class="mtforms-input mtforms-input-<?php echo esc_attr( $type ); ?>" <?php if ( $settings['show_placeholders'] === 'yes' ): ?>placeholder="<?php echo esc_attr( $placeholder ); ?>"<?php endif; ?><?php echo $required; ?>>
         <?php endif; ?>
 
-		<?php if ( $settings['layout'] === 'floating' || $settings['layout'] === 'material' ): ?>
+		<?php if ( $settings['layout'] === 'floating' ): ?>
             <label class="mtforms-floating-label" for="<?php echo esc_attr( $field_id ); ?>">
 				<?php echo esc_html( $label ); ?>
 				<?php if ( $required ): ?>

@@ -1,0 +1,139 @@
+.mtforms {
+
+  &-form-wrapper {
+    font-family: var(--mtforms-font-family);
+    box-sizing: border-box;
+    color: var(--mtforms-text);
+
+    * {
+      box-sizing: border-box;
+    }
+  }
+
+  &-form-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  &-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+
+      .required {
+        color: var(--mtforms-error);
+      }
+    }
+  }
+
+  &-icon{
+    display: flex;
+  }
+
+  &-input-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-input,
+  &-textarea {
+    width: 100%;
+    font-family: inherit;
+    outline: none;
+    transition: var(--mtforms-transition);
+
+    &.just-validate-error-field {
+      border-color: var(--mtforms-error);
+      background-color: rgba(239, 68, 68, 0.05);
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+      }
+    }
+  }
+
+  &-textarea {
+    display: block;
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  &-gdpr-group{
+
+    label {
+      align-items: flex-start;
+      gap: 0.8rem;
+      line-height: 1.5;
+      user-select: none;
+      cursor: pointer;
+    }
+  }
+
+  &-checkbox {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+
+    &:checked ~ .mtforms-checkbox-custom::after {
+      display: block;
+    }
+  }
+
+  &-checkbox-custom {
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 6px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+      border: solid var(--mtforms-bg);
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  &-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--mtforms-transition);
+    border: none;
+  }
+
+  &-btn-icon {
+    display: flex;
+  }
+
+  &-response-message {
+    width: 100%;
+    font-size: 0.875rem;
+    font-weight: 500;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .just-validate-error-label {
+    margin-top: 4px;
+    padding-left: 32px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--mtforms-error) !important;
+    animation: mtforms-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+}
