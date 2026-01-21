@@ -7,21 +7,10 @@
   box-shadow: var(--mtforms-shadow);
 }
 .mtforms-input, .mtforms-textarea {
-  padding: 12px 16px;
-  font-size: 1rem;
   border-radius: var(--mtforms-radius);
-  border: 1px solid var(--mtforms-input-border);
+  border-color: var(--mtforms-input-border);
   background-color: var(--mtforms-input-bg);
   color: var(--mtforms-text);
-}
-.mtforms-input::placeholder, .mtforms-textarea::placeholder {
-  color: var(--mtforms-text-light);
-  opacity: 0.7;
-}
-.mtforms-input:focus, .mtforms-textarea:focus {
-  border-color: var(--mtforms-primary);
-  box-shadow: 0 0 0 4px var(--mtforms-focus);
-  background-color: var(--mtforms-bg);
 }
 .mtforms-checkbox-label {
   color: var(--mtforms-text-light);
@@ -35,19 +24,6 @@
 }
 .mtforms-checkbox.just-validate-error-field ~ .mtforms-checkbox-custom {
   border-color: var(--mtforms-error);
-}
-.mtforms-checkbox-custom {
-  height: 20px;
-  width: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--mtforms-input-border);
-  background-color: var(--mtforms-input-bg);
-}
-.mtforms-checkbox-custom::after {
-  left: 6px;
-  top: 2px;
-  width: 6px;
-  height: 11px;
 }
 .mtforms-submit-btn {
   gap: 0.5rem;

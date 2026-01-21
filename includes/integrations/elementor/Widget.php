@@ -109,11 +109,16 @@ class Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'heading_layouts_&_presets',
+			'layout',
 			[
-				'label'     => esc_html__( 'Layouts & Presets', MTFORMS_TEXT_DOMAIN ),
-				'type'      => \Elementor\Controls_Manager::HEADING,
-				'separator' => 'before',
+				'label'       => esc_html__( 'Form Layout', MTFORMS_TEXT_DOMAIN ),
+				'type'        => \Elementor\Controls_Manager::SELECT,
+				'default'     => 'default',
+				'options'     => [
+					'default' => __( 'Default', MTFORMS_TEXT_DOMAIN ),
+					//	'inline'  => __( 'Inline Labels', MTFORMS_TEXT_DOMAIN ),
+				],
+				//'description' => esc_html__( 'Controls how labels and fields are arranged.', MTFORMS_TEXT_DOMAIN ),
 			]
 		);
 
@@ -125,26 +130,13 @@ class Widget extends \Elementor\Widget_Base {
 				'default'     => 'default',
 				'options'     => [
 					'default' => __( 'Default', MTFORMS_TEXT_DOMAIN ),
-					'02'  => __( 'Two', MTFORMS_TEXT_DOMAIN ),
-					'03'  => __( 'Two', MTFORMS_TEXT_DOMAIN ),
-					'04'  => __( 'Two', MTFORMS_TEXT_DOMAIN ),
-					'05'  => __( 'Two', MTFORMS_TEXT_DOMAIN ),
+					'01'  => __( 'Skin 1', MTFORMS_TEXT_DOMAIN ),
+					'02'  => __( 'Skin 2', MTFORMS_TEXT_DOMAIN ),
+					'03'  => __( 'Skin 3', MTFORMS_TEXT_DOMAIN ),
+					'04'  => __( 'Skin 4', MTFORMS_TEXT_DOMAIN ),
+					'05'  => __( 'Skin 5', MTFORMS_TEXT_DOMAIN ),
 				],
 				'description' => esc_html__( 'Choose a visual style for the form.', MTFORMS_TEXT_DOMAIN ),
-			]
-		);
-
-		$this->add_control(
-			'layout',
-			[
-				'label'       => esc_html__( 'Form Layout', MTFORMS_TEXT_DOMAIN ),
-				'type'        => \Elementor\Controls_Manager::SELECT,
-				'default'     => 'default',
-				'options'     => [
-					'default' => __( 'Default', MTFORMS_TEXT_DOMAIN ),
-				//	'inline'  => __( 'Inline Labels', MTFORMS_TEXT_DOMAIN ),
-				],
-				'description' => esc_html__( 'Controls how labels and fields are arranged.', MTFORMS_TEXT_DOMAIN ),
 			]
 		);
 
@@ -348,61 +340,6 @@ class Widget extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'heading_input_style',
-			[
-				'label'     => esc_html__( 'Input Options', MTFORMS_TEXT_DOMAIN ),
-				'type'      => \Elementor\Controls_Manager::HEADING,
-				'separator' => 'before',
-			]
-		);
-
-		$this->add_control(
-			'input_style',
-			[
-				'label'       => esc_html__( 'Input Style', MTFORMS_TEXT_DOMAIN ),
-				'type'        => \Elementor\Controls_Manager::SELECT,
-				'default'     => 'default',
-				'options'     => [
-					'default'   => __( 'Default', MTFORMS_TEXT_DOMAIN ),
-					'underline' => __( 'Underline Only', MTFORMS_TEXT_DOMAIN ),
-					'rounded'   => __( 'Rounded', MTFORMS_TEXT_DOMAIN ),
-					'pill'      => __( 'Pill Shape', MTFORMS_TEXT_DOMAIN ),
-					'shadow'    => __( 'Shadow', MTFORMS_TEXT_DOMAIN ),
-				],
-				'description' => esc_html__( 'Sets the visual style for input fields.', MTFORMS_TEXT_DOMAIN ),
-			]
-		);
-
-		$this->add_control(
-			'input_size',
-			[
-				'label'   => esc_html__( 'Input Size', MTFORMS_TEXT_DOMAIN ),
-				'type'    => \Elementor\Controls_Manager::SELECT,
-				'default' => 'medium',
-				'options' => [
-					'small'  => esc_html__( 'Small', MTFORMS_TEXT_DOMAIN ),
-					'medium' => esc_html__( 'Medium', MTFORMS_TEXT_DOMAIN ),
-					'large'  => esc_html__( 'Large', MTFORMS_TEXT_DOMAIN ),
-				],
-			]
-		);
-
-		$this->add_control(
-			'textarea_rows',
-			[
-				'label'     => esc_html__( 'Textarea Rows', MTFORMS_TEXT_DOMAIN ),
-				'type'      => \Elementor\Controls_Manager::NUMBER,
-				'min'       => 2,
-				'max'       => 20,
-				'step'      => 1,
-				'default'   => 5,
-				'condition' => [
-					'show_message' => 'yes',
-				],
-			]
-		);
-
 		$this->end_controls_section();
 	}
 
@@ -427,23 +364,23 @@ class Widget extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'button_style',
-			[
-				'label'       => esc_html__( 'Button Style', MTFORMS_TEXT_DOMAIN ),
-				'type'        => \Elementor\Controls_Manager::SELECT,
-				'default'     => 'solid',
-				'options'     => [
-					'solid'    => __( 'Solid', MTFORMS_TEXT_DOMAIN ),
-					'outline'  => __( 'Outline', MTFORMS_TEXT_DOMAIN ),
-					'gradient' => __( 'Gradient', MTFORMS_TEXT_DOMAIN ),
-					'glow'     => __( 'Glow', MTFORMS_TEXT_DOMAIN ),
-					'pill'     => __( 'Pill', MTFORMS_TEXT_DOMAIN ),
-					'3d'       => __( '3D Effect', MTFORMS_TEXT_DOMAIN ),
-				],
-				'description' => esc_html__( 'Choose the button visual style.', MTFORMS_TEXT_DOMAIN ),
-			]
-		);
+//		$this->add_control(
+//			'button_style',
+//			[
+//				'label'       => esc_html__( 'Button Style', MTFORMS_TEXT_DOMAIN ),
+//				'type'        => \Elementor\Controls_Manager::SELECT,
+//				'default'     => 'solid',
+//				'options'     => [
+//					'solid'    => __( 'Solid', MTFORMS_TEXT_DOMAIN ),
+//					'outline'  => __( 'Outline', MTFORMS_TEXT_DOMAIN ),
+//					'gradient' => __( 'Gradient', MTFORMS_TEXT_DOMAIN ),
+//					'glow'     => __( 'Glow', MTFORMS_TEXT_DOMAIN ),
+//					'pill'     => __( 'Pill', MTFORMS_TEXT_DOMAIN ),
+//					'3d'       => __( '3D Effect', MTFORMS_TEXT_DOMAIN ),
+//				],
+//				'description' => esc_html__( 'Choose the button visual style.', MTFORMS_TEXT_DOMAIN ),
+//			]
+//		);
 
 		$this->add_control(
 			'button_width',
@@ -899,6 +836,61 @@ class Widget extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Input Fields', MTFORMS_TEXT_DOMAIN ),
 				'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'heading_input_style',
+			[
+				'label'     => esc_html__( 'Input Options', MTFORMS_TEXT_DOMAIN ),
+				'type'      => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'input_style',
+			[
+				'label'       => esc_html__( 'Input Style', MTFORMS_TEXT_DOMAIN ),
+				'type'        => \Elementor\Controls_Manager::SELECT,
+				'default'     => 'default',
+				'options'     => [
+					'default'   => __( 'Default', MTFORMS_TEXT_DOMAIN ),
+					'underline' => __( 'Underline Only', MTFORMS_TEXT_DOMAIN ),
+					'rounded'   => __( 'Rounded', MTFORMS_TEXT_DOMAIN ),
+					'pill'      => __( 'Pill Shape', MTFORMS_TEXT_DOMAIN ),
+					'shadow'    => __( 'Shadow', MTFORMS_TEXT_DOMAIN ),
+				],
+				'description' => esc_html__( 'Sets the visual style for input fields.', MTFORMS_TEXT_DOMAIN ),
+			]
+		);
+
+		$this->add_control(
+			'input_size',
+			[
+				'label'   => esc_html__( 'Input Size', MTFORMS_TEXT_DOMAIN ),
+				'type'    => \Elementor\Controls_Manager::SELECT,
+				'default' => 'medium',
+				'options' => [
+					'small'  => esc_html__( 'Small', MTFORMS_TEXT_DOMAIN ),
+					'medium' => esc_html__( 'Medium', MTFORMS_TEXT_DOMAIN ),
+					'large'  => esc_html__( 'Large', MTFORMS_TEXT_DOMAIN ),
+				],
+			]
+		);
+
+		$this->add_control(
+			'textarea_rows',
+			[
+				'label'     => esc_html__( 'Textarea Rows', MTFORMS_TEXT_DOMAIN ),
+				'type'      => \Elementor\Controls_Manager::NUMBER,
+				'min'       => 2,
+				'max'       => 20,
+				'step'      => 1,
+				'default'   => 5,
+				'condition' => [
+					'show_message' => 'yes',
+				],
 			]
 		);
 

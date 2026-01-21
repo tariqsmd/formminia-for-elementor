@@ -23,6 +23,13 @@
 .mtforms-form-wrapper * {
   box-sizing: border-box;
 }
+.mtforms-form-wrapper .just-validate-error-label {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--mtforms-error) !important;
+  animation: mtforms-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
 .mtforms-form-inner {
   display: flex;
   flex-direction: column;
@@ -54,9 +61,17 @@
 }
 .mtforms-input, .mtforms-textarea {
   width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
   font-family: inherit;
   outline: none;
   transition: var(--mtforms-transition);
+  border: 1px solid transparent;
+}
+.mtforms-input::placeholder, .mtforms-textarea::placeholder {
+  line-height: 1 !important;
+  opacity: 0.7;
+  color: var(--mtforms-text-light);
 }
 .mtforms-input.just-validate-error-field, .mtforms-textarea.just-validate-error-field {
   border-color: var(--mtforms-error);
@@ -64,6 +79,10 @@
 }
 .mtforms-input.just-validate-error-field:focus, .mtforms-textarea.just-validate-error-field:focus {
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+.mtforms-input:hover, .mtforms-input:focus, .mtforms-textarea:hover, .mtforms-textarea:focus {
+  border-color: var(--mtforms-primary);
+  background-color: var(--mtforms-bg);
 }
 .mtforms-textarea {
   display: block;
@@ -77,6 +96,9 @@
   user-select: none;
   cursor: pointer;
 }
+.mtforms-gdpr-group .just-validate-error-label {
+  padding-left: 32px;
+}
 .mtforms-checkbox {
   position: absolute;
   opacity: 0;
@@ -89,12 +111,21 @@
 .mtforms-checkbox-custom {
   position: relative;
   flex-shrink: 0;
+  height: 20px;
+  width: 20px;
   margin-top: 6px;
+  border-radius: 4px;
+  border: 1px solid var(--mtforms-input-border);
+  background-color: var(--mtforms-input-bg);
 }
 .mtforms-checkbox-custom::after {
   content: "";
   position: absolute;
+  left: 6px;
+  top: 2px;
   display: none;
+  width: 6px;
+  height: 11px;
   border: solid var(--mtforms-bg);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
@@ -117,14 +148,6 @@
 }
 .mtforms-response-message:empty {
   display: none;
-}
-.mtforms .just-validate-error-label {
-  margin-top: 4px;
-  padding-left: 32px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--mtforms-error) !important;
-  animation: mtforms-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
 @keyframes mtforms-shake {
@@ -150,21 +173,10 @@
   box-shadow: var(--mtforms-shadow);
 }
 .mtforms-input, .mtforms-textarea {
-  padding: 12px 16px;
-  font-size: 1rem;
   border-radius: var(--mtforms-radius);
-  border: 1px solid var(--mtforms-input-border);
+  border-color: var(--mtforms-input-border);
   background-color: var(--mtforms-input-bg);
   color: var(--mtforms-text);
-}
-.mtforms-input::placeholder, .mtforms-textarea::placeholder {
-  color: var(--mtforms-text-light);
-  opacity: 0.7;
-}
-.mtforms-input:focus, .mtforms-textarea:focus {
-  border-color: var(--mtforms-primary);
-  box-shadow: 0 0 0 4px var(--mtforms-focus);
-  background-color: var(--mtforms-bg);
 }
 .mtforms-checkbox-label {
   color: var(--mtforms-text-light);
@@ -178,19 +190,6 @@
 }
 .mtforms-checkbox.just-validate-error-field ~ .mtforms-checkbox-custom {
   border-color: var(--mtforms-error);
-}
-.mtforms-checkbox-custom {
-  height: 20px;
-  width: 20px;
-  border-radius: 4px;
-  border: 1px solid var(--mtforms-input-border);
-  background-color: var(--mtforms-input-bg);
-}
-.mtforms-checkbox-custom::after {
-  left: 6px;
-  top: 2px;
-  width: 6px;
-  height: 11px;
 }
 .mtforms-submit-btn {
   gap: 0.5rem;
