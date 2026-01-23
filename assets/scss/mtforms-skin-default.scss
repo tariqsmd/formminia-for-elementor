@@ -9,27 +9,12 @@
     box-shadow: var(--mtforms-shadow);
   }
 
-  &-form-inner {
-
-  }
-
-  &-form-group {
-
-    label {
-
-    }
-  }
-
   &-input,
   &-textarea {
     border-radius: var(--mtforms-radius);
     border-color: var(--mtforms-input-border);
     background-color: var(--mtforms-input-bg);
     color: var(--mtforms-text);
-  }
-
-  &-textarea {
-
   }
 
   &-checkbox-label {
@@ -48,13 +33,6 @@
 
     &.just-validate-error-field ~ .mtforms-checkbox-custom {
       border-color: var(--mtforms-error);
-    }
-  }
-
-  &-checkbox-custom {
-
-    &::after {
-
     }
   }
 

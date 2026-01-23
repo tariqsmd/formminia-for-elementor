@@ -4,6 +4,15 @@ const rename   = require( 'gulp-rename' );
 const wpPot    = require( 'gulp-wp-pot' );
 const zip      = require( 'gulp-zip' );
 const sass     = require( 'gulp-sass' )( require( 'sass' ) );
+const browserSync  = require( 'browser-sync' ).create(); // 1
+
+// BrowserSync Init
+gulp.task( 'serve', function() {
+    browserSync.init( {
+        proxy: "http://fse.local/", // 2
+        notify: false
+    } );
+} )
 
 // Compile SCSS and Minify
 gulp.task( 'styles', function () {
@@ -13,7 +22,8 @@ gulp.task( 'styles', function () {
     .pipe( gulp.dest( 'assets/admin/css' ) )
     .pipe( cleanCSS() )
     .pipe( rename( { suffix : '.min' } ) )
-    .pipe( gulp.dest( 'assets/admin/css' ) );
+    .pipe( gulp.dest( 'assets/admin/css' ) )
+    .pipe( browserSync.stream() ); // 3
 
     // Public styles
     const public = gulp.src( 'assets/scss/*.scss' )
@@ -21,7 +31,8 @@ gulp.task( 'styles', function () {
     .pipe( gulp.dest( 'assets/css' ) )
     .pipe( cleanCSS() )
     .pipe( rename( { suffix : '.min' } ) )
-    .pipe( gulp.dest( 'assets/css' ) );
+    .pipe( gulp.dest( 'assets/css' ) )
+    .pipe( browserSync.stream() ); // 3
 
     return require( 'merge-stream' )( admin, public );
 } );
@@ -56,9 +67,13 @@ gulp.task( 'zip', function () {
 } );
 
 // Watch Task
-gulp.task( 'watch', function () {
+gulp.task( 'watch', gulp.series('styles', 'serve', function () {
+    // Watch SCSS
     gulp.watch( 'assets/**/*.scss', gulp.series( 'styles' ) );
-} );
+
+    // Watch PHP files and reload browser
+    gulp.watch( '**/*.php' ).on( 'change', browserSync.reload );
+} ) );
 
 // Default Task
 gulp.task( 'default', gulp.series( 'styles', 'translate', 'zip' ) );
