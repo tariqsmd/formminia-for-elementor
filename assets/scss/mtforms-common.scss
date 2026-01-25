@@ -1,19 +1,14 @@
 .mtforms {
 
   &-form-wrapper {
-    font-family: var(--mtforms-font-family);
-    box-sizing: border-box;
-    color: var(--mtforms-text);
-
-    * {
-      box-sizing: border-box;
-    }
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
 
     .just-validate-error-label {
       margin-top: 4px;
       font-size: 12px;
       font-weight: 500;
-      color: var(--mtforms-error) !important;
       animation: mtforms-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
     }
   }
@@ -36,10 +31,6 @@
       gap: 0.5rem;
       font-size: 1rem;
       font-weight: 600;
-
-      .required {
-        color: var(--mtforms-error);
-      }
     }
   }
 
@@ -56,39 +47,22 @@
   &-input,
   &-textarea {
     width: 100%;
-    padding: 12px 16px;
+    padding: 1rem 1rem;
     font-size: 1rem;
     font-family: inherit;
     outline: none;
     transition: var(--mtforms-transition);
-    border: 1px solid transparent;
+    border: 2px solid transparent;
 
     &::placeholder {
       line-height: 1 !important;
       opacity: 0.7;
-      color: var(--mtforms-text-light);
-    }
-
-    &.just-validate-error-field {
-      border-color: var(--mtforms-error);
-      background-color: rgba(239, 68, 68, 0.05);
-
-      &:focus {
-        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
-      }
-    }
-
-    &:hover,
-    &:focus {
-     // box-shadow: 0 0 0 4px var(--mtforms-focus);
-      border-color: var(--mtforms-primary);
-      background-color: var(--mtforms-bg);
     }
   }
 
   &-textarea {
     display: block;
-    min-height: 120px;
+    min-height: 168px;
     resize: vertical;
   }
 
@@ -96,7 +70,7 @@
 
     label {
       align-items: flex-start;
-      gap: 0.8rem;
+      gap: 1rem;
       line-height: 1.5;
       user-select: none;
       cursor: pointer;
@@ -121,12 +95,10 @@
   &-checkbox-custom {
     position: relative;
     flex-shrink: 0;
-    height: 20px;
-    width: 20px;
-    margin-top: 6px;
-    border-radius: 4px;
-    border: 1px solid var(--mtforms-input-border);
-    background-color: var(--mtforms-input-bg);
+    height: 22px;
+    width: 22px;
+    margin-top: 5px;
+    border: 2px solid transparent;
 
     &::after {
       content: "";
@@ -136,7 +108,7 @@
       display: none;
       width: 6px;
       height: 11px;
-      border: solid var(--mtforms-bg);
+      border: solid transparent;
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
     }
@@ -146,9 +118,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
+    width: fit-content;
+    padding: 1.1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
     transition: var(--mtforms-transition);
-    border: none;
+    border: 2px solid transparent;
+
+    &:hover {
+
+      svg {
+        transform: translateX(2px);
+      }
+    }
+
+    svg {
+      transition: transform 0.2s ease;
+    }
   }
 
   &-btn-icon {
@@ -162,6 +150,87 @@
 
     &:empty {
       display: none;
+    }
+  }
+}
+
+// Skin
+.mtforms {
+
+  &-form-wrapper {
+    color: var(--mtforms-text);
+
+    .just-validate-error-label {
+      color: var(--mtforms-error) !important;
+    }
+  }
+
+  &-form-group label {
+    color: var(--mtforms-primary);
+
+    .required {
+      color: var(--mtforms-error);
+    }
+  }
+
+  &-input,
+  &-textarea {
+    border-color: var(--mtforms-input-border);
+
+    &:hover,
+    &:focus {
+      border-color: var(--mtforms-primary);
+    }
+
+    &::placeholder {
+      color: var(--mtforms-text-light);
+    }
+
+    &.just-validate-error-field {
+      border-color: var(--mtforms-error);
+      background-color: rgba(239, 68, 68, 0.05);
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+      }
+
+      ~ .mtforms-checkbox-custom {
+        border-color: var(--mtforms-error);
+      }
+    }
+  }
+
+  &-checkbox-label {
+
+    &:hover .mtforms-checkbox-custom {
+      border-color: var(--mtforms-primary);
+    }
+  }
+
+  &-checkbox-custom {
+    border-color: var(--mtforms-input-border);
+
+    &::after {
+      border-color: var(--mtforms-bg);
+    }
+  }
+
+  &-checkbox {
+    &:checked ~ .mtforms-checkbox-custom {
+      background-color: var(--mtforms-text);
+      border-color: var(--mtforms-text);
+    }
+  }
+
+  &-submit-btn {
+    background: transparent;
+    border-color: var(--mtforms-input-border);
+    color: var(--mtforms-primary);
+
+    &:hover {
+      border-color: var(--mtforms-primary);
+      background-color: var(--mtforms-primary);
+      color: #fff;
     }
   }
 }
