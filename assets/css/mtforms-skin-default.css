@@ -17,6 +17,7 @@
 }
 .mtforms-skin-default .mtforms-submit-btn {
   background-color: var(--mtforms-primary);
+  border-color: var(--mtforms-primary);
   color: #ffffff;
 }
 .mtforms-skin-default .mtforms-submit-btn:hover {

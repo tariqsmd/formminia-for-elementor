@@ -31,6 +31,9 @@
   flex-direction: column;
   gap: 1.75rem;
 }
+.mtforms-form-title {
+  margin: 0;
+}
 .mtforms-form-group {
   display: flex;
   flex-direction: column;
@@ -228,6 +231,7 @@
 }
 .mtforms-skin-default .mtforms-submit-btn {
   background-color: var(--mtforms-primary);
+  border-color: var(--mtforms-primary);
   color: #ffffff;
 }
 .mtforms-skin-default .mtforms-submit-btn:hover {

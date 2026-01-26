@@ -109,6 +109,15 @@ class Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
+			'form_title',
+			[
+				'label'   => esc_html__( 'Form Title', MTFORMS_TEXT_DOMAIN ),
+				'type'    => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__( 'Contact Us', MTFORMS_TEXT_DOMAIN ),
+			]
+		);
+
+		$this->add_control(
 			'layout',
 			[
 				'label'       => esc_html__( 'Form Layout', MTFORMS_TEXT_DOMAIN ),
@@ -1107,6 +1116,10 @@ class Widget extends \Elementor\Widget_Base {
 				'widget_id' => $widget_id,
 			]
 		);
+
+		if ( $settings['form_title'] ) {
+			printf( '<h2 class="mtforms-form-title">%s</h2>', esc_html( $settings['form_title'] ) );
+		}
 
 		$this->render_form_content( $settings, $widget_id );
 
