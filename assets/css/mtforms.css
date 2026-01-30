@@ -33,6 +33,7 @@
 }
 .mtforms-form-title {
   margin: 0;
+  line-height: 1;
 }
 .mtforms-form-group {
   display: flex;
@@ -186,6 +187,9 @@
 .mtforms-checkbox:checked ~ .mtforms-checkbox-custom {
   background-color: var(--mtforms-text);
   border-color: var(--mtforms-text);
+}
+.mtforms-form-actions {
+  display: flex;
 }
 .mtforms-submit-btn {
   background: transparent;

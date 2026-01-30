@@ -118,20 +118,6 @@ class Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'layout',
-			[
-				'label'       => esc_html__( 'Form Layout', MTFORMS_TEXT_DOMAIN ),
-				'type'        => \Elementor\Controls_Manager::SELECT,
-				'default'     => 'default',
-				'options'     => [
-					'default' => __( 'Default', MTFORMS_TEXT_DOMAIN ),
-					//	'inline'  => __( 'Inline Labels', MTFORMS_TEXT_DOMAIN ),
-				],
-				//'description' => esc_html__( 'Controls how labels and fields are arranged.', MTFORMS_TEXT_DOMAIN ),
-			]
-		);
-
-		$this->add_control(
 			'skin',
 			[
 				'label'       => esc_html__( 'Preset Skin', MTFORMS_TEXT_DOMAIN ),
@@ -139,50 +125,26 @@ class Widget extends \Elementor\Widget_Base {
 				'default'     => 'default',
 				'options'     => [
 					'default' => __( 'Default', MTFORMS_TEXT_DOMAIN ),
-					'01'  => __( 'Skin 1', MTFORMS_TEXT_DOMAIN ),
-					'02'  => __( 'Skin 2', MTFORMS_TEXT_DOMAIN ),
-					'03'  => __( 'Skin 3', MTFORMS_TEXT_DOMAIN ),
-					'04'  => __( 'Skin 4', MTFORMS_TEXT_DOMAIN ),
-					'05'  => __( 'Skin 5', MTFORMS_TEXT_DOMAIN ),
+					'01'      => __( 'Skin 1', MTFORMS_TEXT_DOMAIN ),
+					'02'      => __( 'Skin 2', MTFORMS_TEXT_DOMAIN ),
+					'03'      => __( 'Skin 3', MTFORMS_TEXT_DOMAIN ),
+					'04'      => __( 'Skin 4', MTFORMS_TEXT_DOMAIN ),
+					'05'      => __( 'Skin 5', MTFORMS_TEXT_DOMAIN ),
 				],
-				'description' => esc_html__( 'Choose a visual style for the form.', MTFORMS_TEXT_DOMAIN ),
 			]
 		);
 
-//		$this->add_responsive_control(
-//			'form_alignment',
-//			[
-//				'label'   => esc_html__( 'Form Alignment', MTFORMS_TEXT_DOMAIN ),
-//				'type'    => \Elementor\Controls_Manager::CHOOSE,
-//				'options' => [
-//					'left'   => [
-//						'title' => esc_html__( 'Left', MTFORMS_TEXT_DOMAIN ),
-//						'icon'  => 'eicon-text-align-left',
-//					],
-//					'center' => [
-//						'title' => esc_html__( 'Center', MTFORMS_TEXT_DOMAIN ),
-//						'icon'  => 'eicon-text-align-center',
-//					],
-//					'right'  => [
-//						'title' => esc_html__( 'Right', MTFORMS_TEXT_DOMAIN ),
-//						'icon'  => 'eicon-text-align-right',
-//					],
-//				],
-//				'default' => 'center',
-//			]
-//		);
-
-//		$this->end_controls_section();
-//	}
-
-	//protected function register_field_controls() {
-//		$this->start_controls_section(
-//			'section_fields',
-//			[
-//				'label' => esc_html__( 'Form Fields', MTFORMS_TEXT_DOMAIN ),
-//				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
-//			]
-//		);
+		$this->add_control(
+			'layout',
+			[
+				'label'   => esc_html__( 'Form Layout', MTFORMS_TEXT_DOMAIN ),
+				'type'    => \Elementor\Controls_Manager::SELECT,
+				'default' => 'default',
+				'options' => [
+					'default' => __( 'Default', MTFORMS_TEXT_DOMAIN ),
+				],
+			]
+		);
 
 		$this->add_control(
 			'heading_form_fields',
@@ -333,22 +295,6 @@ class Widget extends \Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'icon_position',
-			[
-				'label'     => esc_html__( 'Icon Position', MTFORMS_TEXT_DOMAIN ),
-				'type'      => \Elementor\Controls_Manager::SELECT,
-				'default'   => 'left',
-				'options'   => [
-					'left'  => esc_html__( 'Left', MTFORMS_TEXT_DOMAIN ),
-					'right' => esc_html__( 'Right', MTFORMS_TEXT_DOMAIN ),
-				],
-				'condition' => [
-					'show_icons' => 'yes',
-				],
-			]
-		);
-
 		$this->end_controls_section();
 	}
 
@@ -372,24 +318,6 @@ class Widget extends \Elementor\Widget_Base {
 				'default' => esc_html__( 'Send Message', MTFORMS_TEXT_DOMAIN ),
 			]
 		);
-
-//		$this->add_control(
-//			'button_style',
-//			[
-//				'label'       => esc_html__( 'Button Style', MTFORMS_TEXT_DOMAIN ),
-//				'type'        => \Elementor\Controls_Manager::SELECT,
-//				'default'     => 'solid',
-//				'options'     => [
-//					'solid'    => __( 'Solid', MTFORMS_TEXT_DOMAIN ),
-//					'outline'  => __( 'Outline', MTFORMS_TEXT_DOMAIN ),
-//					'gradient' => __( 'Gradient', MTFORMS_TEXT_DOMAIN ),
-//					'glow'     => __( 'Glow', MTFORMS_TEXT_DOMAIN ),
-//					'pill'     => __( 'Pill', MTFORMS_TEXT_DOMAIN ),
-//					'3d'       => __( '3D Effect', MTFORMS_TEXT_DOMAIN ),
-//				],
-//				'description' => esc_html__( 'Choose the button visual style.', MTFORMS_TEXT_DOMAIN ),
-//			]
-//		);
 
 		$this->add_control(
 			'button_width',
@@ -633,22 +561,9 @@ class Widget extends \Elementor\Widget_Base {
 			]
 		);
 
-//		$this->end_controls_section();
-//	}
-
-	/**
-	 * Message Controls.
-	 */
-//	protected function register_message_controls() {
-//		$this->start_controls_section(
-//			'section_messages',
-//			[
-//				'label' => esc_html__( 'Messages', MTFORMS_TEXT_DOMAIN ),
-//				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
-//			]
-//		);
-
-
+		/**
+		 * Message Controls.
+		 */
 		$this->add_control(
 			'heading_messages_section',
 			[

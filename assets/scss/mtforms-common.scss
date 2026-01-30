@@ -21,6 +21,7 @@
 
   &-form-title {
     margin: 0;
+    line-height: 1;
   }
 
   &-form-group {
@@ -224,6 +225,14 @@
       background-color: var(--mtforms-text);
       border-color: var(--mtforms-text);
     }
+  }
+
+  &-form-actions {
+    display: flex;
+  }
+
+  &-button-align-left{
+
   }
 
   &-submit-btn {
