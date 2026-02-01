@@ -86,6 +86,10 @@ gulp.task( 'watch', function ( done ) {
     // Watch SCSS
     gulp.watch( 'assets/**/*.scss', gulp.series( 'styles' ) );
 
+    gulp.watch( 'assets/**/*.scss' ).on( 'change', function () {
+        browserSync.reload();
+    } );
+
     // Watch PHP files and reload browser
     gulp.watch( '**/*.php' ).on( 'change', function () {
         browserSync.reload();
