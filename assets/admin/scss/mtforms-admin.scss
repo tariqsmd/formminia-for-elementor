@@ -1,111 +1,192 @@
 /**
- * MTForms Admin Premium Styles
+ * MTForms Admin Styles
  */
 
 :root {
-  --mtforms-admin-primary: #6366f1;
+  --mtforms-admin-primary:     #6366f1;
   --mtforms-admin-primary-dark: #4f46e5;
-  --mtforms-admin-bg: #f8fafc;
-  --mtforms-admin-card-bg: #ffffff;
-  --mtforms-admin-text: #1e293b;
-  --mtforms-admin-text-light: #64748b;
-  --mtforms-admin-border: #e2e8f0;
-  --mtforms-admin-radius: 12px;
-  --mtforms-admin-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --mtforms-admin-bg:          #f8fafc;
+  --mtforms-admin-card-bg:     #ffffff;
+  --mtforms-admin-text:        #1e293b;
+  --mtforms-admin-text-light:  #64748b;
+  --mtforms-admin-border:      #e2e8f0;
+  --mtforms-admin-radius:      12px;
+  --mtforms-admin-shadow:      0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --mtforms-sidebar-width:     240px;
 }
 
+/* ─── Reset WP page chrome ─────────────────────────────── */
 .mtforms-admin-wrap {
-  max-width: 1100px;
-  margin: 30px 20px 0 0;
+  margin: 0;
+  padding: 0;
   font-family: inherit;
-
-  h1.wp-heading-inline {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--mtforms-admin-text);
-    margin-bottom: 30px;
-
-    .dashicons {
-      color: var(--mtforms-admin-primary);
-      transform: scale(1.2);
-    }
-
-    .version-tag {
-      font-size: 13px;
-      background: linear-gradient(135deg, var(--mtforms-admin-primary) 0%, #a855f7 100%);
-      color: #fff;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-weight: 500;
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-    }
-  }
 }
 
-/* Header End Override */
 .wp-header-end {
   display: none;
 }
 
-/* Premium Tabs */
-.mtforms-nav-tab-wrapper {
-  border: none;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(8px);
-  padding: 8px;
-  border-radius: 14px;
-  display: inline-flex;
-  gap: 5px;
-  margin-bottom: 30px;
-  border: 1px solid var(--mtforms-admin-border);
+/* ─── Two-column layout ─────────────────────────────────── */
+.mtforms-admin-layout {
+  display: flex;
+  align-items: flex-start;
+  min-height: 100vh;
+  background: var(--mtforms-admin-bg);
+}
 
-  .nav-tab {
-    border: none;
-    margin: 0;
-    padding: 10px 20px;
-    border-radius: 10px;
+/* ─── Sidebar ───────────────────────────────────────────── */
+.mtforms-admin-sidebar {
+  width: var(--mtforms-sidebar-width);
+  flex-shrink: 0;
+  background: #fff;
+  border-right: 1px solid var(--mtforms-admin-border);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+/* Brand block */
+.mtforms-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid var(--mtforms-admin-border);
+
+  .dashicons {
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+    color: var(--mtforms-admin-primary);
+  }
+
+  strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--mtforms-admin-text);
+    line-height: 1.2;
+  }
+
+  .version-tag {
+    font-size: 11px;
+    background: linear-gradient(135deg, var(--mtforms-admin-primary) 0%, #a855f7 100%);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+}
+
+/* Nav items */
+.mtforms-sidebar-nav {
+  flex: 1;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mtforms-sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--mtforms-admin-text-light);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+
+  .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: rgba(99, 102, 241, 0.06);
+    color: var(--mtforms-admin-primary);
+  }
+
+  &.is-active {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--mtforms-admin-primary);
     font-weight: 600;
-    font-size: 14px;
-    color: var(--mtforms-admin-text-light);
-    transition: all 0.2s ease;
-    background: transparent;
 
-    &:hover {
+    .dashicons {
       color: var(--mtforms-admin-primary);
-      background: rgba(99, 102, 241, 0.05);
     }
+  }
+}
 
-    &.nav-tab-active {
-      background: var(--mtforms-admin-primary);
-      color: #fff;
-      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+/* Help block at the bottom of sidebar */
+.mtforms-sidebar-help {
+  border-top: 1px solid var(--mtforms-admin-border);
+  padding: 20px;
+  font-size: 13px;
+  color: var(--mtforms-admin-text-light);
 
-      &:hover {
-        color: #fff;
+  p {
+    margin: 0 0 10px;
+    line-height: 1.5;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+
+      &::before {
+        content: "✦";
+        color: var(--mtforms-admin-primary);
+        font-size: 10px;
       }
     }
   }
 }
 
-/* Premium Cards */
+/* ─── Main content area ─────────────────────────────────── */
+.mtforms-admin-main {
+  flex: 1;
+  padding: 30px 30px 40px;
+  min-width: 0;
+}
+
+.mtforms-admin-header {
+  margin-bottom: 24px;
+
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--mtforms-admin-text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.3;
+  }
+}
+
+/* ─── Cards ─────────────────────────────────────────────── */
 .mtforms-card {
   background: var(--mtforms-admin-card-bg);
   border: 1px solid var(--mtforms-admin-border);
   border-radius: var(--mtforms-admin-radius);
   padding: 35px;
   box-shadow: var(--mtforms-admin-shadow);
-  margin-bottom: 30px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-  }
+  margin-bottom: 24px;
 
   h2 {
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 700;
     color: var(--mtforms-admin-text);
     margin: 0 0 25px 0;
@@ -122,26 +203,26 @@
   }
 
   h3 {
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 0;
     color: var(--mtforms-admin-text);
   }
 }
 
-/* Premium Form Table */
+/* ─── Form table ────────────────────────────────────────── */
 .form-table {
   margin-top: 0;
 
   th {
-    width: 250px;
-    padding: 20px 10px 20px 0;
+    width: 220px;
+    padding: 18px 10px 18px 0;
     font-size: 14px;
     color: var(--mtforms-admin-text);
     vertical-align: middle;
   }
 
   td {
-    padding: 15px 0;
+    padding: 14px 0;
     vertical-align: middle;
 
     input[type="text"],
@@ -149,7 +230,7 @@
     input[type="email"],
     select {
       width: 100%;
-      max-width: 450px;
+      max-width: 420px;
       padding: 10px 15px;
       border: 1px solid var(--mtforms-admin-border);
       border-radius: 8px;
@@ -174,7 +255,7 @@
   }
 }
 
-/* Submit Button Override */
+/* ─── Submit button ─────────────────────────────────────── */
 .wp-core-ui .button-primary {
   background: var(--mtforms-admin-primary) !important;
   border-color: var(--mtforms-admin-primary-dark) !important;
@@ -193,25 +274,7 @@
   }
 }
 
-/* Features List in Admin */
-.mtforms-card ul {
-  li {
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-    color: var(--mtforms-admin-text-light);
-
-    &::before {
-      content: "✦";
-      color: var(--mtforms-admin-primary);
-      font-weight: bold;
-    }
-  }
-}
-
-/* Custom Switch for settings */
+/* ─── Toggle switch ─────────────────────────────────────── */
 .mtforms-switch {
   position: relative;
   display: inline-block;
@@ -234,17 +297,17 @@
   bottom: 0;
   background-color: #cbd5e1;
   transition: .4s;
-}
 
-.mtforms-slider:before {
-  position: absolute;
-  content: "";
-  height: 18px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  transition: .4s;
+  &::before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+  }
 }
 
 input:checked + .mtforms-slider {
@@ -255,14 +318,14 @@ input:focus + .mtforms-slider {
   box-shadow: 0 0 1px var(--mtforms-admin-primary);
 }
 
-input:checked + .mtforms-slider:before {
+input:checked + .mtforms-slider::before {
   transform: translateX(22px);
 }
 
 .mtforms-slider.round {
   border-radius: 34px;
-}
 
-.mtforms-slider.round:before {
-  border-radius: 50%;
+  &::before {
+    border-radius: 50%;
+  }
 }
