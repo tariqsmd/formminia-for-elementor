@@ -1,12 +1,24 @@
-( function ( $ ) {
+(function ($) {
     'use strict';
 
-    /**
-     * All of the code for your admin-facing JavaScript source
-     * should reside in this file.
-     *
-     * Note: It has been assumed that this file is only loaded for the
-     * admin side of the site.
-     */
+    $(document).ready(function () {
 
-} )( jQuery );
+        /**
+         * Right info sidebar — sub-tab switching.
+         */
+        $('.mtforms-info-tab').on('click', function () {
+            var $btn = $(this);
+            var target = $btn.data('target');
+
+            // Update tab buttons
+            $('.mtforms-info-tab').removeClass('is-active');
+            $btn.addClass('is-active');
+
+            // Show the matching panel
+            $('.mtforms-info-panel').removeClass('is-active');
+            $('#' + target).addClass('is-active');
+        });
+
+    });
+
+})(jQuery);
