@@ -165,6 +165,60 @@ $tabs = [
                                     </p>
                                 </td>
                             </tr>
+
+                            <tr valign="top">
+                                <th scope="row">
+                                    <?php esc_html_e('Header Accent Color', MTFORMS_TEXT_DOMAIN); ?>
+                                </th>
+                                <td>
+                                    <input type="text" id="mtforms_email_accent_color" name="mtforms_email_accent_color"
+                                        value="<?php echo esc_attr(get_option('mtforms_email_accent_color', '#6366f1')); ?>"
+                                        class="mtforms-color-picker" />
+                                    <p class="description">
+                                        <?php esc_html_e('Background color for the email header bar.', MTFORMS_TEXT_DOMAIN); ?>
+                                    </p>
+                                </td>
+                            </tr>
+
+                            <tr valign="top">
+                                <th scope="row">
+                                    <?php esc_html_e('Email Logo', MTFORMS_TEXT_DOMAIN); ?>
+                                </th>
+                                <td>
+                                    <?php $logo_url = get_option('mtforms_email_logo_url', ''); ?>
+                                    <div class="mtforms-media-field">
+                                        <input type="text" id="mtforms_email_logo_url" name="mtforms_email_logo_url"
+                                            value="<?php echo esc_attr($logo_url); ?>"
+                                            class="regular-text mtforms-media-url" placeholder="https://..." />
+                                        <button type="button" class="button mtforms-media-upload-btn">
+                                            <?php esc_html_e('Select Image', MTFORMS_TEXT_DOMAIN); ?>
+                                        </button>
+                                        <button type="button" class="button mtforms-media-remove-btn" <?php echo empty($logo_url) ? ' style="display:none"' : ''; ?>>
+                                            <?php esc_html_e('Remove', MTFORMS_TEXT_DOMAIN); ?>
+                                        </button>
+                                    </div>
+                                    <div class="mtforms-logo-preview" <?php echo empty($logo_url) ? ' style="display:none"' : ''; ?>>
+                                        <img src="<?php echo esc_url($logo_url); ?>" alt="" />
+                                    </div>
+                                    <p class="description">
+                                        <?php esc_html_e('Displayed inside the email header. Recommended height: 40–50px.', MTFORMS_TEXT_DOMAIN); ?>
+                                    </p>
+                                </td>
+                            </tr>
+
+                            <tr valign="top">
+                                <th scope="row">
+                                    <?php esc_html_e('Footer Text', MTFORMS_TEXT_DOMAIN); ?>
+                                </th>
+                                <td>
+                                    <textarea name="mtforms_email_footer_text" rows="2"
+                                        class="regular-text"><?php echo esc_textarea(get_option('mtforms_email_footer_text', '')); ?></textarea>
+                                    <p class="description">
+                                        <?php esc_html_e('Optional extra line in the email footer (e.g. your address or a note).', MTFORMS_TEXT_DOMAIN); ?>
+                                    </p>
+                                </td>
+                            </tr>
+
                         </table>
                         <?php submit_button(__('Save Changes', MTFORMS_TEXT_DOMAIN), 'primary'); ?>
                     </form>

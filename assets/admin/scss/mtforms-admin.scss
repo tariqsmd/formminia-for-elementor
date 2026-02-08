@@ -236,13 +236,71 @@
       }
     }
 
+    textarea {
+      width: 100%;
+      max-width: 360px;
+      padding: 12px 15px;
+      border: 1px solid var(--mtforms-admin-border);
+      border-radius: 8px;
+      background: #fcfdfe;
+      transition: all 0.2s ease;
+      font-size: 14px;
+      line-height: 1.5;
+
+      &:focus {
+        border-color: var(--mtforms-admin-primary);
+        outline: none;
+        background: #fff;
+      }
+    }
+
     .description {
       font-size: 13px;
       color: var(--mtforms-admin-text-light);
       margin-top: 8px;
       font-style: italic;
     }
+
+    /* Media Uploader */
+    .mtforms-media-field {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+
+      .regular-text {
+        margin-bottom: 0 !important;
+      }
+
+      .button {
+        height: 38px !important;
+        padding: 0 15px !important;
+        line-height: 36px !important;
+      }
+    }
+
+    .mtforms-logo-preview {
+      margin-top: 15px;
+      max-width: 200px;
+      padding: 10px;
+      background: #f8fafc;
+      border: 1px dashed var(--mtforms-admin-border);
+      border-radius: 8px;
+      display: inline-block;
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
   }
+}
+
+/* Color picker tweaks */
+.wp-picker-container {
+  display: block;
+  margin-top: 5px;
 }
 
 /* Submit button */
