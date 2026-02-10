@@ -96,7 +96,7 @@
 /* ════════════════════════════════════════════════════════════ */
 .mtforms-admin-layout {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   min-height: calc(100vh - var(--mtforms-header-height) - 32px);
   background: var(--mtforms-admin-bg);
 }
@@ -109,10 +109,8 @@
   flex-shrink: 0;
   background: #fff;
   border-right: 1px solid var(--mtforms-admin-border);
-  min-height: 100%;
-  position: sticky;
-  top: calc(var(--mtforms-header-height) + 32px);
-  align-self: flex-start;
+  position: relative;
+  align-self: stretch;
 }
 
 .mtforms-sidebar-nav {
@@ -120,6 +118,8 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+  position: sticky;
+  top: calc(var(--mtforms-header-height) + 32px);
 }
 
 .mtforms-sidebar-nav-item {
@@ -386,9 +386,15 @@ input:checked+.mtforms-slider::before {
   flex-shrink: 0;
   background: #fff;
   border-left: 1px solid var(--mtforms-admin-border);
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Internal sticky wrapper for right sidebar */
+.mtforms-info-sticky-wrapper {
   position: sticky;
   top: calc(var(--mtforms-header-height) + 32px);
-  align-self: flex-start;
   display: flex;
   flex-direction: column;
 }

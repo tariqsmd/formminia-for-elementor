@@ -18,11 +18,18 @@ $site_name = isset($site_name) ? $site_name : get_bloginfo('name');
 
 // Branding pulled from admin options.
 $accent_color = get_option('mtforms_email_accent_color', '#6366f1');
+$bg_color = get_option('mtforms_email_bg_color', '#f4f7f6');
+$content_bg = get_option('mtforms_email_content_bg_color', '#ffffff');
+$text_color = get_option('mtforms_email_text_color', '#1e293b');
 $logo_url = get_option('mtforms_email_logo_url', '');
 $footer_text = get_option('mtforms_email_footer_text', '');
+$show_credit = get_option('mtforms_email_show_footer_credit', 'yes') === 'yes';
 
 // Sanitize.
 $accent_color = sanitize_hex_color($accent_color) ?: '#6366f1';
+$bg_color = sanitize_hex_color($bg_color) ?: '#f4f7f6';
+$content_bg = sanitize_hex_color($content_bg) ?: '#ffffff';
+$text_color = sanitize_hex_color($text_color) ?: '#1e293b';
 $logo_url = esc_url($logo_url);
 $footer_text = esc_html($footer_text);
 ?>
@@ -36,22 +43,30 @@ $footer_text = esc_html($footer_text);
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color:
+                <?php echo $text_color; ?>
+            ;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
+            background-color:
+                <?php echo $bg_color; ?>
+            ;
         }
 
         .wrapper {
             width: 100%;
             padding: 40px 0;
-            background-color: #f4f7f6;
+            background-color:
+                <?php echo $bg_color; ?>
+            ;
         }
 
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background: #fff;
+            background:
+                <?php echo $content_bg; ?>
+            ;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -188,14 +203,16 @@ $footer_text = esc_html($footer_text);
 
             <!-- Footer -->
             <div class="email-footer">
-                <p>
-                    <span class="email-footer-accent"></span>
-                    <?php printf(
-                        esc_html__('Submitted on %s via %s', MTFORMS_TEXT_DOMAIN),
-                        esc_html($date),
-                        esc_html($site_name)
-                    ); ?>
-                </p>
+                <?php if ($show_credit): ?>
+                    <p>
+                        <span class="email-footer-accent"></span>
+                        <?php printf(
+                            esc_html__('Submitted on %s via %s', MTFORMS_TEXT_DOMAIN),
+                            esc_html($date),
+                            esc_html($site_name)
+                        ); ?>
+                    </p>
+                <?php endif; ?>
                 <?php if (!empty($footer_text)): ?>
                     <p><?php echo $footer_text; ?></p>
                 <?php endif; ?>

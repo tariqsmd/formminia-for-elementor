@@ -182,6 +182,49 @@ $tabs = [
 
                             <tr valign="top">
                                 <th scope="row">
+                                    <?php esc_html_e('Email Background Color', MTFORMS_TEXT_DOMAIN); ?>
+                                </th>
+                                <td>
+                                    <input type="text" id="mtforms_email_bg_color" name="mtforms_email_bg_color"
+                                        value="<?php echo esc_attr(get_option('mtforms_email_bg_color', '#f4f7f6')); ?>"
+                                        class="mtforms-color-picker" />
+                                    <p class="description">
+                                        <?php esc_html_e('Background color of the email context.', MTFORMS_TEXT_DOMAIN); ?>
+                                    </p>
+                                </td>
+                            </tr>
+
+                            <tr valign="top">
+                                <th scope="row">
+                                    <?php esc_html_e('Content Background Color', MTFORMS_TEXT_DOMAIN); ?>
+                                </th>
+                                <td>
+                                    <input type="text" id="mtforms_email_content_bg_color"
+                                        name="mtforms_email_content_bg_color"
+                                        value="<?php echo esc_attr(get_option('mtforms_email_content_bg_color', '#ffffff')); ?>"
+                                        class="mtforms-color-picker" />
+                                    <p class="description">
+                                        <?php esc_html_e('Background color of the email content container.', MTFORMS_TEXT_DOMAIN); ?>
+                                    </p>
+                                </td>
+                            </tr>
+
+                            <tr valign="top">
+                                <th scope="row">
+                                    <?php esc_html_e('Email Text Color', MTFORMS_TEXT_DOMAIN); ?>
+                                </th>
+                                <td>
+                                    <input type="text" id="mtforms_email_text_color" name="mtforms_email_text_color"
+                                        value="<?php echo esc_attr(get_option('mtforms_email_text_color', '#1e293b')); ?>"
+                                        class="mtforms-color-picker" />
+                                    <p class="description">
+                                        <?php esc_html_e('Primary text color for the email content.', MTFORMS_TEXT_DOMAIN); ?>
+                                    </p>
+                                </td>
+                            </tr>
+
+                            <tr valign="top">
+                                <th scope="row">
                                     <?php esc_html_e('Email Logo', MTFORMS_TEXT_DOMAIN); ?>
                                 </th>
                                 <td>
@@ -215,6 +258,21 @@ $tabs = [
                                         class="regular-text"><?php echo esc_textarea(get_option('mtforms_email_footer_text', '')); ?></textarea>
                                     <p class="description">
                                         <?php esc_html_e('Optional extra line in the email footer (e.g. your address or a note).', MTFORMS_TEXT_DOMAIN); ?>
+                                    </p>
+                                </td>
+                            </tr>
+
+                            <tr valign="top">
+                                <th scope="row">
+                                    <?php esc_html_e('Show Footer Credit', MTFORMS_TEXT_DOMAIN); ?>
+                                </th>
+                                <td>
+                                    <label class="mtforms-switch">
+                                        <input type="checkbox" name="mtforms_email_show_footer_credit" value="yes" <?php checked(get_option('mtforms_email_show_footer_credit', 'yes'), 'yes'); ?>>
+                                        <span class="mtforms-slider round"></span>
+                                    </label>
+                                    <p class="description">
+                                        <?php esc_html_e('Show "Submitted via [Site Name]" in the email footer.', MTFORMS_TEXT_DOMAIN); ?>
                                     </p>
                                 </td>
                             </tr>
@@ -287,9 +345,10 @@ $tabs = [
 
         <!-- ═══ RIGHT SIDEBAR ═══ -->
         <aside class="mtforms-info-sidebar">
+            <div class="mtforms-info-sticky-wrapper">
 
-            <!-- Sub-tab nav -->
-            <div class="mtforms-info-tabs">
+                <!-- Sub-tab nav -->
+                <div class="mtforms-info-tabs">
                 <button class="mtforms-info-tab is-active" data-target="panel-about">
                     <?php esc_html_e('About', MTFORMS_TEXT_DOMAIN); ?>
                 </button>
@@ -440,8 +499,7 @@ $tabs = [
                 </div>
 
             </div>
-            <!-- /Panel: Support -->
-
+            </div>
         </aside>
         <!-- ═══ /RIGHT SIDEBAR ═══ -->
 

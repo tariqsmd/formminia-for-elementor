@@ -103,6 +103,10 @@ class SettingsPage
 		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_ACCENT_COLOR);
 		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_LOGO_URL);
 		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_FOOTER_TEXT);
+		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_BG_COLOR);
+		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_CONTENT_BG_COLOR);
+		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_TEXT_COLOR);
+		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_SHOW_FOOTER_CREDIT);
 	}
 
 	/**
