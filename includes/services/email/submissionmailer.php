@@ -70,6 +70,34 @@ class SubmissionMailer
 			'Reply-To: ' . wp_specialchars_decode($reply_to_name, ENT_QUOTES) . ' <' . $reply_to_email . '>',
 		);
 
+		// Handle CC.
+		$cc_emails = array();
+		$global_cc = $this->config->get('mtforms_email_cc', '');
+		if (!empty($global_cc)) {
+			$cc_emails = array_map('trim', explode(',', $global_cc));
+		}
+		if (!empty($submission->cc)) {
+			$cc_emails = array_merge($cc_emails, array_map('trim', explode(',', $submission->cc)));
+		}
+		$cc_emails = array_unique(array_filter($cc_emails, 'is_email'));
+		if (!empty($cc_emails)) {
+			$headers[] = 'Cc: ' . implode(', ', $cc_emails);
+		}
+
+		// Handle BCC.
+		$bcc_emails = array();
+		$global_bcc = $this->config->get('mtforms_email_bcc', '');
+		if (!empty($global_bcc)) {
+			$bcc_emails = array_map('trim', explode(',', $global_bcc));
+		}
+		if (!empty($submission->bcc)) {
+			$bcc_emails = array_merge($bcc_emails, array_map('trim', explode(',', $submission->bcc)));
+		}
+		$bcc_emails = array_unique(array_filter($bcc_emails, 'is_email'));
+		if (!empty($bcc_emails)) {
+			$headers[] = 'Bcc: ' . implode(', ', $bcc_emails);
+		}
+
 		$headers = apply_filters('mtforms_email_headers', $headers, $submission, $form_fields);
 
 		$email_subject = $default_sub;

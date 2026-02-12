@@ -140,6 +140,32 @@ $tabs = [
                             </tr>
                             <tr valign="top">
                                 <th scope="row">
+                                    <?php esc_html_e('Email CC', MTFORMS_TEXT_DOMAIN); ?>
+                                </th>
+                                <td>
+                                    <input type="text" name="mtforms_email_cc"
+                                        value="<?php echo esc_attr(get_option('mtforms_email_cc', '')); ?>"
+                                        class="regular-text" />
+                                    <p class="description">
+                                        <?php esc_html_e('Comma separated list of email addresses to CC.', MTFORMS_TEXT_DOMAIN); ?>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <th scope="row">
+                                    <?php esc_html_e('Email BCC', MTFORMS_TEXT_DOMAIN); ?>
+                                </th>
+                                <td>
+                                    <input type="text" name="mtforms_email_bcc"
+                                        value="<?php echo esc_attr(get_option('mtforms_email_bcc', '')); ?>"
+                                        class="regular-text" />
+                                    <p class="description">
+                                        <?php esc_html_e('Comma separated list of email addresses to BCC.', MTFORMS_TEXT_DOMAIN); ?>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <th scope="row">
                                     <?php esc_html_e('From Name', MTFORMS_TEXT_DOMAIN); ?>
                                 </th>
                                 <td>
@@ -349,156 +375,158 @@ $tabs = [
 
                 <!-- Sub-tab nav -->
                 <div class="mtforms-info-tabs">
-                <button class="mtforms-info-tab is-active" data-target="panel-about">
-                    <?php esc_html_e('About', MTFORMS_TEXT_DOMAIN); ?>
-                </button>
-                <button class="mtforms-info-tab" data-target="panel-features">
-                    <?php esc_html_e('Features', MTFORMS_TEXT_DOMAIN); ?>
-                </button>
-                <button class="mtforms-info-tab" data-target="panel-support">
-                    <?php esc_html_e('Support', MTFORMS_TEXT_DOMAIN); ?>
-                </button>
-            </div>
+                    <button class="mtforms-info-tab is-active" data-target="panel-about">
+                        <?php esc_html_e('About', MTFORMS_TEXT_DOMAIN); ?>
+                    </button>
+                    <button class="mtforms-info-tab" data-target="panel-features">
+                        <?php esc_html_e('Features', MTFORMS_TEXT_DOMAIN); ?>
+                    </button>
+                    <button class="mtforms-info-tab" data-target="panel-support">
+                        <?php esc_html_e('Support', MTFORMS_TEXT_DOMAIN); ?>
+                    </button>
+                </div>
 
-            <!-- Panel: About -->
-            <div class="mtforms-info-panel is-active" id="panel-about">
+                <!-- Panel: About -->
+                <div class="mtforms-info-panel is-active" id="panel-about">
 
-                <div class="mtforms-info-logo">
-                    <span class="dashicons dashicons-email"></span>
-                    <div>
-                        <strong>MTForms</strong>
-                        <span>v<?php echo esc_html(MTFORMS_VERSION); ?></span>
+                    <div class="mtforms-info-logo">
+                        <span class="dashicons dashicons-email"></span>
+                        <div>
+                            <strong>MTForms</strong>
+                            <span>v<?php echo esc_html(MTFORMS_VERSION); ?></span>
+                        </div>
                     </div>
+
+                    <p class="mtforms-info-desc">
+                        <?php esc_html_e('A modern, lightweight Elementor contact form plugin built with clean PHP architecture and extensibility in mind.', MTFORMS_TEXT_DOMAIN); ?>
+                    </p>
+
+                    <div class="mtforms-info-links">
+                        <a href="https://mhtas.com" target="_blank" class="mtforms-info-link">
+                            <span class="dashicons dashicons-admin-site-alt3"></span>
+                            <?php esc_html_e('Visit Website', MTFORMS_TEXT_DOMAIN); ?>
+                        </a>
+                        <a href="https://mhtas.com/mtforms/docs" target="_blank" class="mtforms-info-link">
+                            <span class="dashicons dashicons-book"></span>
+                            <?php esc_html_e('Documentation', MTFORMS_TEXT_DOMAIN); ?>
+                        </a>
+                        <a href="https://wordpress.org/plugins/mtforms/" target="_blank" class="mtforms-info-link">
+                            <span class="dashicons dashicons-wordpress"></span>
+                            <?php esc_html_e('WP Plugin Page', MTFORMS_TEXT_DOMAIN); ?>
+                        </a>
+                        <a href="https://wordpress.org/support/plugin/mtforms/" target="_blank"
+                            class="mtforms-info-link">
+                            <span class="dashicons dashicons-sos"></span>
+                            <?php esc_html_e('Community Forum', MTFORMS_TEXT_DOMAIN); ?>
+                        </a>
+                    </div>
+
                 </div>
+                <!-- /Panel: About -->
 
-                <p class="mtforms-info-desc">
-                    <?php esc_html_e('A modern, lightweight Elementor contact form plugin built with clean PHP architecture and extensibility in mind.', MTFORMS_TEXT_DOMAIN); ?>
-                </p>
+                <!-- Panel: Features -->
+                <div class="mtforms-info-panel" id="panel-features">
 
-                <div class="mtforms-info-links">
-                    <a href="https://mhtas.com" target="_blank" class="mtforms-info-link">
-                        <span class="dashicons dashicons-admin-site-alt3"></span>
-                        <?php esc_html_e('Visit Website', MTFORMS_TEXT_DOMAIN); ?>
-                    </a>
-                    <a href="https://mhtas.com/mtforms/docs" target="_blank" class="mtforms-info-link">
-                        <span class="dashicons dashicons-book"></span>
-                        <?php esc_html_e('Documentation', MTFORMS_TEXT_DOMAIN); ?>
-                    </a>
-                    <a href="https://wordpress.org/plugins/mtforms/" target="_blank" class="mtforms-info-link">
-                        <span class="dashicons dashicons-wordpress"></span>
-                        <?php esc_html_e('WP Plugin Page', MTFORMS_TEXT_DOMAIN); ?>
-                    </a>
-                    <a href="https://wordpress.org/support/plugin/mtforms/" target="_blank" class="mtforms-info-link">
-                        <span class="dashicons dashicons-sos"></span>
-                        <?php esc_html_e('Community Forum', MTFORMS_TEXT_DOMAIN); ?>
-                    </a>
+                    <p class="mtforms-info-panel-title"><?php esc_html_e("What's included", MTFORMS_TEXT_DOMAIN); ?></p>
+
+                    <ul class="mtforms-features-list">
+                        <li>
+                            <span class="mtforms-feature-icon">✦</span>
+                            <div>
+                                <strong><?php esc_html_e('Preset Skins', MTFORMS_TEXT_DOMAIN); ?></strong>
+                                <span><?php esc_html_e('5 ready-made form styles', MTFORMS_TEXT_DOMAIN); ?></span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="mtforms-feature-icon">✦</span>
+                            <div>
+                                <strong><?php esc_html_e('Field Icons', MTFORMS_TEXT_DOMAIN); ?></strong>
+                                <span><?php esc_html_e('Inline SVG icons per field', MTFORMS_TEXT_DOMAIN); ?></span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="mtforms-feature-icon">✦</span>
+                            <div>
+                                <strong><?php esc_html_e('HTML Email Template', MTFORMS_TEXT_DOMAIN); ?></strong>
+                                <span><?php esc_html_e('Professional email layout', MTFORMS_TEXT_DOMAIN); ?></span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="mtforms-feature-icon">✦</span>
+                            <div>
+                                <strong><?php esc_html_e('Spam Protection', MTFORMS_TEXT_DOMAIN); ?></strong>
+                                <span><?php esc_html_e('reCAPTCHA, Turnstile & honeypot', MTFORMS_TEXT_DOMAIN); ?></span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="mtforms-feature-icon">✦</span>
+                            <div>
+                                <strong><?php esc_html_e('Rate Limiting', MTFORMS_TEXT_DOMAIN); ?></strong>
+                                <span><?php esc_html_e('IP-based flood protection', MTFORMS_TEXT_DOMAIN); ?></span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="mtforms-feature-icon">✦</span>
+                            <div>
+                                <strong><?php esc_html_e('GDPR Consent', MTFORMS_TEXT_DOMAIN); ?></strong>
+                                <span><?php esc_html_e('Built-in consent checkbox', MTFORMS_TEXT_DOMAIN); ?></span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="mtforms-feature-icon">✦</span>
+                            <div>
+                                <strong><?php esc_html_e('Floating Labels', MTFORMS_TEXT_DOMAIN); ?></strong>
+                                <span><?php esc_html_e('CSS animated placeholders', MTFORMS_TEXT_DOMAIN); ?></span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="mtforms-feature-icon">✦</span>
+                            <div>
+                                <strong><?php esc_html_e('Responsive Design', MTFORMS_TEXT_DOMAIN); ?></strong>
+                                <span><?php esc_html_e('Works on all screen sizes', MTFORMS_TEXT_DOMAIN); ?></span>
+                            </div>
+                        </li>
+                    </ul>
+
                 </div>
+                <!-- /Panel: Features -->
 
-            </div>
-            <!-- /Panel: About -->
+                <!-- Panel: Support -->
+                <div class="mtforms-info-panel" id="panel-support">
 
-            <!-- Panel: Features -->
-            <div class="mtforms-info-panel" id="panel-features">
+                    <p class="mtforms-info-panel-title"><?php esc_html_e('Enjoying MTForms?', MTFORMS_TEXT_DOMAIN); ?>
+                    </p>
+                    <p class="mtforms-info-desc">
+                        <?php esc_html_e('If this plugin saves you time, consider supporting its development.', MTFORMS_TEXT_DOMAIN); ?>
+                    </p>
 
-                <p class="mtforms-info-panel-title"><?php esc_html_e("What's included", MTFORMS_TEXT_DOMAIN); ?></p>
-
-                <ul class="mtforms-features-list">
-                    <li>
-                        <span class="mtforms-feature-icon">✦</span>
-                        <div>
-                            <strong><?php esc_html_e('Preset Skins', MTFORMS_TEXT_DOMAIN); ?></strong>
-                            <span><?php esc_html_e('5 ready-made form styles', MTFORMS_TEXT_DOMAIN); ?></span>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="mtforms-feature-icon">✦</span>
-                        <div>
-                            <strong><?php esc_html_e('Field Icons', MTFORMS_TEXT_DOMAIN); ?></strong>
-                            <span><?php esc_html_e('Inline SVG icons per field', MTFORMS_TEXT_DOMAIN); ?></span>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="mtforms-feature-icon">✦</span>
-                        <div>
-                            <strong><?php esc_html_e('HTML Email Template', MTFORMS_TEXT_DOMAIN); ?></strong>
-                            <span><?php esc_html_e('Professional email layout', MTFORMS_TEXT_DOMAIN); ?></span>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="mtforms-feature-icon">✦</span>
-                        <div>
-                            <strong><?php esc_html_e('Spam Protection', MTFORMS_TEXT_DOMAIN); ?></strong>
-                            <span><?php esc_html_e('reCAPTCHA, Turnstile & honeypot', MTFORMS_TEXT_DOMAIN); ?></span>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="mtforms-feature-icon">✦</span>
-                        <div>
-                            <strong><?php esc_html_e('Rate Limiting', MTFORMS_TEXT_DOMAIN); ?></strong>
-                            <span><?php esc_html_e('IP-based flood protection', MTFORMS_TEXT_DOMAIN); ?></span>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="mtforms-feature-icon">✦</span>
-                        <div>
-                            <strong><?php esc_html_e('GDPR Consent', MTFORMS_TEXT_DOMAIN); ?></strong>
-                            <span><?php esc_html_e('Built-in consent checkbox', MTFORMS_TEXT_DOMAIN); ?></span>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="mtforms-feature-icon">✦</span>
-                        <div>
-                            <strong><?php esc_html_e('Floating Labels', MTFORMS_TEXT_DOMAIN); ?></strong>
-                            <span><?php esc_html_e('CSS animated placeholders', MTFORMS_TEXT_DOMAIN); ?></span>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="mtforms-feature-icon">✦</span>
-                        <div>
-                            <strong><?php esc_html_e('Responsive Design', MTFORMS_TEXT_DOMAIN); ?></strong>
-                            <span><?php esc_html_e('Works on all screen sizes', MTFORMS_TEXT_DOMAIN); ?></span>
-                        </div>
-                    </li>
-                </ul>
-
-            </div>
-            <!-- /Panel: Features -->
-
-            <!-- Panel: Support -->
-            <div class="mtforms-info-panel" id="panel-support">
-
-                <p class="mtforms-info-panel-title"><?php esc_html_e('Enjoying MTForms?', MTFORMS_TEXT_DOMAIN); ?></p>
-                <p class="mtforms-info-desc">
-                    <?php esc_html_e('If this plugin saves you time, consider supporting its development.', MTFORMS_TEXT_DOMAIN); ?>
-                </p>
-
-                <a href="https://buymeacoffee.com/mhtas" target="_blank" class="mtforms-btn-coffee">
-                    <span>☕</span>
-                    <?php esc_html_e('Buy Me a Coffee', MTFORMS_TEXT_DOMAIN); ?>
-                </a>
-
-                <a href="https://paypal.me/mhtas" target="_blank" class="mtforms-btn-donate">
-                    <span class="dashicons dashicons-heart"></span>
-                    <?php esc_html_e('Donate via PayPal', MTFORMS_TEXT_DOMAIN); ?>
-                </a>
-
-                <div class="mtforms-info-divider"></div>
-
-                <p class="mtforms-info-panel-title"><?php esc_html_e('Found a bug?', MTFORMS_TEXT_DOMAIN); ?></p>
-
-                <div class="mtforms-info-links">
-                    <a href="https://github.com/mhtas/mtforms/issues" target="_blank" class="mtforms-info-link">
-                        <span class="dashicons dashicons-warning"></span>
-                        <?php esc_html_e('Report an Issue', MTFORMS_TEXT_DOMAIN); ?>
+                    <a href="https://buymeacoffee.com/mhtas" target="_blank" class="mtforms-btn-coffee">
+                        <span>☕</span>
+                        <?php esc_html_e('Buy Me a Coffee', MTFORMS_TEXT_DOMAIN); ?>
                     </a>
-                    <a href="https://wordpress.org/support/plugin/mtforms/reviews/#new-post" target="_blank"
-                        class="mtforms-info-link">
-                        <span class="dashicons dashicons-star-filled"></span>
-                        <?php esc_html_e('Leave a Review', MTFORMS_TEXT_DOMAIN); ?>
+
+                    <a href="https://paypal.me/mhtas" target="_blank" class="mtforms-btn-donate">
+                        <span class="dashicons dashicons-heart"></span>
+                        <?php esc_html_e('Donate via PayPal', MTFORMS_TEXT_DOMAIN); ?>
                     </a>
+
+                    <div class="mtforms-info-divider"></div>
+
+                    <p class="mtforms-info-panel-title"><?php esc_html_e('Found a bug?', MTFORMS_TEXT_DOMAIN); ?></p>
+
+                    <div class="mtforms-info-links">
+                        <a href="https://github.com/mhtas/mtforms/issues" target="_blank" class="mtforms-info-link">
+                            <span class="dashicons dashicons-warning"></span>
+                            <?php esc_html_e('Report an Issue', MTFORMS_TEXT_DOMAIN); ?>
+                        </a>
+                        <a href="https://wordpress.org/support/plugin/mtforms/reviews/#new-post" target="_blank"
+                            class="mtforms-info-link">
+                            <span class="dashicons dashicons-star-filled"></span>
+                            <?php esc_html_e('Leave a Review', MTFORMS_TEXT_DOMAIN); ?>
+                        </a>
+                    </div>
+
                 </div>
-
-            </div>
             </div>
         </aside>
         <!-- ═══ /RIGHT SIDEBAR ═══ -->

@@ -55,4 +55,10 @@ if (!empty($settings['form_id'])) {
 ?>
 <div id="<?php echo esc_attr($wrapper_id); ?>" class="<?php echo esc_attr(implode(' ', $container_classes)); ?>">
 	<form id="<?php echo esc_attr($form_id); ?>" class="mtforms-form" action="" method="POST" novalidate>
+		<?php if (!empty($settings['mail_cc'])): ?>
+			<input type="hidden" name="mtforms_cc" value="<?php echo esc_attr($settings['mail_cc']); ?>">
+		<?php endif; ?>
+		<?php if (!empty($settings['mail_bcc'])): ?>
+			<input type="hidden" name="mtforms_bcc" value="<?php echo esc_attr($settings['mail_bcc']); ?>">
+		<?php endif; ?>
 		<div class="mtforms-form-inner">

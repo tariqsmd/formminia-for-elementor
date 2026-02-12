@@ -25,5 +25,7 @@ class Options
 	const EMAIL_CONTENT_BG_COLOR = 'mtforms_email_content_bg_color';
 	const EMAIL_TEXT_COLOR = 'mtforms_email_text_color';
 	const EMAIL_SHOW_FOOTER_CREDIT = 'mtforms_email_show_footer_credit';
+	const EMAIL_CC = 'mtforms_email_cc';
+	const EMAIL_BCC = 'mtforms_email_bcc';
 }
 

@@ -103,6 +103,7 @@ class Widget extends \Elementor\Widget_Base
 		$this->register_basic_controls();
 		$this->register_button_controls();
 		$this->register_label_controls();
+		$this->register_email_controls();
 		$this->register_advanced_controls();
 	}
 
@@ -621,6 +622,42 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Error Message', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'default' => esc_html__('Oops! Something went wrong. Please try again.', MTFORMS_TEXT_DOMAIN),
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Email Controls.
+	 */
+	protected function register_email_controls()
+	{
+		$this->start_controls_section(
+			'section_email',
+			[
+				'label' => esc_html__('Email Settings', MTFORMS_TEXT_DOMAIN),
+				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_control(
+			'mail_cc',
+			[
+				'label' => esc_html__('CC Email', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'description' => esc_html__('Optional CC email addresses, separate with commas.', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+			]
+		);
+
+		$this->add_control(
+			'mail_bcc',
+			[
+				'label' => esc_html__('BCC Email', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'description' => esc_html__('Optional BCC email addresses, separate with commas.', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 			]
 		);
 

@@ -107,6 +107,8 @@ class SettingsPage
 		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_CONTENT_BG_COLOR);
 		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_TEXT_COLOR);
 		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_SHOW_FOOTER_CREDIT);
+		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_CC);
+		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_BCC);
 	}
 
 	/**
