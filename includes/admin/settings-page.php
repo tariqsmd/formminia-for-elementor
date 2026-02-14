@@ -320,7 +320,7 @@ $tabs = [
                                     <?php esc_html_e('Site Key', MTFORMS_TEXT_DOMAIN); ?>
                                 </th>
                                 <td><input type="text" name="mtforms_recaptcha_site_key"
-                                        value="<?php echo esc_attr(get_option('mtforms_recaptcha_site_key')); ?>"
+                                        value="<?php echo esc_attr(get_option('mtforms_recaptcha_site_key', '')); ?>"
                                         class="regular-text" placeholder="6L..." /></td>
                             </tr>
                             <tr valign="top">
@@ -328,7 +328,7 @@ $tabs = [
                                     <?php esc_html_e('Secret Key', MTFORMS_TEXT_DOMAIN); ?>
                                 </th>
                                 <td><input type="password" name="mtforms_recaptcha_secret_key"
-                                        value="<?php echo esc_attr(get_option('mtforms_recaptcha_secret_key')); ?>"
+                                        value="<?php echo esc_attr(get_option('mtforms_recaptcha_secret_key', '')); ?>"
                                         class="regular-text" /></td>
                             </tr>
                         </table>
@@ -348,7 +348,7 @@ $tabs = [
                                     <?php esc_html_e('Site Key', MTFORMS_TEXT_DOMAIN); ?>
                                 </th>
                                 <td><input type="text" name="mtforms_turnstile_site_key"
-                                        value="<?php echo esc_attr(get_option('mtforms_turnstile_site_key')); ?>"
+                                        value="<?php echo esc_attr(get_option('mtforms_turnstile_site_key', '')); ?>"
                                         class="regular-text" placeholder="0x..." /></td>
                             </tr>
                             <tr valign="top">
@@ -356,7 +356,7 @@ $tabs = [
                                     <?php esc_html_e('Secret Key', MTFORMS_TEXT_DOMAIN); ?>
                                 </th>
                                 <td><input type="password" name="mtforms_turnstile_secret_key"
-                                        value="<?php echo esc_attr(get_option('mtforms_turnstile_secret_key')); ?>"
+                                        value="<?php echo esc_attr(get_option('mtforms_turnstile_secret_key', '')); ?>"
                                         class="regular-text" /></td>
                             </tr>
                         </table>
