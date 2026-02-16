@@ -1,0 +1,314 @@
+/**
+ * MTForms Custom Skins
+ * 
+ * Elegant, premium preset skins for the MTForms Elementor Widget.
+ */
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 01: Modern Indigo (Premium Dark Depth)                  */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-01 {
+    background-color: #1a1c23;
+    color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    padding: 2.5rem;
+
+    .mtforms {
+        &-form-title {
+            color: #818cf8;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        &-form-group label {
+            color: #94a3b8;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        &-input,
+        &-textarea {
+            background-color: #2d2f39;
+            border: 1px solid #3f414d;
+            color: #f1f5f9;
+            border-radius: 8px;
+
+            &:hover,
+            &:focus {
+                background-color: #2d2f39;
+                border-color: #6366f1;
+                box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+            }
+
+            &::placeholder {
+                color: #64748b;
+            }
+        }
+
+        &-checkbox-custom {
+            background-color: #2d2f39;
+            border-color: #3f414d;
+            border-radius: 4px;
+
+            &::after {
+                border-color: #ffffff;
+            }
+        }
+
+        &-checkbox:checked~.mtforms-checkbox-custom {
+            background-color: #6366f1;
+            border-color: #6366f1;
+        }
+
+        &-submit-btn {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            border: none;
+            color: #ffffff;
+            border-radius: 8px;
+            padding: 1.25rem 2rem;
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 15px 20px -5px rgba(99, 102, 241, 0.4);
+            }
+        }
+    }
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 02: Nature's Breath (Earth Tones & Softness)            */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-02 {
+    background-color: #fdfdfb;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(5, 150, 105, 0.05);
+
+    .mtforms {
+        &-form-title {
+            color: #065f46;
+            font-family: inherit;
+            border-left: 4px solid #10b981;
+            padding-left: 1.5rem;
+        }
+
+        &-form-group label {
+            color: #134e4a;
+        }
+
+        &-input,
+        &-textarea {
+            background-color: #f8fafc;
+            border: 1px solid #d1d5db;
+            border-radius: 12px;
+            padding: 0.875rem 1.25rem;
+
+            &:hover,
+            &:focus {
+                border-color: #10b981;
+                background-color: #ffffff;
+            }
+        }
+
+        &-checkbox-custom {
+            border-radius: 50%;
+            border-color: #d1d5db;
+        }
+
+        &-checkbox:checked~.mtforms-checkbox-custom {
+            background-color: #10b981;
+            border-color: #10b981;
+        }
+
+        &-submit-btn {
+            background-color: #059669;
+            border-radius: 50px;
+            padding: 1rem 3rem;
+
+            &:hover {
+                background-color: #047857;
+                letter-spacing: 0.5px;
+            }
+        }
+    }
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 03: Sunset Glow (Vibrant Gradients)                      */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-03 {
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(244, 63, 94, 0.15);
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 8px;
+        background: linear-gradient(90deg, #f43f5e 0%, #fb923c 100%);
+    }
+
+    .mtforms {
+        &-form-title {
+            background: linear-gradient(90deg, #f43f5e 0%, #fb923c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        &-input,
+        &-textarea {
+            background: #fff5f6;
+            border: 2px solid transparent;
+            border-radius: 16px;
+
+            &:focus {
+                border-color: #f43f5e;
+                background: #fff;
+            }
+        }
+
+        &-checkbox:checked~.mtforms-checkbox-custom {
+            background-color: #f43f5e;
+            border-color: #f43f5e;
+        }
+
+        &-submit-btn {
+            background: linear-gradient(45deg, #f43f5e 0%, #e11d48 100%);
+            border-radius: 16px;
+            color: white;
+
+            &:hover {
+                box-shadow: 0 8px 16px -4px rgba(244, 63, 94, 0.4);
+                transform: scale(1.02);
+            }
+        }
+    }
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 04: Sleek Corporate (Clean & Trustworthy)               */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-04 {
+    background: #ffffff;
+    border: 1px solid #e1e8ed;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+    .mtforms {
+        &-form-title {
+            color: #1e293b;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        &-input,
+        &-textarea {
+            border: 1px solid #e2e8f0;
+            border-radius: 0;
+            transition: all 0.2s ease;
+
+            &:focus {
+                border-color: #0f172a;
+                border-width: 1px;
+            }
+        }
+
+        &-submit-btn {
+            background: #0f172a;
+            border-radius: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 1.25rem 2.5rem;
+
+            &:hover {
+                background: #1e293b;
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+        }
+    }
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 05: Cyberpunk / Neon (Bold & Interactive)               */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-05 {
+    background: #000000;
+    border: 1px solid #333;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+    position: relative;
+
+    .mtforms {
+        &-form-title {
+            color: #0ff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        &-form-group label {
+            color: #0ff;
+            opacity: 0.8;
+        }
+
+        &-input,
+        &-textarea {
+            background: #111;
+            border: 1px solid #333;
+            color: #0ff;
+            border-radius: 0;
+
+            &:focus {
+                border-color: #f0f;
+                box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+            }
+        }
+
+        &-checkbox-custom {
+            border-color: #0ff;
+        }
+
+        &-checkbox:checked~.mtforms-checkbox-custom {
+            background-color: #f0f;
+            border-color: #f0f;
+        }
+
+        &-submit-btn {
+            background: transparent;
+            border: 1px solid #0ff;
+            color: #0ff;
+            border-radius: 0;
+            overflow: hidden;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+                transition: 0.5s;
+            }
+
+            &:hover {
+                background: rgba(0, 255, 255, 0.1);
+                text-shadow: 0 0 5px #0ff;
+
+                &::after {
+                    left: 100%;
+                }
+            }
+        }
+    }
+}
