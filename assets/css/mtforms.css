@@ -385,6 +385,7 @@
 .mtforms-skin-03 .mtforms-form-title {
   background: linear-gradient(90deg, #f43f5e 0%, #fb923c 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
 }
@@ -507,4 +508,389 @@
 }
 .mtforms-skin-05 .mtforms-submit-btn:hover::after {
   left: 100%;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 06: Royal Gold (Black & Gold)                           */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-06 {
+  background: #000;
+  border: 1px solid #c5a059;
+  border-radius: 8px;
+  color: #fff;
+}
+.mtforms-skin-06 .mtforms-form-title {
+  color: #c5a059;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.mtforms-skin-06 .mtforms-input, .mtforms-skin-06 .mtforms-textarea {
+  background: #111;
+  border: 1px solid #333;
+  color: #c5a059;
+}
+.mtforms-skin-06 .mtforms-input:focus, .mtforms-skin-06 .mtforms-textarea:focus {
+  border-color: #c5a059;
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+}
+.mtforms-skin-06 .mtforms-submit-btn {
+  background: #c5a059;
+  color: #000;
+  border-radius: 0;
+}
+.mtforms-skin-06 .mtforms-submit-btn:hover {
+  background: #d4af37;
+  box-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 07: Lavender Mist (Soft Pastel)                          */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-07 {
+  background: #fdfafc;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.08);
+}
+.mtforms-skin-07 .mtforms-form-title {
+  color: #7c3aed;
+}
+.mtforms-skin-07 .mtforms-input, .mtforms-skin-07 .mtforms-textarea {
+  background: #fff;
+  border: 1px solid #ede9fe;
+  border-radius: 12px;
+}
+.mtforms-skin-07 .mtforms-input:focus, .mtforms-skin-07 .mtforms-textarea:focus {
+  border-color: #a78bfa;
+  background: #fdfafc;
+}
+.mtforms-skin-07 .mtforms-submit-btn {
+  background: #8b5cf6;
+  border-radius: 12px;
+}
+.mtforms-skin-07 .mtforms-submit-btn:hover {
+  background: #7c3aed;
+  transform: scale(1.01);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 08: Oceanic Deep (Teal & Blue)                          */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-08 {
+  background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+  border-radius: 15px;
+  padding: 2.5rem;
+}
+.mtforms-skin-08 .mtforms-form-title {
+  color: #22d3ee;
+}
+.mtforms-skin-08 .mtforms-input, .mtforms-skin-08 .mtforms-textarea {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #1e293b;
+  color: #38bdf8;
+}
+.mtforms-skin-08 .mtforms-input:focus, .mtforms-skin-08 .mtforms-textarea:focus {
+  border-color: #0ea5e9;
+}
+.mtforms-skin-08 .mtforms-submit-btn {
+  background: #0891b2;
+  border-radius: 8px;
+}
+.mtforms-skin-08 .mtforms-submit-btn:hover {
+  background: #0e7490;
+  box-shadow: 0 0 20px rgba(8, 145, 178, 0.3);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 09: Fire & Ice (High Contrast)                          */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-09 {
+  background: #fff;
+  border-left: 6px solid #ef4444;
+  border-right: 6px solid #3b82f6;
+}
+.mtforms-skin-09 .mtforms-form-title {
+  font-weight: 900;
+  font-style: italic;
+}
+.mtforms-skin-09 .mtforms-input, .mtforms-skin-09 .mtforms-textarea {
+  border: 2px solid #f1f5f9;
+}
+.mtforms-skin-09 .mtforms-input:focus, .mtforms-skin-09 .mtforms-textarea:focus {
+  border-color: #000;
+}
+.mtforms-skin-09 .mtforms-submit-btn {
+  background: #000;
+  text-transform: uppercase;
+}
+.mtforms-skin-09 .mtforms-submit-btn:hover {
+  background: #ef4444;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 10: Glassmorphism (Frosted Transparent)                */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-10 {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+.mtforms-skin-10 .mtforms-form-title {
+  color: #fff;
+}
+.mtforms-skin-10 .mtforms-form-group label {
+  color: rgba(255, 255, 255, 0.8);
+}
+.mtforms-skin-10 .mtforms-input, .mtforms-skin-10 .mtforms-textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.mtforms-skin-10 .mtforms-input::placeholder, .mtforms-skin-10 .mtforms-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+.mtforms-skin-10 .mtforms-input:focus, .mtforms-skin-10 .mtforms-textarea:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.mtforms-skin-10 .mtforms-submit-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+.mtforms-skin-10 .mtforms-submit-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/**
+ * MTForms Layout Styles
+ */
+/* ════════════════════════════════════════════════════════════ */
+/* LAYOUT: TWO-COLUMN GRID                                       */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-layout-two-column .mtforms-form-inner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  /* Full width items */
+}
+.mtforms-layout-two-column .mtforms-form-inner .mtforms-form-title,
+.mtforms-layout-two-column .mtforms-form-inner .mtforms-field-subject,
+.mtforms-layout-two-column .mtforms-form-inner .mtforms-field-textarea,
+.mtforms-layout-two-column .mtforms-form-inner .mtforms-gdpr-group,
+.mtforms-layout-two-column .mtforms-form-inner .mtforms-captcha-group,
+.mtforms-layout-two-column .mtforms-form-inner .mtforms-form-actions,
+.mtforms-layout-two-column .mtforms-form-inner .mtforms-response-message {
+  grid-column: span 2;
+}
+@media (max-width: 640px) {
+  .mtforms-layout-two-column .mtforms-form-inner {
+    grid-template-columns: 1fr;
+  }
+  .mtforms-layout-two-column .mtforms-form-inner .mtforms-field-subject,
+  .mtforms-layout-two-column .mtforms-form-inner .mtforms-field-textarea,
+  .mtforms-layout-two-column .mtforms-form-inner .mtforms-gdpr-group,
+  .mtforms-layout-two-column .mtforms-form-inner .mtforms-captcha-group,
+  .mtforms-layout-two-column .mtforms-form-inner .mtforms-form-actions,
+  .mtforms-layout-two-column .mtforms-form-inner .mtforms-response-message {
+    grid-column: span 1;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* LAYOUT: FLOATING LABELS                                       */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-layout-floating .mtforms-form-group {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.mtforms-layout-floating .mtforms-form-group label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--mtforms-text-light);
+  z-index: 5;
+  background: transparent;
+  padding: 0 4px;
+}
+.mtforms-layout-floating .mtforms-form-group.is-focused label, .mtforms-layout-floating .mtforms-form-group.has-value label {
+  top: -0.65rem;
+  left: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--mtforms-primary);
+  background-color: var(--mtforms-bg);
+  font-weight: 600;
+}
+.mtforms-layout-floating .mtforms-form-group {
+  /* Support for skins that might change background */
+}
+.mtforms-skin-01.mtforms-layout-floating .mtforms-form-group.is-focused label,
+.mtforms-skin-01.mtforms-layout-floating .mtforms-form-group.has-value label {
+  background-color: #1a1c23;
+}
+
+.mtforms-layout-floating .mtforms-input,
+.mtforms-layout-floating .mtforms-textarea {
+  padding-top: 1.25rem;
+  padding-bottom: 0.75rem;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* LAYOUT: MATERIAL MINIMAL                                      */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-layout-material .mtforms-form-wrapper {
+  padding: 1rem;
+}
+.mtforms-layout-material .mtforms-input,
+.mtforms-layout-material .mtforms-textarea {
+  border: none;
+  border-bottom: 2px solid var(--mtforms-input-border);
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+.mtforms-layout-material .mtforms-input:focus,
+.mtforms-layout-material .mtforms-textarea:focus {
+  border-bottom-color: var(--mtforms-primary);
+  box-shadow: none !important;
+}
+.mtforms-layout-material .mtforms-input-wrap {
+  position: relative;
+}
+.mtforms-layout-material .mtforms-input-wrap::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--mtforms-primary);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+.mtforms-layout-material .mtforms-input-wrap.is-focused::after {
+  width: 100%;
+}
+.mtforms-layout-material {
+  /* Handle icons in material */
+}
+.mtforms-layout-material.mtforms-with-icons .mtforms-input,
+.mtforms-layout-material.mtforms-with-icons .mtforms-textarea {
+  padding-left: 32px;
+}
+.mtforms-layout-material.mtforms-with-icons .mtforms-field-icon {
+  top: 12px;
+  left: 0;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* LAYOUT: COMPACT STYLE                                         */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-layout-compact .mtforms-form-wrapper {
+  padding: 1rem;
+}
+.mtforms-layout-compact .mtforms-form-inner {
+  gap: 0.75rem;
+}
+.mtforms-layout-compact .mtforms-form-group {
+  gap: 0.25rem;
+}
+.mtforms-layout-compact .mtforms-form-group label {
+  font-size: 0.875rem;
+}
+.mtforms-layout-compact .mtforms-input,
+.mtforms-layout-compact .mtforms-textarea {
+  padding: 0.6rem 0.875rem;
+  font-size: 0.9rem;
+}
+.mtforms-layout-compact .mtforms-submit-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* LAYOUT: THREE-COLUMN GRID                                     */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-layout-three-column .mtforms-form-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.mtforms-layout-three-column .mtforms-form-inner .mtforms-form-title,
+.mtforms-layout-three-column .mtforms-form-inner .mtforms-field-subject,
+.mtforms-layout-three-column .mtforms-form-inner .mtforms-field-textarea,
+.mtforms-layout-three-column .mtforms-form-inner .mtforms-gdpr-group,
+.mtforms-layout-three-column .mtforms-form-inner .mtforms-captcha-group,
+.mtforms-layout-three-column .mtforms-form-inner .mtforms-form-actions,
+.mtforms-layout-three-column .mtforms-form-inner .mtforms-response-message {
+  grid-column: span 3;
+}
+@media (max-width: 1024px) {
+  .mtforms-layout-three-column .mtforms-form-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-field-subject,
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-field-textarea,
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-gdpr-group,
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-captcha-group,
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-form-actions,
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-response-message {
+    grid-column: span 2;
+  }
+}
+@media (max-width: 640px) {
+  .mtforms-layout-three-column .mtforms-form-inner {
+    grid-template-columns: 1fr;
+  }
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-field-subject,
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-field-textarea,
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-gdpr-group,
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-captcha-group,
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-form-actions,
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-response-message {
+    grid-column: span 1;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* LAYOUT: BOXED BORDERLESS                                      */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-layout-boxed-border .mtforms-form-wrapper {
+  background: #fff;
+  padding: 3rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+}
+.mtforms-layout-boxed-border .mtforms-input,
+.mtforms-layout-boxed-border .mtforms-textarea {
+  border: none;
+  background: #f8fafc;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+}
+.mtforms-layout-boxed-border .mtforms-input:focus,
+.mtforms-layout-boxed-border .mtforms-textarea:focus {
+  background: #f1f5f9;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 0 0 3px rgba(15, 23, 42, 0.1);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* LAYOUT: INSET SHADOW STYLE                                    */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-layout-inset .mtforms-input,
+.mtforms-layout-inset .mtforms-textarea {
+  border: 1px solid #e2e8f0;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+.mtforms-layout-inset .mtforms-input:focus,
+.mtforms-layout-inset .mtforms-textarea:focus {
+  border-color: var(--mtforms-primary);
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 0 0 3px var(--mtforms-focus);
 }

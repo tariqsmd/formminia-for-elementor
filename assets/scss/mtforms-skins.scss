@@ -160,6 +160,7 @@
         &-form-title {
             background: linear-gradient(90deg, #f43f5e 0%, #fb923c 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
         }
@@ -308,6 +309,203 @@
                 &::after {
                     left: 100%;
                 }
+            }
+        }
+    }
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 06: Royal Gold (Black & Gold)                           */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-06 {
+    background: #000;
+    border: 1px solid #c5a059;
+    border-radius: 8px;
+    color: #fff;
+
+    .mtforms {
+        &-form-title {
+            color: #c5a059;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        &-input,
+        &-textarea {
+            background: #111;
+            border: 1px solid #333;
+            color: #c5a059;
+
+            &:focus {
+                border-color: #c5a059;
+                box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+            }
+        }
+
+        &-submit-btn {
+            background: #c5a059;
+            color: #000;
+            border-radius: 0;
+
+            &:hover {
+                background: #d4af37;
+                box-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
+            }
+        }
+    }
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 07: Lavender Mist (Soft Pastel)                          */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-07 {
+    background: #fdfafc;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(139, 92, 246, 0.08);
+
+    .mtforms {
+        &-form-title {
+            color: #7c3aed;
+        }
+
+        &-input,
+        &-textarea {
+            background: #fff;
+            border: 1px solid #ede9fe;
+            border-radius: 12px;
+
+            &:focus {
+                border-color: #a78bfa;
+                background: #fdfafc;
+            }
+        }
+
+        &-submit-btn {
+            background: #8b5cf6;
+            border-radius: 12px;
+
+            &:hover {
+                background: #7c3aed;
+                transform: scale(1.01);
+            }
+        }
+    }
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 08: Oceanic Deep (Teal & Blue)                          */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-08 {
+    background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+    border-radius: 15px;
+    padding: 2.5rem;
+
+    .mtforms {
+        &-form-title {
+            color: #22d3ee;
+        }
+
+        &-input,
+        &-textarea {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid #1e293b;
+            color: #38bdf8;
+
+            &:focus {
+                border-color: #0ea5e9;
+            }
+        }
+
+        &-submit-btn {
+            background: #0891b2;
+            border-radius: 8px;
+
+            &:hover {
+                background: #0e7490;
+                box-shadow: 0 0 20px rgba(8, 145, 178, 0.3);
+            }
+        }
+    }
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 09: Fire & Ice (High Contrast)                          */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-09 {
+    background: #fff;
+    border-left: 6px solid #ef4444;
+    border-right: 6px solid #3b82f6;
+
+    .mtforms {
+        &-form-title {
+            font-weight: 900;
+            font-style: italic;
+        }
+
+        &-input,
+        &-textarea {
+            border: 2px solid #f1f5f9;
+
+            &:focus {
+                border-color: #000;
+            }
+        }
+
+        &-submit-btn {
+            background: #000;
+            text-transform: uppercase;
+
+            &:hover {
+                background: #ef4444;
+            }
+        }
+    }
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 10: Glassmorphism (Frosted Transparent)                */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-10 {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+    .mtforms {
+        &-form-title {
+            color: #fff;
+        }
+
+        &-form-group label {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        &-input,
+        &-textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.4);
+            }
+
+            &:focus {
+                background: rgba(255, 255, 255, 0.1);
+                border-color: rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        &-submit-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            backdrop-filter: blur(4px);
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.3);
             }
         }
     }
