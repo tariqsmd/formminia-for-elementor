@@ -14,7 +14,8 @@ use MTForms\Services\Email\SubmissionMailer;
  * - Asset registration/enqueueing.
  * - AJAX form submission.
  */
-class FormController {
+class FormController
+{
 
 	/** @var string */
 	protected $plugin_name;
@@ -38,18 +39,20 @@ class FormController {
 	 * @param CaptchaVerifierInterface $captcha_verifier Captcha verifier.
 	 * @param SubmissionMailer         $mailer           Mailer service.
 	 */
-	public function __construct( $plugin_name, $version, FormValidator $validator, CaptchaVerifierInterface $captcha_verifier, SubmissionMailer $mailer ) {
-		$this->plugin_name      = $plugin_name;
-		$this->version          = $version;
-		$this->validator        = $validator;
+	public function __construct($plugin_name, $version, FormValidator $validator, CaptchaVerifierInterface $captcha_verifier, SubmissionMailer $mailer)
+	{
+		$this->plugin_name = $plugin_name;
+		$this->version = $version;
+		$this->validator = $validator;
 		$this->captcha_verifier = $captcha_verifier;
-		$this->mailer           = $mailer;
+		$this->mailer = $mailer;
 	}
 
 	/**
 	 * Register styles for the public-facing side.
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles()
+	{
 		wp_register_style(
 			$this->plugin_name,
 			MTFORMS_PLUGIN_URL . 'assets/css/mtforms.css',
@@ -62,11 +65,12 @@ class FormController {
 	/**
 	 * Register JavaScript for the public-facing side.
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts()
+	{
 		// Allow overriding JustValidate source to a self-hosted file.
 		$just_validate_src = apply_filters(
 			'mtforms_just_validate_src',
-			'https://unpkg.com/just-validate@4.3.0/dist/just-validate.production.min.js'
+			MTFORMS_PLUGIN_URL . 'assets/js/just-validate.min.js'
 		);
 
 		wp_register_script(
@@ -80,7 +84,7 @@ class FormController {
 		wp_register_script(
 			$this->plugin_name,
 			MTFORMS_PLUGIN_URL . 'assets/js/mtforms.js',
-			array( 'jquery', 'mtforms-just-validate' ),
+			array('jquery', 'mtforms-just-validate'),
 			$this->version,
 			true
 		);
@@ -89,19 +93,19 @@ class FormController {
 			$this->plugin_name,
 			'mtforms_ajax',
 			array(
-				'ajax_url' => admin_url( 'admin-ajax.php' ),
-				'nonce'    => wp_create_nonce( 'mtforms-submit-form' ),
-				'i18n'     => array(
-					'name_required'    => __( 'Name is required', MTFORMS_TEXT_DOMAIN ),
-					'name_min'         => __( 'Name must be at least 2 characters', MTFORMS_TEXT_DOMAIN ),
-					'email_required'   => __( 'Email is required', MTFORMS_TEXT_DOMAIN ),
-					'email_invalid'    => __( 'Email is invalid', MTFORMS_TEXT_DOMAIN ),
-					'phone_invalid'    => __( 'Please enter a valid phone number', MTFORMS_TEXT_DOMAIN ),
-					'message_required' => __( 'Message is required', MTFORMS_TEXT_DOMAIN ),
-					'gdpr_required'    => __( 'You must agree to the terms', MTFORMS_TEXT_DOMAIN ),
-					'sending'          => __( 'Sending...', MTFORMS_TEXT_DOMAIN ),
-					'send_message'     => __( 'Send Message', MTFORMS_TEXT_DOMAIN ),
-					'error_generic'    => __( 'An unexpected error occurred. Please try again.', MTFORMS_TEXT_DOMAIN ),
+				'ajax_url' => admin_url('admin-ajax.php'),
+				'nonce' => wp_create_nonce('mtforms-submit-form'),
+				'i18n' => array(
+					'name_required' => __('Name is required', MTFORMS_TEXT_DOMAIN),
+					'name_min' => __('Name must be at least 2 characters', MTFORMS_TEXT_DOMAIN),
+					'email_required' => __('Email is required', MTFORMS_TEXT_DOMAIN),
+					'email_invalid' => __('Email is invalid', MTFORMS_TEXT_DOMAIN),
+					'phone_invalid' => __('Please enter a valid phone number', MTFORMS_TEXT_DOMAIN),
+					'message_required' => __('Message is required', MTFORMS_TEXT_DOMAIN),
+					'gdpr_required' => __('You must agree to the terms', MTFORMS_TEXT_DOMAIN),
+					'sending' => __('Sending...', MTFORMS_TEXT_DOMAIN),
+					'send_message' => __('Send Message', MTFORMS_TEXT_DOMAIN),
+					'error_generic' => __('An unexpected error occurred. Please try again.', MTFORMS_TEXT_DOMAIN),
 				),
 			)
 		);
@@ -110,47 +114,48 @@ class FormController {
 	/**
 	 * Handle AJAX form submission.
 	 */
-	public function handle_form_submission() {
+	public function handle_form_submission()
+	{
 		// Verify nonce.
-		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'mtforms-submit-form' ) ) {
+		if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'mtforms-submit-form')) {
 			wp_send_json_error(
 				array(
-					'message' => __( 'Security check failed.', MTFORMS_TEXT_DOMAIN ),
+					'message' => __('Security check failed.', MTFORMS_TEXT_DOMAIN),
 				)
 			);
 		}
 
 		// Simple honeypot field to prevent basic spam bots.
-		if ( ! empty( $_POST['mtforms_hp'] ) ) {
+		if (!empty($_POST['mtforms_hp'])) {
 			wp_send_json_error(
 				array(
-					'message' => __( 'Spam detected. Please try again.', MTFORMS_TEXT_DOMAIN ),
+					'message' => __('Spam detected. Please try again.', MTFORMS_TEXT_DOMAIN),
 				)
 			);
 		}
 
 		// Basic IP-based rate limiting.
-		$ip_address = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
-		if ( $ip_address ) {
-			$key   = 'mtforms_rate_' . md5( $ip_address );
-			$count = (int)get_transient( $key );
+		$ip_address = isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'])) : '';
+		if ($ip_address) {
+			$key = 'mtforms_rate_' . md5($ip_address);
+			$count = (int) get_transient($key);
 
-			if ( $count >= 10 ) {
+			if ($count >= 10) {
 				wp_send_json_error(
 					array(
-						'message' => __( 'Too many submissions from this IP. Please try again later.', MTFORMS_TEXT_DOMAIN ),
+						'message' => __('Too many submissions from this IP. Please try again later.', MTFORMS_TEXT_DOMAIN),
 					)
 				);
 			}
 
-			set_transient( $key, $count + 1, 5 * MINUTE_IN_SECONDS );
+			set_transient($key, $count + 1, 5 * MINUTE_IN_SECONDS);
 		}
 
-		$data       = $_POST; // phpcs:ignore WordPress.Security.NonceVerification.Missing
-		$submission = FormSubmission::from_post_array( $data );
-		$validation = $this->validator->validate( $submission );
+		$data = $_POST; // phpcs:ignore WordPress.Security.NonceVerification.Missing
+		$submission = FormSubmission::from_post_array($data);
+		$validation = $this->validator->validate($submission);
 
-		if ( is_wp_error( $validation ) ) {
+		if (is_wp_error($validation)) {
 			wp_send_json_error(
 				array(
 					'message' => $validation->get_error_message(),
@@ -158,9 +163,9 @@ class FormController {
 			);
 		}
 
-		$captcha_result = $this->captcha_verifier->verify( $submission, $data );
+		$captcha_result = $this->captcha_verifier->verify($submission, $data);
 
-		if ( is_wp_error( $captcha_result ) ) {
+		if (is_wp_error($captcha_result)) {
 			wp_send_json_error(
 				array(
 					'message' => $captcha_result->get_error_message(),
@@ -168,9 +173,9 @@ class FormController {
 			);
 		}
 
-		$sent = $this->mailer->send( $submission );
+		$sent = $this->mailer->send($submission);
 
-		if ( $sent instanceof \WP_Error ) {
+		if ($sent instanceof \WP_Error) {
 			wp_send_json_error(
 				array(
 					'message' => $sent->get_error_message(),
@@ -178,17 +183,17 @@ class FormController {
 			);
 		}
 
-		if ( $sent ) {
+		if ($sent) {
 			wp_send_json_success(
 				array(
-					'message' => __( 'Message sent successfully!', MTFORMS_TEXT_DOMAIN ),
+					'message' => __('Message sent successfully!', MTFORMS_TEXT_DOMAIN),
 				)
 			);
 		}
 
 		wp_send_json_error(
 			array(
-				'message' => __( 'Failed to send message. Please try again.', MTFORMS_TEXT_DOMAIN ),
+				'message' => __('Failed to send message. Please try again.', MTFORMS_TEXT_DOMAIN),
 			)
 		);
 	}
