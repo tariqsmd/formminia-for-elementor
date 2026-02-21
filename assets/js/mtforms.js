@@ -196,15 +196,23 @@
             // Scroll to message if not visible
             scrollToElement(responseMsg);
 
-            // Auto-hide success message after 5 seconds
-            setTimeout(function () {
-                responseMsg.style.opacity = '0';
+            // Handle redirect if configured
+            const redirectUrl = form.getAttribute('data-redirect');
+            if (redirectUrl) {
                 setTimeout(function () {
-                    responseMsg.style.display = 'none';
-                    responseMsg.style.opacity = '1';
-                    responseMsg.className = 'mtforms-response-message';
-                }, 300);
-            }, 5000);
+                    window.location.href = redirectUrl;
+                }, 1000);
+            } else {
+                // Auto-hide success message after 5 seconds if no redirect
+                setTimeout(function () {
+                    responseMsg.style.opacity = '0';
+                    setTimeout(function () {
+                        responseMsg.style.display = 'none';
+                        responseMsg.style.opacity = '1';
+                        responseMsg.className = 'mtforms-response-message';
+                    }, 300);
+                }, 5000);
+            }
 
         } else {
             // Show error message

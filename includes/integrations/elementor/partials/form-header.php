@@ -17,8 +17,8 @@ $container_classes = array(
 	'mtforms-form-wrapper',
 	'mtforms-skin-' . sanitize_html_class($settings['skin']),
 	'mtforms-layout-' . sanitize_html_class($settings['layout']),
-	//	'mtforms-input-style-' . sanitize_html_class( $settings['input_style'] ),
-//	'mtforms-button-style-' . sanitize_html_class( $settings['button_style'] ),
+	'mtforms-input-style-' . sanitize_html_class($settings['input_style']),
+	//	'mtforms-button-style-' . sanitize_html_class( $settings['button_style'] ),
 );
 
 if (isset($settings['animation']) && !empty($settings['animation']) && $settings['animation'] !== 'none') {
@@ -54,7 +54,12 @@ if (!empty($settings['form_id'])) {
 }
 ?>
 <div id="<?php echo esc_attr($wrapper_id); ?>" class="<?php echo esc_attr(implode(' ', $container_classes)); ?>">
-	<form id="<?php echo esc_attr($form_id); ?>" class="mtforms-form" action="" method="POST" novalidate>
+	<form id="<?php echo esc_attr($form_id); ?>" class="mtforms-form" action="" method="POST" novalidate <?php if ($settings['redirect_on_success'] === 'yes' && !empty($settings['success_redirect_url']['url'])): ?>data-redirect="<?php echo esc_url($settings['success_redirect_url']['url']); ?>" <?php endif; ?>>
+		<?php if ($settings['enable_honeypot'] === 'yes'): ?>
+			<div style="display:none !important;">
+				<input type="text" name="mtforms_hp" tabindex="-1" autocomplete="off">
+			</div>
+		<?php endif; ?>
 		<?php if (!empty($settings['mail_cc'])): ?>
 			<input type="hidden" name="mtforms_cc" value="<?php echo esc_attr($settings['mail_cc']); ?>">
 		<?php endif; ?>

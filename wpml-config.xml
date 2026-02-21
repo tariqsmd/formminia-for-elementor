@@ -1,0 +1,26 @@
+<wpml-config>
+    <elementor-widgets>
+        <widget name="mtforms">
+            <fields>
+                <field type="Form Title">form_title</field>
+                <field type="Button Text">button_text</field>
+                <field type="Label: Name">label_name</field>
+                <field type="Placeholder: Name">placeholder_name</field>
+                <field type="Label: Email">label_email</field>
+                <field type="Placeholder: Email">placeholder_email</field>
+                <field type="Label: Phone">label_phone</field>
+                <field type="Placeholder: Phone">placeholder_phone</field>
+                <field type="Label: Website">label_website</field>
+                <field type="Placeholder: Website">placeholder_website</field>
+                <field type="Label: Subject">label_subject</field>
+                <field type="Placeholder: Subject">placeholder_subject</field>
+                <field type="Label: Message">label_message</field>
+                <field type="Placeholder: Message">placeholder_message</field>
+                <field type="GDPR Consent Text">gdpr_text</field>
+                <field type="Success Message">success_message</field>
+                <field type="Error Message">error_message</field>
+                <field type="Success Redirect URL">success_redirect_url</field>
+            </fields>
+        </widget>
+    </elementor-widgets>
+</wpml-config>
