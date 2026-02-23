@@ -206,7 +206,7 @@ class Widget extends \Elementor\Widget_Base
 					'size' => 100,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-field-name' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-form-group.mtforms-field-name' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'show_name' => 'yes',
@@ -243,7 +243,7 @@ class Widget extends \Elementor\Widget_Base
 					'size' => 100,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-field-email' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-form-group.mtforms-field-email' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'show_email' => 'yes',
@@ -280,7 +280,7 @@ class Widget extends \Elementor\Widget_Base
 					'size' => 100,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-field-phone' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-form-group.mtforms-field-tel' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'show_phone' => 'yes',
@@ -317,7 +317,7 @@ class Widget extends \Elementor\Widget_Base
 					'size' => 100,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-field-website' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-form-group.mtforms-field-url' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'show_website' => 'yes',
@@ -354,7 +354,7 @@ class Widget extends \Elementor\Widget_Base
 					'size' => 100,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-field-subject' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-form-group.mtforms-field-subject' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'show_subject' => 'yes',
@@ -391,7 +391,7 @@ class Widget extends \Elementor\Widget_Base
 					'size' => 100,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-field-message' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-form-group.mtforms-field-textarea' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'show_message' => 'yes',
@@ -902,6 +902,7 @@ class Widget extends \Elementor\Widget_Base
 	protected function register_style_tab_controls()
 	{
 		$this->register_style_container_controls();
+		$this->register_style_fields_wrapper_controls();
 		$this->register_style_label_controls();
 		$this->register_style_field_controls();
 		$this->register_style_button_controls();
@@ -1108,6 +1109,82 @@ class Widget extends \Elementor\Widget_Base
 				'condition' => [
 					'form_title!' => '',
 				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Style: Fields Wrapper Controls.
+	 */
+	protected function register_style_fields_wrapper_controls()
+	{
+		$this->start_controls_section(
+			'section_style_fields_wrapper',
+			[
+				'label' => esc_html__('Fields Wrapper', MTFORMS_TEXT_DOMAIN),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_responsive_control(
+			'fields_wrapper_padding',
+			[
+				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-fields-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'fields_wrapper_margin',
+			[
+				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-fields-container' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'fields_wrapper_background',
+				'selector' => '{{WRAPPER}} .mtforms-fields-container',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'fields_wrapper_border',
+				'selector' => '{{WRAPPER}} .mtforms-fields-container',
+			]
+		);
+
+		$this->add_responsive_control(
+			'fields_wrapper_border_radius',
+			[
+				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-fields-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'fields_wrapper_box_shadow',
+				'selector' => '{{WRAPPER}} .mtforms-fields-container',
 			]
 		);
 
@@ -1797,6 +1874,8 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function render_form_content($settings, $widget_id)
 	{
+		echo '<div class="mtforms-fields-container">';
+
 		if ($settings['show_name'] === 'yes') {
 			$this->render_field('name', $settings, $widget_id);
 		}
@@ -1816,6 +1895,8 @@ class Widget extends \Elementor\Widget_Base
 		if ($settings['show_subject'] === 'yes') {
 			$this->render_field('subject', $settings, $widget_id);
 		}
+
+		echo '</div>'; // .mtforms-fields-container
 
 		if ($settings['show_message'] === 'yes') {
 			$this->render_field('message', $settings, $widget_id);

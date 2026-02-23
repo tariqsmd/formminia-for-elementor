@@ -20,6 +20,13 @@
     /* Vertical gap 1.5rem, Horizontal gap 0 because we use percentage widths */
   }
 
+  &-fields-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: inherit;
+  }
+
   &-form-title {
     margin: 0;
     line-height: 1;
