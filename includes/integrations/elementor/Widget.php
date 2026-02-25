@@ -1135,7 +1135,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-fields-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-fields-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1147,7 +1147,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-fields-container' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-fields-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1156,7 +1156,7 @@ class Widget extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'fields_wrapper_background',
-				'selector' => '{{WRAPPER}} .mtforms-fields-container',
+				'selector' => '{{WRAPPER}} .mtforms-fields-wrapper',
 			]
 		);
 
@@ -1164,7 +1164,7 @@ class Widget extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Border::get_type(),
 			[
 				'name' => 'fields_wrapper_border',
-				'selector' => '{{WRAPPER}} .mtforms-fields-container',
+				'selector' => '{{WRAPPER}} .mtforms-fields-wrapper',
 			]
 		);
 
@@ -1175,7 +1175,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-fields-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-fields-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1184,7 +1184,7 @@ class Widget extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'fields_wrapper_box_shadow',
-				'selector' => '{{WRAPPER}} .mtforms-fields-container',
+				'selector' => '{{WRAPPER}} .mtforms-fields-wrapper',
 			]
 		);
 
@@ -1874,7 +1874,7 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function render_form_content($settings, $widget_id)
 	{
-		echo '<div class="mtforms-fields-container">';
+		echo '<div class="mtforms-fields-wrapper">';
 
 		if ($settings['show_name'] === 'yes') {
 			$this->render_field('name', $settings, $widget_id);
@@ -1896,7 +1896,7 @@ class Widget extends \Elementor\Widget_Base
 			$this->render_field('subject', $settings, $widget_id);
 		}
 
-		echo '</div>'; // .mtforms-fields-container
+		echo '</div>'; // .mtforms-fields-wrapper
 
 		if ($settings['show_message'] === 'yes') {
 			$this->render_field('message', $settings, $widget_id);

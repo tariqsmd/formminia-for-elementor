@@ -30,7 +30,12 @@
 .mtforms-form-inner {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 1.5rem;
+}
+.mtforms-fields-wrapper {
+  display: flex;
+  width: 100%;
+  gap: 1.5rem;
 }
 .mtforms-form-title {
   margin: 0;
@@ -210,6 +215,46 @@
   border-color: var(--mtforms-primary);
   background-color: var(--mtforms-primary);
   color: #fff;
+}
+.mtforms {
+  /* Input Styles */
+}
+.mtforms-input-style-underline .mtforms-input,
+.mtforms-input-style-underline .mtforms-textarea {
+  border: none !important;
+  border-bottom: 2px solid var(--mtforms-input-border) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.mtforms-input-style-underline .mtforms-input:focus,
+.mtforms-input-style-underline .mtforms-textarea:focus {
+  border-bottom-color: var(--mtforms-primary) !important;
+  box-shadow: none !important;
+}
+.mtforms-input-style-rounded .mtforms-input,
+.mtforms-input-style-rounded .mtforms-textarea {
+  border-radius: 12px !important;
+}
+.mtforms-input-style-pill .mtforms-input,
+.mtforms-input-style-pill .mtforms-textarea {
+  border-radius: 50px !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+.mtforms-input-style-pill .mtforms-textarea {
+  border-radius: 25px !important;
+}
+.mtforms-input-style-shadow .mtforms-input,
+.mtforms-input-style-shadow .mtforms-textarea {
+  border: none !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  background: #fff !important;
+}
+.mtforms-input-style-shadow .mtforms-input:focus,
+.mtforms-input-style-shadow .mtforms-textarea:focus {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
 }
 
 @keyframes mtforms-shake {
@@ -675,8 +720,9 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  /* Full width items */
+  /* Containers to span full width */
 }
+.mtforms-layout-two-column .mtforms-form-inner .mtforms-fields-wrapper,
 .mtforms-layout-two-column .mtforms-form-inner .mtforms-form-title,
 .mtforms-layout-two-column .mtforms-form-inner .mtforms-field-subject,
 .mtforms-layout-two-column .mtforms-form-inner .mtforms-field-textarea,
@@ -686,10 +732,19 @@
 .mtforms-layout-two-column .mtforms-form-inner .mtforms-response-message {
   grid-column: span 2;
 }
+.mtforms-layout-two-column .mtforms-form-inner {
+  /* The wrapper itself behaves like a grid for internal fields */
+}
+.mtforms-layout-two-column .mtforms-form-inner .mtforms-fields-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
 @media (max-width: 640px) {
   .mtforms-layout-two-column .mtforms-form-inner {
     grid-template-columns: 1fr;
   }
+  .mtforms-layout-two-column .mtforms-form-inner .mtforms-fields-wrapper,
   .mtforms-layout-two-column .mtforms-form-inner .mtforms-field-subject,
   .mtforms-layout-two-column .mtforms-form-inner .mtforms-field-textarea,
   .mtforms-layout-two-column .mtforms-form-inner .mtforms-gdpr-group,
@@ -697,6 +752,9 @@
   .mtforms-layout-two-column .mtforms-form-inner .mtforms-form-actions,
   .mtforms-layout-two-column .mtforms-form-inner .mtforms-response-message {
     grid-column: span 1;
+  }
+  .mtforms-layout-two-column .mtforms-form-inner .mtforms-fields-wrapper {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -824,6 +882,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
+.mtforms-layout-three-column .mtforms-form-inner .mtforms-fields-wrapper,
 .mtforms-layout-three-column .mtforms-form-inner .mtforms-form-title,
 .mtforms-layout-three-column .mtforms-form-inner .mtforms-field-subject,
 .mtforms-layout-three-column .mtforms-form-inner .mtforms-field-textarea,
@@ -833,10 +892,19 @@
 .mtforms-layout-three-column .mtforms-form-inner .mtforms-response-message {
   grid-column: span 3;
 }
+.mtforms-layout-three-column .mtforms-form-inner {
+  /* The wrapper itself behaves like a grid for internal fields */
+}
+.mtforms-layout-three-column .mtforms-form-inner .mtforms-fields-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
 @media (max-width: 1024px) {
   .mtforms-layout-three-column .mtforms-form-inner {
     grid-template-columns: repeat(2, 1fr);
   }
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-fields-wrapper,
   .mtforms-layout-three-column .mtforms-form-inner .mtforms-field-subject,
   .mtforms-layout-three-column .mtforms-form-inner .mtforms-field-textarea,
   .mtforms-layout-three-column .mtforms-form-inner .mtforms-gdpr-group,
@@ -845,11 +913,15 @@
   .mtforms-layout-three-column .mtforms-form-inner .mtforms-response-message {
     grid-column: span 2;
   }
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-fields-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 640px) {
   .mtforms-layout-three-column .mtforms-form-inner {
     grid-template-columns: 1fr;
   }
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-fields-wrapper,
   .mtforms-layout-three-column .mtforms-form-inner .mtforms-field-subject,
   .mtforms-layout-three-column .mtforms-form-inner .mtforms-field-textarea,
   .mtforms-layout-three-column .mtforms-form-inner .mtforms-gdpr-group,
@@ -857,6 +929,9 @@
   .mtforms-layout-three-column .mtforms-form-inner .mtforms-form-actions,
   .mtforms-layout-three-column .mtforms-form-inner .mtforms-response-message {
     grid-column: span 1;
+  }
+  .mtforms-layout-three-column .mtforms-form-inner .mtforms-fields-wrapper {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -15,16 +15,15 @@
 
   &-form-inner {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem 0;
-    /* Vertical gap 1.5rem, Horizontal gap 0 because we use percentage widths */
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
-  &-fields-container {
+  &-fields-wrapper {
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     width: 100%;
-    gap: inherit;
+    gap: 1.5rem;
   }
 
   &-form-title {
