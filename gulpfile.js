@@ -1,64 +1,67 @@
-const gulp       = require( 'gulp' );
-const cleanCSS   = require( 'gulp-clean-css' );
-const rename     = require( 'gulp-rename' );
-const wpPot      = require( 'gulp-wp-pot' );
-const zip        = require( 'gulp-zip' );
-const sourcemaps = require( 'gulp-sourcemaps' );
-//const sass        = require( 'gulp-sass' )( require( 'sass' ) );
-// Use the modern API by specifying the 'sass' compiler explicitly
-const sass        = require( 'gulp-sass' )( require( 'sass-embedded' ) );
-const merge       = require( 'merge-stream' );
-const browserSync = require( 'browser-sync' ).create(); // 1
+const gulp = require('gulp');
+const cleanCSS = require('gulp-clean-css');
+const rename = require('gulp-rename');
+const wpPot = require('gulp-wp-pot');
+const zip = require('gulp-zip');
+const sourcemaps = require('gulp-sourcemaps');
+const sass = require('gulp-sass')(require('sass-embedded'));
+const merge = require('merge-stream');
+const browserSync = require('browser-sync').create();
 
-// BrowserSync Init
-gulp.task( 'serve', function ( done ) {
-    browserSync.init( {
-        proxy  : "http://fse.local/", // 2
-        notify : false
-    } );
-    done(); // Signal completion
-} )
+// BrowserSync Configuration
+const bsConfig = {
+    proxy: "http://fse.local/", // Change this to your local site URL if needed
+    notify: false,
+    open: true,
+    ghostMode: {
+        clicks: true,
+        forms: true,
+        scroll: true
+    }
+};
 
-// Compile SCSS and Minify
-gulp.task( 'styles', function () {
+// --- Tasks ---
+
+// Compile SCSS and Inject CSS into the browser
+gulp.task('styles', function () {
     // Admin styles
-    const admin = gulp.src( 'assets/admin/scss/*.scss' )
-    .pipe( sourcemaps.init() )
-    .pipe( sass().on( 'error', sass.logError ) )
-    .pipe( gulp.dest( 'assets/admin/css' ) )
-    .pipe( cleanCSS() )
-    .pipe( rename( { suffix : '.min' } ) )
-    .pipe( sourcemaps.write( './' ) ) // Writes maps to the same folder
-    .pipe( gulp.dest( 'assets/admin/css' ) )
-    .pipe( browserSync.stream() ); // 3
+    const admin = gulp.src('assets/admin/scss/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+        .pipe(gulp.dest('assets/admin/css'))
+        .pipe(cleanCSS())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('assets/admin/css'))
+        .pipe(browserSync.stream());
 
     // Public styles
-    const public = gulp.src( 'assets/scss/*.scss' )
-    .pipe( sourcemaps.init() )
-    .pipe( sass().on( 'error', sass.logError ) )
-    .pipe( gulp.dest( 'assets/css' ) )
-    .pipe( cleanCSS() )
-    .pipe( rename( { suffix : '.min' } ) )
-    .pipe( sourcemaps.write( './' ) )
-    .pipe( gulp.dest( 'assets/css' ) )
-    .pipe( browserSync.stream() ); // 3
+    const public = gulp.src('assets/scss/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+        .pipe(gulp.dest('assets/css'))
+        .pipe(cleanCSS())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('assets/css'))
+        .pipe(browserSync.stream());
 
-    return require( 'merge-stream' )( admin, public );
-} );
+    return merge(admin, public);
+});
 
-// Generate POT file
-gulp.task( 'translate', function () {
-    return gulp.src( ['**/*.php', '!node_modules/**', '!vendor/**'] )
-    .pipe( wpPot( {
-        domain  : 'mtforms',
-        package : 'MTForms'
-    } ) )
-    .pipe( gulp.dest( 'languages/mtforms.pot' ) );
-} );
+// Generate POT file for translation
+gulp.task('translate', function () {
+    return gulp.src(['**/*.php', '!node_modules/**', '!vendor/**'])
+        .pipe(wpPot({
+            domain: 'mtforms',
+            package: 'MTForms'
+        }))
+        .pipe(gulp.dest('languages/mtforms.pot'));
+});
 
-// Zip the plugin
-gulp.task( 'zip', function () {
-    return gulp.src( [
+// Zip the plugin for distribution
+gulp.task('zip', function () {
+    return gulp.src([
         '**',
         '!node_modules/**',
         '!node_modules',
@@ -70,34 +73,40 @@ gulp.task( 'zip', function () {
         '!.git',
         '!.vscode/**',
         '!mtforms.zip'
-    ] )
-    .pipe( zip( 'mtforms.zip' ) )
-    .pipe( gulp.dest( '.' ) );
-} );
+    ])
+        .pipe(zip('mtforms.zip'))
+        .pipe(gulp.dest('.'));
+});
 
-// Watch Task
-gulp.task( 'watch', function ( done ) {
-    browserSync.init( {
-        proxy  : "http://fse.local/",
-        notify : false,
-        open   : true // Automatically opens the browser
-    } )
+// --- BrowserSync / Watch tasks ---
 
-    // Watch SCSS
-    gulp.watch( 'assets/**/*.scss', gulp.series( 'styles' ) );
+// Task to manually reload the browser
+gulp.task('reload', function (done) {
+    browserSync.reload();
+    done();
+});
 
-    // gulp.watch( 'assets/**/*.scss' ).on( 'change', function () {
-    //     browserSync.reload();
-    // } );
+// Watch Task: Starts BrowserSync and watches for file changes
+gulp.task('watch', function (done) {
+    browserSync.init(bsConfig);
 
-    // Watch PHP files and reload browser
-    gulp.watch( '**/*.php' ).on( 'change', function () {
-        browserSync.reload();
-    } );
+    // Watch SCSS files: run 'styles' then inject CSS
+    gulp.watch('assets/**/*.scss', gulp.series('styles'));
 
-    done(); // Signal completion
-} );
+    // Watch PHP files: reload page
+    gulp.watch('**/*.php', gulp.series('reload'));
+
+    // Watch JS files: reload page
+    gulp.watch('assets/**/*.js', gulp.series('reload'));
+
+    // Watch Image files: reload page
+    gulp.watch('assets/images/**/*', gulp.series('reload'));
+
+    done();
+});
+
+// Alias for watch
+gulp.task('serve', gulp.series('watch'));
 
 // Default Task
-gulp.task( 'default', gulp.series( 'styles', 'translate', 'zip' ) );
-
+gulp.task('default', gulp.series('styles', 'translate', 'zip'));

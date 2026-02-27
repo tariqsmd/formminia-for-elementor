@@ -5,7 +5,8 @@
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp"
+    "build": "gulp",
+    "dev": "gulp watch"
   },
   "author": "Muhammad Tariq",
   "license": "GPL-2.0-or-later",
