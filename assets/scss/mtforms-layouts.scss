@@ -5,7 +5,7 @@
 /* ════════════════════════════════════════════════════════════ */
 /* LAYOUT: TWO-COLUMN GRID                                       */
 /* ════════════════════════════════════════════════════════════ */
-.mtforms-layout-two-column {
+.mtforms-columns-2 {
     .mtforms-form-inner {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -54,45 +54,49 @@
 /* LAYOUT: FLOATING LABELS                                       */
 /* ════════════════════════════════════════════════════════════ */
 .mtforms-layout-floating {
-    .mtforms-form-group {
+    .mtforms-input-wrap {
         position: relative;
-        margin-bottom: 0.5rem;
-
-        label {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            pointer-events: none;
-            transition: all 0.2s ease;
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--mtforms-text-light);
-            z-index: 5;
-            background: transparent;
-            padding: 0 4px;
-        }
-
-        &.is-focused label,
-        &.has-value label {
-            top: -0.65rem;
-            left: 0.75rem;
-            font-size: 0.75rem;
-            color: var(--mtforms-primary);
-            background-color: var(--mtforms-bg);
-            font-weight: 600;
-        }
-
-        /* Support for skins that might change background */
-        @at-root .mtforms-skin-01.mtforms-layout-floating .mtforms-form-group.is-focused label,
-        .mtforms-skin-01.mtforms-layout-floating .mtforms-form-group.has-value label {
-            background-color: #1a1c23;
-        }
+    }
+    .mtforms-floating-label {
+        position: absolute;
+        top: 1.25rem;
+        left: 1.125rem;
+        pointer-events: none;
+        transition: all 0.2s ease;
+        font-weight: 500;
+        font-size: 0.95rem;
+        color: var(--mtforms-text-light, #64748b);
+        z-index: 5;
+        background: transparent;
+        transform: translateY(-50%);
+        padding: 0 4px;
     }
 
-    .mtforms-input,
-    .mtforms-textarea {
-        padding-top: 1.25rem;
-        padding-bottom: 0.75rem;
+    .mtforms-form-group.is-focused .mtforms-floating-label,
+    .mtforms-form-group.has-value .mtforms-floating-label {
+        top: 0;
+        left: 0.75rem;
+        font-size: 0.75rem;
+        color: var(--mtforms-primary, #2563eb);
+        background-color: var(--mtforms-bg, #ffffff);
+        font-weight: 600;
+    }
+
+    /* Support for skins that change background */
+    @at-root .mtforms-skin-1 .mtforms-layout-floating .mtforms-form-group.is-focused .mtforms-floating-label,
+    .mtforms-skin-1 .mtforms-layout-floating .mtforms-form-group.has-value .mtforms-floating-label {
+        background-color: #1a1c23;
+        color: #818cf8;
+    }
+
+    .mtforms-input::placeholder,
+    .mtforms-textarea::placeholder {
+        color: transparent;
+    }
+
+    .mtforms-form-group.is-focused .mtforms-input::placeholder,
+    .mtforms-form-group.is-focused .mtforms-textarea::placeholder {
+        color: var(--mtforms-text-light, #94a3b8);
     }
 }
 
@@ -189,7 +193,7 @@
 /* ════════════════════════════════════════════════════════════ */
 /* LAYOUT: THREE-COLUMN GRID                                     */
 /* ════════════════════════════════════════════════════════════ */
-.mtforms-layout-three-column {
+.mtforms-columns-3 {
     .mtforms-form-inner {
         display: grid;
         grid-template-columns: repeat(3, 1fr);

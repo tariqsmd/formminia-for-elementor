@@ -11,7 +11,7 @@ const browserSync = require('browser-sync').create();
 // BrowserSync Configuration
 const bsConfig = {
     proxy: "http://fse.local/", // Change this to your local site URL if needed
-    notify: false,
+    notify: true, // Show "Connected" message to confirm it's working
     open: true,
     ghostMode: {
         clicks: true,
@@ -29,22 +29,24 @@ gulp.task('styles', function () {
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
         .pipe(gulp.dest('assets/admin/css'))
+        .pipe(browserSync.stream()) // Stream unminified immediately
         .pipe(cleanCSS())
         .pipe(rename({ suffix: '.min' }))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('assets/admin/css'))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream()); // Stream minified immediately
 
     // Public styles
     const public = gulp.src('assets/scss/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
         .pipe(gulp.dest('assets/css'))
+        .pipe(browserSync.stream()) // Stream unminified immediately
         .pipe(cleanCSS())
         .pipe(rename({ suffix: '.min' }))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('assets/css'))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.stream()); // Stream minified immediately
 
     return merge(admin, public);
 });
@@ -90,7 +92,7 @@ gulp.task('reload', function (done) {
 gulp.task('watch', function (done) {
     browserSync.init(bsConfig);
 
-    // Watch SCSS files: run 'styles' then inject CSS
+    // Watch SCSS files: run 'styles' then inject
     gulp.watch('assets/**/*.scss', gulp.series('styles'));
 
     // Watch PHP files: reload page

@@ -21,6 +21,15 @@
         forms.forEach(function (form) {
             initializeForm(form);
         });
+
+        // Initialize floating labels for pre-filled inputs
+        setTimeout(() => {
+            $('.mtforms-layout-floating .mtforms-input, .mtforms-layout-floating .mtforms-textarea').each(function() {
+                if (this.value.trim() !== '') {
+                    $(this).closest('.mtforms-form-group').addClass('has-value');
+                }
+            });
+        }, 100);
     }
 
     /**

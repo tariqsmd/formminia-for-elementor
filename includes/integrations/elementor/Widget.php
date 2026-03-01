@@ -134,19 +134,19 @@ class Widget extends \Elementor\Widget_Base
 			[
 				'label' => esc_html__('Preset Skin', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'default',
+				'default' => '',
 				'options' => [
-					'default' => __('Default', MTFORMS_TEXT_DOMAIN),
-					'01' => __('Skin 1 (Modern Indigo)', MTFORMS_TEXT_DOMAIN),
-					'02' => __('Skin 2 (Nature\'s Breath)', MTFORMS_TEXT_DOMAIN),
-					'03' => __('Skin 3 (Sunset Glow)', MTFORMS_TEXT_DOMAIN),
-					'04' => __('Skin 4 (Sleek Corporate)', MTFORMS_TEXT_DOMAIN),
-					'05' => __('Skin 5 (Cyberpunk)', MTFORMS_TEXT_DOMAIN),
-					'06' => __('Skin 6 (Royal Gold)', MTFORMS_TEXT_DOMAIN),
-					'07' => __('Skin 7 (Lavender)', MTFORMS_TEXT_DOMAIN),
-					'08' => __('Skin 8 (Oceanic)', MTFORMS_TEXT_DOMAIN),
-					'09' => __('Skin 9 (Fire & Ice)', MTFORMS_TEXT_DOMAIN),
-					'10' => __('Skin 10 (Glassmorphism)', MTFORMS_TEXT_DOMAIN),
+					'' => __('None', MTFORMS_TEXT_DOMAIN),
+					'skin-1' => __('Skin 1 (Modern Indigo)', MTFORMS_TEXT_DOMAIN),
+					'skin-2' => __('Skin 2 (Nature\'s Breath)', MTFORMS_TEXT_DOMAIN),
+					'skin-3' => __('Skin 3 (Sunset Glow)', MTFORMS_TEXT_DOMAIN),
+					'skin-4' => __('Skin 4 (Sleek Corporate)', MTFORMS_TEXT_DOMAIN),
+					'skin-5' => __('Skin 5 (Cyberpunk)', MTFORMS_TEXT_DOMAIN),
+					'skin-6' => __('Skin 6 (Royal Gold)', MTFORMS_TEXT_DOMAIN),
+					'skin-7' => __('Skin 7 (Lavender)', MTFORMS_TEXT_DOMAIN),
+					'skin-8' => __('Skin 8 (Oceanic)', MTFORMS_TEXT_DOMAIN),
+					'skin-9' => __('Skin 9 (Fire & Ice)', MTFORMS_TEXT_DOMAIN),
+					'skin-10' => __('Skin 10 (Glassmorphism)', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);
@@ -159,13 +159,25 @@ class Widget extends \Elementor\Widget_Base
 				'default' => 'default',
 				'options' => [
 					'default' => __('Default (Vertical)', MTFORMS_TEXT_DOMAIN),
-					'two-column' => __('Two-Column Responsive', MTFORMS_TEXT_DOMAIN),
-					'three-column' => __('Three-Column Grid', MTFORMS_TEXT_DOMAIN),
 					'floating' => __('Floating Labels', MTFORMS_TEXT_DOMAIN),
 					'material' => __('Material Minimal', MTFORMS_TEXT_DOMAIN),
 					'compact' => __('Compact Style', MTFORMS_TEXT_DOMAIN),
 					'boxed-border' => __('Boxed Borderless', MTFORMS_TEXT_DOMAIN),
 					'inset' => __('Inset Shadow Style', MTFORMS_TEXT_DOMAIN),
+				],
+			]
+		);
+
+		$this->add_control(
+			'columns',
+			[
+				'label' => esc_html__('Columns', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => '1',
+				'options' => [
+					'1' => __('1 Column', MTFORMS_TEXT_DOMAIN),
+					'2' => __('2 Columns', MTFORMS_TEXT_DOMAIN),
+					'3' => __('3 Columns', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);
