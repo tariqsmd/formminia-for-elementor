@@ -136,7 +136,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					'' => __('None', MTFORMS_TEXT_DOMAIN),
+					'skin-0' => __('None', MTFORMS_TEXT_DOMAIN),
 					'skin-1' => __('Skin 1 (Modern Indigo)', MTFORMS_TEXT_DOMAIN),
 					'skin-2' => __('Skin 2 (Nature\'s Breath)', MTFORMS_TEXT_DOMAIN),
 					'skin-3' => __('Skin 3 (Sunset Glow)', MTFORMS_TEXT_DOMAIN),

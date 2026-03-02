@@ -271,29 +271,29 @@
     transform: translate3d(3px, 0, 0);
   }
 }
-.mtforms-skin- {
+.mtforms-skin-0 {
   background-color: var(--mtforms-bg);
   box-shadow: var(--mtforms-shadow);
 }
-.mtforms-skin- .mtforms-input, .mtforms-skin- .mtforms-textarea {
+.mtforms-skin-0 .mtforms-input, .mtforms-skin-0 .mtforms-textarea {
   background-color: var(--mtforms-input-bg);
   color: var(--mtforms-text);
 }
-.mtforms-skin- .mtforms-input:hover, .mtforms-skin- .mtforms-input:focus, .mtforms-skin- .mtforms-textarea:hover, .mtforms-skin- .mtforms-textarea:focus {
+.mtforms-skin-0 .mtforms-input:hover, .mtforms-skin-0 .mtforms-input:focus, .mtforms-skin-0 .mtforms-textarea:hover, .mtforms-skin-0 .mtforms-textarea:focus {
   background-color: var(--mtforms-bg);
 }
-.mtforms-skin- .mtforms-checkbox-label {
+.mtforms-skin-0 .mtforms-checkbox-label {
   color: var(--mtforms-text-light);
 }
-.mtforms-skin- .mtforms-checkbox-custom {
+.mtforms-skin-0 .mtforms-checkbox-custom {
   background-color: var(--mtforms-input-bg);
 }
-.mtforms-skin- .mtforms-submit-btn {
+.mtforms-skin-0 .mtforms-submit-btn {
   background-color: var(--mtforms-primary);
   border-color: var(--mtforms-primary);
   color: #ffffff;
 }
-.mtforms-skin- .mtforms-submit-btn:hover {
+.mtforms-skin-0 .mtforms-submit-btn:hover {
   background-color: var(--mtforms-secondary);
 }
 
@@ -713,49 +713,16 @@
 /**
  * MTForms Layout Styles
  */
-/* ════════════════════════════════════════════════════════════ */
-/* LAYOUT: TWO-COLUMN GRID                                       */
-/* ════════════════════════════════════════════════════════════ */
-.mtforms-columns-2 .mtforms-form-inner {
+.mtforms-fields-wrapper {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  /* Containers to span full width */
-}
-.mtforms-columns-2 .mtforms-form-inner .mtforms-fields-wrapper,
-.mtforms-columns-2 .mtforms-form-inner .mtforms-form-title,
-.mtforms-columns-2 .mtforms-form-inner .mtforms-field-subject,
-.mtforms-columns-2 .mtforms-form-inner .mtforms-field-textarea,
-.mtforms-columns-2 .mtforms-form-inner .mtforms-gdpr-group,
-.mtforms-columns-2 .mtforms-form-inner .mtforms-captcha-group,
-.mtforms-columns-2 .mtforms-form-inner .mtforms-form-actions,
-.mtforms-columns-2 .mtforms-form-inner .mtforms-response-message {
-  grid-column: span 2;
-}
-.mtforms-columns-2 .mtforms-form-inner {
-  /* The wrapper itself behaves like a grid for internal fields */
-}
-.mtforms-columns-2 .mtforms-form-inner .mtforms-fields-wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
-@media (max-width: 640px) {
-  .mtforms-columns-2 .mtforms-form-inner {
-    grid-template-columns: 1fr;
-  }
-  .mtforms-columns-2 .mtforms-form-inner .mtforms-fields-wrapper,
-  .mtforms-columns-2 .mtforms-form-inner .mtforms-field-subject,
-  .mtforms-columns-2 .mtforms-form-inner .mtforms-field-textarea,
-  .mtforms-columns-2 .mtforms-form-inner .mtforms-gdpr-group,
-  .mtforms-columns-2 .mtforms-form-inner .mtforms-captcha-group,
-  .mtforms-columns-2 .mtforms-form-inner .mtforms-form-actions,
-  .mtforms-columns-2 .mtforms-form-inner .mtforms-response-message {
-    grid-column: span 1;
-  }
-  .mtforms-columns-2 .mtforms-form-inner .mtforms-fields-wrapper {
-    grid-template-columns: 1fr;
-  }
+
+.mtforms-columns-2 .mtforms-fields-wrapper {
+  grid-template-columns: repeat(2, 1fr);
+}
+.mtforms-columns-3 .mtforms-fields-wrapper {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* ════════════════════════════════════════════════════════════ */
@@ -877,67 +844,6 @@
 .mtforms-layout-compact .mtforms-submit-btn {
   padding: 0.75rem 1.5rem;
   font-size: 0.9rem;
-}
-
-/* ════════════════════════════════════════════════════════════ */
-/* LAYOUT: THREE-COLUMN GRID                                     */
-/* ════════════════════════════════════════════════════════════ */
-.mtforms-columns-3 .mtforms-form-inner {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-.mtforms-columns-3 .mtforms-form-inner .mtforms-fields-wrapper,
-.mtforms-columns-3 .mtforms-form-inner .mtforms-form-title,
-.mtforms-columns-3 .mtforms-form-inner .mtforms-field-subject,
-.mtforms-columns-3 .mtforms-form-inner .mtforms-field-textarea,
-.mtforms-columns-3 .mtforms-form-inner .mtforms-gdpr-group,
-.mtforms-columns-3 .mtforms-form-inner .mtforms-captcha-group,
-.mtforms-columns-3 .mtforms-form-inner .mtforms-form-actions,
-.mtforms-columns-3 .mtforms-form-inner .mtforms-response-message {
-  grid-column: span 3;
-}
-.mtforms-columns-3 .mtforms-form-inner {
-  /* The wrapper itself behaves like a grid for internal fields */
-}
-.mtforms-columns-3 .mtforms-form-inner .mtforms-fields-wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-@media (max-width: 1024px) {
-  .mtforms-columns-3 .mtforms-form-inner {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-fields-wrapper,
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-field-subject,
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-field-textarea,
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-gdpr-group,
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-captcha-group,
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-form-actions,
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-response-message {
-    grid-column: span 2;
-  }
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-fields-wrapper {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 640px) {
-  .mtforms-columns-3 .mtforms-form-inner {
-    grid-template-columns: 1fr;
-  }
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-fields-wrapper,
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-field-subject,
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-field-textarea,
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-gdpr-group,
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-captcha-group,
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-form-actions,
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-response-message {
-    grid-column: span 1;
-  }
-  .mtforms-columns-3 .mtforms-form-inner .mtforms-fields-wrapper {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ════════════════════════════════════════════════════════════ */

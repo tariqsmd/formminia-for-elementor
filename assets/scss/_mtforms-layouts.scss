@@ -2,51 +2,20 @@
  * MTForms Layout Styles
  */
 
-/* ════════════════════════════════════════════════════════════ */
-/* LAYOUT: TWO-COLUMN GRID                                       */
-/* ════════════════════════════════════════════════════════════ */
-.mtforms-columns-2 {
-    .mtforms-form-inner {
-        display: grid;
+
+.mtforms-fields-wrapper {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.mtforms-columns {
+
+    &-2 .mtforms-fields-wrapper {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+    }
 
-        /* Containers to span full width */
-        .mtforms-fields-wrapper,
-        .mtforms-form-title,
-        .mtforms-field-subject,
-        .mtforms-field-textarea,
-        .mtforms-gdpr-group,
-        .mtforms-captcha-group,
-        .mtforms-form-actions,
-        .mtforms-response-message {
-            grid-column: span 2;
-        }
-
-        /* The wrapper itself behaves like a grid for internal fields */
-        .mtforms-fields-wrapper {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 640px) {
-            grid-template-columns: 1fr;
-
-            .mtforms-fields-wrapper,
-            .mtforms-field-subject,
-            .mtforms-field-textarea,
-            .mtforms-gdpr-group,
-            .mtforms-captcha-group,
-            .mtforms-form-actions,
-            .mtforms-response-message {
-                grid-column: span 1;
-            }
-
-            .mtforms-fields-wrapper {
-                grid-template-columns: 1fr;
-            }
-        }
+    &-3 .mtforms-fields-wrapper {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -57,6 +26,7 @@
     .mtforms-input-wrap {
         position: relative;
     }
+
     .mtforms-floating-label {
         position: absolute;
         top: 1.25rem;
@@ -187,71 +157,6 @@
     .mtforms-submit-btn {
         padding: 0.75rem 1.5rem;
         font-size: 0.9rem;
-    }
-}
-
-/* ════════════════════════════════════════════════════════════ */
-/* LAYOUT: THREE-COLUMN GRID                                     */
-/* ════════════════════════════════════════════════════════════ */
-.mtforms-columns-3 {
-    .mtforms-form-inner {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-
-        .mtforms-fields-wrapper,
-        .mtforms-form-title,
-        .mtforms-field-subject,
-        .mtforms-field-textarea,
-        .mtforms-gdpr-group,
-        .mtforms-captcha-group,
-        .mtforms-form-actions,
-        .mtforms-response-message {
-            grid-column: span 3;
-        }
-
-        /* The wrapper itself behaves like a grid for internal fields */
-        .mtforms-fields-wrapper {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 1024px) {
-            grid-template-columns: repeat(2, 1fr);
-
-            .mtforms-fields-wrapper,
-            .mtforms-field-subject,
-            .mtforms-field-textarea,
-            .mtforms-gdpr-group,
-            .mtforms-captcha-group,
-            .mtforms-form-actions,
-            .mtforms-response-message {
-                grid-column: span 2;
-            }
-
-            .mtforms-fields-wrapper {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 640px) {
-            grid-template-columns: 1fr;
-
-            .mtforms-fields-wrapper,
-            .mtforms-field-subject,
-            .mtforms-field-textarea,
-            .mtforms-gdpr-group,
-            .mtforms-captcha-group,
-            .mtforms-form-actions,
-            .mtforms-response-message {
-                grid-column: span 1;
-            }
-
-            .mtforms-fields-wrapper {
-                grid-template-columns: 1fr;
-            }
-        }
     }
 }
 
