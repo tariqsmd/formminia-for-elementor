@@ -201,30 +201,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_responsive_control(
-			'width_name',
-			[
-				'label' => esc_html__('Column Width', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['%'],
-				'range' => [
-					'%' => [
-						'min' => 10,
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => '%',
-					'size' => 100,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group.mtforms-field-name' => 'width: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'show_name' => 'yes',
-				],
-			]
-		);
 
 		$this->add_control(
 			'show_email',
@@ -238,30 +214,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_responsive_control(
-			'width_email',
-			[
-				'label' => esc_html__('Column Width', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['%'],
-				'range' => [
-					'%' => [
-						'min' => 10,
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => '%',
-					'size' => 100,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group.mtforms-field-email' => 'width: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'show_email' => 'yes',
-				],
-			]
-		);
 
 		$this->add_control(
 			'show_phone',
@@ -275,30 +227,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_responsive_control(
-			'width_phone',
-			[
-				'label' => esc_html__('Column Width', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['%'],
-				'range' => [
-					'%' => [
-						'min' => 10,
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => '%',
-					'size' => 100,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group.mtforms-field-tel' => 'width: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'show_phone' => 'yes',
-				],
-			]
-		);
 
 		$this->add_control(
 			'show_website',
@@ -312,30 +240,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_responsive_control(
-			'width_website',
-			[
-				'label' => esc_html__('Column Width', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['%'],
-				'range' => [
-					'%' => [
-						'min' => 10,
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => '%',
-					'size' => 100,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group.mtforms-field-url' => 'width: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'show_website' => 'yes',
-				],
-			]
-		);
 
 		$this->add_control(
 			'show_subject',
@@ -349,30 +253,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_responsive_control(
-			'width_subject',
-			[
-				'label' => esc_html__('Column Width', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['%'],
-				'range' => [
-					'%' => [
-						'min' => 10,
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => '%',
-					'size' => 100,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group.mtforms-field-subject' => 'width: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'show_subject' => 'yes',
-				],
-			]
-		);
 
 		$this->add_control(
 			'show_message',
@@ -386,30 +266,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_responsive_control(
-			'width_message',
-			[
-				'label' => esc_html__('Column Width', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['%'],
-				'range' => [
-					'%' => [
-						'min' => 10,
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => '%',
-					'size' => 100,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group.mtforms-field-textarea' => 'width: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'show_message' => 'yes',
-				],
-			]
-		);
 
 		$this->add_control(
 			'show_gdpr',
@@ -914,6 +770,7 @@ class Widget extends \Elementor\Widget_Base
 	protected function register_style_tab_controls()
 	{
 		$this->register_style_container_controls();
+		$this->register_style_field_widths_controls();
 		$this->register_style_fields_wrapper_controls();
 		$this->register_style_label_controls();
 		$this->register_style_field_controls();
@@ -1120,6 +977,172 @@ class Widget extends \Elementor\Widget_Base
 				],
 				'condition' => [
 					'form_title!' => '',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Style: Field Widths Controls.
+	 */
+	protected function register_style_field_widths_controls()
+	{
+		$this->start_controls_section(
+			'section_style_field_widths',
+			[
+				'label' => esc_html__('Column Widths', MTFORMS_TEXT_DOMAIN),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_responsive_control(
+			'width_name',
+			[
+				'label' => esc_html__('Name Field Width', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['%'],
+				'range' => [
+					'%' => [
+						'min' => 10,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+					'size' => 100,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-group.mtforms-field-name' => 'width: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'show_name' => 'yes',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'width_email',
+			[
+				'label' => esc_html__('Email Field Width', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['%'],
+				'range' => [
+					'%' => [
+						'min' => 10,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+					'size' => 100,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-group.mtforms-field-email' => 'width: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'show_email' => 'yes',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'width_phone',
+			[
+				'label' => esc_html__('Phone Field Width', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['%'],
+				'range' => [
+					'%' => [
+						'min' => 10,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+					'size' => 100,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-group.mtforms-field-tel' => 'width: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'show_phone' => 'yes',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'width_website',
+			[
+				'label' => esc_html__('Website Field Width', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['%'],
+				'range' => [
+					'%' => [
+						'min' => 10,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+					'size' => 100,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-group.mtforms-field-url' => 'width: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'show_website' => 'yes',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'width_subject',
+			[
+				'label' => esc_html__('Subject Field Width', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['%'],
+				'range' => [
+					'%' => [
+						'min' => 10,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+					'size' => 100,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-group.mtforms-field-subject' => 'width: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'show_subject' => 'yes',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'width_message',
+			[
+				'label' => esc_html__('Message Field Width', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['%'],
+				'range' => [
+					'%' => [
+						'min' => 10,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+					'size' => 100,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-group.mtforms-field-textarea' => 'width: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'show_message' => 'yes',
 				],
 			]
 		);
