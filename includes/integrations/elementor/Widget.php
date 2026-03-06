@@ -134,7 +134,7 @@ class Widget extends \Elementor\Widget_Base
 			[
 				'label' => esc_html__('Preset Skin', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => '',
+				'default' => 'skin-0',
 				'options' => [
 					'skin-0' => __('None', MTFORMS_TEXT_DOMAIN),
 					'skin-1' => __('Skin 1 (Modern Indigo)', MTFORMS_TEXT_DOMAIN),
@@ -178,6 +178,8 @@ class Widget extends \Elementor\Widget_Base
 					'1' => __('1 Column', MTFORMS_TEXT_DOMAIN),
 					'2' => __('2 Columns', MTFORMS_TEXT_DOMAIN),
 					'3' => __('3 Columns', MTFORMS_TEXT_DOMAIN),
+					'4' => __('4 Columns', MTFORMS_TEXT_DOMAIN),
+					'5' => __('5 Columns', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);
