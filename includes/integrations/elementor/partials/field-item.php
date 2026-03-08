@@ -37,12 +37,6 @@ $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
 	<?php endif; ?>
 
     <div class="mtforms-input-wrap">
-		<?php if ( $settings['show_icons'] === 'yes' && $settings['show_labels'] !== 'yes' && ! empty( $icon_svg ) ): ?>
-            <span class="mtforms-field-icon <?php echo ( 'textarea' === $type ) ? 'mtforms-field-icon-textarea' : ''; ?>">
-                <?php echo $icon_svg; ?>
-            </span>
-		<?php endif; ?>
-
 		<?php if ( 'textarea' === $type ): ?>
             <textarea name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $field_id ); ?>" class="mtforms-textarea mtforms-input-<?php echo esc_attr( $type ); ?>" rows="<?php echo esc_attr( $settings['textarea_rows'] ); ?>" <?php if ( $settings['show_placeholders'] === 'yes' ): ?>placeholder="<?php echo esc_attr( $placeholder ); ?>"<?php endif; ?><?php echo $required; ?>></textarea>
 		<?php else: ?>
