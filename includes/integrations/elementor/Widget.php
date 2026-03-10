@@ -132,7 +132,7 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'skin',
 			[
-				'label' => esc_html__('Preset Skin', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Skin', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'skin-0',
 				'options' => [
@@ -154,7 +154,7 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'layout',
 			[
-				'label' => esc_html__('Form Layout', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Layout', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'default',
 				'options' => [
@@ -346,7 +346,7 @@ class Widget extends \Elementor\Widget_Base
 				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
 				'return_value' => 'yes',
-				'default' => 'yes',
+				'default' => 'no',
 			]
 		);
 
@@ -358,7 +358,7 @@ class Widget extends \Elementor\Widget_Base
 				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
 				'return_value' => 'yes',
-				'default' => 'yes',
+				'default' => 'no',
 				'description' => esc_html__('Uses the captcha provider configured in MTForms settings.', MTFORMS_TEXT_DOMAIN),
 			]
 		);
@@ -1935,14 +1935,15 @@ class Widget extends \Elementor\Widget_Base
 	/**
 	 * Register Specific Field Styles.
 	 */
-	protected function register_style_specific_fields() {
+	protected function register_style_specific_fields()
+	{
 		$fields = [
-			'name' => [ 'label' => esc_html__('Name Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-name .mtforms-input' ],
-			'email' => [ 'label' => esc_html__('Email Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-email .mtforms-input' ],
-			'phone' => [ 'label' => esc_html__('Phone Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-tel .mtforms-input' ],
-			'website' => [ 'label' => esc_html__('Website Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-url .mtforms-input' ],
-			'subject' => [ 'label' => esc_html__('Subject Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-subject .mtforms-input' ],
-			'message' => [ 'label' => esc_html__('Message Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-textarea .mtforms-textarea' ],
+			'name' => ['label' => esc_html__('Name Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-name .mtforms-input'],
+			'email' => ['label' => esc_html__('Email Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-email .mtforms-input'],
+			'phone' => ['label' => esc_html__('Phone Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-tel .mtforms-input'],
+			'website' => ['label' => esc_html__('Website Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-url .mtforms-input'],
+			'subject' => ['label' => esc_html__('Subject Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-subject .mtforms-input'],
+			'message' => ['label' => esc_html__('Message Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-textarea .mtforms-textarea'],
 		];
 
 		foreach ($fields as $id => $data) {
@@ -1950,7 +1951,8 @@ class Widget extends \Elementor\Widget_Base
 		}
 	}
 
-	protected function add_field_style_section($id, $label, $selector) {
+	protected function add_field_style_section($id, $label, $selector)
+	{
 		$this->start_controls_section(
 			"section_{$id}_style",
 			[
@@ -2099,7 +2101,7 @@ class Widget extends \Elementor\Widget_Base
 				],
 			]
 		);
-		
+
 		$this->add_responsive_control(
 			"{$id}_margin",
 			[

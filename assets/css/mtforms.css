@@ -56,6 +56,11 @@
 }
 .mtforms-icon {
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mtforms-icon-right .mtforms-icon {
+  order: 2;
 }
 .mtforms-input-wrap {
   position: relative;
