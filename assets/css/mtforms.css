@@ -146,6 +146,15 @@
 .mtforms-btn-icon {
   display: flex;
 }
+.mtforms-button-full {
+  width: 100%;
+}
+.mtforms-button-full .mtforms-form-actions {
+  width: 100%;
+}
+.mtforms-button-full .mtforms-submit-btn {
+  width: 100% !important;
+}
 .mtforms-response-message {
   width: 100%;
   font-size: 1rem;
@@ -718,11 +727,6 @@
 /**
  * MTForms Layout Styles
  */
-.mtforms-fields-wrapper {
-  display: grid;
-  gap: 1.5rem;
-}
-
 .mtforms-columns-2 .mtforms-fields-wrapper {
   grid-template-columns: repeat(2, 1fr);
 }
@@ -863,18 +867,15 @@
 .mtforms-layout-boxed-border .mtforms-form-wrapper {
   background: #fff;
   padding: 3rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
 }
 .mtforms-layout-boxed-border .mtforms-input,
 .mtforms-layout-boxed-border .mtforms-textarea {
   border: none;
   background: #f8fafc;
-  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
 }
 .mtforms-layout-boxed-border .mtforms-input:focus,
 .mtforms-layout-boxed-border .mtforms-textarea:focus {
   background: #f1f5f9;
-  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 0 0 3px rgba(15, 23, 42, 0.1);
 }
 
 /* ════════════════════════════════════════════════════════════ */

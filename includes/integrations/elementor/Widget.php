@@ -156,9 +156,9 @@ class Widget extends \Elementor\Widget_Base
 			[
 				'label' => esc_html__('Layout', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'default',
+				'default' => 'none',
 				'options' => [
-					'default' => __('Default (Vertical)', MTFORMS_TEXT_DOMAIN),
+					'none' => __('None', MTFORMS_TEXT_DOMAIN),
 					'floating' => __('Floating Labels', MTFORMS_TEXT_DOMAIN),
 					'material' => __('Material Minimal', MTFORMS_TEXT_DOMAIN),
 					'compact' => __('Compact Style', MTFORMS_TEXT_DOMAIN),
@@ -448,15 +448,7 @@ class Widget extends \Elementor\Widget_Base
 			'button_icon',
 			[
 				'label' => esc_html__('Button Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'none',
-				'options' => [
-					'none' => __('None', MTFORMS_TEXT_DOMAIN),
-					'send' => __('Send (Paper Plane)', MTFORMS_TEXT_DOMAIN),
-					'arrow-right' => __('Arrow Right', MTFORMS_TEXT_DOMAIN),
-					'check' => __('Checkmark', MTFORMS_TEXT_DOMAIN),
-					'mail' => __('Mail Icon', MTFORMS_TEXT_DOMAIN),
-				],
+				'type' => \Elementor\Controls_Manager::ICONS,
 			]
 		);
 
@@ -471,7 +463,7 @@ class Widget extends \Elementor\Widget_Base
 					'right' => esc_html__('After Text', MTFORMS_TEXT_DOMAIN),
 				],
 				'condition' => [
-					'button_icon!' => 'none',
+					'button_icon[value]!' => '',
 				],
 			]
 		);
@@ -817,6 +809,18 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_responsive_control(
+			'form_margin',
+			[
+				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
 			'form_padding',
 			[
 				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
@@ -861,18 +865,6 @@ class Widget extends \Elementor\Widget_Base
 			[
 				'name' => 'form_box_shadow',
 				'selector' => '{{WRAPPER}} .mtforms-form-wrapper',
-			]
-		);
-
-		$this->add_responsive_control(
-			'form_margin',
-			[
-				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
 			]
 		);
 
@@ -2340,20 +2332,10 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function render_button($settings)
 	{
-		$icons = [
-			'send' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>',
-			'arrow-right' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>',
-			'check' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>',
-			'mail' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>',
-		];
-
-		$icon_svg = isset($icons[$settings['button_icon']]) ? $icons[$settings['button_icon']] : '';
-
 		$this->get_partial(
 			'button',
 			[
 				'settings' => $settings,
-				'icon_svg' => $icon_svg,
 			]
 		);
 	}

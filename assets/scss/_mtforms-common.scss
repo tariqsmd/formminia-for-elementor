@@ -163,6 +163,18 @@
     display: flex;
   }
 
+  &-button-full {
+    width: 100%;
+
+    .mtforms-form-actions {
+      width: 100%;
+    }
+
+    .mtforms-submit-btn {
+      width: 100% !important;
+    }
+  }
+
   &-response-message {
     width: 100%;
     font-size: 1rem;
