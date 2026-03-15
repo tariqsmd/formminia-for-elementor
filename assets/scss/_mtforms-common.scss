@@ -147,20 +147,39 @@
     transition: var(--mtforms-transition);
     border: 2px solid transparent;
 
-    &:hover {
 
-      svg {
-        transform: translateX(2px);
-      }
-    }
-
-    svg {
-      transition: transform 0.2s ease;
-    }
   }
 
   &-btn-icon {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    font-size: 1.1em;
+
+    svg {
+      width: 1em;
+      height: 1em;
+      fill: currentColor;
+      transition: transform 0.2s ease;
+    }
+
+    i {
+      transition: transform 0.2s ease;
+    }
+  }
+
+  /* Hover transitions for icons */
+  &-submit-btn:hover {
+    .mtforms-btn-icon-right svg,
+    .mtforms-btn-icon-right i {
+      transform: translateX(3px);
+    }
+
+    .mtforms-btn-icon-left svg,
+    .mtforms-btn-icon-left i {
+      transform: translateX(-3px);
+    }
   }
 
   &-button-full {

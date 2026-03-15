@@ -4,6 +4,16 @@
 
 .mtforms-columns {
 
+    &-1,
+    &-2,
+    &-3,
+    &-4,
+    &-5 {
+        .mtforms-fields-wrapper {
+            display: grid;
+        }
+    }
+
     &-2 .mtforms-fields-wrapper {
         grid-template-columns: repeat(2, 1fr);
     }

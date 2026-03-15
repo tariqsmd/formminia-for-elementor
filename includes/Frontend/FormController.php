@@ -53,7 +53,7 @@ class FormController
 	 */
 	public function enqueue_styles()
 	{
-		wp_register_style(
+		wp_enqueue_style(
 			$this->plugin_name,
 			MTFORMS_PLUGIN_URL . 'assets/css/mtforms.css',
 			array(),
@@ -81,7 +81,7 @@ class FormController
 			true
 		);
 
-		wp_register_script(
+		wp_enqueue_script(
 			$this->plugin_name,
 			MTFORMS_PLUGIN_URL . 'assets/js/mtforms.js',
 			array('jquery', 'mtforms-just-validate'),

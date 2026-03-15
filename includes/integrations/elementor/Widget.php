@@ -156,9 +156,9 @@ class Widget extends \Elementor\Widget_Base
 			[
 				'label' => esc_html__('Layout', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'none',
+				'default' => 'default',
 				'options' => [
-					'none' => __('None', MTFORMS_TEXT_DOMAIN),
+					'default' => __('None', MTFORMS_TEXT_DOMAIN),
 					'floating' => __('Floating Labels', MTFORMS_TEXT_DOMAIN),
 					'material' => __('Material Minimal', MTFORMS_TEXT_DOMAIN),
 					'compact' => __('Compact Style', MTFORMS_TEXT_DOMAIN),
@@ -832,41 +832,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'form_background',
-				'selector' => '{{WRAPPER}} .mtforms-form-wrapper',
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
-			[
-				'name' => 'form_border',
-				'selector' => '{{WRAPPER}} .mtforms-form-wrapper',
-			]
-		);
-
-		$this->add_responsive_control(
-			'form_border_radius',
-			[
-				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'form_box_shadow',
-				'selector' => '{{WRAPPER}} .mtforms-form-wrapper',
-			]
-		);
 
 		$this->add_responsive_control(
 			'field_row_gap',
@@ -901,6 +866,42 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-form-inner' => 'column-gap: {{SIZE}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'form_background',
+				'selector' => '{{WRAPPER}} .mtforms-form-wrapper',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'form_border',
+				'selector' => '{{WRAPPER}} .mtforms-form-wrapper',
+			]
+		);
+
+		$this->add_responsive_control(
+			'form_border_radius',
+			[
+				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'form_box_shadow',
+				'selector' => '{{WRAPPER}} .mtforms-form-wrapper',
 			]
 		);
 
@@ -1276,7 +1277,7 @@ class Widget extends \Elementor\Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group label' => 'margin-bottom: {{SIZE}}{{UNIT}}; display: block;',
+					'{{WRAPPER}} .mtforms-form-group label' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1648,6 +1649,63 @@ class Widget extends \Elementor\Widget_Base
 			[
 				'name' => 'button_typography',
 				'selector' => '{{WRAPPER}} .mtforms-submit-btn',
+			]
+		);
+
+		$this->add_control(
+			'button_icon_color',
+			[
+				'label' => esc_html__('Icon Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-btn-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-btn-icon svg' => 'fill: {{VALUE}};',
+				],
+				'condition' => [
+					'button_icon[value]!' => '',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'button_icon_size',
+			[
+				'label' => esc_html__('Icon Size', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 1,
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-btn-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-btn-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
+				],
+				'condition' => [
+					'button_icon[value]!' => '',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'button_icon_spacing',
+			[
+				'label' => esc_html__('Icon Spacing', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-btn-icon-left' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-btn-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'button_icon[value]!' => '',
+				],
 			]
 		);
 
