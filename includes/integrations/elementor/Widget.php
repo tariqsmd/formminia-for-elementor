@@ -101,9 +101,7 @@ class Widget extends \Elementor\Widget_Base
 	protected function register_content_tab_controls()
 	{
 		$this->register_basic_controls();
-		$this->register_button_controls();
 		$this->register_label_controls();
-		$this->register_email_controls();
 		$this->register_advanced_controls();
 	}
 
@@ -380,28 +378,12 @@ class Widget extends \Elementor\Widget_Base
 
 
 
-		$this->end_controls_section();
-	}
-
-	/**
-	 * Register Button Controls.
-	 */
-	protected function register_button_controls()
-	{
-		$this->start_controls_section(
-			'section_button',
+		$this->add_control(
+			'heading_submit_button_basic',
 			[
 				'label' => esc_html__('Submit Button', MTFORMS_TEXT_DOMAIN),
-				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
-			]
-		);
-
-		$this->add_control(
-			'button_text',
-			[
-				'label' => esc_html__('Button Text', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__('Send Message', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
 			]
 		);
 
@@ -470,6 +452,8 @@ class Widget extends \Elementor\Widget_Base
 
 		$this->end_controls_section();
 	}
+
+
 
 	/**
 	 * Register Label Controls.
@@ -670,44 +654,28 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->end_controls_section();
-	}
-
-	/**
-	 * Register Email Controls.
-	 */
-	protected function register_email_controls()
-	{
-		$this->start_controls_section(
-			'section_email',
+		$this->add_control(
+			'heading_button_text',
 			[
-				'label' => esc_html__('Email Settings', MTFORMS_TEXT_DOMAIN),
-				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+				'label' => esc_html__('Submit Button', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
 			]
 		);
 
 		$this->add_control(
-			'mail_cc',
+			'button_text',
 			[
-				'label' => esc_html__('CC Email', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Button Text', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'description' => esc_html__('Optional CC email addresses, separate with commas.', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
-			]
-		);
-
-		$this->add_control(
-			'mail_bcc',
-			[
-				'label' => esc_html__('BCC Email', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'description' => esc_html__('Optional BCC email addresses, separate with commas.', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
+				'default' => esc_html__('Send Message', MTFORMS_TEXT_DOMAIN),
 			]
 		);
 
 		$this->end_controls_section();
 	}
+
+
 
 	/**
 	 * Register Advanced Controls.
@@ -760,6 +728,35 @@ class Widget extends \Elementor\Widget_Base
 				'condition' => [
 					'redirect_on_success' => 'yes',
 				],
+			]
+		);
+
+		$this->add_control(
+			'heading_email_settings',
+			[
+				'label' => esc_html__('Email Settings', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'mail_cc',
+			[
+				'label' => esc_html__('CC Email', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'description' => esc_html__('Optional CC email addresses, separate with commas.', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+			]
+		);
+
+		$this->add_control(
+			'mail_bcc',
+			[
+				'label' => esc_html__('BCC Email', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'description' => esc_html__('Optional BCC email addresses, separate with commas.', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 			]
 		);
 
