@@ -481,6 +481,22 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
+			'icon_name',
+			[
+				'label' => esc_html__('Name Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-user',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'show_name' => 'yes',
+					'show_icons' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
 			'placeholder_name',
 			[
 				'label' => esc_html__('Name Placeholder', MTFORMS_TEXT_DOMAIN),
@@ -500,6 +516,22 @@ class Widget extends \Elementor\Widget_Base
 				'default' => esc_html__('Email', MTFORMS_TEXT_DOMAIN),
 				'condition' => [
 					'show_email' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'icon_email',
+			[
+				'label' => esc_html__('Email Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-envelope',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'show_email' => 'yes',
+					'show_icons' => 'yes',
 				],
 			]
 		);
@@ -529,6 +561,22 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
+			'icon_phone',
+			[
+				'label' => esc_html__('Phone Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-phone',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'show_phone' => 'yes',
+					'show_icons' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
 			'placeholder_phone',
 			[
 				'label' => esc_html__('Phone Placeholder', MTFORMS_TEXT_DOMAIN),
@@ -548,6 +596,22 @@ class Widget extends \Elementor\Widget_Base
 				'default' => esc_html__('Website', MTFORMS_TEXT_DOMAIN),
 				'condition' => [
 					'show_website' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'icon_website',
+			[
+				'label' => esc_html__('Website Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-globe',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'show_website' => 'yes',
+					'show_icons' => 'yes',
 				],
 			]
 		);
@@ -577,6 +641,22 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
+			'icon_subject',
+			[
+				'label' => esc_html__('Subject Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-tag',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'show_subject' => 'yes',
+					'show_icons' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
 			'placeholder_subject',
 			[
 				'label' => esc_html__('Subject Placeholder', MTFORMS_TEXT_DOMAIN),
@@ -596,6 +676,38 @@ class Widget extends \Elementor\Widget_Base
 				'default' => esc_html__('Message', MTFORMS_TEXT_DOMAIN),
 				'condition' => [
 					'show_message' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'icon_message',
+			[
+				'label' => esc_html__('Message Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-comment',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'show_message' => 'yes',
+					'show_icons' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'icon_message',
+			[
+				'label' => esc_html__('Message Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-comment',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'show_message' => 'yes',
+					'show_icons' => 'yes',
 				],
 			]
 		);
@@ -769,15 +881,16 @@ class Widget extends \Elementor\Widget_Base
 	protected function register_style_tab_controls()
 	{
 		$this->register_style_container_controls();
+		$this->register_style_title_controls();
+		$this->register_style_field_controls();
+		$this->register_style_icon_controls();
 		$this->register_style_field_widths_controls();
 		$this->register_style_fields_wrapper_controls();
 		$this->register_style_label_controls();
-		$this->register_style_field_controls();
 		$this->register_style_specific_fields();
-		$this->register_style_button_controls();
 		$this->register_style_message_controls();
-		$this->register_style_icon_controls();
 		$this->register_style_gdpr_controls();
+		$this->register_style_button_controls();
 	}
 
 	/**
@@ -902,12 +1015,19 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'heading_form_title_style',
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Style: Form Title Controls.
+	 */
+	protected function register_style_title_controls()
+	{
+		$this->start_controls_section(
+			'section_style_title',
 			[
 				'label' => esc_html__('Form Title', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::HEADING,
-				'separator' => 'before',
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'form_title!' => '',
 				],
@@ -922,9 +1042,6 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-form-title' => 'color: {{VALUE}};',
 				],
-				'condition' => [
-					'form_title!' => '',
-				],
 			]
 		);
 
@@ -933,9 +1050,6 @@ class Widget extends \Elementor\Widget_Base
 			[
 				'name' => 'title_typography',
 				'selector' => '{{WRAPPER}} .mtforms-form-title',
-				'condition' => [
-					'form_title!' => '',
-				],
 			]
 		);
 
@@ -947,9 +1061,6 @@ class Widget extends \Elementor\Widget_Base
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-form-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-				'condition' => [
-					'form_title!' => '',
 				],
 			]
 		);
@@ -976,9 +1087,26 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-form-title' => 'text-align: {{VALUE}};',
 				],
-				'condition' => [
-					'form_title!' => '',
+			]
+		);
+
+		$this->add_responsive_control(
+			'title_padding',
+			[
+				'label' => esc_html__('Title Padding', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'title_background',
+				'selector' => '{{WRAPPER}} .mtforms-form-title',
 			]
 		);
 
@@ -1263,19 +1391,34 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_responsive_control(
+			'label_padding',
+			[
+				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-group label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
 			'label_margin',
 			[
-				'label' => esc_html__('Margin Bottom', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 50,
-					],
-				],
+				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group label' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-form-group label' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'label_background',
+				'selector' => '{{WRAPPER}} .mtforms-form-group label',
 			]
 		);
 
@@ -1846,6 +1989,14 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'message_background',
+				'selector' => '{{WRAPPER}} .mtforms-response-message',
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -2223,6 +2374,18 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_responsive_control(
+			'gdpr_padding',
+			[
+				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-gdpr-consent' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
 			'gdpr_margin',
 			[
 				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
@@ -2231,6 +2394,14 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-gdpr-consent' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'gdpr_background',
+				'selector' => '{{WRAPPER}} .mtforms-gdpr-consent',
 			]
 		);
 
@@ -2333,6 +2504,9 @@ class Widget extends \Elementor\Widget_Base
 			'required' => true,
 			'field_id' => 'field-' . $type . '-' . $widget_id,
 		];
+
+		// Get dynamic icon if available
+		$field_args['icon'] = isset($settings['icon_' . $type]) ? $settings['icon_' . $type] : null;
 
 		switch ($type) {
 			case 'name':

@@ -24,8 +24,16 @@ $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
 <div class="<?php echo esc_attr( implode( ' ', $group_classes ) ); ?>">
 	<?php if ( $settings['show_labels'] === 'yes' ): ?>
         <label for="<?php echo esc_attr( $field_id ); ?>">
-			<?php if ( $settings['show_icons'] === 'yes' && ! empty( $icon_svg ) ): ?>
-                <span class="mtforms-icon"><?php echo $icon_svg; ?></span>
+			<?php if ( $settings['show_icons'] === 'yes' ): ?>
+                <span class="mtforms-icon">
+                    <?php
+                    if ( ! empty( $args['icon']['value'] ) ) {
+	                    \Elementor\Icons_Manager::render_icon( $args['icon'], [ 'aria-hidden' => 'true' ] );
+                    } elseif ( ! empty( $icon_svg ) ) {
+	                    echo $icon_svg;
+                    }
+                    ?>
+                </span>
 			<?php endif; ?>
             <span class="mtforms-label-text">
 			    <?php echo esc_html( $label ); ?>

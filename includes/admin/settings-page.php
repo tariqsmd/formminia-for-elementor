@@ -86,7 +86,7 @@ $tabs = [
                                 <td>
                                     <select name="mtforms_captcha_provider" id="mtforms_captcha_provider">
                                         <option value="none" <?php selected(get_option('mtforms_captcha_provider'), 'none'); ?>>
-                                            <?php esc_html_e('None (Not recommended)', MTFORMS_TEXT_DOMAIN); ?>
+                                            <?php esc_html_e('None', MTFORMS_TEXT_DOMAIN); ?>
                                         </option>
                                         <option value="recaptcha" <?php selected(get_option('mtforms_captcha_provider'), 'recaptcha'); ?>>
                                             <?php esc_html_e('Google reCAPTCHA v2', MTFORMS_TEXT_DOMAIN); ?>
