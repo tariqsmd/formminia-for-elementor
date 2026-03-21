@@ -884,7 +884,6 @@ class Widget extends \Elementor\Widget_Base
 		$this->register_style_title_controls();
 		$this->register_style_field_controls();
 		$this->register_style_icon_controls();
-		$this->register_style_field_widths_controls();
 		$this->register_style_fields_wrapper_controls();
 		$this->register_style_label_controls();
 		$this->register_style_specific_fields();
@@ -1116,168 +1115,7 @@ class Widget extends \Elementor\Widget_Base
 	/**
 	 * Style: Field Widths Controls.
 	 */
-	protected function register_style_field_widths_controls()
-	{
-		$this->start_controls_section(
-			'section_style_field_widths',
-			[
-				'label' => esc_html__('Column Widths', MTFORMS_TEXT_DOMAIN),
-				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-			]
-		);
 
-		$this->add_responsive_control(
-			'width_name',
-			[
-				'label' => esc_html__('Name Field Width', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['%'],
-				'range' => [
-					'%' => [
-						'min' => 10,
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => '%',
-					'size' => 100,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group.mtforms-field-name' => 'width: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'show_name' => 'yes',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'width_email',
-			[
-				'label' => esc_html__('Email Field Width', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['%'],
-				'range' => [
-					'%' => [
-						'min' => 10,
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => '%',
-					'size' => 100,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group.mtforms-field-email' => 'width: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'show_email' => 'yes',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'width_phone',
-			[
-				'label' => esc_html__('Phone Field Width', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['%'],
-				'range' => [
-					'%' => [
-						'min' => 10,
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => '%',
-					'size' => 100,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group.mtforms-field-tel' => 'width: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'show_phone' => 'yes',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'width_website',
-			[
-				'label' => esc_html__('Website Field Width', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['%'],
-				'range' => [
-					'%' => [
-						'min' => 10,
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => '%',
-					'size' => 100,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group.mtforms-field-url' => 'width: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'show_website' => 'yes',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'width_subject',
-			[
-				'label' => esc_html__('Subject Field Width', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['%'],
-				'range' => [
-					'%' => [
-						'min' => 10,
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => '%',
-					'size' => 100,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group.mtforms-field-subject' => 'width: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'show_subject' => 'yes',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'width_message',
-			[
-				'label' => esc_html__('Message Field Width', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['%'],
-				'range' => [
-					'%' => [
-						'min' => 10,
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => '%',
-					'size' => 100,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group.mtforms-field-textarea' => 'width: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'show_message' => 'yes',
-				],
-			]
-		);
-
-		$this->end_controls_section();
-	}
 
 	/**
 	 * Style: Fields Wrapper Controls.
@@ -2136,28 +1974,85 @@ class Widget extends \Elementor\Widget_Base
 	protected function register_style_specific_fields()
 	{
 		$fields = [
-			'name' => ['label' => esc_html__('Name Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-name .mtforms-input'],
-			'email' => ['label' => esc_html__('Email Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-email .mtforms-input'],
-			'phone' => ['label' => esc_html__('Phone Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-tel .mtforms-input'],
-			'website' => ['label' => esc_html__('Website Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-url .mtforms-input'],
-			'subject' => ['label' => esc_html__('Subject Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-subject .mtforms-input'],
-			'message' => ['label' => esc_html__('Message Field', MTFORMS_TEXT_DOMAIN), 'selector' => '.mtforms-field-textarea .mtforms-textarea'],
+			'name' => [
+				'label' => esc_html__('Name Field', MTFORMS_TEXT_DOMAIN),
+				'selector' => '.mtforms-field-name .mtforms-input',
+				'wrapper' => '.mtforms-form-group.mtforms-field-name',
+				'field_key' => 'name',
+			],
+			'email' => [
+				'label' => esc_html__('Email Field', MTFORMS_TEXT_DOMAIN),
+				'selector' => '.mtforms-field-email .mtforms-input',
+				'wrapper' => '.mtforms-form-group.mtforms-field-email',
+				'field_key' => 'email',
+			],
+			'phone' => [
+				'label' => esc_html__('Phone Field', MTFORMS_TEXT_DOMAIN),
+				'selector' => '.mtforms-field-tel .mtforms-input',
+				'wrapper' => '.mtforms-form-group.mtforms-field-tel',
+				'field_key' => 'phone',
+			],
+			'website' => [
+				'label' => esc_html__('Website Field', MTFORMS_TEXT_DOMAIN),
+				'selector' => '.mtforms-field-url .mtforms-input',
+				'wrapper' => '.mtforms-form-group.mtforms-field-url',
+				'field_key' => 'website',
+			],
+			'subject' => [
+				'label' => esc_html__('Subject Field', MTFORMS_TEXT_DOMAIN),
+				'selector' => '.mtforms-field-subject .mtforms-input',
+				'wrapper' => '.mtforms-form-group.mtforms-field-subject',
+				'field_key' => 'subject',
+			],
+			'message' => [
+				'label' => esc_html__('Message Field', MTFORMS_TEXT_DOMAIN),
+				'selector' => '.mtforms-field-textarea .mtforms-textarea',
+				'wrapper' => '.mtforms-form-group.mtforms-field-textarea',
+				'field_key' => 'message',
+			],
 		];
 
 		foreach ($fields as $id => $data) {
-			$this->add_field_style_section("specific_{$id}", $data['label'] . ' Style', $data['selector']);
+			$this->add_field_style_section("specific_{$id}", $data['label'] . ' Style', $data['selector'], $data['wrapper'], $data['field_key']);
 		}
 	}
 
-	protected function add_field_style_section($id, $label, $selector)
+	protected function add_field_style_section($id, $label, $selector, $wrapper = '', $field_key = '')
 	{
 		$this->start_controls_section(
 			"section_{$id}_style",
 			[
 				'label' => $label,
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+				'condition' => [
+					"show_{$field_key}" => 'yes',
+				],
 			]
 		);
+
+		if ($wrapper && $field_key) {
+			$this->add_responsive_control(
+				"width_{$field_key}",
+				[
+					'label' => esc_html__('Column Width', MTFORMS_TEXT_DOMAIN),
+					'type' => \Elementor\Controls_Manager::SLIDER,
+					'size_units' => ['%'],
+					'range' => [
+						'%' => [
+							'min' => 10,
+							'max' => 100,
+						],
+					],
+					'default' => [
+						'unit' => '%',
+						'size' => 100,
+					],
+					'selectors' => [
+						"{{WRAPPER}} {$wrapper}" => 'width: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+		}
 
 		$this->start_controls_tabs("tabs_{$id}_style");
 
