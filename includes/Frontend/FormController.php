@@ -89,6 +89,28 @@ class FormController
 			true
 		);
 
+		// Enqueue Captcha scripts if provider is configured
+		$captcha_provider = get_option('mtforms_captcha_provider', 'none');
+		if ($captcha_provider === 'recaptcha') {
+			$site_key = get_option('mtforms_recaptcha_site_key');
+			if (!empty($site_key)) {
+				wp_enqueue_script('google-recaptcha', 'https://www.google.com/recaptcha/api.js', array(), null, true);
+			}
+		} elseif ($captcha_provider === 'turnstile') {
+			$site_key = get_option('mtforms_turnstile_site_key');
+			if (!empty($site_key)) {
+				wp_enqueue_script('cloudflare-turnstile', 'https://challenges.cloudflare.com/turnstile/v0/api.js', array(), null, true);
+				
+				// Add async/defer to Turnstile
+				add_filter('script_loader_tag', function($tag, $handle) {
+					if ('cloudflare-turnstile' !== $handle) {
+						return $tag;
+					}
+					return str_replace(' src', ' async defer src', $tag);
+				}, 10, 2);
+			}
+		}
+
 		wp_localize_script(
 			$this->plugin_name,
 			'mtforms_ajax',
@@ -107,6 +129,7 @@ class FormController
 					'send_message' => __('Send Message', MTFORMS_TEXT_DOMAIN),
 					'error_generic' => __('An unexpected error occurred. Please try again.', MTFORMS_TEXT_DOMAIN),
 				),
+				'captcha_provider' => get_option('mtforms_captcha_provider', 'none'),
 			)
 		);
 	}

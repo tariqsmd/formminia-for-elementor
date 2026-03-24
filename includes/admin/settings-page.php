@@ -15,10 +15,6 @@ $tabs = [
         'label' => __('General', MTFORMS_TEXT_DOMAIN),
         'icon' => 'dashicons-admin-settings',
     ],
-    'email' => [
-        'label' => __('Email Settings', MTFORMS_TEXT_DOMAIN),
-        'icon' => 'dashicons-email-alt',
-    ],
     'recaptcha' => [
         'label' => __('Google reCAPTCHA', MTFORMS_TEXT_DOMAIN),
         'icon' => 'dashicons-shield',
@@ -26,6 +22,10 @@ $tabs = [
     'turnstile' => [
         'label' => __('Turnstile', MTFORMS_TEXT_DOMAIN),
         'icon' => 'dashicons-cloud',
+    ],
+    'email' => [
+        'label' => __('Email Settings', MTFORMS_TEXT_DOMAIN),
+        'icon' => 'dashicons-email-alt',
     ],
 ];
 ?>
@@ -99,6 +99,64 @@ $tabs = [
                                         <?php esc_html_e('Select the validation service you want to use to prevent spam.', MTFORMS_TEXT_DOMAIN); ?>
                                     </p>
                                 </td>
+                            </tr>
+                        </table>
+                        <?php submit_button(__('Save Changes', MTFORMS_TEXT_DOMAIN), 'primary'); ?>
+                    </form>
+                </div>
+
+
+
+            <?php elseif ($active_tab === 'recaptcha'): ?>
+
+                <div class="mtforms-card">
+                    <h2><?php esc_html_e('Google reCAPTCHA v2', MTFORMS_TEXT_DOMAIN); ?></h2>
+                    <form method="post" action="options.php">
+                        <?php settings_fields('mtforms_settings'); ?>
+                        <table class="form-table">
+                            <tr valign="top">
+                                <th scope="row">
+                                    <?php esc_html_e('Site Key', MTFORMS_TEXT_DOMAIN); ?>
+                                </th>
+                                <td><input type="text" name="mtforms_recaptcha_site_key"
+                                        value="<?php echo esc_attr(get_option('mtforms_recaptcha_site_key', '')); ?>"
+                                        class="regular-text" /></td>
+                            </tr>
+                            <tr valign="top">
+                                <th scope="row">
+                                    <?php esc_html_e('Secret Key', MTFORMS_TEXT_DOMAIN); ?>
+                                </th>
+                                <td><input type="password" name="mtforms_recaptcha_secret_key"
+                                        value="<?php echo esc_attr(get_option('mtforms_recaptcha_secret_key', '')); ?>"
+                                        class="regular-text" /></td>
+                            </tr>
+                        </table>
+                        <?php submit_button(__('Save Changes', MTFORMS_TEXT_DOMAIN), 'primary'); ?>
+                    </form>
+                </div>
+
+            <?php elseif ($active_tab === 'turnstile'): ?>
+
+                <div class="mtforms-card">
+                    <h2><?php esc_html_e('Cloudflare Turnstile', MTFORMS_TEXT_DOMAIN); ?></h2>
+                    <form method="post" action="options.php">
+                        <?php settings_fields('mtforms_settings'); ?>
+                        <table class="form-table">
+                            <tr valign="top">
+                                <th scope="row">
+                                    <?php esc_html_e('Site Key', MTFORMS_TEXT_DOMAIN); ?>
+                                </th>
+                                <td><input type="text" name="mtforms_turnstile_site_key"
+                                        value="<?php echo esc_attr(get_option('mtforms_turnstile_site_key', '')); ?>"
+                                        class="regular-text" /></td>
+                            </tr>
+                            <tr valign="top">
+                                <th scope="row">
+                                    <?php esc_html_e('Secret Key', MTFORMS_TEXT_DOMAIN); ?>
+                                </th>
+                                <td><input type="password" name="mtforms_turnstile_secret_key"
+                                        value="<?php echo esc_attr(get_option('mtforms_turnstile_secret_key', '')); ?>"
+                                        class="regular-text" /></td>
                             </tr>
                         </table>
                         <?php submit_button(__('Save Changes', MTFORMS_TEXT_DOMAIN), 'primary'); ?>
@@ -303,62 +361,6 @@ $tabs = [
                                 </td>
                             </tr>
 
-                        </table>
-                        <?php submit_button(__('Save Changes', MTFORMS_TEXT_DOMAIN), 'primary'); ?>
-                    </form>
-                </div>
-
-            <?php elseif ($active_tab === 'recaptcha'): ?>
-
-                <div class="mtforms-card">
-                    <h2><?php esc_html_e('Google reCAPTCHA v2', MTFORMS_TEXT_DOMAIN); ?></h2>
-                    <form method="post" action="options.php">
-                        <?php settings_fields('mtforms_settings'); ?>
-                        <table class="form-table">
-                            <tr valign="top">
-                                <th scope="row">
-                                    <?php esc_html_e('Site Key', MTFORMS_TEXT_DOMAIN); ?>
-                                </th>
-                                <td><input type="text" name="mtforms_recaptcha_site_key"
-                                        value="<?php echo esc_attr(get_option('mtforms_recaptcha_site_key', '')); ?>"
-                                        class="regular-text" placeholder="6L..." /></td>
-                            </tr>
-                            <tr valign="top">
-                                <th scope="row">
-                                    <?php esc_html_e('Secret Key', MTFORMS_TEXT_DOMAIN); ?>
-                                </th>
-                                <td><input type="password" name="mtforms_recaptcha_secret_key"
-                                        value="<?php echo esc_attr(get_option('mtforms_recaptcha_secret_key', '')); ?>"
-                                        class="regular-text" /></td>
-                            </tr>
-                        </table>
-                        <?php submit_button(__('Save Changes', MTFORMS_TEXT_DOMAIN), 'primary'); ?>
-                    </form>
-                </div>
-
-            <?php elseif ($active_tab === 'turnstile'): ?>
-
-                <div class="mtforms-card">
-                    <h2><?php esc_html_e('Cloudflare Turnstile', MTFORMS_TEXT_DOMAIN); ?></h2>
-                    <form method="post" action="options.php">
-                        <?php settings_fields('mtforms_settings'); ?>
-                        <table class="form-table">
-                            <tr valign="top">
-                                <th scope="row">
-                                    <?php esc_html_e('Site Key', MTFORMS_TEXT_DOMAIN); ?>
-                                </th>
-                                <td><input type="text" name="mtforms_turnstile_site_key"
-                                        value="<?php echo esc_attr(get_option('mtforms_turnstile_site_key', '')); ?>"
-                                        class="regular-text" placeholder="0x..." /></td>
-                            </tr>
-                            <tr valign="top">
-                                <th scope="row">
-                                    <?php esc_html_e('Secret Key', MTFORMS_TEXT_DOMAIN); ?>
-                                </th>
-                                <td><input type="password" name="mtforms_turnstile_secret_key"
-                                        value="<?php echo esc_attr(get_option('mtforms_turnstile_secret_key', '')); ?>"
-                                        class="regular-text" /></td>
-                            </tr>
                         </table>
                         <?php submit_button(__('Save Changes', MTFORMS_TEXT_DOMAIN), 'primary'); ?>
                     </form>

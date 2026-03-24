@@ -10,15 +10,21 @@
 
     $(document).ready(function () {
         initializeForms();
+        
+        // Handle Elementor Popups and other dynamic content
+        $(document).on('elementor/popup/show', function() {
+            initializeForms();
+        });
     });
 
     /**
      * Initialize all contact forms on the page
      */
     function initializeForms() {
-        const forms = document.querySelectorAll('.mtforms-form');
+        const forms = document.querySelectorAll('.mtforms-form:not(.mtforms-initialized)');
 
         forms.forEach(function (form) {
+            form.classList.add('mtforms-initialized');
             initializeForm(form);
         });
 
@@ -205,6 +211,9 @@
             // Scroll to message if not visible
             scrollToElement(responseMsg);
 
+            // Reset Captcha
+            resetCaptcha(form);
+
             // Handle redirect if configured
             const redirectUrl = form.getAttribute('data-redirect');
             if (redirectUrl) {
@@ -229,8 +238,33 @@
             responseMsg.innerHTML = response.data.message;
             responseMsg.style.display = 'block';
 
+            // Reset Captcha on failure
+            resetCaptcha(form);
+
             // Scroll to message if not visible
             scrollToElement(responseMsg);
+        }
+    }
+
+    /**
+     * Reset Captcha if it exists
+     */
+    function resetCaptcha(form) {
+        // Reset reCAPTCHA v2
+        if (typeof grecaptcha !== 'undefined' && typeof grecaptcha.reset === 'function') {
+            try {
+                grecaptcha.reset();
+            } catch (e) {}
+        }
+
+        // Reset Turnstile
+        if (typeof turnstile !== 'undefined' && typeof turnstile.reset === 'function') {
+            try {
+                const turnstileEl = form.querySelector('.cf-turnstile');
+                if (turnstileEl) {
+                    turnstile.reset(turnstileEl);
+                }
+            } catch (e) {}
         }
     }
 
