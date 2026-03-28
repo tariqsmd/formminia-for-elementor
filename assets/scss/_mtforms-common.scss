@@ -1,14 +1,20 @@
 .mtforms {
+  font-family: var(--mtforms-font-family);
 
   &-form-wrapper {
     width: 100%;
     margin: 0 auto;
     padding: 2rem;
+    background-color: var(--mtforms-bg);
+    border-radius: var(--mtforms-radius);
+    box-shadow: var(--mtforms-shadow);
+    color: var(--mtforms-text);
 
     .just-validate-error-label {
       margin-top: 4px;
       font-size: 12px;
       font-weight: 500;
+      color: var(--mtforms-error) !important;
       animation: mtforms-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
     }
   }
@@ -21,14 +27,14 @@
 
   &-fields-wrapper {
     display: flex;
-
     width: 100%;
     gap: 1.5rem;
   }
 
   &-form-title {
     margin: 0;
-    line-height: 1;
+    line-height: 1.2;
+    color: var(--mtforms-title-color);
   }
 
   &-form-group {
@@ -41,8 +47,13 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
+      color: var(--mtforms-label-color);
+
+      .required {
+        color: var(--mtforms-error);
+      }
     }
   }
 
@@ -50,12 +61,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  &-icon-right {
-    .mtforms-icon {
-      order: 2;
-    }
   }
 
   &-input-wrap {
@@ -67,33 +72,56 @@
   &-input,
   &-textarea {
     width: 100%;
-    padding: 1rem 1rem;
+    padding: 0.85rem 1rem;
     font-size: 1rem;
     font-family: inherit;
     outline: none;
     transition: var(--mtforms-transition);
-    border: 2px solid transparent;
+    border: 1px solid var(--mtforms-input-border);
+    background-color: var(--mtforms-input-bg);
+    color: var(--mtforms-input-color);
+    border-radius: calc(var(--mtforms-radius) * 0.75);
 
     &::placeholder {
-      line-height: 1 !important;
-      opacity: 0.7;
+      color: var(--mtforms-placeholder);
+      opacity: 0.8;
+    }
+
+    &:hover {
+      border-color: var(--mtforms-primary);
+    }
+
+    &:focus {
+      border-color: var(--mtforms-input-focus-border);
+      background-color: var(--mtforms-input-focus-bg);
+      color: var(--mtforms-input-focus-color);
+      box-shadow: var(--mtforms-input-focus-shadow);
+    }
+
+    &.just-validate-error-field {
+      border-color: var(--mtforms-error) !important;
+      background-color: rgba(239, 68, 68, 0.02);
     }
   }
 
   &-textarea {
     display: block;
-    min-height: 168px;
+    min-height: 140px;
     resize: vertical;
   }
 
   &-gdpr-group {
+    padding-top: 0.5rem;
 
     label {
       align-items: flex-start;
-      gap: 1rem;
+      gap: 0.85rem;
       line-height: 1.5;
       user-select: none;
       cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--mtforms-text-light);
     }
 
     .just-validate-error-label {
@@ -107,18 +135,26 @@
     height: 0;
     width: 0;
 
-    &:checked~.mtforms-checkbox-custom::after {
-      display: block;
+    &:checked ~ .mtforms-checkbox-custom {
+      background-color: var(--mtforms-check-color);
+      border-color: var(--mtforms-check-color);
+
+      &::after {
+        display: block;
+      }
     }
   }
 
   &-checkbox-custom {
     position: relative;
     flex-shrink: 0;
-    height: 22px;
-    width: 22px;
-    margin-top: 5px;
-    border: 2px solid transparent;
+    height: 20px;
+    width: 20px;
+    margin-top: 2px;
+    border: 2px solid var(--mtforms-check-border);
+    background-color: var(--mtforms-check-bg);
+    border-radius: 4px;
+    transition: var(--mtforms-transition);
 
     &::after {
       content: "";
@@ -126,26 +162,41 @@
       left: 6px;
       top: 2px;
       display: none;
-      width: 6px;
-      height: 11px;
-      border: solid transparent;
+      width: 5px;
+      height: 10px;
+      border: solid var(--mtforms-check-tick);
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
     }
   }
 
   &-submit-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
     width: fit-content;
-    padding: 1.1rem 2rem;
+    padding: 0.9rem 2.25rem;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     transition: var(--mtforms-transition);
-    border: 2px solid transparent;
+    border: 1px solid transparent;
+    background-color: var(--mtforms-btn-bg);
+    color: var(--mtforms-btn-color);
+    border-radius: var(--mtforms-radius);
+    box-shadow: var(--mtforms-btn-shadow);
+
+    &:hover {
+      background-color: var(--mtforms-btn-hover-bg);
+      color: var(--mtforms-btn-hover-color);
+      box-shadow: var(--mtforms-btn-hover-shadow);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
   }
 
   &-btn-icon {
@@ -159,47 +210,57 @@
       width: 1em;
       height: 1em;
       fill: currentColor;
-      transition: transform 0.2s ease;
-    }
-
-    i {
-      transition: transform 0.2s ease;
-    }
-  }
-
-  /* Hover transitions for icons */
-  &-submit-btn:hover {
-
-    .mtforms-btn-icon-right svg,
-    .mtforms-btn-icon-right i {
-      transform: translateX(3px);
-    }
-
-    .mtforms-btn-icon-left svg,
-    .mtforms-btn-icon-left i {
-      transform: translateX(-3px);
     }
   }
 
   &-button-full {
     width: 100%;
-
-    .mtforms-form-actions {
-      width: 100%;
-    }
-
     .mtforms-submit-btn {
       width: 100% !important;
     }
   }
 
+  &-captcha-wrap {
+    width: 100%;
+    margin: 0.5rem 0;
+    min-height: 78px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &-admin-warning {
+    padding: 1rem;
+    background-color: #fef2f2;
+    border: 1px dashed #ef4444;
+    color: #b91c1c;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    margin: 1rem 0;
+  }
+
   &-response-message {
     width: 100%;
-    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
     font-weight: 500;
+    display: none;
 
-    &:empty {
-      display: none;
+    &.success {
+      background-color: var(--mtforms-success);
+      color: #ffffff;
+    }
+
+    &.error {
+      background-color: var(--mtforms-error);
+      color: #ffffff;
     }
   }
+}
+
+@keyframes mtforms-shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
 }

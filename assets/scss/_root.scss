@@ -1,16 +1,45 @@
 :root {
-  --mtforms-primary: #000;
-  --mtforms-secondary: #1E293B;
-  --mtforms-text: #0F172A;
-  --mtforms-text-light: #475569;
-  --mtforms-bg: #FFFFFF;
-  --mtforms-input-bg: #F8FAFC;
-  --mtforms-input-border: #CBD5E1;
-  --mtforms-focus: rgba(67, 56, 202, 0.2);
-  --mtforms-error: #DC2626;
-  --mtforms-success: #059669;
-  --mtforms-radius: 0.5rem;
-  --mtforms-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.1);
-  --mtforms-transition: all 0.25s ease-in-out;
+  /* Core Colors */
+  --mtforms-primary: #6366f1;
+  --mtforms-secondary: #4f46e5;
+  --mtforms-accent: #818cf8;
+  --mtforms-bg: #ffffff;
+  --mtforms-text: #0f172a;
+  --mtforms-text-light: #64748b;
+  --mtforms-error: #ef4444;
+  --mtforms-success: #10b981;
+
+  /* Typography */
+  --mtforms-title-color: var(--mtforms-text);
+  --mtforms-label-color: var(--mtforms-text);
+  
+  /* Input Fields */
+  --mtforms-input-bg: #f8fafc;
+  --mtforms-input-color: var(--mtforms-text);
+  --mtforms-input-border: #e2e8f0;
+  --mtforms-input-focus-bg: #ffffff;
+  --mtforms-input-focus-color: var(--mtforms-text);
+  --mtforms-input-focus-border: var(--mtforms-primary);
+  --mtforms-input-focus-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  --mtforms-placeholder: #94a3b8;
+
+  /* Checkbox */
+  --mtforms-check-bg: var(--mtforms-input-bg);
+  --mtforms-check-border: var(--mtforms-input-border);
+  --mtforms-check-color: var(--mtforms-primary);
+  --mtforms-check-tick: #ffffff;
+
+  /* Buttons */
+  --mtforms-btn-bg: var(--mtforms-primary);
+  --mtforms-btn-color: #ffffff;
+  --mtforms-btn-hover-bg: var(--mtforms-secondary);
+  --mtforms-btn-hover-color: #ffffff;
+  --mtforms-btn-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --mtforms-btn-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Structure */
+  --mtforms-radius: 8px;
+  --mtforms-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --mtforms-transition: all 0.3s ease;
   --mtforms-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }

@@ -2,78 +2,59 @@
  * MTForms Custom Skins
  * 
  * Elegant, premium preset skins for the MTForms Elementor Widget.
+ * Refactored to use CSS Variable overrides for better performance and customization.
  */
 
 /* ════════════════════════════════════════════════════════════ */
 /* SKIN 01: Modern Indigo (Premium Dark Depth)                  */
 /* ════════════════════════════════════════════════════════════ */
 .mtforms-skin-1 {
-    background-color: #1a1c23;
-    color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    /* Variable Overrides */
+    --mtforms-bg: #1a1c23;
+    --mtforms-text: #ffffff;
+    --mtforms-text-light: #94a3b8;
+    --mtforms-primary: #818cf8;
+    --mtforms-secondary: #4f46e5;
+    
+    --mtforms-title-color: #818cf8;
+    --mtforms-label-color: #94a3b8;
+    
+    --mtforms-input-bg: #2d2f39;
+    --mtforms-input-border: #3f414d;
+    --mtforms-input-color: #f1f5f9;
+    --mtforms-input-focus-bg: #2d2f39;
+    --mtforms-input-focus-border: #6366f1;
+    --mtforms-input-focus-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+    --mtforms-placeholder: #64748b;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+    --mtforms-btn-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+
+    --mtforms-radius: 12px;
+    --mtforms-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
     padding: 2.5rem;
 
     .mtforms {
         &-form-title {
-            color: #818cf8;
             font-weight: 800;
             letter-spacing: -0.025em;
         }
 
         &-form-group label {
-            color: #94a3b8;
             font-size: 0.875rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
-        &-input,
-        &-textarea {
-            background-color: #2d2f39;
-            border: 1px solid #3f414d;
-            color: #f1f5f9;
+        &-input, &-textarea {
             border-radius: 8px;
-
-            &:hover,
-            &:focus {
-                background-color: #2d2f39;
-                border-color: #6366f1;
-                box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
-            }
-
-            &::placeholder {
-                color: #64748b;
-            }
-        }
-
-        &-checkbox-custom {
-            background-color: #2d2f39;
-            border-color: #3f414d;
-            border-radius: 4px;
-
-            &::after {
-                border-color: #ffffff;
-            }
-        }
-
-        &-checkbox:checked~.mtforms-checkbox-custom {
-            background-color: #6366f1;
-            border-color: #6366f1;
         }
 
         &-submit-btn {
-            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
             border: none;
-            color: #ffffff;
-            border-radius: 8px;
             padding: 1.25rem 2rem;
-            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
-
-            &:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 15px 20px -5px rgba(99, 102, 241, 0.4);
-            }
         }
     }
 }
@@ -82,56 +63,45 @@
 /* SKIN 02: Nature's Breath (Earth Tones & Softness)            */
 /* ════════════════════════════════════════════════════════════ */
 .mtforms-skin-2 {
-    background-color: #fdfdfb;
+    /* Variable Overrides */
+    --mtforms-bg: #fdfdfb;
+    --mtforms-text: #134e4a;
+    --mtforms-primary: #10b981;
+    --mtforms-secondary: #059669;
+    
+    --mtforms-title-color: #065f46;
+    --mtforms-label-color: #134e4a;
+    
+    --mtforms-input-bg: #f8fafc;
+    --mtforms-input-border: #d1d5db;
+    --mtforms-input-focus-border: #10b981;
+
+    --mtforms-btn-bg: #059669;
+    --mtforms-btn-hover-bg: #047857;
+
+    --mtforms-radius: 20px;
+    --mtforms-shadow: 0 10px 30px rgba(5, 150, 105, 0.05);
+
     border: 1px solid #e2e8f0;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(5, 150, 105, 0.05);
 
     .mtforms {
         &-form-title {
-            color: #065f46;
-            font-family: inherit;
-            border-left: 4px solid #10b981;
+            border-left: 4px solid var(--mtforms-primary);
             padding-left: 1.5rem;
         }
 
-        &-form-group label {
-            color: #134e4a;
-        }
-
-        &-input,
-        &-textarea {
-            background-color: #f8fafc;
-            border: 1px solid #d1d5db;
+        &-input, &-textarea {
             border-radius: 12px;
             padding: 0.875rem 1.25rem;
-
-            &:hover,
-            &:focus {
-                border-color: #10b981;
-                background-color: #ffffff;
-            }
         }
 
         &-checkbox-custom {
             border-radius: 50%;
-            border-color: #d1d5db;
-        }
-
-        &-checkbox:checked~.mtforms-checkbox-custom {
-            background-color: #10b981;
-            border-color: #10b981;
         }
 
         &-submit-btn {
-            background-color: #059669;
             border-radius: 50px;
             padding: 1rem 3rem;
-
-            &:hover {
-                background-color: #047857;
-                letter-spacing: 0.5px;
-            }
         }
     }
 }
@@ -140,43 +110,43 @@
 /* SKIN 03: Sleek Corporate (Clean & Trustworthy)               */
 /* ════════════════════════════════════════════════════════════ */
 .mtforms-skin-3 {
-    background: #ffffff;
+    /* Variable Overrides */
+    --mtforms-bg: #ffffff;
+    --mtforms-text: #1e293b;
+    --mtforms-primary: #0f172a;
+    --mtforms-secondary: #1e293b;
+    
+    --mtforms-title-color: #1e293b;
+    --mtforms-label-color: #475569;
+    
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #e2e8f0;
+    --mtforms-input-focus-border: #0f172a;
+
+    --mtforms-btn-bg: #0f172a;
+    --mtforms-btn-hover-bg: #1e293b;
+
+    --mtforms-radius: 4px;
+    --mtforms-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
     border: 1px solid #e1e8ed;
-    border-radius: 4px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 
     .mtforms {
         &-form-title {
-            color: #1e293b;
-            font-size: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-size: 1.5rem;
         }
 
-        &-input,
-        &-textarea {
-            border: 1px solid #e2e8f0;
+        &-input, &-textarea {
             border-radius: 0;
-            transition: all 0.2s ease;
-
-            &:focus {
-                border-color: #0f172a;
-                border-width: 1px;
-            }
         }
 
         &-submit-btn {
-            background: #0f172a;
             border-radius: 0;
             text-transform: uppercase;
             letter-spacing: 2px;
             padding: 1.25rem 2.5rem;
-
-            &:hover {
-                background: #1e293b;
-                padding-left: 3rem;
-                padding-right: 3rem;
-            }
         }
     }
 }
@@ -185,14 +155,30 @@
 /* SKIN 04: Minimalist Zen (Soft Shadows & Pure White)          */
 /* ════════════════════════════════════════════════════════════ */
 .mtforms-skin-4 {
-    background: #ffffff;
-    border-radius: 32px;
+    /* Variable Overrides */
+    --mtforms-bg: #ffffff;
+    --mtforms-text: #1e293b;
+    --mtforms-primary: #0f172a;
+    --mtforms-secondary: #334155;
+    
+    --mtforms-title-color: #0f172a;
+    --mtforms-label-color: #64748b;
+    
+    --mtforms-input-bg: #f8fafc;
+    --mtforms-input-border: #f1f5f9;
+    --mtforms-input-focus-bg: #ffffff;
+    --mtforms-input-focus-border: #e2e8f0;
+
+    --mtforms-btn-bg: #0f172a;
+    --mtforms-btn-hover-bg: #1e293b;
+
+    --mtforms-radius: 32px;
+    --mtforms-shadow: 0 40px 100px rgba(0, 0, 0, 0.03);
+
     padding: 3.5rem;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.03);
 
     .mtforms {
         &-form-title {
-            color: #0f172a;
             font-weight: 300;
             font-size: 2.5rem;
             text-align: center;
@@ -200,37 +186,19 @@
         }
 
         &-form-group label {
-            color: #64748b;
             font-size: 0.875rem;
             margin-bottom: 0.75rem;
         }
 
-        &-input,
-        &-textarea {
-            background: #f8fafc;
-            border: 2px solid #f1f5f9;
+        &-input, &-textarea {
             border-radius: 16px;
-            color: #1e293b;
-
-            &:focus {
-                background: #ffffff;
-                border-color: #e2e8f0;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02);
-            }
+            border-width: 2px;
         }
 
         &-submit-btn {
-            background: #0f172a;
             border-radius: 20px;
-            color: #ffffff;
             padding: 1.5rem 3rem;
             width: 100%;
-
-            &:hover {
-                background: #1e293b;
-                transform: translateY(-3px);
-                box-shadow: 0 15px 30px rgba(15, 23, 42, 0.15);
-            }
         }
     }
 }
@@ -239,9 +207,26 @@
 /* SKIN 05: Holographic Mist (Multi-Colored Iridescence)       */
 /* ════════════════════════════════════════════════════════════ */
 .mtforms-skin-5 {
-    background: rgba(255, 255, 255, 0.7);
+    /* Variable Overrides */
+    --mtforms-bg: rgba(255, 255, 255, 0.7);
+    --mtforms-text: #1e293b;
+    --mtforms-primary: #60a5fa;
+    --mtforms-secondary: #3b82f6;
+    
+    --mtforms-title-color: #334155;
+    --mtforms-label-color: #475569;
+    
+    --mtforms-input-bg: rgba(255, 255, 255, 0.8);
+    --mtforms-input-border: rgba(255, 255, 255, 0.6);
+    --mtforms-input-focus-border: #94a3b8;
+
+    --mtforms-btn-bg: linear-gradient(45deg, #60a5fa, #a78bfa);
+    --mtforms-btn-hover-bg: linear-gradient(45deg, #3b82f6, #8b5cf6);
+
+    --mtforms-radius: 24px;
+    --mtforms-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
     backdrop-filter: blur(15px);
-    border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 3rem;
     position: relative;
@@ -271,37 +256,19 @@
 
     .mtforms {
         &-form-title {
-            color: #334155;
             font-weight: 800;
             text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
         }
 
-        &-input,
-        &-textarea {
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            color: #1e293b;
+        &-input, &-textarea {
             border-radius: 50px;
             padding: 1rem 2rem;
-
-            &:focus {
-                background: rgba(255, 255, 255, 1);
-                border-color: #94a3b8;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            }
         }
 
         &-submit-btn {
-            background: linear-gradient(45deg, #60a5fa, #a78bfa);
-            color: white;
-            border-radius: 50px;
             border: none;
+            border-radius: 50px;
             padding: 1.25rem 3rem;
-
-            &:hover {
-                background: linear-gradient(45deg, #3b82f6, #8b5cf6);
-                box-shadow: 0 10px 20px rgba(96, 165, 250, 0.3);
-            }
         }
     }
 }
@@ -310,38 +277,40 @@
 /* SKIN 06: Nordic Stone (Clean Grey & Minimalism)             */
 /* ════════════════════════════════════════════════════════════ */
 .mtforms-skin-6 {
-    background: #f1f5f9;
-    border-radius: 12px;
+    /* Variable Overrides */
+    --mtforms-bg: #f1f5f9;
+    --mtforms-text: #334155;
+    --mtforms-primary: #475569;
+    --mtforms-secondary: #334155;
+    
+    --mtforms-title-color: #334155;
+    --mtforms-label-color: #64748b;
+    
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #e2e8f0;
+    --mtforms-input-focus-border: #94a3b8;
+    --mtforms-input-focus-shadow: 0 0 0 4px rgba(148, 163, 184, 0.1);
+
+    --mtforms-btn-bg: #475569;
+    --mtforms-btn-hover-bg: #334155;
+
+    --mtforms-radius: 12px;
+    --mtforms-shadow: 0 1px 3px rgba(0,0,0,0.1);
+
     padding: 3rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 
     .mtforms {
         &-form-title {
-            color: #334155;
             font-weight: 200;
             letter-spacing: 2px;
         }
 
-        &-input,
-        &-textarea {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
+        &-input, &-textarea {
             border-radius: 4px;
-            color: #334155;
-
-            &:focus {
-                border-color: #94a3b8;
-                box-shadow: 0 0 0 4px rgba(148, 163, 184, 0.1);
-            }
         }
 
         &-submit-btn {
-            background: #475569;
             border-radius: 4px;
-
-            &:hover {
-                background: #334155;
-            }
         }
     }
 }
@@ -350,36 +319,42 @@
 /* SKIN 07: Solar Blaze (Vibrant Orange Aura)                    */
 /* ════════════════════════════════════════════════════════════ */
 .mtforms-skin-7 {
-    background: #fff;
-    border-radius: 40px;
+    /* Variable Overrides */
+    --mtforms-bg: #ffffff;
+    --mtforms-text: #ea580c;
+    --mtforms-primary: #f97316;
+    --mtforms-secondary: #ea580c;
+    
+    --mtforms-title-color: #ea580c;
+    --mtforms-label-color: #9a3412;
+    
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #fdba74;
+    --mtforms-input-focus-border: #f97316;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #ea580c 0%, #b91c1c 100%);
+    --mtforms-btn-shadow: 0 30px 60px rgba(249, 115, 22, 0.1);
+
+    --mtforms-radius: 40px;
+    --mtforms-shadow: 0 30px 60px rgba(249, 115, 22, 0.1);
+
     padding: 4rem;
-    box-shadow: 0 30px 60px rgba(249, 115, 22, 0.1);
 
     .mtforms {
         &-form-title {
-            color: #ea580c;
             font-size: 2.5rem;
             text-align: right;
         }
 
-        &-input,
-        &-textarea {
+        &-input, &-textarea {
             border: none;
-            border-bottom: 2px solid #fdba74;
+            border-bottom: 2px solid var(--mtforms-input-border);
             border-radius: 0;
-
-            &:focus {
-                border-color: #f97316;
-            }
         }
 
         &-submit-btn {
-            background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
             border-radius: 20px;
-
-            &:hover {
-                box-shadow: 0 15px 30px rgba(249, 115, 22, 0.3);
-            }
         }
     }
 }
@@ -388,37 +363,38 @@
 /* SKIN 08: Cotton Candy (Playful Pastels)                      */
 /* ════════════════════════════════════════════════════════════ */
 .mtforms-skin-8 {
-    background: #fff;
-    border-radius: 30px;
-    padding: 3rem;
+    /* Variable Overrides */
+    --mtforms-bg: #ffffff;
+    --mtforms-text: #db2777;
+    --mtforms-primary: #f472b6;
+    --mtforms-secondary: #ec4899;
+    
+    --mtforms-title-color: #db2777;
+    --mtforms-label-color: #be185d;
+    
+    --mtforms-input-bg: #fdf2f8;
+    --mtforms-input-border: #fbcfe8;
+    --mtforms-input-focus-border: #f472b6;
+    --mtforms-input-focus-bg: #ffffff;
+
+    --mtforms-btn-bg: #f472b6;
+    --mtforms-btn-hover-bg: #ec4899;
+    --mtforms-btn-hover-shadow: 0 5px 15px rgba(236, 72, 153, 0.3);
+
+    --mtforms-radius: 30px;
+    --mtforms-shadow: 0 10px 30px rgba(219, 39, 119, 0.05);
+
     border: 1px solid #fce7f3;
+    padding: 3rem;
 
     .mtforms {
-        &-form-title {
-            color: #db2777;
-        }
-
-        &-input,
-        &-textarea {
-            background: #fdf2f8;
-            border: 1.5px solid #fbcfe8;
+        &-input, &-textarea {
             border-radius: 12px;
-            color: #db2777;
-
-            &:focus {
-                border-color: #f472b6;
-                background: #fff;
-            }
+            border-width: 1.5px;
         }
 
         &-submit-btn {
-            background: #f472b6;
             border-radius: 12px;
-
-            &:hover {
-                background: #ec4899;
-                box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3);
-            }
         }
     }
 }

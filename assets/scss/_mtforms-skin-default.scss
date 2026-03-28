@@ -1,116 +1,50 @@
+/**
+ * MTForms Default Skin (Skin 0)
+ * 
+ * A clean, minimalist base that uses root CSS variables.
+ */
 .mtforms-skin-0 {
-  background-color: var(--mtforms-bg);
-  box-shadow: var(--mtforms-shadow);
-
+  /* It primarily inherits from :root, but we can ensure base structural overrides here if needed */
+  
   .mtforms {
-
     &-form-wrapper {
-      color: var(--mtforms-text);
-
-      .just-validate-error-label {
-        color: var(--mtforms-error) !important;
-      }
+       /* Inherits from common.scss which uses variables */
     }
 
     &-form-group label {
       color: var(--mtforms-primary);
-
-      .required {
-        color: var(--mtforms-error);
-      }
     }
 
     &-input,
     &-textarea {
-      background-color: var(--mtforms-input-bg);
-      color: var(--mtforms-text);
-      border-color: var(--mtforms-input-border);
-
       &:hover,
       &:focus {
-        background-color: var(--mtforms-bg);
         border-color: var(--mtforms-primary);
-      }
-
-      &::placeholder {
-        color: var(--mtforms-text-light);
-      }
-
-      &.just-validate-error-field {
-        border-color: var(--mtforms-error);
-        background-color: rgba(239, 68, 68, 0.05);
-
-        &:focus {
-          box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
-        }
-
-        ~.mtforms-checkbox-custom {
-          border-color: var(--mtforms-error);
-        }
-      }
-    }
-
-    &-checkbox-label {
-      color: var(--mtforms-text-light);
-
-      &:hover .mtforms-checkbox-custom {
-        border-color: var(--mtforms-primary);
-      }
-    }
-
-    &-checkbox-custom {
-      background-color: var(--mtforms-input-bg);
-      border-color: var(--mtforms-input-border);
-
-      &::after {
-        border-color: var(--mtforms-bg);
-      }
-    }
-
-    &-checkbox {
-      &:checked~.mtforms-checkbox-custom {
-        background-color: var(--mtforms-text);
-        border-color: var(--mtforms-text);
       }
     }
 
     &-submit-btn {
-      background-color: var(--mtforms-primary);
-      border-color: var(--mtforms-primary);
-      color: #ffffff;
+      background-color: transparent;
+      border: 2px solid var(--mtforms-primary);
+      color: var(--mtforms-primary);
+      box-shadow: none;
 
       &:hover {
-        background-color: var(--mtforms-secondary);
-        border-color: var(--mtforms-secondary);
+        background-color: var(--mtforms-primary);
+        color: #fff;
+        box-shadow: var(--mtforms-btn-shadow);
       }
-    }
-
-
-    &-form-actions {
-      display: flex;
-    }
-
-    &-button-align-left {
-      justify-content: flex-start;
-    }
-
-    &-button-align-center {
-      justify-content: center;
-    }
-
-    &-button-align-right {
-      justify-content: flex-end;
     }
   }
 }
 
-// Skin
+/* ════════════════════════════════════════════════════════════ */
+/* GLOBAL UTILITIES (Input Styles)                             */
+/* ════════════════════════════════════════════════════════════ */
 .mtforms {
 
-
-  /* Input Styles */
+  /* Input Style: Underline */
   &-input-style-underline {
-
     .mtforms-input,
     .mtforms-textarea {
       border: none !important;
@@ -127,16 +61,16 @@
     }
   }
 
+  /* Input Style: Rounded */
   &-input-style-rounded {
-
     .mtforms-input,
     .mtforms-textarea {
       border-radius: 12px !important;
     }
   }
 
+  /* Input Style: Pill */
   &-input-style-pill {
-
     .mtforms-input,
     .mtforms-textarea {
       border-radius: 50px !important;
@@ -149,8 +83,8 @@
     }
   }
 
+  /* Input Style: Shadow */
   &-input-style-shadow {
-
     .mtforms-input,
     .mtforms-textarea {
       border: none !important;

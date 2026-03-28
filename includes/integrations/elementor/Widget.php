@@ -878,6 +878,7 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	protected function register_style_tab_controls()
 	{
+		$this->register_style_global_controls();
 		$this->register_style_container_controls();
 		$this->register_style_title_controls();
 		$this->register_style_field_controls();
@@ -888,6 +889,55 @@ class Widget extends \Elementor\Widget_Base
 		$this->register_style_message_controls();
 		$this->register_style_gdpr_controls();
 		$this->register_style_button_controls();
+	}
+
+	/**
+	 * Style: Global Theme Controls.
+	 */
+	protected function register_style_global_controls()
+	{
+		$this->start_controls_section(
+			'section_style_global',
+			[
+				'label' => esc_html__('Global Theme Colors', MTFORMS_TEXT_DOMAIN),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'theme_primary',
+			[
+				'label' => esc_html__('Primary Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-primary: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'theme_secondary',
+			[
+				'label' => esc_html__('Secondary Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-secondary: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'theme_accent',
+			[
+				'label' => esc_html__('Accent Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-accent: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
 	}
 
 	/**
@@ -1037,7 +1087,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Title Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-title-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1213,7 +1263,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Label Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-label-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1344,7 +1394,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-input, {{WRAPPER}} .mtforms-textarea' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1355,7 +1405,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Background Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-input, {{WRAPPER}} .mtforms-textarea' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-bg: {{VALUE}};',
 				],
 			]
 		);
@@ -1375,7 +1425,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-input:focus, {{WRAPPER}} .mtforms-textarea:focus' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-focus-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1386,7 +1436,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Background Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-input:focus, {{WRAPPER}} .mtforms-textarea:focus' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-focus-bg: {{VALUE}};',
 				],
 			]
 		);
@@ -1397,7 +1447,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Focus Border Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-input:focus, {{WRAPPER}} .mtforms-textarea:focus' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-focus-border: {{VALUE}};',
 				],
 			]
 		);
@@ -1437,7 +1487,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Placeholder Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-input::placeholder, {{WRAPPER}} .mtforms-textarea::placeholder' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-placeholder: {{VALUE}};',
 				],
 			]
 		);
@@ -1547,7 +1597,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-submit-btn' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-btn-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1575,7 +1625,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-submit-btn:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-btn-hover-color: {{VALUE}};',
 				],
 			]
 		);
