@@ -158,8 +158,8 @@
   width: 0;
 }
 .mtforms-checkbox:checked ~ .mtforms-checkbox-custom {
-  background-color: var(--mtforms-check-color);
-  border-color: var(--mtforms-check-color);
+  background-color: var(--mtforms-primary);
+  border-color: var(--mtforms-primary);
 }
 .mtforms-checkbox:checked ~ .mtforms-checkbox-custom::after {
   display: block;
@@ -170,8 +170,8 @@
   height: 20px;
   width: 20px;
   margin-top: 2px;
-  border: 2px solid var(--mtforms-check-border);
-  background-color: var(--mtforms-check-bg);
+  border: 2px solid var(--mtforms-input-border);
+  background-color: var(--mtforms-input-bg);
   border-radius: 4px;
   transition: var(--mtforms-transition);
 }
@@ -183,7 +183,7 @@
   display: none;
   width: 5px;
   height: 10px;
-  border: solid var(--mtforms-check-tick);
+  border: solid #ffffff;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
@@ -257,11 +257,11 @@
 }
 .mtforms-response-message.success {
   background-color: var(--mtforms-success);
-  color: #ffffff;
+  color: #ffffff !important;
 }
 .mtforms-response-message.error {
   background-color: var(--mtforms-error);
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 @keyframes mtforms-shake {
