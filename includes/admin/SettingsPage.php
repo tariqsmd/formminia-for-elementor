@@ -91,24 +91,27 @@ class SettingsPage
 	 */
 	public function register_settings()
 	{
-		register_setting(Options::GROUP_SETTINGS, Options::CAPTCHA_PROVIDER);
-		register_setting(Options::GROUP_SETTINGS, Options::RECAPTCHA_SITE_KEY);
-		register_setting(Options::GROUP_SETTINGS, Options::RECAPTCHA_SECRET_KEY);
-		register_setting(Options::GROUP_SETTINGS, Options::TURNSTILE_SITE_KEY);
-		register_setting(Options::GROUP_SETTINGS, Options::TURNSTILE_SECRET_KEY);
-		register_setting(Options::GROUP_SETTINGS, Options::ADMIN_EMAIL);
-		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_SUBJECT);
-		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_FROM_NAME);
-		register_setting(Options::GROUP_SETTINGS, Options::ENABLE_HTML_EMAIL);
-		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_ACCENT_COLOR);
-		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_LOGO_URL);
-		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_FOOTER_TEXT);
-		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_BG_COLOR);
-		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_CONTENT_BG_COLOR);
-		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_TEXT_COLOR);
-		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_SHOW_FOOTER_CREDIT);
-		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_CC);
-		register_setting(Options::GROUP_SETTINGS, Options::EMAIL_BCC);
+		// General Tab - All captcha-related settings will be here now
+		register_setting(Options::GROUP_GENERAL, Options::CAPTCHA_PROVIDER);
+		register_setting(Options::GROUP_GENERAL, Options::RECAPTCHA_SITE_KEY);
+		register_setting(Options::GROUP_GENERAL, Options::RECAPTCHA_SECRET_KEY);
+		register_setting(Options::GROUP_GENERAL, Options::TURNSTILE_SITE_KEY);
+		register_setting(Options::GROUP_GENERAL, Options::TURNSTILE_SECRET_KEY);
+
+		// Email Tab
+		register_setting(Options::GROUP_EMAIL, Options::ADMIN_EMAIL);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_SUBJECT);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_FROM_NAME);
+		register_setting(Options::GROUP_EMAIL, Options::ENABLE_HTML_EMAIL);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_ACCENT_COLOR);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_LOGO_URL);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_FOOTER_TEXT);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BG_COLOR);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CONTENT_BG_COLOR);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_TEXT_COLOR);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_SHOW_FOOTER_CREDIT);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CC);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BCC);
 	}
 
 	/**

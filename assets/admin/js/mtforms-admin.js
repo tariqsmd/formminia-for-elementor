@@ -57,6 +57,19 @@
             $('#' + target).addClass('is-active');
         });
 
+        /**
+         * Captcha Provider Toggle.
+         */
+        $('.mtforms-provider-select').on('change', function () {
+            var provider = $(this).val();
+            $('.mtforms-captcha-fields').hide();
+            if (provider === 'recaptcha') {
+                $('.recaptcha-fields').fadeIn(200);
+            } else if (provider === 'turnstile') {
+                $('.turnstile-fields').fadeIn(200);
+            }
+        });
+
     });
 
 })(jQuery);

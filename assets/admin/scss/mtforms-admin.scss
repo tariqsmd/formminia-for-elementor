@@ -17,11 +17,11 @@
   --mtforms-header-height: 64px;
 }
 
-/* ─── Reset WP page chrome ──────────────────────────────────── */
+/* ─── Reset WP page ──────────────────────────────────── */
 .mtforms-admin-wrap {
-  margin: 0;
-  padding: 0;
+  margin: 20px 20px 0 2px;
   font-family: inherit;
+  border: 1px solid var(--mtforms-admin-border);
 }
 
 .wp-header-end {

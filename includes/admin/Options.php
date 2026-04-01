@@ -9,6 +9,8 @@ class Options
 {
 
 	const GROUP_SETTINGS = 'mtforms_settings';
+	const GROUP_GENERAL = 'mtforms_settings_general';
+	const GROUP_EMAIL = 'mtforms_settings_email';
 	const CAPTCHA_PROVIDER = 'mtforms_captcha_provider';
 	const RECAPTCHA_SITE_KEY = 'mtforms_recaptcha_site_key';
 	const RECAPTCHA_SECRET_KEY = 'mtforms_recaptcha_secret_key';

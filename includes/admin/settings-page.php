@@ -15,14 +15,6 @@ $tabs = [
         'label' => __('General', MTFORMS_TEXT_DOMAIN),
         'icon' => 'dashicons-admin-settings',
     ],
-    'recaptcha' => [
-        'label' => __('Google reCAPTCHA', MTFORMS_TEXT_DOMAIN),
-        'icon' => 'dashicons-shield',
-    ],
-    'turnstile' => [
-        'label' => __('Turnstile', MTFORMS_TEXT_DOMAIN),
-        'icon' => 'dashicons-cloud',
-    ],
     'email' => [
         'label' => __('Email Settings', MTFORMS_TEXT_DOMAIN),
         'icon' => 'dashicons-email-alt',
@@ -41,11 +33,9 @@ $tabs = [
             <h1><?php esc_html_e('MTForms', MTFORMS_TEXT_DOMAIN); ?></h1>
             <span class="version-tag">v<?php echo esc_html(MTFORMS_VERSION); ?></span>
         </div>
-        <div class="mtforms-page-header-meta">
-            <span class="mtforms-page-header-tab-label">
-                <?php echo esc_html($tabs[$active_tab]['label']); ?>
-            </span>
-        </div>
+        <!-- <div class="mtforms-page-header-meta">
+            <span class="mtforms-page-header-tab-label"></span>
+        </div> -->
     </header>
 
     <!-- ══════════════════════════════════════════════════════ -->
@@ -75,16 +65,17 @@ $tabs = [
             <?php if ($active_tab === 'general'): ?>
 
                 <div class="mtforms-card">
-                    <h2><?php esc_html_e('General Settings', MTFORMS_TEXT_DOMAIN); ?></h2>
+                    <h2><?php esc_html_e('General & Security Settings', MTFORMS_TEXT_DOMAIN); ?></h2>
                     <form method="post" action="options.php">
-                        <?php settings_fields('mtforms_settings'); ?>
+                        <?php settings_fields(\MTForms\Admin\Options::GROUP_GENERAL); ?>
                         <table class="form-table">
                             <tr valign="top">
                                 <th scope="row">
                                     <?php esc_html_e('Captcha Provider', MTFORMS_TEXT_DOMAIN); ?>
                                 </th>
                                 <td>
-                                    <select name="mtforms_captcha_provider" id="mtforms_captcha_provider">
+                                    <select name="mtforms_captcha_provider" id="mtforms_captcha_provider"
+                                        class="mtforms-provider-select">
                                         <option value="none" <?php selected(get_option('mtforms_captcha_provider'), 'none'); ?>>
                                             <?php esc_html_e('None', MTFORMS_TEXT_DOMAIN); ?>
                                         </option>
@@ -100,63 +91,49 @@ $tabs = [
                                     </p>
                                 </td>
                             </tr>
-                        </table>
-                        <?php submit_button(__('Save Changes', MTFORMS_TEXT_DOMAIN), 'primary'); ?>
-                    </form>
-                </div>
 
-
-
-            <?php elseif ($active_tab === 'recaptcha'): ?>
-
-                <div class="mtforms-card">
-                    <h2><?php esc_html_e('Google reCAPTCHA v2', MTFORMS_TEXT_DOMAIN); ?></h2>
-                    <form method="post" action="options.php">
-                        <?php settings_fields('mtforms_settings'); ?>
-                        <table class="form-table">
-                            <tr valign="top">
+                            <!-- Google reCAPTCHA Settings -->
+                            <tr valign="top" class="mtforms-captcha-fields recaptcha-fields" <?php echo get_option('mtforms_captcha_provider') !== 'recaptcha' ? 'style="display:none"' : ''; ?>>
                                 <th scope="row">
-                                    <?php esc_html_e('Site Key', MTFORMS_TEXT_DOMAIN); ?>
+                                    <?php esc_html_e('reCAPTCHA Site Key', MTFORMS_TEXT_DOMAIN); ?>
                                 </th>
-                                <td><input type="text" name="mtforms_recaptcha_site_key"
+                                <td>
+                                    <input type="text" name="mtforms_recaptcha_site_key"
                                         value="<?php echo esc_attr(get_option('mtforms_recaptcha_site_key', '')); ?>"
-                                        class="regular-text" /></td>
+                                        class="regular-text" />
+                                </td>
                             </tr>
-                            <tr valign="top">
+                            <tr valign="top" class="mtforms-captcha-fields recaptcha-fields" <?php echo get_option('mtforms_captcha_provider') !== 'recaptcha' ? 'style="display:none"' : ''; ?>>
                                 <th scope="row">
-                                    <?php esc_html_e('Secret Key', MTFORMS_TEXT_DOMAIN); ?>
+                                    <?php esc_html_e('reCAPTCHA Secret Key', MTFORMS_TEXT_DOMAIN); ?>
                                 </th>
-                                <td><input type="password" name="mtforms_recaptcha_secret_key"
+                                <td>
+                                    <input type="password" name="mtforms_recaptcha_secret_key"
                                         value="<?php echo esc_attr(get_option('mtforms_recaptcha_secret_key', '')); ?>"
-                                        class="regular-text" /></td>
+                                        class="regular-text" />
+                                </td>
                             </tr>
-                        </table>
-                        <?php submit_button(__('Save Changes', MTFORMS_TEXT_DOMAIN), 'primary'); ?>
-                    </form>
-                </div>
 
-            <?php elseif ($active_tab === 'turnstile'): ?>
-
-                <div class="mtforms-card">
-                    <h2><?php esc_html_e('Cloudflare Turnstile', MTFORMS_TEXT_DOMAIN); ?></h2>
-                    <form method="post" action="options.php">
-                        <?php settings_fields('mtforms_settings'); ?>
-                        <table class="form-table">
-                            <tr valign="top">
+                            <!-- Cloudflare Turnstile Settings -->
+                            <tr valign="top" class="mtforms-captcha-fields turnstile-fields" <?php echo get_option('mtforms_captcha_provider') !== 'turnstile' ? 'style="display:none"' : ''; ?>>
                                 <th scope="row">
-                                    <?php esc_html_e('Site Key', MTFORMS_TEXT_DOMAIN); ?>
+                                    <?php esc_html_e('Turnstile Site Key', MTFORMS_TEXT_DOMAIN); ?>
                                 </th>
-                                <td><input type="text" name="mtforms_turnstile_site_key"
+                                <td>
+                                    <input type="text" name="mtforms_turnstile_site_key"
                                         value="<?php echo esc_attr(get_option('mtforms_turnstile_site_key', '')); ?>"
-                                        class="regular-text" /></td>
+                                        class="regular-text" />
+                                </td>
                             </tr>
-                            <tr valign="top">
+                            <tr valign="top" class="mtforms-captcha-fields turnstile-fields" <?php echo get_option('mtforms_captcha_provider') !== 'turnstile' ? 'style="display:none"' : ''; ?>>
                                 <th scope="row">
-                                    <?php esc_html_e('Secret Key', MTFORMS_TEXT_DOMAIN); ?>
+                                    <?php esc_html_e('Turnstile Secret Key', MTFORMS_TEXT_DOMAIN); ?>
                                 </th>
-                                <td><input type="password" name="mtforms_turnstile_secret_key"
+                                <td>
+                                    <input type="password" name="mtforms_turnstile_secret_key"
                                         value="<?php echo esc_attr(get_option('mtforms_turnstile_secret_key', '')); ?>"
-                                        class="regular-text" /></td>
+                                        class="regular-text" />
+                                </td>
                             </tr>
                         </table>
                         <?php submit_button(__('Save Changes', MTFORMS_TEXT_DOMAIN), 'primary'); ?>
@@ -168,7 +145,7 @@ $tabs = [
                 <div class="mtforms-card">
                     <h2><?php esc_html_e('Email Settings', MTFORMS_TEXT_DOMAIN); ?></h2>
                     <form method="post" action="options.php">
-                        <?php settings_fields('mtforms_settings'); ?>
+                        <?php settings_fields(\MTForms\Admin\Options::GROUP_EMAIL); ?>
                         <table class="form-table">
                             <tr valign="top">
                                 <th scope="row">
