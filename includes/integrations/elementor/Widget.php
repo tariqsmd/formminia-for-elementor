@@ -879,11 +879,11 @@ class Widget extends \Elementor\Widget_Base
 	protected function register_style_tab_controls()
 	{
 		$this->register_style_global_controls();
-		$this->register_style_container_controls();
 		$this->register_style_title_controls();
+		$this->register_style_container_controls();
+		$this->register_style_fields_wrapper_controls();
 		$this->register_style_field_controls();
 		$this->register_style_icon_controls();
-		$this->register_style_fields_wrapper_controls();
 		$this->register_style_label_controls();
 		$this->register_style_specific_fields();
 		$this->register_style_message_controls();
@@ -899,7 +899,7 @@ class Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_style_global',
 			[
-				'label' => esc_html__('Global Theme Colors', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Global Colors', MTFORMS_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1319,7 +1319,7 @@ class Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_style_inputs',
 			[
-				'label' => esc_html__('Input Fields', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Fields Global Settings', MTFORMS_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1347,20 +1347,6 @@ class Widget extends \Elementor\Widget_Base
 					'shadow' => __('Shadow', MTFORMS_TEXT_DOMAIN),
 				],
 				'description' => esc_html__('Sets the visual style for input fields.', MTFORMS_TEXT_DOMAIN),
-			]
-		);
-
-		$this->add_control(
-			'input_size',
-			[
-				'label' => esc_html__('Input Size', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'medium',
-				'options' => [
-					'small' => esc_html__('Small', MTFORMS_TEXT_DOMAIN),
-					'medium' => esc_html__('Medium', MTFORMS_TEXT_DOMAIN),
-					'large' => esc_html__('Large', MTFORMS_TEXT_DOMAIN),
-				],
 			]
 		);
 
