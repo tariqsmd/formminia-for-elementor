@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 /**
  * MTForms Admin Styles
  */
@@ -52,14 +51,12 @@
   align-items: center;
   gap: 12px;
 }
-
 .mtforms-page-header-brand .dashicons {
-  font-size: 30px;
+  font-size: 26px;
   width: 26px;
-  height: 28px;
+  height: 26px;
   color: var(--mtforms-admin-primary);
 }
-
 .mtforms-page-header-brand h1 {
   font-size: 20px;
   font-weight: 700;
@@ -69,13 +66,11 @@
   line-height: 1;
   border: none;
 }
-
 .mtforms-page-header-brand .version-tag {
   font-size: 11px;
   background: linear-gradient(135deg, var(--mtforms-admin-primary) 0%, #a855f7 100%);
   color: #fff;
-  margin-top: 2px;
-  padding: 2px 9px;
+  padding: 3px 9px;
   border-radius: 20px;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -134,25 +129,21 @@
   text-decoration: none;
   transition: background 0.15s ease, color 0.15s ease;
 }
-
 .mtforms-sidebar-nav-item .dashicons {
   font-size: 18px;
   width: 18px;
   height: 18px;
   flex-shrink: 0;
 }
-
 .mtforms-sidebar-nav-item:hover {
   background: rgba(99, 102, 241, 0.06);
   color: var(--mtforms-admin-primary);
 }
-
 .mtforms-sidebar-nav-item.is-active {
   background: rgba(99, 102, 241, 0.1);
   color: var(--mtforms-admin-primary);
   font-weight: 600;
 }
-
 .mtforms-sidebar-nav-item.is-active .dashicons {
   color: var(--mtforms-admin-primary);
 }
@@ -175,7 +166,6 @@
   box-shadow: var(--mtforms-admin-shadow);
   margin-bottom: 24px;
 }
-
 .mtforms-card h2 {
   font-size: 17px;
   font-weight: 700;
@@ -185,14 +175,12 @@
   align-items: center;
   gap: 10px;
 }
-
 .mtforms-card h2::after {
   content: "";
   flex: 1;
   height: 1px;
   background: radial-gradient(circle, var(--mtforms-admin-border) 0%, transparent 100%);
 }
-
 .mtforms-card h3 {
   font-size: 16px;
   margin-top: 0;
@@ -203,7 +191,6 @@
 .form-table {
   margin-top: 0;
 }
-
 .form-table th {
   width: 200px;
   padding: 18px 10px 18px 0;
@@ -211,12 +198,10 @@
   color: var(--mtforms-admin-text);
   vertical-align: middle;
 }
-
 .form-table td {
   padding: 14px 0;
   vertical-align: middle;
 }
-
 .form-table td input[type=text],
 .form-table td input[type=password],
 .form-table td input[type=email],
@@ -230,7 +215,6 @@
   transition: all 0.2s ease;
   font-size: 14px;
 }
-
 .form-table td input[type=text]:focus,
 .form-table td input[type=password]:focus,
 .form-table td input[type=email]:focus,
@@ -240,7 +224,6 @@
   background: #fff;
   outline: none;
 }
-
 .form-table td textarea {
   width: 100%;
   max-width: 360px;
@@ -252,41 +235,34 @@
   font-size: 14px;
   line-height: 1.5;
 }
-
 .form-table td textarea:focus {
   border-color: var(--mtforms-admin-primary);
   outline: none;
   background: #fff;
 }
-
 .form-table td .description {
   font-size: 13px;
   color: var(--mtforms-admin-text-light);
   margin-top: 8px;
   font-style: italic;
 }
-
 .form-table td {
   /* Media Uploader */
 }
-
 .form-table td .mtforms-media-field {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 12px;
 }
-
 .form-table td .mtforms-media-field .regular-text {
   margin-bottom: 0 !important;
 }
-
 .form-table td .mtforms-media-field .button {
   height: 38px !important;
   padding: 0 15px !important;
   line-height: 36px !important;
 }
-
 .form-table td .mtforms-logo-preview {
   margin-top: 15px;
   max-width: 200px;
@@ -296,7 +272,6 @@
   border-radius: 8px;
   display: inline-block;
 }
-
 .form-table td .mtforms-logo-preview img {
   max-width: 100%;
   height: auto;
@@ -321,7 +296,6 @@
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2) !important;
   transition: all 0.2s ease !important;
 }
-
 .wp-core-ui .button-primary:hover {
   background: var(--mtforms-admin-primary-dark) !important;
   transform: translateY(-1px);
@@ -352,7 +326,6 @@
   background-color: #cbd5e1;
   transition: 0.4s;
 }
-
 .mtforms-slider::before {
   position: absolute;
   content: "";
@@ -364,22 +337,21 @@
   transition: 0.4s;
 }
 
-input:checked+.mtforms-slider {
+input:checked + .mtforms-slider {
   background-color: var(--mtforms-admin-primary);
 }
 
-input:focus+.mtforms-slider {
+input:focus + .mtforms-slider {
   box-shadow: 0 0 1px var(--mtforms-admin-primary);
 }
 
-input:checked+.mtforms-slider::before {
+input:checked + .mtforms-slider::before {
   transform: translateX(22px);
 }
 
 .mtforms-slider.round {
   border-radius: 34px;
 }
-
 .mtforms-slider.round::before {
   border-radius: 50%;
 }
@@ -427,11 +399,9 @@ input:checked+.mtforms-slider::before {
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-
 .mtforms-info-tab:hover {
   color: var(--mtforms-admin-primary);
 }
-
 .mtforms-info-tab.is-active {
   color: var(--mtforms-admin-primary);
   border-bottom-color: var(--mtforms-admin-primary);
@@ -444,7 +414,6 @@ input:checked+.mtforms-slider::before {
   padding: 20px;
   flex-direction: column;
 }
-
 .mtforms-info-panel.is-active {
   display: flex;
   flex-direction: column;
@@ -457,14 +426,12 @@ input:checked+.mtforms-slider::before {
   gap: 12px;
   margin-bottom: 14px;
 }
-
 .mtforms-info-logo .dashicons {
   font-size: 32px;
   width: 32px;
   height: 32px;
   color: var(--mtforms-admin-primary);
 }
-
 .mtforms-info-logo strong {
   display: block;
   font-size: 17px;
@@ -472,7 +439,6 @@ input:checked+.mtforms-slider::before {
   color: var(--mtforms-admin-text);
   line-height: 1.2;
 }
-
 .mtforms-info-logo span {
   font-size: 12px;
   color: var(--mtforms-admin-text-light);
@@ -505,7 +471,6 @@ input:checked+.mtforms-slider::before {
   border: 1px solid var(--mtforms-admin-border);
   transition: all 0.15s ease;
 }
-
 .mtforms-info-link .dashicons {
   font-size: 16px;
   width: 16px;
@@ -513,7 +478,6 @@ input:checked+.mtforms-slider::before {
   color: var(--mtforms-admin-primary);
   flex-shrink: 0;
 }
-
 .mtforms-info-link:hover {
   border-color: var(--mtforms-admin-primary);
   color: var(--mtforms-admin-primary);
@@ -538,7 +502,6 @@ input:checked+.mtforms-slider::before {
   flex-direction: column;
   gap: 10px;
 }
-
 .mtforms-features-list li {
   display: flex;
   align-items: flex-start;
@@ -587,12 +550,10 @@ input:checked+.mtforms-slider::before {
   transition: all 0.15s ease;
   box-sizing: border-box;
 }
-
 .mtforms-btn-coffee span {
   font-size: 18px;
   line-height: 1;
 }
-
 .mtforms-btn-coffee:hover {
   background: #f5d400;
   transform: translateY(-1px);
@@ -619,14 +580,12 @@ input:checked+.mtforms-slider::before {
   transition: all 0.15s ease;
   box-sizing: border-box;
 }
-
 .mtforms-btn-donate .dashicons {
   font-size: 16px;
   width: 16px;
   height: 16px;
   color: #ff6b6b;
 }
-
 .mtforms-btn-donate:hover {
   background: #002060;
   transform: translateY(-1px);

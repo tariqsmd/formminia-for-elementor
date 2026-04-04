@@ -43,9 +43,6 @@ if ($settings['button_width'] === 'full') {
 	$container_classes[] = 'mtforms-button-full';
 }
 
-//$container_classes[] = 'mtforms-align-' . sanitize_html_class( $settings['form_alignment'] );
-$container_classes[] = 'mtforms-input-size-' . sanitize_html_class($settings['input_size']);
-
 $wrapper_id = "mtforms-wrapper-$widget_id";
 $form_id = "mtforms-form-$widget_id";
 

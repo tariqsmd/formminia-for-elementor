@@ -65,9 +65,10 @@ $tabs = [
             <?php if ($active_tab === 'general'): ?>
 
                 <div class="mtforms-card">
-                    <h2><?php esc_html_e('General & Security Settings', MTFORMS_TEXT_DOMAIN); ?></h2>
+                    <h2><?php esc_html_e('General', MTFORMS_TEXT_DOMAIN); ?></h2>
                     <form method="post" action="options.php">
                         <?php settings_fields(\MTForms\Admin\Options::GROUP_GENERAL); ?>
+                        <h3><?php esc_html_e('Security Settings', MTFORMS_TEXT_DOMAIN); ?></h3>
                         <table class="form-table">
                             <tr valign="top">
                                 <th scope="row">

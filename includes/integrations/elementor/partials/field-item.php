@@ -23,24 +23,37 @@ $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
 
 <div class="<?php echo esc_attr( implode( ' ', $group_classes ) ); ?>">
 	<?php if ( $settings['show_labels'] === 'yes' ): ?>
-        <label for="<?php echo esc_attr( $field_id ); ?>">
-			<?php if ( $settings['show_icons'] === 'yes' ): ?>
+        <label for="<?php echo esc_attr($field_id); ?>">
+            <?php if ($settings['show_icons'] === 'yes' && $settings['icon_position'] === 'left'): ?>
                 <span class="mtforms-icon">
                     <?php
-                    if ( ! empty( $args['icon']['value'] ) ) {
-	                    \Elementor\Icons_Manager::render_icon( $args['icon'], [ 'aria-hidden' => 'true' ] );
-                    } elseif ( ! empty( $icon_svg ) ) {
-	                    echo $icon_svg;
+                    if (!empty($args['icon']['value'])) {
+                        \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
+                    } elseif (!empty($icon_svg)) {
+                        echo $icon_svg;
                     }
                     ?>
                 </span>
-			<?php endif; ?>
+            <?php endif; ?>
+
             <span class="mtforms-label-text">
-			    <?php echo esc_html( $label ); ?>
-		        <?php if ( $required ): ?>
+                <?php echo esc_html($label); ?>
+                <?php if ($required): ?>
                     <span class="required">*</span>
-		        <?php endif; ?>
+                <?php endif; ?>
             </span>
+
+            <?php if ($settings['show_icons'] === 'yes' && $settings['icon_position'] === 'right'): ?>
+                <span class="mtforms-icon">
+                    <?php
+                    if (!empty($args['icon']['value'])) {
+                        \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
+                    } elseif (!empty($icon_svg)) {
+                        echo $icon_svg;
+                    }
+                    ?>
+                </span>
+            <?php endif; ?>
         </label>
 	<?php endif; ?>
 

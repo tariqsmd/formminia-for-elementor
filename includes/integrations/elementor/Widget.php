@@ -102,6 +102,7 @@ class Widget extends \Elementor\Widget_Base
 	{
 		$this->register_basic_controls();
 		$this->register_label_controls();
+		$this->register_button_controls();
 		$this->register_advanced_controls();
 	}
 
@@ -219,7 +220,7 @@ class Widget extends \Elementor\Widget_Base
 				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
 				'return_value' => 'yes',
-				'default' => 'no',
+				'default' => 'yes',
 				'condition' => [
 					'show_labels' => 'yes',
 				],
@@ -268,6 +269,22 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_control(
+			'icon_name',
+			[
+				'label' => esc_html__('Name Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-user',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'show_name' => 'yes',
+					'show_icons' => 'yes',
+				],
+			]
+		);
+
 
 		$this->add_control(
 			'show_email',
@@ -278,6 +295,22 @@ class Widget extends \Elementor\Widget_Base
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'icon_email',
+			[
+				'label' => esc_html__('Email Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-envelope',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'show_email' => 'yes',
+					'show_icons' => 'yes',
+				],
 			]
 		);
 
@@ -294,6 +327,22 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_control(
+			'icon_phone',
+			[
+				'label' => esc_html__('Phone Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-phone',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'show_phone' => 'yes',
+					'show_icons' => 'yes',
+				],
+			]
+		);
+
 
 		$this->add_control(
 			'show_website',
@@ -304,6 +353,22 @@ class Widget extends \Elementor\Widget_Base
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'no',
+			]
+		);
+
+		$this->add_control(
+			'icon_website',
+			[
+				'label' => esc_html__('Website Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-globe',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'show_website' => 'yes',
+					'show_icons' => 'yes',
+				],
 			]
 		);
 
@@ -320,6 +385,22 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_control(
+			'icon_subject',
+			[
+				'label' => esc_html__('Subject Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-tag',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'show_subject' => 'yes',
+					'show_icons' => 'yes',
+				],
+			]
+		);
+
 
 		$this->add_control(
 			'show_message',
@@ -330,6 +411,22 @@ class Widget extends \Elementor\Widget_Base
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'icon_message',
+			[
+				'label' => esc_html__('Message Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-comment',
+					'library' => 'fa-solid',
+				],
+				'condition' => [
+					'show_message' => 'yes',
+					'show_icons' => 'yes',
+				],
 			]
 		);
 
@@ -376,78 +473,6 @@ class Widget extends \Elementor\Widget_Base
 
 
 
-		$this->add_control(
-			'heading_submit_button_basic',
-			[
-				'label' => esc_html__('Submit Button', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::HEADING,
-				'separator' => 'before',
-			]
-		);
-
-		$this->add_control(
-			'button_width',
-			[
-				'label' => esc_html__('Button Width', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'auto',
-				'options' => [
-					'auto' => esc_html__('Auto', MTFORMS_TEXT_DOMAIN),
-					'full' => esc_html__('Full Width', MTFORMS_TEXT_DOMAIN),
-				],
-			]
-		);
-
-		$this->add_control(
-			'button_align',
-			[
-				'label' => esc_html__('Button Alignment', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
-						'title' => esc_html__('Left', MTFORMS_TEXT_DOMAIN),
-						'icon' => 'eicon-text-align-left',
-					],
-					'center' => [
-						'title' => esc_html__('Center', MTFORMS_TEXT_DOMAIN),
-						'icon' => 'eicon-text-align-center',
-					],
-					'right' => [
-						'title' => esc_html__('Right', MTFORMS_TEXT_DOMAIN),
-						'icon' => 'eicon-text-align-right',
-					],
-				],
-				'default' => 'left',
-				'condition' => [
-					'button_width!' => 'full',
-				],
-			]
-		);
-
-		$this->add_control(
-			'button_icon',
-			[
-				'label' => esc_html__('Button Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::ICONS,
-			]
-		);
-
-		$this->add_control(
-			'button_icon_position',
-			[
-				'label' => esc_html__('Icon Position', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SELECT,
-				'default' => 'right',
-				'options' => [
-					'left' => esc_html__('Before Text', MTFORMS_TEXT_DOMAIN),
-					'right' => esc_html__('After Text', MTFORMS_TEXT_DOMAIN),
-				],
-				'condition' => [
-					'button_icon[value]!' => '',
-				],
-			]
-		);
-
 		$this->end_controls_section();
 	}
 
@@ -479,22 +504,6 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
-			'icon_name',
-			[
-				'label' => esc_html__('Name Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-user',
-					'library' => 'fa-solid',
-				],
-				'condition' => [
-					'show_name' => 'yes',
-					'show_icons' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
 			'placeholder_name',
 			[
 				'label' => esc_html__('Name Placeholder', MTFORMS_TEXT_DOMAIN),
@@ -514,22 +523,6 @@ class Widget extends \Elementor\Widget_Base
 				'default' => esc_html__('Email', MTFORMS_TEXT_DOMAIN),
 				'condition' => [
 					'show_email' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'icon_email',
-			[
-				'label' => esc_html__('Email Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-envelope',
-					'library' => 'fa-solid',
-				],
-				'condition' => [
-					'show_email' => 'yes',
-					'show_icons' => 'yes',
 				],
 			]
 		);
@@ -559,22 +552,6 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
-			'icon_phone',
-			[
-				'label' => esc_html__('Phone Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-phone',
-					'library' => 'fa-solid',
-				],
-				'condition' => [
-					'show_phone' => 'yes',
-					'show_icons' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
 			'placeholder_phone',
 			[
 				'label' => esc_html__('Phone Placeholder', MTFORMS_TEXT_DOMAIN),
@@ -594,22 +571,6 @@ class Widget extends \Elementor\Widget_Base
 				'default' => esc_html__('Website', MTFORMS_TEXT_DOMAIN),
 				'condition' => [
 					'show_website' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'icon_website',
-			[
-				'label' => esc_html__('Website Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-globe',
-					'library' => 'fa-solid',
-				],
-				'condition' => [
-					'show_website' => 'yes',
-					'show_icons' => 'yes',
 				],
 			]
 		);
@@ -639,22 +600,6 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
-			'icon_subject',
-			[
-				'label' => esc_html__('Subject Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-tag',
-					'library' => 'fa-solid',
-				],
-				'condition' => [
-					'show_subject' => 'yes',
-					'show_icons' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
 			'placeholder_subject',
 			[
 				'label' => esc_html__('Subject Placeholder', MTFORMS_TEXT_DOMAIN),
@@ -674,38 +619,6 @@ class Widget extends \Elementor\Widget_Base
 				'default' => esc_html__('Message', MTFORMS_TEXT_DOMAIN),
 				'condition' => [
 					'show_message' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'icon_message',
-			[
-				'label' => esc_html__('Message Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-comment',
-					'library' => 'fa-solid',
-				],
-				'condition' => [
-					'show_message' => 'yes',
-					'show_icons' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'icon_message',
-			[
-				'label' => esc_html__('Message Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-comment',
-					'library' => 'fa-solid',
-				],
-				'condition' => [
-					'show_message' => 'yes',
-					'show_icons' => 'yes',
 				],
 			]
 		);
@@ -764,12 +677,21 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'heading_button_text',
+		$this->end_controls_section();
+	}
+
+
+
+	/**
+	 * Register Submit Button Controls.
+	 */
+	protected function register_button_controls()
+	{
+		$this->start_controls_section(
+			'section_button',
 			[
 				'label' => esc_html__('Submit Button', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::HEADING,
-				'separator' => 'before',
+				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
 
@@ -782,10 +704,74 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_control(
+			'button_width',
+			[
+				'label' => esc_html__('Button Width', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'auto',
+				'options' => [
+					'auto' => esc_html__('Auto', MTFORMS_TEXT_DOMAIN),
+					'full' => esc_html__('Full Width', MTFORMS_TEXT_DOMAIN),
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'button_align',
+			[
+				'label' => esc_html__('Button Alignment', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__('Left', MTFORMS_TEXT_DOMAIN),
+						'icon' => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => esc_html__('Center', MTFORMS_TEXT_DOMAIN),
+						'icon' => 'eicon-text-align-center',
+					],
+					'right' => [
+						'title' => esc_html__('Right', MTFORMS_TEXT_DOMAIN),
+						'icon' => 'eicon-text-align-right',
+					],
+				],
+				'default' => 'left',
+				'condition' => [
+					'button_width!' => 'full',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-submit-btn-wrapper' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'button_icon',
+			[
+				'label' => esc_html__('Button Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::ICONS,
+			]
+		);
+
+		$this->add_control(
+			'button_icon_position',
+			[
+				'label' => esc_html__('Icon Position', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'right',
+				'options' => [
+					'left' => esc_html__('Before Text', MTFORMS_TEXT_DOMAIN),
+					'right' => esc_html__('After Text', MTFORMS_TEXT_DOMAIN),
+				],
+				'condition' => [
+					'button_icon[value]!' => '',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 	}
-
-
 
 	/**
 	 * Register Advanced Controls.
