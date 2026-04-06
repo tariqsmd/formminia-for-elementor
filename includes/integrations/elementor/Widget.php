@@ -102,6 +102,7 @@ class Widget extends \Elementor\Widget_Base
 	{
 		$this->register_basic_controls();
 		$this->register_label_controls();
+		$this->register_icons_controls();
 		$this->register_button_controls();
 		$this->register_advanced_controls();
 	}
@@ -257,179 +258,19 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'show_name',
-			[
-				'label' => esc_html__('Show Name Field', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'yes',
-			]
-		);
-
-		$this->add_control(
-			'icon_name',
-			[
-				'label' => esc_html__('Name Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-user',
-					'library' => 'fa-solid',
-				],
-				'condition' => [
-					'show_name' => 'yes',
-					'show_icons' => 'yes',
-				],
-			]
-		);
-
-
-		$this->add_control(
-			'show_email',
-			[
-				'label' => esc_html__('Show Email Field', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'yes',
-			]
-		);
-
-		$this->add_control(
-			'icon_email',
-			[
-				'label' => esc_html__('Email Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-envelope',
-					'library' => 'fa-solid',
-				],
-				'condition' => [
-					'show_email' => 'yes',
-					'show_icons' => 'yes',
-				],
-			]
-		);
-
-
-		$this->add_control(
-			'show_phone',
-			[
-				'label' => esc_html__('Show Phone Field', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-		);
-
-		$this->add_control(
-			'icon_phone',
-			[
-				'label' => esc_html__('Phone Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-phone',
-					'library' => 'fa-solid',
-				],
-				'condition' => [
-					'show_phone' => 'yes',
-					'show_icons' => 'yes',
-				],
-			]
-		);
-
-
-		$this->add_control(
-			'show_website',
-			[
-				'label' => esc_html__('Show Website Field', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-		);
-
-		$this->add_control(
-			'icon_website',
-			[
-				'label' => esc_html__('Website Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-globe',
-					'library' => 'fa-solid',
-				],
-				'condition' => [
-					'show_website' => 'yes',
-					'show_icons' => 'yes',
-				],
-			]
-		);
-
-
-		$this->add_control(
-			'show_subject',
-			[
-				'label' => esc_html__('Show Subject Field', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'yes',
-			]
-		);
-
-		$this->add_control(
-			'icon_subject',
-			[
-				'label' => esc_html__('Subject Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-tag',
-					'library' => 'fa-solid',
-				],
-				'condition' => [
-					'show_subject' => 'yes',
-					'show_icons' => 'yes',
-				],
-			]
-		);
-
-
-		$this->add_control(
-			'show_message',
-			[
-				'label' => esc_html__('Show Message Field', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'yes',
-			]
-		);
-
-		$this->add_control(
-			'icon_message',
-			[
-				'label' => esc_html__('Message Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::ICONS,
-				'default' => [
-					'value' => 'fas fa-comment',
-					'library' => 'fa-solid',
-				],
-				'condition' => [
-					'show_message' => 'yes',
-					'show_icons' => 'yes',
-				],
-			]
-		);
-
+		foreach (['name' => 'yes', 'email' => 'yes', 'phone' => 'no', 'website' => 'no', 'subject' => 'yes', 'message' => 'yes'] as $field => $default) {
+			$this->add_control(
+				"show_{$field}",
+				[
+					'label' => sprintf(esc_html__('Show %s Field', MTFORMS_TEXT_DOMAIN), ucfirst($field)),
+					'type' => \Elementor\Controls_Manager::SWITCHER,
+					'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
+					'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
+					'return_value' => 'yes',
+					'default' => $default,
+				]
+			);
+		}
 
 		$this->add_control(
 			'show_gdpr',
@@ -471,7 +312,29 @@ class Widget extends \Elementor\Widget_Base
 
 
 
+		$this->add_control(
+			'hr_display_4',
+			[
+				'type' => \Elementor\Controls_Manager::DIVIDER,
+			]
+		);
 
+		foreach (['name', 'email', 'phone', 'website', 'subject', 'message'] as $field) {
+			$this->add_control(
+				"required_{$field}",
+				[
+					'label' => sprintf(esc_html__('%s Required', MTFORMS_TEXT_DOMAIN), ucfirst($field)),
+					'type' => \Elementor\Controls_Manager::SWITCHER,
+					'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
+					'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
+					'return_value' => 'yes',
+					'default' => ($field === 'name' || $field === 'email' || $field === 'message') ? 'yes' : 'no',
+					'condition' => [
+						"show_{$field}" => 'yes',
+					],
+				]
+			);
+		}
 
 		$this->end_controls_section();
 	}
@@ -683,6 +546,69 @@ class Widget extends \Elementor\Widget_Base
 
 
 	/**
+	 * Register Icons Controls.
+	 */
+	protected function register_icons_controls()
+	{
+		$this->start_controls_section(
+			'section_field_icons',
+			[
+				'label' => esc_html__('Field Icons Selection', MTFORMS_TEXT_DOMAIN),
+				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+				'condition' => [
+					'show_icons' => 'yes',
+				],
+			]
+		);
+
+		$icons = [
+			'name' => [
+				'label' => esc_html__('Name Icon', MTFORMS_TEXT_DOMAIN),
+				'default' => 'fas fa-user',
+			],
+			'email' => [
+				'label' => esc_html__('Email Icon', MTFORMS_TEXT_DOMAIN),
+				'default' => 'fas fa-envelope',
+			],
+			'phone' => [
+				'label' => esc_html__('Phone Icon', MTFORMS_TEXT_DOMAIN),
+				'default' => 'fas fa-phone',
+			],
+			'website' => [
+				'label' => esc_html__('Website Icon', MTFORMS_TEXT_DOMAIN),
+				'default' => 'fas fa-globe',
+			],
+			'subject' => [
+				'label' => esc_html__('Subject Icon', MTFORMS_TEXT_DOMAIN),
+				'default' => 'fas fa-tag',
+			],
+			'message' => [
+				'label' => esc_html__('Message Icon', MTFORMS_TEXT_DOMAIN),
+				'default' => 'fas fa-comment',
+			],
+		];
+
+		foreach ($icons as $field => $data) {
+			$this->add_control(
+				"icon_{$field}",
+				[
+					'label' => $data['label'],
+					'type' => \Elementor\Controls_Manager::ICONS,
+					'default' => [
+						'value' => $data['default'],
+						'library' => 'fa-solid',
+					],
+					'condition' => [
+						"show_{$field}" => 'yes',
+					],
+				]
+			);
+		}
+
+		$this->end_controls_section();
+	}
+
+	/**
 	 * Register Submit Button Controls.
 	 */
 	protected function register_button_controls()
@@ -741,7 +667,7 @@ class Widget extends \Elementor\Widget_Base
 					'button_width!' => 'full',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-submit-btn-wrapper' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-form-actions' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -1067,6 +993,30 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_responsive_control(
+			'title_margin',
+			[
+				'label' => esc_html__('Title Margin', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'title_padding',
+			[
+				'label' => esc_html__('Title Padding', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->add_control(
 			'title_color',
 			[
@@ -1079,22 +1029,18 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
+			\Elementor\Group_Control_Background::get_type(),
 			[
-				'name' => 'title_typography',
+				'name' => 'title_background',
 				'selector' => '{{WRAPPER}} .mtforms-form-title',
 			]
 		);
 
-		$this->add_responsive_control(
-			'title_margin',
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
 			[
-				'label' => esc_html__('Title Margin', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
+				'name' => 'title_typography',
+				'selector' => '{{WRAPPER}} .mtforms-form-title',
 			]
 		);
 
@@ -1120,26 +1066,6 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-form-title' => 'text-align: {{VALUE}};',
 				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'title_padding',
-			[
-				'label' => esc_html__('Title Padding', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'title_background',
-				'selector' => '{{WRAPPER}} .mtforms-form-title',
 			]
 		);
 
@@ -2422,6 +2348,7 @@ class Widget extends \Elementor\Widget_Base
 
 		// Get dynamic icon if available
 		$field_args['icon'] = isset($settings['icon_' . $type]) ? $settings['icon_' . $type] : null;
+		$field_args['required'] = (isset($settings['required_' . $type]) && $settings['required_' . $type] === 'yes');
 
 		switch ($type) {
 			case 'name':
