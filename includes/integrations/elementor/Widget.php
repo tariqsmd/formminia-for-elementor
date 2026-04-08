@@ -228,28 +228,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'icon_position',
-			[
-				'label' => esc_html__('Icon Position', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
-						'title' => esc_html__('Left', MTFORMS_TEXT_DOMAIN),
-						'icon' => 'eicon-h-align-left',
-					],
-					'right' => [
-						'title' => esc_html__('Right', MTFORMS_TEXT_DOMAIN),
-						'icon' => 'eicon-h-align-right',
-					],
-				],
-				'default' => 'left',
-				'condition' => [
-					'show_labels' => 'yes',
-					'show_icons' => 'yes',
-				],
-			]
-		);
 
 		$this->add_control(
 			'hr_display_3',
@@ -270,7 +248,29 @@ class Widget extends \Elementor\Widget_Base
 					'default' => $default,
 				]
 			);
+
+			$this->add_control(
+				"required_{$field}",
+				[
+					'label' => sprintf(esc_html__('%s Required', MTFORMS_TEXT_DOMAIN), ucfirst($field)),
+					'type' => \Elementor\Controls_Manager::SWITCHER,
+					'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
+					'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
+					'return_value' => 'yes',
+					'default' => ($field === 'name' || $field === 'email' || $field === 'message') ? 'yes' : 'no',
+					'condition' => [
+						"show_{$field}" => 'yes',
+					],
+				]
+			);
 		}
+
+		$this->add_control(
+			'hr_display_4',
+			[
+				'type' => \Elementor\Controls_Manager::DIVIDER,
+			]
+		);
 
 		$this->add_control(
 			'show_gdpr',
@@ -310,31 +310,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-
-
-		$this->add_control(
-			'hr_display_4',
-			[
-				'type' => \Elementor\Controls_Manager::DIVIDER,
-			]
-		);
-
-		foreach (['name', 'email', 'phone', 'website', 'subject', 'message'] as $field) {
-			$this->add_control(
-				"required_{$field}",
-				[
-					'label' => sprintf(esc_html__('%s Required', MTFORMS_TEXT_DOMAIN), ucfirst($field)),
-					'type' => \Elementor\Controls_Manager::SWITCHER,
-					'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-					'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-					'return_value' => 'yes',
-					'default' => ($field === 'name' || $field === 'email' || $field === 'message') ? 'yes' : 'no',
-					'condition' => [
-						"show_{$field}" => 'yes',
-					],
-				]
-			);
-		}
 
 		$this->end_controls_section();
 	}
@@ -558,6 +533,35 @@ class Widget extends \Elementor\Widget_Base
 				'condition' => [
 					'show_icons' => 'yes',
 				],
+			]
+		);
+
+		$this->add_control(
+			'icon_position',
+			[
+				'label' => esc_html__('Icon Position', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__('Left', MTFORMS_TEXT_DOMAIN),
+						'icon' => 'eicon-h-align-left',
+					],
+					'right' => [
+						'title' => esc_html__('Right', MTFORMS_TEXT_DOMAIN),
+						'icon' => 'eicon-h-align-right',
+					],
+				],
+				'default' => 'left',
+				'condition' => [
+					'show_labels' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'hr_icons_display',
+			[
+				'type' => \Elementor\Controls_Manager::DIVIDER,
 			]
 		);
 

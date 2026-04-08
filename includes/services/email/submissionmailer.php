@@ -36,7 +36,6 @@ class SubmissionMailer
 		$form_fields = array(
 			__('Name', MTFORMS_TEXT_DOMAIN) => $submission->name,
 			__('Email', MTFORMS_TEXT_DOMAIN) => $submission->email,
-			__('Message', MTFORMS_TEXT_DOMAIN) => $submission->message,
 		);
 
 		if ($submission->phone !== '') {
@@ -50,6 +49,9 @@ class SubmissionMailer
 		if ($submission->subject !== '') {
 			$form_fields[__('Subject', MTFORMS_TEXT_DOMAIN)] = $submission->subject;
 		}
+
+		// Message should be at the bottom
+		$form_fields[__('Message', MTFORMS_TEXT_DOMAIN)] = $submission->message;
 
 		$to = $this->config->get('mtforms_admin_email', get_option('admin_email'));
 		$from_name = $this->config->get('mtforms_email_from_name', get_bloginfo('name'));

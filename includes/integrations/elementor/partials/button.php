@@ -17,7 +17,8 @@ if ($settings['button_width'] === 'full') {
     $btn_classes[] = 'mtforms-button-full-width'; // Note: wrapper already has mtforms-button-full
 }
 
-$align_class = 'mtforms-button-align-' . $settings['button_align'];
+$button_align = isset($settings['button_align']) ? $settings['button_align'] : 'left';
+$align_class = 'mtforms-button-align-' . $button_align;
 $btn_icon_data = isset($settings['button_icon']) ? $settings['button_icon'] : [];
 $has_icon = ! empty($btn_icon_data['value']);
 $icon_left = ($has_icon && $settings['button_icon_position'] === 'left');
