@@ -624,7 +624,7 @@
   --mtforms-btn-bg: #475569;
   --mtforms-btn-hover-bg: #334155;
   --mtforms-radius: 12px;
-  --mtforms-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --mtforms-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   padding: 3rem;
 }
 .mtforms-skin-6 .mtforms-form-title {
@@ -652,6 +652,7 @@
   --mtforms-input-bg: #ffffff;
   --mtforms-input-border: #fdba74;
   --mtforms-input-focus-border: #f97316;
+  --mtforms-btn-color: #f97316;
   --mtforms-btn-bg: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
   --mtforms-btn-hover-bg: linear-gradient(135deg, #ea580c 0%, #b91c1c 100%);
   --mtforms-btn-shadow: 0 30px 60px rgba(249, 115, 22, 0.1);
@@ -670,6 +671,11 @@
 }
 .mtforms-skin-7 .mtforms-submit-btn {
   border-radius: 20px;
+  border: 1px solid transparent;
+  background-color: var(--mtforms-btn-bg);
+  color: var(--mtforms-btn-color);
+  border-radius: var(--mtforms-radius);
+  box-shadow: var(--mtforms-btn-shadow);
 }
 
 /* ════════════════════════════════════════════════════════════ */

@@ -66,45 +66,82 @@
             lockForm: true
         });
 
-        // Add validation rules based on available fields
+        // Add validation rules based on available fields and their required status
         if (hasName) {
-            validation.addField('#' + hasName.id, [
-                {
+            const nameRules = [];
+            if (hasName.hasAttribute('required')) {
+                nameRules.push({
                     rule: 'required',
                     errorMessage: mtforms_ajax.i18n.name_required
-                },
-                {
-                    rule: 'minLength',
-                    value: 2,
-                    errorMessage: mtforms_ajax.i18n.name_min
-                }
-            ]);
+                });
+            }
+            nameRules.push({
+                rule: 'minLength',
+                value: 2,
+                errorMessage: mtforms_ajax.i18n.name_min
+            });
+            validation.addField('#' + hasName.id, nameRules);
         }
 
         if (hasEmail) {
-            validation.addField('#' + hasEmail.id, [
-                {
+            const emailRules = [];
+            if (hasEmail.hasAttribute('required')) {
+                emailRules.push({
                     rule: 'required',
                     errorMessage: mtforms_ajax.i18n.email_required
-                },
-                {
-                    rule: 'email',
-                    errorMessage: mtforms_ajax.i18n.email_invalid
-                }
-            ]);
+                });
+            }
+            emailRules.push({
+                rule: 'email',
+                errorMessage: mtforms_ajax.i18n.email_invalid
+            });
+            validation.addField('#' + hasEmail.id, emailRules);
         }
 
         if (hasPhone) {
-            validation.addField('#' + hasPhone.id, [
+            const phoneRules = [];
+            if (hasPhone.hasAttribute('required')) {
+                phoneRules.push({
+                    rule: 'required',
+                    errorMessage: mtforms_ajax.i18n.phone_required
+                });
+            }
+            phoneRules.push({
+                rule: 'customRegexp',
+                value: /^[\d\s\-\+\(\)]*$/,
+                errorMessage: mtforms_ajax.i18n.phone_invalid || 'Please enter a valid phone number'
+            });
+            validation.addField('#' + hasPhone.id, phoneRules);
+        }
+
+        const hasWebsite = form.querySelector('[name="mtforms_website"]');
+        if (hasWebsite) {
+            const websiteRules = [];
+            if (hasWebsite.hasAttribute('required')) {
+                websiteRules.push({
+                    rule: 'required',
+                    errorMessage: mtforms_ajax.i18n.website_required
+                });
+            }
+            websiteRules.push({
+                rule: 'customRegexp',
+                value: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/,
+                errorMessage: mtforms_ajax.i18n.website_invalid
+            });
+            validation.addField('#' + hasWebsite.id, websiteRules);
+        }
+
+        const hasSubject = form.querySelector('[name="mtforms_subject"]');
+        if (hasSubject && hasSubject.hasAttribute('required')) {
+            validation.addField('#' + hasSubject.id, [
                 {
-                    rule: 'customRegexp',
-                    value: /^[\d\s\-\+\(\)]*$/,
-                    errorMessage: mtforms_ajax.i18n.phone_invalid || 'Please enter a valid phone number'
+                    rule: 'required',
+                    errorMessage: mtforms_ajax.i18n.subject_required
                 }
             ]);
         }
 
-        if (hasMessage) {
+        if (hasMessage && hasMessage.hasAttribute('required')) {
             validation.addField('#' + hasMessage.id, [
                 {
                     rule: 'required',
@@ -114,6 +151,7 @@
         }
 
         if (hasGdpr) {
+            // GDPR is usually always required if shown
             validation.addField('#' + hasGdpr.id, [
                 {
                     rule: 'required',
