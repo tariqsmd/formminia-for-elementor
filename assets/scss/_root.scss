@@ -38,8 +38,36 @@
   --mtforms-btn-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 
   /* Structure */
+  --mtforms-form-padding: 2rem;
+  --mtforms-inner-gap: 1.5rem;
+  --mtforms-group-gap: 0.5rem;
   --mtforms-radius: 8px;
   --mtforms-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   --mtforms-transition: all 0.3s ease;
   --mtforms-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Field Typography */
+  --mtforms-title-size: 1.75rem;
+  --mtforms-title-weight: 700;
+  --mtforms-title-transform: none;
+  --mtforms-title-spacing: normal;
+  --mtforms-label-size: 0.95rem;
+  --mtforms-label-weight: 600;
+  --mtforms-label-transform: none;
+  --mtforms-label-spacing: normal;
+  --mtforms-input-size: 1rem;
+
+  /* Field Spacing & Border */
+  --mtforms-field-padding: 0.85rem 1rem;
+  --mtforms-field-border-width: 1px;
+  --mtforms-field-radius: calc(var(--mtforms-radius) * 0.75);
+
+  /* Button Spacing & Typography */
+  --mtforms-btn-padding: 0.9rem 2.25rem;
+  --mtforms-btn-size: 1rem;
+  --mtforms-btn-weight: 600;
+  --mtforms-btn-transform: none;
+  --mtforms-btn-spacing: normal;
+  --mtforms-btn-radius: var(--mtforms-radius);
+  --mtforms-btn-gap: 0.75rem;
 }

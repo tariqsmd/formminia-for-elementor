@@ -144,52 +144,26 @@
 /* LAYOUT: COMPACT STYLE                                         */
 /* ════════════════════════════════════════════════════════════ */
 .mtforms-layout-compact {
-    .mtforms-form-wrapper {
-        padding: 1rem;
-    }
-
-    .mtforms-form-inner {
-        gap: 0.75rem;
-    }
-
-    .mtforms-form-group {
-        gap: 0.25rem;
-
-        label {
-            font-size: 0.875rem;
-        }
-    }
-
-    .mtforms-input,
-    .mtforms-textarea {
-        padding: 0.6rem 0.875rem;
-        font-size: 0.9rem;
-    }
-
-    .mtforms-submit-btn {
-        padding: 0.75rem 1.5rem;
-        font-size: 0.9rem;
-    }
+    --mtforms-form-padding: 1rem;
+    --mtforms-inner-gap: 0.75rem;
+    --mtforms-group-gap: 0.25rem;
+    --mtforms-label-size: 0.875rem;
+    --mtforms-field-padding: 0.6rem 0.875rem;
+    --mtforms-input-size: 0.9rem;
+    --mtforms-btn-padding: 0.75rem 1.5rem;
+    --mtforms-btn-size: 0.9rem;
 }
 
 /* ════════════════════════════════════════════════════════════ */
 /* LAYOUT: BOXED BORDERLESS                                      */
 /* ════════════════════════════════════════════════════════════ */
 .mtforms-layout-boxed-border {
-    .mtforms-form-wrapper {
-        background: #fff;
-        padding: 3rem;
-    }
-
-    .mtforms-input,
-    .mtforms-textarea {
-        border: none;
-        background: #f8fafc;
-
-        &:focus {
-            background: #f1f5f9;
-        }
-    }
+    --mtforms-bg: #ffffff;
+    --mtforms-form-padding: 3rem;
+    --mtforms-input-border: transparent;
+    --mtforms-input-bg: #f8fafc;
+    --mtforms-input-focus-bg: #f1f5f9;
+    --mtforms-field-border-width: 0;
 }
 
 /* ════════════════════════════════════════════════════════════ */

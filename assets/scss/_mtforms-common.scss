@@ -4,7 +4,7 @@
   &-form-wrapper {
     width: 100%;
     margin: 0 auto;
-    padding: 2rem;
+    padding: var(--mtforms-form-padding);
     background-color: var(--mtforms-bg);
     border-radius: var(--mtforms-radius);
     box-shadow: var(--mtforms-shadow);
@@ -22,7 +22,7 @@
   &-form-inner {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: var(--mtforms-inner-gap);
   }
 
   &-fields-wrapper {
@@ -35,21 +35,27 @@
     margin: 0;
     line-height: 1.2;
     color: var(--mtforms-title-color);
+    font-size: var(--mtforms-title-size);
+    font-weight: var(--mtforms-title-weight);
+    text-transform: var(--mtforms-title-transform);
+    letter-spacing: var(--mtforms-title-spacing);
   }
 
   &-form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--mtforms-group-gap);
 
     label {
       position: relative;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-size: var(--mtforms-label-size);
+      font-weight: var(--mtforms-label-weight);
       color: var(--mtforms-label-color);
+      text-transform: var(--mtforms-label-transform);
+      letter-spacing: var(--mtforms-label-spacing);
 
       .required {
         color: var(--mtforms-error);
@@ -88,15 +94,15 @@
   &-input,
   &-textarea {
     width: 100%;
-    padding: 0.85rem 1rem;
-    font-size: 1rem;
+    padding: var(--mtforms-field-padding);
+    font-size: var(--mtforms-input-size);
     font-family: inherit;
     outline: none;
     transition: var(--mtforms-transition);
-    border: 1px solid var(--mtforms-input-border);
+    border: var(--mtforms-field-border-width) solid var(--mtforms-input-border);
     background-color: var(--mtforms-input-bg);
     color: var(--mtforms-input-color);
-    border-radius: calc(var(--mtforms-radius) * 0.75);
+    border-radius: var(--mtforms-field-radius);
 
     &::placeholder {
       color: var(--mtforms-placeholder);
@@ -190,17 +196,19 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
+    gap: var(--mtforms-btn-gap);
     width: fit-content;
-    padding: 0.9rem 2.25rem;
-    font-size: 1rem;
-    font-weight: 600;
+    padding: var(--mtforms-btn-padding);
+    font-size: var(--mtforms-btn-size);
+    font-weight: var(--mtforms-btn-weight);
+    text-transform: var(--mtforms-btn-transform);
+    letter-spacing: var(--mtforms-btn-spacing);
     cursor: pointer;
     transition: var(--mtforms-transition);
     border: 1px solid transparent;
     background-color: var(--mtforms-btn-bg);
     color: var(--mtforms-btn-color);
-    border-radius: var(--mtforms-radius);
+    border-radius: var(--mtforms-btn-radius);
     box-shadow: var(--mtforms-btn-shadow);
 
     &:hover {
