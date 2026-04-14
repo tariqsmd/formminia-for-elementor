@@ -321,3 +321,171 @@
 
     border: 1px solid #fce7f3;
 }
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 09: Midnight Luxe (Dark Gold Premium)                    */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-9 {
+    --mtforms-bg: #0c0f1a;
+    --mtforms-text: #f8fafc;
+    --mtforms-text-light: #94a3b8;
+    --mtforms-primary: #d4a853;
+    --mtforms-secondary: #b8942e;
+
+    --mtforms-title-color: #d4a853;
+    --mtforms-title-weight: 300;
+    --mtforms-title-spacing: 0.15em;
+    --mtforms-title-transform: uppercase;
+    --mtforms-label-color: #94a3b8;
+    --mtforms-label-size: 0.8rem;
+    --mtforms-label-transform: uppercase;
+    --mtforms-label-spacing: 0.1em;
+
+    --mtforms-input-bg: rgba(255, 255, 255, 0.04);
+    --mtforms-input-border: rgba(212, 168, 83, 0.2);
+    --mtforms-input-color: #f1f5f9;
+    --mtforms-input-focus-bg: rgba(255, 255, 255, 0.06);
+    --mtforms-input-focus-border: #d4a853;
+    --mtforms-input-focus-shadow: 0 0 0 4px rgba(212, 168, 83, 0.1);
+    --mtforms-placeholder: #64748b;
+    --mtforms-field-radius: 2px;
+    --mtforms-field-border-width: 1px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #d4a853 0%, #b8942e 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #e4b863 0%, #c8a43e 100%);
+    --mtforms-btn-color: #0c0f1a;
+    --mtforms-btn-hover-color: #0c0f1a;
+    --mtforms-btn-shadow: 0 4px 20px rgba(212, 168, 83, 0.25);
+    --mtforms-btn-hover-shadow: 0 8px 30px rgba(212, 168, 83, 0.35);
+    --mtforms-btn-radius: 2px;
+    --mtforms-btn-padding: 1.1rem 3rem;
+    --mtforms-btn-transform: uppercase;
+    --mtforms-btn-spacing: 3px;
+    --mtforms-btn-weight: 700;
+
+    --mtforms-radius: 0;
+    --mtforms-form-padding: 3.5rem;
+    --mtforms-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    --mtforms-inner-gap: 2rem;
+
+    border: 1px solid rgba(212, 168, 83, 0.15);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 10: Ocean Breeze (Fresh Teal & Cyan)                     */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-10 {
+    --mtforms-bg: #f0fdfa;
+    --mtforms-text: #134e4a;
+    --mtforms-text-light: #5eead4;
+    --mtforms-primary: #14b8a6;
+    --mtforms-secondary: #0d9488;
+
+    --mtforms-title-color: #0f766e;
+    --mtforms-title-weight: 800;
+    --mtforms-title-spacing: -0.02em;
+    --mtforms-label-color: #115e59;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #99f6e4;
+    --mtforms-input-color: #134e4a;
+    --mtforms-input-focus-bg: #ffffff;
+    --mtforms-input-focus-border: #14b8a6;
+    --mtforms-input-focus-shadow: 0 0 0 4px rgba(20, 184, 166, 0.12);
+    --mtforms-placeholder: #94a3b8;
+    --mtforms-field-radius: 14px;
+    --mtforms-field-padding: 0.9rem 1.25rem;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #0d9488 0%, #0891b2 100%);
+    --mtforms-btn-shadow: 0 10px 25px rgba(20, 184, 166, 0.2);
+    --mtforms-btn-hover-shadow: 0 15px 35px rgba(20, 184, 166, 0.3);
+    --mtforms-btn-radius: 14px;
+    --mtforms-btn-padding: 1rem 2.5rem;
+
+    --mtforms-radius: 24px;
+    --mtforms-form-padding: 2.5rem;
+    --mtforms-shadow: 0 10px 40px rgba(20, 184, 166, 0.08);
+
+    border: 1px solid #ccfbf1;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 11: Velvet Rose (Deep Crimson & Gold Elegance)           */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-11 {
+    --mtforms-bg: #1a0a0e;
+    --mtforms-text: #fce4ec;
+    --mtforms-text-light: #f48fb1;
+    --mtforms-primary: #e91e63;
+    --mtforms-secondary: #c2185b;
+
+    --mtforms-title-color: #f8bbd0;
+    --mtforms-title-weight: 300;
+    --mtforms-title-size: 2rem;
+    --mtforms-title-spacing: 0.08em;
+    --mtforms-label-color: #f48fb1;
+    --mtforms-label-size: 0.85rem;
+
+    --mtforms-input-bg: rgba(255, 255, 255, 0.05);
+    --mtforms-input-border: rgba(233, 30, 99, 0.2);
+    --mtforms-input-color: #fce4ec;
+    --mtforms-input-focus-bg: rgba(255, 255, 255, 0.08);
+    --mtforms-input-focus-border: #e91e63;
+    --mtforms-input-focus-shadow: 0 0 0 4px rgba(233, 30, 99, 0.12);
+    --mtforms-placeholder: #ad1457;
+    --mtforms-field-radius: 8px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #e91e63 0%, #ad1457 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #f06292 0%, #e91e63 100%);
+    --mtforms-btn-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
+    --mtforms-btn-hover-shadow: 0 12px 35px rgba(233, 30, 99, 0.4);
+    --mtforms-btn-radius: 8px;
+    --mtforms-btn-padding: 1.15rem 2.5rem;
+
+    --mtforms-radius: 16px;
+    --mtforms-form-padding: 3rem;
+    --mtforms-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    --mtforms-inner-gap: 1.75rem;
+
+    border: 1px solid rgba(233, 30, 99, 0.15);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 12: Frost Glass (Premium Glassmorphism)                  */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-12 {
+    --mtforms-bg: rgba(255, 255, 255, 0.15);
+    --mtforms-text: #1e293b;
+    --mtforms-text-light: #475569;
+    --mtforms-primary: #6366f1;
+    --mtforms-secondary: #4f46e5;
+
+    --mtforms-title-color: #1e293b;
+    --mtforms-title-weight: 700;
+    --mtforms-label-color: #334155;
+
+    --mtforms-input-bg: rgba(255, 255, 255, 0.5);
+    --mtforms-input-border: rgba(255, 255, 255, 0.3);
+    --mtforms-input-color: #1e293b;
+    --mtforms-input-focus-bg: rgba(255, 255, 255, 0.7);
+    --mtforms-input-focus-border: #6366f1;
+    --mtforms-input-focus-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+    --mtforms-placeholder: #64748b;
+    --mtforms-field-radius: 12px;
+
+    --mtforms-btn-bg: rgba(99, 102, 241, 0.85);
+    --mtforms-btn-hover-bg: rgba(79, 70, 229, 0.95);
+    --mtforms-btn-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+    --mtforms-btn-hover-shadow: 0 12px 40px rgba(99, 102, 241, 0.35);
+    --mtforms-btn-radius: 12px;
+    --mtforms-btn-padding: 1rem 2.5rem;
+
+    --mtforms-radius: 20px;
+    --mtforms-form-padding: 2.5rem;
+    --mtforms-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}

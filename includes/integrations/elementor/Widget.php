@@ -137,14 +137,18 @@ class Widget extends \Elementor\Widget_Base
 				'default' => 'skin-0',
 				'options' => [
 					'skin-0' => __('None', MTFORMS_TEXT_DOMAIN),
-					'skin-1' => __('Skin 1 (Modern Indigo)', MTFORMS_TEXT_DOMAIN),
-					'skin-2' => __('Skin 2 (Nature\'s Breath)', MTFORMS_TEXT_DOMAIN),
-					'skin-3' => __('Skin 3 (Sleek Corporate)', MTFORMS_TEXT_DOMAIN),
-					'skin-4' => __('Skin 4 (Minimalist Zen)', MTFORMS_TEXT_DOMAIN),
-					'skin-5' => __('Skin 5 (Holographic Mist)', MTFORMS_TEXT_DOMAIN),
-					'skin-6' => __('Skin 6 (Nordic Stone)', MTFORMS_TEXT_DOMAIN),
-					'skin-7' => __('Skin 7 (Solar Blaze)', MTFORMS_TEXT_DOMAIN),
-					'skin-8' => __('Skin 8 (Cotton Candy)', MTFORMS_TEXT_DOMAIN),
+					'skin-1' => __('Modern Indigo', MTFORMS_TEXT_DOMAIN),
+					'skin-2' => __('Nature\'s Breath', MTFORMS_TEXT_DOMAIN),
+					'skin-3' => __('Sleek Corporate', MTFORMS_TEXT_DOMAIN),
+					'skin-4' => __('Minimalist Zen', MTFORMS_TEXT_DOMAIN),
+					'skin-5' => __('Holographic Mist', MTFORMS_TEXT_DOMAIN),
+					'skin-6' => __('Nordic Stone', MTFORMS_TEXT_DOMAIN),
+					'skin-7' => __('Solar Blaze', MTFORMS_TEXT_DOMAIN),
+					'skin-8' => __('Cotton Candy', MTFORMS_TEXT_DOMAIN),
+					'skin-9' => __('Midnight Luxe', MTFORMS_TEXT_DOMAIN),
+					'skin-10' => __('Ocean Breeze', MTFORMS_TEXT_DOMAIN),
+					'skin-11' => __('Velvet Rose', MTFORMS_TEXT_DOMAIN),
+					'skin-12' => __('Frost Glass', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);
@@ -842,17 +846,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'theme_accent',
-			[
-				'label' => esc_html__('Accent Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-accent: {{VALUE}};',
-				],
-			]
-		);
-
 		$this->end_controls_section();
 	}
 
@@ -1069,6 +1062,26 @@ class Widget extends \Elementor\Widget_Base
 				],
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-form-title' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'title_border',
+				'selector' => '{{WRAPPER}} .mtforms-form-title',
+			]
+		);
+
+		$this->add_responsive_control(
+			'title_border_radius',
+			[
+				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
