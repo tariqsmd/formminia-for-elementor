@@ -145,10 +145,10 @@ class Widget extends \Elementor\Widget_Base
 					'skin-6' => __('Nordic Stone', MTFORMS_TEXT_DOMAIN),
 					'skin-7' => __('Solar Blaze', MTFORMS_TEXT_DOMAIN),
 					'skin-8' => __('Cotton Candy', MTFORMS_TEXT_DOMAIN),
-					'skin-9' => __('Midnight Luxe', MTFORMS_TEXT_DOMAIN),
-					'skin-10' => __('Ocean Breeze', MTFORMS_TEXT_DOMAIN),
-					'skin-11' => __('Velvet Rose', MTFORMS_TEXT_DOMAIN),
-					'skin-12' => __('Frost Glass', MTFORMS_TEXT_DOMAIN),
+					'skin-9' => __('Noir Luxe', MTFORMS_TEXT_DOMAIN),
+					'skin-10' => __('Neon Pulse', MTFORMS_TEXT_DOMAIN),
+					'skin-11' => __('Aurora Glass', MTFORMS_TEXT_DOMAIN),
+					'skin-12' => __('Neumorphic', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);
@@ -993,7 +993,7 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'title_margin',
 			[
-				'label' => esc_html__('Title Margin', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -1005,31 +1005,12 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_responsive_control(
 			'title_padding',
 			[
-				'label' => esc_html__('Title Padding', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-form-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-			]
-		);
-
-		$this->add_control(
-			'title_color',
-			[
-				'label' => esc_html__('Title Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-title-color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'title_background',
-				'selector' => '{{WRAPPER}} .mtforms-form-title',
 			]
 		);
 
@@ -1044,7 +1025,7 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'title_align',
 			[
-				'label' => esc_html__('Title Alignment', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Alignment', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
@@ -1063,6 +1044,26 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-form-title' => 'text-align: {{VALUE}};',
 				],
+			]
+		);
+
+
+		$this->add_control(
+			'title_color',
+			[
+				'label' => esc_html__('Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-title-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'title_background',
+				'selector' => '{{WRAPPER}} .mtforms-form-title',
 			]
 		);
 
