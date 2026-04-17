@@ -12,11 +12,11 @@ $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'general
 
 $tabs = [
     'general' => [
-        'label' => __('General', MTFORMS_TEXT_DOMAIN),
+        'label' => __('1. General', MTFORMS_TEXT_DOMAIN),
         'icon' => 'dashicons-admin-settings',
     ],
     'email' => [
-        'label' => __('Email Settings', MTFORMS_TEXT_DOMAIN),
+        'label' => __('2. Email Settings', MTFORMS_TEXT_DOMAIN),
         'icon' => 'dashicons-email-alt',
     ],
 ];
@@ -65,10 +65,10 @@ $tabs = [
             <?php if ($active_tab === 'general'): ?>
 
                 <div class="mtforms-card">
-                    <h2><?php esc_html_e('General', MTFORMS_TEXT_DOMAIN); ?></h2>
+                    <h2><?php esc_html_e('1. General', MTFORMS_TEXT_DOMAIN); ?></h2>
                     <form method="post" action="options.php">
                         <?php settings_fields(\MTForms\Admin\Options::GROUP_GENERAL); ?>
-                        <h3><?php esc_html_e('Security Settings', MTFORMS_TEXT_DOMAIN); ?></h3>
+                        <h3><?php esc_html_e('1. Security Settings', MTFORMS_TEXT_DOMAIN); ?></h3>
                         <table class="form-table">
                             <tr valign="top">
                                 <th scope="row">
@@ -144,7 +144,7 @@ $tabs = [
             <?php elseif ($active_tab === 'email'): ?>
 
                 <div class="mtforms-card">
-                    <h2><?php esc_html_e('Email Settings', MTFORMS_TEXT_DOMAIN); ?></h2>
+                    <h2><?php esc_html_e('2. Email Settings', MTFORMS_TEXT_DOMAIN); ?></h2>
                     <form method="post" action="options.php">
                         <?php settings_fields(\MTForms\Admin\Options::GROUP_EMAIL); ?>
                         <table class="form-table">

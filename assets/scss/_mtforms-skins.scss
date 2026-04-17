@@ -624,3 +624,777 @@
         border: none;
     }
 }
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 13: Purple Haze (Gradient Purple & Violet)              */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-13 {
+    --mtforms-bg: #faf9fc;
+    --mtforms-text: #2e1a47;
+    --mtforms-primary: #a85eea;
+    --mtforms-secondary: #8b5bd6;
+
+    --mtforms-title-color: #6b21a8;
+    --mtforms-title-weight: 800;
+    --mtforms-label-color: #7c3aed;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #e9d5ff;
+    --mtforms-input-focus-border: #a855f7;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(168, 94, 234, 0.15);
+    --mtforms-field-radius: 10px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #a855f7 0%, #d946ef 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #9333ea 0%, #be185d 100%);
+    --mtforms-btn-radius: 10px;
+    --mtforms-btn-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
+
+    --mtforms-radius: 16px;
+    --mtforms-form-padding: 3rem;
+    --mtforms-shadow: 0 15px 40px rgba(168, 85, 247, 0.1);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 14: Sunset Vibes (Warm Orange-Red Gradient)              */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-14 {
+    --mtforms-bg: #fff7ed;
+    --mtforms-text: #7c2d12;
+    --mtforms-primary: #fb923c;
+    --mtforms-secondary: #f97316;
+
+    --mtforms-title-color: #92400e;
+    --mtforms-label-color: #b45309;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #fed7aa;
+    --mtforms-input-focus-border: #fb923c;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(251, 146, 60, 0.15);
+    --mtforms-field-radius: 8px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #fb923c 0%, #f43f5e 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+    --mtforms-btn-radius: 50px;
+    --mtforms-btn-padding: 1rem 2.5rem;
+
+    --mtforms-radius: 16px;
+    --mtforms-form-padding: 3rem;
+    --mtforms-shadow: 0 15px 40px rgba(251, 146, 60, 0.1);
+
+    border: 1px solid #fed7aa;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 15: Ocean Deep (Blue & Teal Gradient)                    */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-15 {
+    --mtforms-bg: #ecfdf5;
+    --mtforms-text: #0f766e;
+    --mtforms-primary: #14b8a6;
+    --mtforms-secondary: #0d9488;
+
+    --mtforms-title-color: #134e4a;
+    --mtforms-title-weight: 800;
+    --mtforms-label-color: #0f766e;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #a7f3d0;
+    --mtforms-input-focus-border: #14b8a6;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(20, 184, 166, 0.15);
+    --mtforms-field-radius: 12px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #14b8a6 0%, #0891b2 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #0d9488 0%, #0e7490 100%);
+    --mtforms-btn-radius: 12px;
+
+    --mtforms-radius: 20px;
+    --mtforms-form-padding: 3rem;
+    --mtforms-shadow: 0 12px 35px rgba(20, 184, 166, 0.1);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 16: Forest Green (Nature Inspired Dark Green)            */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-16 {
+    --mtforms-bg: #f0fdf4;
+    --mtforms-text: #14532d;
+    --mtforms-primary: #16a34a;
+    --mtforms-secondary: #15803d;
+
+    --mtforms-title-color: #15803d;
+    --mtforms-title-weight: 800;
+    --mtforms-label-color: #166534;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #bbf7d0;
+    --mtforms-input-focus-border: #22c55e;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+    --mtforms-field-radius: 10px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+    --mtforms-btn-radius: 8px;
+    --mtforms-btn-shadow: 0 10px 25px rgba(34, 197, 94, 0.2);
+
+    --mtforms-radius: 14px;
+    --mtforms-form-padding: 3rem;
+    --mtforms-shadow: 0 12px 35px rgba(34, 197, 94, 0.08);
+
+    border: 1px solid #dcfce7;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 17: Rose Gold (Elegant Pink & Gold)                      */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-17 {
+    --mtforms-bg: #fef2f2;
+    --mtforms-text: #600a0a;
+    --mtforms-primary: #f43f5e;
+    --mtforms-secondary: #e11d48;
+
+    --mtforms-title-color: #c2410c;
+    --mtforms-title-weight: 700;
+    --mtforms-label-color: #b91c1c;
+
+    --mtforms-input-bg: #fff7ed;
+    --mtforms-input-border: #fbcfe8;
+    --mtforms-input-focus-border: #f43f5e;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(244, 63, 94, 0.15);
+    --mtforms-field-radius: 12px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #f43f5e 0%, #d97706 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #e11d48 0%, #b45309 100%);
+    --mtforms-btn-radius: 50px;
+    --mtforms-btn-padding: 1.1rem 2.5rem;
+
+    --mtforms-radius: 20px;
+    --mtforms-form-padding: 3.5rem;
+    --mtforms-shadow: 0 15px 40px rgba(244, 63, 94, 0.1);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 18: Executive Blue (Professional Corporate)              */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-18 {
+    --mtforms-bg: #f8fafc;
+    --mtforms-text: #1e3a8a;
+    --mtforms-primary: #1e40af;
+    --mtforms-secondary: #1e3a8a;
+
+    --mtforms-title-color: #0c2340;
+    --mtforms-title-weight: 700;
+    --mtforms-title-transform: uppercase;
+    --mtforms-label-color: #475569;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #cbd5e1;
+    --mtforms-input-focus-border: #1e40af;
+    --mtforms-input-focus-shadow: 0 0 0 2px rgba(30, 64, 175, 0.1);
+    --mtforms-field-radius: 4px;
+
+    --mtforms-btn-bg: #1e3a8a;
+    --mtforms-btn-hover-bg: #1e40af;
+    --mtforms-btn-radius: 4px;
+    --mtforms-btn-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+
+    --mtforms-radius: 8px;
+    --mtforms-form-padding: 2.5rem;
+    --mtforms-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid #d1d5db;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 19: Tech Gray (Modern Minimalist Tech)                   */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-19 {
+    --mtforms-bg: #f3f4f6;
+    --mtforms-text: #1f2937;
+    --mtforms-primary: #6b7280;
+    --mtforms-secondary: #4b5563;
+
+    --mtforms-title-color: #111827;
+    --mtforms-title-weight: 600;
+    --mtforms-label-color: #4b5563;
+    --mtforms-label-size: 0.8rem;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #e5e7eb;
+    --mtforms-input-focus-border: #6b7280;
+    --mtforms-input-focus-shadow: 0 0 0 2px rgba(107, 114, 128, 0.1);
+    --mtforms-field-radius: 6px;
+
+    --mtforms-btn-bg: #374151;
+    --mtforms-btn-hover-bg: #1f2937;
+    --mtforms-btn-radius: 6px;
+
+    --mtforms-radius: 12px;
+    --mtforms-form-padding: 2.5rem;
+    --mtforms-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 20: Crystal White (Ultra Clean & Modern)                 */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-20 {
+    --mtforms-bg: #ffffff;
+    --mtforms-text: #374151;
+    --mtforms-primary: #3b82f6;
+    --mtforms-secondary: #2563eb;
+
+    --mtforms-title-color: #1f2937;
+    --mtforms-title-weight: 600;
+    --mtforms-label-color: #6b7280;
+
+    --mtforms-input-bg: #f9fafb;
+    --mtforms-input-border: #f3f4f6;
+    --mtforms-input-focus-border: #3b82f6;
+    --mtforms-input-focus-bg: #ffffff;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    --mtforms-field-radius: 8px;
+
+    --mtforms-btn-bg: #3b82f6;
+    --mtforms-btn-hover-bg: #2563eb;
+    --mtforms-btn-radius: 8px;
+    --mtforms-btn-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+
+    --mtforms-radius: 12px;
+    --mtforms-form-padding: 2.5rem;
+    --mtforms-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 21: Charcoal Pro (Dark Professional)                     */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-21 {
+    --mtforms-bg: #1f2937;
+    --mtforms-text: #e5e7eb;
+    --mtforms-primary: #60a5fa;
+    --mtforms-secondary: #3b82f6;
+
+    --mtforms-title-color: #f3f4f6;
+    --mtforms-title-weight: 700;
+    --mtforms-label-color: #d1d5db;
+
+    --mtforms-input-bg: #374151;
+    --mtforms-input-border: #4b5563;
+    --mtforms-input-focus-border: #60a5fa;
+    --mtforms-input-focus-shadow: 0 0 0 2px rgba(96, 165, 250, 0.1);
+    --mtforms-field-radius: 8px;
+
+    --mtforms-btn-bg: #60a5fa;
+    --mtforms-btn-hover-bg: #3b82f6;
+    --mtforms-btn-color: #1f2937;
+    --mtforms-btn-radius: 8px;
+
+    --mtforms-radius: 12px;
+    --mtforms-form-padding: 3rem;
+    --mtforms-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 22: Navy Depths (Deep Blue & Navy)                       */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-22 {
+    --mtforms-bg: #001f3f;
+    --mtforms-text: #e0f2fe;
+    --mtforms-primary: #38bdf8;
+    --mtforms-secondary: #06b6d4;
+
+    --mtforms-title-color: #ffffff;
+    --mtforms-title-weight: 800;
+    --mtforms-label-color: #bae6fd;
+
+    --mtforms-input-bg: rgba(148, 163, 184, 0.1);
+    --mtforms-input-border: rgba(56, 189, 248, 0.2);
+    --mtforms-input-color: #e0f2fe;
+    --mtforms-input-focus-border: #38bdf8;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    --mtforms-field-radius: 10px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #38bdf8 0%, #06b6d4 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #0ea5e9 0%, #0891b2 100%);
+    --mtforms-btn-color: #001f3f;
+    --mtforms-btn-radius: 10px;
+
+    --mtforms-radius: 16px;
+    --mtforms-form-padding: 3rem;
+    --mtforms-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+    border: 1px solid rgba(56, 189, 248, 0.1);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 23: Artistic Purple (Creative Artistic Design)           */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-23 {
+    --mtforms-bg: #f5f3ff;
+    --mtforms-text: #581c87;
+    --mtforms-primary: #c084fc;
+    --mtforms-secondary: #a855f7;
+
+    --mtforms-title-color: #7c3aed;
+    --mtforms-title-weight: 800;
+    --mtforms-title-size: 2.25rem;
+    --mtforms-label-color: #a855f7;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #e9d5ff;
+    --mtforms-input-focus-border: #c084fc;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(192, 132, 252, 0.1);
+    --mtforms-field-radius: 8px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #9333ea 0%, #6d28d9 100%);
+    --mtforms-btn-radius: 8px;
+    --mtforms-btn-shadow: 0 8px 20px rgba(168, 85, 247, 0.2);
+
+    --mtforms-radius: 16px;
+    --mtforms-form-padding: 3rem;
+    --mtforms-shadow: 0 10px 30px rgba(168, 85, 247, 0.08);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 24: Vibrant Coral (Energetic Coral & Pink)               */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-24 {
+    --mtforms-bg: #fff5f7;
+    --mtforms-text: #be183d;
+    --mtforms-primary: #ff6b9d;
+    --mtforms-secondary: #ff1744;
+
+    --mtforms-title-color: #c2185b;
+    --mtforms-title-weight: 800;
+    --mtforms-label-color: #f50057;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #ffb3d9;
+    --mtforms-input-focus-border: #ff6b9d;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(255, 107, 157, 0.15);
+    --mtforms-field-radius: 12px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #ff6b9d 0%, #ff1744 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #ff5290 0%, #d60035 100%);
+    --mtforms-btn-radius: 12px;
+
+    --mtforms-radius: 18px;
+    --mtforms-form-padding: 3rem;
+    --mtforms-shadow: 0 12px 35px rgba(255, 107, 157, 0.15);
+
+    border: 1px solid #ff99c8;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 25: Elegant Sage (Soft Green & Mauve)                    */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-25 {
+    --mtforms-bg: #f4f1de;
+    --mtforms-text: #333333;
+    --mtforms-primary: #6b5b4f;
+    --mtforms-secondary: #a8dadc;
+
+    --mtforms-title-color: #1f3a3f;
+    --mtforms-title-weight: 700;
+    --mtforms-label-color: #457b9d;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #e0ddd0;
+    --mtforms-input-focus-border: #457b9d;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(69, 123, 157, 0.1);
+    --mtforms-field-radius: 6px;
+
+    --mtforms-btn-bg: #457b9d;
+    --mtforms-btn-hover-bg: #1f3a3f;
+    --mtforms-btn-radius: 6px;
+    --mtforms-btn-shadow: 0 6px 20px rgba(69, 123, 157, 0.15);
+
+    --mtforms-radius: 12px;
+    --mtforms-form-padding: 3rem;
+    --mtforms-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid #e0ddd0;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 26: Warm Terracotta (Earthy Warm Tones)                  */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-26 {
+    --mtforms-bg: #faf5f0;
+    --mtforms-text: #6d4c41;
+    --mtforms-primary: #d7623e;
+    --mtforms-secondary: #bf360c;
+
+    --mtforms-title-color: #3e2723;
+    --mtforms-title-weight: 700;
+    --mtforms-label-color: #795548;
+
+    --mtforms-input-bg: #fff8f5;
+    --mtforms-input-border: #efebe9;
+    --mtforms-input-focus-border: #d7623e;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(215, 98, 62, 0.1);
+    --mtforms-field-radius: 10px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #d7623e 0%, #bf360c 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #bf360c 0%, #5d4037 100%);
+    --mtforms-btn-radius: 10px;
+    --mtforms-btn-shadow: 0 8px 20px rgba(215, 98, 62, 0.2);
+
+    --mtforms-radius: 16px;
+    --mtforms-form-padding: 3rem;
+    --mtforms-shadow: 0 10px 30px rgba(62, 39, 35, 0.08);
+
+    border: 1px solid #dccccb;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 27: Cool Lavender (Soft Lavender & Purple)               */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-27 {
+    --mtforms-bg: #f6f3ff;
+    --mtforms-text: #4a235a;
+    --mtforms-primary: #b39ddb;
+    --mtforms-secondary: #9575cd;
+
+    --mtforms-title-color: #512da8;
+    --mtforms-title-weight: 700;
+    --mtforms-label-color: #7e57c2;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #e1bee7;
+    --mtforms-input-focus-border: #b39ddb;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(179, 157, 219, 0.1);
+    --mtforms-field-radius: 8px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #9575cd 0%, #7e57c2 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #7e57c2 0%, #512da8 100%);
+    --mtforms-btn-radius: 8px;
+
+    --mtforms-radius: 14px;
+    --mtforms-form-padding: 3rem;
+    --mtforms-shadow: 0 10px 30px rgba(123, 31, 162, 0.08);
+
+    border: 1px solid #e1bee7;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 28: Dynamic Cyan (Vibrant Cyan & Sky Blue)               */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-28 {
+    --mtforms-bg: #e0f7fa;
+    --mtforms-text: #00838f;
+    --mtforms-primary: #00bcd4;
+    --mtforms-secondary: #0097a7;
+
+    --mtforms-title-color: #006064;
+    --mtforms-title-weight: 800;
+    --mtforms-label-color: #00838f;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #80deea;
+    --mtforms-input-focus-border: #00bcd4;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(0, 188, 212, 0.15);
+    --mtforms-field-radius: 10px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #00bcd4 0%, #00838f 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #0097a7 0%, #004d54 100%);
+    --mtforms-btn-radius: 10px;
+    --mtforms-btn-shadow: 0 8px 20px rgba(0, 188, 212, 0.2);
+
+    --mtforms-radius: 16px;
+    --mtforms-form-padding: 3rem;
+    --mtforms-shadow: 0 10px 30px rgba(0, 188, 212, 0.1);
+
+    border: 1px solid #b2ebf2;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 29: Midnight Neon (Dark with Neon Accents)               */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-29 {
+    --mtforms-bg: #0a0e27;
+    --mtforms-text: #e0e7ff;
+    --mtforms-primary: #00ff88;
+    --mtforms-secondary: #00dd77;
+
+    --mtforms-title-color: #00ff88;
+    --mtforms-title-weight: 900;
+    --mtforms-title-size: 2rem;
+    --mtforms-label-color: #a0aff0;
+
+    --mtforms-input-bg: rgba(0, 255, 136, 0.05);
+    --mtforms-input-border: rgba(0, 255, 136, 0.2);
+    --mtforms-input-color: #e0e7ff;
+    --mtforms-input-focus-border: #00ff88;
+    --mtforms-input-focus-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+    --mtforms-field-radius: 6px;
+
+    --mtforms-btn-bg: #00ff88;
+    --mtforms-btn-color: #0a0e27;
+    --mtforms-btn-hover-bg: #00dd77;
+    --mtforms-btn-radius: 6px;
+    --mtforms-btn-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+
+    --mtforms-radius: 12px;
+    --mtforms-form-padding: 2.5rem;
+    --mtforms-shadow: 0 0 40px rgba(0, 255, 136, 0.1);
+
+    border: 1px solid rgba(0, 255, 136, 0.15);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 30: Peachy Keen (Warm Peach & Flesh Tones)               */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-30 {
+    --mtforms-bg: #fff5f1;
+    --mtforms-text: #a8560b;
+    --mtforms-primary: #ffb366;
+    --mtforms-secondary: #ff9944;
+
+    --mtforms-title-color: #8b5202;
+    --mtforms-title-weight: 800;
+    --mtforms-label-color: #c27803;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #ffe0cc;
+    --mtforms-input-focus-border: #ffb366;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(255, 179, 102, 0.15);
+    --mtforms-field-radius: 10px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #ffb366 0%, #ff9944 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #ff9944 0%, #e68a2c 100%);
+    --mtforms-btn-radius: 10px;
+    --mtforms-btn-shadow: 0 8px 20px rgba(255, 179, 102, 0.2);
+
+    --mtforms-radius: 16px;
+    --mtforms-form-padding: 3rem;
+    --mtforms-shadow: 0 10px 30px rgba(255, 179, 102, 0.1);
+
+    border: 1px solid #ffd4b3;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 31: Modern Teal (Contemporary Teal & Slate)              */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-31 {
+    --mtforms-bg: #f0f9f9;
+    --mtforms-text: #0d3b3b;
+    --mtforms-primary: #0d7377;
+    --mtforms-secondary: #14505b;
+
+    --mtforms-title-color: #1a5c6d;
+    --mtforms-title-weight: 800;
+    --mtforms-label-color: #0d7377;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #a7d8dd;
+    --mtforms-input-focus-border: #0d7377;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(13, 115, 119, 0.1);
+    --mtforms-field-radius: 8px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #0d7377 0%, #14505b 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #14505b 0%, #1a5c6d 100%);
+    --mtforms-btn-radius: 8px;
+    --mtforms-btn-shadow: 0 8px 20px rgba(13, 115, 119, 0.2);
+
+    --mtforms-radius: 12px;
+    --mtforms-form-padding: 2.8rem;
+    --mtforms-shadow: 0 10px 30px rgba(13, 115, 119, 0.08);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 32: Sunset Glow (Soft Warm Gradient)                     */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-32 {
+    --mtforms-bg: #fffbf0;
+    --mtforms-text: #6f3810;
+    --mtforms-primary: #f0ad4e;
+    --mtforms-secondary: #ec971f;
+
+    --mtforms-title-color: #d58512;
+    --mtforms-title-weight: 800;
+    --mtforms-label-color: #9b7643;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #fdddae;
+    --mtforms-input-focus-border: #f0ad4e;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(240, 173, 78, 0.15);
+    --mtforms-field-radius: 10px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #f0ad4e 0%, #d58512 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #ec971f 0%, #a85a1f 100%);
+    --mtforms-btn-radius: 50px;
+    --mtforms-btn-padding: 1rem 2.5rem;
+
+    --mtforms-radius: 18px;
+    --mtforms-form-padding: 3rem;
+    --mtforms-shadow: 0 12px 35px rgba(240, 173, 78, 0.1);
+
+    border: 1px solid #fce0d4;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 33: Platinum Luxury (Silver & Platinum Premium)          */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-33 {
+    --mtforms-bg: #f5f5f5;
+    --mtforms-text: #3c3c3c;
+    --mtforms-primary: #c0a080;
+    --mtforms-secondary: #8b8680;
+
+    --mtforms-title-color: #1a1a1a;
+    --mtforms-title-weight: 700;
+    --mtforms-title-spacing: 1px;
+    --mtforms-label-color: #5a5a5a;
+    --mtforms-label-transform: uppercase;
+    --mtforms-label-spacing: 0.05em;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #d3d3d3;
+    --mtforms-input-focus-border: #c0a080;
+    --mtforms-input-focus-shadow: 0 0 0 2px rgba(192, 160, 128, 0.1);
+    --mtforms-field-radius: 2px;
+
+    --mtforms-btn-bg: #8b8680;
+    --mtforms-btn-hover-bg: #6b6660;
+    --mtforms-btn-radius: 2px;
+    --mtforms-btn-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+
+    --mtforms-radius: 4px;
+    --mtforms-form-padding: 4rem;
+    --mtforms-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+
+    border: 2px solid #d3d3d3;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 34: Diamond Essence (Crystal Clear & Pure)               */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-34 {
+    --mtforms-bg: #ffffff;
+    --mtforms-text: #2c3e50;
+    --mtforms-primary: #bbb6d3;
+    --mtforms-secondary: #9b95c9;
+
+    --mtforms-title-color: #2c3e50;
+    --mtforms-title-weight: 800;
+    --mtforms-title-size: 2rem;
+    --mtforms-label-color: #7a7a8c;
+
+    --mtforms-input-bg: #fafbfc;
+    --mtforms-input-border: #e8e9f1;
+    --mtforms-input-focus-border: #bbb6d3;
+    --mtforms-input-focus-shadow: 0 0 0 3px rgba(187, 182, 211, 0.1);
+    --mtforms-field-radius: 12px;
+    --mtforms-field-padding: 0.9rem 1.2rem;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #9b95c9 0%, #7a7a8c 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #8b85b9 0%, #6a6a7c 100%);
+    --mtforms-btn-radius: 12px;
+    --mtforms-btn-shadow: 0 12px 30px rgba(155, 149, 201, 0.2);
+
+    --mtforms-radius: 20px;
+    --mtforms-form-padding: 3.5rem;
+    --mtforms-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 35: Gold Standard (Premium Gold & Rich Brown)            */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-35 {
+    --mtforms-bg: #fef8f3;
+    --mtforms-text: #5d4e37;
+    --mtforms-primary: #d4af37;
+    --mtforms-secondary: #b8941b;
+
+    --mtforms-title-color: #6f5c3f;
+    --mtforms-title-weight: 700;
+    --mtforms-title-spacing: 2px;
+    --mtforms-label-color: #8b7355;
+    --mtforms-label-transform: uppercase;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #e8dcc0;
+    --mtforms-input-focus-border: #d4af37;
+    --mtforms-input-focus-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
+    --mtforms-field-radius: 8px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #d4af37 0%, #b8941b 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #c9a028 0%, #9c7a15 100%);
+    --mtforms-btn-color: #2c2416;
+    --mtforms-btn-radius: 8px;
+    --mtforms-btn-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+
+    --mtforms-radius: 16px;
+    --mtforms-form-padding: 3.5rem;
+    --mtforms-shadow: 0 15px 40px rgba(212, 175, 55, 0.08);
+
+    border: 1px solid #f0e6d2;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 36: Emerald Prestige (Deep Emerald Luxury)               */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-36 {
+    --mtforms-bg: #f0f7f5;
+    --mtforms-text: #0d4f4a;
+    --mtforms-primary: #1b5e5a;
+    --mtforms-secondary: #2a8a82;
+
+    --mtforms-title-color: #0a3937;
+    --mtforms-title-weight: 800;
+    --mtforms-title-spacing: 1px;
+    --mtforms-label-color: #1b5e5a;
+    --mtforms-label-transform: uppercase;
+    --mtforms-label-spacing: 0.05em;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #c8ddd9;
+    --mtforms-input-focus-border: #2a8a82;
+    --mtforms-input-focus-shadow: 0 0 0 2px rgba(42, 138, 130, 0.1);
+    --mtforms-field-radius: 10px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #2a8a82 0%, #1b5e5a 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #1b5e5a 0%, #0a3937 100%);
+    --mtforms-btn-radius: 10px;
+    --mtforms-btn-shadow: 0 12px 30px rgba(42, 138, 130, 0.2);
+
+    --mtforms-radius: 16px;
+    --mtforms-form-padding: 3.5rem;
+    --mtforms-shadow: 0 15px 40px rgba(42, 138, 130, 0.08);
+
+    border: 1px solid #d9ebe8;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* SKIN 37: Sapphire Royal (Rich Sapphire Blue)                  */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-skin-37 {
+    --mtforms-bg: #f0f4f8;
+    --mtforms-text: #1a3a52;
+    --mtforms-primary: #1e3a5f;
+    --mtforms-secondary: #2c5aa0;
+
+    --mtforms-title-color: #0f2438;
+    --mtforms-title-weight: 800;
+    --mtforms-title-spacing: 1px;
+    --mtforms-label-color: #2c5aa0;
+    --mtforms-label-transform: uppercase;
+    --mtforms-label-spacing: 0.05em;
+
+    --mtforms-input-bg: #ffffff;
+    --mtforms-input-border: #cbd4e0;
+    --mtforms-input-focus-border: #2c5aa0;
+    --mtforms-input-focus-shadow: 0 0 0 2px rgba(44, 90, 160, 0.1);
+    --mtforms-field-radius: 10px;
+
+    --mtforms-btn-bg: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%);
+    --mtforms-btn-hover-bg: linear-gradient(135deg, #1e3a5f 0%, #0f2438 100%);
+    --mtforms-btn-radius: 10px;
+    --mtforms-btn-shadow: 0 12px 30px rgba(44, 90, 160, 0.2);
+
+    --mtforms-radius: 16px;
+    --mtforms-form-padding: 3.5rem;
+    --mtforms-shadow: 0 15px 40px rgba(44, 90, 160, 0.08);
+
+    border: 1px solid #dce3f0;
+}
