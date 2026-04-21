@@ -5,9 +5,7 @@
  * Refactored to use CSS Variable overrides for better performance and customization.
  */
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 01: Modern Indigo (Premium Dark Depth)                  */
-/* ════════════════════════════════════════════════════════════ */
+/* Modern Indigo */
 .mtforms-skin-1 {
     /* Variable Overrides */
     --mtforms-bg: #1a1c23;
@@ -45,9 +43,7 @@
     --mtforms-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 02: Nature's Breath (Earth Tones & Softness)            */
-/* ════════════════════════════════════════════════════════════ */
+/* Nature's Breath */
 .mtforms-skin-2 {
     /* Variable Overrides */
     --mtforms-bg: #fdfdfb;
@@ -84,9 +80,7 @@
     }
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 03: Sleek Corporate (Clean & Trustworthy)               */
-/* ════════════════════════════════════════════════════════════ */
+/* Sleek Corporate */
 .mtforms-skin-3 {
     /* Variable Overrides */
     --mtforms-bg: #ffffff;
@@ -118,9 +112,7 @@
     border: 1px solid #e1e8ed;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 04: Minimalist Zen (Soft Shadows & Pure White)          */
-/* ════════════════════════════════════════════════════════════ */
+/* Minimalist Zen */
 .mtforms-skin-4 {
     /* Variable Overrides */
     --mtforms-bg: #ffffff;
@@ -161,9 +153,7 @@
     }
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 05: Holographic Mist (Multi-Colored Iridescence)       */
-/* ════════════════════════════════════════════════════════════ */
+/* Holographic Mist */
 .mtforms-skin-5 {
     /* Variable Overrides */
     --mtforms-bg: rgba(255, 255, 255, 0.7);
@@ -220,9 +210,7 @@
     }
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 06: Nordic Stone (Clean Grey & Minimalism)             */
-/* ════════════════════════════════════════════════════════════ */
+/* Nordic Stone */
 .mtforms-skin-6 {
     /* Variable Overrides */
     --mtforms-bg: #f1f5f9;
@@ -250,9 +238,7 @@
     --mtforms-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 07: Solar Blaze (Vibrant Orange Aura)                    */
-/* ════════════════════════════════════════════════════════════ */
+/* Solar Blaze */
 .mtforms-skin-7 {
     /* Variable Overrides */
     --mtforms-bg: #ffffff;
@@ -290,9 +276,7 @@
     }
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 08: Cotton Candy (Playful Pastels)                      */
-/* ════════════════════════════════════════════════════════════ */
+/* Cotton Candy */
 .mtforms-skin-8 {
     /* Variable Overrides */
     --mtforms-bg: #ffffff;
@@ -322,9 +306,7 @@
     border: 1px solid #fce7f3;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 09: Noir Luxe (Dark Gold with Decorative Dividers)       */
-/* ════════════════════════════════════════════════════════════ */
+/* Noir Luxe */
 .mtforms-skin-9 {
     --mtforms-bg: #09090b;
     --mtforms-text: #fafaf9;
@@ -398,9 +380,7 @@
     }
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 10: Neon Pulse (Cyberpunk Glow Effects)                  */
-/* ════════════════════════════════════════════════════════════ */
+/* Neon Pulse */
 .mtforms-skin-10 {
     --mtforms-bg: #0a0a0f;
     --mtforms-text: #e0e7ff;
@@ -482,9 +462,7 @@
     }
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 11: Aurora Glass (Animated Aurora Borealis BG)           */
-/* ════════════════════════════════════════════════════════════ */
+/* Aurora Glass */
 .mtforms-skin-11 {
     --mtforms-bg: rgba(15, 23, 42, 0.85);
     --mtforms-text: #f1f5f9;
@@ -559,9 +537,7 @@
     }
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 12: Neumorphic Light (Soft Embossed 3D)                  */
-/* ════════════════════════════════════════════════════════════ */
+/* Neumorphic Light */
 .mtforms-skin-12 {
     --mtforms-bg: #e8edf2;
     --mtforms-text: #334155;
@@ -625,9 +601,7 @@
     }
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 13: Purple Haze (Gradient Purple & Violet)              */
-/* ════════════════════════════════════════════════════════════ */
+/* Purple Haze */
 .mtforms-skin-13 {
     --mtforms-bg: #faf9fc;
     --mtforms-text: #2e1a47;
@@ -656,9 +630,7 @@
     --mtforms-shadow: 0 15px 40px rgba(168, 85, 247, 0.1);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 14: Sunset Vibes (Warm Orange-Red Gradient)              */
-/* ════════════════════════════════════════════════════════════ */
+/* Sunset Vibes */
 .mtforms-skin-14 {
     --mtforms-bg: #fff7ed;
     --mtforms-text: #7c2d12;
@@ -688,9 +660,7 @@
     border: 1px solid #fed7aa;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 15: Ocean Deep (Blue & Teal Gradient)                    */
-/* ════════════════════════════════════════════════════════════ */
+/* Ocean Deep */
 .mtforms-skin-15 {
     --mtforms-bg: #ecfdf5;
     --mtforms-text: #0f766e;
@@ -718,9 +688,7 @@
     --mtforms-shadow: 0 12px 35px rgba(20, 184, 166, 0.1);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 16: Forest Green (Nature Inspired Dark Green)            */
-/* ════════════════════════════════════════════════════════════ */
+/* Forest Green */
 .mtforms-skin-16 {
     --mtforms-bg: #f0fdf4;
     --mtforms-text: #14532d;
@@ -751,9 +719,7 @@
     border: 1px solid #dcfce7;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 17: Rose Gold (Elegant Pink & Gold)                      */
-/* ════════════════════════════════════════════════════════════ */
+/* Rose Gold */
 .mtforms-skin-17 {
     --mtforms-bg: #fef2f2;
     --mtforms-text: #600a0a;
@@ -782,9 +748,7 @@
     --mtforms-shadow: 0 15px 40px rgba(244, 63, 94, 0.1);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 18: Executive Blue (Professional Corporate)              */
-/* ════════════════════════════════════════════════════════════ */
+/* Executive Blue */
 .mtforms-skin-18 {
     --mtforms-bg: #f8fafc;
     --mtforms-text: #1e3a8a;
@@ -816,9 +780,7 @@
     border: 1px solid #d1d5db;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 19: Tech Gray (Modern Minimalist Tech)                   */
-/* ════════════════════════════════════════════════════════════ */
+/* Tech Gray */
 .mtforms-skin-19 {
     --mtforms-bg: #f3f4f6;
     --mtforms-text: #1f2937;
@@ -847,9 +809,7 @@
     --mtforms-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 20: Crystal White (Ultra Clean & Modern)                 */
-/* ════════════════════════════════════════════════════════════ */
+/* Crystal White */
 .mtforms-skin-20 {
     --mtforms-bg: #ffffff;
     --mtforms-text: #374151;
@@ -879,9 +839,7 @@
     --mtforms-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 21: Charcoal Pro (Dark Professional)                     */
-/* ════════════════════════════════════════════════════════════ */
+/* Charcoal Pro */
 .mtforms-skin-21 {
     --mtforms-bg: #1f2937;
     --mtforms-text: #e5e7eb;
@@ -908,9 +866,7 @@
     --mtforms-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 22: Navy Depths (Deep Blue & Navy)                       */
-/* ════════════════════════════════════════════════════════════ */
+/* Navy Depths */
 .mtforms-skin-22 {
     --mtforms-bg: #001f3f;
     --mtforms-text: #e0f2fe;
@@ -941,9 +897,7 @@
     border: 1px solid rgba(56, 189, 248, 0.1);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 23: Artistic Purple (Creative Artistic Design)           */
-/* ════════════════════════════════════════════════════════════ */
+/* Artistic Purple */
 .mtforms-skin-23 {
     --mtforms-bg: #f5f3ff;
     --mtforms-text: #581c87;
@@ -973,9 +927,7 @@
     --mtforms-shadow: 0 10px 30px rgba(168, 85, 247, 0.08);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 24: Vibrant Coral (Energetic Coral & Pink)               */
-/* ════════════════════════════════════════════════════════════ */
+/* Vibrant Coral */
 .mtforms-skin-24 {
     --mtforms-bg: #fff5f7;
     --mtforms-text: #be183d;
@@ -1005,9 +957,7 @@
     border: 1px solid #ff99c8;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 25: Elegant Sage (Soft Green & Mauve)                    */
-/* ════════════════════════════════════════════════════════════ */
+/* Elegant Sage */
 .mtforms-skin-25 {
     --mtforms-bg: #f4f1de;
     --mtforms-text: #333333;
@@ -1038,9 +988,7 @@
     border: 1px solid #e0ddd0;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 26: Warm Terracotta (Earthy Warm Tones)                  */
-/* ════════════════════════════════════════════════════════════ */
+/* Warm Terracotta */
 .mtforms-skin-26 {
     --mtforms-bg: #faf5f0;
     --mtforms-text: #6d4c41;
@@ -1071,9 +1019,7 @@
     border: 1px solid #dccccb;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 27: Cool Lavender (Soft Lavender & Purple)               */
-/* ════════════════════════════════════════════════════════════ */
+/* Cool Lavender */
 .mtforms-skin-27 {
     --mtforms-bg: #f6f3ff;
     --mtforms-text: #4a235a;
@@ -1103,9 +1049,7 @@
     border: 1px solid #e1bee7;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 28: Dynamic Cyan (Vibrant Cyan & Sky Blue)               */
-/* ════════════════════════════════════════════════════════════ */
+/* Dynamic Cyan */
 .mtforms-skin-28 {
     --mtforms-bg: #e0f7fa;
     --mtforms-text: #00838f;
@@ -1136,9 +1080,7 @@
     border: 1px solid #b2ebf2;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 29: Midnight Neon (Dark with Neon Accents)               */
-/* ════════════════════════════════════════════════════════════ */
+/* Midnight Neon */
 .mtforms-skin-29 {
     --mtforms-bg: #0a0e27;
     --mtforms-text: #e0e7ff;
@@ -1170,9 +1112,7 @@
     border: 1px solid rgba(0, 255, 136, 0.15);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 30: Peachy Keen (Warm Peach & Flesh Tones)               */
-/* ════════════════════════════════════════════════════════════ */
+/* Peachy Keen */
 .mtforms-skin-30 {
     --mtforms-bg: #fff5f1;
     --mtforms-text: #a8560b;
@@ -1203,9 +1143,7 @@
     border: 1px solid #ffd4b3;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 31: Modern Teal (Contemporary Teal & Slate)              */
-/* ════════════════════════════════════════════════════════════ */
+/* Modern Teal */
 .mtforms-skin-31 {
     --mtforms-bg: #f0f9f9;
     --mtforms-text: #0d3b3b;
@@ -1234,9 +1172,7 @@
     --mtforms-shadow: 0 10px 30px rgba(13, 115, 119, 0.08);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 32: Sunset Glow (Soft Warm Gradient)                     */
-/* ════════════════════════════════════════════════════════════ */
+/* Sunset Glow */
 .mtforms-skin-32 {
     --mtforms-bg: #fffbf0;
     --mtforms-text: #6f3810;
@@ -1267,9 +1203,7 @@
     border: 1px solid #fce0d4;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 33: Platinum Luxury (Silver & Platinum Premium)          */
-/* ════════════════════════════════════════════════════════════ */
+/* Platinum Luxury */
 .mtforms-skin-33 {
     --mtforms-bg: #f5f5f5;
     --mtforms-text: #3c3c3c;
@@ -1303,9 +1237,7 @@
     border: 2px solid #d3d3d3;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 34: Diamond Essence (Crystal Clear & Pure)               */
-/* ════════════════════════════════════════════════════════════ */
+/* Diamond Essence */
 .mtforms-skin-34 {
     --mtforms-bg: #ffffff;
     --mtforms-text: #2c3e50;
@@ -1336,9 +1268,7 @@
     --mtforms-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 35: Gold Standard (Premium Gold & Rich Brown)            */
-/* ════════════════════════════════════════════════════════════ */
+/* Gold Standard */
 .mtforms-skin-35 {
     --mtforms-bg: #fef8f3;
     --mtforms-text: #5d4e37;
@@ -1371,9 +1301,7 @@
     border: 1px solid #f0e6d2;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 36: Emerald Prestige (Deep Emerald Luxury)               */
-/* ════════════════════════════════════════════════════════════ */
+/* Emerald Prestige */
 .mtforms-skin-36 {
     --mtforms-bg: #f0f7f5;
     --mtforms-text: #0d4f4a;
@@ -1407,9 +1335,7 @@
     border: 1px solid #d9ebe8;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* SKIN 37: Sapphire Royal (Rich Sapphire Blue)                  */
-/* ════════════════════════════════════════════════════════════ */
+/* Sapphire Royal */
 .mtforms-skin-37 {
     --mtforms-bg: #f0f4f8;
     --mtforms-text: #1a3a52;

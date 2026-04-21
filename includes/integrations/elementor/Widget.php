@@ -130,6 +130,13 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
+			'hr_skin',
+			[
+				'type' => \Elementor\Controls_Manager::DIVIDER,
+			]
+		);
+
+		$this->add_control(
 			'skin',
 			[
 				'label' => esc_html__('Skin', MTFORMS_TEXT_DOMAIN),
@@ -175,6 +182,13 @@ class Widget extends \Elementor\Widget_Base
 					'skin-36' => __('36. Emerald Prestige', MTFORMS_TEXT_DOMAIN),
 					'skin-37' => __('37. Sapphire Royal', MTFORMS_TEXT_DOMAIN),
 				],
+			]
+		);
+
+		$this->add_control(
+			'hr_layout',
+			[
+				'type' => \Elementor\Controls_Manager::DIVIDER,
 			]
 		);
 
@@ -259,7 +273,7 @@ class Widget extends \Elementor\Widget_Base
 
 
 		$this->add_control(
-			'hr_display_3',
+			'hr_display_2',
 			[
 				'type' => \Elementor\Controls_Manager::DIVIDER,
 			]
@@ -292,14 +306,14 @@ class Widget extends \Elementor\Widget_Base
 					],
 				]
 			);
-		}
 
-		$this->add_control(
-			'hr_display_4',
-			[
-				'type' => \Elementor\Controls_Manager::DIVIDER,
-			]
-		);
+			$this->add_control(
+				"hr_field_{$field}",
+				[
+					'type' => \Elementor\Controls_Manager::DIVIDER,
+				]
+			);
+		}
 
 		$this->add_control(
 			'show_gdpr',
@@ -322,7 +336,7 @@ class Widget extends \Elementor\Widget_Base
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'no',
-				'description' => esc_html__('Uses the captcha provider configured in MTForms settings.', MTFORMS_TEXT_DOMAIN),
+				'description' => esc_html__('See captcha configuration in MTForms settings.', MTFORMS_TEXT_DOMAIN),
 			]
 		);
 
@@ -335,7 +349,7 @@ class Widget extends \Elementor\Widget_Base
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'yes',
-				'description' => esc_html__('Adds a hidden field to catch spam bots.', MTFORMS_TEXT_DOMAIN),
+				'description' => esc_html__('A hidden field to catch spam bots.', MTFORMS_TEXT_DOMAIN),
 			]
 		);
 
