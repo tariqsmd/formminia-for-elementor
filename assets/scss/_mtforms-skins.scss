@@ -619,9 +619,9 @@
     --mtforms-field-radius: 10px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #a855f7 0%, #d946ef 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #9333ea 0%, #be185d 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 10px;
     --mtforms-btn-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
 
@@ -647,9 +647,9 @@
     --mtforms-field-radius: 8px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #fb923c 0%, #f43f5e 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 50px;
     --mtforms-btn-padding: 1rem 2.5rem;
 
@@ -678,9 +678,9 @@
     --mtforms-field-radius: 12px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #14b8a6 0%, #0891b2 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #0d9488 0%, #0e7490 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 12px;
 
     --mtforms-radius: 20px;
@@ -706,9 +706,9 @@
     --mtforms-field-radius: 10px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 8px;
     --mtforms-btn-shadow: 0 10px 25px rgba(34, 197, 94, 0.2);
 
@@ -737,9 +737,9 @@
     --mtforms-field-radius: 12px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #f43f5e 0%, #d97706 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #e11d48 0%, #b45309 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 50px;
     --mtforms-btn-padding: 1.1rem 2.5rem;
 
@@ -916,9 +916,9 @@
     --mtforms-field-radius: 8px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #9333ea 0%, #6d28d9 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 8px;
     --mtforms-btn-shadow: 0 8px 20px rgba(168, 85, 247, 0.2);
 
@@ -945,9 +945,9 @@
     --mtforms-field-radius: 12px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #ff6b9d 0%, #ff1744 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #ff5290 0%, #d60035 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 12px;
 
     --mtforms-radius: 18px;
@@ -975,9 +975,9 @@
     --mtforms-field-radius: 6px;
 
     --mtforms-btn-bg: #457b9d;
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: #1f3a3f;
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 6px;
     --mtforms-btn-shadow: 0 6px 20px rgba(69, 123, 157, 0.15);
 
@@ -1006,9 +1006,9 @@
     --mtforms-field-radius: 10px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #d7623e 0%, #bf360c 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #bf360c 0%, #5d4037 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 10px;
     --mtforms-btn-shadow: 0 8px 20px rgba(215, 98, 62, 0.2);
 
@@ -1037,9 +1037,9 @@
     --mtforms-field-radius: 8px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #9575cd 0%, #7e57c2 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #7e57c2 0%, #512da8 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 8px;
 
     --mtforms-radius: 14px;
@@ -1067,9 +1067,9 @@
     --mtforms-field-radius: 10px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #00bcd4 0%, #00838f 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #0097a7 0%, #004d54 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 10px;
     --mtforms-btn-shadow: 0 8px 20px rgba(0, 188, 212, 0.2);
 
@@ -1130,9 +1130,9 @@
     --mtforms-field-radius: 10px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #ffb366 0%, #ff9944 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #ff9944 0%, #e68a2c 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 10px;
     --mtforms-btn-shadow: 0 8px 20px rgba(255, 179, 102, 0.2);
 
@@ -1161,9 +1161,9 @@
     --mtforms-field-radius: 8px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #0d7377 0%, #14505b 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #14505b 0%, #1a5c6d 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 8px;
     --mtforms-btn-shadow: 0 8px 20px rgba(13, 115, 119, 0.2);
 
@@ -1190,9 +1190,9 @@
     --mtforms-field-radius: 10px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #f0ad4e 0%, #d58512 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #ec971f 0%, #a85a1f 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 50px;
     --mtforms-btn-padding: 1rem 2.5rem;
 
@@ -1224,9 +1224,9 @@
     --mtforms-field-radius: 2px;
 
     --mtforms-btn-bg: #8b8680;
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: #6b6660;
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 2px;
     --mtforms-btn-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 
@@ -1257,9 +1257,9 @@
     --mtforms-field-padding: 0.9rem 1.2rem;
 
     --mtforms-btn-bg: linear-gradient(135deg, #9b95c9 0%, #7a7a8c 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #8b85b9 0%, #6a6a7c 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 12px;
     --mtforms-btn-shadow: 0 12px 30px rgba(155, 149, 201, 0.2);
 
@@ -1288,9 +1288,9 @@
     --mtforms-field-radius: 8px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #d4af37 0%, #b8941b 100%);
-    --mtforms-btn-color: #2c2416;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #c9a028 0%, #9c7a15 100%);
-    --mtforms-btn-hover-color: #2c2416;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 8px;
     --mtforms-btn-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
 
@@ -1322,9 +1322,9 @@
     --mtforms-field-radius: 10px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #2a8a82 0%, #1b5e5a 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #1b5e5a 0%, #0a3937 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 10px;
     --mtforms-btn-shadow: 0 12px 30px rgba(42, 138, 130, 0.2);
 
@@ -1356,9 +1356,9 @@
     --mtforms-field-radius: 10px;
 
     --mtforms-btn-bg: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%);
-    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-color: var(--mtforms-text);
     --mtforms-btn-hover-bg: linear-gradient(135deg, #1e3a5f 0%, #0f2438 100%);
-    --mtforms-btn-hover-color: #ffffff;
+    --mtforms-btn-hover-color: var(--mtforms-text);
     --mtforms-btn-radius: 10px;
     --mtforms-btn-shadow: 0 12px 30px rgba(44, 90, 160, 0.2);
 

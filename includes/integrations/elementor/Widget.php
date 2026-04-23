@@ -1910,8 +1910,8 @@ class Widget extends \Elementor\Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}}.mtforms-icon-left .mtforms-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}}.mtforms-icon-right .mtforms-icon' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-icon-left .mtforms-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-icon-right .mtforms-icon' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
