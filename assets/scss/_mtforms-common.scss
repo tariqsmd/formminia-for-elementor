@@ -209,12 +209,10 @@
     background-color: var(--mtforms-btn-bg);
     color: var(--mtforms-btn-color);
     border-radius: var(--mtforms-btn-radius);
-    box-shadow: var(--mtforms-btn-shadow);
 
     &:hover {
       background-color: var(--mtforms-btn-hover-bg);
       color: var(--mtforms-btn-hover-color);
-      box-shadow: var(--mtforms-btn-hover-shadow);
       transform: translateY(-1px);
     }
 

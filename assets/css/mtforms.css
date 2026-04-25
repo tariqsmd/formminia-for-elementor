@@ -30,8 +30,8 @@
   --mtforms-btn-color: #ffffff;
   --mtforms-btn-hover-bg: var(--mtforms-secondary);
   --mtforms-btn-hover-color: #ffffff;
-  --mtforms-btn-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --mtforms-btn-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --mtforms-btn-shadow: none;
+  --mtforms-btn-hover-shadow: none;
   /* Structure */
   --mtforms-form-padding: 2rem;
   --mtforms-inner-gap: 1.5rem;
@@ -251,12 +251,10 @@
   background-color: var(--mtforms-btn-bg);
   color: var(--mtforms-btn-color);
   border-radius: var(--mtforms-btn-radius);
-  box-shadow: var(--mtforms-btn-shadow);
 }
 .mtforms-submit-btn:hover {
   background-color: var(--mtforms-btn-hover-bg);
   color: var(--mtforms-btn-hover-color);
-  box-shadow: var(--mtforms-btn-hover-shadow);
   transform: translateY(-1px);
 }
 .mtforms-submit-btn:active {
@@ -453,9 +451,10 @@
   --mtforms-input-focus-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
   --mtforms-placeholder: #64748b;
   --mtforms-field-radius: 8px;
+  --mtforms-btn-color: #ffffff;
   --mtforms-btn-bg: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  --mtforms-btn-hover-color: #ffffff;
   --mtforms-btn-hover-bg: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
-  --mtforms-btn-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
   --mtforms-btn-padding: 1.25rem 2rem;
   --mtforms-radius: 12px;
   --mtforms-form-padding: 2.5rem;
@@ -476,7 +475,9 @@
   --mtforms-input-focus-border: #10b981;
   --mtforms-field-radius: 12px;
   --mtforms-field-padding: 0.875rem 1.25rem;
+  --mtforms-btn-color: #ffffff;
   --mtforms-btn-bg: #059669;
+  --mtforms-btn-hover-color: #ffffff;
   --mtforms-btn-hover-bg: #047857;
   --mtforms-btn-radius: 50px;
   --mtforms-btn-padding: 1rem 3rem;
@@ -508,7 +509,9 @@
   --mtforms-input-border: #e2e8f0;
   --mtforms-input-focus-border: #0f172a;
   --mtforms-field-radius: 0;
+  --mtforms-btn-color: #ffffff;
   --mtforms-btn-bg: #0f172a;
+  --mtforms-btn-hover-color: #ffffff;
   --mtforms-btn-hover-bg: #1e293b;
   --mtforms-btn-radius: 0;
   --mtforms-btn-padding: 1.25rem 2.5rem;
@@ -537,7 +540,9 @@
   --mtforms-input-focus-border: #e2e8f0;
   --mtforms-field-radius: 16px;
   --mtforms-field-border-width: 2px;
+  --mtforms-btn-color: #ffffff;
   --mtforms-btn-bg: #0f172a;
+  --mtforms-btn-hover-color: #ffffff;
   --mtforms-btn-hover-bg: #1e293b;
   --mtforms-btn-radius: 20px;
   --mtforms-btn-padding: 1.5rem 3rem;
@@ -569,7 +574,9 @@
   --mtforms-input-focus-border: #94a3b8;
   --mtforms-field-radius: 50px;
   --mtforms-field-padding: 1rem 2rem;
+  --mtforms-btn-color: #ffffff;
   --mtforms-btn-bg: linear-gradient(45deg, #60a5fa, #a78bfa);
+  --mtforms-btn-hover-color: #ffffff;
   --mtforms-btn-hover-bg: linear-gradient(45deg, #3b82f6, #8b5cf6);
   --mtforms-btn-radius: 50px;
   --mtforms-btn-padding: 1.25rem 3rem;
@@ -620,7 +627,9 @@
   --mtforms-input-focus-border: #94a3b8;
   --mtforms-input-focus-shadow: 0 0 0 4px rgba(148, 163, 184, 0.1);
   --mtforms-field-radius: 4px;
+  --mtforms-btn-color: #ffffff;
   --mtforms-btn-bg: #475569;
+  --mtforms-btn-hover-color: #ffffff;
   --mtforms-btn-hover-bg: #334155;
   --mtforms-btn-radius: 4px;
   --mtforms-radius: 12px;
