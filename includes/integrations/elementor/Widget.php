@@ -205,6 +205,88 @@ class Widget extends \Elementor\Widget_Base
 					'compact' => __('Compact Style', MTFORMS_TEXT_DOMAIN),
 					'boxed-border' => __('Boxed Borderless', MTFORMS_TEXT_DOMAIN),
 					'inset' => __('Inset Shadow Style', MTFORMS_TEXT_DOMAIN),
+					'inline' => __('Inline Layout', MTFORMS_TEXT_DOMAIN),
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'inline_label_width',
+			[
+				'label' => esc_html__('Label Width', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px', '%'],
+				'range' => [
+					'px' => [
+						'min' => 50,
+						'max' => 300,
+					],
+					'%' => [
+						'min' => 10,
+						'max' => 50,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 150,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-layout-inline .mtforms-form-group label' => 'min-width: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'layout' => 'inline',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'inline_field_width',
+			[
+				'label' => esc_html__('Field Width', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px', '%'],
+				'range' => [
+					'px' => [
+						'min' => 100,
+						'max' => 500,
+					],
+					'%' => [
+						'min' => 20,
+						'max' => 90,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+					'size' => 60,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-layout-inline .mtforms-input-wrap' => 'flex: 1 1 {{SIZE}}{{UNIT}}; max-width: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'layout' => 'inline',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'inline_gap',
+			[
+				'label' => esc_html__('Gap Between Label & Field', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'default' => [
+					'size' => 15,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-layout-inline .mtforms-form-group' => 'gap: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'layout' => 'inline',
 				],
 			]
 		);
@@ -221,6 +303,9 @@ class Widget extends \Elementor\Widget_Base
 					'3' => __('3 Columns', MTFORMS_TEXT_DOMAIN),
 					'4' => __('4 Columns', MTFORMS_TEXT_DOMAIN),
 					'5' => __('5 Columns', MTFORMS_TEXT_DOMAIN),
+				],
+				'condition' => [
+					'layout!' => 'inline',
 				],
 			]
 		);
@@ -1423,6 +1508,100 @@ class Widget extends \Elementor\Widget_Base
 				'selector' => '{{WRAPPER}} .mtforms-icon',
 				'condition' => [
 					'show_icons' => 'yes',
+				],
+			]
+		);
+
+		// Inline Layout Controls
+		$this->add_control(
+			'heading_inline_layout',
+			[
+				'label' => esc_html__('Inline Layout', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'layout' => 'inline',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'inline_label_width',
+			[
+				'label' => esc_html__('Label Width', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px', '%'],
+				'range' => [
+					'px' => [
+						'min' => 50,
+						'max' => 300,
+					],
+					'%' => [
+						'min' => 10,
+						'max' => 50,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 150,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-layout-inline .mtforms-form-group label' => 'min-width: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'layout' => 'inline',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'inline_field_width',
+			[
+				'label' => esc_html__('Field Width', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px', '%'],
+				'range' => [
+					'px' => [
+						'min' => 100,
+						'max' => 500,
+					],
+					'%' => [
+						'min' => 20,
+						'max' => 90,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+					'size' => 60,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-layout-inline .mtforms-input-wrap' => 'flex: 1 1 {{SIZE}}{{UNIT}}; max-width: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'layout' => 'inline',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'inline_gap',
+			[
+				'label' => esc_html__('Gap Between Label & Field', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'default' => [
+					'size' => 15,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-layout-inline .mtforms-form-group' => 'gap: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'layout' => 'inline',
 				],
 			]
 		);

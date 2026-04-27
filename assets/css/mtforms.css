@@ -1769,3 +1769,48 @@
   border-color: var(--mtforms-primary);
   box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 0 0 3px var(--mtforms-focus);
 }
+
+/* ════════════════════════════════════════════════════════════ */
+/* LAYOUT: INLINE LABELS & FIELDS                               */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-layout-inline .mtforms-form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.mtforms-layout-inline .mtforms-form-group label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  margin: 0.5rem 2rem 0 0;
+}
+.mtforms-layout-inline .mtforms-input-wrap {
+  flex: 1 1 60%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 60%;
+}
+.mtforms-layout-inline .mtforms-field-icon {
+  margin-right: var(--mtforms-icon-spacing);
+  flex-shrink: 0;
+}
+.mtforms-layout-inline {
+  /* On small screens, stack the layout */
+}
+@media (max-width: 768px) {
+  .mtforms-layout-inline .mtforms-form-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .mtforms-layout-inline .mtforms-form-group label {
+    min-width: 100%;
+    margin-bottom: 10px;
+  }
+  .mtforms-layout-inline .mtforms-input-wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+}
