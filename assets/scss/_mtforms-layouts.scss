@@ -196,12 +196,17 @@
     
     }
 
-    .mtforms-form-group label {
+    .mtforms-form-group label:not(.mtforms-checkbox-label) {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         flex-shrink: 0;       
         margin: 0.5rem 2rem 0 0;       
+    }
+
+    /* ensure checkbox label respects width settings */
+    .mtforms-form-group .mtforms-checkbox-label {
+        flex: 0 0 auto;
     }
 
     .mtforms-input-wrap {

@@ -601,6 +601,19 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		// GDPR consent label shown above checkbox (maintains layout consistency)
+		$this->add_control(
+			'gdpr_label',
+			[
+				'label' => esc_html__('GDPR Label', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__('GDPR Consent', MTFORMS_TEXT_DOMAIN),
+				'condition' => [
+					'show_gdpr' => 'yes',
+				],
+			]
+		);
+
 		$this->add_control(
 			'gdpr_text',
 			[
@@ -2435,6 +2448,65 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('GDPR Consent', MTFORMS_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 				'condition' => [
+					'show_gdpr' => 'yes',
+				],
+			]
+		);
+
+		// Top label styling
+		$this->add_control(
+			'gdpr_label_color',
+			[
+				'label' => esc_html__('Label Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-gdpr-heading' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'gdpr_label_typography',
+				'selector' => '{{WRAPPER}} .mtforms-gdpr-heading',
+			]
+		);
+
+		$this->add_responsive_control(
+			'gdpr_label_margin',
+			[
+				'label' => esc_html__('Label Margin', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-gdpr-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		// width control for checkbox label in inline layout
+		$this->add_responsive_control(
+			'gdpr_checkbox_width',
+			[
+				'label' => esc_html__('Checkbox Label Width', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px', '%'],
+				'range' => [
+					'px' => [
+						'min' => 50,
+						'max' => 400,
+					],
+					'%' => [
+						'min' => 20,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-checkbox-label' => 'min-width: {{SIZE}}{{UNIT}};'
+				],
+				'condition' => [
+					'layout' => 'inline',
 					'show_gdpr' => 'yes',
 				],
 			]
