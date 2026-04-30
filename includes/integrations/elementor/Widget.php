@@ -935,7 +935,6 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	protected function register_style_tab_controls()
 	{
-		$this->register_style_global_controls();
 		$this->register_style_title_controls();
 		$this->register_style_container_controls();
 		$this->register_style_fields_wrapper_controls();
@@ -947,43 +946,6 @@ class Widget extends \Elementor\Widget_Base
 		$this->register_style_button_controls();
 	}
 
-	/**
-	 * Style: Global Theme Controls.
-	 */
-	protected function register_style_global_controls()
-	{
-		$this->start_controls_section(
-			'section_style_global',
-			[
-				'label' => esc_html__('Global Colors', MTFORMS_TEXT_DOMAIN),
-				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-			]
-		);
-
-		$this->add_control(
-			'theme_primary',
-			[
-				'label' => esc_html__('Primary Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-primary: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'theme_secondary',
-			[
-				'label' => esc_html__('Secondary Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-secondary: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->end_controls_section();
-	}
 
 	/**
 	 * Style: Form Container Controls.
@@ -2503,7 +2465,7 @@ class Widget extends \Elementor\Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-checkbox-label' => 'min-width: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .mtforms-layout-inline .mtforms-gdpr-group .mtforms-checkbox-label' => 'width: {{SIZE}}{{UNIT}};'
 				],
 				'condition' => [
 					'layout' => 'inline',
