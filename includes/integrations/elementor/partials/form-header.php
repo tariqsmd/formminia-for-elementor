@@ -17,17 +17,16 @@ $container_classes = array(
 	'mtforms-form-wrapper',
 	empty($settings['skin']) ? 'mtforms-skin-' : 'mtforms-' . sanitize_html_class($settings['skin']),
 	'mtforms-layout-' . sanitize_html_class($settings['layout']),
-	'mtforms-layout-' . sanitize_html_class($settings['layout'] ?? 'default'),
 	'mtforms-columns-' . sanitize_html_class($settings['columns'] ?? '1'),
 	'mtforms-input-style-' . sanitize_html_class($settings['input_style']),
-	//	'mtforms-button-style-' . sanitize_html_class( $settings['button_style'] ),
+	'mtforms-button-style-' . sanitize_html_class( $settings['button_style'] ),
 );
 
 if (isset($settings['animation']) && !empty($settings['animation']) && $settings['animation'] !== 'none') {
 	$container_classes[] = 'mtforms-animation-' . sanitize_html_class($settings['animation']);
 }
 
-if ($settings['show_icons'] === 'yes') {
+if ($settings['show_label_icons'] === 'yes') {
 	$container_classes[] = 'mtforms-with-icons';
 	$container_classes[] = 'mtforms-icon-' . sanitize_html_class($settings['icon_position'] ?? 'left');
 }

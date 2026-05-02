@@ -24,7 +24,7 @@ $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
 <div class="<?php echo esc_attr( implode( ' ', $group_classes ) ); ?>">
 	<?php if ( $settings['show_labels'] === 'yes' ): ?>
         <label for="<?php echo esc_attr($field_id); ?>">
-            <?php if ($settings['show_icons'] === 'yes' && $settings['icon_position'] === 'left'): ?>
+            <?php if ($settings['show_label_icons'] === 'yes' && $settings['icon_position'] === 'left'): ?>
                 <span class="mtforms-icon">
                     <?php
                     if (!empty($args['icon']['value'])) {
@@ -43,7 +43,7 @@ $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
                 <?php endif; ?>
             </span>
 
-            <?php if ($settings['show_icons'] === 'yes' && $settings['icon_position'] === 'right'): ?>
+            <?php if ($settings['show_label_icons'] === 'yes' && $settings['icon_position'] === 'right'): ?>
                 <span class="mtforms-icon">
                     <?php
                     if (!empty($args['icon']['value'])) {
@@ -58,10 +58,56 @@ $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
 	<?php endif; ?>
 
     <div class="mtforms-input-wrap">
+        <!-- Icons on left of input/textarea -->
+        <?php if ( $type === 'textarea' && $settings['show_icons_textarea'] === 'yes' && $settings['icon_position'] === 'left' ): ?>
+            <span class="mtforms-icon mtforms-input-icon">
+                <?php
+                if (!empty($args['icon']['value'])) {
+                    \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
+                } elseif (!empty($icon_svg)) {
+                    echo $icon_svg;
+                }
+                ?>
+            </span>
+        <?php elseif ( $type !== 'textarea' && $settings['show_icons_inputs'] === 'yes' && $settings['icon_position'] === 'left' ): ?>
+            <span class="mtforms-icon mtforms-input-icon">
+                <?php
+                if (!empty($args['icon']['value'])) {
+                    \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
+                } elseif (!empty($icon_svg)) {
+                    echo $icon_svg;
+                }
+                ?>
+            </span>
+        <?php endif; ?>
+
 		<?php if ( 'textarea' === $type ): ?>
             <textarea name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $field_id ); ?>" class="mtforms-textarea mtforms-input-<?php echo esc_attr( $type ); ?>" rows="<?php echo esc_attr( $settings['textarea_rows'] ); ?>" <?php if ( $settings['show_placeholders'] === 'yes' ): ?>placeholder="<?php echo esc_attr( $placeholder ); ?>"<?php endif; ?><?php echo $required; ?>></textarea>
 		<?php else: ?>
             <input type="<?php echo esc_attr( $type ); ?>" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $field_id ); ?>" class="mtforms-input mtforms-input-<?php echo esc_attr( $type ); ?>" <?php if ( $settings['show_placeholders'] === 'yes' ): ?>placeholder="<?php echo esc_attr( $placeholder ); ?>"<?php endif; ?><?php echo $required; ?>>
+        <?php endif; ?>
+
+        <!-- Icons on right of input/textarea -->
+        <?php if ( $type === 'textarea' && $settings['show_icons_textarea'] === 'yes' && $settings['icon_position'] === 'right' ): ?>
+            <span class="mtforms-icon mtforms-input-icon">
+                <?php
+                if (!empty($args['icon']['value'])) {
+                    \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
+                } elseif (!empty($icon_svg)) {
+                    echo $icon_svg;
+                }
+                ?>
+            </span>
+        <?php elseif ( $type !== 'textarea' && $settings['show_icons_inputs'] === 'yes' && $settings['icon_position'] === 'right' ): ?>
+            <span class="mtforms-icon mtforms-input-icon">
+                <?php
+                if (!empty($args['icon']['value'])) {
+                    \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
+                } elseif (!empty($icon_svg)) {
+                    echo $icon_svg;
+                }
+                ?>
+            </span>
         <?php endif; ?>
 
 		<?php if ( $settings['layout'] === 'floating' ): ?>

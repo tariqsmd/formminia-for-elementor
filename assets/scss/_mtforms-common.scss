@@ -32,7 +32,7 @@
   }
 
   &-form-title {
-    margin: 0;
+    margin: 0 0 1rem;
     line-height: 1.2;
     color: var(--mtforms-title-color);
     font-size: var(--mtforms-title-size);
@@ -88,7 +88,27 @@
   &-input-wrap {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+
+    /* Icons on input/textarea */
+    .mtforms-input-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      order: 1;
+
+      &:first-child {
+        order: -1; /* left icon goes first visually */
+      }
+    }
+
+    .mtforms-input,
+    .mtforms-textarea {
+      flex: 1;
+    }
   }
 
   &-input,
