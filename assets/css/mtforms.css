@@ -107,7 +107,8 @@
 }
 .mtforms-form-group {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   gap: var(--mtforms-group-gap);
 }
 .mtforms-form-group label {
@@ -123,6 +124,12 @@
 }
 .mtforms-form-group label .required {
   color: var(--mtforms-error);
+}
+.mtforms-field-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mtforms-group-gap);
+  flex: 1;
 }
 .mtforms-icon {
   display: inline-flex;
@@ -142,6 +149,16 @@
 .mtforms-icon i {
   font-size: inherit;
   color: inherit;
+}
+.mtforms {
+  /* when icons are placed outside the input wrap */
+}
+.mtforms-field-icon {
+  margin: var(--mtforms-icon-spacing);
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .mtforms-input-wrap {
   position: relative;
