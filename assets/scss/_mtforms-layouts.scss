@@ -32,9 +32,28 @@
 }
 
 /* ════════════════════════════════════════════════════════════ */
+/* DEFAULT LAYOUT - Stacked label + field with optional icons    */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-form-wrapper:not(.mtforms-layout-inline):not(.mtforms-layout-floating):not(.mtforms-layout-material) {
+    .mtforms-form-group {
+        flex-direction: row;
+        align-items: center;
+        
+        /* When no icons are present, field-inner takes full width */
+        .mtforms-field-inner {
+            flex: 1;
+        }
+    }
+}
+
+/* ════════════════════════════════════════════════════════════ */
 /* LAYOUT: FLOATING LABELS                                       */
 /* ════════════════════════════════════════════════════════════ */
 .mtforms-layout-floating {
+    .mtforms-field-inner {
+        position: relative;
+    }
+
     .mtforms-input-wrap {
         position: relative;
     }
@@ -191,21 +210,28 @@
     .mtforms-form-group {
         display: flex;
         flex-direction: row;
-          align-items: flex-start;
-        justify-content: space-between;       
-    
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: var(--mtforms-group-gap);
     }
 
-    .mtforms-form-group label:not(.mtforms-checkbox-label) {
+    .mtforms-field-inner {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--mtforms-group-gap);
+        flex: 1;
+    }
+
+    .mtforms-field-inner label:not(.mtforms-checkbox-label) {
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        flex-shrink: 0;       
-        margin: 0.5rem 2rem 0 0;       
+        flex-shrink: 0;
     }
 
     /* ensure checkbox label respects width settings */
-    .mtforms-form-group .mtforms-checkbox-label {
+    .mtforms-field-inner .mtforms-checkbox-label {
         flex: 0 0 auto;
     }
 
@@ -229,7 +255,12 @@
             align-items: flex-start;
         }
 
-        .mtforms-form-group label {
+        .mtforms-field-inner {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .mtforms-field-inner label {
             min-width: 100%;
             margin-bottom: 10px;
         }
