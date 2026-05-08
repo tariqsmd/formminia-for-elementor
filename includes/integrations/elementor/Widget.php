@@ -317,10 +317,10 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'show_labels',
+						$this->add_control(
+			'show_placeholders',
 			[
-				'label' => esc_html__('Show Labels', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Show Placeholders', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
 				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
@@ -330,9 +330,9 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
-			'show_placeholders',
+			'show_labels',
 			[
-				'label' => esc_html__('Show Placeholders', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Show Labels', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
 				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
@@ -369,34 +369,6 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
-			'show_icons_textarea',
-			[
-				'label' => esc_html__('Show Icons on Textarea', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-		);
-
-		$this->add_control(
-			'show_icons_gdpr',
-			[
-				'label' => esc_html__('Show Icon on GDPR Checkbox', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'no',
-				'condition' => [
-					'show_gdpr' => 'yes',
-				],
-			]
-		);
-
-
-		$this->add_control(
 			'hr_display_2',
 			[
 				'type' => \Elementor\Controls_Manager::DIVIDER,
@@ -431,6 +403,21 @@ class Widget extends \Elementor\Widget_Base
 				]
 			);
 
+			if( 'message' === $field ){
+
+					$this->add_control(
+			'show_icons_textarea',
+			[
+				'label' => esc_html__('Show Icons on Textarea', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+			}
+
 			$this->add_control(
 				"hr_field_{$field}",
 				[
@@ -448,6 +435,21 @@ class Widget extends \Elementor\Widget_Base
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'no',
+			]
+		);
+
+		$this->add_control(
+			'show_icons_gdpr',
+			[
+				'label' => esc_html__('Show GDPR Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
+				'return_value' => 'yes',
+				'default' => 'no',
+				'condition' => [
+					'show_gdpr' => 'yes',
+				],
 			]
 		);
 

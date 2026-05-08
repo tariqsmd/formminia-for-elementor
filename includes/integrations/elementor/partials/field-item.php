@@ -22,7 +22,6 @@ $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
 ?>
 
 <div class="<?php echo esc_attr( implode( ' ', $group_classes ) ); ?>">
-    <!-- Icons on left of input/textarea -->
     <?php if ( $type === 'textarea' && $settings['show_icons_textarea'] === 'yes' && $settings['icon_position'] === 'left' ): ?>
         <span class="mtforms-icon mtforms-field-icon">
             <?php
@@ -101,7 +100,6 @@ $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
 
     </div>
 
-    <!-- Icons on right of input/textarea -->
     <?php if ( $type === 'textarea' && $settings['show_icons_textarea'] === 'yes' && $settings['icon_position'] === 'right' ): ?>
         <span class="mtforms-icon mtforms-field-icon">
             <?php
