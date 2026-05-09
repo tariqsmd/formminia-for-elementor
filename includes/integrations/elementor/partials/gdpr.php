@@ -12,8 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 $settings  = $args['settings'];
 $widget_id = $args['widget_id'];
 
+// Add class if GDPR icons are enabled
+$gdpr_group_classes = array( 'mtforms-form-group', 'mtforms-gdpr-group' );
+if ( $settings['show_icons_gdpr'] === 'yes' ) {
+	$gdpr_group_classes[] = 'mtforms-gdpr-has-icon';
+}
+
 if ( $settings['show_gdpr'] === 'yes' ): ?>
-    <div class="mtforms-form-group mtforms-gdpr-group">        <?php if ( $settings['show_labels'] === 'yes' ): ?>
+    <div class="<?php echo esc_attr( implode( ' ', $gdpr_group_classes ) ); ?>">        <?php if ( $settings['show_labels'] === 'yes' ): ?>
             <label class="mtforms-gdpr-heading" for="gdpr-<?php echo esc_attr( $widget_id ); ?>">
                 <?php echo esc_html( $settings['gdpr_label'] ); ?>
             </label>

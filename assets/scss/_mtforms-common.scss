@@ -45,7 +45,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: var(--mtforms-icon-spacing, 0.5rem);
+    gap: var(--mtforms-icon-spacing, 0.75rem);
+    width: 100%;
+    position: relative;
 
     label {
       position: relative;
@@ -78,7 +80,7 @@
     gap: var(--mtforms-group-gap);
     flex: 1;
     position: relative;
-    width: 100%;
+    min-width: 0;
   }
 
   &-icon {
@@ -105,20 +107,21 @@
 
   /* when icons are placed outside the input wrap */
   &-field-icon {
-    margin: var(--mtforms-icon-spacing);
+    margin: 0;
+    padding: 0;
     flex-shrink: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    height: var(--mtforms-icon-size, 1.25rem);
+    width: var(--mtforms-icon-size, 1.25rem);
   }
 
   &-input-wrap {
     position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-    width: 100%;
+    display: flex;  
+    flex-direction: column;   
+    // width: 100%;
 
     /* Icons on input/textarea */
     .mtforms-input-icon {

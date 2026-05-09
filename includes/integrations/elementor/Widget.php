@@ -344,7 +344,7 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'show_label_icons',
 			[
-				'label' => esc_html__('Show Icons on Labels', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Show Labels Icon', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
 				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
@@ -359,7 +359,7 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'show_icons_inputs',
 			[
-				'label' => esc_html__('Show Icons on Input Fields', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Show Input Fields Icons', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
 				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
@@ -408,7 +408,7 @@ class Widget extends \Elementor\Widget_Base
 					$this->add_control(
 			'show_icons_textarea',
 			[
-				'label' => esc_html__('Show Icons on Textarea', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Show Message Field Icon', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
 				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
@@ -450,6 +450,13 @@ class Widget extends \Elementor\Widget_Base
 				'condition' => [
 					'show_gdpr' => 'yes',
 				],
+			]
+		);
+
+				$this->add_control(
+			'hr_display_3',
+			[
+				'type' => \Elementor\Controls_Manager::DIVIDER,
 			]
 		);
 

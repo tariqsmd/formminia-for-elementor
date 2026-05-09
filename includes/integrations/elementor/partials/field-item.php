@@ -19,6 +19,18 @@ $settings    = $args['settings'];
 $icon_svg    = $args['icon_svg'];
 
 $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
+
+// Add class if field icons are enabled
+$has_field_icons = false;
+if ( $type === 'textarea' && $settings['show_icons_textarea'] === 'yes' ) {
+	$has_field_icons = true;
+} elseif ( $type !== 'textarea' && $settings['show_icons_inputs'] === 'yes' ) {
+	$has_field_icons = true;
+}
+
+if ( $has_field_icons ) {
+	$group_classes[] = 'mtforms-form-has-icon';
+}
 ?>
 
 <div class="<?php echo esc_attr( implode( ' ', $group_classes ) ); ?>">
@@ -87,9 +99,7 @@ $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
             <input type="<?php echo esc_attr( $type ); ?>" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $field_id ); ?>" class="mtforms-input mtforms-input-<?php echo esc_attr( $type ); ?>" <?php if ( $settings['show_placeholders'] === 'yes' ): ?>placeholder="<?php echo esc_attr( $placeholder ); ?>"<?php endif; ?><?php echo $required; ?>>
         <?php endif; ?>
 
-    </div>
-
-	<?php if ( $settings['layout'] === 'floating' ): ?>
+        	<?php if ( $settings['layout'] === 'floating' ): ?>
             <label class="mtforms-floating-label" for="<?php echo esc_attr( $field_id ); ?>">
 				<?php echo esc_html( $label ); ?>
 				<?php if ( $required ): ?>
@@ -97,6 +107,8 @@ $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
 				<?php endif; ?>
             </label>
 	<?php endif; ?>
+
+    </div>
 
     </div>
 

@@ -109,7 +109,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: var(--mtforms-icon-spacing, 0.5rem);
+  gap: var(--mtforms-icon-spacing, 0.75rem);
+  width: 100%;
+  position: relative;
 }
 .mtforms-form-group label {
   position: relative;
@@ -138,7 +140,7 @@
   gap: var(--mtforms-group-gap);
   flex: 1;
   position: relative;
-  width: 100%;
+  min-width: 0;
 }
 .mtforms-icon {
   display: inline-flex;
@@ -163,19 +165,19 @@
   /* when icons are placed outside the input wrap */
 }
 .mtforms-field-icon {
-  margin: var(--mtforms-icon-spacing);
+  margin: 0;
+  padding: 0;
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  height: var(--mtforms-icon-size, 1.25rem);
+  width: var(--mtforms-icon-size, 1.25rem);
 }
 .mtforms-input-wrap {
   position: relative;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0.5rem;
-  width: 100%;
+  flex-direction: column;
   /* Icons on input/textarea */
 }
 .mtforms-input-wrap .mtforms-input-icon {
@@ -1673,6 +1675,19 @@
 }
 
 /* ════════════════════════════════════════════════════════════ */
+/* ICON PRESENCE CLASS - Used when field icons are enabled       */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-form-has-icon {
+  /* Add any special styling here when field icons are present */
+  /* This class is automatically added when show_icons_inputs or show_icons_textarea is enabled */
+}
+
+.mtforms-gdpr-has-icon {
+  /* Add any special styling here when GDPR icons are enabled */
+  /* This class is automatically added when show_icons_gdpr is enabled */
+}
+
+/* ════════════════════════════════════════════════════════════ */
 /* DEFAULT LAYOUT - Stacked label + field with optional icons    */
 /* ════════════════════════════════════════════════════════════ */
 .mtforms-form-wrapper:not(.mtforms-layout-inline):not(.mtforms-layout-floating):not(.mtforms-layout-material) .mtforms-form-group {
@@ -1690,12 +1705,15 @@
 .mtforms-layout-floating .mtforms-field-inner {
   position: relative;
 }
+.mtforms-layout-floating .mtforms-field-inner > label:not(.mtforms-floating-label) {
+  display: none;
+}
 .mtforms-layout-floating .mtforms-input-wrap {
   position: relative;
 }
 .mtforms-layout-floating .mtforms-floating-label {
   position: absolute;
-  top: 1.25rem;
+  top: 26px;
   left: 1.125rem;
   pointer-events: none;
   transition: all 0.2s ease;
