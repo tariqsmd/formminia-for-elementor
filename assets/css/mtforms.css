@@ -1674,9 +1674,7 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* ICON PRESENCE CLASS - Used when field icons are enabled       */
-/* ════════════════════════════════════════════════════════════ */
+/* Icon Presence Classes */
 .mtforms-form-has-icon {
   /* Add any special styling here when field icons are present */
   /* This class is automatically added when show_icons_inputs or show_icons_textarea is enabled */
@@ -1687,9 +1685,7 @@
   /* This class is automatically added when show_icons_gdpr is enabled */
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* DEFAULT LAYOUT - Stacked label + field with optional icons    */
-/* ════════════════════════════════════════════════════════════ */
+/* Default Layout */
 .mtforms-form-wrapper:not(.mtforms-layout-inline):not(.mtforms-layout-floating):not(.mtforms-layout-material) .mtforms-form-group {
   flex-direction: row;
   align-items: center;
@@ -1699,9 +1695,7 @@
   flex: 1;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* LAYOUT: FLOATING LABELS                                       */
-/* ════════════════════════════════════════════════════════════ */
+/* Floating Labels Layout */
 .mtforms-layout-floating .mtforms-field-inner {
   position: relative;
 }
@@ -1752,9 +1746,7 @@
   color: var(--mtforms-text-light, #94a3b8);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* LAYOUT: MATERIAL MINIMAL                                      */
-/* ════════════════════════════════════════════════════════════ */
+/* Material Layout */
 .mtforms-layout-material .mtforms-form-wrapper {
   padding: 1rem;
 }
@@ -1801,9 +1793,7 @@
   left: 0;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* LAYOUT: COMPACT STYLE                                         */
-/* ════════════════════════════════════════════════════════════ */
+/* Compact Layout */
 .mtforms-layout-compact {
   --mtforms-form-padding: 1rem;
   --mtforms-inner-gap: 0.75rem;
@@ -1815,9 +1805,7 @@
   --mtforms-btn-size: 0.9rem;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* LAYOUT: BOXED BORDERLESS                                      */
-/* ════════════════════════════════════════════════════════════ */
+/* Boxed Borderless Layout */
 .mtforms-layout-boxed-border {
   --mtforms-bg: #ffffff;
   --mtforms-form-padding: 3rem;
@@ -1827,9 +1815,7 @@
   --mtforms-field-border-width: 0;
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* LAYOUT: INSET SHADOW STYLE                                    */
-/* ════════════════════════════════════════════════════════════ */
+/* Inset Shadow Layout */
 .mtforms-layout-inset .mtforms-input,
 .mtforms-layout-inset .mtforms-textarea {
   border: 1px solid #e2e8f0;
@@ -1842,9 +1828,7 @@
   box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 0 0 3px var(--mtforms-focus);
 }
 
-/* ════════════════════════════════════════════════════════════ */
-/* LAYOUT: INLINE LABELS & FIELDS                               */
-/* ════════════════════════════════════════════════════════════ */
+/* Inline Layout */
 .mtforms-layout-inline .mtforms-form-group {
   display: flex;
   flex-direction: row;
