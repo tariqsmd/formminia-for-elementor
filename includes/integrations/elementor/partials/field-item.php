@@ -20,31 +20,26 @@ $icon_svg    = $args['icon_svg'];
 
 $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
 
-// Add class if field icons are enabled
-$has_field_icons = false;
-if ( $type === 'textarea' && $settings['show_icons_textarea'] === 'yes' ) {
-	$has_field_icons = true;
-} elseif ( $type !== 'textarea' && $settings['show_icons_inputs'] === 'yes' ) {
-	$has_field_icons = true;
+// Determine if field icons should be shown
+$show_input_icon = false;
+if ( $type === 'textarea' && $settings['show_textarea_icons'] === 'yes' ) {
+	$show_input_icon = true;
+} elseif ( $type !== 'textarea' && $settings['show_input_icons'] === 'yes' ) {
+	$show_input_icon = true;
 }
 
-if ( $has_field_icons ) {
+if ( $show_input_icon ) {
 	$group_classes[] = 'mtforms-form-has-icon';
+	$group_classes[] = 'mtforms-icon-' . ( $type === 'textarea' ? $settings['textarea_icon_position'] : $settings['input_icon_position'] );
 }
 ?>
 
 <div class="<?php echo esc_attr( implode( ' ', $group_classes ) ); ?>">
-    <?php if ( $type === 'textarea' && $settings['show_icons_textarea'] === 'yes' && $settings['icon_position'] === 'left' ): ?>
-        <span class="mtforms-icon mtforms-field-icon">
-            <?php
-            if (!empty($args['icon']['value'])) {
-                \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
-            } elseif (!empty($icon_svg)) {
-                echo $icon_svg;
-            }
-            ?>
-        </span>
-    <?php elseif ( $type !== 'textarea' && $settings['show_icons_inputs'] === 'yes' && $settings['icon_position'] === 'left' ): ?>
+    <?php 
+    // Show icon before/left of input field
+    $icon_position = $type === 'textarea' ? $settings['textarea_icon_position'] : $settings['input_icon_position'];
+    if ( $show_input_icon && $icon_position === 'left' ): 
+    ?>
         <span class="mtforms-icon mtforms-field-icon">
             <?php
             if (!empty($args['icon']['value'])) {
@@ -59,8 +54,8 @@ if ( $has_field_icons ) {
     <div class="mtforms-field-inner">
 	<?php if ( $settings['show_labels'] === 'yes' ): ?>
         <label for="<?php echo esc_attr($field_id); ?>">
-            <?php if ($settings['show_label_icons'] === 'yes' && $settings['icon_position'] === 'left'): ?>
-                <span class="mtforms-icon">
+            <?php if ($settings['show_label_icons'] === 'yes' && $settings['label_icon_position'] === 'before'): ?>
+                <span class="mtforms-icon mtforms-label-icon">
                     <?php
                     if (!empty($args['icon']['value'])) {
                         \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
@@ -78,8 +73,8 @@ if ( $has_field_icons ) {
                 <?php endif; ?>
             </span>
 
-            <?php if ($settings['show_label_icons'] === 'yes' && $settings['icon_position'] === 'right'): ?>
-                <span class="mtforms-icon">
+            <?php if ($settings['show_label_icons'] === 'yes' && $settings['label_icon_position'] === 'after'): ?>
+                <span class="mtforms-icon mtforms-label-icon">
                     <?php
                     if (!empty($args['icon']['value'])) {
                         \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
@@ -112,17 +107,10 @@ if ( $has_field_icons ) {
 
     </div>
 
-    <?php if ( $type === 'textarea' && $settings['show_icons_textarea'] === 'yes' && $settings['icon_position'] === 'right' ): ?>
-        <span class="mtforms-icon mtforms-field-icon">
-            <?php
-            if (!empty($args['icon']['value'])) {
-                \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
-            } elseif (!empty($icon_svg)) {
-                echo $icon_svg;
-            }
-            ?>
-        </span>
-    <?php elseif ( $type !== 'textarea' && $settings['show_icons_inputs'] === 'yes' && $settings['icon_position'] === 'right' ): ?>
+    <?php 
+    // Show icon after/right of input field
+    if ( $show_input_icon && $icon_position === 'right' ): 
+    ?>
         <span class="mtforms-icon mtforms-field-icon">
             <?php
             if (!empty($args['icon']['value'])) {

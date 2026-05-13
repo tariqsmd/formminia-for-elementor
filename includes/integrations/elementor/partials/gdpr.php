@@ -14,7 +14,7 @@ $widget_id = $args['widget_id'];
 
 // Add class if GDPR icons are enabled
 $gdpr_group_classes = array( 'mtforms-form-group', 'mtforms-gdpr-group' );
-if ( $settings['show_icons_gdpr'] === 'yes' ) {
+if ( $settings['show_gdpr_icons'] === 'yes' ) {
 	$gdpr_group_classes[] = 'mtforms-gdpr-has-icon';
 }
 
@@ -25,8 +25,8 @@ if ( $settings['show_gdpr'] === 'yes' ): ?>
             </label>
         <?php endif; ?>
         <label class="mtforms-checkbox-label">
-            <!-- Icon left of checkbox -->
-            <?php if ( $settings['show_icons_gdpr'] === 'yes' && $settings['icon_position'] === 'left' ): ?>
+            <!-- Icon before checkbox -->
+            <?php if ( $settings['show_gdpr_icons'] === 'yes' ): ?>
                 <span class="mtforms-icon mtforms-gdpr-icon">
                     <?php
                     $gdpr_icon = $settings['gdpr_icon'] ?? [];
@@ -44,20 +44,6 @@ if ( $settings['show_gdpr'] === 'yes' ): ?>
             <span class="mtforms-checkbox-text">
                 <?php echo esc_html( $settings['gdpr_text'] ); ?>
             </span>
-
-            <!-- Icon right of checkbox -->
-            <?php if ( $settings['show_icons_gdpr'] === 'yes' && $settings['icon_position'] === 'right' ): ?>
-                <span class="mtforms-icon mtforms-gdpr-icon">
-                    <?php
-                    $gdpr_icon = $settings['gdpr_icon'] ?? [];
-                    if (!empty($gdpr_icon['value'])) {
-                        \Elementor\Icons_Manager::render_icon($gdpr_icon, ['aria-hidden' => 'true']);
-                    } else {
-                        echo '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>';
-                    }
-                    ?>
-                </span>
-            <?php endif; ?>
         </label>
         <input type="hidden" name="mtforms_gdpr_enabled" value="yes">
     </div>

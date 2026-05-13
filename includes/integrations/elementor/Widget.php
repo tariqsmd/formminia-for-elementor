@@ -317,19 +317,7 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-						$this->add_control(
-			'show_placeholders',
-			[
-				'label' => esc_html__('Show Placeholders', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'yes',
-			]
-		);
-
-		$this->add_control(
+				$this->add_control(
 			'show_labels',
 			[
 				'label' => esc_html__('Show Labels', MTFORMS_TEXT_DOMAIN),
@@ -341,30 +329,15 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'show_label_icons',
+						$this->add_control(
+			'show_placeholders',
 			[
-				'label' => esc_html__('Show Labels Icon', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Show Placeholders', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
 				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'yes',
-				'condition' => [
-					'show_labels' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'show_icons_inputs',
-			[
-				'label' => esc_html__('Show Input Fields Icons', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'no',
 			]
 		);
 
@@ -403,21 +376,6 @@ class Widget extends \Elementor\Widget_Base
 				]
 			);
 
-			if( 'message' === $field ){
-
-					$this->add_control(
-			'show_icons_textarea',
-			[
-				'label' => esc_html__('Show Message Field Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-		);
-			}
-
 			$this->add_control(
 				"hr_field_{$field}",
 				[
@@ -435,21 +393,6 @@ class Widget extends \Elementor\Widget_Base
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'no',
-			]
-		);
-
-		$this->add_control(
-			'show_icons_gdpr',
-			[
-				'label' => esc_html__('Show GDPR Icon', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'no',
-				'condition' => [
-					'show_gdpr' => 'yes',
-				],
 			]
 		);
 
@@ -511,6 +454,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Name Label', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Name', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 				'condition' => [
 					'show_name' => 'yes',
 				],
@@ -523,6 +467,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Name Placeholder', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Enter your name', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 				'condition' => [
 					'show_name' => 'yes',
 				],
@@ -535,6 +480,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Email Label', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Email', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 				'condition' => [
 					'show_email' => 'yes',
 				],
@@ -547,6 +493,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Email Placeholder', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Enter your email', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 				'condition' => [
 					'show_email' => 'yes',
 				],
@@ -559,6 +506,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Phone Label', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Phone', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 				'condition' => [
 					'show_phone' => 'yes',
 				],
@@ -571,6 +519,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Phone Placeholder', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Enter your phone number', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 				'condition' => [
 					'show_phone' => 'yes',
 				],
@@ -583,6 +532,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Website Label', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Website', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 				'condition' => [
 					'show_website' => 'yes',
 				],
@@ -595,6 +545,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Website Placeholder', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Your website URL', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 				'condition' => [
 					'show_website' => 'yes',
 				],
@@ -607,6 +558,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Subject Label', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Subject', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 				'condition' => [
 					'show_subject' => 'yes',
 				],
@@ -619,6 +571,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Subject Placeholder', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Enter subject', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 				'condition' => [
 					'show_subject' => 'yes',
 				],
@@ -631,6 +584,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Message Label', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Message', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 				'condition' => [
 					'show_message' => 'yes',
 				],
@@ -643,6 +597,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Message Placeholder', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Write your message here...', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 				'condition' => [
 					'show_message' => 'yes',
 				],
@@ -656,6 +611,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('GDPR Label', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('GDPR Consent', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 				'condition' => [
 					'show_gdpr' => 'yes',
 				],
@@ -668,6 +624,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('GDPR Text', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'default' => esc_html__('I consent to having this website store my submitted information so they can respond to my inquiry.', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 				'condition' => [
 					'show_gdpr' => 'yes',
 				],
@@ -692,6 +649,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Success Message', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'default' => esc_html__('Thank you! Your message has been sent successfully.', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 			]
 		);
 
@@ -701,12 +659,12 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Error Message', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'default' => esc_html__('Oops! Something went wrong. Please try again.', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 			]
 		);
 
 		$this->end_controls_section();
 	}
-
 
 
 	/**
@@ -717,15 +675,101 @@ class Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_field_icons',
 			[
-				'label' => esc_html__('Field Icons Selection', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Field Icons', MTFORMS_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+				'condition' => [
+					'show_icons' => 'yes',
+				],
+			]
+		);
+
+				$this->add_control(
+			'show_icons',
+			[
+				'label' => esc_html__('Show Icons', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
+				'return_value' => 'yes',
+				'default' => 'yes',
+				'description' => esc_html__('Display fields icons.', MTFORMS_TEXT_DOMAIN),
+			]
+		);
+
+		// Icons in Labels Section
+		$this->add_control(
+			'heading_label_icons',
+			[
+				'label' => esc_html__('Icons in Labels', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
 			]
 		);
 
 		$this->add_control(
-			'icon_position',
+			'show_label_icons',
 			[
-				'label' => esc_html__('Icon Position', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Show Icons in Labels', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
+				'return_value' => 'yes',
+				'default' => 'yes',
+				'condition' => [
+					'show_labels' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'label_icon_position',
+			[
+				'label' => esc_html__('Label Icon Position', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'before' => [
+						'title' => esc_html__('Before Text', MTFORMS_TEXT_DOMAIN),
+						'icon' => 'eicon-h-align-left',
+					],
+					'after' => [
+						'title' => esc_html__('After Text', MTFORMS_TEXT_DOMAIN),
+						'icon' => 'eicon-h-align-right',
+					],
+				],
+				'default' => 'before',
+				'condition' => [
+					'show_label_icons' => 'yes',
+					'show_labels' => 'yes',
+				],
+			]
+		);
+
+		// Icons in Input Fields Section
+		$this->add_control(
+			'heading_input_icons',
+			[
+				'label' => esc_html__('Icons in Input Fields', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'show_input_icons',
+			[
+				'label' => esc_html__('Show Icons in Input Fields', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
+		$this->add_control(
+			'input_icon_position',
+			[
+				'label' => esc_html__('Input Icon Position', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
@@ -738,13 +782,98 @@ class Widget extends \Elementor\Widget_Base
 					],
 				],
 				'default' => 'left',
+				'condition' => [
+					'show_input_icons' => 'yes',
+				],
+			]
+		);
+
+		// Icons in Textarea Section
+		$this->add_control(
+			'heading_textarea_icons',
+			[
+				'label' => esc_html__('Icons in Message Field', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'show_message' => 'yes',
+				],
 			]
 		);
 
 		$this->add_control(
-			'hr_icons_display',
+			'show_textarea_icons',
 			[
-				'type' => \Elementor\Controls_Manager::DIVIDER,
+				'label' => esc_html__('Show Message Field Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
+				'return_value' => 'yes',
+				'default' => 'no',
+				'condition' => [
+					'show_message' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'textarea_icon_position',
+			[
+				'label' => esc_html__('Message Icon Position', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__('Left', MTFORMS_TEXT_DOMAIN),
+						'icon' => 'eicon-h-align-left',
+					],
+					'right' => [
+						'title' => esc_html__('Right', MTFORMS_TEXT_DOMAIN),
+						'icon' => 'eicon-h-align-right',
+					],
+				],
+				'default' => 'left',
+				'condition' => [
+					'show_textarea_icons' => 'yes',
+					'show_message' => 'yes',
+				],
+			]
+		);
+
+		// Icons in GDPR Section
+		$this->add_control(
+			'heading_gdpr_icons',
+			[
+				'label' => esc_html__('Icons in GDPR Checkbox', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'show_gdpr' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'show_gdpr_icons',
+			[
+				'label' => esc_html__('Show GDPR Icon', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
+				'return_value' => 'yes',
+				'default' => 'no',
+				'condition' => [
+					'show_gdpr' => 'yes',
+				],
+			]
+		);
+
+		// Field Icons Assignment
+		$this->add_control(
+			'heading_icons_assignment',
+			[
+				'label' => esc_html__('Icon Assignment', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
 			]
 		);
 
@@ -773,9 +902,23 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Message Icon', MTFORMS_TEXT_DOMAIN),
 				'default' => 'fas fa-comment',
 			],
+			'gdpr' => [
+				'label' => esc_html__('GDPR Icon', MTFORMS_TEXT_DOMAIN),
+				'default' => 'fas fa-shield-alt',
+			],
 		];
 
 		foreach ($icons as $field => $data) {
+			$condition = [];
+			
+			if ($field === 'gdpr') {
+				$condition = ['show_gdpr' => 'yes', 'show_gdpr_icons' => 'yes'];
+			} elseif ($field === 'message') {
+				$condition = ['show_message' => 'yes', 'show_textarea_icons' => 'yes'];
+			} else {
+				$condition = ["show_{$field}" => 'yes'];
+			}
+
 			$this->add_control(
 				"icon_{$field}",
 				[
@@ -785,9 +928,7 @@ class Widget extends \Elementor\Widget_Base
 						'value' => $data['default'],
 						'library' => 'fa-solid',
 					],
-					'condition' => [
-						"show_{$field}" => 'yes',
-					],
+					'condition' => $condition,
 				]
 			);
 		}

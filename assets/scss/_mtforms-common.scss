@@ -1,5 +1,5 @@
 .mtforms {
-  font-family: var(--mtforms-font-family);
+  //font-family: var(--mtforms-font-family);
 
   &-form-wrapper {
     width: 100%;
@@ -121,9 +121,8 @@
     position: relative;
     display: flex;  
     flex-direction: column;   
-    // width: 100%;
+    gap: .2rem;
 
-    /* Icons on input/textarea */
     .mtforms-input-icon {
       display: flex;
       align-items: center;
@@ -185,12 +184,12 @@
   }
 
   &-gdpr-group {
-    padding-top: 0.5rem;
+    flex-direction: column;
+    align-items: flex-start;
 
-    /* heading above checkbox for consistency with other fields */
     .mtforms-gdpr-heading {
       display: block;
-      margin-bottom: 0.5rem;
+      // margin-bottom: 0.5rem;
       font-size: var(--mtforms-label-size);
       font-weight: var(--mtforms-label-weight);
       color: var(--mtforms-label-color);
