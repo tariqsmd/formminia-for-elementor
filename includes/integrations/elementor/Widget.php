@@ -126,15 +126,16 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Form Title', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Contact Us', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 			]
 		);
 
-		$this->add_control(
-			'hr_skin',
-			[
-				'type' => \Elementor\Controls_Manager::DIVIDER,
-			]
-		);
+		// $this->add_control(
+		// 	'hr_skin',
+		// 	[
+		// 		'type' => \Elementor\Controls_Manager::DIVIDER,
+		// 	]
+		// );
 
 		$this->add_control(
 			'skin',
@@ -142,6 +143,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Skin', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'skin-0',
+				// 'label_block' => true,
 				'options' => [
 					'skin-0' => __('None', MTFORMS_TEXT_DOMAIN),
 					'skin-1' => __('1. Modern Indigo', MTFORMS_TEXT_DOMAIN),
@@ -185,12 +187,12 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'hr_layout',
-			[
-				'type' => \Elementor\Controls_Manager::DIVIDER,
-			]
-		);
+		// $this->add_control(
+		// 	'hr_layout',
+		// 	[
+		// 		'type' => \Elementor\Controls_Manager::DIVIDER,
+		// 	]
+		// );
 
 		$this->add_control(
 			'layout',
@@ -198,6 +200,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Layout', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'default',
+				// 'label_block' => true,
 				'options' => [
 					'default' => __('None', MTFORMS_TEXT_DOMAIN),
 					'floating' => __('Floating Labels', MTFORMS_TEXT_DOMAIN),
@@ -297,6 +300,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Columns', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => '1',
+				// 'label_block' => true,
 				'options' => [
 					'1' => __('1 Column', MTFORMS_TEXT_DOMAIN),
 					'2' => __('2 Columns', MTFORMS_TEXT_DOMAIN),
@@ -443,18 +447,30 @@ class Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_labels',
 			[
-				'label' => esc_html__('Labels & Placeholders', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Labels', MTFORMS_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		// Name Field
+		$this->add_control(
+			'heading_name_field',
+			[
+				'label' => esc_html__('Name Field', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'show_name' => 'yes',
+				],
 			]
 		);
 
 		$this->add_control(
 			'label_name',
 			[
-				'label' => esc_html__('Name Label', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Label', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Name', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 				'condition' => [
 					'show_name' => 'yes',
 				],
@@ -464,12 +480,24 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'placeholder_name',
 			[
-				'label' => esc_html__('Name Placeholder', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Placeholder', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Enter your name', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 				'condition' => [
 					'show_name' => 'yes',
+				],
+			]
+		);
+
+		// Email Field
+		$this->add_control(
+			'heading_email_field',
+			[
+				'label' => esc_html__('Email Field', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'show_email' => 'yes',
 				],
 			]
 		);
@@ -477,10 +505,9 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_email',
 			[
-				'label' => esc_html__('Email Label', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Label', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Email', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 				'condition' => [
 					'show_email' => 'yes',
 				],
@@ -490,12 +517,24 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'placeholder_email',
 			[
-				'label' => esc_html__('Email Placeholder', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Placeholder', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Enter your email', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 				'condition' => [
 					'show_email' => 'yes',
+				],
+			]
+		);
+
+		// Phone Field
+		$this->add_control(
+			'heading_phone_field',
+			[
+				'label' => esc_html__('Phone Field', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'show_phone' => 'yes',
 				],
 			]
 		);
@@ -503,10 +542,9 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_phone',
 			[
-				'label' => esc_html__('Phone Label', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Label', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Phone', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 				'condition' => [
 					'show_phone' => 'yes',
 				],
@@ -516,12 +554,24 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'placeholder_phone',
 			[
-				'label' => esc_html__('Phone Placeholder', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Placeholder', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Enter your phone number', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 				'condition' => [
 					'show_phone' => 'yes',
+				],
+			]
+		);
+
+		// Website Field
+		$this->add_control(
+			'heading_website_field',
+			[
+				'label' => esc_html__('Website Field', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'show_website' => 'yes',
 				],
 			]
 		);
@@ -529,10 +579,9 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_website',
 			[
-				'label' => esc_html__('Website Label', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Label', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Website', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 				'condition' => [
 					'show_website' => 'yes',
 				],
@@ -542,12 +591,24 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'placeholder_website',
 			[
-				'label' => esc_html__('Website Placeholder', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Placeholder', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Your website URL', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 				'condition' => [
 					'show_website' => 'yes',
+				],
+			]
+		);
+
+		// Subject Field
+		$this->add_control(
+			'heading_subject_field',
+			[
+				'label' => esc_html__('Subject Field', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'show_subject' => 'yes',
 				],
 			]
 		);
@@ -555,10 +616,9 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_subject',
 			[
-				'label' => esc_html__('Subject Label', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Label', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Subject', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 				'condition' => [
 					'show_subject' => 'yes',
 				],
@@ -568,12 +628,24 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'placeholder_subject',
 			[
-				'label' => esc_html__('Subject Placeholder', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Placeholder', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Enter subject', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 				'condition' => [
 					'show_subject' => 'yes',
+				],
+			]
+		);
+
+		// Message Field
+		$this->add_control(
+			'heading_message_field',
+			[
+				'label' => esc_html__('Message Field', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'show_message' => 'yes',
 				],
 			]
 		);
@@ -581,10 +653,9 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'label_message',
 			[
-				'label' => esc_html__('Message Label', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Label', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Message', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 				'condition' => [
 					'show_message' => 'yes',
 				],
@@ -594,24 +665,34 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'placeholder_message',
 			[
-				'label' => esc_html__('Message Placeholder', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Placeholder', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Write your message here...', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 				'condition' => [
 					'show_message' => 'yes',
 				],
 			]
 		);
 
-		// GDPR consent label shown above checkbox (maintains layout consistency)
+		// GDPR Field
+		$this->add_control(
+			'heading_gdpr_field',
+			[
+				'label' => esc_html__('GDPR Consent', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'show_gdpr' => 'yes',
+				],
+			]
+		);
+
 		$this->add_control(
 			'gdpr_label',
 			[
-				'label' => esc_html__('GDPR Label', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Label', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('GDPR Consent', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 				'condition' => [
 					'show_gdpr' => 'yes',
 				],
@@ -621,10 +702,9 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'gdpr_text',
 			[
-				'label' => esc_html__('GDPR Text', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Text', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'default' => esc_html__('I consent to having this website store my submitted information so they can respond to my inquiry.', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 				'condition' => [
 					'show_gdpr' => 'yes',
 				],
@@ -646,20 +726,18 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'success_message',
 			[
-				'label' => esc_html__('Success Message', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Success', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'default' => esc_html__('Thank you! Your message has been sent successfully.', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 			]
 		);
 
 		$this->add_control(
 			'error_message',
 			[
-				'label' => esc_html__('Error Message', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Error', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'default' => esc_html__('Oops! Something went wrong. Please try again.', MTFORMS_TEXT_DOMAIN),
-				'label_block' => true,
 			]
 		);
 
@@ -1523,7 +1601,7 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'heading_field_icons',
 			[
-				'label' => esc_html__('Field Icons', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Icons', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
