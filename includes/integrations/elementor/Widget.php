@@ -126,15 +126,16 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Form Title', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Contact Us', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 			]
 		);
 
-		$this->add_control(
-			'hr_skin',
-			[
-				'type' => \Elementor\Controls_Manager::DIVIDER,
-			]
-		);
+		// $this->add_control(
+		// 	'hr_skin',
+		// 	[
+		// 		'type' => \Elementor\Controls_Manager::DIVIDER,
+		// 	]
+		// );
 
 		$this->add_control(
 			'skin',
@@ -142,6 +143,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Skin', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'skin-0',
+				'label_block' => true,
 				'options' => [
 					'skin-0' => __('None', MTFORMS_TEXT_DOMAIN),
 					'skin-1' => __('1. Modern Indigo', MTFORMS_TEXT_DOMAIN),
@@ -185,12 +187,12 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'hr_layout',
-			[
-				'type' => \Elementor\Controls_Manager::DIVIDER,
-			]
-		);
+		// $this->add_control(
+		// 	'hr_layout',
+		// 	[
+		// 		'type' => \Elementor\Controls_Manager::DIVIDER,
+		// 	]
+		// );
 
 		$this->add_control(
 			'layout',
@@ -443,7 +445,7 @@ class Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_labels',
 			[
-				'label' => esc_html__('Labels & Placeholders', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Labels', MTFORMS_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -675,7 +677,7 @@ class Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_field_icons',
 			[
-				'label' => esc_html__('Field Icons', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Icons', MTFORMS_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 				'condition' => [
 					'show_icons' => 'yes',
