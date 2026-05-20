@@ -343,6 +343,20 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+						$this->add_control(
+			'show_icons',
+			[
+				'label' => esc_html__('Show Icons', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+
+
+
 		$this->add_control(
 			'hr_display_2',
 			[
@@ -682,19 +696,6 @@ class Widget extends \Elementor\Widget_Base
 				'condition' => [
 					'show_icons' => 'yes',
 				],
-			]
-		);
-
-				$this->add_control(
-			'show_icons',
-			[
-				'label' => esc_html__('Show Icons', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'yes',
-				'description' => esc_html__('Display fields icons.', MTFORMS_TEXT_DOMAIN),
 			]
 		);
 
