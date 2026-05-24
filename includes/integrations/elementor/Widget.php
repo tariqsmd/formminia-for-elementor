@@ -699,6 +699,20 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		// Icon Location Selection
+		$this->add_control(
+			'icon_location',
+			[
+				'label' => esc_html__('Icon Location', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'label',
+				'options' => [
+					'label' => esc_html__('Label', MTFORMS_TEXT_DOMAIN),
+					'input' => esc_html__('Input', MTFORMS_TEXT_DOMAIN),
+				],
+			]
+		);
+
 		// Icons in Labels Section
 		$this->add_control(
 			'heading_label_icons',
