@@ -22,10 +22,16 @@ $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
 
 // Determine if field icons should be shown
 $show_input_icon = false;
-if ( $type === 'textarea' && $settings['show_textarea_icons'] === 'yes' ) {
-	$show_input_icon = true;
-} elseif ( $type !== 'textarea' && $settings['show_input_icons'] === 'yes' ) {
-	$show_input_icon = true;
+$show_label_icon = false;
+
+if ( $settings['icon_location'] === 'label' ) {
+	$show_label_icon = true;
+} elseif ( $settings['icon_location'] === 'input' ) {
+	if ( $type === 'textarea' && $settings['show_textarea_icons'] === 'yes' ) {
+		$show_input_icon = true;
+	} elseif ( $type !== 'textarea' && $settings['show_input_icons'] === 'yes' ) {
+		$show_input_icon = true;
+	}
 }
 
 if ( $show_input_icon ) {

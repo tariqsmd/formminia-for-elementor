@@ -734,6 +734,7 @@ class Widget extends \Elementor\Widget_Base
 				'default' => 'yes',
 				'condition' => [
 					'show_labels' => 'yes',
+					'icon_location' => 'label',
 				],
 			]
 		);
@@ -757,6 +758,7 @@ class Widget extends \Elementor\Widget_Base
 				'condition' => [
 					'show_label_icons' => 'yes',
 					'show_labels' => 'yes',
+					'icon_location' => 'label',
 				],
 			]
 		);
@@ -768,6 +770,9 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Icons in Input Fields', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
+				'condition' => [
+					'icon_location' => 'input',
+				],
 			]
 		);
 
@@ -780,6 +785,9 @@ class Widget extends \Elementor\Widget_Base
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
 				'return_value' => 'yes',
 				'default' => 'no',
+				'condition' => [
+					'icon_location' => 'input',
+				],
 			]
 		);
 
@@ -801,6 +809,7 @@ class Widget extends \Elementor\Widget_Base
 				'default' => 'left',
 				'condition' => [
 					'show_input_icons' => 'yes',
+					'icon_location' => 'input',
 				],
 			]
 		);
@@ -814,6 +823,7 @@ class Widget extends \Elementor\Widget_Base
 				'separator' => 'before',
 				'condition' => [
 					'show_message' => 'yes',
+					'icon_location' => 'input',
 				],
 			]
 		);
@@ -829,6 +839,7 @@ class Widget extends \Elementor\Widget_Base
 				'default' => 'no',
 				'condition' => [
 					'show_message' => 'yes',
+					'icon_location' => 'input',
 				],
 			]
 		);
@@ -852,6 +863,7 @@ class Widget extends \Elementor\Widget_Base
 				'condition' => [
 					'show_textarea_icons' => 'yes',
 					'show_message' => 'yes',
+					'icon_location' => 'input',
 				],
 			]
 		);
@@ -865,6 +877,7 @@ class Widget extends \Elementor\Widget_Base
 				'separator' => 'before',
 				'condition' => [
 					'show_gdpr' => 'yes',
+					'icon_location' => 'input',
 				],
 			]
 		);
@@ -880,6 +893,7 @@ class Widget extends \Elementor\Widget_Base
 				'default' => 'no',
 				'condition' => [
 					'show_gdpr' => 'yes',
+					'icon_location' => 'input',
 				],
 			]
 		);
@@ -929,11 +943,11 @@ class Widget extends \Elementor\Widget_Base
 			$condition = [];
 			
 			if ($field === 'gdpr') {
-				$condition = ['show_gdpr' => 'yes', 'show_gdpr_icons' => 'yes'];
+				$condition = ['show_gdpr' => 'yes', 'show_gdpr_icons' => 'yes', 'icon_location' => 'input'];
 			} elseif ($field === 'message') {
-				$condition = ['show_message' => 'yes', 'show_textarea_icons' => 'yes'];
+				$condition = ['show_message' => 'yes', 'show_textarea_icons' => 'yes', 'icon_location' => 'input'];
 			} else {
-				$condition = ["show_{$field}" => 'yes'];
+				$condition = ["show_{$field}" => 'yes', 'icon_location' => 'label'];
 			}
 
 			$this->add_control(

@@ -26,7 +26,7 @@ if (isset($settings['animation']) && !empty($settings['animation']) && $settings
 	$container_classes[] = 'mtforms-animation-' . sanitize_html_class($settings['animation']);
 }
 
-if ($settings['show_label_icons'] === 'yes') {
+if ($settings['icon_location'] === 'label') {
 	$container_classes[] = 'mtforms-with-icons';
 	$container_classes[] = 'mtforms-label-icon-' . sanitize_html_class($settings['label_icon_position'] ?? 'before');
 }
