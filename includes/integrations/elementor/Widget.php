@@ -940,16 +940,6 @@ class Widget extends \Elementor\Widget_Base
 		];
 
 		foreach ($icons as $field => $data) {
-			$condition = [];
-			
-			if ($field === 'gdpr') {
-				$condition = ['show_gdpr' => 'yes', 'show_gdpr_icons' => 'yes', 'icon_location' => 'input'];
-			} elseif ($field === 'message') {
-				$condition = ['show_message' => 'yes', 'show_textarea_icons' => 'yes', 'icon_location' => 'input'];
-			} else {
-				$condition = ["show_{$field}" => 'yes', 'icon_location' => 'label'];
-			}
-
 			$this->add_control(
 				"icon_{$field}",
 				[
@@ -959,7 +949,6 @@ class Widget extends \Elementor\Widget_Base
 						'value' => $data['default'],
 						'library' => 'fa-solid',
 					],
-					'condition' => $condition,
 				]
 			);
 		}
