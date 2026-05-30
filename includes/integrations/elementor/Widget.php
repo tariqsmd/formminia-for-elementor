@@ -713,36 +713,11 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		// Icons in Labels Section
+		// Icon Position Control
 		$this->add_control(
-			'heading_label_icons',
+			'icon_position',
 			[
-				'label' => esc_html__('Icons in Labels', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::HEADING,
-				'separator' => 'before',
-			]
-		);
-
-		$this->add_control(
-			'show_label_icons',
-			[
-				'label' => esc_html__('Show Icons in Labels', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'yes',
-				'condition' => [
-					'show_labels' => 'yes',
-					'icon_location' => 'label',
-				],
-			]
-		);
-
-		$this->add_control(
-			'label_icon_position',
-			[
-				'label' => esc_html__('Label Icon Position', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Icon Position', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'options' => [
 					'before' => [
@@ -753,50 +728,6 @@ class Widget extends \Elementor\Widget_Base
 						'title' => esc_html__('After Text', MTFORMS_TEXT_DOMAIN),
 						'icon' => 'eicon-h-align-right',
 					],
-				],
-				'default' => 'before',
-				'condition' => [
-					'show_label_icons' => 'yes',
-					'show_labels' => 'yes',
-					'icon_location' => 'label',
-				],
-			]
-		);
-
-		// Icons in Input Fields Section
-		$this->add_control(
-			'heading_input_icons',
-			[
-				'label' => esc_html__('Icons in Input Fields', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::HEADING,
-				'separator' => 'before',
-				'condition' => [
-					'icon_location' => 'input',
-				],
-			]
-		);
-
-		$this->add_control(
-			'show_input_icons',
-			[
-				'label' => esc_html__('Show Icons in Input Fields', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'no',
-				'condition' => [
-					'icon_location' => 'input',
-				],
-			]
-		);
-
-		$this->add_control(
-			'input_icon_position',
-			[
-				'label' => esc_html__('Input Icon Position', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::CHOOSE,
-				'options' => [
 					'left' => [
 						'title' => esc_html__('Left', MTFORMS_TEXT_DOMAIN),
 						'icon' => 'eicon-h-align-left',
@@ -806,11 +737,11 @@ class Widget extends \Elementor\Widget_Base
 						'icon' => 'eicon-h-align-right',
 					],
 				],
-				'default' => 'left',
+				'default' => 'before',
 				'condition' => [
-					'show_input_icons' => 'yes',
-					'icon_location' => 'input',
+					'show_icons' => 'yes',
 				],
+				'separator' => 'before',
 			]
 		);
 

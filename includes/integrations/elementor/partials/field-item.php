@@ -23,20 +23,22 @@ $group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
 // Determine if field icons should be shown
 $show_input_icon = false;
 $show_label_icon = false;
+$icon_position = $settings['icon_position'] ?? 'before';
 
 if ( $settings['icon_location'] === 'label' ) {
 	$show_label_icon = true;
 } elseif ( $settings['icon_location'] === 'input' ) {
 	if ( $type === 'textarea' && $settings['show_textarea_icons'] === 'yes' ) {
 		$show_input_icon = true;
-	} elseif ( $type !== 'textarea' && $settings['show_input_icons'] === 'yes' ) {
+		$icon_position = $settings['textarea_icon_position'] ?? 'left';
+	} elseif ( $type !== 'textarea' ) {
 		$show_input_icon = true;
 	}
 }
 
 if ( $show_input_icon ) {
 	$group_classes[] = 'mtforms-form-has-icon';
-	$group_classes[] = 'mtforms-icon-' . ( $type === 'textarea' ? $settings['textarea_icon_position'] : $settings['input_icon_position'] );
+	$group_classes[] = 'mtforms-icon-' . $icon_position;
 }
 ?>
 
@@ -60,7 +62,7 @@ if ( $show_input_icon ) {
     <div class="mtforms-field-inner">
 	<?php if ( $settings['show_labels'] === 'yes' ): ?>
         <label for="<?php echo esc_attr($field_id); ?>">
-            <?php if ($settings['show_label_icons'] === 'yes' && $settings['label_icon_position'] === 'before'): ?>
+            <?php if ($show_label_icon && $settings['icon_position'] === 'before'): ?>
                 <span class="mtforms-icon mtforms-label-icon">
                     <?php
                     if (!empty($args['icon']['value'])) {
@@ -79,7 +81,7 @@ if ( $show_input_icon ) {
                 <?php endif; ?>
             </span>
 
-            <?php if ($settings['show_label_icons'] === 'yes' && $settings['label_icon_position'] === 'after'): ?>
+            <?php if ($show_label_icon && $settings['icon_position'] === 'after'): ?>
                 <span class="mtforms-icon mtforms-label-icon">
                     <?php
                     if (!empty($args['icon']['value'])) {
