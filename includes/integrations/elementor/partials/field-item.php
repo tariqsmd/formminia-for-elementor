@@ -5,49 +5,49 @@
  * @var array $args Partial arguments
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (!defined('ABSPATH')) {
+    exit;
 }
 
-$field_id    = $args['field_id'];
-$type        = $args['type'];
-$name        = $args['name'];
-$label       = $args['label'];
+$field_id = $args['field_id'];
+$type = $args['type'];
+$name = $args['name'];
+$label = $args['label'];
 $placeholder = $args['placeholder'];
-$required    = $args['required'] ? 'required' : '';
-$settings    = $args['settings'];
-$icon_svg    = $args['icon_svg'];
+$required = $args['required'] ? 'required' : '';
+$settings = $args['settings'];
+$icon_svg = $args['icon_svg'];
 
-$group_classes = array( 'mtforms-form-group', 'mtforms-field-' . $type );
+$group_classes = array('mtforms-form-group', 'mtforms-field-' . $type);
 
 // Determine if field icons should be shown
 $show_input_icon = false;
 $show_label_icon = false;
 $icon_position = $settings['icon_position'] ?? 'before';
 
-if ( $settings['icon_location'] === 'label' ) {
-	$show_label_icon = true;
-} elseif ( $settings['icon_location'] === 'input' ) {
-	if ( $type === 'textarea' && $settings['show_textarea_icons'] === 'yes' ) {
-		$show_input_icon = true;
-		$icon_position = $settings['textarea_icon_position'] ?? 'left';
-	} elseif ( $type !== 'textarea' ) {
-		$show_input_icon = true;
-	}
+if ($settings['icon_location'] === 'label') {
+    $show_label_icon = true;
+} elseif ($settings['icon_location'] === 'input') {
+    if ($type === 'textarea' && $settings['show_textarea_icons'] === 'yes') {
+        $show_input_icon = true;
+        $icon_position = $settings['textarea_icon_position'] ?? 'left';
+    } elseif ($type !== 'textarea') {
+        $show_input_icon = true;
+    }
 }
 
-if ( $show_input_icon ) {
-	$group_classes[] = 'mtforms-form-has-icon';
-	$group_classes[] = 'mtforms-icon-' . $icon_position;
+if ($show_input_icon) {
+    $group_classes[] = 'mtforms-form-has-icon';
+    $group_classes[] = 'mtforms-icon-' . $icon_position;
 }
 ?>
 
-<div class="<?php echo esc_attr( implode( ' ', $group_classes ) ); ?>">
-    <?php 
+<div class="<?php echo esc_attr(implode(' ', $group_classes)); ?>">
+    <?php
     // Show icon before/left of input field
-    $icon_position = $type === 'textarea' ? $settings['textarea_icon_position'] : $settings['input_icon_position'];
-    if ( $show_input_icon && $icon_position === 'left' ): 
-    ?>
+    $icon_position = $type === 'textarea' ? $settings['textarea_icon_position'] : $settings['icon_position'];
+    if ($show_input_icon && $icon_position === 'left'):
+        ?>
         <span class="mtforms-icon mtforms-field-icon">
             <?php
             if (!empty($args['icon']['value'])) {
@@ -60,65 +60,69 @@ if ( $show_input_icon ) {
     <?php endif; ?>
 
     <div class="mtforms-field-inner">
-	<?php if ( $settings['show_labels'] === 'yes' ): ?>
-        <label for="<?php echo esc_attr($field_id); ?>">
-            <?php if ($show_label_icon && $settings['icon_position'] === 'before'): ?>
-                <span class="mtforms-icon mtforms-label-icon">
-                    <?php
-                    if (!empty($args['icon']['value'])) {
-                        \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
-                    } elseif (!empty($icon_svg)) {
-                        echo $icon_svg;
-                    }
-                    ?>
-                </span>
-            <?php endif; ?>
-
-            <span class="mtforms-label-text">
-                <?php echo esc_html($label); ?>
-                <?php if ($required): ?>
-                    <span class="required">*</span>
+        <?php if ($settings['show_labels'] === 'yes'): ?>
+            <label for="<?php echo esc_attr($field_id); ?>">
+                <?php if ($show_label_icon && $settings['icon_position'] === 'before'): ?>
+                    <span class="mtforms-icon mtforms-label-icon">
+                        <?php
+                        if (!empty($args['icon']['value'])) {
+                            \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
+                        } elseif (!empty($icon_svg)) {
+                            echo $icon_svg;
+                        }
+                        ?>
+                    </span>
                 <?php endif; ?>
-            </span>
 
-            <?php if ($show_label_icon && $settings['icon_position'] === 'after'): ?>
-                <span class="mtforms-icon mtforms-label-icon">
-                    <?php
-                    if (!empty($args['icon']['value'])) {
-                        \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
-                    } elseif (!empty($icon_svg)) {
-                        echo $icon_svg;
-                    }
-                    ?>
+                <span class="mtforms-label-text">
+                    <?php echo esc_html($label); ?>
+                    <?php if ($required): ?>
+                        <span class="required">*</span>
+                    <?php endif; ?>
                 </span>
-            <?php endif; ?>
-        </label>
-	<?php endif; ?>
-    <div class="mtforms-input-wrap">
 
-		<?php if ( 'textarea' === $type ): ?>
-            <textarea name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $field_id ); ?>" class="mtforms-textarea mtforms-input-<?php echo esc_attr( $type ); ?>" rows="<?php echo esc_attr( $settings['textarea_rows'] ); ?>" <?php if ( $settings['show_placeholders'] === 'yes' ): ?>placeholder="<?php echo esc_attr( $placeholder ); ?>"<?php endif; ?><?php echo $required; ?>></textarea>
-		<?php else: ?>
-            <input type="<?php echo esc_attr( $type ); ?>" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $field_id ); ?>" class="mtforms-input mtforms-input-<?php echo esc_attr( $type ); ?>" <?php if ( $settings['show_placeholders'] === 'yes' ): ?>placeholder="<?php echo esc_attr( $placeholder ); ?>"<?php endif; ?><?php echo $required; ?>>
-        <?php endif; ?>
-
-        	<?php if ( $settings['layout'] === 'floating' ): ?>
-            <label class="mtforms-floating-label" for="<?php echo esc_attr( $field_id ); ?>">
-				<?php echo esc_html( $label ); ?>
-				<?php if ( $required ): ?>
-                    <span class="required">*</span>
-				<?php endif; ?>
+                <?php if ($show_label_icon && $settings['icon_position'] === 'after'): ?>
+                    <span class="mtforms-icon mtforms-label-icon">
+                        <?php
+                        if (!empty($args['icon']['value'])) {
+                            \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
+                        } elseif (!empty($icon_svg)) {
+                            echo $icon_svg;
+                        }
+                        ?>
+                    </span>
+                <?php endif; ?>
             </label>
-	<?php endif; ?>
+        <?php endif; ?>
+        <div class="mtforms-input-wrap">
+
+            <?php if ('textarea' === $type): ?>
+                <textarea name="<?php echo esc_attr($name); ?>" id="<?php echo esc_attr($field_id); ?>"
+                    class="mtforms-textarea mtforms-input-<?php echo esc_attr($type); ?>"
+                    rows="<?php echo esc_attr($settings['textarea_rows']); ?>" <?php if ($settings['show_placeholders'] === 'yes'): ?>placeholder="<?php echo esc_attr($placeholder); ?>" <?php endif; ?><?php echo $required; ?>></textarea>
+            <?php else: ?>
+                <input type="<?php echo esc_attr($type); ?>" name="<?php echo esc_attr($name); ?>"
+                    id="<?php echo esc_attr($field_id); ?>"
+                    class="mtforms-input mtforms-input-<?php echo esc_attr($type); ?>" <?php if ($settings['show_placeholders'] === 'yes'): ?>placeholder="<?php echo esc_attr($placeholder); ?>" <?php endif; ?><?php echo $required; ?>>
+            <?php endif; ?>
+
+            <?php if ($settings['layout'] === 'floating'): ?>
+                <label class="mtforms-floating-label" for="<?php echo esc_attr($field_id); ?>">
+                    <?php echo esc_html($label); ?>
+                    <?php if ($required): ?>
+                        <span class="required">*</span>
+                    <?php endif; ?>
+                </label>
+            <?php endif; ?>
+
+        </div>
 
     </div>
 
-    </div>
-
-    <?php 
+    <?php
     // Show icon after/right of input field
-    if ( $show_input_icon && $icon_position === 'right' ): 
-    ?>
+    if ($show_input_icon && $icon_position === 'right'):
+        ?>
         <span class="mtforms-icon mtforms-field-icon">
             <?php
             if (!empty($args['icon']['value'])) {

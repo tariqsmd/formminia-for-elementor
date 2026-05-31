@@ -101,8 +101,8 @@ class Widget extends \Elementor\Widget_Base
 	protected function register_content_tab_controls()
 	{
 		$this->register_basic_controls();
-		$this->register_label_controls();
 		$this->register_icons_controls();
+		$this->register_label_controls();
 		$this->register_button_controls();
 		$this->register_advanced_controls();
 	}
@@ -129,13 +129,6 @@ class Widget extends \Elementor\Widget_Base
 				'label_block' => true,
 			]
 		);
-
-		// $this->add_control(
-		// 	'hr_skin',
-		// 	[
-		// 		'type' => \Elementor\Controls_Manager::DIVIDER,
-		// 	]
-		// );
 
 		$this->add_control(
 			'skin',
@@ -186,13 +179,6 @@ class Widget extends \Elementor\Widget_Base
 				],
 			]
 		);
-
-		// $this->add_control(
-		// 	'hr_layout',
-		// 	[
-		// 		'type' => \Elementor\Controls_Manager::DIVIDER,
-		// 	]
-		// );
 
 		$this->add_control(
 			'layout',
@@ -319,7 +305,7 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-				$this->add_control(
+		$this->add_control(
 			'show_labels',
 			[
 				'label' => esc_html__('Show Labels', MTFORMS_TEXT_DOMAIN),
@@ -331,7 +317,7 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-						$this->add_control(
+		$this->add_control(
 			'show_placeholders',
 			[
 				'label' => esc_html__('Show Placeholders', MTFORMS_TEXT_DOMAIN),
@@ -343,7 +329,7 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-						$this->add_control(
+		$this->add_control(
 			'show_icons',
 			[
 				'label' => esc_html__('Show Icons', MTFORMS_TEXT_DOMAIN),
@@ -351,11 +337,9 @@ class Widget extends \Elementor\Widget_Base
 				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
 				'return_value' => 'yes',
-				'default' => 'yes',
+				'default' => 'no',
 			]
 		);
-
-
 
 		$this->add_control(
 			'hr_display_2',
@@ -412,7 +396,7 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-				$this->add_control(
+		$this->add_control(
 			'hr_display_3',
 			[
 				'type' => \Elementor\Controls_Manager::DIVIDER,
@@ -707,8 +691,8 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'label',
 				'options' => [
-					'label' => esc_html__('Label', MTFORMS_TEXT_DOMAIN),
-					'input' => esc_html__('Input', MTFORMS_TEXT_DOMAIN),
+					'label' => esc_html__('On Labels', MTFORMS_TEXT_DOMAIN),
+					'input' => esc_html__('On Inputs', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);
@@ -728,20 +712,8 @@ class Widget extends \Elementor\Widget_Base
 						'title' => esc_html__('After Text', MTFORMS_TEXT_DOMAIN),
 						'icon' => 'eicon-h-align-right',
 					],
-					'left' => [
-						'title' => esc_html__('Left', MTFORMS_TEXT_DOMAIN),
-						'icon' => 'eicon-h-align-left',
-					],
-					'right' => [
-						'title' => esc_html__('Right', MTFORMS_TEXT_DOMAIN),
-						'icon' => 'eicon-h-align-right',
-					],
 				],
 				'default' => 'before',
-				'condition' => [
-					'show_icons' => 'yes',
-				],
-				'separator' => 'before',
 			]
 		);
 
