@@ -28,11 +28,10 @@ $icon_position = $settings['icon_position'] ?? 'before';
 if ($settings['icon_location'] === 'label') {
     $show_label_icon = true;
 } elseif ($settings['icon_location'] === 'input') {
-    if ($type === 'textarea' && $settings['show_textarea_icons'] === 'yes') {
-        $show_input_icon = true;
-        $icon_position = $settings['textarea_icon_position'] ?? 'left';
-    } elseif ($type !== 'textarea') {
-        $show_input_icon = true;
+    $show_input_icon = true;
+
+    if ($type === 'textarea' && $settings['show_textarea_icons'] !== 'yes') {
+        $show_input_icon = false;
     }
 }
 
@@ -44,9 +43,8 @@ if ($show_input_icon) {
 
 <div class="<?php echo esc_attr(implode(' ', $group_classes)); ?>">
     <?php
-    // Show icon before/left of input field
-    $icon_position = $type === 'textarea' ? $settings['textarea_icon_position'] : $settings['icon_position'];
-    if ($show_input_icon && $icon_position === 'left'):
+    // Show icon before of input field   
+    if ($show_input_icon && $icon_position === 'before'):
         ?>
         <span class="mtforms-icon mtforms-field-icon">
             <?php
@@ -62,7 +60,7 @@ if ($show_input_icon) {
     <div class="mtforms-field-inner">
         <?php if ($settings['show_labels'] === 'yes'): ?>
             <label for="<?php echo esc_attr($field_id); ?>">
-                <?php if ($show_label_icon && $settings['icon_position'] === 'before'): ?>
+                <?php if ($show_label_icon && $icon_position === 'before'): ?>
                     <span class="mtforms-icon mtforms-label-icon">
                         <?php
                         if (!empty($args['icon']['value'])) {
@@ -81,7 +79,7 @@ if ($show_input_icon) {
                     <?php endif; ?>
                 </span>
 
-                <?php if ($show_label_icon && $settings['icon_position'] === 'after'): ?>
+                <?php if ($show_label_icon && $icon_position === 'after'): ?>
                     <span class="mtforms-icon mtforms-label-icon">
                         <?php
                         if (!empty($args['icon']['value'])) {
@@ -120,8 +118,8 @@ if ($show_input_icon) {
     </div>
 
     <?php
-    // Show icon after/right of input field
-    if ($show_input_icon && $icon_position === 'right'):
+    // Show icon after of input field
+    if ($show_input_icon && $icon_position === 'after'):
         ?>
         <span class="mtforms-icon mtforms-field-icon">
             <?php

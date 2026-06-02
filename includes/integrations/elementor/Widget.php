@@ -684,16 +684,53 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		// Icon Location Selection
+		// $this->add_control(
+		// 	'icon_location',
+		// 	[
+		// 		'label' => esc_html__('Icon Location', MTFORMS_TEXT_DOMAIN),
+		// 		'type' => \Elementor\Controls_Manager::SELECT,
+		// 		'default' => 'label',
+		// 		'options' => [
+		// 			'label' => esc_html__('On Labels', MTFORMS_TEXT_DOMAIN),
+		// 			'input' => esc_html__('On Inputs', MTFORMS_TEXT_DOMAIN),
+		// 		],
+		// 	]
+		// );
+
+		// $this->add_control(
+		// 	'icon_location',
+		// 	[
+		// 		'label' => esc_html__('Icon Location', MTFORMS_TEXT_DOMAIN),
+		// 		'type' => \Elementor\Controls_Manager::SWITCHER,
+		// 		'label_on' => esc_html__('Labels', MTFORMS_TEXT_DOMAIN),
+		// 		'label_off' => esc_html__('Inputs', MTFORMS_TEXT_DOMAIN),
+		// 		'return_value' => 'yes',
+		// 		'default' => 'no',
+		// 		// 'condition' => [
+		// 		// 	'show_gdpr' => 'yes',
+		// 		// 	'icon_location' => 'input',
+		// 		// ],
+		// 	]
+		// );
+
 		$this->add_control(
 			'icon_location',
 			[
-				'label' => esc_html__('Icon Location', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SELECT,
+				'label' => esc_html__('Location', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'default' => 'label',
 				'options' => [
-					'label' => esc_html__('On Labels', MTFORMS_TEXT_DOMAIN),
-					'input' => esc_html__('On Inputs', MTFORMS_TEXT_DOMAIN),
+					'label' => [
+						'title' => esc_html__('Label', MTFORMS_TEXT_DOMAIN),
+						'icon' => 'eicon-form-vertical',
+
+					],
+					'input' => [
+						'title' => esc_html__('Input', MTFORMS_TEXT_DOMAIN),
+						'icon' => 'eicon-navigation-vertical'
+					],
 				],
+				'toggle' => false,
 			]
 		);
 
@@ -701,7 +738,7 @@ class Widget extends \Elementor\Widget_Base
 		$this->add_control(
 			'icon_position',
 			[
-				'label' => esc_html__('Icon Position', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Position', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'options' => [
 					'before' => [
@@ -718,23 +755,23 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		// Icons in Textarea Section
-		$this->add_control(
-			'heading_textarea_icons',
-			[
-				'label' => esc_html__('Icons in Message Field', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::HEADING,
-				'separator' => 'before',
-				'condition' => [
-					'show_message' => 'yes',
-					'icon_location' => 'input',
-				],
-			]
-		);
+		// $this->add_control(
+		// 	'heading_textarea_icons',
+		// 	[
+		// 		'label' => esc_html__('Icons in Message Field', MTFORMS_TEXT_DOMAIN),
+		// 		'type' => \Elementor\Controls_Manager::HEADING,
+		// 		'separator' => 'before',
+		// 		'condition' => [
+		// 			'show_message' => 'yes',
+		// 			'icon_location' => 'input',
+		// 		],
+		// 	]
+		// );
 
 		$this->add_control(
 			'show_textarea_icons',
 			[
-				'label' => esc_html__('Show Message Field Icon', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Message Icon', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
 				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
@@ -747,48 +784,48 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'textarea_icon_position',
-			[
-				'label' => esc_html__('Message Icon Position', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::CHOOSE,
-				'options' => [
-					'left' => [
-						'title' => esc_html__('Left', MTFORMS_TEXT_DOMAIN),
-						'icon' => 'eicon-h-align-left',
-					],
-					'right' => [
-						'title' => esc_html__('Right', MTFORMS_TEXT_DOMAIN),
-						'icon' => 'eicon-h-align-right',
-					],
-				],
-				'default' => 'left',
-				'condition' => [
-					'show_textarea_icons' => 'yes',
-					'show_message' => 'yes',
-					'icon_location' => 'input',
-				],
-			]
-		);
+		// $this->add_control(
+		// 	'textarea_icon_position',
+		// 	[
+		// 		'label' => esc_html__('Message Icon Position', MTFORMS_TEXT_DOMAIN),
+		// 		'type' => \Elementor\Controls_Manager::CHOOSE,
+		// 		'options' => [
+		// 			'left' => [
+		// 				'title' => esc_html__('Left', MTFORMS_TEXT_DOMAIN),
+		// 				'icon' => 'eicon-h-align-left',
+		// 			],
+		// 			'right' => [
+		// 				'title' => esc_html__('Right', MTFORMS_TEXT_DOMAIN),
+		// 				'icon' => 'eicon-h-align-right',
+		// 			],
+		// 		],
+		// 		'default' => 'left',
+		// 		'condition' => [
+		// 			'show_textarea_icons' => 'yes',
+		// 			'show_message' => 'yes',
+		// 			'icon_location' => 'input',
+		// 		],
+		// 	]
+		// );
 
 		// Icons in GDPR Section
-		$this->add_control(
-			'heading_gdpr_icons',
-			[
-				'label' => esc_html__('Icons in GDPR Checkbox', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::HEADING,
-				'separator' => 'before',
-				'condition' => [
-					'show_gdpr' => 'yes',
-					'icon_location' => 'input',
-				],
-			]
-		);
+		// $this->add_control(
+		// 	'heading_gdpr_icons',
+		// 	[
+		// 		'label' => esc_html__('Icons in GDPR Checkbox', MTFORMS_TEXT_DOMAIN),
+		// 		'type' => \Elementor\Controls_Manager::HEADING,
+		// 		'separator' => 'before',
+		// 		'condition' => [
+		// 			'show_gdpr' => 'yes',
+		// 			'icon_location' => 'input',
+		// 		],
+		// 	]
+		// );
 
 		$this->add_control(
 			'show_gdpr_icons',
 			[
-				'label' => esc_html__('Show GDPR Icon', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('GDPR Icon', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SWITCHER,
 				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),

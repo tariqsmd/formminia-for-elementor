@@ -185,7 +185,8 @@
   order: 1;
 }
 .mtforms-input-wrap .mtforms-input-icon:first-child {
-  order: -1; /* left icon goes first visually */
+  order: -1;
+  /* left icon goes first visually */
 }
 .mtforms-input-wrap .mtforms-input,
 .mtforms-input-wrap .mtforms-textarea {
@@ -242,9 +243,9 @@
   line-height: 1.5;
   user-select: none;
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: var(--mtforms-text-light);
+}
+.mtforms-gdpr-group .mtforms-gdpr-icon {
+  margin-top: 0.14rem;
 }
 .mtforms-gdpr-group .just-validate-error-label {
   padding-left: 32px;
@@ -1683,8 +1684,6 @@
 
 /* Default Layout */
 .mtforms-form-wrapper:not(.mtforms-layout-inline):not(.mtforms-layout-floating):not(.mtforms-layout-material) .mtforms-form-group {
-  flex-direction: row;
-  align-items: center;
   /* When no icons are present, field-inner takes full width */
 }
 .mtforms-form-wrapper:not(.mtforms-layout-inline):not(.mtforms-layout-floating):not(.mtforms-layout-material) .mtforms-form-group .mtforms-field-inner {

@@ -45,8 +45,8 @@
 /* Default Layout */
 .mtforms-form-wrapper:not(.mtforms-layout-inline):not(.mtforms-layout-floating):not(.mtforms-layout-material) {
     .mtforms-form-group {
-        flex-direction: row;
-        align-items: center;
+        // flex-direction: row;
+        // align-items: center;
         
         /* When no icons are present, field-inner takes full width */
         .mtforms-field-inner {
