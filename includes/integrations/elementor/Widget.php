@@ -743,11 +743,11 @@ class Widget extends \Elementor\Widget_Base
 				'options' => [
 					'before' => [
 						'title' => esc_html__('Before Text', MTFORMS_TEXT_DOMAIN),
-						'icon' => 'eicon-h-align-left',
+						'icon' => 'eicon-ellipsis-h',
 					],
 					'after' => [
 						'title' => esc_html__('After Text', MTFORMS_TEXT_DOMAIN),
-						'icon' => 'eicon-h-align-right',
+						'icon' => 'eicon-ellipsis-v',
 					],
 				],
 				'default' => 'before',
