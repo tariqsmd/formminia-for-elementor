@@ -722,12 +722,12 @@ class Widget extends \Elementor\Widget_Base
 				'options' => [
 					'label' => [
 						'title' => esc_html__('Label', MTFORMS_TEXT_DOMAIN),
-						'icon' => 'eicon-form-vertical',
+						'icon' => 'eicon-ellipsis-h',
 
 					],
 					'input' => [
 						'title' => esc_html__('Input', MTFORMS_TEXT_DOMAIN),
-						'icon' => 'eicon-navigation-vertical'
+						'icon' => 'eicon-ellipsis-v',
 					],
 				],
 				'toggle' => false,
@@ -743,11 +743,11 @@ class Widget extends \Elementor\Widget_Base
 				'options' => [
 					'before' => [
 						'title' => esc_html__('Before Text', MTFORMS_TEXT_DOMAIN),
-						'icon' => 'eicon-ellipsis-h',
+						'icon' => 'eicon-h-align-left',
 					],
 					'after' => [
 						'title' => esc_html__('After Text', MTFORMS_TEXT_DOMAIN),
-						'icon' => 'eicon-ellipsis-v',
+						'icon' => 'eicon-h-align-right',
 					],
 				],
 				'default' => 'before',
@@ -1006,6 +1006,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Form HTML ID', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'description' => esc_html__('Unique ID for the form element (optional).', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
 			]
 		);
 
@@ -1014,6 +1015,7 @@ class Widget extends \Elementor\Widget_Base
 			[
 				'label' => esc_html__('Custom CSS Classes', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::TEXT,
+				'label_block' => true,
 			]
 		);
 
