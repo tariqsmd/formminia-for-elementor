@@ -2692,6 +2692,16 @@ class Widget extends \Elementor\Widget_Base
 		$settings = $this->get_settings_for_display();
 		$widget_id = $this->get_id();
 
+		// Enqueue Captcha scripts on-demand if enabled in widget settings
+		if ($settings['show_captcha'] === 'yes') {
+			$captcha_provider = get_option('mtforms_captcha_provider', 'none');
+			if ($captcha_provider === 'recaptcha') {
+				wp_enqueue_script('google-recaptcha');
+			} elseif ($captcha_provider === 'turnstile') {
+				wp_enqueue_script('cloudflare-turnstile');
+			}
+		}
+
 		$this->get_partial(
 			'form-header',
 			[

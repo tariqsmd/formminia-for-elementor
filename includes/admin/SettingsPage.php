@@ -119,7 +119,7 @@ class SettingsPage
 	 */
 	public function display_plugin_setup_page()
 	{
-		$path = MTFORMS_PLUGIN_DIR . 'includes/admin/settings-page.php';
+		$path = MTFORMS_PLUGIN_DIR . 'includes/admin/settings-view.php';
 		if (file_exists($path)) {
 			include_once $path;
 		}

@@ -89,17 +89,17 @@ class FormController
 			true
 		);
 
-		// Enqueue Captcha scripts if provider is configured
+		// Register Captcha scripts (will be enqueued on-demand by the Elementor widget)
 		$captcha_provider = get_option('mtforms_captcha_provider', 'none');
 		if ($captcha_provider === 'recaptcha') {
 			$site_key = get_option('mtforms_recaptcha_site_key');
 			if (!empty($site_key)) {
-				wp_enqueue_script('google-recaptcha', 'https://www.google.com/recaptcha/api.js', array(), null, true);
+				wp_register_script('google-recaptcha', 'https://www.google.com/recaptcha/api.js', array(), null, true);
 			}
 		} elseif ($captcha_provider === 'turnstile') {
 			$site_key = get_option('mtforms_turnstile_site_key');
 			if (!empty($site_key)) {
-				wp_enqueue_script('cloudflare-turnstile', 'https://challenges.cloudflare.com/turnstile/v0/api.js', array(), null, true);
+				wp_register_script('cloudflare-turnstile', 'https://challenges.cloudflare.com/turnstile/v0/api.js', array(), null, true);
 				
 				// Add async/defer to Turnstile
 				add_filter('script_loader_tag', function($tag, $handle) {
