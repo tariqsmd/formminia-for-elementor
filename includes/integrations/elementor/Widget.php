@@ -833,7 +833,6 @@ class Widget extends \Elementor\Widget_Base
 				'default' => 'no',
 				'condition' => [
 					'show_gdpr' => 'yes',
-					'icon_location' => 'input',
 				],
 			]
 		);
