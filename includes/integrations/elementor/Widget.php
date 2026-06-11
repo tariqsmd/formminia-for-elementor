@@ -176,6 +176,9 @@ class Widget extends \Elementor\Widget_Base
 					'skin-35' => __('35. Gold Standard', MTFORMS_TEXT_DOMAIN),
 					'skin-36' => __('36. Emerald Prestige', MTFORMS_TEXT_DOMAIN),
 					'skin-37' => __('37. Sapphire Royal', MTFORMS_TEXT_DOMAIN),
+					'skin-38' => __('38. Glass Dark', MTFORMS_TEXT_DOMAIN),
+					'skin-39' => __('39. Claymorphism', MTFORMS_TEXT_DOMAIN),
+					'skin-40' => __('40. Minimal Dark', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);
@@ -194,6 +197,7 @@ class Widget extends \Elementor\Widget_Base
 					'boxed-border' => __('Boxed Borderless', MTFORMS_TEXT_DOMAIN),
 					'inset' => __('Inset Shadow Style', MTFORMS_TEXT_DOMAIN),
 					'inline' => __('Inline Layout', MTFORMS_TEXT_DOMAIN),
+					'glass' => __('Glassmorphism', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);

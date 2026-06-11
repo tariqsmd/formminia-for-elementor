@@ -92,13 +92,16 @@
         color: var(--mtforms-primary, #2563eb);
         background-color: var(--mtforms-bg, #ffffff);
         font-weight: 600;
+        transform: translateY(-50%) scale(0.9);
     }
 
     /* Support for skins that change background */
-    @at-root .mtforms-skin-1 .mtforms-layout-floating .mtforms-form-group.is-focused .mtforms-floating-label,
-    .mtforms-skin-1 .mtforms-layout-floating .mtforms-form-group.has-value .mtforms-floating-label {
-        background-color: #1a1c23;
-        color: #818cf8;
+    @at-root {
+        [class*="mtforms-skin-"] .mtforms-layout-floating .mtforms-form-group.is-focused .mtforms-floating-label,
+        [class*="mtforms-skin-"] .mtforms-layout-floating .mtforms-form-group.has-value .mtforms-floating-label {
+            background-color: var(--mtforms-bg);
+            color: var(--mtforms-primary);
+        }
     }
 
     .mtforms-input::placeholder,
@@ -203,6 +206,49 @@
             border-color: var(--mtforms-primary);
             box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 0 0 3px var(--mtforms-focus);
         }
+    }
+}
+
+/* Glassmorphism Layout */
+.mtforms-layout-glass {
+    --mtforms-bg: rgba(255, 255, 255, 0.15);
+    --mtforms-input-bg: rgba(255, 255, 255, 0.1);
+    --mtforms-input-border: rgba(255, 255, 255, 0.2);
+    --mtforms-input-focus-bg: rgba(255, 255, 255, 0.2);
+    --mtforms-input-focus-border: rgba(255, 255, 255, 0.5);
+    --mtforms-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --mtforms-radius: 16px;
+    --mtforms-field-radius: 8px;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: var(--mtforms-bg);
+
+    .mtforms-input,
+    .mtforms-textarea {
+        border: 1px solid var(--mtforms-input-border);
+        background: var(--mtforms-input-bg);
+        color: var(--mtforms-text, #ffffff);
+
+        &:focus {
+            background: var(--mtforms-input-focus-bg);
+            border-color: var(--mtforms-input-focus-border);
+            box-shadow: none !important;
+        }
+    }
+
+    .mtforms-form-title {
+        color: #ffffff;
+    }
+
+    .mtforms-label-text {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Adjust for dark skins when glass is applied */
+    @at-root [class*="mtforms-skin-"] .mtforms-layout-glass {
+        background: rgba(var(--mtforms-bg-rgb, 255, 255, 255), 0.15);
     }
 }
 
