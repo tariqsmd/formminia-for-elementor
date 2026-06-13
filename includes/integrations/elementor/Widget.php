@@ -176,9 +176,6 @@ class Widget extends \Elementor\Widget_Base
 					'skin-35' => __('35. Gold Standard', MTFORMS_TEXT_DOMAIN),
 					'skin-36' => __('36. Emerald Prestige', MTFORMS_TEXT_DOMAIN),
 					'skin-37' => __('37. Sapphire Royal', MTFORMS_TEXT_DOMAIN),
-					'skin-38' => __('38. Glass Dark', MTFORMS_TEXT_DOMAIN),
-					'skin-39' => __('39. Claymorphism', MTFORMS_TEXT_DOMAIN),
-					'skin-40' => __('40. Minimal Dark', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);
@@ -197,7 +194,6 @@ class Widget extends \Elementor\Widget_Base
 					'boxed-border' => __('Boxed Borderless', MTFORMS_TEXT_DOMAIN),
 					'inset' => __('Inset Shadow Style', MTFORMS_TEXT_DOMAIN),
 					'inline' => __('Inline Layout', MTFORMS_TEXT_DOMAIN),
-					'glass' => __('Glassmorphism', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);
@@ -1086,12 +1082,89 @@ class Widget extends \Elementor\Widget_Base
 		$this->register_style_title_controls();
 		$this->register_style_container_controls();
 		$this->register_style_fields_wrapper_controls();
+		$this->register_style_group_controls();
 		$this->register_style_label_controls();
 		$this->register_style_field_controls();
 		$this->register_style_specific_fields();
 		$this->register_style_message_controls();
 		$this->register_style_gdpr_controls();
 		$this->register_style_button_controls();
+	}
+
+	/**
+	 * Style: Field Group Controls.
+	 */
+	protected function register_style_group_controls()
+	{
+		$this->start_controls_section(
+			'section_style_field_group',
+			[
+				'label' => esc_html__('Field Group (Wrapper)', MTFORMS_TEXT_DOMAIN),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_responsive_control(
+			'group_padding',
+			[
+				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-group' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'group_margin',
+			[
+				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-group' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'group_background',
+				'selector' => '{{WRAPPER}} .mtforms-form-group',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'group_border',
+				'selector' => '{{WRAPPER}} .mtforms-form-group',
+			]
+		);
+
+		$this->add_responsive_control(
+			'group_border_radius',
+			[
+				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-group' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'group_box_shadow',
+				'selector' => '{{WRAPPER}} .mtforms-form-group',
+			]
+		);
+
+		$this->end_controls_section();
 	}
 
 
@@ -1484,6 +1557,34 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'label_border',
+				'selector' => '{{WRAPPER}} .mtforms-form-group label',
+			]
+		);
+
+		$this->add_responsive_control(
+			'label_border_radius',
+			[
+				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-group label' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'label_box_shadow',
+				'selector' => '{{WRAPPER}} .mtforms-form-group label',
+			]
+		);
+
 		// Field Icons Controls
 		$this->add_control(
 			'heading_field_icons',
@@ -1592,6 +1693,17 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+				'condition' => [
+					'show_icons' => 'yes',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'icon_background',
+				'selector' => '{{WRAPPER}} .mtforms-icon',
 				'condition' => [
 					'show_icons' => 'yes',
 				],
@@ -1920,6 +2032,14 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-input, {{WRAPPER}} .mtforms-textarea' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'input_background',
+				'selector' => '{{WRAPPER}} .mtforms-input, {{WRAPPER}} .mtforms-textarea',
 			]
 		);
 
@@ -2680,6 +2800,34 @@ class Widget extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'gdpr_background',
+				'selector' => '{{WRAPPER}} .mtforms-gdpr-consent',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'gdpr_border',
+				'selector' => '{{WRAPPER}} .mtforms-gdpr-consent',
+			]
+		);
+
+		$this->add_responsive_control(
+			'gdpr_border_radius',
+			[
+				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-gdpr-consent' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'gdpr_box_shadow',
 				'selector' => '{{WRAPPER}} .mtforms-gdpr-consent',
 			]
 		);
