@@ -1085,7 +1085,6 @@ class Widget extends \Elementor\Widget_Base
 		$this->register_style_group_controls();
 		$this->register_style_label_controls();
 		$this->register_style_field_controls();
-		$this->register_style_specific_fields();
 		$this->register_style_message_controls();
 		$this->register_style_gdpr_controls();
 		$this->register_style_button_controls();
