@@ -58,6 +58,9 @@ if (!empty($settings['form_id'])) {
 				<input type="text" name="mtforms_hp" tabindex="-1" autocomplete="off">
 			</div>
 		<?php endif; ?>
+		<?php if (!empty($settings['mail_to'])): ?>
+			<input type="hidden" name="mtforms_to" value="<?php echo esc_attr($settings['mail_to']); ?>">
+		<?php endif; ?>
 		<?php if (!empty($settings['mail_cc'])): ?>
 			<input type="hidden" name="mtforms_cc" value="<?php echo esc_attr($settings['mail_cc']); ?>">
 		<?php endif; ?>

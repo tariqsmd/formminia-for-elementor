@@ -1023,6 +1023,16 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
+			'mail_to',
+			[
+				'label' => esc_html__('Recipient Email', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'description' => esc_html__('Optional recipient email address. If empty, global settings will be used.', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+			]
+		);
+
+		$this->add_control(
 			'mail_cc',
 			[
 				'label' => esc_html__('CC Email', MTFORMS_TEXT_DOMAIN),

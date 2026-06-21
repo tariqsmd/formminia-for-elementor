@@ -53,7 +53,11 @@ class SubmissionMailer
 		// Message should be at the bottom
 		$form_fields[__('Message', MTFORMS_TEXT_DOMAIN)] = $submission->message;
 
-		$to = $this->config->get('mtforms_admin_email', get_option('admin_email'));
+		$to = $submission->to;
+		if (empty($to)) {
+			$to = $this->config->get('mtforms_admin_email', get_option('admin_email'));
+		}
+		
 		$from_name = $this->config->get('mtforms_email_from_name', get_bloginfo('name'));
 		$default_sub = $this->config->get('mtforms_email_subject', 'New Contact Form Submission');
 		$use_html = $this->config->get('mtforms_enable_html_email', 'yes') === 'yes';
