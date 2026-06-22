@@ -990,30 +990,6 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
-			'redirect_on_success',
-			[
-				'label' => esc_html__('Redirect After Submit', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
-				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-		);
-
-		$this->add_control(
-			'success_redirect_url',
-			[
-				'label' => esc_html__('Redirect URL', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::URL,
-				'placeholder' => esc_html__('https://your-link.com', MTFORMS_TEXT_DOMAIN),
-				'condition' => [
-					'redirect_on_success' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
 			'heading_email_settings',
 			[
 				'label' => esc_html__('Email Settings', MTFORMS_TEXT_DOMAIN),
@@ -1049,6 +1025,39 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'description' => esc_html__('Optional BCC email addresses, separate with commas.', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
+			]
+		);
+
+		$this->add_control(
+			'heading_redirect_settings',
+			[
+				'label' => esc_html__('Redirect After Submit', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'redirect_on_success',
+			[
+				'label' => esc_html__('Enable Redirect', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
+		$this->add_control(
+			'success_redirect_url',
+			[
+				'label' => esc_html__('Redirect URL', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::URL,
+				'placeholder' => esc_html__('https://your-link.com', MTFORMS_TEXT_DOMAIN),
+				'condition' => [
+					'redirect_on_success' => 'yes',
+				],
 			]
 		);
 
@@ -1161,17 +1170,17 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_responsive_control(
-			'form_width',
-			[
-				'label' => esc_html__('Form Width', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['px', '%', 'vw'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => 'width: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
+		// $this->add_responsive_control(
+		// 	'form_width',
+		// 	[
+		// 		'label' => esc_html__('Form Width', MTFORMS_TEXT_DOMAIN),
+		// 		'type' => \Elementor\Controls_Manager::SLIDER,
+		// 		'size_units' => ['px', '%', 'vw'],
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} .mtforms-form-wrapper' => 'width: {{SIZE}}{{UNIT}};',
+		// 		],
+		// 	]
+		// );
 
 		$this->add_responsive_control(
 			'form_margin',
