@@ -150,6 +150,18 @@ class Widget extends \Elementor\Widget_Base
 					'skin-9' => __('9. Crystal White', MTFORMS_TEXT_DOMAIN),
 					'skin-10' => __('10. Vibrant Coral', MTFORMS_TEXT_DOMAIN),
 					'skin-11' => __('11. Platinum Luxury', MTFORMS_TEXT_DOMAIN),
+					'skin-12' => __('12. Midnight Glow', MTFORMS_TEXT_DOMAIN),
+					'skin-13' => __('13. Cyberpunk Glitch', MTFORMS_TEXT_DOMAIN),
+					'skin-14' => __('14. Paper Stack', MTFORMS_TEXT_DOMAIN),
+					'skin-15' => __('15. Liquid Metal', MTFORMS_TEXT_DOMAIN),
+					'skin-16' => __('16. Vintage Terminal', MTFORMS_TEXT_DOMAIN),
+					'skin-17' => __('17. Apple Minimal', MTFORMS_TEXT_DOMAIN),
+					'skin-18' => __('18. Spotify Dark', MTFORMS_TEXT_DOMAIN),
+					'skin-19' => __('19. Google Material 3', MTFORMS_TEXT_DOMAIN),
+					'skin-20' => __('20. Meta Blue', MTFORMS_TEXT_DOMAIN),
+					'skin-21' => __('21. Claymorphism Soft', MTFORMS_TEXT_DOMAIN),
+					'skin-22' => __('22. Neo-Brutalism Pop', MTFORMS_TEXT_DOMAIN),
+					'skin-23' => __('23. Mesh Gradient Aura', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);
