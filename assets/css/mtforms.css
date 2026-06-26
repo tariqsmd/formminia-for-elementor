@@ -1028,7 +1028,7 @@
   background: #22cc22;
 }
 
-/* Apple Minimal */
+/* Minimalist Tech */
 .mtforms-skin-17 {
   --mtforms-bg: #ffffff;
   --mtforms-text: #1d1d1f;
@@ -1060,32 +1060,32 @@
   box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1) !important;
 }
 
-/* Spotify Dark */
+/* Vibrant Pulse */
 .mtforms-skin-18 {
-  --mtforms-bg: #121212;
-  --mtforms-text: #ffffff;
-  --mtforms-primary: #1ed760;
-  --mtforms-secondary: #b3b3b3;
-  --mtforms-title-color: #ffffff;
+  --mtforms-bg: #ffffff;
+  --mtforms-text: #191414;
+  --mtforms-primary: #1db954;
+  --mtforms-secondary: #535353;
+  --mtforms-title-color: #191414;
   --mtforms-title-weight: 700;
   --mtforms-title-size: 2rem;
-  --mtforms-label-color: #ffffff;
+  --mtforms-label-color: #191414;
   --mtforms-label-weight: 700;
-  --mtforms-input-bg: #2a2a2a;
-  --mtforms-input-border: 1px solid transparent;
-  --mtforms-input-color: #ffffff;
-  --mtforms-input-focus-bg: #333333;
-  --mtforms-input-focus-border: #ffffff;
+  --mtforms-input-bg: #f8f8f8;
+  --mtforms-input-border: 1px solid #dcdcdc;
+  --mtforms-input-color: #191414;
+  --mtforms-input-focus-bg: #ffffff;
+  --mtforms-input-focus-border: #1db954;
   --mtforms-field-radius: 4px;
-  --mtforms-btn-bg: #1ed760;
-  --mtforms-btn-color: #000000;
-  --mtforms-btn-hover-bg: #1fdf64;
+  --mtforms-btn-bg: #1db954;
+  --mtforms-btn-color: #ffffff;
+  --mtforms-btn-hover-bg: #1ed760;
   --mtforms-btn-radius: 500px;
   --mtforms-btn-weight: 700;
   --mtforms-btn-padding: 1rem 2.5rem;
-  --mtforms-radius: 8px;
+  --mtforms-radius: 12px;
   --mtforms-form-padding: 3rem;
-  --mtforms-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --mtforms-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 .mtforms-skin-18 .mtforms-submit-btn {
   transition: transform 33ms cubic-bezier(0.3, 0, 0, 1);
@@ -1094,7 +1094,7 @@
   transform: scale(1.04);
 }
 
-/* Google Material 3 */
+/* Clean Material */
 .mtforms-skin-19 {
   --mtforms-bg: #fef7ff; /* Material M3 Surface Container */
   --mtforms-text: #1d1b20;
@@ -1129,7 +1129,7 @@
   border-bottom-width: 2px;
 }
 
-/* Meta Blue */
+/* Social Connect */
 .mtforms-skin-20 {
   --mtforms-bg: #ffffff;
   --mtforms-text: #1c1e21;
@@ -1156,7 +1156,7 @@
   border: 1px solid #dddfe2;
 }
 
-/* Claymorphism Soft */
+/* Soft Clay */
 .mtforms-skin-21 {
   --mtforms-bg: #f0f4f9;
   --mtforms-text: #4a5568;
@@ -1197,7 +1197,7 @@
   box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.1), 4px 4px 10px #ccd1d9;
 }
 
-/* Neo-Brutalism Pop */
+/* Pop Brutalist */
 .mtforms-skin-22 {
   --mtforms-bg: #ffde03; /* Bright Yellow */
   --mtforms-text: #000000;
@@ -1248,23 +1248,23 @@
   border-style: solid;
 }
 
-/* Mesh Gradient Aura */
+/* Aura Gradient */
 .mtforms-skin-23 {
-  --mtforms-bg: #0f172a;
-  --mtforms-text: #f8fafc;
+  --mtforms-bg: #f8fafc;
+  --mtforms-text: #0f172a;
   --mtforms-primary: #38bdf8;
   --mtforms-secondary: #818cf8;
-  --mtforms-title-color: #ffffff;
+  --mtforms-title-color: #0f172a;
   --mtforms-title-weight: 800;
   --mtforms-title-size: 2.25rem;
-  --mtforms-label-color: #94a3b8;
-  --mtforms-input-bg: rgba(255, 255, 255, 0.05);
-  --mtforms-input-border: rgba(255, 255, 255, 0.1);
-  --mtforms-input-color: #ffffff;
-  --mtforms-input-focus-bg: rgba(255, 255, 255, 0.1);
+  --mtforms-label-color: #475569;
+  --mtforms-input-bg: rgba(255, 255, 255, 0.8);
+  --mtforms-input-border: rgba(0, 0, 0, 0.1);
+  --mtforms-input-color: #0f172a;
+  --mtforms-input-focus-bg: #ffffff;
   --mtforms-input-focus-border: #38bdf8;
   --mtforms-field-radius: 16px;
-  --mtforms-btn-bg: rgba(255, 255, 255, 0.15);
+  --mtforms-btn-bg: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
   --mtforms-btn-color: #ffffff;
   --mtforms-btn-radius: 12px;
   --mtforms-btn-weight: 600;
@@ -1273,14 +1273,14 @@
   position: relative;
   overflow: hidden;
   background: var(--mtforms-bg);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   /* Animated Mesh Gradient Background */
 }
 .mtforms-skin-23::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(129, 140, 248, 0.15) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(232, 121, 249, 0.15) 0px, transparent 50%), radial-gradient(at 0% 100%, rgba(56, 189, 248, 0.15) 0px, transparent 50%);
+  background: radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.2) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(129, 140, 248, 0.2) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(232, 121, 249, 0.2) 0px, transparent 50%), radial-gradient(at 0% 100%, rgba(56, 189, 248, 0.2) 0px, transparent 50%);
   filter: blur(40px);
   animation: mtforms-mesh-float 10s ease-in-out infinite alternate;
   z-index: 0;
@@ -1307,12 +1307,554 @@
 }
 .mtforms-skin-23 .mtforms-submit-btn {
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .mtforms-skin-23 .mtforms-submit-btn:hover {
   background: rgba(255, 255, 255, 0.25);
   border-color: #38bdf8;
   box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+}
+
+/* Royal Executive */
+.mtforms-skin-24 {
+  --mtforms-bg: #ffffff;
+  --mtforms-text: #1e293b;
+  --mtforms-primary: #b48c5a; /* Muted Gold */
+  --mtforms-secondary: #64748b;
+  --mtforms-title-color: #1e293b;
+  --mtforms-title-weight: 300;
+  --mtforms-title-size: 2.5rem;
+  --mtforms-title-spacing: 0.15em;
+  --mtforms-label-color: #64748b;
+  --mtforms-label-transform: uppercase;
+  --mtforms-label-size: 0.75rem;
+  --mtforms-input-bg: #fcfcfc;
+  --mtforms-input-border: rgba(180, 140, 90, 0.3);
+  --mtforms-input-color: #1e293b;
+  --mtforms-input-focus-border: #b48c5a;
+  --mtforms-field-radius: 0;
+  --mtforms-field-border-width: 0 0 1px 0;
+  --mtforms-btn-bg: #b48c5a;
+  --mtforms-btn-color: #ffffff;
+  --mtforms-btn-radius: 0;
+  --mtforms-btn-weight: 600;
+  --mtforms-btn-transform: uppercase;
+  --mtforms-btn-spacing: 3px;
+  --mtforms-radius: 0;
+  --mtforms-form-padding: 5rem;
+  --mtforms-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(180, 140, 90, 0.15);
+  position: relative;
+}
+.mtforms-skin-24::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  border: 1px solid rgba(180, 140, 90, 0.1);
+  pointer-events: none;
+}
+.mtforms-skin-24 .mtforms-submit-btn {
+  border: 1px solid #b48c5a;
+  background: transparent;
+  color: #b48c5a;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mtforms-skin-24 .mtforms-submit-btn:hover {
+  background: #b48c5a;
+  color: #ffffff;
+  box-shadow: 0 0 40px rgba(180, 140, 90, 0.2);
+}
+
+/* Organic Flow */
+.mtforms-skin-25 {
+  --mtforms-bg: #fdfbf7;
+  --mtforms-text: #2d3436;
+  --mtforms-primary: #55efc4;
+  --mtforms-secondary: #00b894;
+  --mtforms-title-color: #2d3436;
+  --mtforms-title-weight: 800;
+  --mtforms-label-color: #636e72;
+  --mtforms-input-bg: #ffffff;
+  --mtforms-input-border: #dfe6e9;
+  --mtforms-input-focus-border: #00b894;
+  --mtforms-field-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; /* Organic shape */
+  --mtforms-btn-bg: #00b894;
+  --mtforms-btn-color: #ffffff;
+  --mtforms-btn-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  --mtforms-btn-padding: 1.2rem 2.5rem;
+  --mtforms-radius: 60px 30px 70px 40px;
+  --mtforms-form-padding: 4rem;
+  --mtforms-shadow: 0 20px 40px rgba(0, 184, 148, 0.05);
+  border: 2px solid #f1f2f6;
+}
+.mtforms-skin-25 .mtforms-input,
+.mtforms-skin-25 .mtforms-textarea {
+  border-width: 2px;
+  transition: border-radius 0.5s ease;
+}
+.mtforms-skin-25 .mtforms-input:focus,
+.mtforms-skin-25 .mtforms-textarea:focus {
+  border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+}
+.mtforms-skin-25 .mtforms-submit-btn {
+  transition: border-radius 0.5s ease, transform 0.3s ease;
+}
+.mtforms-skin-25 .mtforms-submit-btn:hover {
+  border-radius: 50%;
+  transform: rotate(2deg) scale(1.05);
+}
+
+/* Retro Pixel */
+.mtforms-skin-26 {
+  --mtforms-bg: #ffffff;
+  --mtforms-text: #000000;
+  --mtforms-primary: #ff0000;
+  --mtforms-secondary: #ff00ff;
+  --mtforms-title-color: #000000;
+  --mtforms-title-weight: 400;
+  --mtforms-title-size: 2rem;
+  --mtforms-title-spacing: 2px;
+  --mtforms-label-color: #ff00ff;
+  --mtforms-label-size: 0.8rem;
+  --mtforms-input-bg: #f5f5f5;
+  --mtforms-input-border: #000000;
+  --mtforms-input-color: #000000;
+  --mtforms-input-focus-bg: #ffffff;
+  --mtforms-input-focus-border: #ff0000;
+  --mtforms-field-radius: 0;
+  --mtforms-btn-bg: #ff0000;
+  --mtforms-btn-color: #ffffff;
+  --mtforms-btn-radius: 0;
+  --mtforms-btn-weight: 400;
+  --mtforms-radius: 0;
+  --mtforms-form-padding: 3rem;
+  /* Pixel border effect */
+  border: 4px solid #000000;
+  box-shadow: 0 4px 0 0 #ccc, 0 -4px 0 0 #ccc, 4px 0 0 0 #ccc, -4px 0 0 0 #ccc, 0 8px 0 0 #eee, 8px 0 0 0 #eee;
+  font-family: "Press Start 2P", "Courier New", Courier, monospace;
+}
+.mtforms-skin-26 .mtforms-input,
+.mtforms-skin-26 .mtforms-textarea {
+  border: 4px solid #000;
+  box-shadow: 4px 4px 0 #eee;
+}
+.mtforms-skin-26 .mtforms-input:focus,
+.mtforms-skin-26 .mtforms-textarea:focus {
+  border-color: #ff0000;
+  box-shadow: 4px 4px 0 #ffebeb;
+}
+.mtforms-skin-26 .mtforms-submit-btn {
+  border: 4px solid #000;
+  box-shadow: 4px 4px 0 #eee;
+  text-transform: uppercase;
+}
+.mtforms-skin-26 .mtforms-submit-btn:hover {
+  background: #ff4444;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #eee;
+}
+.mtforms-skin-26 .mtforms-submit-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #000;
+}
+
+/* Dynamic Stream */
+.mtforms-skin-27 {
+  --mtforms-bg: #ffffff;
+  --mtforms-text: #0f1419;
+  --mtforms-primary: #1d9bf0;
+  --mtforms-secondary: #536471;
+  --mtforms-title-color: #0f1419;
+  --mtforms-title-weight: 700;
+  --mtforms-title-size: 1.75rem;
+  --mtforms-label-color: #536471;
+  --mtforms-label-size: 0.9rem;
+  --mtforms-input-bg: #ffffff;
+  --mtforms-input-border: #cfd9de;
+  --mtforms-input-color: #0f1419;
+  --mtforms-input-focus-bg: #ffffff;
+  --mtforms-input-focus-border: #1d9bf0;
+  --mtforms-field-radius: 4px;
+  --mtforms-btn-bg: #0f1419;
+  --mtforms-btn-color: #ffffff;
+  --mtforms-btn-hover-bg: #272c30;
+  --mtforms-btn-radius: 9999px;
+  --mtforms-btn-weight: 700;
+  --mtforms-btn-padding: 0.75rem 2rem;
+  --mtforms-radius: 16px;
+  --mtforms-form-padding: 2.5rem;
+  --mtforms-shadow: 0 0 10px rgba(0,0,0,0.05);
+  border: 1px solid #eff3f4;
+}
+.mtforms-skin-27 .mtforms-input:focus {
+  box-shadow: 0 0 0 1px #1d9bf0 !important;
+}
+.mtforms-skin-27 .mtforms-submit-btn {
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+/* Corporate Network */
+.mtforms-skin-28 {
+  --mtforms-bg: #ffffff;
+  --mtforms-text: rgba(0, 0, 0, 0.9);
+  --mtforms-primary: #0077b5;
+  --mtforms-secondary: rgba(0, 0, 0, 0.6);
+  --mtforms-title-color: rgba(0, 0, 0, 0.9);
+  --mtforms-title-weight: 600;
+  --mtforms-label-color: rgba(0, 0, 0, 0.6);
+  --mtforms-label-weight: 400;
+  --mtforms-input-bg: #ffffff;
+  --mtforms-input-border: rgba(0, 0, 0, 0.6);
+  --mtforms-input-focus-border: #0077b5;
+  --mtforms-input-focus-shadow: 0 0 0 1px #0077b5;
+  --mtforms-field-radius: 4px;
+  --mtforms-btn-bg: #0077b5;
+  --mtforms-btn-color: #ffffff;
+  --mtforms-btn-hover-bg: #004182;
+  --mtforms-btn-radius: 1.6rem;
+  --mtforms-btn-weight: 600;
+  --mtforms-radius: 8px;
+  --mtforms-form-padding: 2rem;
+  --mtforms-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 4px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.mtforms-skin-28 .mtforms-submit-btn {
+  width: 100%;
+  transition: background-color 0.167s ease;
+}
+.mtforms-skin-28 .mtforms-input,
+.mtforms-skin-28 .mtforms-textarea {
+  transition: box-shadow 0.2s ease;
+}
+
+/* Marketplace Hub */
+.mtforms-skin-29 {
+  --mtforms-bg: #ffffff;
+  --mtforms-text: #111111;
+  --mtforms-primary: #f3a847; /* Amazon-like Orange */
+  --mtforms-secondary: #232f3e;
+  --mtforms-title-color: #232f3e;
+  --mtforms-title-weight: 700;
+  --mtforms-label-color: #111111;
+  --mtforms-label-weight: 700;
+  --mtforms-input-bg: #ffffff;
+  --mtforms-input-border: #888888;
+  --mtforms-input-focus-border: #e77600;
+  --mtforms-input-focus-shadow: 0 0 3px 2px rgba(228, 121, 17, .5);
+  --mtforms-field-radius: 3px;
+  --mtforms-btn-bg: #f0c14b;
+  --mtforms-btn-color: #111111;
+  --mtforms-btn-hover-bg: #f4d078;
+  --mtforms-btn-radius: 3px;
+  --mtforms-btn-weight: 400;
+  --mtforms-radius: 4px;
+  --mtforms-form-padding: 2.5rem;
+  --mtforms-shadow: 0 1px 0 rgba(255,255,255,.4) inset, 0 1px 0 rgba(0,0,0,.08);
+  border: 1px solid #ddd;
+}
+.mtforms-skin-29 .mtforms-submit-btn {
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+}
+
+/* Cinema Spotlight */
+.mtforms-skin-30 {
+  --mtforms-bg: #f5f5f5;
+  --mtforms-text: #221f1f;
+  --mtforms-primary: #e50914; /* Netflix-like Red */
+  --mtforms-secondary: #545454;
+  --mtforms-title-color: #e50914;
+  --mtforms-title-weight: 900;
+  --mtforms-title-size: 2.5rem;
+  --mtforms-label-color: #221f1f;
+  --mtforms-label-weight: 600;
+  --mtforms-input-bg: #ffffff;
+  --mtforms-input-border: #333333;
+  --mtforms-input-focus-bg: #ffffff;
+  --mtforms-input-focus-border: #e50914;
+  --mtforms-field-radius: 2px;
+  --mtforms-btn-bg: #e50914;
+  --mtforms-btn-color: #ffffff;
+  --mtforms-btn-hover-bg: #ff0a16;
+  --mtforms-btn-radius: 4px;
+  --mtforms-btn-weight: 700;
+  --mtforms-btn-transform: uppercase;
+  --mtforms-radius: 8px;
+  --mtforms-form-padding: 3rem;
+  --mtforms-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid #e50914;
+}
+
+/* Team Collaboration */
+.mtforms-skin-31 {
+  --mtforms-bg: #ffffff;
+  --mtforms-text: #1d1c1d;
+  --mtforms-primary: #4a154b; /* Slack-like Purple */
+  --mtforms-secondary: #616061;
+  --mtforms-title-color: #1d1c1d;
+  --mtforms-title-weight: 900;
+  --mtforms-label-color: #1d1c1d;
+  --mtforms-label-weight: 700;
+  --mtforms-input-bg: #ffffff;
+  --mtforms-input-border: rgba(29, 28, 29, 0.3);
+  --mtforms-input-focus-border: #1264a3;
+  --mtforms-input-focus-shadow: 0 0 0 1px #1264a3, 0 0 0 5px rgba(18, 100, 163, 0.1);
+  --mtforms-field-radius: 4px;
+  --mtforms-btn-bg: #007a5a;
+  --mtforms-btn-color: #ffffff;
+  --mtforms-btn-hover-bg: #148567;
+  --mtforms-btn-radius: 4px;
+  --mtforms-btn-weight: 700;
+  --mtforms-radius: 12px;
+  --mtforms-form-padding: 2.5rem;
+  --mtforms-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #dddddd;
+}
+.mtforms-skin-31 .mtforms-submit-btn {
+  width: 100%;
+}
+
+/* Travel Explorer */
+.mtforms-skin-32 {
+  --mtforms-bg: #ffffff;
+  --mtforms-text: #484848;
+  --mtforms-primary: #ff5a5f; /* Airbnb-like Coral */
+  --mtforms-secondary: #767676;
+  --mtforms-title-color: #ff5a5f;
+  --mtforms-title-weight: 800;
+  --mtforms-label-color: #484848;
+  --mtforms-label-weight: 600;
+  --mtforms-label-transform: uppercase;
+  --mtforms-label-size: 0.75rem;
+  --mtforms-input-bg: #ffffff;
+  --mtforms-input-border: #ebebeb;
+  --mtforms-input-focus-border: #008489;
+  --mtforms-field-radius: 8px;
+  --mtforms-field-padding: 1rem;
+  --mtforms-btn-bg: linear-gradient(to right, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
+  --mtforms-btn-color: #ffffff;
+  --mtforms-btn-hover-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+  --mtforms-btn-radius: 8px;
+  --mtforms-btn-weight: 600;
+  --mtforms-radius: 12px;
+  --mtforms-form-padding: 3rem;
+  --mtforms-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid #ebebeb;
+}
+.mtforms-skin-32 .mtforms-input:focus {
+  border-color: #008489 !important;
+}
+
+/* Frosted Glass */
+.mtforms-skin-33 {
+  --mtforms-bg: rgba(255, 255, 255, 0.4);
+  --mtforms-text: #1e293b;
+  --mtforms-primary: #6366f1;
+  --mtforms-secondary: #a855f7;
+  --mtforms-title-color: #1e293b;
+  --mtforms-title-weight: 800;
+  --mtforms-label-color: #475569;
+  --mtforms-input-bg: rgba(255, 255, 255, 0.5);
+  --mtforms-input-border: rgba(255, 255, 255, 0.3);
+  --mtforms-input-focus-bg: rgba(255, 255, 255, 0.8);
+  --mtforms-field-radius: 12px;
+  --mtforms-btn-bg: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --mtforms-btn-color: #ffffff;
+  --mtforms-btn-radius: 12px;
+  --mtforms-btn-weight: 600;
+  --mtforms-radius: 24px;
+  --mtforms-form-padding: 3.5rem;
+  --mtforms-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.mtforms-skin-33 .mtforms-input,
+.mtforms-skin-33 .mtforms-textarea {
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Floating Depth */
+.mtforms-skin-34 {
+  --mtforms-bg: #ffffff;
+  --mtforms-text: #334155;
+  --mtforms-primary: #0ea5e9;
+  --mtforms-secondary: #0284c7;
+  --mtforms-title-color: #0f172a;
+  --mtforms-title-weight: 900;
+  --mtforms-title-size: 2.5rem;
+  --mtforms-label-color: #64748b;
+  --mtforms-input-bg: #f8fafc;
+  --mtforms-input-border: transparent;
+  --mtforms-input-focus-bg: #ffffff;
+  --mtforms-input-focus-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --mtforms-field-radius: 16px;
+  --mtforms-btn-bg: #0ea5e9;
+  --mtforms-btn-color: #ffffff;
+  --mtforms-btn-radius: 16px;
+  --mtforms-btn-shadow: 0 20px 25px -5px rgba(14, 165, 233, 0.4);
+  --mtforms-radius: 32px;
+  --mtforms-form-padding: 4rem;
+  --mtforms-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.15), 0 30px 60px -30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+.mtforms-skin-34:hover {
+  transform: translateY(-10px);
+}
+.mtforms-skin-34 .mtforms-submit-btn {
+  transition: all 0.3s ease;
+}
+.mtforms-skin-34 .mtforms-submit-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 30px -5px rgba(14, 165, 233, 0.5);
+}
+
+/* Serif Elegance */
+.mtforms-skin-35 {
+  --mtforms-bg: #fafaf9;
+  --mtforms-text: #1c1917;
+  --mtforms-primary: #1c1917;
+  --mtforms-secondary: #44403c;
+  --mtforms-title-color: #1c1917;
+  --mtforms-title-weight: 400;
+  --mtforms-title-size: 3rem;
+  --mtforms-label-color: #44403c;
+  --mtforms-label-transform: uppercase;
+  --mtforms-label-spacing: 0.1em;
+  --mtforms-label-size: 0.75rem;
+  --mtforms-input-bg: transparent;
+  --mtforms-input-border: #d6d3d1;
+  --mtforms-input-focus-border: #1c1917;
+  --mtforms-field-radius: 0;
+  --mtforms-field-border-width: 0 0 1px 0;
+  --mtforms-field-padding: 1rem 0;
+  --mtforms-btn-bg: #1c1917;
+  --mtforms-btn-color: #ffffff;
+  --mtforms-btn-radius: 0;
+  --mtforms-btn-padding: 1.25rem 3rem;
+  --mtforms-btn-transform: uppercase;
+  --mtforms-btn-spacing: 0.2em;
+  --mtforms-radius: 0;
+  --mtforms-form-padding: 5rem;
+  --mtforms-shadow: none;
+  font-family: "Playfair Display", "Georgia", serif;
+  border-top: 8px solid #1c1917;
+}
+.mtforms-skin-35 .mtforms-form-title {
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+.mtforms-skin-35 .mtforms-input,
+.mtforms-skin-35 .mtforms-textarea {
+  font-family: sans-serif;
+  font-size: 1.1rem;
+}
+.mtforms-skin-35 .mtforms-submit-btn {
+  width: auto;
+  margin-top: 2rem;
+}
+
+/* Geometric Pop */
+.mtforms-skin-36 {
+  --mtforms-bg: #ffffff;
+  --mtforms-text: #2d3436;
+  --mtforms-primary: #00cec9;
+  --mtforms-secondary: #6c5ce7;
+  --mtforms-title-color: #2d3436;
+  --mtforms-title-weight: 900;
+  --mtforms-title-size: 2.5rem;
+  --mtforms-label-color: #6c5ce7;
+  --mtforms-label-weight: 800;
+  --mtforms-input-bg: #f1f2f6;
+  --mtforms-input-border: #dfe6e9;
+  --mtforms-input-focus-bg: #ffffff;
+  --mtforms-input-focus-border: #00cec9;
+  --mtforms-field-radius: 0;
+  --mtforms-btn-bg: #6c5ce7;
+  --mtforms-btn-color: #ffffff;
+  --mtforms-btn-radius: 0;
+  --mtforms-btn-weight: 900;
+  --mtforms-btn-transform: uppercase;
+  --mtforms-radius: 0;
+  --mtforms-form-padding: 4rem;
+  --mtforms-shadow: 15px 15px 0px rgba(108, 92, 231, 0.1);
+  border: 4px solid #2d3436;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%);
+}
+.mtforms-skin-36 .mtforms-form-title {
+  background: #00cec9;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  display: inline-block;
+  transform: rotate(-2deg) translate(-10px, -20px);
+  box-shadow: 5px 5px 0px #2d3436;
+}
+.mtforms-skin-36 .mtforms-submit-btn {
+  clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+}
+.mtforms-skin-36 .mtforms-submit-btn:hover {
+  background: #00cec9;
+}
+
+/* Gradient Aura */
+.mtforms-skin-37 {
+  --mtforms-bg: #ffffff;
+  --mtforms-text: #1e293b;
+  --mtforms-primary: #f43f5e;
+  --mtforms-secondary: #fb923c;
+  --mtforms-title-color: #1e293b;
+  --mtforms-title-weight: 800;
+  --mtforms-label-color: #64748b;
+  --mtforms-input-bg: #ffffff;
+  --mtforms-input-border: #e2e8f0;
+  --mtforms-input-focus-border: #f43f5e;
+  --mtforms-field-radius: 12px;
+  --mtforms-btn-bg: linear-gradient(to right, #f43f5e, #fb923c);
+  --mtforms-btn-color: #ffffff;
+  --mtforms-btn-radius: 12px;
+  --mtforms-btn-weight: 700;
+  --mtforms-radius: 20px;
+  --mtforms-form-padding: 3rem;
+  --mtforms-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  position: relative;
+  background: #fff;
+  padding: 3rem;
+}
+.mtforms-skin-37::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(135deg, #f43f5e, #fb923c, #8b5cf6, #3b82f6);
+  background-size: 300% 300%;
+  animation: mtforms-aura-rotate 6s linear infinite;
+  border-radius: 24px;
+  z-index: -1;
+}
+@keyframes mtforms-aura-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.mtforms-skin-37 .mtforms-submit-btn {
+  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
+}
+.mtforms-skin-37 .mtforms-submit-btn:hover {
+  box-shadow: 0 8px 25px rgba(244, 63, 94, 0.5);
 }
 
 /**
