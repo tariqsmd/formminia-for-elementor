@@ -101,6 +101,7 @@ class Widget extends \Elementor\Widget_Base
 	protected function register_content_tab_controls()
 	{
 		$this->register_basic_controls();
+		$this->register_fields_controls();
 		$this->register_icons_controls();
 		$this->register_label_controls();
 		$this->register_button_controls();
@@ -279,7 +280,7 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'columns',
 			[
 				'label' => esc_html__('Columns', MTFORMS_TEXT_DOMAIN),
@@ -292,13 +293,25 @@ class Widget extends \Elementor\Widget_Base
 					'4' => __('4 Columns', MTFORMS_TEXT_DOMAIN),
 					'5' => __('5 Columns', MTFORMS_TEXT_DOMAIN),
 				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-fields-wrapper' => '--mtforms-columns: {{VALUE}};',
+				],
 			]
 		);
 
-		$this->add_control(
-			'hr_display_1',
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Register Fields Section.
+	 */
+	protected function register_fields_controls()
+	{
+		$this->start_controls_section(
+			'section_fields',
 			[
-				'type' => \Elementor\Controls_Manager::DIVIDER,
+				'label' => esc_html__('Fields', MTFORMS_TEXT_DOMAIN),
+				'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
 
@@ -425,7 +438,6 @@ class Widget extends \Elementor\Widget_Base
 				'description' => esc_html__('A hidden field to catch spam bots.', MTFORMS_TEXT_DOMAIN),
 			]
 		);
-
 
 		$this->end_controls_section();
 	}
