@@ -2,32 +2,18 @@
  * MTForms Layout Styles
  */
 
-.mtforms-columns {
+.mtforms-fields-wrapper {
+    display: grid;
+    grid-template-columns: repeat(var(--mtforms-columns, 1), 1fr);
+    gap: var(--mtforms-inner-gap, 20px);
+}
 
-    &-1,
-    &-2,
-    &-3,
-    &-4,
-    &-5 {
+/* Legacy column support or if someone still uses these classes */
+.mtforms-columns {
+    &-1, &-2, &-3, &-4, &-5 {
         .mtforms-fields-wrapper {
             display: grid;
         }
-    }
-
-    &-2 .mtforms-fields-wrapper {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    &-3 .mtforms-fields-wrapper {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    &-4 .mtforms-fields-wrapper {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    &-5 .mtforms-fields-wrapper {
-        grid-template-columns: repeat(5, 1fr);
     }
 }
 

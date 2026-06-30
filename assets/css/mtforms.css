@@ -1860,20 +1860,15 @@
 /**
  * MTForms Layout Styles
  */
+.mtforms-fields-wrapper {
+  display: grid;
+  grid-template-columns: repeat(var(--mtforms-columns, 1), 1fr);
+  gap: var(--mtforms-inner-gap, 20px);
+}
+
+/* Legacy column support or if someone still uses these classes */
 .mtforms-columns-1 .mtforms-fields-wrapper, .mtforms-columns-2 .mtforms-fields-wrapper, .mtforms-columns-3 .mtforms-fields-wrapper, .mtforms-columns-4 .mtforms-fields-wrapper, .mtforms-columns-5 .mtforms-fields-wrapper {
   display: grid;
-}
-.mtforms-columns-2 .mtforms-fields-wrapper {
-  grid-template-columns: repeat(2, 1fr);
-}
-.mtforms-columns-3 .mtforms-fields-wrapper {
-  grid-template-columns: repeat(3, 1fr);
-}
-.mtforms-columns-4 .mtforms-fields-wrapper {
-  grid-template-columns: repeat(4, 1fr);
-}
-.mtforms-columns-5 .mtforms-fields-wrapper {
-  grid-template-columns: repeat(5, 1fr);
 }
 
 /* Icon Presence Classes */

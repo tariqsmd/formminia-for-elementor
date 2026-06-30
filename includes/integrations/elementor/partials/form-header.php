@@ -17,7 +17,6 @@ $container_classes = array(
 	'mtforms-form-wrapper',
 	empty($settings['skin']) ? 'mtforms-skin-' : 'mtforms-' . sanitize_html_class($settings['skin']),
 	'mtforms-layout-' . sanitize_html_class($settings['layout']),
-	'mtforms-columns-' . sanitize_html_class($settings['columns'] ?? '1'),
 	'mtforms-input-style-' . sanitize_html_class($settings['input_style']),
 	'mtforms-button-style-' . sanitize_html_class($settings['button_style'] ?? 'default'),
 );
