@@ -137,7 +137,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Skin', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'skin-0',
-				'label_block' => true,
+				// 'label_block' => true,
 				'options' => [
 					'skin-0' => __('None', MTFORMS_TEXT_DOMAIN),
 					'skin-1' => __('1. Modern Indigo', MTFORMS_TEXT_DOMAIN),
@@ -292,6 +292,7 @@ class Widget extends \Elementor\Widget_Base
 					'3' => __('3 Columns', MTFORMS_TEXT_DOMAIN),
 					'4' => __('4 Columns', MTFORMS_TEXT_DOMAIN),
 					'5' => __('5 Columns', MTFORMS_TEXT_DOMAIN),
+					'6' => __('6 Columns', MTFORMS_TEXT_DOMAIN),
 				],
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-fields-wrapper' => '--mtforms-columns: {{VALUE}};',
@@ -335,7 +336,7 @@ class Widget extends \Elementor\Widget_Base
 				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
 				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
 				'return_value' => 'yes',
-				'default' => 'yes',
+				'default' => 'no',
 			]
 		);
 
