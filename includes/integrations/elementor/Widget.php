@@ -177,6 +177,7 @@ class Widget extends \Elementor\Widget_Base
 					'skin-35' => __('35. Serif Elegance', MTFORMS_TEXT_DOMAIN),
 					'skin-36' => __('36. Geometric Pop', MTFORMS_TEXT_DOMAIN),
 					'skin-37' => __('37. Gradient Aura', MTFORMS_TEXT_DOMAIN),
+					'skin-38' => __('38. Organic Playful', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);

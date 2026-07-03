@@ -161,19 +161,7 @@ $tabs = [
                                     </p>
                                 </td>
                             </tr>
-                            <tr valign="top">
-                                <th scope="row">
-                                    <?php esc_html_e('Default Subject', MTFORMS_TEXT_DOMAIN); ?>
-                                </th>
-                                <td>
-                                    <input type="text" name="mtforms_email_subject"
-                                        value="<?php echo esc_attr(get_option('mtforms_email_subject', 'New Contact Form Submission')); ?>"
-                                        class="regular-text" />
-                                    <p class="description">
-                                        <?php esc_html_e('The subject line used for notification emails.', MTFORMS_TEXT_DOMAIN); ?>
-                                    </p>
-                                </td>
-                            </tr>
+
                             <tr valign="top">
                                 <th scope="row">
                                     <?php esc_html_e('Email CC', MTFORMS_TEXT_DOMAIN); ?>
@@ -197,6 +185,19 @@ $tabs = [
                                         class="regular-text" />
                                     <p class="description">
                                         <?php esc_html_e('Comma separated list of email addresses to BCC.', MTFORMS_TEXT_DOMAIN); ?>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <th scope="row">
+                                    <?php esc_html_e('Default Subject', MTFORMS_TEXT_DOMAIN); ?>
+                                </th>
+                                <td>
+                                    <input type="text" name="mtforms_email_subject"
+                                        value="<?php echo esc_attr(get_option('mtforms_email_subject', 'New Contact Form Submission')); ?>"
+                                        class="regular-text" />
+                                    <p class="description">
+                                        <?php esc_html_e('The subject line used for notification emails.', MTFORMS_TEXT_DOMAIN); ?>
                                     </p>
                                 </td>
                             </tr>
