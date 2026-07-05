@@ -1319,6 +1319,19 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_control(
+			'accent_color',
+			[
+				'label' => esc_html__('Accent Color (Native Fields)', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'description' => esc_html__('Styles native checkboxes, radio buttons, and range sliders.', MTFORMS_TEXT_DOMAIN),
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => 'accent-color: {{VALUE}};',
+				],
+				'separator' => 'before',
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -1404,6 +1417,14 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-title-color: {{VALUE}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'title_text_shadow',
+				'selector' => '{{WRAPPER}} .mtforms-form-title',
 			]
 		);
 
@@ -2008,6 +2029,25 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_responsive_control(
+			'input_focus_scale',
+			[
+				'label' => esc_html__('Focus Scale', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'range' => [
+					'px' => [
+						'min' => 0.9,
+						'max' => 1.2,
+						'step' => 0.01,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-input:focus, {{WRAPPER}} .mtforms-textarea:focus' => 'transform: scale({{SIZE}});',
+				],
+			]
+		);
+
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
@@ -2166,6 +2206,14 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_group_control(
+			\Elementor\Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'button_text_shadow',
+				'selector' => '{{WRAPPER}} .mtforms-submit-btn',
+			]
+		);
+
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
@@ -2210,6 +2258,46 @@ class Widget extends \Elementor\Widget_Base
 			[
 				'label' => esc_html__('Hover Animation', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::HOVER_ANIMATION,
+			]
+		);
+
+		$this->add_responsive_control(
+			'button_hover_scale',
+			[
+				'label' => esc_html__('Hover Scale', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'range' => [
+					'px' => [
+						'min' => 0.5,
+						'max' => 1.5,
+						'step' => 0.01,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-submit-btn:hover' => 'transform: scale({{SIZE}});',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'button_hover_translate',
+			[
+				'label' => esc_html__('Hover Offset (Y)', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'range' => [
+					'px' => [
+						'min' => -50,
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-submit-btn:hover' => 'transform: translateY({{SIZE}}{{UNIT}});',
+				],
+				'condition' => [
+					'button_hover_scale[size]' => '', // Only show if scale is not set to avoid conflicts, or use a group transform
+				],
 			]
 		);
 
