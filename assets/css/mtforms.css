@@ -2014,11 +2014,16 @@
 .mtforms-skin-39 .mtforms-textarea {
   border-width: 0 0 1px 0; /* Bottom border only for a minimalist look */
   background: transparent;
-  transition: border-color 0.4s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-left: 0;
 }
 .mtforms-skin-39 .mtforms-input:focus,
 .mtforms-skin-39 .mtforms-textarea:focus {
-  border-bottom-width: 2px;
+  border-bottom-color: #2c1810;
+  border-bottom-width: 1px;
+  padding-left: 10px;
+  background: rgba(139, 94, 60, 0.03);
+  box-shadow: inset 0 -10px 10px -10px rgba(44, 24, 16, 0.1);
 }
 .mtforms-skin-39 .mtforms-submit-btn {
   border: 1px solid #2c1810;
@@ -2135,16 +2140,19 @@
 }
 .mtforms-skin-40 .mtforms-input,
 .mtforms-skin-40 .mtforms-textarea {
-  border-width: 1px;
-  transition: all 0.4s ease;
+  border-width: 0 0 1px 0;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   padding-left: 0;
   border-style: none none solid none;
+  background: transparent;
 }
 .mtforms-skin-40 .mtforms-input:focus,
 .mtforms-skin-40 .mtforms-textarea:focus {
-  background: rgba(255, 255, 255, 0.08);
-  padding-left: 15px;
-  border-bottom-width: 2px;
+  background: rgba(226, 184, 126, 0.05);
+  padding-left: 20px;
+  border-bottom-color: #e2b87e;
+  box-shadow: 0 15px 20px -15px rgba(226, 184, 126, 0.4);
+  transform: translateY(-2px);
 }
 .mtforms-skin-40 .mtforms-submit-btn {
   border: 1px solid #e2b87e;

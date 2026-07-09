@@ -2892,6 +2892,18 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_responsive_control(
+			'gdpr_checkbox_margin',
+			[
+				'label' => esc_html__('Checkbox Margin', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-checkbox' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
 			'gdpr_padding',
 			[
 				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
