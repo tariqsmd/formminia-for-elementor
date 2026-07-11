@@ -1136,18 +1136,6 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_responsive_control(
-			'group_padding',
-			[
-				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
 			'group_margin',
 			[
 				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
@@ -1159,11 +1147,15 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
+		$this->add_responsive_control(
+			'group_padding',
 			[
-				'name' => 'group_background',
-				'selector' => '{{WRAPPER}} .mtforms-form-group',
+				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-group' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -1191,6 +1183,14 @@ class Widget extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'group_box_shadow',
+				'selector' => '{{WRAPPER}} .mtforms-form-group',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'group_background',
 				'selector' => '{{WRAPPER}} .mtforms-form-group',
 			]
 		);
@@ -1286,14 +1286,6 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'form_background',
-				'selector' => '{{WRAPPER}} .mtforms-form-wrapper',
-			]
-		);
-
-		$this->add_group_control(
 			\Elementor\Group_Control_Border::get_type(),
 			[
 				'name' => 'form_border',
@@ -1317,6 +1309,14 @@ class Widget extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'form_box_shadow',
+				'selector' => '{{WRAPPER}} .mtforms-form-wrapper',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'form_background',
 				'selector' => '{{WRAPPER}} .mtforms-form-wrapper',
 			]
 		);
@@ -1378,9 +1378,56 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'title_border',
+				'selector' => '{{WRAPPER}} .mtforms-form-title',
+			]
+		);
+
+		$this->add_responsive_control(
+			'title_border_radius',
+			[
+				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'title_typography',
+				'selector' => '{{WRAPPER}} .mtforms-form-title',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'title_text_shadow',
+				'selector' => '{{WRAPPER}} .mtforms-form-title',
+			]
+		);
+
+		$this->add_control(
+			'title_color',
+			[
+				'label' => esc_html__('Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-title-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'title_background',
 				'selector' => '{{WRAPPER}} .mtforms-form-title',
 			]
 		);
@@ -1410,54 +1457,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-
-		$this->add_control(
-			'title_color',
-			[
-				'label' => esc_html__('Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-title-color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Text_Shadow::get_type(),
-			[
-				'name' => 'title_text_shadow',
-				'selector' => '{{WRAPPER}} .mtforms-form-title',
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'title_background',
-				'selector' => '{{WRAPPER}} .mtforms-form-title',
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
-			[
-				'name' => 'title_border',
-				'selector' => '{{WRAPPER}} .mtforms-form-title',
-			]
-		);
-
-		$this->add_responsive_control(
-			'title_border_radius',
-			[
-				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
 		$this->end_controls_section();
 	}
 
@@ -1480,18 +1479,6 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_responsive_control(
-			'fields_wrapper_padding',
-			[
-				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-fields-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
 			'fields_wrapper_margin',
 			[
 				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
@@ -1503,11 +1490,15 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
+		$this->add_responsive_control(
+			'fields_wrapper_padding',
 			[
-				'name' => 'fields_wrapper_background',
-				'selector' => '{{WRAPPER}} .mtforms-fields-wrapper',
+				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-fields-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -1539,6 +1530,14 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'fields_wrapper_background',
+				'selector' => '{{WRAPPER}} .mtforms-fields-wrapper',
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -1558,37 +1557,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'label_color',
-			[
-				'label' => esc_html__('Label Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-label-color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'label_typography',
-				'selector' => '{{WRAPPER}} .mtforms-form-group label',
-			]
-		);
-
-		$this->add_responsive_control(
-			'label_padding',
-			[
-				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-group label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
 		$this->add_responsive_control(
 			'label_margin',
 			[
@@ -1601,11 +1569,15 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
+		$this->add_responsive_control(
+			'label_padding',
 			[
-				'name' => 'label_background',
-				'selector' => '{{WRAPPER}} .mtforms-form-group label',
+				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-group label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -1637,6 +1609,33 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'label_typography',
+				'selector' => '{{WRAPPER}} .mtforms-form-group label',
+			]
+		);
+
+		$this->add_control(
+			'label_color',
+			[
+				'label' => esc_html__('Label Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-label-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'label_background',
+				'selector' => '{{WRAPPER}} .mtforms-form-group label',
+			]
+		);
+
 		// Field Icons Controls
 		$this->add_control(
 			'heading_field_icons',
@@ -1650,14 +1649,14 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'icon_color',
+		$this->add_responsive_control(
+			'icon_margin',
 			[
-				'label' => esc_html__('Icon Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
+				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-icon svg' => 'fill: {{VALUE}};',
-					'{{WRAPPER}} .mtforms-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'show_icons' => 'yes',
@@ -1665,14 +1664,52 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'icon_bg_color',
+		$this->add_responsive_control(
+			'icon_padding',
 			[
-				'label' => esc_html__('Background Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
+				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-icon' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+				'condition' => [
+					'show_icons' => 'yes',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'icon_border',
+				'selector' => '{{WRAPPER}} .mtforms-icon',
+				'condition' => [
+					'show_icons' => 'yes',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'icon_border_radius',
+			[
+				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'condition' => [
+					'show_icons' => 'yes',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'icon_box_shadow',
+				'selector' => '{{WRAPPER}} .mtforms-icon',
 				'condition' => [
 					'show_icons' => 'yes',
 				],
@@ -1721,14 +1758,14 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_responsive_control(
-			'icon_padding',
+		$this->add_control(
+			'icon_color',
 			[
-				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
+				'label' => esc_html__('Icon Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-icon' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'show_icons' => 'yes',
@@ -1736,14 +1773,13 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_responsive_control(
-			'icon_margin',
+		$this->add_control(
+			'icon_bg_color',
 			[
-				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
+				'label' => esc_html__('Background Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-icon' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
 					'show_icons' => 'yes',
@@ -1755,43 +1791,6 @@ class Widget extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'icon_background',
-				'selector' => '{{WRAPPER}} .mtforms-icon',
-				'condition' => [
-					'show_icons' => 'yes',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
-			[
-				'name' => 'icon_border',
-				'selector' => '{{WRAPPER}} .mtforms-icon',
-				'condition' => [
-					'show_icons' => 'yes',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'icon_border_radius',
-			[
-				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-				'condition' => [
-					'show_icons' => 'yes',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'icon_box_shadow',
 				'selector' => '{{WRAPPER}} .mtforms-icon',
 				'condition' => [
 					'show_icons' => 'yes',
@@ -1960,17 +1959,6 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
-			'input_text_color',
-			[
-				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_control(
 			'input_bg_color',
 			[
 				'label' => esc_html__('Background Color', MTFORMS_TEXT_DOMAIN),
@@ -1981,45 +1969,23 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_control(
+			'input_text_color',
+			[
+				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-color: {{VALUE}};',
+				],
+			]
+		);
+
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'tab_input_focus',
 			[
 				'label' => esc_html__('Focus', MTFORMS_TEXT_DOMAIN),
-			]
-		);
-
-		$this->add_control(
-			'input_focus_text_color',
-			[
-				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-focus-color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'input_focus_bg_color',
-			[
-				'label' => esc_html__('Background Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-focus-bg: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'input_focus_border_color',
-			[
-				'label' => esc_html__('Focus Border Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-focus-border: {{VALUE}};',
-				],
 			]
 		);
 
@@ -2050,6 +2016,39 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_control(
+			'input_focus_border_color',
+			[
+				'label' => esc_html__('Focus Border Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-focus-border: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'input_focus_bg_color',
+			[
+				'label' => esc_html__('Background Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-focus-bg: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'input_focus_text_color',
+			[
+				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-focus-color: {{VALUE}};',
+				],
+			]
+		);
+
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
@@ -2060,37 +2059,6 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Advanced Style', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'input_typography',
-				'selector' => '{{WRAPPER}} .mtforms-input, {{WRAPPER}} .mtforms-textarea',
-			]
-		);
-
-		$this->add_control(
-			'placeholder_color',
-			[
-				'label' => esc_html__('Placeholder Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-placeholder: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'input_padding',
-			[
-				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-field-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
 			]
 		);
 
@@ -2106,11 +2074,15 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
+		$this->add_responsive_control(
+			'input_padding',
 			[
-				'name' => 'input_background',
-				'selector' => '{{WRAPPER}} .mtforms-input, {{WRAPPER}} .mtforms-textarea',
+				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-field-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -2138,6 +2110,33 @@ class Widget extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'input_box_shadow',
+				'selector' => '{{WRAPPER}} .mtforms-input, {{WRAPPER}} .mtforms-textarea',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'input_typography',
+				'selector' => '{{WRAPPER}} .mtforms-input, {{WRAPPER}} .mtforms-textarea',
+			]
+		);
+
+		$this->add_control(
+			'placeholder_color',
+			[
+				'label' => esc_html__('Placeholder Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-placeholder: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'input_background',
 				'selector' => '{{WRAPPER}} .mtforms-input, {{WRAPPER}} .mtforms-textarea',
 			]
 		);
@@ -2189,6 +2188,14 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_group_control(
+			\Elementor\Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'button_text_shadow',
+				'selector' => '{{WRAPPER}} .mtforms-submit-btn',
+			]
+		);
+
 		$this->add_control(
 			'button_text_color',
 			[
@@ -2208,58 +2215,12 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Text_Shadow::get_type(),
-			[
-				'name' => 'button_text_shadow',
-				'selector' => '{{WRAPPER}} .mtforms-submit-btn',
-			]
-		);
-
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
 				'label' => esc_html__('Hover', MTFORMS_TEXT_DOMAIN),
-			]
-		);
-
-		$this->add_control(
-			'button_hover_text_color',
-			[
-				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-btn-hover-color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'button_hover_background',
-				'selector' => '{{WRAPPER}} .mtforms-submit-btn:hover',
-			]
-		);
-
-		$this->add_control(
-			'button_hover_border_color',
-			[
-				'label' => esc_html__('Border Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-submit-btn:hover' => 'border-color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'button_hover_animation',
-			[
-				'label' => esc_html__('Hover Animation', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::HOVER_ANIMATION,
 			]
 		);
 
@@ -2303,6 +2264,44 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_control(
+			'button_hover_border_color',
+			[
+				'label' => esc_html__('Border Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-submit-btn:hover' => 'border-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'button_hover_animation',
+			[
+				'label' => esc_html__('Hover Animation', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HOVER_ANIMATION,
+			]
+		);
+
+		$this->add_control(
+			'button_hover_text_color',
+			[
+				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-btn-hover-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'button_hover_background',
+				'selector' => '{{WRAPPER}} .mtforms-submit-btn:hover',
+			]
+		);
+
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
@@ -2316,26 +2315,63 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_responsive_control(
+			'button_margin',
+			[
+				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-submit-btn-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'button_padding',
+			[
+				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-btn-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'button_border',
+				'selector' => '{{WRAPPER}} .mtforms-submit-btn',
+			]
+		);
+
+		$this->add_responsive_control(
+			'button_border_radius',
+			[
+				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-btn-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'button_box_shadow',
+				'selector' => '{{WRAPPER}} .mtforms-submit-btn',
+			]
+		);
+
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'button_typography',
 				'selector' => '{{WRAPPER}} .mtforms-submit-btn',
-			]
-		);
-
-		$this->add_control(
-			'button_icon_color',
-			[
-				'label' => esc_html__('Icon Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-btn-icon' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .mtforms-btn-icon svg' => 'fill: {{VALUE}};',
-				],
-				'condition' => [
-					'button_icon[value]!' => '',
-				],
 			]
 		);
 
@@ -2381,54 +2417,17 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_responsive_control(
-			'button_padding',
+		$this->add_control(
+			'button_icon_color',
 			[
-				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
+				'label' => esc_html__('Icon Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-btn-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-btn-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-btn-icon svg' => 'fill: {{VALUE}};',
 				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
-			[
-				'name' => 'button_border',
-				'selector' => '{{WRAPPER}} .mtforms-submit-btn',
-			]
-		);
-
-		$this->add_responsive_control(
-			'button_border_radius',
-			[
-				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-btn-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'button_box_shadow',
-				'selector' => '{{WRAPPER}} .mtforms-submit-btn',
-			]
-		);
-
-		$this->add_responsive_control(
-			'button_margin',
-			[
-				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-submit-btn-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'condition' => [
+					'button_icon[value]!' => '',
 				],
 			]
 		);
@@ -2453,6 +2452,50 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_responsive_control(
+			'message_margin',
+			[
+				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-response-message' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'message_padding',
+			[
+				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-response-message' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'message_border_radius',
+			[
+				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-response-message' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'message_typography',
+				'selector' => '{{WRAPPER}} .mtforms-response-message',
+			]
+		);
+
 		$this->add_control(
 			'success_color',
 			[
@@ -2473,50 +2516,6 @@ class Widget extends \Elementor\Widget_Base
 				'default' => '#f44336',
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-response-message.error' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'message_typography',
-				'selector' => '{{WRAPPER}} .mtforms-response-message',
-			]
-		);
-
-		$this->add_responsive_control(
-			'message_padding',
-			[
-				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-response-message' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'message_margin',
-			[
-				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-response-message' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'message_border_radius',
-			[
-				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-response-message' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2627,28 +2626,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_control(
-			"{$id}_text_color",
-			[
-				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					"{{WRAPPER}} {$selector}" => 'color: {{VALUE}} !important;',
-				],
-			]
-		);
-
-		$this->add_control(
-			"{$id}_bg_color",
-			[
-				'label' => esc_html__('Background Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					"{{WRAPPER}} {$selector}" => 'background-color: {{VALUE}} !important;',
-				],
-			]
-		);
-
 		$this->add_group_control(
 			\Elementor\Group_Control_Border::get_type(),
 			[
@@ -2665,34 +2642,34 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_control(
+			"{$id}_bg_color",
+			[
+				'label' => esc_html__('Background Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					"{{WRAPPER}} {$selector}" => 'background-color: {{VALUE}} !important;',
+				],
+			]
+		);
+
+		$this->add_control(
+			"{$id}_text_color",
+			[
+				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					"{{WRAPPER}} {$selector}" => 'color: {{VALUE}} !important;',
+				],
+			]
+		);
+
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			"tab_{$id}_focus",
 			[
 				'label' => esc_html__('Focus', MTFORMS_TEXT_DOMAIN),
-			]
-		);
-
-		$this->add_control(
-			"{$id}_focus_text_color",
-			[
-				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					"{{WRAPPER}} {$selector}:focus" => 'color: {{VALUE}} !important;',
-				],
-			]
-		);
-
-		$this->add_control(
-			"{$id}_focus_bg_color",
-			[
-				'label' => esc_html__('Background Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					"{{WRAPPER}} {$selector}:focus" => 'background-color: {{VALUE}} !important;',
-				],
 			]
 		);
 
@@ -2715,6 +2692,28 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_control(
+			"{$id}_focus_bg_color",
+			[
+				'label' => esc_html__('Background Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					"{{WRAPPER}} {$selector}:focus" => 'background-color: {{VALUE}} !important;',
+				],
+			]
+		);
+
+		$this->add_control(
+			"{$id}_focus_text_color",
+			[
+				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					"{{WRAPPER}} {$selector}:focus" => 'color: {{VALUE}} !important;',
+				],
+			]
+		);
+
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
@@ -2725,6 +2724,42 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Advanced Style', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
+			]
+		);
+
+		$this->add_responsive_control(
+			"{$id}_margin",
+			[
+				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					"{{WRAPPER}} {$selector}" => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			"{$id}_padding",
+			[
+				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					"{{WRAPPER}} {$selector}" => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			"{$id}_border_radius",
+			[
+				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors' => [
+					"{{WRAPPER}} {$selector}" => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
+				],
 			]
 		);
 
@@ -2743,42 +2778,6 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					"{{WRAPPER}} {$selector}::placeholder" => 'color: {{VALUE}} !important;',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			"{$id}_padding",
-			[
-				'label' => esc_html__('Padding', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					"{{WRAPPER}} {$selector}" => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			"{$id}_margin",
-			[
-				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					"{{WRAPPER}} {$selector}" => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			"{$id}_border_radius",
-			[
-				'label' => esc_html__('Border Radius', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%'],
-				'selectors' => [
-					"{{WRAPPER}} {$selector}" => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 				],
 			]
 		);
@@ -2802,103 +2801,14 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		// Top label styling
-		$this->add_control(
-			'gdpr_label_color',
-			[
-				'label' => esc_html__('Label Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-gdpr-heading' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'gdpr_label_typography',
-				'selector' => '{{WRAPPER}} .mtforms-gdpr-heading',
-			]
-		);
-
 		$this->add_responsive_control(
-			'gdpr_label_margin',
+			'gdpr_margin',
 			[
-				'label' => esc_html__('Label Margin', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-gdpr-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		// width control for checkbox label in inline layout
-		$this->add_responsive_control(
-			'gdpr_checkbox_width',
-			[
-				'label' => esc_html__('Checkbox Label Width', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['px', '%'],
-				'range' => [
-					'px' => [
-						'min' => 50,
-						'max' => 400,
-					],
-					'%' => [
-						'min' => 20,
-						'max' => 100,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-layout-inline .mtforms-gdpr-group .mtforms-checkbox-label' => 'width: {{SIZE}}{{UNIT}};'
-				],
-				'condition' => [
-					'layout' => 'inline',
-					'show_gdpr' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'gdpr_text_color',
-			[
-				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-checkbox-text' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Typography::get_type(),
-			[
-				'name' => 'gdpr_typography',
-				'selector' => '{{WRAPPER}} .mtforms-checkbox-text',
-			]
-		);
-
-		$this->add_control(
-			'gdpr_link_color',
-			[
-				'label' => esc_html__('Link Color', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-checkbox-text a' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'gdpr_checkbox_margin',
-			[
-				'label' => esc_html__('Checkbox Margin', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-checkbox' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-gdpr-consent' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2912,26 +2822,6 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-gdpr-consent' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'gdpr_margin',
-			[
-				'label' => esc_html__('Margin', MTFORMS_TEXT_DOMAIN),
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', 'em', '%'],
-				'selectors' => [
-					'{{WRAPPER}} .mtforms-gdpr-consent' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'gdpr_background',
-				'selector' => '{{WRAPPER}} .mtforms-gdpr-consent',
 			]
 		);
 
@@ -2959,6 +2849,113 @@ class Widget extends \Elementor\Widget_Base
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'gdpr_box_shadow',
+				'selector' => '{{WRAPPER}} .mtforms-gdpr-consent',
+			]
+		);
+
+		$this->add_responsive_control(
+			'gdpr_label_margin',
+			[
+				'label' => esc_html__('Label Margin', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-gdpr-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'gdpr_checkbox_margin',
+			[
+				'label' => esc_html__('Checkbox Margin', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-checkbox' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'gdpr_label_typography',
+				'selector' => '{{WRAPPER}} .mtforms-gdpr-heading',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'gdpr_typography',
+				'selector' => '{{WRAPPER}} .mtforms-checkbox-text',
+			]
+		);
+
+		$this->add_control(
+			'gdpr_label_color',
+			[
+				'label' => esc_html__('Label Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-gdpr-heading' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'gdpr_text_color',
+			[
+				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-checkbox-text' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'gdpr_link_color',
+			[
+				'label' => esc_html__('Link Color', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-checkbox-text a' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'gdpr_checkbox_width',
+			[
+				'label' => esc_html__('Checkbox Label Width', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px', '%'],
+				'range' => [
+					'px' => [
+						'min' => 50,
+						'max' => 400,
+					],
+					'%' => [
+						'min' => 20,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .mtforms-layout-inline .mtforms-gdpr-group .mtforms-checkbox-label' => 'width: {{SIZE}}{{UNIT}};'
+				],
+				'condition' => [
+					'layout' => 'inline',
+					'show_gdpr' => 'yes',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'gdpr_background',
 				'selector' => '{{WRAPPER}} .mtforms-gdpr-consent',
 			]
 		);
