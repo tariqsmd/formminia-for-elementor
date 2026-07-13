@@ -1159,14 +1159,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
-			[
-				'name' => 'group_border',
-				'selector' => '{{WRAPPER}} .mtforms-form-group',
-			]
-		);
-
 		$this->add_responsive_control(
 			'group_border_radius',
 			[
@@ -1176,6 +1168,14 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-form-group' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'group_border',
+				'selector' => '{{WRAPPER}} .mtforms-form-group',
 			]
 		);
 
@@ -1285,14 +1285,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
-			[
-				'name' => 'form_border',
-				'selector' => '{{WRAPPER}} .mtforms-form-wrapper',
-			]
-		);
-
 		$this->add_responsive_control(
 			'form_border_radius',
 			[
@@ -1302,6 +1294,14 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'form_border',
+				'selector' => '{{WRAPPER}} .mtforms-form-wrapper',
 			]
 		);
 
@@ -1377,14 +1377,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
-			[
-				'name' => 'title_border',
-				'selector' => '{{WRAPPER}} .mtforms-form-title',
-			]
-		);
-
 		$this->add_responsive_control(
 			'title_border_radius',
 			[
@@ -1394,6 +1386,14 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-form-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'title_border',
+				'selector' => '{{WRAPPER}} .mtforms-form-title',
 			]
 		);
 
@@ -1502,14 +1502,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
-			[
-				'name' => 'fields_wrapper_border',
-				'selector' => '{{WRAPPER}} .mtforms-fields-wrapper',
-			]
-		);
-
 		$this->add_responsive_control(
 			'fields_wrapper_border_radius',
 			[
@@ -1519,6 +1511,14 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-fields-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'fields_wrapper_border',
+				'selector' => '{{WRAPPER}} .mtforms-fields-wrapper',
 			]
 		);
 
@@ -1581,14 +1581,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
-			[
-				'name' => 'label_border',
-				'selector' => '{{WRAPPER}} .mtforms-form-group label',
-			]
-		);
-
 		$this->add_responsive_control(
 			'label_border_radius',
 			[
@@ -1598,6 +1590,14 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-form-group label' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'label_border',
+				'selector' => '{{WRAPPER}} .mtforms-form-group label',
 			]
 		);
 
@@ -1679,17 +1679,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
-			[
-				'name' => 'icon_border',
-				'selector' => '{{WRAPPER}} .mtforms-icon',
-				'condition' => [
-					'show_icons' => 'yes',
-				],
-			]
-		);
-
 		$this->add_responsive_control(
 			'icon_border_radius',
 			[
@@ -1699,6 +1688,17 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+				'condition' => [
+					'show_icons' => 'yes',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'icon_border',
+				'selector' => '{{WRAPPER}} .mtforms-icon',
 				'condition' => [
 					'show_icons' => 'yes',
 				],
@@ -2086,14 +2086,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
-			[
-				'name' => 'input_border',
-				'selector' => '{{WRAPPER}} .mtforms-input, {{WRAPPER}} .mtforms-textarea',
-			]
-		);
-
 		$this->add_responsive_control(
 			'input_border_radius',
 			[
@@ -2103,6 +2095,14 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-field-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'input_border',
+				'selector' => '{{WRAPPER}} .mtforms-input, {{WRAPPER}} .mtforms-textarea',
 			]
 		);
 
@@ -2339,14 +2339,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
-			[
-				'name' => 'button_border',
-				'selector' => '{{WRAPPER}} .mtforms-submit-btn',
-			]
-		);
-
 		$this->add_responsive_control(
 			'button_border_radius',
 			[
@@ -2356,6 +2348,14 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-btn-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'button_border',
+				'selector' => '{{WRAPPER}} .mtforms-submit-btn',
 			]
 		);
 
@@ -2825,14 +2825,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		$this->add_group_control(
-			\Elementor\Group_Control_Border::get_type(),
-			[
-				'name' => 'gdpr_border',
-				'selector' => '{{WRAPPER}} .mtforms-gdpr-consent',
-			]
-		);
-
 		$this->add_responsive_control(
 			'gdpr_border_radius',
 			[
@@ -2842,6 +2834,14 @@ class Widget extends \Elementor\Widget_Base
 				'selectors' => [
 					'{{WRAPPER}} .mtforms-gdpr-consent' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'gdpr_border',
+				'selector' => '{{WRAPPER}} .mtforms-gdpr-consent',
 			]
 		);
 
