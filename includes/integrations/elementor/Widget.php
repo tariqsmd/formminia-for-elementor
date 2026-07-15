@@ -180,6 +180,7 @@ class Widget extends \Elementor\Widget_Base
 					'skin-38' => __('38. Organic Playful', MTFORMS_TEXT_DOMAIN),
 					'skin-39' => __('39. Luxury Earth', MTFORMS_TEXT_DOMAIN),
 					'skin-40' => __('40. Midnight Mint', MTFORMS_TEXT_DOMAIN),
+					'skin-41' => __('41. Playful Modernist', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);

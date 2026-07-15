@@ -1981,5 +1981,130 @@
     }
 }
 
+/* Playful Modernist - Based on provided image */
+.mtforms-skin-41 {
+    --mtforms-bg: #ffffff;
+    --mtforms-text: #1a1a1a;
+    --mtforms-primary: #e91e63; /* Pink */
+    --mtforms-secondary: #ffeb3b; /* Yellow */
+
+    --mtforms-title-color: #1a1a1a;
+    --mtforms-title-weight: 800;
+    --mtforms-title-size: 2.75rem;
+    --mtforms-title-spacing: -0.02em;
+    
+    --mtforms-label-color: #1a1a1a;
+    --mtforms-label-weight: 700;
+    --mtforms-label-size: 1rem;
+
+    --mtforms-input-bg: #f7f7f7;
+    --mtforms-input-border: #e0e0e0;
+    --mtforms-input-focus-border: #e91e63;
+    --mtforms-field-radius: 16px;
+    --mtforms-field-padding: 1rem 1.25rem;
+
+    --mtforms-btn-bg: #e91e63;
+    --mtforms-btn-color: #ffffff;
+    --mtforms-btn-radius: 16px;
+    --mtforms-btn-weight: 800;
+    --mtforms-btn-padding: 1.25rem 2.5rem;
+    --mtforms-btn-size: 1.1rem;
+
+    --mtforms-radius: 24px;
+    --mtforms-form-padding: 3.5rem;
+    --mtforms-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+
+    background: var(--mtforms-bg);
+    border: 1px solid #f0f0f0;
+    position: relative;
+    overflow: hidden;
+
+    /* Decorative elements to match the image's playful style */
+    &::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        width: 100px;
+        height: 100px;
+        background: var(--mtforms-secondary);
+        border-radius: 50%;
+        opacity: 0.1;
+        z-index: 0;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -30px;
+        left: -30px;
+        width: 120px;
+        height: 120px;
+        background: var(--mtforms-primary);
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        opacity: 0.05;
+        z-index: 0;
+    }
+
+    .mtforms-form-inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    .mtforms-form-title {
+        font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.1;
+        margin-bottom: 2.5rem;
+        
+        span {
+            color: var(--mtforms-primary);
+        }
+    }
+
+    .mtforms-input, 
+    .mtforms-textarea {
+        border-width: 2px;
+        border-style: solid;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        &:focus {
+            background: #ffffff;
+            box-shadow: 0 10px 20px rgba(233, 30, 99, 0.1);
+            transform: translateY(-2px);
+        }
+    }
+
+    .mtforms-submit-btn {
+        box-shadow: 0 10px 20px rgba(233, 30, 99, 0.2);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        
+        &:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 15px 30px rgba(233, 30, 99, 0.3);
+            background: #d81b60;
+        }
+        
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+
+    /* Checkbox/Radio customization */
+    .mtforms-checkbox-custom,
+    .mtforms-radio-custom {
+        border-radius: 8px;
+        border-width: 2px;
+        border-color: #e0e0e0;
+        
+        &::after {
+            background: var(--mtforms-primary);
+        }
+    }
+
+    .mtforms-form-group {
+        margin-bottom: 1.75rem;
+    }
+}
+
 
 
