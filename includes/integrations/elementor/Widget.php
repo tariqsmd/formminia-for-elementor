@@ -181,6 +181,7 @@ class Widget extends \Elementor\Widget_Base
 					'skin-39' => __('39. Luxury Earth', MTFORMS_TEXT_DOMAIN),
 					'skin-40' => __('40. Midnight Mint', MTFORMS_TEXT_DOMAIN),
 					'skin-41' => __('41. Playful Modernist', MTFORMS_TEXT_DOMAIN),
+					'skin-42' => __('42. Zesty Lemon Squeeze', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);
@@ -696,36 +697,6 @@ class Widget extends \Elementor\Widget_Base
 				],
 			]
 		);
-
-		// Icon Location Selection
-		// $this->add_control(
-		// 	'icon_location',
-		// 	[
-		// 		'label' => esc_html__('Icon Location', MTFORMS_TEXT_DOMAIN),
-		// 		'type' => \Elementor\Controls_Manager::SELECT,
-		// 		'default' => 'label',
-		// 		'options' => [
-		// 			'label' => esc_html__('On Labels', MTFORMS_TEXT_DOMAIN),
-		// 			'input' => esc_html__('On Inputs', MTFORMS_TEXT_DOMAIN),
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'icon_location',
-		// 	[
-		// 		'label' => esc_html__('Icon Location', MTFORMS_TEXT_DOMAIN),
-		// 		'type' => \Elementor\Controls_Manager::SWITCHER,
-		// 		'label_on' => esc_html__('Labels', MTFORMS_TEXT_DOMAIN),
-		// 		'label_off' => esc_html__('Inputs', MTFORMS_TEXT_DOMAIN),
-		// 		'return_value' => 'yes',
-		// 		'default' => 'no',
-		// 		// 'condition' => [
-		// 		// 	'show_gdpr' => 'yes',
-		// 		// 	'icon_location' => 'input',
-		// 		// ],
-		// 	]
-		// );
 
 		$this->add_control(
 			'icon_location',
