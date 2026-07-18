@@ -1215,7 +1215,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-form-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-form-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1234,7 +1234,7 @@ class Widget extends \Elementor\Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-inner-gap: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-form-inner, {{WRAPPER}} .mtforms-fields-wrapper' => 'row-gap: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1252,7 +1252,7 @@ class Widget extends \Elementor\Widget_Base
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-inner-gap: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-fields-wrapper' => 'column-gap: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1264,7 +1264,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-form-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1391,7 +1391,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-title-color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-form-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1595,7 +1595,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Label Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-label-color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-form-group label' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1936,7 +1936,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Background Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-bg: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-input, {{WRAPPER}} .mtforms-textarea' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1947,7 +1947,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-input, {{WRAPPER}} .mtforms-textarea' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1994,7 +1994,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Focus Border Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-focus-border: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-input:focus, {{WRAPPER}} .mtforms-textarea:focus' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2005,7 +2005,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Background Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-focus-bg: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-input:focus, {{WRAPPER}} .mtforms-textarea:focus' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -2016,7 +2016,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-input-focus-color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-input:focus, {{WRAPPER}} .mtforms-textarea:focus' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -2053,7 +2053,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-field-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-input, {{WRAPPER}} .mtforms-textarea' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2065,7 +2065,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-field-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-input, {{WRAPPER}} .mtforms-textarea' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2100,7 +2100,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Placeholder Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-placeholder: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-input::placeholder, {{WRAPPER}} .mtforms-textarea::placeholder' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -2174,7 +2174,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-btn-color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-submit-btn' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -2261,7 +2261,7 @@ class Widget extends \Elementor\Widget_Base
 				'label' => esc_html__('Text Color', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-btn-hover-color: {{VALUE}};',
+					'{{WRAPPER}} .mtforms-submit-btn:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -2306,7 +2306,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-btn-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-submit-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -2318,7 +2318,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtforms-form-wrapper' => '--mtforms-btn-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .mtforms-submit-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);

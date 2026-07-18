@@ -9,6 +9,7 @@
     border-radius: var(--mtforms-radius);
     box-shadow: var(--mtforms-shadow);
     color: var(--mtforms-text);
+    accent-color: var(--mtforms-primary);
 
     .just-validate-error-label {
       margin-top: 4px;
@@ -26,9 +27,10 @@
   }
 
   &-fields-wrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(var(--mtforms-columns, 1), 1fr);
     width: 100%;
-    gap: 1.5rem;
+    gap: var(--mtforms-inner-gap, 1.5rem);
   }
 
   &-form-title {
@@ -44,10 +46,15 @@
   &-form-group {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--mtforms-icon-spacing, 0.75rem);
+    margin-bottom: var(--mtforms-inner-gap, 1.5rem);
     width: 100%;
     position: relative;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
 
     label {
       position: relative;
