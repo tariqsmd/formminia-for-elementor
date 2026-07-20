@@ -182,6 +182,8 @@ class Widget extends \Elementor\Widget_Base
 					'skin-40' => __('40. Midnight Mint', MTFORMS_TEXT_DOMAIN),
 					'skin-41' => __('41. Playful Modernist', MTFORMS_TEXT_DOMAIN),
 					'skin-42' => __('42. Zesty Lemon Squeeze', MTFORMS_TEXT_DOMAIN),
+					'skin-43' => __('43. Artisanal Butcher', MTFORMS_TEXT_DOMAIN),
+					'skin-44' => __('44. Elite Athlete', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);
@@ -1102,7 +1104,7 @@ class Widget extends \Elementor\Widget_Base
 		$this->start_controls_section(
 			'section_style_field_group',
 			[
-				'label' => esc_html__('Field Group (Wrapper)', MTFORMS_TEXT_DOMAIN),
+				'label' => esc_html__('Field Group', MTFORMS_TEXT_DOMAIN),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
