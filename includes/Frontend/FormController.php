@@ -81,7 +81,7 @@ class FormController
 			true
 		);
 
-		wp_enqueue_script(
+		wp_register_script(
 			$this->plugin_name,
 			MTFORMS_PLUGIN_URL . 'assets/js/mtforms.js',
 			array('jquery', 'mtforms-just-validate'),

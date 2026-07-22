@@ -184,6 +184,11 @@ class Widget extends \Elementor\Widget_Base
 					'skin-42' => __('42. Zesty Lemon Squeeze', MTFORMS_TEXT_DOMAIN),
 					'skin-43' => __('43. Artisanal Butcher', MTFORMS_TEXT_DOMAIN),
 					'skin-44' => __('44. Elite Athlete', MTFORMS_TEXT_DOMAIN),
+					'skin-45' => __('45. Fintech Neo', MTFORMS_TEXT_DOMAIN),
+					'skin-46' => __('46. Sketchy Peanuts', MTFORMS_TEXT_DOMAIN),
+					'skin-47' => __('47. Solar Vault', MTFORMS_TEXT_DOMAIN),
+					'skin-48' => __('48. Social Mastodon', MTFORMS_TEXT_DOMAIN),
+					'skin-49' => __('49. Prime Butcher', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);

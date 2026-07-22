@@ -1,5 +1,4 @@
 .mtforms {
-  //font-family: var(--mtforms-font-family);
 
   &-form-wrapper {
     width: 100%;
@@ -197,7 +196,7 @@
 
     .mtforms-gdpr-heading {
       display: flex;
-     align-items: center;
+      align-items: center;
       font-size: var(--mtforms-label-size);
       font-weight: var(--mtforms-label-weight);
       color: var(--mtforms-label-color);
