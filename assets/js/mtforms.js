@@ -1,384 +1,343 @@
-(function ($) {
-    'use strict';
+/**
+ * MTForms Elementor Widget Handler
+ *
+ * This class handles the frontend functionality of the MTForms widget,
+ * including validation with JustValidate, AJAX submission, and UI animations.
+ *
+ * @since 1.0.0
+ */
+class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
 
     /**
-     * MTForms - Public JavaScript
-     * Handles form validation and AJAX submission
-     *
-     * @version 1.0.0
+     * Define default settings and selectors
      */
-
-    $(document).ready(function () {
-        initializeForms();
-        
-        // Handle Elementor Popups and other dynamic content
-        $(document).on('elementor/popup/show', function() {
-            initializeForms();
-        });
-    });
-
-    /**
-     * Initialize all contact forms on the page
-     */
-    function initializeForms() {
-        const forms = document.querySelectorAll('.mtforms-form:not(.mtforms-initialized)');
-
-        forms.forEach(function (form) {
-            form.classList.add('mtforms-initialized');
-            initializeForm(form);
-        });
-
-        // Initialize floating labels for pre-filled inputs
-        setTimeout(() => {
-            $('.mtforms-layout-floating .mtforms-input, .mtforms-layout-floating .mtforms-textarea').each(function() {
-                if (this.value.trim() !== '') {
-                    $(this).closest('.mtforms-form-group').addClass('has-value');
-                }
-            });
-        }, 100);
+    getDefaultSettings() {
+        const widgetId = this.getID();
+        return {
+            selectors: {
+                form: '.mtforms-form',
+                container: '.mtforms-container',
+                submitBtn: '.mtforms-submit-btn',
+                submitBtnText: '.mtforms-btn-text',
+                responseMsg: '.mtforms-response-message',
+                formGroup: '.mtforms-form-group',
+                floatingInput: '.mtforms-layout-floating .mtforms-input, .mtforms-layout-floating .mtforms-textarea, .mtforms-layout-material .mtforms-input, .mtforms-layout-material .mtforms-textarea',
+                checkbox: '.mtforms-checkbox-label input[type="checkbox"]'
+            }
+        };
     }
 
     /**
-     * Initialize a single form with validation and submission handling
+     * Define default elements cached for use
      */
-    function initializeForm(form) {
-        const formId = form.id || 'mtforms-form';
-        const container = form.closest('.mtforms-container');
-        const submitBtn = form.querySelector('.mtforms-submit-btn');
-        const responseMsg = form.querySelector('.mtforms-response-message');
+    getDefaultElements() {
+        const selectors = this.getSettings('selectors');
+        return {
+            $form: this.$element.find(selectors.form),
+            $container: this.$element.find(selectors.container),
+            $submitBtn: this.$element.find(selectors.submitBtn),
+            $responseMsg: this.$element.find(selectors.responseMsg)
+        };
+    }
 
-        if (!form || !submitBtn) {
+    /**
+     * Initialization logic
+     */
+    async onInit() {
+        super.onInit(...arguments);
+
+        if (!this.elements.$form.length) {
             return;
         }
 
-        // Get form fields to validate
-        const hasName = form.querySelector('[name="mtforms_name"]');
-        const hasEmail = form.querySelector('[name="mtforms_email"]');
-        const hasPhone = form.querySelector('[name="mtforms_phone"]');
-        const hasMessage = form.querySelector('[name="mtforms_message"]');
-        const hasGdpr = form.querySelector('[name="mtforms_gdpr"]');
+        // Initialize UI components
+        this.initFloatingLabels();
+        
+        // Initialize Validation
+        this.initValidation();
+    }
 
-        // Initialize JustValidate
-        const validation = new JustValidate('#' + formId, {
+    /**
+     * Bind event listeners
+     */
+    bindEvents() {
+        const selectors = this.getSettings('selectors');
+
+        // Handle floating label animations (Focus/Blur)
+        this.$element.on('focus blur', selectors.floatingInput, (event) => {
+            const $input = jQuery(event.currentTarget);
+            const $wrapper = $input.closest(selectors.formGroup);
+            
+            if (event.type === 'focus' || event.type === 'focusin') {
+                $wrapper.addClass('is-focused');
+            } else {
+                $wrapper.removeClass('is-focused');
+                this.updateInputState($input);
+            }
+        });
+
+        // Handle real-time input status (Has Value)
+        this.$element.on('input change', selectors.floatingInput, (event) => {
+            this.updateInputState(jQuery(event.currentTarget));
+        });
+    }
+
+    /**
+     * Update the visual state of an input (floating labels)
+     */
+    updateInputState($input) {
+        const selectors = this.getSettings('selectors');
+        const $wrapper = $input.closest(selectors.formGroup);
+        if ($input.val().trim() !== '') {
+            $wrapper.addClass('has-value');
+        } else {
+            $wrapper.removeClass('has-value');
+        }
+    }
+
+    /**
+     * Pre-check all inputs for existing values (e.g. browser autofill)
+     */
+    initFloatingLabels() {
+        const selectors = this.getSettings('selectors');
+        this.$element.find(selectors.floatingInput).each((index, el) => {
+            this.updateInputState(jQuery(el));
+        });
+    }
+
+    /**
+     * Setup JustValidate logic
+     */
+    initValidation() {
+        const $form = this.elements.$form;
+        const formId = $form.attr('id') || `mtforms-form-${this.getID()}`;
+        
+        // Ensure unique ID for JustValidate
+        if (!$form.attr('id')) {
+            $form.attr('id', formId);
+        }
+
+        this.validation = new JustValidate(`#${formId}`, {
             errorFieldCssClass: 'just-validate-error-field',
             errorLabelCssClass: 'just-validate-error-label',
             focusInvalidField: true,
             lockForm: true
         });
 
-        // Add validation rules based on available fields and their required status
-        if (hasName) {
-            const nameRules = [];
-            if (hasName.hasAttribute('required')) {
-                nameRules.push({
-                    rule: 'required',
-                    errorMessage: mtforms_ajax.i18n.name_required
-                });
-            }
-            nameRules.push({
-                rule: 'minLength',
-                value: 2,
-                errorMessage: mtforms_ajax.i18n.name_min
-            });
-            validation.addField('#' + hasName.id, nameRules);
-        }
+        this.addValidationRules();
 
-        if (hasEmail) {
-            const emailRules = [];
-            if (hasEmail.hasAttribute('required')) {
-                emailRules.push({
-                    rule: 'required',
-                    errorMessage: mtforms_ajax.i18n.email_required
-                });
-            }
-            emailRules.push({
-                rule: 'email',
-                errorMessage: mtforms_ajax.i18n.email_invalid
-            });
-            validation.addField('#' + hasEmail.id, emailRules);
-        }
-
-        if (hasPhone) {
-            const phoneRules = [];
-            if (hasPhone.hasAttribute('required')) {
-                phoneRules.push({
-                    rule: 'required',
-                    errorMessage: mtforms_ajax.i18n.phone_required
-                });
-            }
-            phoneRules.push({
-                rule: 'customRegexp',
-                value: /^[\d\s\-\+\(\)]*$/,
-                errorMessage: mtforms_ajax.i18n.phone_invalid || 'Please enter a valid phone number'
-            });
-            validation.addField('#' + hasPhone.id, phoneRules);
-        }
-
-        const hasWebsite = form.querySelector('[name="mtforms_website"]');
-        if (hasWebsite) {
-            const websiteRules = [];
-            if (hasWebsite.hasAttribute('required')) {
-                websiteRules.push({
-                    rule: 'required',
-                    errorMessage: mtforms_ajax.i18n.website_required
-                });
-            }
-            websiteRules.push({
-                rule: 'customRegexp',
-                value: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/,
-                errorMessage: mtforms_ajax.i18n.website_invalid
-            });
-            validation.addField('#' + hasWebsite.id, websiteRules);
-        }
-
-        const hasSubject = form.querySelector('[name="mtforms_subject"]');
-        if (hasSubject && hasSubject.hasAttribute('required')) {
-            validation.addField('#' + hasSubject.id, [
-                {
-                    rule: 'required',
-                    errorMessage: mtforms_ajax.i18n.subject_required
-                }
-            ]);
-        }
-
-        if (hasMessage && hasMessage.hasAttribute('required')) {
-            validation.addField('#' + hasMessage.id, [
-                {
-                    rule: 'required',
-                    errorMessage: mtforms_ajax.i18n.message_required
-                }
-            ]);
-        }
-
-        if (hasGdpr) {
-            // GDPR is usually always required if shown
-            validation.addField('#' + hasGdpr.id, [
-                {
-                    rule: 'required',
-                    errorMessage: mtforms_ajax.i18n.gdpr_required
-                }
-            ]);
-        }
-
-        // Handle form submission
-        validation.onSuccess((event) => {
+        this.validation.onSuccess((event) => {
             if (event && event.preventDefault) {
                 event.preventDefault();
             }
-
-            submitForm(form, submitBtn, responseMsg, validation);
+            this.handleSubmission();
         });
     }
 
     /**
-     * Submit the form via AJAX
+     * Map form fields to validation rules
      */
-    function submitForm(form, submitBtn, responseMsg, validation) {
-        const btnText = submitBtn.querySelector('.mtforms-btn-text');
-        const originalText = btnText ? btnText.textContent : submitBtn.textContent;
+    addValidationRules() {
+        const $form = this.elements.$form;
+        const i18n = mtforms_ajax.i18n;
 
-        // Show loading state
-        submitBtn.disabled = true;
-        submitBtn.classList.add('loading');
-        form.classList.add('submitting');
-        if (btnText) {
-            btnText.textContent = mtforms_ajax.i18n.sending;
+        const fieldConfigs = {
+            mtforms_name: {
+                required: i18n.name_required,
+                rules: [{ rule: 'minLength', value: 2, errorMessage: i18n.name_min }]
+            },
+            mtforms_email: {
+                required: i18n.email_required,
+                rules: [{ rule: 'email', errorMessage: i18n.email_invalid }]
+            },
+            mtforms_phone: {
+                required: i18n.phone_required,
+                rules: [{ rule: 'customRegexp', value: /^[\d\s\-\+\(\)]*$/, errorMessage: i18n.phone_invalid }]
+            },
+            mtforms_website: {
+                required: i18n.website_required,
+                rules: [{ rule: 'customRegexp', value: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/, errorMessage: i18n.website_invalid }]
+            },
+            mtforms_subject: { required: i18n.subject_required },
+            mtforms_message: { required: i18n.message_required },
+            mtforms_gdpr: { required: i18n.gdpr_required }
+        };
+
+        Object.keys(fieldConfigs).forEach(fieldName => {
+            const $field = $form.find(`[name="${fieldName}"]`);
+            if ($field.length) {
+                const config = fieldConfigs[fieldName];
+                const rules = [];
+
+                if ($field.prop('required') || fieldName === 'mtforms_gdpr') {
+                    rules.push({ rule: 'required', errorMessage: config.required });
+                }
+
+                if (config.rules) {
+                    rules.push(...config.rules);
+                }
+
+                if (rules.length) {
+                    this.validation.addField(`#${$field.attr('id')}`, rules);
+                }
+            }
+        });
+    }
+
+    /**
+     * AJAX Form Submission
+     */
+    handleSubmission() {
+        const elements = this.elements;
+        const selectors = this.getSettings('selectors');
+        const $btnText = elements.$submitBtn.find(selectors.submitBtnText);
+        const originalText = $btnText.length ? $btnText.text() : elements.$submitBtn.text();
+
+        // 1. Enter Loading State
+        elements.$submitBtn.prop('disabled', true).addClass('loading');
+        elements.$form.addClass('submitting');
+        
+        const sendingText = mtforms_ajax.i18n.sending;
+        if ($btnText.length) {
+            $btnText.text(sendingText);
         } else {
-            submitBtn.textContent = mtforms_ajax.i18n.sending;
+            elements.$submitBtn.text(sendingText);
         }
 
-        // Clear previous response
-        responseMsg.className = 'mtforms-response-message';
-        responseMsg.innerHTML = '';
-        responseMsg.style.display = 'none';
+        // 2. Clear Messages
+        elements.$responseMsg.removeClass('success error').empty().hide();
 
-        // Prepare form data
-        const formData = new FormData(form);
+        // 3. Construct Data
+        const formData = new FormData(elements.$form[0]);
         formData.append('action', 'mtforms_submit_form');
         formData.append('nonce', mtforms_ajax.nonce);
 
-        // Send AJAX request
-        $.ajax({
+        // 4. Send Request
+        jQuery.ajax({
             url: mtforms_ajax.ajax_url,
             type: 'POST',
             data: formData,
             processData: false,
             contentType: false,
-            success: function (response) {
-                handleResponse(response, form, submitBtn, responseMsg, validation, originalText, btnText);
+            success: (response) => {
+                this.processSubmissionResponse(response, originalText);
             },
-            error: function (xhr, status, error) {
-                handleError(submitBtn, responseMsg, originalText, btnText, error);
+            error: (xhr, status, error) => {
+                this.handleAjaxError(error, originalText);
             }
         });
     }
 
     /**
-     * Handle successful AJAX response
+     * Process the server response
      */
-    function handleResponse(response, form, submitBtn, responseMsg, validation, originalText, btnText) {
-        // Reset button state
-        submitBtn.disabled = false;
-        submitBtn.classList.remove('loading');
-        form.classList.remove('submitting');
-        if (btnText) {
-            btnText.textContent = originalText;
+    processSubmissionResponse(response, originalText) {
+        const { $form, $submitBtn, $responseMsg } = this.elements;
+        const selectors = this.getSettings('selectors');
+        const $btnText = $submitBtn.find(selectors.submitBtnText);
+
+        // Reset UI state
+        $submitBtn.prop('disabled', false).removeClass('loading');
+        $form.removeClass('submitting');
+        
+        if ($btnText.length) {
+            $btnText.text(originalText);
         } else {
-            submitBtn.textContent = mtforms_ajax.i18n.send_message;
+            $submitBtn.text(mtforms_ajax.i18n.send_message);
         }
 
         if (response.success) {
-            // Show success message
-            responseMsg.classList.add('success');
-            responseMsg.innerHTML = response.data.message;
-            responseMsg.style.display = 'block';
-
-            // Reset form
-            form.reset();
-
-            // Reset validation state
-            if (validation && typeof validation.refresh === 'function') {
-                validation.refresh();
+            // Success Path
+            $responseMsg.addClass('success').html(response.data.message).fadeIn();
+            $form[0].reset();
+            
+            if (this.validation && typeof this.validation.refresh === 'function') {
+                this.validation.refresh();
             }
 
-            // Clear custom checkbox state
-            form.querySelectorAll('.mtforms-checkbox-label input[type="checkbox"]').forEach(function (checkbox) {
-                checkbox.checked = false;
-            });
+            // Sync UI animations
+            this.initFloatingLabels();
+            this.resetCaptcha();
+            this.scrollToElement($responseMsg[0]);
 
-            // Scroll to message if not visible
-            scrollToElement(responseMsg);
-
-            // Reset Captcha
-            resetCaptcha(form);
-
-            // Handle redirect if configured
-            const redirectUrl = form.getAttribute('data-redirect');
+            // Handle Post-Success Actions
+            const redirectUrl = $form.data('redirect');
             if (redirectUrl) {
-                setTimeout(function () {
-                    window.location.href = redirectUrl;
-                }, 1000);
+                setTimeout(() => window.location.href = redirectUrl, 1000);
             } else {
-                // Auto-hide success message after 5 seconds if no redirect
-                setTimeout(function () {
-                    responseMsg.style.opacity = '0';
-                    setTimeout(function () {
-                        responseMsg.style.display = 'none';
-                        responseMsg.style.opacity = '1';
-                        responseMsg.className = 'mtforms-response-message';
-                    }, 300);
+                setTimeout(() => {
+                    $responseMsg.fadeOut(() => $responseMsg.removeClass('success'));
                 }, 5000);
             }
-
         } else {
-            // Show error message
-            responseMsg.classList.add('error');
-            responseMsg.innerHTML = response.data.message;
-            responseMsg.style.display = 'block';
-
-            // Reset Captcha on failure
-            resetCaptcha(form);
-
-            // Scroll to message if not visible
-            scrollToElement(responseMsg);
+            // Error Path (Validation or Server side)
+            $responseMsg.addClass('error').html(response.data.message).fadeIn();
+            this.resetCaptcha();
+            this.scrollToElement($responseMsg[0]);
         }
     }
 
     /**
-     * Reset Captcha if it exists
+     * Handle generic AJAX errors (e.g. 500 Network)
      */
-    function resetCaptcha(form) {
-        // Reset reCAPTCHA v2
+    handleAjaxError(error, originalText) {
+        const { $form, $submitBtn, $responseMsg } = this.elements;
+        const selectors = this.getSettings('selectors');
+        const $btnText = $submitBtn.find(selectors.submitBtnText);
+
+        $submitBtn.prop('disabled', false).removeClass('loading');
+        $form.removeClass('submitting');
+
+        if ($btnText.length) {
+            $btnText.text(originalText);
+        } else {
+            $submitBtn.text(mtforms_ajax.i18n.send_message);
+        }
+
+        $responseMsg.addClass('error').html(mtforms_ajax.i18n.error_generic).fadeIn();
+        console.error('MTForms Submission Error:', error);
+    }
+
+    /**
+     * Cleanup Captcha instances
+     */
+    resetCaptcha() {
+        const $form = this.elements.$form;
+        
+        // Google ReCaptcha
         if (typeof grecaptcha !== 'undefined' && typeof grecaptcha.reset === 'function') {
-            try {
-                grecaptcha.reset();
-            } catch (e) {}
+            try { grecaptcha.reset(); } catch (e) {}
         }
-
-        // Reset Turnstile
+        
+        // Cloudflare Turnstile
         if (typeof turnstile !== 'undefined' && typeof turnstile.reset === 'function') {
-            try {
-                const turnstileEl = form.querySelector('.cf-turnstile');
-                if (turnstileEl) {
-                    turnstile.reset(turnstileEl);
-                }
-            } catch (e) {}
-        }
-    }
-
-    /**
-     * Handle AJAX error
-     */
-    function handleError(submitBtn, responseMsg, originalText, btnText, error) {
-        // Reset button state
-        submitBtn.disabled = false;
-        submitBtn.classList.remove('loading');
-        // form.classList.remove('submitting'); // form is not available here, but button is
-        const form = submitBtn.closest('form');
-        if (form) {
-            form.classList.remove('submitting');
-        }
-
-        if (btnText) {
-            btnText.textContent = originalText;
-        } else {
-            submitBtn.textContent = mtforms_ajax.i18n.send_message;
-        }
-
-        // Show error message
-        responseMsg.classList.add('error');
-        responseMsg.innerHTML = mtforms_ajax.i18n.error_generic;
-        responseMsg.style.display = 'block';
-
-        console.error('Form submission error:', error);
-    }
-
-    /**
-     * Scroll to element if not in viewport
-     */
-    function scrollToElement(element) {
-        const rect = element.getBoundingClientRect();
-        const isVisible = (
-            rect.top >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-        );
-
-        if (!isVisible) {
-            element.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-            });
-        }
-    }
-
-    /**
-     * Add input animations for floating/material layouts
-     * Use event delegation for dynamic forms
-     */
-    $(document).on('focus blur', '.mtforms-layout-floating .mtforms-input, .mtforms-layout-floating .mtforms-textarea, .mtforms-layout-material .mtforms-input, .mtforms-layout-material .mtforms-textarea', function (e) {
-        const wrapper = $(this).closest('.mtforms-form-group');
-        if (e.type === 'focus' || e.type === 'focusin') {
-            wrapper.addClass('is-focused');
-        } else {
-            wrapper.removeClass('is-focused');
-            if (this.value.trim() !== '') {
-                wrapper.addClass('has-value');
-            } else {
-                wrapper.removeClass('has-value');
+            const turnstileEl = $form.find('.cf-turnstile')[0];
+            if (turnstileEl) {
+                try { turnstile.reset(turnstileEl); } catch (e) {}
             }
         }
-    });
+    }
 
     /**
-     * Handle input changes for floating labels
+     * Utility to scroll response messages into view
      */
-    $(document).on('input', '.mtforms-layout-floating .mtforms-input, .mtforms-layout-floating .mtforms-textarea, .mtforms-layout-material .mtforms-input, .mtforms-layout-material .mtforms-textarea', function () {
-        const wrapper = $(this).closest('.mtforms-form-group');
-        if (this.value.trim() !== '') {
-            wrapper.addClass('has-value');
-        } else {
-            wrapper.removeClass('has-value');
+    scrollToElement(element) {
+        if (!element) return;
+        const rect = element.getBoundingClientRect();
+        const isVisible = (rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight));
+        if (!isVisible) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-    });
+    }
+}
 
-})(jQuery);
+/**
+ * Register the Widget Handler with Elementor
+ */
+jQuery(window).on('elementor/frontend/init', () => {
+    const handleMTFormsWidget = ($element) => {
+        elementorFrontend.elementsHandler.addHandler(MTFormsWidgetHandler, { $element });
+    };
+
+    elementorFrontend.hooks.addAction('frontend/element_ready/mtforms.default', handleMTFormsWidget);
+});
