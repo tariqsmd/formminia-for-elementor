@@ -89,6 +89,11 @@
   display: flex;
   flex-direction: column;
   gap: var(--mtforms-inner-gap);
+  transition: opacity 0.3s ease;
+}
+.mtforms-form.submitting .mtforms-form-inner {
+  opacity: 0.8;
+  pointer-events: none;
 }
 .mtforms-fields-wrapper {
   display: grid;
@@ -321,6 +326,109 @@
 .mtforms-submit-btn:active {
   transform: translateY(0);
 }
+.mtforms-submit-btn.loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+  cursor: default;
+}
+.mtforms-submit-btn.loading .mtforms-btn-text,
+.mtforms-submit-btn.loading .mtforms-btn-icon {
+  opacity: 0;
+  visibility: hidden;
+}
+.mtforms-submit-btn.loading .mtforms-loader-container {
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  gap: 4px;
+}
+.mtforms-submit-btn {
+  /* 1. Premium Spinner */
+}
+.mtforms-submit-btn.mtforms-loader-spinner.loading .mtforms-loader-element:first-child {
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: mtforms-spin 0.6s linear infinite;
+  display: block;
+}
+.mtforms-submit-btn.mtforms-loader-spinner.loading .mtforms-loader-element:not(:first-child) {
+  display: none;
+}
+.mtforms-submit-btn {
+  /* 2. Pulsing Dots */
+}
+.mtforms-submit-btn.mtforms-loader-dots.loading .mtforms-loader-element {
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  display: block;
+  animation: mtforms-dots 1.4s infinite ease-in-out both;
+}
+.mtforms-submit-btn.mtforms-loader-dots.loading .mtforms-loader-element:nth-child(1) {
+  animation-delay: -0.32s;
+}
+.mtforms-submit-btn.mtforms-loader-dots.loading .mtforms-loader-element:nth-child(2) {
+  animation-delay: -0.16s;
+}
+.mtforms-submit-btn {
+  /* 3. Bouncing Bars */
+}
+.mtforms-submit-btn.mtforms-loader-bars.loading .mtforms-loader-element {
+  width: 4px;
+  height: 18px;
+  background: #fff;
+  display: block;
+  animation: mtforms-bars 1.2s infinite ease-in-out;
+}
+.mtforms-submit-btn.mtforms-loader-bars.loading .mtforms-loader-element:nth-child(1) {
+  animation-delay: -1.1s;
+}
+.mtforms-submit-btn.mtforms-loader-bars.loading .mtforms-loader-element:nth-child(2) {
+  animation-delay: -1s;
+}
+.mtforms-submit-btn.mtforms-loader-bars.loading .mtforms-loader-element:nth-child(3) {
+  animation-delay: -0.9s;
+}
+.mtforms-submit-btn {
+  /* 4. Dual Ring */
+}
+.mtforms-submit-btn.mtforms-loader-dual-ring.loading .mtforms-loader-element:first-child {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: mtforms-spin 1.2s linear infinite;
+}
+.mtforms-submit-btn.mtforms-loader-dual-ring.loading .mtforms-loader-element:not(:first-child) {
+  display: none;
+}
+.mtforms-submit-btn {
+  /* 5. Growing Circles */
+}
+.mtforms-submit-btn.mtforms-loader-grow.loading .mtforms-loader-element:first-child {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  animation: mtforms-grow 1s infinite ease-in-out;
+}
+.mtforms-submit-btn.mtforms-loader-grow.loading .mtforms-loader-element:not(:first-child) {
+  display: none;
+}
 .mtforms-btn-icon {
   display: flex;
   align-items: center;
@@ -372,6 +480,37 @@
   color: #ffffff !important;
 }
 
+@keyframes mtforms-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes mtforms-dots {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+@keyframes mtforms-bars {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1);
+  }
+}
+@keyframes mtforms-grow {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
 @keyframes mtforms-shake {
   10%, 90% {
     transform: translate3d(-1px, 0, 0);

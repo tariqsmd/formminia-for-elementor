@@ -26,7 +26,11 @@ $icon_right = ($has_icon && $settings['button_icon_position'] === 'right');
 ?>
 
 <div class="mtforms-form-actions <?php echo esc_attr($align_class); ?>">
-    <button type="submit" class="<?php echo esc_attr(implode(' ', $btn_classes)); ?>">
+    <?php 
+    $loader_style = isset($settings['loader_style']) ? $settings['loader_style'] : 'spinner';
+    $btn_classes[] = 'mtforms-loader-' . $loader_style;
+    ?>
+    <button type="submit" class="<?php echo esc_attr(implode(' ', $btn_classes)); ?>" data-loader="<?php echo esc_attr($loader_style); ?>">
         <?php if ($icon_left): ?>
             <span class="mtforms-btn-icon mtforms-btn-icon-left">
                 <?php \Elementor\Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true']); ?>
@@ -43,6 +47,10 @@ $icon_right = ($has_icon && $settings['button_icon_position'] === 'right');
             </span>
         <?php endif; ?>
 
-        <span class="mtforms-spinner"></span>
+        <div class="mtforms-loader-container">
+            <span class="mtforms-loader-element"></span>
+            <span class="mtforms-loader-element"></span>
+            <span class="mtforms-loader-element"></span>
+        </div>
     </button>
 </div>

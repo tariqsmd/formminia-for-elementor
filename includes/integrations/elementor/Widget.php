@@ -975,6 +975,23 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
+		$this->add_control(
+			'loader_style',
+			[
+				'label' => esc_html__('Loader Style', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => 'spinner',
+				'options' => [
+					'spinner' => esc_html__('1. Premium Spinner', MTFORMS_TEXT_DOMAIN),
+					'dots' => esc_html__('2. Pulsing Dots', MTFORMS_TEXT_DOMAIN),
+					'bars' => esc_html__('3. Bouncing Bars', MTFORMS_TEXT_DOMAIN),
+					'dual-ring' => esc_html__('4. Dual Ring', MTFORMS_TEXT_DOMAIN),
+					'grow' => esc_html__('5. Growing Circles', MTFORMS_TEXT_DOMAIN),
+				],
+				'separator' => 'before',
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
