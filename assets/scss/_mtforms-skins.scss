@@ -3416,7 +3416,8 @@
         }
     }
 
-    .mtforms-input, .mtforms-textarea {
+    .mtforms-input,
+    .mtforms-textarea {
         border-width: 0 0 2px 0;
         border-color: #ddd;
         background: transparent;
@@ -3456,4 +3457,4 @@
         padding: 1.5rem;
         margin-top: 2rem;
     }
-}
+}

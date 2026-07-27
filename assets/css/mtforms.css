@@ -455,29 +455,26 @@
   justify-content: flex-start;
 }
 .mtforms-admin-warning {
+  margin: 1rem 0;
   padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
   background-color: #fef2f2;
   border: 1px dashed #ef4444;
   color: #b91c1c;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  margin: 1rem 0;
 }
 .mtforms-response-message {
+  display: none;
   width: 100%;
-  padding: 1rem;
   border-radius: 6px;
   font-size: 0.95rem;
-  font-weight: 500;
-  display: none;
+  font-weight: 700;
 }
 .mtforms-response-message.success {
-  background-color: var(--mtforms-success);
-  color: #ffffff !important;
+  color: var(--mtforms-success);
 }
 .mtforms-response-message.error {
-  background-color: var(--mtforms-error);
-  color: #ffffff !important;
+  color: var(--mtforms-error);
 }
 
 @keyframes mtforms-spin {
@@ -3557,14 +3554,16 @@
   margin-bottom: 8px;
   letter-spacing: 0.05em;
 }
-.mtforms-skin-49 .mtforms-input, .mtforms-skin-49 .mtforms-textarea {
+.mtforms-skin-49 .mtforms-input,
+.mtforms-skin-49 .mtforms-textarea {
   border-width: 0 0 2px 0;
   border-color: #ddd;
   background: transparent;
   padding: 12px 0;
   transition: all 0.3s ease;
 }
-.mtforms-skin-49 .mtforms-input:focus, .mtforms-skin-49 .mtforms-textarea:focus {
+.mtforms-skin-49 .mtforms-input:focus,
+.mtforms-skin-49 .mtforms-textarea:focus {
   border-bottom-color: var(--mtforms-primary);
   padding-left: 10px;
   background: rgba(227, 30, 36, 0.02);
