@@ -746,20 +746,6 @@ class Widget extends \Elementor\Widget_Base
 			]
 		);
 
-		// Icons in Textarea Section
-		// $this->add_control(
-		// 	'heading_textarea_icons',
-		// 	[
-		// 		'label' => esc_html__('Icons in Message Field', MTFORMS_TEXT_DOMAIN),
-		// 		'type' => \Elementor\Controls_Manager::HEADING,
-		// 		'separator' => 'before',
-		// 		'condition' => [
-		// 			'show_message' => 'yes',
-		// 			'icon_location' => 'input',
-		// 		],
-		// 	]
-		// );
-
 		$this->add_control(
 			'show_textarea_icons',
 			[
@@ -775,44 +761,6 @@ class Widget extends \Elementor\Widget_Base
 				],
 			]
 		);
-
-		// $this->add_control(
-		// 	'textarea_icon_position',
-		// 	[
-		// 		'label' => esc_html__('Message Icon Position', MTFORMS_TEXT_DOMAIN),
-		// 		'type' => \Elementor\Controls_Manager::CHOOSE,
-		// 		'options' => [
-		// 			'left' => [
-		// 				'title' => esc_html__('Left', MTFORMS_TEXT_DOMAIN),
-		// 				'icon' => 'eicon-h-align-left',
-		// 			],
-		// 			'right' => [
-		// 				'title' => esc_html__('Right', MTFORMS_TEXT_DOMAIN),
-		// 				'icon' => 'eicon-h-align-right',
-		// 			],
-		// 		],
-		// 		'default' => 'left',
-		// 		'condition' => [
-		// 			'show_textarea_icons' => 'yes',
-		// 			'show_message' => 'yes',
-		// 			'icon_location' => 'input',
-		// 		],
-		// 	]
-		// );
-
-		// Icons in GDPR Section
-		// $this->add_control(
-		// 	'heading_gdpr_icons',
-		// 	[
-		// 		'label' => esc_html__('Icons in GDPR Checkbox', MTFORMS_TEXT_DOMAIN),
-		// 		'type' => \Elementor\Controls_Manager::HEADING,
-		// 		'separator' => 'before',
-		// 		'condition' => [
-		// 			'show_gdpr' => 'yes',
-		// 			'icon_location' => 'input',
-		// 		],
-		// 	]
-		// );
 
 		$this->add_control(
 			'show_gdpr_icons',
@@ -982,11 +930,11 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'spinner',
 				'options' => [
-					'spinner' => esc_html__('1. Premium Spinner', MTFORMS_TEXT_DOMAIN),
-					'dots' => esc_html__('2. Pulsing Dots', MTFORMS_TEXT_DOMAIN),
-					'bars' => esc_html__('3. Bouncing Bars', MTFORMS_TEXT_DOMAIN),
-					'dual-ring' => esc_html__('4. Dual Ring', MTFORMS_TEXT_DOMAIN),
-					'grow' => esc_html__('5. Growing Circles', MTFORMS_TEXT_DOMAIN),
+					'spinner' => esc_html__('Premium Spinner', MTFORMS_TEXT_DOMAIN),
+					'dots' => esc_html__('Pulsing Dots', MTFORMS_TEXT_DOMAIN),
+					'bars' => esc_html__('Bouncing Bars', MTFORMS_TEXT_DOMAIN),
+					'dual-ring' => esc_html__('Dual Ring', MTFORMS_TEXT_DOMAIN),
+					'grow' => esc_html__('Growing Circles', MTFORMS_TEXT_DOMAIN),
 				],
 				'separator' => 'before',
 			]
@@ -1207,18 +1155,6 @@ class Widget extends \Elementor\Widget_Base
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
-
-		// $this->add_responsive_control(
-		// 	'form_width',
-		// 	[
-		// 		'label' => esc_html__('Form Width', MTFORMS_TEXT_DOMAIN),
-		// 		'type' => \Elementor\Controls_Manager::SLIDER,
-		// 		'size_units' => ['px', '%', 'vw'],
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .mtforms-form-wrapper' => 'width: {{SIZE}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
 
 		$this->add_responsive_control(
 			'form_margin',
