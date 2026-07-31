@@ -2913,11 +2913,25 @@ class Widget extends \Elementor\Widget_Base
 			}
 		}
 
+		// Calculate required fields
+		$required_fields = [];
+		$fields = ['name', 'email', 'phone', 'website', 'subject', 'message'];
+		foreach ($fields as $field) {
+			if ($settings['show_' . $field] === 'yes' && $settings['required_' . $field] === 'yes') {
+				$required_fields[] = 'mtforms_' . $field;
+			}
+		}
+
+		if ($settings['show_gdpr'] === 'yes') {
+			$required_fields[] = 'mtforms_gdpr';
+		}
+
 		$this->get_partial(
 			'form-header',
 			[
 				'settings' => $settings,
 				'widget_id' => $widget_id,
+				'required_fields' => $required_fields,
 			]
 		);
 

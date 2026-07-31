@@ -14,36 +14,63 @@ class FormValidator {
 	 *
 	 * @return true|\WP_Error
 	 */
-	public function validate( FormSubmission $submission ) {
+	public function validate(FormSubmission $submission)
+	{
 		/**
 		 * Allow custom validation before MTForms runs its own rules.
 		 *
 		 * Return a \WP_Error to short-circuit validation.
 		 */
-		$pre = apply_filters( 'mtforms_before_validate_submission', null, $submission );
-		if ( $pre instanceof \WP_Error ) {
+		$pre = apply_filters('mtforms_before_validate_submission', null, $submission);
+		if ($pre instanceof \WP_Error) {
 			return $pre;
 		}
 
-		if ( empty( $submission->name ) || empty( $submission->email ) || empty( $submission->message ) ) {
-			return new \WP_Error(
-				'mtforms_required',
-				__( 'Please fill in all required fields.', MTFORMS_TEXT_DOMAIN )
-			);
+		// Get required fields list from the submission (sent as comma separated via hidden field)
+		$required_fields = isset($submission->raw['mtforms_required_fields']) ? explode(',', sanitize_text_field(wp_unslash($submission->raw['mtforms_required_fields']))) : [];
+
+		foreach ($required_fields as $field) {
+			$value = '';
+			switch ($field) {
+				case 'mtforms_name':
+					$value = $submission->name;
+					break;
+				case 'mtforms_email':
+					$value = $submission->email;
+					break;
+				case 'mtforms_phone':
+					$value = $submission->phone;
+					break;
+				case 'mtforms_website':
+					$value = $submission->website;
+					break;
+				case 'mtforms_subject':
+					$value = $submission->subject;
+					break;
+				case 'mtforms_message':
+					$value = $submission->message;
+					break;
+				case 'mtforms_gdpr':
+					if (!$submission->gdpr_accepted) {
+						return new \WP_Error('mtforms_gdpr_required', __('You must agree to the terms', MTFORMS_TEXT_DOMAIN));
+					}
+					continue 2;
+			}
+
+			if (empty($value)) {
+				return new \WP_Error('mtforms_required', __('Please fill in all required fields.', MTFORMS_TEXT_DOMAIN));
+			}
 		}
 
-		if ( ! is_email( $submission->email ) ) {
-			return new \WP_Error(
-				'mtforms_invalid_email',
-				__( 'Invalid email address.', MTFORMS_TEXT_DOMAIN )
-			);
+		// Ensure at least one actual field has data (sanity check)
+		$all_fields = [$submission->name, $submission->email, $submission->phone, $submission->website, $submission->subject, $submission->message];
+		if (empty(array_filter($all_fields))) {
+			return new \WP_Error('mtforms_empty', __('Please fill in at least one field.', MTFORMS_TEXT_DOMAIN));
 		}
 
-		if ( $submission->gdpr_enabled && ! $submission->gdpr_accepted ) {
-			return new \WP_Error(
-				'mtforms_gdpr_required',
-				__( 'You must accept the GDPR terms.', MTFORMS_TEXT_DOMAIN )
-			);
+		// Email format validation (only if email is provided or required)
+		if (!empty($submission->email) && !is_email($submission->email)) {
+			return new \WP_Error('mtforms_invalid_email', __('Invalid email address.', MTFORMS_TEXT_DOMAIN));
 		}
 
 		/**
@@ -51,8 +78,8 @@ class FormValidator {
 		 *
 		 * Return a \WP_Error to make the submission invalid.
 		 */
-		$post = apply_filters( 'mtforms_after_validate_submission', null, $submission );
-		if ( $post instanceof \WP_Error ) {
+		$post = apply_filters('mtforms_after_validate_submission', null, $submission);
+		if ($post instanceof \WP_Error) {
 			return $post;
 		}
 

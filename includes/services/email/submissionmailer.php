@@ -33,25 +33,31 @@ class SubmissionMailer
 	 */
 	public function send(FormSubmission $submission)
 	{
-		$form_fields = array(
-			__('Name', MTFORMS_TEXT_DOMAIN) => $submission->name,
-			__('Email', MTFORMS_TEXT_DOMAIN) => $submission->email,
-		);
+		$form_fields = array();
 
-		if ($submission->phone !== '') {
+		if (!empty($submission->name)) {
+			$form_fields[__('Name', MTFORMS_TEXT_DOMAIN)] = $submission->name;
+		}
+
+		if (!empty($submission->email)) {
+			$form_fields[__('Email', MTFORMS_TEXT_DOMAIN)] = $submission->email;
+		}
+
+		if (!empty($submission->phone)) {
 			$form_fields[__('Phone', MTFORMS_TEXT_DOMAIN)] = $submission->phone;
 		}
 
-		if ($submission->website !== '') {
+		if (!empty($submission->website)) {
 			$form_fields[__('Website', MTFORMS_TEXT_DOMAIN)] = $submission->website;
 		}
 
-		if ($submission->subject !== '') {
+		if (!empty($submission->subject)) {
 			$form_fields[__('Subject', MTFORMS_TEXT_DOMAIN)] = $submission->subject;
 		}
 
-		// Message should be at the bottom
-		$form_fields[__('Message', MTFORMS_TEXT_DOMAIN)] = $submission->message;
+		if (!empty($submission->message)) {
+			$form_fields[__('Message', MTFORMS_TEXT_DOMAIN)] = $submission->message;
+		}
 
 		$to = $submission->to;
 		if (empty($to)) {

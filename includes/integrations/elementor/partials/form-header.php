@@ -66,4 +66,7 @@ if (!empty($settings['form_id'])) {
 		<?php if (!empty($settings['mail_bcc'])): ?>
 			<input type="hidden" name="mtforms_bcc" value="<?php echo esc_attr($settings['mail_bcc']); ?>">
 		<?php endif; ?>
+		<?php if (!empty($args['required_fields'])): ?>
+			<input type="hidden" name="mtforms_required_fields" value="<?php echo esc_attr(implode(',', $args['required_fields'])); ?>">
+		<?php endif; ?>
 		<div class="mtforms-form-inner">
