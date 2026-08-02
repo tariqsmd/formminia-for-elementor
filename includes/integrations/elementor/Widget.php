@@ -189,6 +189,7 @@ class Widget extends \Elementor\Widget_Base
 					'skin-47' => __('47. Solar Vault', MTFORMS_TEXT_DOMAIN),
 					'skin-48' => __('48. Social Mastodon', MTFORMS_TEXT_DOMAIN),
 					'skin-49' => __('49. Prime Butcher', MTFORMS_TEXT_DOMAIN),
+					'skin-50' => __('50. Holographic Aurora', MTFORMS_TEXT_DOMAIN),
 				],
 			]
 		);
