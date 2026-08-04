@@ -53,13 +53,7 @@ class FormController
 	 */
 	public function enqueue_styles()
 	{
-		wp_enqueue_style(
-			$this->plugin_name,
-			MTFORMS_PLUGIN_URL . 'assets/css/mtforms.css',
-			array(),
-			$this->version,
-			'all'
-		);
+		// Styles are now registered in the Elementor widget class and enqueued on-demand.
 	}
 
 	/**
@@ -78,14 +72,6 @@ class FormController
 			$just_validate_src,
 			array(),
 			'4.3.0',
-			true
-		);
-
-		wp_register_script(
-			$this->plugin_name,
-			MTFORMS_PLUGIN_URL . 'assets/js/mtforms.js',
-			array('jquery', 'mtforms-just-validate'),
-			$this->version,
 			true
 		);
 

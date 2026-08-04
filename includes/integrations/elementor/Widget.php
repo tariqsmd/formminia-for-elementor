@@ -16,6 +16,27 @@ if (!defined('ABSPATH')) {
 class Widget extends \Elementor\Widget_Base
 {
 
+	public function __construct(array $data = [], ?array $args = null)
+	{
+		parent::__construct($data, $args);
+
+		wp_register_script(
+			'mtforms',
+			MTFORMS_PLUGIN_URL . 'assets/js/mtforms.js',
+			[ 'elementor-frontend', 'jquery', 'mtforms-just-validate' ],
+			MTFORMS_VERSION,
+			true
+		);
+
+		wp_register_style(
+			'mtforms',
+			MTFORMS_PLUGIN_URL . 'assets/css/mtforms.css',
+			[],
+			MTFORMS_VERSION
+		);
+		
+	}
+
 	/**
 	 * Get widget name.
 	 *
@@ -673,6 +694,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'default' => esc_html__('Thank you! Your message has been sent successfully.', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
+				'frontend' => true,
 			]
 		);
 
@@ -683,6 +705,187 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'default' => esc_html__('Oops! Something went wrong. Please try again.', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
+				'frontend' => true,
+			]
+		);
+
+		/**
+		 * Validation Messages Controls.
+		 */
+		$this->add_control(
+			'heading_validation_messages',
+			[
+				'label' => esc_html__('Validation Messages', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'name_required_msg',
+			[
+				'label' => esc_html__('Name Required', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__('Name is required', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+				'frontend' => true,
+				'condition' => [
+					'show_name' => 'yes',
+					'required_name' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'email_required_msg',
+			[
+				'label' => esc_html__('Email Required', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__('Email is required', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+				'frontend' => true,
+				'condition' => [
+					'show_email' => 'yes',
+					'required_email' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'email_invalid_msg',
+			[
+				'label' => esc_html__('Email Invalid', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__('Email is invalid', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+				'frontend' => true,
+				'condition' => [
+					'show_email' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'phone_required_msg',
+			[
+				'label' => esc_html__('Phone Required', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__('Phone number is required', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+				'frontend' => true,
+				'condition' => [
+					'show_phone' => 'yes',
+					'required_phone' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'phone_invalid_msg',
+			[
+				'label' => esc_html__('Phone Invalid', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__('Please enter a valid phone number', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+				'frontend' => true,
+				'condition' => [
+					'show_phone' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'website_required_msg',
+			[
+				'label' => esc_html__('Website Required', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__('Website URL is required', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+				'frontend' => true,
+				'condition' => [
+					'show_website' => 'yes',
+					'required_website' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'website_invalid_msg',
+			[
+				'label' => esc_html__('Website Invalid', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__('Please enter a valid URL', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+				'frontend' => true,
+				'condition' => [
+					'show_website' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'subject_required_msg',
+			[
+				'label' => esc_html__('Subject Required', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__('Subject is required', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+				'frontend' => true,
+				'condition' => [
+					'show_subject' => 'yes',
+					'required_subject' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'message_required_msg',
+			[
+				'label' => esc_html__('Message Required', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__('Message is required', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+				'frontend' => true,
+				'condition' => [
+					'show_message' => 'yes',
+					'required_message' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'gdpr_required_msg',
+			[
+				'label' => esc_html__('GDPR Required', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__('You must agree to the terms', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+				'frontend' => true,
+				'condition' => [
+					'show_gdpr' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'sending_msg',
+			[
+				'label' => esc_html__('Sending Text', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__('Sending...', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+				'frontend' => true,
+			]
+		);
+
+		$this->add_control(
+			'submit_btn_text',
+			[
+				'label' => esc_html__('Submit Button Text', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__('Send Message', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+				'frontend' => true,
 			]
 		);
 

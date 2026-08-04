@@ -51,7 +51,8 @@ if (!empty($settings['form_id'])) {
 }
 ?>
 <div id="<?php echo esc_attr($wrapper_id); ?>" class="<?php echo esc_attr(implode(' ', $container_classes)); ?>">
-	<form id="<?php echo esc_attr($form_id); ?>" class="mtforms-form" action="" method="POST" novalidate <?php if ($settings['redirect_on_success'] === 'yes' && !empty($settings['success_redirect_url']['url'])): ?>data-redirect="<?php echo esc_url($settings['success_redirect_url']['url']); ?>" <?php endif; ?>>
+	<form id="<?php echo esc_attr($form_id); ?>" class="mtforms-form" action="" method="POST" novalidate 
+		<?php if ($settings['redirect_on_success'] === 'yes' && !empty($settings['success_redirect_url']['url'])): ?>data-redirect="<?php echo esc_url($settings['success_redirect_url']['url']); ?>" <?php endif; ?>>
 		<?php if ($settings['enable_honeypot'] === 'yes'): ?>
 			<div style="display:none !important;">
 				<input type="text" name="mtforms_hp" tabindex="-1" autocomplete="off">

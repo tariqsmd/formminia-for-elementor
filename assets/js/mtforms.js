@@ -50,11 +50,46 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
             return;
         }
 
+        // Initialize Config
+        this.initConfig();
+
         // Initialize UI components
         this.initFloatingLabels();
         
         // Initialize Validation
         this.initValidation();
+    }
+
+    /**
+     * Load configuration using Elementor's native handler settings
+     */
+    initConfig() {
+        const settings = this.getElementSettings();
+        const globalConfig = typeof mtforms_ajax !== 'undefined' ? mtforms_ajax : { i18n: {} };
+        const globalI18n = globalConfig.i18n || {};
+        
+        this.config = {
+            ajax_url: globalConfig.ajax_url || (typeof admin_url !== 'undefined' ? admin_url : ''),
+            nonce: globalConfig.nonce || '',
+            i18n: {
+                name_required: settings.name_required_msg || globalI18n.name_required || 'Name is required',
+                name_min: globalI18n.name_min || 'Name must be at least 2 characters',
+                email_required: settings.email_required_msg || globalI18n.email_required || 'Email is required',
+                email_invalid: settings.email_invalid_msg || globalI18n.email_invalid || 'Email is invalid',
+                phone_required: settings.phone_required_msg || globalI18n.phone_required || 'Phone number is required',
+                phone_invalid: settings.phone_invalid_msg || globalI18n.phone_invalid || 'Please enter a valid phone number',
+                website_required: settings.website_required_msg || globalI18n.website_required || 'Website URL is required',
+                website_invalid: settings.website_invalid_msg || globalI18n.website_invalid || 'Please enter a valid URL',
+                subject_required: settings.subject_required_msg || globalI18n.subject_required || 'Subject is required',
+                message_required: settings.message_required_msg || globalI18n.message_required || 'Message is required',
+                gdpr_required: settings.gdpr_required_msg || globalI18n.gdpr_required || 'You must agree to the terms',
+                sending: settings.sending_msg || globalI18n.sending || 'Sending...',
+                send_message: settings.submit_btn_text || globalI18n.send_message || 'Send Message',
+                error_generic: globalI18n.error_generic || 'An unexpected error occurred. Please try again.',
+                success: settings.success_message || globalI18n.success,
+                error: settings.error_message || globalI18n.error
+            }
+        };
     }
 
     /**
@@ -139,7 +174,7 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
      */
     addValidationRules() {
         const $form = this.elements.$form;
-        const i18n = mtforms_ajax.i18n;
+        const i18n = this.config.i18n;
 
         const fieldConfigs = {
             mtforms_name: {
@@ -197,7 +232,7 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
         elements.$submitBtn.prop('disabled', true).addClass('loading');
         elements.$form.addClass('submitting');
         
-        const sendingText = mtforms_ajax.i18n.sending;
+        const sendingText = this.config.i18n.sending;
         if ($btnText.length) {
             $btnText.text(sendingText);
         } else {
@@ -210,11 +245,11 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
         // 3. Construct Data
         const formData = new FormData(elements.$form[0]);
         formData.append('action', 'mtforms_submit_form');
-        formData.append('nonce', mtforms_ajax.nonce);
+        formData.append('nonce', this.config.nonce);
 
         // 4. Send Request
         jQuery.ajax({
-            url: mtforms_ajax.ajax_url,
+            url: this.config.ajax_url,
             type: 'POST',
             data: formData,
             processData: false,
@@ -243,12 +278,13 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
         if ($btnText.length) {
             $btnText.text(originalText);
         } else {
-            $submitBtn.text(mtforms_ajax.i18n.send_message);
+            $submitBtn.text(this.config.i18n.send_message);
         }
 
         if (response.success) {
             // Success Path
-            $responseMsg.addClass('success').html(response.data.message).fadeIn();
+            const msg = this.config.i18n.success || response.data.message;
+            $responseMsg.addClass('success').html(msg).fadeIn();
             $form[0].reset();
             
             if (this.validation && typeof this.validation.refresh === 'function') {
@@ -271,7 +307,8 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
             }
         } else {
             // Error Path (Validation or Server side)
-            $responseMsg.addClass('error').html(response.data.message).fadeIn();
+            const msg = this.config.i18n.error || response.data.message;
+            $responseMsg.addClass('error').html(msg).fadeIn();
             this.resetCaptcha();
             this.scrollToElement($responseMsg[0]);
         }
@@ -291,10 +328,10 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
         if ($btnText.length) {
             $btnText.text(originalText);
         } else {
-            $submitBtn.text(mtforms_ajax.i18n.send_message);
+            $submitBtn.text(this.config.i18n.send_message);
         }
 
-        $responseMsg.addClass('error').html(mtforms_ajax.i18n.error_generic).fadeIn();
+        $responseMsg.addClass('error').html(this.config.i18n.error_generic).fadeIn();
         console.error('MTForms Submission Error:', error);
     }
 
