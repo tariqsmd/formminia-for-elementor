@@ -86,9 +86,9 @@ class FormController
 			$site_key = get_option('mtforms_turnstile_site_key');
 			if (!empty($site_key)) {
 				wp_register_script('cloudflare-turnstile', 'https://challenges.cloudflare.com/turnstile/v0/api.js', array(), null, true);
-				
+
 				// Add async/defer to Turnstile
-				add_filter('script_loader_tag', function($tag, $handle) {
+				add_filter('script_loader_tag', function ($tag, $handle) {
 					if ('cloudflare-turnstile' !== $handle) {
 						return $tag;
 					}
@@ -96,32 +96,6 @@ class FormController
 				}, 10, 2);
 			}
 		}
-
-		wp_localize_script(
-			$this->plugin_name,
-			'mtforms_ajax',
-			array(
-				'ajax_url' => admin_url('admin-ajax.php'),
-				'nonce' => wp_create_nonce('mtforms-submit-form'),
-				'i18n' => array(
-					'name_required' => __('Name is required', MTFORMS_TEXT_DOMAIN),
-					'name_min' => __('Name must be at least 2 characters', MTFORMS_TEXT_DOMAIN),
-					'email_required' => __('Email is required', MTFORMS_TEXT_DOMAIN),
-					'email_invalid' => __('Email is invalid', MTFORMS_TEXT_DOMAIN),
-					'phone_required' => __('Phone number is required', MTFORMS_TEXT_DOMAIN),
-					'phone_invalid' => __('Please enter a valid phone number', MTFORMS_TEXT_DOMAIN),
-					'website_required' => __('Website URL is required', MTFORMS_TEXT_DOMAIN),
-					'website_invalid' => __('Please enter a valid URL', MTFORMS_TEXT_DOMAIN),
-					'subject_required' => __('Subject is required', MTFORMS_TEXT_DOMAIN),
-					'message_required' => __('Message is required', MTFORMS_TEXT_DOMAIN),
-					'gdpr_required' => __('You must agree to the terms', MTFORMS_TEXT_DOMAIN),
-					'sending' => __('Sending...', MTFORMS_TEXT_DOMAIN),
-					'send_message' => __('Send Message', MTFORMS_TEXT_DOMAIN),
-					'error_generic' => __('An unexpected error occurred. Please try again.', MTFORMS_TEXT_DOMAIN),
-				),
-				'captcha_provider' => get_option('mtforms_captcha_provider', 'none'),
-			)
-		);
 	}
 
 	/**

@@ -1,3 +1,4 @@
+
 /**
  * MTForms Elementor Widget Handler
  *
@@ -43,7 +44,7 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
     /**
      * Initialization logic
      */
-    async onInit() {
+    onInit() {
         super.onInit(...arguments);
 
         if (!this.elements.$form.length) {
@@ -55,7 +56,7 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
 
         // Initialize UI components
         this.initFloatingLabels();
-        
+
         // Initialize Validation
         this.initValidation();
     }
@@ -67,7 +68,7 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
         const settings = this.getElementSettings();
         const globalConfig = typeof mtforms_ajax !== 'undefined' ? mtforms_ajax : { i18n: {} };
         const globalI18n = globalConfig.i18n || {};
-        
+
         this.config = {
             ajax_url: globalConfig.ajax_url || (typeof admin_url !== 'undefined' ? admin_url : ''),
             nonce: globalConfig.nonce || '',
@@ -102,7 +103,7 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
         this.$element.on('focus blur', selectors.floatingInput, (event) => {
             const $input = jQuery(event.currentTarget);
             const $wrapper = $input.closest(selectors.formGroup);
-            
+
             if (event.type === 'focus' || event.type === 'focusin') {
                 $wrapper.addClass('is-focused');
             } else {
@@ -146,7 +147,7 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
     initValidation() {
         const $form = this.elements.$form;
         const formId = $form.attr('id') || `mtforms-form-${this.getID()}`;
-        
+
         // Ensure unique ID for JustValidate
         if (!$form.attr('id')) {
             $form.attr('id', formId);
@@ -231,7 +232,7 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
         // 1. Enter Loading State
         elements.$submitBtn.prop('disabled', true).addClass('loading');
         elements.$form.addClass('submitting');
-        
+
         const sendingText = this.config.i18n.sending;
         if ($btnText.length) {
             $btnText.text(sendingText);
@@ -274,7 +275,7 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
         // Reset UI state
         $submitBtn.prop('disabled', false).removeClass('loading');
         $form.removeClass('submitting');
-        
+
         if ($btnText.length) {
             $btnText.text(originalText);
         } else {
@@ -286,7 +287,7 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
             const msg = this.config.i18n.success || response.data.message;
             $responseMsg.addClass('success').html(msg).fadeIn();
             $form[0].reset();
-            
+
             if (this.validation && typeof this.validation.refresh === 'function') {
                 this.validation.refresh();
             }
@@ -340,17 +341,17 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
      */
     resetCaptcha() {
         const $form = this.elements.$form;
-        
+
         // Google ReCaptcha
         if (typeof grecaptcha !== 'undefined' && typeof grecaptcha.reset === 'function') {
-            try { grecaptcha.reset(); } catch (e) {}
+            try { grecaptcha.reset(); } catch (e) { }
         }
-        
+
         // Cloudflare Turnstile
         if (typeof turnstile !== 'undefined' && typeof turnstile.reset === 'function') {
             const turnstileEl = $form.find('.cf-turnstile')[0];
             if (turnstileEl) {
-                try { turnstile.reset(turnstileEl); } catch (e) {}
+                try { turnstile.reset(turnstileEl); } catch (e) { }
             }
         }
     }
@@ -368,9 +369,6 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
     }
 }
 
-/**
- * Register the Widget Handler with Elementor
- */
 jQuery(window).on('elementor/frontend/init', () => {
     const handleMTFormsWidget = ($element) => {
         elementorFrontend.elementsHandler.addHandler(MTFormsWidgetHandler, { $element });

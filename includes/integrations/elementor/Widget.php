@@ -20,21 +20,47 @@ class Widget extends \Elementor\Widget_Base
 	{
 		parent::__construct($data, $args);
 
-		wp_register_script(
-			'mtforms',
-			MTFORMS_PLUGIN_URL . 'assets/js/mtforms.js',
-			[ 'elementor-frontend', 'jquery', 'mtforms-just-validate' ],
-			MTFORMS_VERSION,
-			true
-		);
-
 		wp_register_style(
 			'mtforms',
 			MTFORMS_PLUGIN_URL . 'assets/css/mtforms.css',
 			[],
 			MTFORMS_VERSION
 		);
-		
+
+				wp_register_script(
+			'mtforms',
+			MTFORMS_PLUGIN_URL . 'assets/js/mtforms.js',
+			['elementor-frontend', 'mtforms-just-validate'],
+			MTFORMS_VERSION,
+			true
+		);
+
+		wp_localize_script(
+			'mtforms',
+			'mtforms_ajax',
+			array(
+				'ajax_url' => admin_url('admin-ajax.php'),
+				'nonce' => wp_create_nonce('mtforms-submit-form'),
+				'i18n' => array(
+					'name_required' => __('Name is required', MTFORMS_TEXT_DOMAIN),
+					'name_min' => __('Name must be at least 2 characters', MTFORMS_TEXT_DOMAIN),
+					'email_required' => __('Email is required', MTFORMS_TEXT_DOMAIN),
+					'email_invalid' => __('Email is invalid', MTFORMS_TEXT_DOMAIN),
+					'phone_required' => __('Phone number is required', MTFORMS_TEXT_DOMAIN),
+					'phone_invalid' => __('Please enter a valid phone number', MTFORMS_TEXT_DOMAIN),
+					'website_required' => __('Website URL is required', MTFORMS_TEXT_DOMAIN),
+					'website_invalid' => __('Please enter a valid URL', MTFORMS_TEXT_DOMAIN),
+					'subject_required' => __('Subject is required', MTFORMS_TEXT_DOMAIN),
+					'message_required' => __('Message is required', MTFORMS_TEXT_DOMAIN),
+					'gdpr_required' => __('You must agree to the terms', MTFORMS_TEXT_DOMAIN),
+					'sending' => __('Sending...', MTFORMS_TEXT_DOMAIN),
+					'send_message' => __('Send Message', MTFORMS_TEXT_DOMAIN),
+					'error_generic' => __('An unexpected error occurred. Please try again.', MTFORMS_TEXT_DOMAIN),
+				),
+				'captcha_provider' => get_option('mtforms_captcha_provider', 'none'),
+			)
+		);
+
 	}
 
 	/**
@@ -694,7 +720,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'default' => esc_html__('Thank you! Your message has been sent successfully.', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
-				'frontend' => true,
+				'frontend_available' => true,
 			]
 		);
 
@@ -705,7 +731,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'default' => esc_html__('Oops! Something went wrong. Please try again.', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
-				'frontend' => true,
+				'frontend_available' => true,
 			]
 		);
 
@@ -728,7 +754,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Name is required', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
-				'frontend' => true,
+				'frontend_available' => true,
 				'condition' => [
 					'show_name' => 'yes',
 					'required_name' => 'yes',
@@ -743,7 +769,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Email is required', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
-				'frontend' => true,
+				'frontend_available' => true,
 				'condition' => [
 					'show_email' => 'yes',
 					'required_email' => 'yes',
@@ -758,7 +784,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Email is invalid', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
-				'frontend' => true,
+				'frontend_available' => true,
 				'condition' => [
 					'show_email' => 'yes',
 				],
@@ -772,7 +798,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Phone number is required', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
-				'frontend' => true,
+				'frontend_available' => true,
 				'condition' => [
 					'show_phone' => 'yes',
 					'required_phone' => 'yes',
@@ -787,7 +813,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Please enter a valid phone number', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
-				'frontend' => true,
+				'frontend_available' => true,
 				'condition' => [
 					'show_phone' => 'yes',
 				],
@@ -801,7 +827,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Website URL is required', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
-				'frontend' => true,
+				'frontend_available' => true,
 				'condition' => [
 					'show_website' => 'yes',
 					'required_website' => 'yes',
@@ -816,7 +842,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Please enter a valid URL', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
-				'frontend' => true,
+				'frontend_available' => true,
 				'condition' => [
 					'show_website' => 'yes',
 				],
@@ -830,7 +856,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Subject is required', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
-				'frontend' => true,
+				'frontend_available' => true,
 				'condition' => [
 					'show_subject' => 'yes',
 					'required_subject' => 'yes',
@@ -845,7 +871,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Message is required', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
-				'frontend' => true,
+				'frontend_available' => true,
 				'condition' => [
 					'show_message' => 'yes',
 					'required_message' => 'yes',
@@ -860,7 +886,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('You must agree to the terms', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
-				'frontend' => true,
+				'frontend_available' => true,
 				'condition' => [
 					'show_gdpr' => 'yes',
 				],
@@ -874,7 +900,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Sending...', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
-				'frontend' => true,
+				'frontend_available' => true,
 			]
 		);
 
@@ -885,7 +911,7 @@ class Widget extends \Elementor\Widget_Base
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__('Send Message', MTFORMS_TEXT_DOMAIN),
 				'label_block' => true,
-				'frontend' => true,
+				'frontend_available' => true,
 			]
 		);
 
