@@ -6,6 +6,7 @@ use MTForms\Services\Captcha\CaptchaVerifierInterface;
 use MTForms\Services\FormSubmission;
 use MTForms\Services\FormValidator;
 use MTForms\Services\Email\SubmissionMailer;
+use MTForms\Services\SubmissionRepository;
 
 /**
  * Public-facing form controller for MTForms.
@@ -32,20 +33,25 @@ class FormController
 	/** @var SubmissionMailer */
 	protected $mailer;
 
+	/** @var SubmissionRepository */
+	protected $repository;
+
 	/**
 	 * @param string                   $plugin_name      Plugin slug.
 	 * @param string                   $version          Plugin version.
 	 * @param FormValidator            $validator        Validator service.
 	 * @param CaptchaVerifierInterface $captcha_verifier Captcha verifier.
 	 * @param SubmissionMailer         $mailer           Mailer service.
+	 * @param SubmissionRepository    $repository       Submission repository.
 	 */
-	public function __construct($plugin_name, $version, FormValidator $validator, CaptchaVerifierInterface $captcha_verifier, SubmissionMailer $mailer)
+	public function __construct($plugin_name, $version, FormValidator $validator, CaptchaVerifierInterface $captcha_verifier, SubmissionMailer $mailer, SubmissionRepository $repository)
 	{
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 		$this->validator = $validator;
 		$this->captcha_verifier = $captcha_verifier;
 		$this->mailer = $mailer;
+		$this->repository = $repository;
 	}
 
 	/**
@@ -161,6 +167,15 @@ class FormController
 		}
 
 		$sent = $this->mailer->send($submission);
+
+		// Send auto-responder.
+		$this->mailer->send_autoresponder($submission);
+
+		// Save to database.
+		$this->repository->save($submission, [
+			'ip_address' => $ip_address,
+			'user_agent' => isset($_SERVER['HTTP_USER_AGENT']) ? sanitize_textarea_field(wp_unslash($_SERVER['HTTP_USER_AGENT'])) : '',
+		]);
 
 		if ($sent instanceof \WP_Error) {
 			wp_send_json_error(

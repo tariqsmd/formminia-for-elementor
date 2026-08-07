@@ -126,6 +126,7 @@ class Plugin {
 
 		$config = new \MTForms\Services\WpOptionsConfig();
 		$mailer = new \MTForms\Services\WpMailMailer();
+		$repository = new \MTForms\Services\SubmissionRepository();
 
 		$submission_mailer = new \MTForms\Services\Email\SubmissionMailer( $config, $mailer );
 
@@ -134,7 +135,8 @@ class Plugin {
 			$this->get_version(),
 			$validator,
 			$captcha_verifier,
-			$submission_mailer
+			$submission_mailer,
+			$repository
 		);
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $controller, 'enqueue_styles' );

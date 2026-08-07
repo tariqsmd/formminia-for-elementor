@@ -2,6 +2,8 @@
 
 namespace MTForms\Admin;
 
+use MTForms\Admin\SubmissionsTable;
+
 /**
  * Admin settings page for MTForms.
  *
@@ -33,7 +35,7 @@ class SettingsPage
 	 */
 	public function enqueue_styles($hook)
 	{
-		if ('toplevel_page_mtforms' !== $hook) {
+		if ('toplevel_page_mtforms' !== $hook && 'mtforms_page_mtforms-submissions' !== $hook) {
 			return;
 		}
 
@@ -55,7 +57,7 @@ class SettingsPage
 	 */
 	public function enqueue_scripts($hook)
 	{
-		if ('toplevel_page_mtforms' !== $hook) {
+		if ('toplevel_page_mtforms' !== $hook && 'mtforms_page_mtforms-submissions' !== $hook) {
 			return;
 		}
 
@@ -84,6 +86,53 @@ class SettingsPage
 			'dashicons-email',
 			79
 		);
+
+		add_submenu_page(
+			'mtforms',
+			__('Settings', MTFORMS_TEXT_DOMAIN),
+			__('Settings', MTFORMS_TEXT_DOMAIN),
+			'manage_options',
+			'mtforms',
+			array($this, 'display_plugin_setup_page')
+		);
+
+		add_submenu_page(
+			'mtforms',
+			__('Submissions', MTFORMS_TEXT_DOMAIN),
+			__('Submissions', MTFORMS_TEXT_DOMAIN),
+			'manage_options',
+			'mtforms-submissions',
+			array($this, 'display_submissions_page')
+		);
+	}
+
+	/**
+	 * Render the submissions page.
+	 */
+	public function display_submissions_page()
+	{
+		$table = new SubmissionsTable();
+		$table->prepare_items();
+
+		// Handle export.
+		if (isset($_GET['action']) && $_GET['action'] === 'export_csv') {
+			$this->handle_export_csv();
+		}
+		?>
+		<div class="wrap">
+			<h1 class="wp-heading-inline"><?php _e('MTForms Submissions', MTFORMS_TEXT_DOMAIN); ?></h1>
+			<a href="<?php echo esc_url(add_query_arg('action', 'export_csv')); ?>" class="page-title-action"><?php _e('Export to CSV', MTFORMS_TEXT_DOMAIN); ?></a>
+			<hr class="wp-header-end">
+
+			<form method="get">
+				<input type="hidden" name="page" value="<?php echo isset($_REQUEST['page']) ? esc_attr($_REQUEST['page']) : 'mtforms-submissions'; ?>" />
+				<?php
+				$table->search_box(__('Search Submissions', MTFORMS_TEXT_DOMAIN), 'submission');
+				$table->display();
+				?>
+			</form>
+		</div>
+		<?php
 	}
 
 	/**
@@ -123,5 +172,61 @@ class SettingsPage
 		if (file_exists($path)) {
 			include_once $path;
 		}
+	}
+
+	/**
+	 * Handle CSV export.
+	 */
+	protected function handle_export_csv()
+	{
+		if (!current_user_can('manage_options')) {
+			wp_die(__('You do not have sufficient permissions to access this page.', MTFORMS_TEXT_DOMAIN));
+		}
+
+		$repository = new \MTForms\Services\SubmissionRepository();
+		$submissions = $repository->get_submissions(1000, 0); // Export last 1000 submissions
+
+		if (empty($submissions)) {
+			return;
+		}
+
+		$filename = 'mtforms-submissions-' . date('Y-m-d') . '.csv';
+
+		header('Content-Type: text/csv; charset=utf-8');
+		header('Content-Disposition: attachment; filename=' . $filename);
+
+		$output = fopen('php://output', 'w');
+
+		// Header row.
+		fputcsv($output, [
+			__('ID', MTFORMS_TEXT_DOMAIN),
+			__('Name', MTFORMS_TEXT_DOMAIN),
+			__('Email', MTFORMS_TEXT_DOMAIN),
+			__('Phone', MTFORMS_TEXT_DOMAIN),
+			__('Website', MTFORMS_TEXT_DOMAIN),
+			__('Subject', MTFORMS_TEXT_DOMAIN),
+			__('Message', MTFORMS_TEXT_DOMAIN),
+			__('Form ID', MTFORMS_TEXT_DOMAIN),
+			__('IP Address', MTFORMS_TEXT_DOMAIN),
+			__('Date', MTFORMS_TEXT_DOMAIN),
+		]);
+
+		foreach ($submissions as $submission) {
+			fputcsv($output, [
+				$submission['id'],
+				$submission['name'],
+				$submission['email'],
+				$submission['phone'],
+				$submission['website'],
+				$submission['subject'],
+				$submission['message'],
+				$submission['form_id'],
+				$submission['ip_address'],
+				$submission['created_at'],
+			]);
+		}
+
+		fclose($output);
+		exit;
 	}
 }

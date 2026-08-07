@@ -67,7 +67,13 @@ if (!empty($settings['form_id'])) {
 		<?php if (!empty($settings['mail_bcc'])): ?>
 			<input type="hidden" name="mtforms_bcc" value="<?php echo esc_attr($settings['mail_bcc']); ?>">
 		<?php endif; ?>
+		<?php if ($settings['enable_autoresponder'] === 'yes'): ?>
+			<input type="hidden" name="mtforms_enable_autoresponder" value="yes">
+			<input type="hidden" name="mtforms_autoresponder_subject" value="<?php echo esc_attr($settings['autoresponder_subject']); ?>">
+			<input type="hidden" name="mtforms_autoresponder_message" value="<?php echo esc_attr($settings['autoresponder_message']); ?>">
+		<?php endif; ?>
 		<?php if (!empty($args['required_fields'])): ?>
 			<input type="hidden" name="mtforms_required_fields" value="<?php echo esc_attr(implode(',', $args['required_fields'])); ?>">
 		<?php endif; ?>
+		<input type="hidden" name="mtforms_form_id" value="<?php echo esc_attr($widget_id); ?>">
 		<div class="mtforms-form-inner">

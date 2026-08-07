@@ -1245,6 +1245,54 @@ class Widget extends \Elementor\Widget_Base
 		);
 
 		$this->add_control(
+			'heading_autoresponder_settings',
+			[
+				'label' => esc_html__('Auto-Responder', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'enable_autoresponder',
+			[
+				'label' => esc_html__('Enable Auto-Responder', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__('Yes', MTFORMS_TEXT_DOMAIN),
+				'label_off' => esc_html__('No', MTFORMS_TEXT_DOMAIN),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
+		$this->add_control(
+			'autoresponder_subject',
+			[
+				'label' => esc_html__('Subject', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => esc_html__('Thank you for contacting us!', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+				'condition' => [
+					'enable_autoresponder' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'autoresponder_message',
+			[
+				'label' => esc_html__('Message', MTFORMS_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::TEXTAREA,
+				'default' => esc_html__('Hi {name}, thank you for your message. We will get back to you soon.', MTFORMS_TEXT_DOMAIN),
+				'description' => esc_html__('Available tags: {name}, {email}, {subject}', MTFORMS_TEXT_DOMAIN),
+				'label_block' => true,
+				'condition' => [
+					'enable_autoresponder' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
 			'heading_redirect_settings',
 			[
 				'label' => esc_html__('Redirect After Submit', MTFORMS_TEXT_DOMAIN),

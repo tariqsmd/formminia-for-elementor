@@ -151,6 +151,51 @@ class SubmissionMailer
 	}
 
 	/**
+	 * Send auto-responder email to the user.
+	 *
+	 * @param FormSubmission $submission Submission data.
+	 *
+	 * @return bool|\WP_Error
+	 */
+	public function send_autoresponder(FormSubmission $submission)
+	{
+		if (empty($submission->email)) {
+			return false;
+		}
+
+		$enabled = isset($submission->raw['mtforms_enable_autoresponder']) && $submission->raw['mtforms_enable_autoresponder'] === 'yes';
+		if (!$enabled) {
+			return false;
+		}
+
+		$subject = isset($submission->raw['mtforms_autoresponder_subject']) ? sanitize_text_field($submission->raw['mtforms_autoresponder_subject']) : __('Thank you for your submission', MTFORMS_TEXT_DOMAIN);
+		$message = isset($submission->raw['mtforms_autoresponder_message']) ? sanitize_textarea_field($submission->raw['mtforms_autoresponder_message']) : '';
+
+		if (empty($message)) {
+			return false;
+		}
+
+		// Replace tags.
+		$tags = [
+			'{name}'    => $submission->name,
+			'{email}'   => $submission->email,
+			'{subject}' => $submission->subject,
+		];
+		$message = str_replace(array_keys($tags), array_values($tags), $message);
+		$message = nl2br($message);
+
+		$from_name = $this->config->get('mtforms_email_from_name', get_bloginfo('name'));
+		$from_email = get_option('admin_email');
+
+		$headers = [
+			'Content-Type: text/html; charset=UTF-8',
+			'From: ' . wp_specialchars_decode($from_name, ENT_QUOTES) . ' <' . $from_email . '>',
+		];
+
+		return $this->mailer->send($submission->email, $subject, $message, $headers);
+	}
+
+	/**
 	 * Build email body, using HTML template when enabled.
 	 *
 	 * @param FormSubmission $submission  Submission data.
