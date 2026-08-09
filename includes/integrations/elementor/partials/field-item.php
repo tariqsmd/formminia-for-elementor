@@ -50,8 +50,8 @@ if ($show_input_icon) {
             <?php
             if (!empty($args['icon']['value'])) {
                 \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
-            } elseif (!empty($icon_svg)) {
-                echo $icon_svg;
+                        } elseif (!empty($icon_svg)) {
+                echo wp_kses_post($icon_svg);
             }
             ?>
         </span>
@@ -66,7 +66,7 @@ if ($show_input_icon) {
                         if (!empty($args['icon']['value'])) {
                             \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
                         } elseif (!empty($icon_svg)) {
-                            echo $icon_svg;
+                            echo wp_kses_post($icon_svg);
                         }
                         ?>
                     </span>
@@ -85,7 +85,7 @@ if ($show_input_icon) {
                         if (!empty($args['icon']['value'])) {
                             \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
                         } elseif (!empty($icon_svg)) {
-                            echo $icon_svg;
+                            echo wp_kses_post($icon_svg);
                         }
                         ?>
                     </span>
@@ -126,7 +126,7 @@ if ($show_input_icon) {
             if (!empty($args['icon']['value'])) {
                 \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
             } elseif (!empty($icon_svg)) {
-                echo $icon_svg;
+                echo wp_kses_post($icon_svg);
             }
             ?>
         </span>

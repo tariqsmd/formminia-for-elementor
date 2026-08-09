@@ -116,16 +116,19 @@ class SettingsPage
 
 		// Handle export.
 		if (isset($_GET['action']) && $_GET['action'] === 'export_csv') {
+			if (!isset($_GET['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_wpnonce'])), 'mtforms_export_csv')) {
+				wp_die(__('Security check failed.', MTFORMS_TEXT_DOMAIN));
+			}
 			$this->handle_export_csv();
 		}
 		?>
 		<div class="wrap">
 			<h1 class="wp-heading-inline"><?php _e('MTForms Submissions', MTFORMS_TEXT_DOMAIN); ?></h1>
-			<a href="<?php echo esc_url(add_query_arg('action', 'export_csv')); ?>" class="page-title-action"><?php _e('Export to CSV', MTFORMS_TEXT_DOMAIN); ?></a>
+			<a href="<?php echo esc_url(wp_nonce_url(add_query_arg('action', 'export_csv'), 'mtforms_export_csv')); ?>" class="page-title-action"><?php _e('Export to CSV', MTFORMS_TEXT_DOMAIN); ?></a>
 			<hr class="wp-header-end">
 
 			<form method="get">
-				<input type="hidden" name="page" value="<?php echo isset($_REQUEST['page']) ? esc_attr($_REQUEST['page']) : 'mtforms-submissions'; ?>" />
+				<input type="hidden" name="page" value="<?php echo isset($_REQUEST['page']) ? esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))) : 'mtforms-submissions'; ?>" />
 				<?php
 				$table->search_box(__('Search Submissions', MTFORMS_TEXT_DOMAIN), 'submission');
 				$table->display();
@@ -141,26 +144,26 @@ class SettingsPage
 	public function register_settings()
 	{
 		// General Tab - All captcha-related settings will be here now
-		register_setting(Options::GROUP_GENERAL, Options::CAPTCHA_PROVIDER);
-		register_setting(Options::GROUP_GENERAL, Options::RECAPTCHA_SITE_KEY);
-		register_setting(Options::GROUP_GENERAL, Options::RECAPTCHA_SECRET_KEY);
-		register_setting(Options::GROUP_GENERAL, Options::TURNSTILE_SITE_KEY);
-		register_setting(Options::GROUP_GENERAL, Options::TURNSTILE_SECRET_KEY);
+		register_setting(Options::GROUP_GENERAL, Options::CAPTCHA_PROVIDER, ['sanitize_callback' => 'sanitize_text_field']);
+		register_setting(Options::GROUP_GENERAL, Options::RECAPTCHA_SITE_KEY, ['sanitize_callback' => 'sanitize_text_field']);
+		register_setting(Options::GROUP_GENERAL, Options::RECAPTCHA_SECRET_KEY, ['sanitize_callback' => 'sanitize_text_field']);
+		register_setting(Options::GROUP_GENERAL, Options::TURNSTILE_SITE_KEY, ['sanitize_callback' => 'sanitize_text_field']);
+		register_setting(Options::GROUP_GENERAL, Options::TURNSTILE_SECRET_KEY, ['sanitize_callback' => 'sanitize_text_field']);
 
 		// Email Tab
-		register_setting(Options::GROUP_EMAIL, Options::ADMIN_EMAIL);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_SUBJECT);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_FROM_NAME);
-		register_setting(Options::GROUP_EMAIL, Options::ENABLE_HTML_EMAIL);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_ACCENT_COLOR);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_LOGO_URL);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_FOOTER_TEXT);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BG_COLOR);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CONTENT_BG_COLOR);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_TEXT_COLOR);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_SHOW_FOOTER_CREDIT);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CC);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BCC);
+		register_setting(Options::GROUP_EMAIL, Options::ADMIN_EMAIL, ['sanitize_callback' => 'sanitize_email']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_SUBJECT, ['sanitize_callback' => 'sanitize_text_field']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_FROM_NAME, ['sanitize_callback' => 'sanitize_text_field']);
+		register_setting(Options::GROUP_EMAIL, Options::ENABLE_HTML_EMAIL, ['sanitize_callback' => 'rest_sanitize_boolean']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_ACCENT_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_LOGO_URL, ['sanitize_callback' => 'esc_url_raw']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_FOOTER_TEXT, ['sanitize_callback' => 'sanitize_text_field']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BG_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CONTENT_BG_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_TEXT_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_SHOW_FOOTER_CREDIT, ['sanitize_callback' => 'rest_sanitize_boolean']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CC, ['sanitize_callback' => 'sanitize_email']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BCC, ['sanitize_callback' => 'sanitize_email']);
 	}
 
 	/**

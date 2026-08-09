@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 class Widget extends \Elementor\Widget_Base
 {
 
-	public function __construct(array $data = [], ?array $args = null)
+	public function __construct(array $data = [], $args = null)
 	{
 		parent::__construct($data, $args);
 

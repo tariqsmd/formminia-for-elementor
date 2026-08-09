@@ -59,7 +59,7 @@ class SubmissionsTable extends \WP_List_Table
 			case 'message':
 				return nl2br(esc_html($item[$column_name]));
 			default:
-				return print_r($item, true);
+				return esc_html(print_r($item, true));
 		}
 	}
 
@@ -76,7 +76,7 @@ class SubmissionsTable extends \WP_List_Table
 		$actions = [
 			'delete' => sprintf(
 				'<a href="?page=%s&action=%s&submission=%s&_wpnonce=%s">%s</a>',
-				esc_attr($_REQUEST['page']),
+				esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))),
 				'delete',
 				absint($item['id']),
 				wp_create_nonce('mtforms_delete_submission'),
@@ -127,7 +127,7 @@ class SubmissionsTable extends \WP_List_Table
 			}
 		}
 
-		$action2 = isset($_REQUEST['action2']) ? $_REQUEST['action2'] : '';
+		$action2 = isset($_REQUEST['action2']) ? sanitize_text_field(wp_unslash($_REQUEST['action2'])) : '';
 
 		if (('bulk-delete' === $this->current_action() || 'bulk-delete' === $action2) && isset($_REQUEST['submission'])) {
 			$submissions = array_map('absint', $_REQUEST['submission']);

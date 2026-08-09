@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:       MTForms
- * Plugin URI:        https://developer.developer.developer/mtforms
+ * Plugin URI:        https://wordpress.org/plugins/mtforms/
  * Description:       A modern, feature-rich contact form plugin with multiple skins, layouts, GDPR support, and Elementor integration.
  * Version:           1.0.0
  * Author:            Muhammad Tariq
- * Author URI:        https://developer.developer.developer
+ * Author URI:        https://profiles.wordpress.org/muhammadtariq
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       mtforms
