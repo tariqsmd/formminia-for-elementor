@@ -168,8 +168,10 @@ class FormController
 
 		$sent = $this->mailer->send($submission);
 
-		// Send auto-responder.
-		$this->mailer->send_autoresponder($submission);
+		// Send auto-responder only if admin email was sent successfully.
+		if ($sent) {
+			$this->mailer->send_autoresponder($submission);
+		}
 
 		// Save to database.
 		$this->repository->save($submission, [

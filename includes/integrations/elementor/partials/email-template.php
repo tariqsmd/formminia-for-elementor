@@ -31,196 +31,127 @@ $bg_color = sanitize_hex_color($bg_color) ?: '#f4f7f6';
 $content_bg = sanitize_hex_color($content_bg) ?: '#ffffff';
 $text_color = sanitize_hex_color($text_color) ?: '#1e293b';
 $logo_url = esc_url($logo_url);
-$footer_text = esc_html($footer_text);
+$footer_text = wp_kses_post($footer_text);
 ?>
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x-apple-disable-message-reformatting">
+    <title><?php echo esc_html($site_name); ?></title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:AllowPNG/>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color:
-                <?php echo $text_color; ?>
-            ;
-            margin: 0;
-            padding: 0;
-            background-color:
-                <?php echo $bg_color; ?>
-            ;
-        }
+        /* Reset */
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+        body { margin: 0; padding: 0; width: 100% !important; height: 100% !important; }
 
-        .wrapper {
-            width: 100%;
-            padding: 40px 0;
-            background-color:
-                <?php echo $bg_color; ?>
-            ;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background:
-                <?php echo $content_bg; ?>
-            ;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e1e8ed;
-        }
-
-        /* ─── Header ─────────────────── */
-        .email-header {
-            background-color:
-                <?php echo $accent_color; ?>
-            ;
-            padding: 28px 30px;
-            text-align: center;
-        }
-
-        .email-header-logo {
-            display: block;
-            margin: 0 auto 14px;
-            max-height: 50px;
-            width: auto;
-        }
-
-        .email-header h1 {
-            margin: 0;
-            font-size: 22px;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 0.3px;
-        }
-
-        /* ─── Content ────────────────── */
-        .email-content {
-            padding: 36px 40px;
-        }
-
-        .email-intro {
-            font-size: 15px;
-            color: #64748b;
-            margin: 0 0 28px;
-        }
-
-        .field-group {
-            margin-bottom: 22px;
-            padding-bottom: 22px;
-            border-bottom: 1px solid #f0f3f5;
-        }
-
-        .field-group:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .field-label {
-            font-size: 11px;
-            font-weight: 700;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 6px;
-            display: block;
-        }
-
-        .field-value {
-            font-size: 15px;
-            color: #1e293b;
-            word-break: break-word;
-            line-height: 1.6;
-        }
-
-        /* ─── Footer ─────────────────── */
-        .email-footer {
-            background-color: #f8fafc;
-            color: #94a3b8;
-            padding: 20px 30px;
-            text-align: center;
-            font-size: 12px;
-            border-top: 1px solid #e9ecef;
-            line-height: 1.7;
-        }
-
-        .email-footer a {
-            color:
-                <?php echo $accent_color; ?>
-            ;
-            text-decoration: none;
-        }
-
-        .email-footer-accent {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background:
-                <?php echo $accent_color; ?>
-            ;
-            border-radius: 50%;
-            margin: 0 4px 2px;
-            vertical-align: middle;
+        /* Responsive */
+        @media screen and (max-width: 620px) {
+            .email-container { width: 100% !important; max-width: 100% !important; }
+            .email-content { padding: 24px 20px !important; }
+            .email-header { padding: 20px 20px !important; }
+            .email-header h1 { font-size: 18px !important; }
         }
     </style>
 </head>
-
-<body>
-    <div class="wrapper">
-        <div class="container">
-
-            <!-- Header -->
-            <div class="email-header">
-                <?php if (!empty($logo_url)): ?>
-                    <img src="<?php echo $logo_url; ?>" alt="<?php echo esc_attr($site_name); ?>"
-                        class="email-header-logo" />
-                <?php endif; ?>
-                <h1><?php esc_html_e('New Form Submission', MTFORMS_TEXT_DOMAIN); ?></h1>
-            </div>
-
-            <!-- Content -->
-            <div class="email-content">
-
-                <p class="email-intro">
-                    <?php printf(
-                        esc_html__('You received a new message from %s.', MTFORMS_TEXT_DOMAIN),
-                        '<strong>' . esc_html($site_name) . '</strong>'
-                    ); ?>
-                </p>
-
-                <?php foreach ($fields as $label => $value): ?>
-                    <div class="field-group">
-                        <span class="field-label"><?php echo esc_html($label); ?></span>
-                        <div class="field-value"><?php echo nl2br(esc_html($value)); ?></div>
-                    </div>
-                <?php endforeach; ?>
-
-            </div>
-
-            <!-- Footer -->
-            <div class="email-footer">
-                <?php if ($show_credit): ?>
-                    <p>
-                        <span class="email-footer-accent"></span>
-                        <?php printf(
-                            esc_html__('Submitted on %s via %s', MTFORMS_TEXT_DOMAIN),
-                            esc_html($date),
-                            esc_html($site_name)
-                        ); ?>
-                    </p>
-                <?php endif; ?>
-                <?php if (!empty($footer_text)): ?>
-                    <p><?php echo $footer_text; ?></p>
-                <?php endif; ?>
-                <p>&copy; <?php echo date('Y'); ?> <?php echo esc_html($site_name); ?>.</p>
-            </div>
-
-        </div>
+<body style="margin:0; padding:0; background-color:<?php echo $bg_color; ?>; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <!-- Preview text (hidden) -->
+    <div style="display:none; max-height:0; overflow:hidden;">
+        <?php echo esc_html($site_name); ?> - <?php esc_html_e('New Form Submission', MTFORMS_TEXT_DOMAIN); ?>
     </div>
-</body>
 
+    <!-- Wrapper -->
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:<?php echo $bg_color; ?>;">
+        <tr>
+            <td align="center" style="padding:40px 0;">
+                <!--[if mso]>
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" align="center">
+                <tr>
+                <td>
+                <![endif]-->
+                <!-- Container -->
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="email-container" style="max-width:600px; width:100%; background-color:<?php echo $content_bg; ?>; border-radius:10px; overflow:hidden; border:1px solid #e1e8ed;">
+
+                    <!-- Header -->
+                    <tr>
+                        <td class="email-header" style="background-color:<?php echo $accent_color; ?>; padding:28px 30px; text-align:center;">
+                            <?php if (!empty($logo_url)): ?>
+                                <img src="<?php echo $logo_url; ?>" alt="<?php echo esc_attr($site_name); ?>" width="150" height="50" style="display:block; margin:0 auto 14px; max-height:50px; width:auto; height:auto;">
+                            <?php endif; ?>
+                            <h1 style="margin:0; font-size:22px; font-weight:700; color:#fff; letter-spacing:0.3px;">
+                                <?php esc_html_e('New Form Submission', MTFORMS_TEXT_DOMAIN); ?>
+                            </h1>
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td class="email-content" style="padding:36px 40px;">
+                            <p style="margin:0 0 28px; font-size:15px; color:#64748b;">
+                                <?php printf(
+                                    esc_html__('You received a new message from %s.', MTFORMS_TEXT_DOMAIN),
+                                    '<strong>' . esc_html($site_name) . '</strong>'
+                                ); ?>
+                            </p>
+
+                            <?php foreach ($fields as $label => $value): ?>
+                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom:22px; padding-bottom:22px; border-bottom:1px solid #f0f3f5;">
+                                    <tr>
+                                        <td>
+                                            <span style="display:block; font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">
+                                                <?php echo esc_html($label); ?>
+                                            </span>
+                                            <div style="font-size:15px; color:#1e293b; word-break:break-word; line-height:1.6;">
+                                                <?php echo nl2br(esc_html($value)); ?>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            <?php endforeach; ?>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td class="email-footer" style="background-color:#f8fafc; color:#94a3b8; padding:20px 30px; text-align:center; font-size:12px; border-top:1px solid #e9ecef; line-height:1.7;">
+                            <?php if ($show_credit): ?>
+                                <p style="margin:0 0 8px;">
+                                    <span style="display:inline-block; width:8px; height:8px; background-color:<?php echo $accent_color; ?>; border-radius:50%; margin:0 4px 2px; vertical-align:middle;"></span>
+                                    <?php printf(
+                                        esc_html__('Submitted on %s via %s', MTFORMS_TEXT_DOMAIN),
+                                        esc_html($date),
+                                        esc_html($site_name)
+                                    ); ?>
+                                </p>
+                            <?php endif; ?>
+                            <?php if (!empty($footer_text)): ?>
+                                <p style="margin:0 0 8px;"><?php echo $footer_text; ?></p>
+                            <?php endif; ?>
+                            <p style="margin:0;">&copy; <?php echo date('Y'); ?> <?php echo esc_html($site_name); ?>.</p>
+                        </td>
+                    </tr>
+
+                </table>
+                <!--[if mso]>
+                </td>
+                </tr>
+                </table>
+                <![endif]-->
+            </td>
+        </tr>
+    </table>
+</body>
 </html>

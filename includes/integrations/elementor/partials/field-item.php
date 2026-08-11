@@ -75,7 +75,8 @@ if ($show_input_icon) {
                 <span class="mtforms-label-text">
                     <?php echo esc_html($label); ?>
                     <?php if ($required): ?>
-                        <span class="required">*</span>
+                        <span class="required" aria-hidden="true">*</span>
+                        <span class="screen-reader-text"><?php esc_html_e('(required)', MTFORMS_TEXT_DOMAIN); ?></span>
                     <?php endif; ?>
                 </span>
 

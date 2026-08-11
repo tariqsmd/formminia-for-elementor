@@ -59,10 +59,7 @@ class SubmissionMailer
 			$form_fields[__('Message', MTFORMS_TEXT_DOMAIN)] = $submission->message;
 		}
 
-		$to = $submission->to;
-		if (empty($to)) {
-			$to = $this->config->get('mtforms_admin_email', get_option('admin_email'));
-		}
+		$to = $this->config->get('mtforms_admin_email', get_option('admin_email'));
 		
 		$from_name = $this->config->get('mtforms_email_from_name', get_bloginfo('name'));
 		$default_sub = $this->config->get('mtforms_email_subject', 'New Contact Form Submission');
@@ -74,36 +71,33 @@ class SubmissionMailer
 		// Basic header injection protection.
 		$from_name_safe = str_replace(array("\r", "\n"), '', (string) $from_name);
 		$reply_to_name = str_replace(array("\r", "\n"), '', (string) $submission->name);
-		$reply_to_email = str_replace(array("\r", "\n"), '', (string) $submission->email);
+		$reply_to_email = is_email(str_replace(array("\r", "\n"), '', (string) $submission->email));
 
 		$headers = array(
 			'Content-Type: text/html; charset=UTF-8',
 			'From: ' . wp_specialchars_decode($from_name_safe, ENT_QUOTES) . ' <' . get_option('admin_email') . '>',
-			'Reply-To: ' . wp_specialchars_decode($reply_to_name, ENT_QUOTES) . ' <' . $reply_to_email . '>',
 		);
 
-		// Handle CC.
+		if ($reply_to_email) {
+			$headers[] = 'Reply-To: ' . wp_specialchars_decode($reply_to_name, ENT_QUOTES) . ' <' . $reply_to_email . '>';
+		}
+
+		// Handle CC (server-side only).
 		$cc_emails = array();
 		$global_cc = $this->config->get('mtforms_email_cc', '');
 		if (!empty($global_cc)) {
 			$cc_emails = array_map('trim', explode(',', $global_cc));
-		}
-		if (!empty($submission->cc)) {
-			$cc_emails = array_merge($cc_emails, array_map('trim', explode(',', $submission->cc)));
 		}
 		$cc_emails = array_unique(array_filter($cc_emails, 'is_email'));
 		if (!empty($cc_emails)) {
 			$headers[] = 'Cc: ' . implode(', ', $cc_emails);
 		}
 
-		// Handle BCC.
+		// Handle BCC (server-side only).
 		$bcc_emails = array();
 		$global_bcc = $this->config->get('mtforms_email_bcc', '');
 		if (!empty($global_bcc)) {
 			$bcc_emails = array_map('trim', explode(',', $global_bcc));
-		}
-		if (!empty($submission->bcc)) {
-			$bcc_emails = array_merge($bcc_emails, array_map('trim', explode(',', $submission->bcc)));
 		}
 		$bcc_emails = array_unique(array_filter($bcc_emails, 'is_email'));
 		if (!empty($bcc_emails)) {
@@ -175,11 +169,11 @@ class SubmissionMailer
 			return false;
 		}
 
-		// Replace tags.
+		// Replace tags (escaped for HTML context).
 		$tags = [
-			'{name}'    => $submission->name,
-			'{email}'   => $submission->email,
-			'{subject}' => $submission->subject,
+			'{name}'    => esc_html($submission->name),
+			'{email}'   => esc_html($submission->email),
+			'{subject}' => esc_html($submission->subject),
 		];
 		$message = str_replace(array_keys($tags), array_values($tags), $message);
 		$message = nl2br($message);
@@ -206,8 +200,6 @@ class SubmissionMailer
 	 */
 	protected function build_body(FormSubmission $submission, array $form_fields, $use_html)
 	{
-		unset($submission); // Currently unused but kept for future template context.
-
 		if ($use_html) {
 			$template_path = MTFORMS_PLUGIN_DIR . 'includes/integrations/elementor/partials/email-template.php';
 

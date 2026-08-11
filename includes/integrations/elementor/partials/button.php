@@ -31,7 +31,7 @@ $icon_right = ($has_icon && $settings['button_icon_position'] === 'right');
     $btn_classes[] = 'mtforms-loader-' . $loader_style;
     ?>
     <button type="submit" class="<?php echo esc_attr(implode(' ', $btn_classes)); ?>" data-loader="<?php echo esc_attr($loader_style); ?>">
-        <?php if ($icon_left): ?>
+        <?php if ($icon_left && $has_icon): ?>
             <span class="mtforms-btn-icon mtforms-btn-icon-left">
                 <?php \Elementor\Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true']); ?>
             </span>
@@ -41,7 +41,7 @@ $icon_right = ($has_icon && $settings['button_icon_position'] === 'right');
             <?php echo esc_html($settings['button_text']); ?>
         </span>
 
-        <?php if ($icon_right): ?>
+        <?php if ($icon_right && $has_icon): ?>
             <span class="mtforms-btn-icon mtforms-btn-icon-right">
                 <?php \Elementor\Icons_Manager::render_icon($settings['button_icon'], ['aria-hidden' => 'true']); ?>
             </span>

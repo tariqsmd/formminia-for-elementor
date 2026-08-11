@@ -26,15 +26,6 @@ class FormSubmission
 	/** @var string */
 	public $message;
 
-	/** @var string */
-	public $to;
-
-	/** @var string */
-	public $cc;
-
-	/** @var string */
-	public $bcc;
-
 	/**
 	 * Whether the GDPR checkbox was rendered on the form.
 	 *
@@ -70,9 +61,6 @@ class FormSubmission
 		$instance->website = isset($data['mtforms_website']) ? esc_url_raw(wp_unslash($data['mtforms_website'])) : '';
 		$instance->subject = isset($data['mtforms_subject']) ? sanitize_text_field(wp_unslash($data['mtforms_subject'])) : '';
 		$instance->message = isset($data['mtforms_message']) ? sanitize_textarea_field(wp_unslash($data['mtforms_message'])) : '';
-		$instance->to = isset($data['mtforms_to']) ? sanitize_email(wp_unslash($data['mtforms_to'])) : '';
-		$instance->cc = isset($data['mtforms_cc']) ? sanitize_text_field(wp_unslash($data['mtforms_cc'])) : '';
-		$instance->bcc = isset($data['mtforms_bcc']) ? sanitize_text_field(wp_unslash($data['mtforms_bcc'])) : '';
 		$instance->gdpr_enabled = isset($data['mtforms_gdpr_enabled']) && sanitize_text_field(wp_unslash($data['mtforms_gdpr_enabled'])) === 'yes';
 		$instance->gdpr_accepted = isset($data['mtforms_gdpr']);
 		$instance->raw = $data;

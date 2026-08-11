@@ -598,3 +598,47 @@ input:checked + .mtforms-slider::before {
   background: var(--mtforms-admin-border);
   margin: 0 0 18px;
 }
+
+/* ════════════════════════════════════════════════════════════ */
+/* RESPONSIVE                                                   */
+/* ════════════════════════════════════════════════════════════ */
+@media screen and (max-width: 1200px) {
+  .mtforms-info-sidebar {
+    display: none;
+  }
+}
+@media screen and (max-width: 960px) {
+  .mtforms-admin-layout {
+    flex-direction: column;
+  }
+  .mtforms-admin-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--mtforms-admin-border);
+  }
+  .mtforms-sidebar-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 10px;
+  }
+  .mtforms-sidebar-nav-item {
+    white-space: nowrap;
+  }
+  .mtforms-admin-main {
+    padding: 20px 16px;
+  }
+  .form-table th {
+    width: auto;
+    padding: 12px 10px 12px 0;
+  }
+  .form-table td input[type=text],
+  .form-table td input[type=password],
+  .form-table td input[type=email],
+  .form-table td select,
+  .form-table td textarea {
+    max-width: 100%;
+  }
+  .mtforms-card {
+    padding: 20px;
+  }
+}

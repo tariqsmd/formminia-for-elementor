@@ -13,9 +13,10 @@ $settings = $args['settings'];
 $widget_id = $args['widget_id'];
 
 // Classes
+$skin_class = !empty($settings['skin']) ? 'mtforms-' . sanitize_html_class($settings['skin']) : '';
 $container_classes = array(
 	'mtforms-form-wrapper',
-	empty($settings['skin']) ? 'mtforms-skin-' : 'mtforms-' . sanitize_html_class($settings['skin']),
+	$skin_class,
 	'mtforms-layout-' . sanitize_html_class($settings['layout']),
 	'mtforms-input-style-' . sanitize_html_class($settings['input_style']),
 	'mtforms-button-style-' . sanitize_html_class($settings['button_style'] ?? 'default'),
@@ -54,23 +55,9 @@ if (!empty($settings['form_id'])) {
 	<form id="<?php echo esc_attr($form_id); ?>" class="mtforms-form" action="" method="POST" novalidate 
 		<?php if ($settings['redirect_on_success'] === 'yes' && !empty($settings['success_redirect_url']['url'])): ?>data-redirect="<?php echo esc_url($settings['success_redirect_url']['url']); ?>" <?php endif; ?>>
 		<?php if ($settings['enable_honeypot'] === 'yes'): ?>
-			<div style="display:none !important;">
+			<div style="display:none !important;" aria-hidden="true">
 				<input type="text" name="mtforms_hp" tabindex="-1" autocomplete="off">
 			</div>
-		<?php endif; ?>
-		<?php if (!empty($settings['mail_to'])): ?>
-			<input type="hidden" name="mtforms_to" value="<?php echo esc_attr($settings['mail_to']); ?>">
-		<?php endif; ?>
-		<?php if (!empty($settings['mail_cc'])): ?>
-			<input type="hidden" name="mtforms_cc" value="<?php echo esc_attr($settings['mail_cc']); ?>">
-		<?php endif; ?>
-		<?php if (!empty($settings['mail_bcc'])): ?>
-			<input type="hidden" name="mtforms_bcc" value="<?php echo esc_attr($settings['mail_bcc']); ?>">
-		<?php endif; ?>
-		<?php if ($settings['enable_autoresponder'] === 'yes'): ?>
-			<input type="hidden" name="mtforms_enable_autoresponder" value="yes">
-			<input type="hidden" name="mtforms_autoresponder_subject" value="<?php echo esc_attr($settings['autoresponder_subject']); ?>">
-			<input type="hidden" name="mtforms_autoresponder_message" value="<?php echo esc_attr($settings['autoresponder_message']); ?>">
 		<?php endif; ?>
 		<?php if (!empty($args['required_fields'])): ?>
 			<input type="hidden" name="mtforms_required_fields" value="<?php echo esc_attr(implode(',', $args['required_fields'])); ?>">
