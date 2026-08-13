@@ -2,6 +2,10 @@
 
 namespace MTForms\Services\Email;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use MTForms\Services\FormSubmission;
 use MTForms\Services\WpMailMailer;
 use MTForms\Services\WpOptionsConfig;

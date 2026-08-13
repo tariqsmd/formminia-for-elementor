@@ -2,6 +2,10 @@
 
 namespace MTForms\Frontend;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use MTForms\Services\Captcha\CaptchaVerifierInterface;
 use MTForms\Services\FormSubmission;
 use MTForms\Services\FormValidator;
@@ -168,12 +172,7 @@ class FormController
 
 		$sent = $this->mailer->send($submission);
 
-		// Send auto-responder only if admin email was sent successfully.
-		if ($sent) {
-			$this->mailer->send_autoresponder($submission);
-		}
-
-		// Save to database.
+		// Save to database regardless of email status.
 		$this->repository->save($submission, [
 			'ip_address' => $ip_address,
 			'user_agent' => isset($_SERVER['HTTP_USER_AGENT']) ? sanitize_textarea_field(wp_unslash($_SERVER['HTTP_USER_AGENT'])) : '',
@@ -188,6 +187,8 @@ class FormController
 		}
 
 		if ($sent) {
+			$this->mailer->send_autoresponder($submission);
+
 			wp_send_json_success(
 				array(
 					'message' => __('Message sent successfully!', MTFORMS_TEXT_DOMAIN),

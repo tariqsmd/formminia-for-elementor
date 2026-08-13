@@ -2,6 +2,10 @@
 
 namespace MTForms\Core;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Fired during plugin deactivation.
  *

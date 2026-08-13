@@ -2,6 +2,10 @@
 
 namespace MTForms\Services;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Server-side validator for MTForms submissions.
  */

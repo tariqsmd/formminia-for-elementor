@@ -2,6 +2,10 @@
 
 namespace MTForms\Services\Captcha;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use MTForms\Services\FormSubmission;
 
 /**

@@ -42,7 +42,7 @@ function deactivate_mtforms() {
 register_activation_hook( __FILE__, 'activate_mtforms' );
 register_deactivation_hook( __FILE__, 'deactivate_mtforms' );
 
-require MTFORMS_PLUGIN_DIR . 'includes/core/bootstrap.php';
+require MTFORMS_PLUGIN_DIR . 'includes/Core/bootstrap.php';
 
 /**
  * Begins execution of the plugin.

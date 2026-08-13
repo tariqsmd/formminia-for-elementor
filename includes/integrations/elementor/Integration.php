@@ -2,6 +2,10 @@
 
 namespace MTForms\Integrations\Elementor;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Namespaced Elementor integration for MTForms.
  */

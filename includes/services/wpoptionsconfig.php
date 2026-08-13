@@ -2,6 +2,10 @@
 
 namespace MTForms\Services;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Small wrapper around WordPress options for MTForms.
  */

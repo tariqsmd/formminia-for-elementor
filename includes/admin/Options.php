@@ -2,6 +2,10 @@
 
 namespace MTForms\Admin;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Centralized option keys for MTForms admin settings.
  */

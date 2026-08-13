@@ -2,6 +2,10 @@
 
 namespace MTForms\Services;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Repository for managing form submissions in the database.
  */

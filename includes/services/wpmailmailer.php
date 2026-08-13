@@ -2,6 +2,10 @@
 
 namespace MTForms\Services;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Adapter around wp_mail to allow easier testing/extensibility.
  */

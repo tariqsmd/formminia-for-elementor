@@ -1,0 +1,24 @@
+{
+  "name": "muhammadtariq/mtforms",
+  "description": "A modern, feature-rich contact form plugin with multiple skins, layouts, GDPR support, and Elementor integration.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Muhammad Tariq"
+    }
+  ],
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "MTForms\\": "includes/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesnposer-composer-installer": true
+    }
+  }
+}

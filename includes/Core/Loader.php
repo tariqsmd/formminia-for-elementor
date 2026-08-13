@@ -2,6 +2,10 @@
 
 namespace MTForms\Core;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Register all actions and filters for the plugin.
  *

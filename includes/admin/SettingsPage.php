@@ -2,6 +2,10 @@
 
 namespace MTForms\Admin;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 use MTForms\Admin\SubmissionsTable;
 
 /**

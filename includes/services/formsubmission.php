@@ -2,6 +2,10 @@
 
 namespace MTForms\Services;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Value object representing a sanitized form submission.
  */
