@@ -140,7 +140,7 @@ $footer_text = wp_kses_post($footer_text);
                             <?php if (!empty($footer_text)): ?>
                                 <p style="margin:0 0 8px;"><?php echo $footer_text; ?></p>
                             <?php endif; ?>
-                            <p style="margin:0;">&copy; <?php echo date('Y'); ?> <?php echo esc_html($site_name); ?>.</p>
+                            <p style="margin:0;">&copy; <?php echo wp_date('Y'); ?> <?php echo esc_html($site_name); ?>.</p>
                         </td>
                     </tr>
 

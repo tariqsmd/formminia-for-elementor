@@ -158,14 +158,14 @@ class SettingsPage
 		register_setting(Options::GROUP_EMAIL, Options::ADMIN_EMAIL, ['sanitize_callback' => 'sanitize_email']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_SUBJECT, ['sanitize_callback' => 'sanitize_text_field']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_FROM_NAME, ['sanitize_callback' => 'sanitize_text_field']);
-		register_setting(Options::GROUP_EMAIL, Options::ENABLE_HTML_EMAIL, ['sanitize_callback' => 'rest_sanitize_boolean']);
+		register_setting(Options::GROUP_EMAIL, Options::ENABLE_HTML_EMAIL, ['sanitize_callback' => 'sanitize_text_field']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_ACCENT_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_LOGO_URL, ['sanitize_callback' => 'esc_url_raw']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_FOOTER_TEXT, ['sanitize_callback' => 'sanitize_text_field']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BG_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CONTENT_BG_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_TEXT_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_SHOW_FOOTER_CREDIT, ['sanitize_callback' => 'rest_sanitize_boolean']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_SHOW_FOOTER_CREDIT, ['sanitize_callback' => 'sanitize_text_field']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CC, ['sanitize_callback' => 'sanitize_email']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BCC, ['sanitize_callback' => 'sanitize_email']);
 	}
@@ -197,7 +197,7 @@ class SettingsPage
 			return;
 		}
 
-		$filename = 'mtforms-submissions-' . date('Y-m-d') . '.csv';
+		$filename = 'mtforms-submissions-' . wp_date('Y-m-d') . '.csv';
 
 		header('Content-Type: text/csv; charset=utf-8');
 		header('Content-Disposition: attachment; filename=' . $filename);

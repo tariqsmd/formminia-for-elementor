@@ -55,7 +55,6 @@ gulp.task('styles', function () {
 gulp.task('translate', function () {
     return gulp.src(['**/*.php', '!node_modules/**', '!vendor/**'])
         .pipe(wpPot({
-            domain: 'mtforms',
             package: 'MTForms'
         }))
         .pipe(gulp.dest('languages/mtforms.pot'));
@@ -74,10 +73,34 @@ gulp.task('zip', function () {
         '!.git/**',
         '!.git',
         '!.vscode/**',
+        '!.vscode',
         '!mtforms.zip'
     ])
         .pipe(zip('mtforms.zip'))
         .pipe(gulp.dest('.'));
+});
+
+// Prepare an upload-ready copy of the plugin (excludes dev/build files)
+gulp.task('dist', function () {
+    return gulp.src([
+        '**',
+        '!node_modules/**',
+        '!node_modules',
+        '!gulpfile.js',
+        '!package.json',
+        '!package-lock.json',
+        '!composer.json',
+        '!.gitignore',
+        '!.git/**',
+        '!.git',
+        '!.vscode/**',
+        '!.vscode',
+        '!mtforms.zip',
+        '!dist/**',
+        '!dist',
+        '!**/*.map'
+    ])
+        .pipe(gulp.dest('dist'));
 });
 
 // --- BrowserSync / Watch tasks ---

@@ -71,7 +71,7 @@ class SubmissionsTable extends \WP_List_Table
 	{
 		return sprintf(
 			'<input type="checkbox" name="submission[]" value="%s" />',
-			$item['id']
+			esc_attr(absint($item['id']))
 		);
 	}
 
@@ -120,9 +120,9 @@ class SubmissionsTable extends \WP_List_Table
 	protected function process_bulk_action()
 	{
 		if ('delete' === $this->current_action()) {
-			$nonce = isset($_REQUEST['_wpnonce']) ? esc_attr($_REQUEST['_wpnonce']) : '';
+			$nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])) : '';
 			if (!wp_verify_nonce($nonce, 'mtforms_delete_submission')) {
-				die('Security check failed');
+				wp_die(__('Security check failed.', MTFORMS_TEXT_DOMAIN));
 			}
 
 			if (isset($_GET['submission'])) {
@@ -131,10 +131,16 @@ class SubmissionsTable extends \WP_List_Table
 			}
 		}
 
+		$action  = isset($_REQUEST['action']) ? sanitize_text_field(wp_unslash($_REQUEST['action'])) : '';
 		$action2 = isset($_REQUEST['action2']) ? sanitize_text_field(wp_unslash($_REQUEST['action2'])) : '';
 
-		if (('bulk-delete' === $this->current_action() || 'bulk-delete' === $action2) && isset($_REQUEST['submission'])) {
-			$submissions = array_map('absint', $_REQUEST['submission']);
+		if (('bulk-delete' === $action || 'bulk-delete' === $action2) && isset($_REQUEST['submission'])) {
+			$nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])) : '';
+			if (!wp_verify_nonce($nonce, 'bulk-submissions')) {
+				wp_die(__('Security check failed.', MTFORMS_TEXT_DOMAIN));
+			}
+
+			$submissions = array_map('absint', (array) $_REQUEST['submission']);
 			foreach ($submissions as $id) {
 				$this->repository->delete($id);
 			}

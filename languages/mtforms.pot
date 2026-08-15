@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-23 19:19+0000\n"
+"POT-Creation-Date: 2026-09-20 11:47+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -14,3 +14,1427 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: includes/admin/settings-view.php:15, includes/admin/settings-view.php:68
+msgid "General"
+msgstr ""
+
+#: includes/admin/settings-view.php:19, includes/admin/settings-view.php:147, includes/integrations/elementor/WidgetControls/ContentControls.php:1077
+msgid "Email Settings"
+msgstr ""
+
+#: includes/admin/settings-view.php:33, includes/admin/SettingsPage.php:85, includes/admin/SettingsPage.php:86, includes/integrations/elementor/Widget.php:87
+msgid "MTForms"
+msgstr ""
+
+#: includes/admin/settings-view.php:153, includes/integrations/elementor/WidgetControls/ContentControls.php:1086
+msgid "Recipient Email"
+msgstr ""
+
+#: includes/admin/settings-view.php:160
+msgid "The email address where form submissions will be sent."
+msgstr ""
+
+#: includes/admin/settings-view.php:167
+msgid "Email CC"
+msgstr ""
+
+#: includes/admin/settings-view.php:174
+msgid "Comma separated list of email addresses to CC."
+msgstr ""
+
+#: includes/admin/settings-view.php:180
+msgid "Email BCC"
+msgstr ""
+
+#: includes/admin/settings-view.php:187
+msgid "Comma separated list of email addresses to BCC."
+msgstr ""
+
+#: includes/admin/settings-view.php:193
+msgid "Default Subject"
+msgstr ""
+
+#: includes/admin/settings-view.php:200
+msgid "The subject line used for notification emails."
+msgstr ""
+
+#: includes/admin/settings-view.php:206
+msgid "From Name"
+msgstr ""
+
+#: includes/admin/settings-view.php:213
+msgid "The name that appears in the \"From\" field of the email."
+msgstr ""
+
+#: includes/admin/settings-view.php:219
+msgid "Enable HTML Template"
+msgstr ""
+
+#: includes/admin/settings-view.php:227
+msgid "Use the professional HTML email template for notifications."
+msgstr ""
+
+#: includes/admin/settings-view.php:234
+msgid "Header Accent Color"
+msgstr ""
+
+#: includes/admin/settings-view.php:241
+msgid "Background color for the email header bar."
+msgstr ""
+
+#: includes/admin/settings-view.php:248
+msgid "Email Background Color"
+msgstr ""
+
+#: includes/admin/settings-view.php:255
+msgid "Background color of the email context."
+msgstr ""
+
+#: includes/admin/settings-view.php:262
+msgid "Content Background Color"
+msgstr ""
+
+#: includes/admin/settings-view.php:270
+msgid "Background color of the email content container."
+msgstr ""
+
+#: includes/admin/settings-view.php:277
+msgid "Email Text Color"
+msgstr ""
+
+#: includes/admin/settings-view.php:284
+msgid "Primary text color for the email content."
+msgstr ""
+
+#: includes/admin/settings-view.php:291
+msgid "Email Logo"
+msgstr ""
+
+#: includes/admin/settings-view.php:300
+msgid "Select Image"
+msgstr ""
+
+#: includes/admin/settings-view.php:303
+msgid "Remove"
+msgstr ""
+
+#: includes/admin/settings-view.php:310
+msgid "Displayed inside the email header. Recommended height: 40–50px."
+msgstr ""
+
+#: includes/admin/settings-view.php:317
+msgid "Footer Text"
+msgstr ""
+
+#: includes/admin/settings-view.php:323
+msgid "Optional extra line in the email footer (e.g. your address or a note)."
+msgstr ""
+
+#: includes/admin/settings-view.php:330
+msgid "Show Footer Credit"
+msgstr ""
+
+#: includes/admin/settings-view.php:338
+msgid "Show \"Submitted via [Site Name]\" in the email footer."
+msgstr ""
+
+#: includes/admin/settings-view.php:344, includes/admin/settings-view.php:140
+msgid "Save Changes"
+msgstr ""
+
+#: includes/admin/settings-view.php:71
+msgid "Security Settings"
+msgstr ""
+
+#: includes/admin/settings-view.php:75
+msgid "Captcha Provider"
+msgstr ""
+
+#: includes/admin/settings-view.php:81, includes/integrations/elementor/WidgetControls/ContentControls.php:55, includes/integrations/elementor/WidgetControls/ContentControls.php:117
+msgid "None"
+msgstr ""
+
+#: includes/admin/settings-view.php:84
+msgid "Google reCAPTCHA v2"
+msgstr ""
+
+#: includes/admin/settings-view.php:87
+msgid "Cloudflare Turnstile"
+msgstr ""
+
+#: includes/admin/settings-view.php:91
+msgid "Select the validation service you want to use to prevent spam."
+msgstr ""
+
+#: includes/admin/settings-view.php:99
+msgid "reCAPTCHA Site Key"
+msgstr ""
+
+#: includes/admin/settings-view.php:109
+msgid "reCAPTCHA Secret Key"
+msgstr ""
+
+#: includes/admin/settings-view.php:121
+msgid "Turnstile Site Key"
+msgstr ""
+
+#: includes/admin/settings-view.php:131
+msgid "Turnstile Secret Key"
+msgstr ""
+
+#: includes/admin/settings-view.php:360
+msgid "About"
+msgstr ""
+
+#: includes/admin/settings-view.php:363
+msgid "Features"
+msgstr ""
+
+#: includes/admin/settings-view.php:366
+msgid "Support"
+msgstr ""
+
+#: includes/admin/settings-view.php:382
+msgid "A modern, lightweight Elementor contact form plugin built with clean PHP architecture and extensibility in mind."
+msgstr ""
+
+#: includes/admin/settings-view.php:388
+msgid "Visit Website"
+msgstr ""
+
+#: includes/admin/settings-view.php:392
+msgid "Documentation"
+msgstr ""
+
+#: includes/admin/settings-view.php:396
+msgid "WP Plugin Page"
+msgstr ""
+
+#: includes/admin/settings-view.php:401
+msgid "Community Forum"
+msgstr ""
+
+#: includes/admin/settings-view.php:411
+msgid "What's included"
+msgstr ""
+
+#: includes/admin/settings-view.php:417
+msgid "Preset Skins"
+msgstr ""
+
+#: includes/admin/settings-view.php:418
+msgid "5 ready-made form styles"
+msgstr ""
+
+#: includes/admin/settings-view.php:424, includes/integrations/elementor/WidgetControls/StyleControls.php:533
+msgid "Field Icons"
+msgstr ""
+
+#: includes/admin/settings-view.php:425
+msgid "Inline SVG icons per field"
+msgstr ""
+
+#: includes/admin/settings-view.php:431
+msgid "HTML Email Template"
+msgstr ""
+
+#: includes/admin/settings-view.php:432
+msgid "Professional email layout"
+msgstr ""
+
+#: includes/admin/settings-view.php:438
+msgid "Spam Protection"
+msgstr ""
+
+#: includes/admin/settings-view.php:439
+msgid "reCAPTCHA, Turnstile & honeypot"
+msgstr ""
+
+#: includes/admin/settings-view.php:445
+msgid "Rate Limiting"
+msgstr ""
+
+#: includes/admin/settings-view.php:446
+msgid "IP-based flood protection"
+msgstr ""
+
+#: includes/admin/settings-view.php:452, includes/integrations/elementor/WidgetControls/ContentControls.php:549, includes/integrations/elementor/WidgetControls/StyleControls.php:1686
+msgid "GDPR Consent"
+msgstr ""
+
+#: includes/admin/settings-view.php:453
+msgid "Built-in consent checkbox"
+msgstr ""
+
+#: includes/admin/settings-view.php:459, includes/integrations/elementor/WidgetControls/ContentControls.php:118
+msgid "Floating Labels"
+msgstr ""
+
+#: includes/admin/settings-view.php:460
+msgid "CSS animated placeholders"
+msgstr ""
+
+#: includes/admin/settings-view.php:466
+msgid "Responsive Design"
+msgstr ""
+
+#: includes/admin/settings-view.php:467
+msgid "Works on all screen sizes"
+msgstr ""
+
+#: includes/admin/settings-view.php:478
+msgid "Enjoying MTForms?"
+msgstr ""
+
+#: includes/admin/settings-view.php:481
+msgid "If this plugin saves you time, consider supporting its development."
+msgstr ""
+
+#: includes/admin/settings-view.php:486
+msgid "Buy Me a Coffee"
+msgstr ""
+
+#: includes/admin/settings-view.php:491
+msgid "Donate via PayPal"
+msgstr ""
+
+#: includes/admin/settings-view.php:496
+msgid "Found a bug?"
+msgstr ""
+
+#: includes/admin/settings-view.php:501
+msgid "Report an Issue"
+msgstr ""
+
+#: includes/admin/settings-view.php:506
+msgid "Leave a Review"
+msgstr ""
+
+#: includes/admin/SettingsPage.php:96, includes/admin/SettingsPage.php:97
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/SettingsPage.php:105, includes/admin/SettingsPage.php:106, includes/admin/SubmissionsTable.php:27
+msgid "Submissions"
+msgstr ""
+
+#: includes/admin/SettingsPage.php:124, includes/admin/SubmissionsTable.php:125, includes/admin/SubmissionsTable.php:140, includes/frontend/FormController.php:120
+msgid "Security check failed."
+msgstr ""
+
+#: includes/admin/SettingsPage.php:130
+msgid "MTForms Submissions"
+msgstr ""
+
+#: includes/admin/SettingsPage.php:131
+msgid "Export to CSV"
+msgstr ""
+
+#: includes/admin/SettingsPage.php:137
+msgid "Search Submissions"
+msgstr ""
+
+#: includes/admin/SettingsPage.php:190
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: includes/admin/SettingsPage.php:209
+msgid "ID"
+msgstr ""
+
+#: includes/admin/SettingsPage.php:210, includes/admin/SubmissionsTable.php:38, includes/integrations/elementor/WidgetControls/ContentControls.php:392
+msgid "Name"
+msgstr ""
+
+#: includes/admin/SettingsPage.php:211, includes/admin/SubmissionsTable.php:39, includes/integrations/elementor/WidgetControls/ContentControls.php:418
+msgid "Email"
+msgstr ""
+
+#: includes/admin/SettingsPage.php:212, includes/integrations/elementor/WidgetControls/ContentControls.php:444
+msgid "Phone"
+msgstr ""
+
+#: includes/admin/SettingsPage.php:213, includes/integrations/elementor/WidgetControls/ContentControls.php:470
+msgid "Website"
+msgstr ""
+
+#: includes/admin/SettingsPage.php:214, includes/admin/SubmissionsTable.php:40, includes/integrations/elementor/WidgetControls/ContentControls.php:496, includes/integrations/elementor/WidgetControls/ContentControls.php:1137
+msgid "Subject"
+msgstr ""
+
+#: includes/admin/SettingsPage.php:215, includes/admin/SubmissionsTable.php:41, includes/integrations/elementor/WidgetControls/ContentControls.php:522, includes/integrations/elementor/WidgetControls/ContentControls.php:1150
+msgid "Message"
+msgstr ""
+
+#: includes/admin/SettingsPage.php:216
+msgid "Form ID"
+msgstr ""
+
+#: includes/admin/SettingsPage.php:217
+msgid "IP Address"
+msgstr ""
+
+#: includes/admin/SettingsPage.php:218, includes/admin/SubmissionsTable.php:42
+msgid "Date"
+msgstr ""
+
+#: includes/admin/SubmissionsTable.php:26
+msgid "Submission"
+msgstr ""
+
+#: includes/admin/SubmissionsTable.php:87, includes/admin/SubmissionsTable.php:116
+msgid "Delete"
+msgstr ""
+
+#: includes/admin/SubmissionsTable.php:130
+msgid "Submission deleted."
+msgstr ""
+
+#: includes/admin/SubmissionsTable.php:147
+msgid "Submissions deleted."
+msgstr ""
+
+#: includes/frontend/FormController.php:129
+msgid "Spam detected. Please try again."
+msgstr ""
+
+#: includes/frontend/FormController.php:143
+msgid "Too many submissions from this IP. Please try again later."
+msgstr ""
+
+#: includes/frontend/FormController.php:194
+msgid "Message sent successfully!"
+msgstr ""
+
+#: includes/frontend/FormController.php:201
+msgid "Failed to send message. Please try again."
+msgstr ""
+
+#: includes/integrations/elementor/partials/email-template.php:73, includes/integrations/elementor/partials/email-template.php:95
+msgid "New Form Submission"
+msgstr ""
+
+#: includes/integrations/elementor/partials/email-template.php:105
+msgid "You received a new message from %s."
+msgstr ""
+
+#: includes/integrations/elementor/partials/email-template.php:134
+msgid "Submitted on %s via %s"
+msgstr ""
+
+#: includes/integrations/elementor/partials/field-item.php:79
+msgid "(required)"
+msgstr ""
+
+#: includes/integrations/elementor/Widget.php:49, includes/integrations/elementor/WidgetControls/ContentControls.php:621
+msgid "Name is required"
+msgstr ""
+
+#: includes/integrations/elementor/Widget.php:50
+msgid "Name must be at least 2 characters"
+msgstr ""
+
+#: includes/integrations/elementor/Widget.php:51, includes/integrations/elementor/WidgetControls/ContentControls.php:636
+msgid "Email is required"
+msgstr ""
+
+#: includes/integrations/elementor/Widget.php:52, includes/integrations/elementor/WidgetControls/ContentControls.php:651
+msgid "Email is invalid"
+msgstr ""
+
+#: includes/integrations/elementor/Widget.php:53, includes/integrations/elementor/WidgetControls/ContentControls.php:665
+msgid "Phone number is required"
+msgstr ""
+
+#: includes/integrations/elementor/Widget.php:54, includes/integrations/elementor/WidgetControls/ContentControls.php:680
+msgid "Please enter a valid phone number"
+msgstr ""
+
+#: includes/integrations/elementor/Widget.php:55, includes/integrations/elementor/WidgetControls/ContentControls.php:694
+msgid "Website URL is required"
+msgstr ""
+
+#: includes/integrations/elementor/Widget.php:56, includes/integrations/elementor/WidgetControls/ContentControls.php:709
+msgid "Please enter a valid URL"
+msgstr ""
+
+#: includes/integrations/elementor/Widget.php:57, includes/integrations/elementor/WidgetControls/ContentControls.php:723
+msgid "Subject is required"
+msgstr ""
+
+#: includes/integrations/elementor/Widget.php:58, includes/integrations/elementor/WidgetControls/ContentControls.php:738
+msgid "Message is required"
+msgstr ""
+
+#: includes/integrations/elementor/Widget.php:59, includes/integrations/elementor/WidgetControls/ContentControls.php:753, includes/services/formvalidator.php:59
+msgid "You must agree to the terms"
+msgstr ""
+
+#: includes/integrations/elementor/Widget.php:60, includes/integrations/elementor/WidgetControls/ContentControls.php:767
+msgid "Sending..."
+msgstr ""
+
+#: includes/integrations/elementor/Widget.php:61, includes/integrations/elementor/WidgetControls/ContentControls.php:778, includes/integrations/elementor/WidgetControls/ContentControls.php:952
+msgid "Send Message"
+msgstr ""
+
+#: includes/integrations/elementor/Widget.php:62
+msgid "An unexpected error occurred. Please try again."
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:32
+msgid "Basic "
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:40, includes/integrations/elementor/WidgetControls/StyleControls.php:238
+msgid "Form Title"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:42
+msgid "Contact Us"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:50
+msgid "Skin"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:56
+msgid "1. Modern Indigo"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:57
+msgid "2. Nature's Breath"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:58
+msgid "3. Sleek Corporate"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:59
+msgid "4. Cotton Candy"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:60
+msgid "5. Neumorphic"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:61
+msgid "6. Purple Haze"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:62
+msgid "7. Sunset Vibes"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:63
+msgid "8. Ocean Deep"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:64
+msgid "9. Crystal White"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:65
+msgid "10. Vibrant Coral"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:66
+msgid "11. Platinum Luxury"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:67
+msgid "12. Midnight Glow"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:68
+msgid "13. Cyberpunk Glitch"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:69
+msgid "14. Paper Stack"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:70
+msgid "15. Liquid Metal"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:71
+msgid "16. Vintage Terminal"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:72
+msgid "17. Minimalist Tech"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:73
+msgid "18. Vibrant Pulse"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:74
+msgid "19. Clean Material"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:75
+msgid "20. Social Connect"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:76
+msgid "21. Soft Clay"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:77
+msgid "22. Pop Brutalist"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:78
+msgid "23. Aura Gradient"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:79
+msgid "24. Royal Executive"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:80
+msgid "25. Organic Flow"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:81
+msgid "26. Retro Pixel"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:82
+msgid "27. Dynamic Stream"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:83
+msgid "28. Corporate Network"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:84
+msgid "29. Marketplace Hub"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:85
+msgid "30. Cinema Spotlight"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:86
+msgid "31. Team Collaboration"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:87
+msgid "32. Travel Explorer"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:88
+msgid "33. Frosted Glass"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:89
+msgid "34. Floating Depth"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:90
+msgid "35. Serif Elegance"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:91
+msgid "36. Geometric Pop"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:92
+msgid "37. Gradient Aura"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:93
+msgid "38. Organic Playful"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:94
+msgid "39. Luxury Earth"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:95
+msgid "40. Midnight Mint"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:96
+msgid "41. Playful Modernist"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:97
+msgid "42. Zesty Lemon Squeeze"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:98
+msgid "43. Artisanal Butcher"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:99
+msgid "44. Elite Athlete"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:100
+msgid "45. Fintech Neo"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:101
+msgid "46. Sketchy Peanuts"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:102
+msgid "47. Solar Vault"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:103
+msgid "48. Social Mastodon"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:104
+msgid "49. Prime Butcher"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:105
+msgid "50. Holographic Aurora"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:113
+msgid "Layout"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:119
+msgid "Material Minimal"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:120
+msgid "Compact Style"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:121
+msgid "Boxed Borderless"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:122
+msgid "Inset Shadow Style"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:123, includes/integrations/elementor/WidgetControls/StyleControls.php:695
+msgid "Inline Layout"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:131, includes/integrations/elementor/WidgetControls/StyleControls.php:707
+msgid "Label Width"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:160, includes/integrations/elementor/WidgetControls/StyleControls.php:736
+msgid "Field Width"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:189, includes/integrations/elementor/WidgetControls/StyleControls.php:765
+msgid "Gap Between Label & Field"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:212
+msgid "Columns"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:216
+msgid "1 Column"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:217
+msgid "2 Columns"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:218
+msgid "3 Columns"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:219
+msgid "4 Columns"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:220
+msgid "5 Columns"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:221
+msgid "6 Columns"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:240
+msgid "Fields"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:248
+msgid "Show Labels"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:250, includes/integrations/elementor/WidgetControls/ContentControls.php:262, includes/integrations/elementor/WidgetControls/ContentControls.php:274, includes/integrations/elementor/WidgetControls/ContentControls.php:294, includes/integrations/elementor/WidgetControls/ContentControls.php:306, includes/integrations/elementor/WidgetControls/ContentControls.php:329, includes/integrations/elementor/WidgetControls/ContentControls.php:348, includes/integrations/elementor/WidgetControls/ContentControls.php:361, includes/integrations/elementor/WidgetControls/ContentControls.php:850, includes/integrations/elementor/WidgetControls/ContentControls.php:866, includes/integrations/elementor/WidgetControls/ContentControls.php:1127, includes/integrations/elementor/WidgetControls/ContentControls.php:1175
+msgid "Yes"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:251, includes/integrations/elementor/WidgetControls/ContentControls.php:263, includes/integrations/elementor/WidgetControls/ContentControls.php:275, includes/integrations/elementor/WidgetControls/ContentControls.php:295, includes/integrations/elementor/WidgetControls/ContentControls.php:307, includes/integrations/elementor/WidgetControls/ContentControls.php:330, includes/integrations/elementor/WidgetControls/ContentControls.php:349, includes/integrations/elementor/WidgetControls/ContentControls.php:362, includes/integrations/elementor/WidgetControls/ContentControls.php:851, includes/integrations/elementor/WidgetControls/ContentControls.php:867, includes/integrations/elementor/WidgetControls/ContentControls.php:1128, includes/integrations/elementor/WidgetControls/ContentControls.php:1176
+msgid "No"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:260
+msgid "Show Placeholders"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:272
+msgid "Show Icons"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:292
+msgid "Show %s Field"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:304
+msgid "%s Required"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:327
+msgid "Show GDPR Consent"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:346
+msgid "Show Captcha"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:352
+msgid "See captcha configuration in MTForms settings."
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:359
+msgid "Enable Honeypot"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:365
+msgid "A hidden field to catch spam bots."
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:382, includes/integrations/elementor/WidgetControls/StyleControls.php:442
+msgid "Labels"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:390
+msgid "Name Label"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:403
+msgid "Name Placeholder"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:405
+msgid "Enter your name"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:416
+msgid "Email Label"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:429
+msgid "Email Placeholder"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:431
+msgid "Enter your email"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:442
+msgid "Phone Label"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:455
+msgid "Phone Placeholder"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:457
+msgid "Enter your phone number"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:468
+msgid "Website Label"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:481
+msgid "Website Placeholder"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:483
+msgid "Your website URL"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:494
+msgid "Subject Label"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:507
+msgid "Subject Placeholder"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:509
+msgid "Enter subject"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:520
+msgid "Message Label"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:533
+msgid "Message Placeholder"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:535
+msgid "Write your message here..."
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:547
+msgid "GDPR Label"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:560
+msgid "GDPR Text"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:562
+msgid "I consent to having this website store my submitted information so they can respond to my inquiry."
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:576, includes/integrations/elementor/WidgetControls/StyleControls.php:1340
+msgid "Messages"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:585
+msgid "Success Message"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:587
+msgid "Thank you! Your message has been sent successfully."
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:596
+msgid "Error Message"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:598
+msgid "Oops! Something went wrong. Please try again."
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:610
+msgid "Validation Messages"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:619
+msgid "Name Required"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:634
+msgid "Email Required"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:649
+msgid "Email Invalid"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:663
+msgid "Phone Required"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:678
+msgid "Phone Invalid"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:692
+msgid "Website Required"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:707
+msgid "Website Invalid"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:721
+msgid "Subject Required"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:736
+msgid "Message Required"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:751
+msgid "GDPR Required"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:765
+msgid "Sending Text"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:776
+msgid "Submit Button Text"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:796
+msgid "Icons"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:807
+msgid "Location"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:812
+msgid "Label"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:817
+msgid "Input"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:829
+msgid "Position"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:833, includes/integrations/elementor/WidgetControls/ContentControls.php:1013
+msgid "Before Text"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:837, includes/integrations/elementor/WidgetControls/ContentControls.php:1014
+msgid "After Text"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:848, includes/integrations/elementor/WidgetControls/ContentControls.php:908
+msgid "Message Icon"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:864, includes/integrations/elementor/WidgetControls/ContentControls.php:912
+msgid "GDPR Icon"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:880
+msgid "Icon Assignment"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:888
+msgid "Name Icon"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:892
+msgid "Email Icon"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:896
+msgid "Phone Icon"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:900
+msgid "Website Icon"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:904
+msgid "Subject Icon"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:942, includes/integrations/elementor/WidgetControls/StyleControls.php:1067
+msgid "Submit Button"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:950
+msgid "Button Text"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:959
+msgid "Button Width"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:963
+msgid "Auto"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:964
+msgid "Full Width"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:972
+msgid "Button Alignment"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:976, includes/integrations/elementor/WidgetControls/StyleControls.php:332
+msgid "Left"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:980, includes/integrations/elementor/WidgetControls/StyleControls.php:336
+msgid "Center"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:984, includes/integrations/elementor/WidgetControls/StyleControls.php:340
+msgid "Right"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1001
+msgid "Button Icon"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1009
+msgid "Icon Position"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1025
+msgid "Loader Style"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1029
+msgid "Premium Spinner"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1030
+msgid "Pulsing Dots"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1031
+msgid "Bouncing Bars"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1032
+msgid "Dual Ring"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1033
+msgid "Growing Circles"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1050
+msgid "Advanced Settings"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1058
+msgid "Form HTML ID"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1060
+msgid "Unique ID for the form element (optional)."
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1068
+msgid "Custom CSS Classes"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1088
+msgid "Optional recipient email address. If empty, global settings will be used."
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1096
+msgid "CC Email"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1098
+msgid "Optional CC email addresses, separate with commas."
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1106
+msgid "BCC Email"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1108
+msgid "Optional BCC email addresses, separate with commas."
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1116
+msgid "Auto-Responder"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1125
+msgid "Enable Auto-Responder"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1139
+msgid "Thank you for contacting us!"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1152
+msgid "Hi {name}, thank you for your message. We will get back to you soon."
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1153
+msgid "Available tags: {name}, {email}, {subject}"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1164
+msgid "Redirect After Submit"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1173
+msgid "Enable Redirect"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1185
+msgid "Redirect URL"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/ContentControls.php:1187
+msgid "https://your-link.com"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:35
+msgid "Field Group"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:43, includes/integrations/elementor/WidgetControls/StyleControls.php:120, includes/integrations/elementor/WidgetControls/StyleControls.php:249, includes/integrations/elementor/WidgetControls/StyleControls.php:374, includes/integrations/elementor/WidgetControls/StyleControls.php:453, includes/integrations/elementor/WidgetControls/StyleControls.php:545, includes/integrations/elementor/WidgetControls/StyleControls.php:958, includes/integrations/elementor/WidgetControls/StyleControls.php:1211, includes/integrations/elementor/WidgetControls/StyleControls.php:1348, includes/integrations/elementor/WidgetControls/StyleControls.php:1623, includes/integrations/elementor/WidgetControls/StyleControls.php:1697
+msgid "Margin"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:55, includes/integrations/elementor/WidgetControls/StyleControls.php:132, includes/integrations/elementor/WidgetControls/StyleControls.php:261, includes/integrations/elementor/WidgetControls/StyleControls.php:386, includes/integrations/elementor/WidgetControls/StyleControls.php:465, includes/integrations/elementor/WidgetControls/StyleControls.php:560, includes/integrations/elementor/WidgetControls/StyleControls.php:970, includes/integrations/elementor/WidgetControls/StyleControls.php:1223, includes/integrations/elementor/WidgetControls/StyleControls.php:1360, includes/integrations/elementor/WidgetControls/StyleControls.php:1635, includes/integrations/elementor/WidgetControls/StyleControls.php:1709
+msgid "Padding"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:67, includes/integrations/elementor/WidgetControls/StyleControls.php:181, includes/integrations/elementor/WidgetControls/StyleControls.php:273, includes/integrations/elementor/WidgetControls/StyleControls.php:398, includes/integrations/elementor/WidgetControls/StyleControls.php:477, includes/integrations/elementor/WidgetControls/StyleControls.php:575, includes/integrations/elementor/WidgetControls/StyleControls.php:982, includes/integrations/elementor/WidgetControls/StyleControls.php:1235, includes/integrations/elementor/WidgetControls/StyleControls.php:1372, includes/integrations/elementor/WidgetControls/StyleControls.php:1647, includes/integrations/elementor/WidgetControls/StyleControls.php:1721
+msgid "Border Radius"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:112
+msgid "Form Container"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:145
+msgid "Row Gap"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:163
+msgid "Column Gap"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:217
+msgid "Accent Color (Native Fields)"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:219
+msgid "Styles native checkboxes, radio buttons, and range sliders."
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:309
+msgid "Color"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:328
+msgid "Alignment"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:366
+msgid "Fields Wrapper"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:513, includes/integrations/elementor/WidgetControls/StyleControls.php:1789
+msgid "Label Color"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:612, includes/integrations/elementor/WidgetControls/StyleControls.php:1271
+msgid "Icon Size"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:633, includes/integrations/elementor/WidgetControls/StyleControls.php:1292
+msgid "Icon Spacing"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:654, includes/integrations/elementor/WidgetControls/StyleControls.php:1313
+msgid "Icon Color"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:669, includes/integrations/elementor/WidgetControls/StyleControls.php:854, includes/integrations/elementor/WidgetControls/StyleControls.php:923, includes/integrations/elementor/WidgetControls/StyleControls.php:1538, includes/integrations/elementor/WidgetControls/StyleControls.php:1588
+msgid "Background Color"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:796
+msgid "Fields Global Settings"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:804
+msgid "Input Options"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:813
+msgid "Input Style"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:817
+msgid "Default"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:818
+msgid "Underline Only"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:819
+msgid "Rounded"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:820
+msgid "Pill Shape"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:821
+msgid "Shadow"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:823
+msgid "Sets the visual style for input fields."
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:830
+msgid "Textarea Rows"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:847, includes/integrations/elementor/WidgetControls/StyleControls.php:1077, includes/integrations/elementor/WidgetControls/StyleControls.php:1515
+msgid "Normal"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:865, includes/integrations/elementor/WidgetControls/StyleControls.php:934, includes/integrations/elementor/WidgetControls/StyleControls.php:1092, includes/integrations/elementor/WidgetControls/StyleControls.php:1179, includes/integrations/elementor/WidgetControls/StyleControls.php:1549, includes/integrations/elementor/WidgetControls/StyleControls.php:1599, includes/integrations/elementor/WidgetControls/StyleControls.php:1800
+msgid "Text Color"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:878, includes/integrations/elementor/WidgetControls/StyleControls.php:1562
+msgid "Focus"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:893
+msgid "Focus Scale"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:912
+msgid "Focus Border Color"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:949, includes/integrations/elementor/WidgetControls/StyleControls.php:1202, includes/integrations/elementor/WidgetControls/StyleControls.php:1614
+msgid "Advanced Style"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1018, includes/integrations/elementor/WidgetControls/StyleControls.php:1667
+msgid "Placeholder Color"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1037
+msgid "Transition Duration"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1113
+msgid "Hover"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1120
+msgid "Hover Scale"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1139
+msgid "Hover Offset (Y)"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1160, includes/integrations/elementor/WidgetControls/StyleControls.php:1569
+msgid "Border Color"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1171
+msgid "Hover Animation"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1392
+msgid "Success Color"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1404
+msgid "Error Color"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1431
+msgid "Name Field"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1437
+msgid "Email Field"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1443
+msgid "Phone Field"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1449
+msgid "Website Field"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1455
+msgid "Subject Field"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1461
+msgid "Message Field"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1490
+msgid "Column Width"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1749
+msgid "Label Margin"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1761
+msgid "Checkbox Margin"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1811
+msgid "Link Color"
+msgstr ""
+
+#: includes/integrations/elementor/WidgetControls/StyleControls.php:1822
+msgid "Checkbox Label Width"
+msgstr ""
+
+#: includes/services/captcha/recaptchaverifier.php:37
+msgid "reCAPTCHA is not configured correctly."
+msgstr ""
+
+#: includes/services/captcha/recaptchaverifier.php:44
+msgid "Please complete the reCAPTCHA."
+msgstr ""
+
+#: includes/services/captcha/recaptchaverifier.php:67
+msgid "reCAPTCHA verification request failed."
+msgstr ""
+
+#: includes/services/captcha/recaptchaverifier.php:77
+msgid "reCAPTCHA verification failed."
+msgstr ""
+
+#: includes/services/captcha/turnstileverifier.php:37
+msgid "Captcha is not configured correctly."
+msgstr ""
+
+#: includes/services/captcha/turnstileverifier.php:44
+msgid "Please complete the Captcha."
+msgstr ""
+
+#: includes/services/captcha/turnstileverifier.php:67
+msgid "Captcha verification request failed."
+msgstr ""
+
+#: includes/services/captcha/turnstileverifier.php:77
+msgid "Captcha verification failed."
+msgstr ""
+
+#. translators: 1: Default subject, 2: Submission subject
+#: includes/services/email/submissionmailer.php:112
+msgid "[%1$s] %2$s"
+msgstr ""
+
+#: includes/services/email/submissionmailer.php:164
+msgid "Thank you for your submission"
+msgstr ""
+
+#: includes/services/formvalidator.php:65
+msgid "Please fill in all required fields."
+msgstr ""
+
+#: includes/services/formvalidator.php:72
+msgid "Please fill in at least one field."
+msgstr ""
+
+#: includes/services/formvalidator.php:77
+msgid "Invalid email address."
+msgstr ""

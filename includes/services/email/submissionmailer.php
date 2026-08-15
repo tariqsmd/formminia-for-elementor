@@ -63,8 +63,13 @@ class SubmissionMailer
 			$form_fields[__('Message', MTFORMS_TEXT_DOMAIN)] = $submission->message;
 		}
 
-		$to = $this->config->get('mtforms_admin_email', get_option('admin_email'));
-		
+		$widget_id = isset($submission->raw['mtforms_form_id']) ? sanitize_text_field(wp_unslash($submission->raw['mtforms_form_id'])) : '';
+		$widget_settings = $this->get_widget_mail_settings($widget_id);
+
+		$to = (isset($widget_settings['mail_to']) && is_string($widget_settings['mail_to']) && is_email($widget_settings['mail_to']))
+			? sanitize_email($widget_settings['mail_to'])
+			: $this->config->get('mtforms_admin_email', get_option('admin_email'));
+
 		$from_name = $this->config->get('mtforms_email_from_name', get_bloginfo('name'));
 		$default_sub = $this->config->get('mtforms_email_subject', 'New Contact Form Submission');
 		$use_html = $this->config->get('mtforms_enable_html_email', 'yes') === 'yes';
@@ -87,23 +92,13 @@ class SubmissionMailer
 		}
 
 		// Handle CC (server-side only).
-		$cc_emails = array();
-		$global_cc = $this->config->get('mtforms_email_cc', '');
-		if (!empty($global_cc)) {
-			$cc_emails = array_map('trim', explode(',', $global_cc));
-		}
-		$cc_emails = array_unique(array_filter($cc_emails, 'is_email'));
+		$cc_emails = $this->resolve_email_list($widget_settings, 'mail_cc', $this->config->get('mtforms_email_cc', ''));
 		if (!empty($cc_emails)) {
 			$headers[] = 'Cc: ' . implode(', ', $cc_emails);
 		}
 
 		// Handle BCC (server-side only).
-		$bcc_emails = array();
-		$global_bcc = $this->config->get('mtforms_email_bcc', '');
-		if (!empty($global_bcc)) {
-			$bcc_emails = array_map('trim', explode(',', $global_bcc));
-		}
-		$bcc_emails = array_unique(array_filter($bcc_emails, 'is_email'));
+		$bcc_emails = $this->resolve_email_list($widget_settings, 'mail_bcc', $this->config->get('mtforms_email_bcc', ''));
 		if (!empty($bcc_emails)) {
 			$headers[] = 'Bcc: ' . implode(', ', $bcc_emails);
 		}
@@ -191,6 +186,125 @@ class SubmissionMailer
 		];
 
 		return $this->mailer->send($submission->email, $subject, $message, $headers);
+	}
+
+	/**
+	 * Resolve a comma-separated email list, preferring per-widget overrides
+	 * and falling back to the global setting. Every address is validated.
+	 *
+	 * @param array  $widget_settings Per-widget Elementor settings.
+	 * @param string $key             Widget settings key.
+	 * @param string $global_value    Global option value.
+	 *
+	 * @return array
+	 */
+	protected function resolve_email_list(array $widget_settings, $key, $global_value)
+	{
+		$value = '';
+		if (isset($widget_settings[$key]) && is_string($widget_settings[$key]) && trim($widget_settings[$key]) !== '') {
+			$value = $widget_settings[$key];
+		} elseif (is_string($global_value)) {
+			$value = $global_value;
+		}
+
+		if (trim($value) === '') {
+			return array();
+		}
+
+		$emails = array_map('trim', explode(',', $value));
+
+		return array_unique(array_filter($emails, 'is_email'));
+	}
+
+	/**
+	 * Fetch the Elementor widget settings for a given widget ID.
+	 *
+	 * Settings are read from the Elementor document data stored in post meta,
+	 * so only admin-controlled recipient addresses are used (no client input).
+	 *
+	 * @param string $widget_id Elementor element/widget ID.
+	 *
+	 * @return array
+	 */
+	protected function get_widget_mail_settings($widget_id)
+	{
+		if (empty($widget_id) || !class_exists('\Elementor\Plugin')) {
+			return array();
+		}
+
+		$cache_key = 'mtforms_widget_settings_' . md5($widget_id);
+		$cached = wp_cache_get($cache_key);
+		if (false !== $cached) {
+			return is_array($cached) ? $cached : array();
+		}
+
+		global $wpdb;
+
+		$like_lookup = array(
+			'%"id":"' . $wpdb->esc_like($widget_id) . '"%',
+			'%"id": "' . $wpdb->esc_like($widget_id) . '"%',
+		);
+
+		$like_conditions = array();
+		$params = array('_elementor_data');
+		foreach ($like_lookup as $like) {
+			$like_conditions[] = 'meta_value LIKE %s';
+			$params[] = $like;
+		}
+
+		$sql = "SELECT post_id, meta_value FROM {$wpdb->postmeta} WHERE meta_key = %s AND (" . implode(' OR ', $like_conditions) . ") LIMIT 10";
+		$rows = $wpdb->get_results($wpdb->prepare($sql, $params), ARRAY_A);
+
+		$settings = array();
+
+		if (is_array($rows)) {
+			foreach ($rows as $row) {
+				$data = json_decode($row['meta_value'], true);
+				if (!is_array($data)) {
+					continue;
+				}
+
+				$widget = $this->find_widget_by_id($data, $widget_id);
+				if (null !== $widget && isset($widget['settings']) && is_array($widget['settings'])) {
+					$settings = $widget['settings'];
+					break;
+				}
+			}
+		}
+
+		wp_cache_set($cache_key, $settings, '', 5 * MINUTE_IN_SECONDS);
+
+		return $settings;
+	}
+
+	/**
+	 * Recursively find an element by ID within Elementor data.
+	 *
+	 * @param array  $elements  Nested Elementor elements.
+	 * @param string $widget_id Elementor element ID.
+	 *
+	 * @return array|null
+	 */
+	protected function find_widget_by_id(array $elements, $widget_id)
+	{
+		foreach ($elements as $element) {
+			if (!is_array($element)) {
+				continue;
+			}
+
+			if (isset($element['id']) && (string) $element['id'] === (string) $widget_id) {
+				return $element;
+			}
+
+			if (!empty($element['elements']) && is_array($element['elements'])) {
+				$found = $this->find_widget_by_id($element['elements'], $widget_id);
+				if (null !== $found) {
+					return $found;
+				}
+			}
+		}
+
+		return null;
 	}
 
 	/**

@@ -33,7 +33,7 @@ class Activator {
 			message text NOT NULL,
 			form_id varchar(100) DEFAULT '' NOT NULL,
 			ip_address varchar(100) DEFAULT '' NOT NULL,
-			user_agent text DEFAULT '' NOT NULL,
+			user_agent text NULL,
 			created_at datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
 			PRIMARY KEY  (id),
 			KEY email (email),
