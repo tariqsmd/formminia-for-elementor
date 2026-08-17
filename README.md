@@ -1,54 +1,53 @@
 # MTForms
 
-Modern and Easy Contact Form
+A modern, feature-rich contact form plugin for WordPress and Elementor. Multiple skins and layouts, GDPR support, spam protection, and professional HTML email notifications.
 
-## Architecture Overview
+## Requirements
 
-MTForms uses a modern, layered PHP architecture while remaining fully WordPress‑compatible:
+- WordPress 5.8 or higher
+- Elementor (free) 3.5 or higher
+- PHP 7.0 or higher
 
-- **Core (`includes/Core`)**
-    - `MTForms\Core\Plugin` – main orchestrator that loads dependencies and registers hooks.
-    - `MTForms\Core\Loader` – thin namespaced wrapper around the legacy `MTForms_Loader`.
-- **Frontend (`includes/Frontend`)**
-    - `MTForms\Frontend\FormController` – handles public assets and AJAX form submissions.
-- **Domain (`includes/Domain`)**
-    - `MTForms\Domain\FormSubmission` – sanitized value object for submission data.
-    - `MTForms\Domain\FormValidator` – server‑side validation (required fields, email, GDPR).
-    - `MTForms\Domain\Captcha\*Verifier` – reCAPTCHA, Turnstile, or no‑op captcha strategies.
-    - `MTForms\Domain\Email\SubmissionMailer` – builds and sends notification emails.
-- **Infrastructure (`includes/Infrastructure`)**
-    - `MTForms\Infrastructure\WpOptionsConfig` – wrapper for `get_option()` reads.
-    - `MTForms\Infrastructure\WpMailMailer` – adapter around `wp_mail()`.
-- **Admin (`includes/Admin`)**
-    - `MTForms\Admin\SettingsPage` – the main settings screen and Settings API registration.
-    - `MTForms\Admin\Options` – central list of option keys.
-- **Elementor (`includes/Elementor` + `includes/elementor`)**
-    - `MTForms\Elementor\Integration` – registers the Elementor widget.
-    - `MTForms\Elementor\Widget` – namespaced wrapper for the legacy `MTForms_Widget`.
+## Installation
 
-Legacy global classes such as `MTForms_Core`, `MTForms_Admin`, `MTForms_Public`, and
-`MTForms_Elementor` are kept as thin proxies or shims to preserve backwards compatibility.
+1. Upload the `mtforms` folder to `/wp-content/plugins/`, or install through the WordPress admin Plugins screen.
+2. Activate the plugin, then open **MTForms** in the admin menu to configure global settings (CAPTCHA provider, email template, recipients).
+3. Edit any page with Elementor, search for the **MTForms** widget, and drag it to the content area.
+
+## Architecture
+
+All PHP lives under `includes/` and is loaded by the composer-free autoloader in `includes/Core/bootstrap.php`, which maps fully-qualified class names to file paths (case-sensitive, Windows-safe).
+
+- **Core (`includes/Core`)** — `MTForms\Core\Plugin` (main orchestrator), `Loader`, `i18n`, `activator`, `deactivator`.
+- **Admin (`includes/Admin`)** — `SettingsPage` (Settings API + submissions screen), `Options` (canonical option keys), `SubmissionsTable` (WP_List_Table with search, CSV export, bulk/single delete), `settings-view` template.
+- **Frontend (`includes/Frontend`)** — `MTForms\Frontend\FormController`: registers assets and handles the AJAX submission endpoint (nonce, honeypot, IP rate limiting).
+- **Services (`includes/Services`)** — `FormSubmission` (sanitized value object), `FormValidator`, `SubmissionRepository`, `WpOptionsConfig`, `WpMailMailer`; `Captcha\*` (reCAPTCHA v2 / Turnstile / no-op verifiers); `Email\SubmissionMailer` (notification + auto-responder emails).
+- **Integrations (`includes/Integrations/Elementor`)** — `Integration` (registers the widget), `Widget`, `WidgetRenderer`, `WidgetControls\ContentControls` and `WidgetControls\StyleControls`.
 
 ## Extension Hooks
 
-Key actions and filters you can hook into:
+Key actions and filters:
 
 - **Validation**
-    - `mtforms_before_validate_submission( ?WP_Error $pre, MTForms\Domain\FormSubmission $submission )`
-    - `mtforms_after_validate_submission( ?WP_Error $post, MTForms\Domain\FormSubmission $submission )`
+    - `mtforms_before_validate_submission( $pre, $submission )` — filter
+    - `mtforms_after_validate_submission( $post, $submission )` — filter
 - **Captcha**
-    - `mtforms_captcha_error( WP_Error $error, string $provider )`
+    - `mtforms_captcha_error( $response, $provider )` — action
+    - `mtforms_just_validate_src( $src )` — filter, override the JustValidate script URL (e.g. self-hosted)
 - **Email**
-    - `mtforms_email_to( string $to, MTForms\Domain\FormSubmission $submission, array $fields )`
-    - `mtforms_email_from_name( string $from_name, MTForms\Domain\FormSubmission $submission, array $fields )`
-    - `mtforms_email_headers( array $headers, MTForms\Domain\FormSubmission $submission, array $fields )`
-    - `mtforms_email_subject( string $subject, MTForms\Domain\FormSubmission $submission, array $fields )`
-    - `mtforms_email_body( string $body, MTForms\Domain\FormSubmission $submission, array $fields )`
-    - `mtforms_email_template_path( string $path, array $fields )`
-    - `mtforms_email_args( array $args )` – final `wp_mail()` arguments.
-    - `mtforms_before_send( MTForms\Domain\FormSubmission $submission, string $subject, string $body, array $headers, array $fields )`
-    - `mtforms_after_send( bool $sent, MTForms\Domain\FormSubmission $submission, string $subject, string $body, array $headers, array $fields )`
-- **Assets**
-    - `mtforms_just_validate_src( string $src )` – override JustValidate script URL (e.g. to a self‑hosted file).
+    - `mtforms_email_to( $to, $submission, $fields )` — filter
+    - `mtforms_email_from_name( $from_name, $submission, $fields )` — filter
+    - `mtforms_email_headers( $headers, $submission, $fields )` — filter
+    - `mtforms_email_subject( $subject, $submission, $fields )` — filter
+    - `mtforms_email_body( $body, $submission, $fields )` — filter
+    - `mtforms_email_template_path( $path, $fields )` — filter
+    - `mtforms_before_send( $submission, $subject, $body, $headers, $fields )` — action
+    - `mtforms_after_send( $sent, $submission, $subject, $body, $headers, $fields )` — action
 
-These hooks allow you to customise validation, spam protection, email routing, and presentation without modifying the core plugin code.
+## Privacy
+
+Submissions (including the visitor's IP address and user agent) are stored in the site database so you can review contact messages. Entries can be permanently deleted from the Submissions screen, and all data is removed when the plugin is uninstalled.
+
+## License
+
+GPLv2 or later (see `readme.txt`). Includes JustValidate by Horprogs (MIT) — https://github.com/horprogs/Just-validate.

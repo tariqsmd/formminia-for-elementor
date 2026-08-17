@@ -31,7 +31,7 @@ class Widget extends \Elementor\Widget_Base
 			MTFORMS_VERSION
 		);
 
-				wp_register_script(
+		wp_register_script(
 			'mtforms',
 			MTFORMS_PLUGIN_URL . 'assets/js/mtforms.js',
 			['elementor-frontend', 'mtforms-just-validate'],
