@@ -284,7 +284,8 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
 
         if (response.success) {
             // Success Path
-            const msg = this.config.i18n.success || response.data.message;
+            const serverSuccessMsg = (response.data && response.data.message) ? response.data.message : '';
+            const msg = this.config.i18n.success || serverSuccessMsg;
             $responseMsg.addClass('success').html(msg).fadeIn();
             $form[0].reset();
 
@@ -307,8 +308,10 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
                 }, 5000);
             }
         } else {
-            // Error Path (Validation or Server side)
-            const msg = this.config.i18n.error || response.data.message;
+            // Error Path (Validation or Server side) — prefer the server's actual
+            // message so real failures are visible instead of the generic default.
+            const serverErrorMsg = (response.data && response.data.message) ? response.data.message : '';
+            const msg = serverErrorMsg || this.config.i18n.error;
             $responseMsg.addClass('error').html(msg).fadeIn();
             this.resetCaptcha();
             this.scrollToElement($responseMsg[0]);
