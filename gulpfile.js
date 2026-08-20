@@ -90,6 +90,7 @@ gulp.task('dist', function () {
         '!package.json',
         '!package-lock.json',
         '!composer.json',
+        '!README.md',
         '!.gitignore',
         '!.git/**',
         '!.git',
