@@ -225,6 +225,15 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
      */
     handleSubmission() {
         const elements = this.elements;
+
+        // 0. Ensure CAPTCHA is completed / available before submitting.
+        const captchaState = this.getCaptchaState();
+        if (!captchaState.ready) {
+            elements.$responseMsg.removeClass('success').addClass('error').html(captchaState.message).fadeIn();
+            this.scrollToElement(elements.$responseMsg[0]);
+            return;
+        }
+
         const selectors = this.getSettings('selectors');
         const $btnText = elements.$submitBtn.find(selectors.submitBtnText);
         const originalText = $btnText.length ? $btnText.text() : elements.$submitBtn.text();
@@ -337,6 +346,44 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
 
         $responseMsg.addClass('error').html(this.config.i18n.error_generic).fadeIn();
         console.error('MTForms Submission Error:', error);
+    }
+
+    /**
+     * Check the current CAPTCHA state of the form.
+     * Returns { ready, message } — when not ready, the message explains why.
+     */
+    getCaptchaState() {
+        const $form = this.elements.$form;
+        const $turnstileWrap = $form.find('.cf-turnstile');
+        const $recaptchaWrap = $form.find('.g-recaptcha');
+
+        if (!$turnstileWrap.length && !$recaptchaWrap.length) {
+            return { ready: true, message: '' };
+        }
+
+        if ($turnstileWrap.length) {
+            const token = $form.find('input[name="cf-turnstile-response"]').val();
+            if (token) {
+                return { ready: true, message: '' };
+            }
+            if (typeof window.turnstile === 'undefined' || typeof window.turnstile.getResponse !== 'function') {
+                return { ready: false, message: 'CAPTCHA could not be loaded. Please wait a moment and try again, or contact the site owner.' };
+            }
+            return { ready: false, message: 'Please complete the CAPTCHA.' };
+        }
+
+        if ($recaptchaWrap.length) {
+            const token = $form.find('[name="g-recaptcha-response"]').val();
+            if (token) {
+                return { ready: true, message: '' };
+            }
+            if (typeof window.grecaptcha === 'undefined') {
+                return { ready: false, message: 'CAPTCHA could not be loaded. Please wait a moment and try again, or contact the site owner.' };
+            }
+            return { ready: false, message: 'Please complete the CAPTCHA.' };
+        }
+
+        return { ready: true, message: '' };
     }
 
     /**
