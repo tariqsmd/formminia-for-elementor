@@ -10,6 +10,7 @@ use MTForms\Services\Captcha\CaptchaVerifierInterface;
 use MTForms\Services\FormSubmission;
 use MTForms\Services\FormValidator;
 use MTForms\Services\Email\SubmissionMailer;
+use MTForms\Services\ElementorWidgetSettings;
 use MTForms\Services\SubmissionRepository;
 
 /**
@@ -160,14 +161,23 @@ class FormController
 			);
 		}
 
-		$captcha_result = $this->captcha_verifier->verify($submission, $data);
+		// Only verify CAPTCHA when the submitting widget actually has
+		// "Show CAPTCHA" enabled. The setting is read from the saved
+		// Elementor document data, never from client input.
+		$widget_id = isset($data['mtforms_form_id']) ? sanitize_text_field(wp_unslash($data['mtforms_form_id'])) : '';
+		$widget_settings = (new ElementorWidgetSettings())->get($widget_id);
+		$show_captcha = isset($widget_settings['show_captcha']) && $widget_settings['show_captcha'] === 'yes';
 
-		if (is_wp_error($captcha_result)) {
-			wp_send_json_error(
-				array(
-					'message' => $captcha_result->get_error_message(),
-				)
-			);
+		if ($show_captcha) {
+			$captcha_result = $this->captcha_verifier->verify($submission, $data);
+
+			if (is_wp_error($captcha_result)) {
+				wp_send_json_error(
+					array(
+						'message' => $captcha_result->get_error_message(),
+					)
+				);
+			}
 		}
 
 		$sent = $this->mailer->send($submission);

@@ -35,6 +35,7 @@ $mtforms_class_map = array(
 	'MTForms\Services\SubmissionRepository'    => 'services/SubmissionRepository.php',
 	'MTForms\Services\WpOptionsConfig'         => 'services/wpoptionsconfig.php',
 	'MTForms\Services\WpMailMailer'            => 'services/wpmailmailer.php',
+	'MTForms\Services\ElementorWidgetSettings' => 'services/ElementorWidgetSettings.php',
 	'MTForms\Services\Email\SubmissionMailer'  => 'services/email/submissionmailer.php',
 
 	// Captcha
