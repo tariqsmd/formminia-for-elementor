@@ -34,14 +34,14 @@ class RecaptchaVerifier implements CaptchaVerifierInterface {
 		if ( $this->secret_key === '' ) {
 			return new \WP_Error(
 				'mtforms_recaptcha_config',
-				__( 'reCAPTCHA is not configured correctly.', MTFORMS_TEXT_DOMAIN )
+				esc_html__( 'reCAPTCHA is not configured correctly.', MTFORMS_TEXT_DOMAIN )
 			);
 		}
 
 		if ( $response === '' ) {
 			return new \WP_Error(
 				'mtforms_recaptcha_missing',
-				__( 'Please complete the reCAPTCHA.', MTFORMS_TEXT_DOMAIN )
+				esc_html__( 'Please complete the reCAPTCHA.', MTFORMS_TEXT_DOMAIN )
 			);
 		}
 
@@ -64,7 +64,7 @@ class RecaptchaVerifier implements CaptchaVerifierInterface {
 
 			return new \WP_Error(
 				'mtforms_recaptcha_http_error',
-				__( 'reCAPTCHA verification request failed.', MTFORMS_TEXT_DOMAIN )
+				esc_html__( 'reCAPTCHA verification request failed.', MTFORMS_TEXT_DOMAIN )
 			);
 		}
 
@@ -74,7 +74,7 @@ class RecaptchaVerifier implements CaptchaVerifierInterface {
 		if ( ! isset( $result->success ) || ! $result->success ) {
 			return new \WP_Error(
 				'mtforms_recaptcha_invalid',
-				__( 'reCAPTCHA verification failed.', MTFORMS_TEXT_DOMAIN )
+				esc_html__( 'reCAPTCHA verification failed.', MTFORMS_TEXT_DOMAIN )
 			);
 		}
 

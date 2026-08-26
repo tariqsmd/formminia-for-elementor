@@ -118,7 +118,7 @@ class FormController
 		if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'mtforms-submit-form')) {
 			wp_send_json_error(
 				array(
-					'message' => __('Security check failed.', MTFORMS_TEXT_DOMAIN),
+					'message' => esc_html__('Security check failed.', MTFORMS_TEXT_DOMAIN),
 				)
 			);
 		}
@@ -127,7 +127,7 @@ class FormController
 		if (!empty($_POST['mtforms_hp'])) {
 			wp_send_json_error(
 				array(
-					'message' => __('Spam detected. Please try again.', MTFORMS_TEXT_DOMAIN),
+					'message' => esc_html__('Spam detected. Please try again.', MTFORMS_TEXT_DOMAIN),
 				)
 			);
 		}
@@ -141,7 +141,7 @@ class FormController
 			if ($count >= 10) {
 				wp_send_json_error(
 					array(
-						'message' => __('Too many submissions from this IP. Please try again later.', MTFORMS_TEXT_DOMAIN),
+						'message' => esc_html__('Too many submissions from this IP. Please try again later.', MTFORMS_TEXT_DOMAIN),
 					)
 				);
 			}
@@ -201,14 +201,14 @@ class FormController
 
 			wp_send_json_success(
 				array(
-					'message' => __('Message sent successfully!', MTFORMS_TEXT_DOMAIN),
+					'message' => esc_html__('Message sent successfully!', MTFORMS_TEXT_DOMAIN),
 				)
 			);
 		}
 
 		wp_send_json_error(
 			array(
-				'message' => __('Failed to send message. Please try again.', MTFORMS_TEXT_DOMAIN),
+				'message' => esc_html__('Failed to send message. Please try again.', MTFORMS_TEXT_DOMAIN),
 			)
 		);
 	}

@@ -12,8 +12,7 @@
   --mtforms-admin-border: #e2e8f0;
   --mtforms-admin-radius: 12px;
   --mtforms-admin-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --mtforms-sidebar-width: 220px;
-  --mtforms-info-sidebar-width: 260px;
+  --mtforms-sidebar-width: 280px;
   --mtforms-header-height: 64px;
 }
 
@@ -92,7 +91,7 @@
 }
 
 /* ════════════════════════════════════════════════════════════ */
-/* THREE-COLUMN BODY                                             */
+/* TWO-COLUMN BODY                                               */
 /* ════════════════════════════════════════════════════════════ */
 .mtforms-admin-layout {
   display: flex;
@@ -111,15 +110,24 @@
   border-right: 1px solid var(--mtforms-admin-border);
   position: relative;
   align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 }
 
 .mtforms-sidebar-nav {
-  padding: 12px 10px;
+  padding: 12px 10px 10px;
   display: flex;
   flex-direction: column;
   gap: 2px;
-  position: sticky;
-  top: calc(var(--mtforms-header-height) + 32px);
+  flex-shrink: 0;
+}
+
+.mtforms-sidebar-divider {
+  height: 1px;
+  background: var(--mtforms-admin-border);
+  margin: 4px 0 16px;
+  flex-shrink: 0;
 }
 
 .mtforms-sidebar-nav-item {
@@ -379,24 +387,12 @@ input:checked+.mtforms-slider::before {
 }
 
 /* ════════════════════════════════════════════════════════════ */
-/* RIGHT INFO SIDEBAR                                           */
+/* SIDEBAR INFO PANELS (inside left sidebar)                     */
 /* ════════════════════════════════════════════════════════════ */
-.mtforms-info-sidebar {
-  width: var(--mtforms-info-sidebar-width);
-  flex-shrink: 0;
-  background: #fff;
-  border-left: 1px solid var(--mtforms-admin-border);
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Internal sticky wrapper for right sidebar */
 .mtforms-info-sticky-wrapper {
-  position: sticky;
-  top: calc(var(--mtforms-header-height) + 32px);
   display: flex;
   flex-direction: column;
+  padding: 0 14px 24px;
 }
 
 /* Sub-tab strip */
@@ -632,4 +628,52 @@ input:checked+.mtforms-slider::before {
   height: 1px;
   background: var(--mtforms-admin-border);
   margin: 0 0 18px;
+}
+
+/* ════════════════════════════════════════════════════════════ */
+/* RESPONSIVE                                                   */
+/* ════════════════════════════════════════════════════════════ */
+@media screen and (max-width: 1200px) {
+  .mtforms-admin-sidebar {
+    width: 250px;
+  }
+}
+@media screen and (max-width: 960px) {
+  .mtforms-admin-layout {
+    flex-direction: column;
+  }
+  .mtforms-admin-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--mtforms-admin-border);
+    overflow-y: visible;
+  }
+  .mtforms-sidebar-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 10px;
+  }
+  .mtforms-sidebar-nav-item {
+    white-space: nowrap;
+  }
+  .mtforms-sidebar-divider {
+    margin: 0;
+  }
+  .mtforms-admin-main {
+    padding: 20px 16px;
+  }
+  .form-table th {
+    width: auto;
+    padding: 12px 10px 12px 0;
+  }
+  .form-table td input[type=text],
+  .form-table td input[type=password],
+  .form-table td input[type=email],
+  .form-table td select,
+  .form-table td textarea {
+    max-width: 100%;
+  }
+  .mtforms-card {
+    padding: 20px;
+  }
 }

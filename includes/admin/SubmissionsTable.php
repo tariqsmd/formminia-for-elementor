@@ -122,12 +122,12 @@ class SubmissionsTable extends \WP_List_Table
 		if ('delete' === $this->current_action()) {
 			$nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])) : '';
 			if (!wp_verify_nonce($nonce, 'mtforms_delete_submission')) {
-				wp_die(__('Security check failed.', MTFORMS_TEXT_DOMAIN));
+				wp_die(esc_html__('Security check failed.', MTFORMS_TEXT_DOMAIN));
 			}
 
 			if (isset($_GET['submission'])) {
 				$this->repository->delete(absint($_GET['submission']));
-				echo '<div class="updated"><p>' . __('Submission deleted.', MTFORMS_TEXT_DOMAIN) . '</p></div>';
+				echo '<div class="updated"><p>' . esc_html__('Submission deleted.', MTFORMS_TEXT_DOMAIN) . '</p></div>';
 			}
 		}
 
@@ -137,14 +137,14 @@ class SubmissionsTable extends \WP_List_Table
 		if (('bulk-delete' === $action || 'bulk-delete' === $action2) && isset($_REQUEST['submission'])) {
 			$nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])) : '';
 			if (!wp_verify_nonce($nonce, 'bulk-submissions')) {
-				wp_die(__('Security check failed.', MTFORMS_TEXT_DOMAIN));
+				wp_die(esc_html__('Security check failed.', MTFORMS_TEXT_DOMAIN));
 			}
 
 			$submissions = array_map('absint', (array) $_REQUEST['submission']);
 			foreach ($submissions as $id) {
 				$this->repository->delete($id);
 			}
-			echo '<div class="updated"><p>' . __('Submissions deleted.', MTFORMS_TEXT_DOMAIN) . '</p></div>';
+			echo '<div class="updated"><p>' . esc_html__('Submissions deleted.', MTFORMS_TEXT_DOMAIN) . '</p></div>';
 		}
 	}
 }

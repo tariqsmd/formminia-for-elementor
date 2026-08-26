@@ -2662,6 +2662,116 @@
   accent-color: var(--mtforms-primary);
 }
 
+/* Zesty Lemon Squeeze - Skin 42 */
+.mtforms-skin-42 {
+  --mtforms-bg: #ffd204;
+  --mtforms-text: #726500;
+  --mtforms-primary: #7065a3;
+  --mtforms-secondary: #fef9e7;
+  --mtforms-title-color: #726500;
+  --mtforms-title-weight: 900;
+  --mtforms-title-size: 3rem;
+  --mtforms-title-spacing: -0.02em;
+  --mtforms-title-transform: uppercase;
+  --mtforms-label-color: #726500;
+  --mtforms-label-weight: 800;
+  --mtforms-input-bg: #ffffff;
+  --mtforms-input-border: #ffd204;
+  --mtforms-input-focus-border: #7065a3;
+  --mtforms-field-radius: 50px;
+  --mtforms-btn-bg: #7065a3;
+  --mtforms-btn-color: #ffffff;
+  --mtforms-radius: 40px;
+  --mtforms-form-padding: 4rem;
+  accent-color: var(--mtforms-primary);
+  background: var(--mtforms-bg);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.mtforms-skin-42::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fef9e7' fill-opacity='1' d='M0,192L48,176C96,160,192,128,288,128C384,128,480,160,576,186.7C672,213,768,235,864,229.3C960,224,1056,192,1152,181.3C1248,171,1344,181,1392,186.7L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E") no-repeat top/cover;
+  z-index: -1;
+  opacity: 0.5;
+}
+.mtforms-skin-42::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  right: -30px;
+  width: 180px;
+  height: 180px;
+  background-color: #fef9e7;
+  mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M44.7,-76.4C58.3,-69.2,70,-58.5,77.4,-45.5C84.8,-32.5,88,-17.1,87.3,-2.1C86.5,12.8,81.8,27.4,74,40.4C66.1,53.3,55.1,64.7,42,72.4C28.8,80.1,13.4,84.1,-1.5,86.7C-16.4,89.3,-32.8,90.4,-47,84C-61.1,77.5,-73,63.5,-80.4,48C-87.7,32.5,-90.6,15.5,-88.7,-0.9C-86.8,-17.3,-80.1,-33.1,-70.1,-46.3C-60,-59.5,-46.6,-70.2,-32.6,-77.2C-18.7,-84.1,-9.3,-87.3,3.3,-92.9C15.9,-98.6,29.8,-106.3,44.7,-76.4Z' transform='translate(100 100)' /%3E%3C/svg%3E") no-repeat center/contain;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M44.7,-76.4C58.3,-69.2,70,-58.5,77.4,-45.5C84.8,-32.5,88,-17.1,87.3,-2.1C86.5,12.8,81.8,27.4,74,40.4C66.1,53.3,55.1,64.7,42,72.4C28.8,80.1,13.4,84.1,-1.5,86.7C-16.4,89.3,-32.8,90.4,-47,84C-61.1,77.5,-73,63.5,-80.4,48C-87.7,32.5,-90.6,15.5,-88.7,-0.9C-86.8,-17.3,-80.1,-33.1,-70.1,-46.3C-60,-59.5,-46.6,-70.2,-32.6,-77.2C-18.7,-84.1,-9.3,-87.3,3.3,-92.9C15.9,-98.6,29.8,-106.3,44.7,-76.4Z' transform='translate(100 100)' /%3E%3C/svg%3E") no-repeat center/contain;
+  z-index: -1;
+  opacity: 0.8;
+}
+.mtforms-skin-42 .mtforms-form-inner {
+  position: relative;
+  z-index: 2;
+}
+.mtforms-skin-42 .mtforms-form-title {
+  font-family: "Fredoka", sans-serif;
+  text-align: center;
+  margin-bottom: 3.5rem;
+  color: #726500;
+  text-shadow: 2px 2px 0 #fff;
+  line-height: 1;
+  transform: rotate(-2deg);
+}
+.mtforms-skin-42 .mtforms-form-title::before {
+  content: "🍋";
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%) rotate(15deg);
+  font-size: 3rem;
+}
+.mtforms-skin-42 .mtforms-form-group {
+  margin-bottom: 2rem;
+}
+.mtforms-skin-42 .mtforms-form-group label {
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+  background: #fff;
+  padding: 2px 10px;
+  border-radius: 10px;
+  transform: rotate(1deg);
+}
+.mtforms-skin-42 .mtforms-input,
+.mtforms-skin-42 .mtforms-textarea {
+  border: 4px solid #fff;
+  box-shadow: 8px 8px 0 rgba(114, 101, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.mtforms-skin-42 .mtforms-input:focus,
+.mtforms-skin-42 .mtforms-textarea:focus {
+  transform: scale(1.02);
+  box-shadow: 12px 12px 0 rgba(114, 101, 0, 0.15);
+  border-color: var(--mtforms-primary);
+}
+.mtforms-skin-42 .mtforms-submit-btn {
+  box-shadow: 0 10px 0 #4f467a;
+  transition: all 0.2s ease;
+}
+.mtforms-skin-42 .mtforms-submit-btn:hover {
+  transform: translateY(2px);
+  box-shadow: 0 8px 0 #4f467a;
+  background: #7e74bb;
+}
+.mtforms-skin-42 .mtforms-submit-btn:active {
+  transform: translateY(10px);
+  box-shadow: none;
+}
+
 /* Playful Butcher - Skin 43 */
 .mtforms-skin-43 {
   --mtforms-bg: #fffbf9;
@@ -3827,26 +3937,5 @@
   .mtforms-layout-inline .mtforms-input-wrap {
     width: 100%;
     max-width: 100%;
-  }
-}
-
-/* ─── Responsive: Skins & General ─────────────── */
-@media (max-width: 768px) {
-  .mtforms-form-wrapper {
-    padding: 1.25rem !important;
-    border-radius: 6px !important;
-  }
-  .mtforms-fields-wrapper {
-    grid-template-columns: 1fr !important;
-  }
-  .mtforms-form-title {
-    font-size: 1.4rem !important;
-  }
-  .mtforms-submit-btn {
-    width: 100%;
-    padding: 0.8rem 1.5rem !important;
-  }
-  .mtforms-form-actions {
-    text-align: center !important;
   }
 }

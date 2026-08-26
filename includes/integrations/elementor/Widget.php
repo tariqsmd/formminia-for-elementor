@@ -46,20 +46,20 @@ class Widget extends \Elementor\Widget_Base
 				'ajax_url' => admin_url('admin-ajax.php'),
 				'nonce' => wp_create_nonce('mtforms-submit-form'),
 				'i18n' => array(
-					'name_required' => __('Name is required', MTFORMS_TEXT_DOMAIN),
-					'name_min' => __('Name must be at least 2 characters', MTFORMS_TEXT_DOMAIN),
-					'email_required' => __('Email is required', MTFORMS_TEXT_DOMAIN),
-					'email_invalid' => __('Email is invalid', MTFORMS_TEXT_DOMAIN),
-					'phone_required' => __('Phone number is required', MTFORMS_TEXT_DOMAIN),
-					'phone_invalid' => __('Please enter a valid phone number', MTFORMS_TEXT_DOMAIN),
-					'website_required' => __('Website URL is required', MTFORMS_TEXT_DOMAIN),
-					'website_invalid' => __('Please enter a valid URL', MTFORMS_TEXT_DOMAIN),
-					'subject_required' => __('Subject is required', MTFORMS_TEXT_DOMAIN),
-					'message_required' => __('Message is required', MTFORMS_TEXT_DOMAIN),
-					'gdpr_required' => __('You must agree to the terms', MTFORMS_TEXT_DOMAIN),
-					'sending' => __('Sending...', MTFORMS_TEXT_DOMAIN),
-					'send_message' => __('Send Message', MTFORMS_TEXT_DOMAIN),
-					'error_generic' => __('An unexpected error occurred. Please try again.', MTFORMS_TEXT_DOMAIN),
+					'name_required' => esc_html__('Name is required', MTFORMS_TEXT_DOMAIN),
+					'name_min' => esc_html__('Name must be at least 2 characters', MTFORMS_TEXT_DOMAIN),
+					'email_required' => esc_html__('Email is required', MTFORMS_TEXT_DOMAIN),
+					'email_invalid' => esc_html__('Email is invalid', MTFORMS_TEXT_DOMAIN),
+					'phone_required' => esc_html__('Phone number is required', MTFORMS_TEXT_DOMAIN),
+					'phone_invalid' => esc_html__('Please enter a valid phone number', MTFORMS_TEXT_DOMAIN),
+					'website_required' => esc_html__('Website URL is required', MTFORMS_TEXT_DOMAIN),
+					'website_invalid' => esc_html__('Please enter a valid URL', MTFORMS_TEXT_DOMAIN),
+					'subject_required' => esc_html__('Subject is required', MTFORMS_TEXT_DOMAIN),
+					'message_required' => esc_html__('Message is required', MTFORMS_TEXT_DOMAIN),
+					'gdpr_required' => esc_html__('You must agree to the terms', MTFORMS_TEXT_DOMAIN),
+					'sending' => esc_html__('Sending...', MTFORMS_TEXT_DOMAIN),
+					'send_message' => esc_html__('Send Message', MTFORMS_TEXT_DOMAIN),
+					'error_generic' => esc_html__('An unexpected error occurred. Please try again.', MTFORMS_TEXT_DOMAIN),
 				),
 				'captcha_provider' => get_option('mtforms_captcha_provider', 'none'),
 			)
@@ -84,7 +84,7 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function get_title()
 	{
-		return esc_html__('MTForms', MTFORMS_TEXT_DOMAIN);
+		return esc_html__('MT Contact Form', MTFORMS_TEXT_DOMAIN);
 	}
 
 	/**
@@ -104,7 +104,7 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function get_categories()
 	{
-		return ['general'];
+		return ['mtforms'];
 	}
 
 	/**

@@ -121,20 +121,20 @@ class SettingsPage
 		// Handle export.
 		if (isset($_GET['action']) && $_GET['action'] === 'export_csv') {
 			if (!isset($_GET['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_wpnonce'])), 'mtforms_export_csv')) {
-				wp_die(__('Security check failed.', MTFORMS_TEXT_DOMAIN));
+				wp_die(esc_html__('Security check failed.', MTFORMS_TEXT_DOMAIN));
 			}
 			$this->handle_export_csv();
 		}
 		?>
 		<div class="wrap">
-			<h1 class="wp-heading-inline"><?php _e('MTForms Submissions', MTFORMS_TEXT_DOMAIN); ?></h1>
-			<a href="<?php echo esc_url(wp_nonce_url(add_query_arg('action', 'export_csv'), 'mtforms_export_csv')); ?>" class="page-title-action"><?php _e('Export to CSV', MTFORMS_TEXT_DOMAIN); ?></a>
+			<h1 class="wp-heading-inline"><?php esc_html_e('MTForms Submissions', MTFORMS_TEXT_DOMAIN); ?></h1>
+			<a href="<?php echo esc_url(wp_nonce_url(add_query_arg('action', 'export_csv'), 'mtforms_export_csv')); ?>" class="page-title-action"><?php esc_html_e('Export to CSV', MTFORMS_TEXT_DOMAIN); ?></a>
 			<hr class="wp-header-end">
 
 			<form method="get">
 				<input type="hidden" name="page" value="<?php echo isset($_REQUEST['page']) ? esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))) : 'mtforms-submissions'; ?>" />
 				<?php
-				$table->search_box(__('Search Submissions', MTFORMS_TEXT_DOMAIN), 'submission');
+				$table->search_box(esc_html__('Search Submissions', MTFORMS_TEXT_DOMAIN), 'submission');
 				$table->display();
 				?>
 			</form>
@@ -187,7 +187,7 @@ class SettingsPage
 	protected function handle_export_csv()
 	{
 		if (!current_user_can('manage_options')) {
-			wp_die(__('You do not have sufficient permissions to access this page.', MTFORMS_TEXT_DOMAIN));
+			wp_die(esc_html__('You do not have sufficient permissions to access this page.', MTFORMS_TEXT_DOMAIN));
 		}
 
 		$repository = new \MTForms\Services\SubmissionRepository();
