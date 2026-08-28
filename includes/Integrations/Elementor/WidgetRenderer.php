@@ -199,7 +199,7 @@ trait WidgetRenderer {
 	 */
 	public function get_partial($template, $args = [])
 	{
-		$path = MTFORMS_PLUGIN_DIR . 'includes/integrations/elementor/partials/' . $template . '.php';
+		$path = MTFORMS_PLUGIN_DIR . 'includes/Integrations/Elementor/Partials/' . $template . '.php';
 		if (file_exists($path)) {
 			include $path;
 		}

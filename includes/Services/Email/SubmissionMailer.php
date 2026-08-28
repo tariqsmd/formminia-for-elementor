@@ -244,7 +244,7 @@ class SubmissionMailer
 	protected function build_body(FormSubmission $submission, array $form_fields, $use_html)
 	{
 		if ($use_html) {
-			$template_path = MTFORMS_PLUGIN_DIR . 'includes/integrations/elementor/partials/email-template.php';
+			$template_path = MTFORMS_PLUGIN_DIR . 'includes/Integrations/Elementor/Partials/email-template.php';
 
 			/**
 			 * Filter the email template path.
