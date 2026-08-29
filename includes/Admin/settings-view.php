@@ -85,30 +85,6 @@ $tabs = [
                         </div>
                     </div>
 
-                    <p class="mtforms-info-desc">
-                        <?php esc_html_e('A modern, lightweight Elementor contact form plugin built with clean PHP architecture and extensibility in mind.', MTFORMS_TEXT_DOMAIN); ?>
-                    </p>
-
-                    <div class="mtforms-info-links">
-                        <a href="https://mhtas.com" target="_blank" class="mtforms-info-link">
-                            <span class="dashicons dashicons-admin-site-alt3"></span>
-                            <?php esc_html_e('Visit Website', MTFORMS_TEXT_DOMAIN); ?>
-                        </a>
-                        <a href="https://mhtas.com/mtforms/docs" target="_blank" class="mtforms-info-link">
-                            <span class="dashicons dashicons-book"></span>
-                            <?php esc_html_e('Documentation', MTFORMS_TEXT_DOMAIN); ?>
-                        </a>
-                        <a href="https://wordpress.org/plugins/mtforms/" target="_blank" class="mtforms-info-link">
-                            <span class="dashicons dashicons-wordpress"></span>
-                            <?php esc_html_e('WP Plugin Page', MTFORMS_TEXT_DOMAIN); ?>
-                        </a>
-                        <a href="https://wordpress.org/support/plugin/mtforms/" target="_blank"
-                            class="mtforms-info-link">
-                            <span class="dashicons dashicons-sos"></span>
-                            <?php esc_html_e('Community Forum', MTFORMS_TEXT_DOMAIN); ?>
-                        </a>
-                    </div>
-
                 </div>
                 <!-- /Panel: About -->
 

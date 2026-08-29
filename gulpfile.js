@@ -53,7 +53,7 @@ gulp.task('styles', function () {
 
 // Generate POT file for translation
 gulp.task('translate', function () {
-    return gulp.src(['**/*.php', '!node_modules/**', '!vendor/**'])
+    return gulp.src(['**/*.php', '!node_modules/**', '!vendor/**', '!dist/**'])
         .pipe(wpPot({
             package: 'MTForms'
         }))

@@ -50,7 +50,6 @@ trait ContentControls {
 				'label' => esc_html__('Skin', MTFORMS_TEXT_DOMAIN),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'skin-0',
-				// 'label_block' => true,
 				'options' => [
 					'skin-0' => __('None', MTFORMS_TEXT_DOMAIN),
 					'skin-1' => __('1. Modern Indigo', MTFORMS_TEXT_DOMAIN),
