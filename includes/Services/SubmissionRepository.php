@@ -19,12 +19,74 @@ class SubmissionRepository
 	protected $table_name;
 
 	/**
+	 * Whether the table existence has been verified this request.
+	 *
+	 * @var bool
+	 */
+	protected static $table_verified = false;
+
+	/**
 	 * Constructor.
 	 */
 	public function __construct()
 	{
 		global $wpdb;
 		$this->table_name = $wpdb->prefix . 'mtforms_submissions';
+	}
+
+	/**
+	 * Ensure the submissions table exists.
+	 *
+	 * The table is normally created on plugin activation, but a failed or
+	 * skipped activation would make every insert fail silently. Running the
+	 * schema check here (at most once per request) makes storage self-healing.
+	 */
+	public function ensure_table()
+	{
+		global $wpdb;
+
+		if (self::$table_verified) {
+			return;
+		}
+		self::$table_verified = true;
+
+		if (get_option('mtforms_submissions_table_ready') === '1') {
+			return;
+		}
+
+		$exists = $wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $this->table_name));
+		if ($exists) {
+			update_option('mtforms_submissions_table_ready', '1');
+			return;
+		}
+
+		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+
+		$charset_collate = $wpdb->get_charset_collate();
+
+		$sql = "CREATE TABLE {$this->table_name} (
+			id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+			name varchar(255) DEFAULT '' NOT NULL,
+			email varchar(255) DEFAULT '' NOT NULL,
+			phone varchar(50) DEFAULT '' NOT NULL,
+			website varchar(255) DEFAULT '' NOT NULL,
+			subject varchar(255) DEFAULT '' NOT NULL,
+			message text NOT NULL,
+			form_id varchar(100) DEFAULT '' NOT NULL,
+			ip_address varchar(100) DEFAULT '' NOT NULL,
+			user_agent text NULL,
+			created_at datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+			PRIMARY KEY  (id),
+			KEY email (email),
+			KEY created_at (created_at)
+		) $charset_collate;";
+
+		dbDelta( $sql );
+
+		$exists = $wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $this->table_name));
+		if ($exists) {
+			update_option('mtforms_submissions_table_ready', '1');
+		}
 	}
 
 	/**
@@ -38,6 +100,8 @@ class SubmissionRepository
 	public function save(FormSubmission $submission, array $meta = [])
 	{
 		global $wpdb;
+
+		$this->ensure_table();
 
 		$data = [
 			'name'       => $submission->name,
@@ -66,6 +130,10 @@ class SubmissionRepository
 		$result = $wpdb->insert($this->table_name, $data, $format);
 
 		if (false === $result) {
+			if (defined('WP_DEBUG') && WP_DEBUG) {
+				error_log('[MTForms] Submission insert failed (table: ' . $this->table_name . '): ' . $wpdb->last_error);
+			}
+
 			return false;
 		}
 
@@ -84,6 +152,8 @@ class SubmissionRepository
 	public function get_submissions($limit = 20, $offset = 0, $search = '')
 	{
 		global $wpdb;
+
+		$this->ensure_table();
 
 		$query = "SELECT * FROM {$this->table_name}";
 		$where = [];
@@ -119,6 +189,8 @@ class SubmissionRepository
 	public function get_total_count($search = '')
 	{
 		global $wpdb;
+
+		$this->ensure_table();
 
 		$query = "SELECT COUNT(*) FROM {$this->table_name}";
 		$params = [];
