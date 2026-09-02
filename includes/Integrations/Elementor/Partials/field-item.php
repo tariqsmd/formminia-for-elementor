@@ -9,6 +9,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// View template: variables below are injected by the widget renderer.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+
 $field_id = $args['field_id'];
 $type = $args['type'];
 $name = $args['name'];
@@ -76,7 +79,7 @@ if ($show_input_icon) {
                     <?php echo esc_html($label); ?>
                     <?php if ($required): ?>
                         <span class="required" aria-hidden="true">*</span>
-                        <span class="screen-reader-text"><?php esc_html_e('(required)', MTFORMS_TEXT_DOMAIN); ?></span>
+                        <span class="screen-reader-text"><?php esc_html_e('(required)', 'mtforms'); ?></span>
                     <?php endif; ?>
                 </span>
 
@@ -98,11 +101,11 @@ if ($show_input_icon) {
             <?php if ('textarea' === $type): ?>
                 <textarea name="<?php echo esc_attr($name); ?>" id="<?php echo esc_attr($field_id); ?>"
                     class="mtforms-textarea mtforms-input-<?php echo esc_attr($type); ?>"
-                    rows="<?php echo esc_attr($settings['textarea_rows']); ?>" <?php if ($settings['show_placeholders'] === 'yes'): ?>placeholder="<?php echo esc_attr($placeholder); ?>" <?php endif; ?><?php echo $required; ?>></textarea>
+                    rows="<?php echo esc_attr($settings['textarea_rows']); ?>" <?php if ($settings['show_placeholders'] === 'yes'): ?>placeholder="<?php echo esc_attr($placeholder); ?>" <?php endif; ?><?php echo esc_attr( $required ); ?>></textarea>
             <?php else: ?>
                 <input type="<?php echo esc_attr($type); ?>" name="<?php echo esc_attr($name); ?>"
                     id="<?php echo esc_attr($field_id); ?>"
-                    class="mtforms-input mtforms-input-<?php echo esc_attr($type); ?>" <?php if ($settings['show_placeholders'] === 'yes'): ?>placeholder="<?php echo esc_attr($placeholder); ?>" <?php endif; ?><?php echo $required; ?>>
+                    class="mtforms-input mtforms-input-<?php echo esc_attr($type); ?>" <?php if ($settings['show_placeholders'] === 'yes'): ?>placeholder="<?php echo esc_attr($placeholder); ?>" <?php endif; ?><?php echo esc_attr( $required ); ?>>
             <?php endif; ?>
 
             <?php if ($settings['layout'] === 'floating'): ?>

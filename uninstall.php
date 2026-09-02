@@ -7,10 +7,19 @@
  * @package MTForms
  */
 
+// Prevent direct access.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // Exit if this file is not called by the WordPress uninstall procedure.
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
+
+// Uninstall cleanup is a deliberate, direct database operation; script-local variable names need no prefix.
+// phpcs:disable WordPress.DB.DirectDatabaseQuery
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
 global $wpdb;
 

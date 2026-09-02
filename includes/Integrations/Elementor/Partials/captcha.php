@@ -9,6 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// View template: variables below are injected by the widget renderer.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+
 $settings = $args['settings'];
 
 if ( $settings['show_captcha'] !== 'yes' ) {
@@ -40,7 +43,7 @@ if ( $captcha_provider === 'recaptcha' ) {
 if ( ! function_exists( 'mtforms_show_captcha_config_error' ) ) {
 	function mtforms_show_captcha_config_error() {
 		echo '<div class="mtforms-captcha-config-error" style="border:1px solid #d63638;background:#fcf0f1;color:#8a1f11;padding:10px 14px;border-radius:4px;font-size:14px;line-height:1.5;">'
-			. esc_html__( 'CAPTCHA is enabled on this form, but the selected provider is not configured. Add the site key under MTForms » General settings.', MTFORMS_TEXT_DOMAIN )
+			. esc_html__( 'CAPTCHA is enabled on this form, but the selected provider is not configured. Add the site key under MTForms » General settings.', 'mtforms' )
 			. '</div>';
 	}
 }

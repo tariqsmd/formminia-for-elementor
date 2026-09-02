@@ -91,11 +91,13 @@ class FormController
 		if ($captcha_provider === 'recaptcha') {
 			$site_key = get_option('mtforms_recaptcha_site_key');
 			if (!empty($site_key)) {
+				// phpcs:ignore PluginCheck.CodeAnalysis.EnqueuedResourceOffloading.OffloadedContent -- Captcha scripts must be served by the provider's CDN.
 				wp_register_script('google-recaptcha', 'https://www.google.com/recaptcha/api.js', array(), null, true);
 			}
 		} elseif ($captcha_provider === 'turnstile') {
 			$site_key = get_option('mtforms_turnstile_site_key');
 			if (!empty($site_key)) {
+				// phpcs:ignore PluginCheck.CodeAnalysis.EnqueuedResourceOffloading.OffloadedContent -- Captcha scripts must be served by the provider's CDN.
 				wp_register_script('cloudflare-turnstile', 'https://challenges.cloudflare.com/turnstile/v0/api.js', array(), null, true);
 
 				// Add async/defer to Turnstile
@@ -118,7 +120,7 @@ class FormController
 		if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'mtforms-submit-form')) {
 			wp_send_json_error(
 				array(
-					'message' => esc_html__('Security check failed.', MTFORMS_TEXT_DOMAIN),
+					'message' => esc_html__('Security check failed.', 'mtforms'),
 				)
 			);
 		}
@@ -127,7 +129,7 @@ class FormController
 		if (!empty($_POST['mtforms_hp'])) {
 			wp_send_json_error(
 				array(
-					'message' => esc_html__('Spam detected. Please try again.', MTFORMS_TEXT_DOMAIN),
+					'message' => esc_html__('Spam detected. Please try again.', 'mtforms'),
 				)
 			);
 		}
@@ -141,7 +143,7 @@ class FormController
 			if ($count >= 10) {
 				wp_send_json_error(
 					array(
-						'message' => esc_html__('Too many submissions from this IP. Please try again later.', MTFORMS_TEXT_DOMAIN),
+						'message' => esc_html__('Too many submissions from this IP. Please try again later.', 'mtforms'),
 					)
 				);
 			}
@@ -201,14 +203,14 @@ class FormController
 
 			wp_send_json_success(
 				array(
-					'message' => esc_html__('Message sent successfully!', MTFORMS_TEXT_DOMAIN),
+					'message' => esc_html__('Message sent successfully!', 'mtforms'),
 				)
 			);
 		}
 
 		wp_send_json_error(
 			array(
-				'message' => esc_html__('Failed to send message. Please try again.', MTFORMS_TEXT_DOMAIN),
+				'message' => esc_html__('Failed to send message. Please try again.', 'mtforms'),
 			)
 		);
 	}

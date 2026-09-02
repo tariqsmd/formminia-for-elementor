@@ -9,6 +9,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// View template: variables below are injected by the widget renderer.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+
 $settings = $args['settings'];
 
 $btn_classes = array('mtforms-submit-btn');

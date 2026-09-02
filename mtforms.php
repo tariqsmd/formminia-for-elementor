@@ -26,24 +26,23 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'MTFORMS_VERSION', '1.0.0' );
 define( 'MTFORMS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'MTFORMS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'MTFORMS_TEXT_DOMAIN', 'mtforms' );
 
 /**
  * The code that runs during plugin activation.
  */
-function activate_mtforms() {
+function mtforms_activate() {
 	\MTForms\Core\Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  */
-function deactivate_mtforms() {
+function mtforms_deactivate() {
 	\MTForms\Core\Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_mtforms' );
-register_deactivation_hook( __FILE__, 'deactivate_mtforms' );
+register_activation_hook( __FILE__, 'mtforms_activate' );
+register_deactivation_hook( __FILE__, 'mtforms_deactivate' );
 
 require MTFORMS_PLUGIN_DIR . 'includes/Core/bootstrap.php';
 
@@ -56,9 +55,9 @@ require MTFORMS_PLUGIN_DIR . 'includes/Core/bootstrap.php';
  *
  * @since    1.0.0
  */
-function run_mtforms() {
+function mtforms_run() {
 	$plugin = \MTForms\Core\Plugin::get_instance();
 	$plugin->run();
 }
 
-run_mtforms();
+mtforms_run();

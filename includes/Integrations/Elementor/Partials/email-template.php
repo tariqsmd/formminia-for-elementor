@@ -3,6 +3,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// View template: variables below are injected by SubmissionMailer::build_body.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+
 /**
  * HTML Email Template for MTForms
  *
@@ -67,14 +70,14 @@ $footer_text = wp_kses_post($footer_text);
         }
     </style>
 </head>
-<body style="margin:0; padding:0; background-color:<?php echo $bg_color; ?>; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+<body style="margin:0; padding:0; background-color:<?php echo esc_attr( $bg_color ); ?>; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     <!-- Preview text (hidden) -->
     <div style="display:none; max-height:0; overflow:hidden;">
-        <?php echo esc_html($site_name); ?> - <?php esc_html_e('New Form Submission', MTFORMS_TEXT_DOMAIN); ?>
+        <?php echo esc_html($site_name); ?> - <?php esc_html_e('New Form Submission', 'mtforms'); ?>
     </div>
 
     <!-- Wrapper -->
-    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:<?php echo $bg_color; ?>;">
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:<?php echo esc_attr( $bg_color ); ?>;">
         <tr>
             <td align="center" style="padding:40px 0;">
                 <!--[if mso]>
@@ -83,16 +86,16 @@ $footer_text = wp_kses_post($footer_text);
                 <td>
                 <![endif]-->
                 <!-- Container -->
-                <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="email-container" style="max-width:600px; width:100%; background-color:<?php echo $content_bg; ?>; border-radius:10px; overflow:hidden; border:1px solid #e1e8ed;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="email-container" style="max-width:600px; width:100%; background-color:<?php echo esc_attr( $content_bg ); ?>; border-radius:10px; overflow:hidden; border:1px solid #e1e8ed;">
 
                     <!-- Header -->
                     <tr>
-                        <td class="email-header" style="background-color:<?php echo $accent_color; ?>; padding:28px 30px; text-align:center;">
+                        <td class="email-header" style="background-color:<?php echo esc_attr( $accent_color ); ?>; padding:28px 30px; text-align:center;">
                             <?php if (!empty($logo_url)): ?>
-                                <img src="<?php echo $logo_url; ?>" alt="<?php echo esc_attr($site_name); ?>" width="150" height="50" style="display:block; margin:0 auto 14px; max-height:50px; width:auto; height:auto;">
+                                <img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php echo esc_attr($site_name); ?>" width="150" height="50" style="display:block; margin:0 auto 14px; max-height:50px; width:auto; height:auto;">
                             <?php endif; ?>
                             <h1 style="margin:0; font-size:22px; font-weight:700; color:#fff; letter-spacing:0.3px;">
-                                <?php esc_html_e('New Form Submission', MTFORMS_TEXT_DOMAIN); ?>
+                                <?php esc_html_e('New Form Submission', 'mtforms'); ?>
                             </h1>
                         </td>
                     </tr>
@@ -102,7 +105,7 @@ $footer_text = wp_kses_post($footer_text);
                         <td class="email-content" style="padding:36px 40px;">
                             <p style="margin:0 0 28px; font-size:15px; color:#64748b;">
                                 <?php printf(
-                                    esc_html__('You received a new message from %s.', MTFORMS_TEXT_DOMAIN),
+                                    esc_html__('You received a new message from %s.', 'mtforms'),
                                     '<strong>' . esc_html($site_name) . '</strong>'
                                 ); ?>
                             </p>
@@ -129,18 +132,18 @@ $footer_text = wp_kses_post($footer_text);
                         <td class="email-footer" style="background-color:#f8fafc; color:#94a3b8; padding:20px 30px; text-align:center; font-size:12px; border-top:1px solid #e9ecef; line-height:1.7;">
                             <?php if ($show_credit): ?>
                                 <p style="margin:0 0 8px;">
-                                    <span style="display:inline-block; width:8px; height:8px; background-color:<?php echo $accent_color; ?>; border-radius:50%; margin:0 4px 2px; vertical-align:middle;"></span>
+                                    <span style="display:inline-block; width:8px; height:8px; background-color:<?php echo esc_attr( $accent_color ); ?>; border-radius:50%; margin:0 4px 2px; vertical-align:middle;"></span>
                                     <?php printf(
-                                        esc_html__('Submitted on %s via %s', MTFORMS_TEXT_DOMAIN),
+                                        esc_html__('Submitted on %s via %s', 'mtforms'),
                                         esc_html($date),
                                         esc_html($site_name)
                                     ); ?>
                                 </p>
                             <?php endif; ?>
                             <?php if (!empty($footer_text)): ?>
-                                <p style="margin:0 0 8px;"><?php echo $footer_text; ?></p>
+                                <p style="margin:0 0 8px;"><?php echo wp_kses_post( $footer_text ); ?></p>
                             <?php endif; ?>
-                            <p style="margin:0;">&copy; <?php echo wp_date('Y'); ?> <?php echo esc_html($site_name); ?>.</p>
+                            <p style="margin:0;">&copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> <?php echo esc_html($site_name); ?>.</p>
                         </td>
                     </tr>
 

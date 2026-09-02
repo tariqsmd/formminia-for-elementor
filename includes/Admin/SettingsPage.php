@@ -82,8 +82,8 @@ class SettingsPage
 	public function add_admin_menu()
 	{
 		add_menu_page(
-			__('MTForms', MTFORMS_TEXT_DOMAIN),
-			__('MTForms', MTFORMS_TEXT_DOMAIN),
+			__('MTForms', 'mtforms'),
+			__('MTForms', 'mtforms'),
 			'manage_options',
 			'mtforms',
 			array($this, 'display_plugin_setup_page'),
@@ -93,8 +93,8 @@ class SettingsPage
 
 		add_submenu_page(
 			'mtforms',
-			__('Settings', MTFORMS_TEXT_DOMAIN),
-			__('Settings', MTFORMS_TEXT_DOMAIN),
+			__('Settings', 'mtforms'),
+			__('Settings', 'mtforms'),
 			'manage_options',
 			'mtforms',
 			array($this, 'display_plugin_setup_page')
@@ -102,8 +102,8 @@ class SettingsPage
 
 		add_submenu_page(
 			'mtforms',
-			__('Submissions', MTFORMS_TEXT_DOMAIN),
-			__('Submissions', MTFORMS_TEXT_DOMAIN),
+			__('Submissions', 'mtforms'),
+			__('Submissions', 'mtforms'),
 			'manage_options',
 			'mtforms-submissions',
 			array($this, 'display_submissions_page')
@@ -121,20 +121,20 @@ class SettingsPage
 		// Handle export.
 		if (isset($_GET['action']) && $_GET['action'] === 'export_csv') {
 			if (!isset($_GET['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_wpnonce'])), 'mtforms_export_csv')) {
-				wp_die(esc_html__('Security check failed.', MTFORMS_TEXT_DOMAIN));
+				wp_die(esc_html__('Security check failed.', 'mtforms'));
 			}
 			$this->handle_export_csv();
 		}
 		?>
 		<div class="wrap">
-			<h1 class="wp-heading-inline"><?php esc_html_e('MTForms Submissions', MTFORMS_TEXT_DOMAIN); ?></h1>
-			<a href="<?php echo esc_url(wp_nonce_url(add_query_arg('action', 'export_csv'), 'mtforms_export_csv')); ?>" class="page-title-action"><?php esc_html_e('Export to CSV', MTFORMS_TEXT_DOMAIN); ?></a>
+			<h1 class="wp-heading-inline"><?php esc_html_e('MTForms Submissions', 'mtforms'); ?></h1>
+			<a href="<?php echo esc_url(wp_nonce_url(add_query_arg('action', 'export_csv'), 'mtforms_export_csv')); ?>" class="page-title-action"><?php esc_html_e('Export to CSV', 'mtforms'); ?></a>
 			<hr class="wp-header-end">
 
 			<form method="get">
 				<input type="hidden" name="page" value="<?php echo isset($_REQUEST['page']) ? esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))) : 'mtforms-submissions'; ?>" />
 				<?php
-				$table->search_box(esc_html__('Search Submissions', MTFORMS_TEXT_DOMAIN), 'submission');
+				$table->search_box(esc_html__('Search Submissions', 'mtforms'), 'submission');
 				$table->display();
 				?>
 			</form>
@@ -187,7 +187,7 @@ class SettingsPage
 	protected function handle_export_csv()
 	{
 		if (!current_user_can('manage_options')) {
-			wp_die(esc_html__('You do not have sufficient permissions to access this page.', MTFORMS_TEXT_DOMAIN));
+			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'mtforms'));
 		}
 
 		$repository = new \MTForms\Services\SubmissionRepository();
@@ -206,16 +206,16 @@ class SettingsPage
 
 		// Header row.
 		fputcsv($output, [
-			__('ID', MTFORMS_TEXT_DOMAIN),
-			__('Name', MTFORMS_TEXT_DOMAIN),
-			__('Email', MTFORMS_TEXT_DOMAIN),
-			__('Phone', MTFORMS_TEXT_DOMAIN),
-			__('Website', MTFORMS_TEXT_DOMAIN),
-			__('Subject', MTFORMS_TEXT_DOMAIN),
-			__('Message', MTFORMS_TEXT_DOMAIN),
-			__('Form ID', MTFORMS_TEXT_DOMAIN),
-			__('IP Address', MTFORMS_TEXT_DOMAIN),
-			__('Date', MTFORMS_TEXT_DOMAIN),
+			__('ID', 'mtforms'),
+			__('Name', 'mtforms'),
+			__('Email', 'mtforms'),
+			__('Phone', 'mtforms'),
+			__('Website', 'mtforms'),
+			__('Subject', 'mtforms'),
+			__('Message', 'mtforms'),
+			__('Form ID', 'mtforms'),
+			__('IP Address', 'mtforms'),
+			__('Date', 'mtforms'),
 		]);
 
 		foreach ($submissions as $submission) {
@@ -233,7 +233,8 @@ class SettingsPage
 			]);
 		}
 
-		fclose($output);
+		// CSV is streamed straight to the browser via php://output, so WP_Filesystem does not apply.
+		fclose( $output ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
 		exit;
 	}
 }

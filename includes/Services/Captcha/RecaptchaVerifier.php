@@ -34,19 +34,19 @@ class RecaptchaVerifier implements CaptchaVerifierInterface {
 		if ( $this->secret_key === '' ) {
 			return new \WP_Error(
 				'mtforms_recaptcha_config',
-				esc_html__( 'reCAPTCHA is not configured correctly.', MTFORMS_TEXT_DOMAIN )
+				esc_html__( 'reCAPTCHA is not configured correctly.', 'mtforms' )
 			);
 		}
 
 		if ( $response === '' ) {
 			return new \WP_Error(
 				'mtforms_recaptcha_missing',
-				esc_html__( 'Please complete the reCAPTCHA.', MTFORMS_TEXT_DOMAIN )
+				esc_html__( 'Please complete the reCAPTCHA.', 'mtforms' )
 			);
 		}
 
 		$remote = wp_safe_remote_post(
-			'https://www.google.com/recaptcha/api/siteverify',
+			'https://www.google.com/recaptcha/api/siteverify', // phpcs:ignore PluginCheck.CodeAnalysis.Offloading.OffloadedContent -- Server-side verification API; the captcha provider cannot be self-hosted.
 			array(
 				'timeout' => 10,
 				'body'    => array(
@@ -64,7 +64,7 @@ class RecaptchaVerifier implements CaptchaVerifierInterface {
 
 			return new \WP_Error(
 				'mtforms_recaptcha_http_error',
-				esc_html__( 'reCAPTCHA verification request failed.', MTFORMS_TEXT_DOMAIN )
+				esc_html__( 'reCAPTCHA verification request failed.', 'mtforms' )
 			);
 		}
 
@@ -74,7 +74,7 @@ class RecaptchaVerifier implements CaptchaVerifierInterface {
 		if ( ! isset( $result->success ) || ! $result->success ) {
 			return new \WP_Error(
 				'mtforms_recaptcha_invalid',
-				esc_html__( 'reCAPTCHA verification failed.', MTFORMS_TEXT_DOMAIN )
+				esc_html__( 'reCAPTCHA verification failed.', 'mtforms' )
 			);
 		}
 

@@ -34,19 +34,19 @@ class TurnstileVerifier implements CaptchaVerifierInterface {
 		if ( $this->secret_key === '' ) {
 			return new \WP_Error(
 				'mtforms_turnstile_config',
-				esc_html__( 'Captcha is not configured correctly.', MTFORMS_TEXT_DOMAIN )
+				esc_html__( 'Captcha is not configured correctly.', 'mtforms' )
 			);
 		}
 
 		if ( $response === '' ) {
 			return new \WP_Error(
 				'mtforms_turnstile_missing',
-				esc_html__( 'Please complete the Captcha.', MTFORMS_TEXT_DOMAIN )
+				esc_html__( 'Please complete the Captcha.', 'mtforms' )
 			);
 		}
 
 		$remote = wp_safe_remote_post(
-			'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+			'https://challenges.cloudflare.com/turnstile/v0/siteverify', // phpcs:ignore PluginCheck.CodeAnalysis.Offloading.OffloadedContent -- Server-side verification API; the captcha provider cannot be self-hosted.
 			array(
 				'timeout' => 10,
 				'body'    => array(
@@ -64,7 +64,7 @@ class TurnstileVerifier implements CaptchaVerifierInterface {
 
 			return new \WP_Error(
 				'mtforms_turnstile_http_error',
-				esc_html__( 'Captcha verification request failed.', MTFORMS_TEXT_DOMAIN )
+				esc_html__( 'Captcha verification request failed.', 'mtforms' )
 			);
 		}
 
@@ -74,7 +74,7 @@ class TurnstileVerifier implements CaptchaVerifierInterface {
 		if ( ! isset( $result->success ) || ! $result->success ) {
 			return new \WP_Error(
 				'mtforms_turnstile_invalid',
-				esc_html__( 'Captcha verification failed.', MTFORMS_TEXT_DOMAIN )
+				esc_html__( 'Captcha verification failed.', 'mtforms' )
 			);
 		}
 

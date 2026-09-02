@@ -41,27 +41,27 @@ class SubmissionMailer
 		$form_fields = array();
 
 		if (!empty($submission->name)) {
-			$form_fields[__('Name', MTFORMS_TEXT_DOMAIN)] = $submission->name;
+			$form_fields[__('Name', 'mtforms')] = $submission->name;
 		}
 
 		if (!empty($submission->email)) {
-			$form_fields[__('Email', MTFORMS_TEXT_DOMAIN)] = $submission->email;
+			$form_fields[__('Email', 'mtforms')] = $submission->email;
 		}
 
 		if (!empty($submission->phone)) {
-			$form_fields[__('Phone', MTFORMS_TEXT_DOMAIN)] = $submission->phone;
+			$form_fields[__('Phone', 'mtforms')] = $submission->phone;
 		}
 
 		if (!empty($submission->website)) {
-			$form_fields[__('Website', MTFORMS_TEXT_DOMAIN)] = $submission->website;
+			$form_fields[__('Website', 'mtforms')] = $submission->website;
 		}
 
 		if (!empty($submission->subject)) {
-			$form_fields[__('Subject', MTFORMS_TEXT_DOMAIN)] = $submission->subject;
+			$form_fields[__('Subject', 'mtforms')] = $submission->subject;
 		}
 
 		if (!empty($submission->message)) {
-			$form_fields[__('Message', MTFORMS_TEXT_DOMAIN)] = $submission->message;
+			$form_fields[__('Message', 'mtforms')] = $submission->message;
 		}
 
 		$widget_id = isset($submission->raw['mtforms_form_id']) ? sanitize_text_field(wp_unslash($submission->raw['mtforms_form_id'])) : '';
@@ -110,7 +110,7 @@ class SubmissionMailer
 		if ($submission->subject !== '') {
 			$email_subject = sprintf(
 				/* translators: 1: Default subject, 2: Submission subject */
-				__('[%1$s] %2$s', MTFORMS_TEXT_DOMAIN),
+				__('[%1$s] %2$s', 'mtforms'),
 				$default_sub,
 				$submission->subject
 			);
@@ -162,7 +162,7 @@ class SubmissionMailer
 			return false;
 		}
 
-		$subject = isset($submission->raw['mtforms_autoresponder_subject']) ? sanitize_text_field($submission->raw['mtforms_autoresponder_subject']) : __('Thank you for your submission', MTFORMS_TEXT_DOMAIN);
+		$subject = isset($submission->raw['mtforms_autoresponder_subject']) ? sanitize_text_field($submission->raw['mtforms_autoresponder_subject']) : __('Thank you for your submission', 'mtforms');
 		$message = isset($submission->raw['mtforms_autoresponder_message']) ? sanitize_textarea_field($submission->raw['mtforms_autoresponder_message']) : '';
 
 		if (empty($message)) {

@@ -7,6 +7,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * This class is the sanctioned database access layer used to read Elementor
+ * document data from post meta; direct $wpdb usage is deliberate here.
+ */
+// phpcs:disable WordPress.DB.DirectDatabaseQuery
+
+/**
  * Loads a single Elementor widget's saved settings from post meta.
  *
  * Settings are read from the _elementor_data document data, so only
@@ -49,6 +55,7 @@ class ElementorWidgetSettings {
 		}
 
 		$sql = "SELECT post_id, meta_value FROM {$wpdb->postmeta} WHERE meta_key = %s AND (" . implode( ' OR ', $like_conditions ) . ') LIMIT 10';
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Query is fully prepared below; only the table name is interpolated.
 		$rows = $wpdb->get_results( $wpdb->prepare( $sql, $params ), ARRAY_A );
 
 		$settings = array();

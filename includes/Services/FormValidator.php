@@ -56,25 +56,25 @@ class FormValidator {
 					break;
 				case 'mtforms_gdpr':
 					if (!$submission->gdpr_accepted) {
-						return new \WP_Error('mtforms_gdpr_required', esc_html__('You must agree to the terms', MTFORMS_TEXT_DOMAIN));
+						return new \WP_Error('mtforms_gdpr_required', esc_html__('You must agree to the terms', 'mtforms'));
 					}
 					continue 2;
 			}
 
 			if (empty($value)) {
-				return new \WP_Error('mtforms_required', esc_html__('Please fill in all required fields.', MTFORMS_TEXT_DOMAIN));
+				return new \WP_Error('mtforms_required', esc_html__('Please fill in all required fields.', 'mtforms'));
 			}
 		}
 
 		// Ensure at least one actual field has data (sanity check)
 		$all_fields = [$submission->name, $submission->email, $submission->phone, $submission->website, $submission->subject, $submission->message];
 		if (empty(array_filter($all_fields))) {
-			return new \WP_Error('mtforms_empty', esc_html__('Please fill in at least one field.', MTFORMS_TEXT_DOMAIN));
+			return new \WP_Error('mtforms_empty', esc_html__('Please fill in at least one field.', 'mtforms'));
 		}
 
 		// Email format validation (only if email is provided or required)
 		if (!empty($submission->email) && !is_email($submission->email)) {
-			return new \WP_Error('mtforms_invalid_email', esc_html__('Invalid email address.', MTFORMS_TEXT_DOMAIN));
+			return new \WP_Error('mtforms_invalid_email', esc_html__('Invalid email address.', 'mtforms'));
 		}
 
 		/**

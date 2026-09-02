@@ -25,7 +25,7 @@ class Integration {
 		$elements_manager->add_category(
 			'mtforms',
 			array(
-				'title' => esc_html__( 'MTForms', MTFORMS_TEXT_DOMAIN ),
+				'title' => esc_html__( 'MTForms', 'mtforms' ),
 				'icon'  => 'eicon-form-horizontal',
 			)
 		);

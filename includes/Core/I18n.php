@@ -21,8 +21,10 @@ class I18n {
 	 * Load the plugin text domain for translation.
 	 */
 	public function load_plugin_textdomain() {
+		// Keep loading translations from /languages for installs outside wordpress.org.
+		// phpcs:ignore PluginCheck.CodeAnalysis.DiscouragedFunctions.load_plugin_textdomainFound
 		load_plugin_textdomain(
-			MTFORMS_TEXT_DOMAIN,
+			'mtforms',
 			false,
 			dirname( dirname( dirname( plugin_basename( __FILE__ ) ) ) ) . '/languages/'
 		);

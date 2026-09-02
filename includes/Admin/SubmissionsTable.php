@@ -23,8 +23,8 @@ class SubmissionsTable extends \WP_List_Table
 	public function __construct()
 	{
 		parent::__construct([
-			'singular' => __('Submission', MTFORMS_TEXT_DOMAIN),
-			'plural'   => __('Submissions', MTFORMS_TEXT_DOMAIN),
+			'singular' => __('Submission', 'mtforms'),
+			'plural'   => __('Submissions', 'mtforms'),
 			'ajax'     => false,
 		]);
 
@@ -35,11 +35,11 @@ class SubmissionsTable extends \WP_List_Table
 	{
 		return [
 			'cb'         => '<input type="checkbox" />',
-			'name'       => __('Name', MTFORMS_TEXT_DOMAIN),
-			'email'      => __('Email', MTFORMS_TEXT_DOMAIN),
-			'subject'    => __('Subject', MTFORMS_TEXT_DOMAIN),
-			'message'    => __('Message', MTFORMS_TEXT_DOMAIN),
-			'created_at' => __('Date', MTFORMS_TEXT_DOMAIN),
+			'name'       => __('Name', 'mtforms'),
+			'email'      => __('Email', 'mtforms'),
+			'subject'    => __('Subject', 'mtforms'),
+			'message'    => __('Message', 'mtforms'),
+			'created_at' => __('Date', 'mtforms'),
 		];
 	}
 
@@ -63,7 +63,7 @@ class SubmissionsTable extends \WP_List_Table
 			case 'message':
 				return nl2br(esc_html($item[$column_name]));
 			default:
-				return esc_html(print_r($item, true));
+				return isset($item[$column_name]) ? esc_html($item[$column_name]) : '';
 		}
 	}
 
@@ -75,16 +75,20 @@ class SubmissionsTable extends \WP_List_Table
 		);
 	}
 
-	protected function column_name($item)
+protected function column_name($item)
 	{
+		// List-table page slug is read from the URL for building row links only (no state change).
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$page = isset($_REQUEST['page']) ? sanitize_text_field(wp_unslash($_REQUEST['page'])) : 'mtforms';
+
 		$actions = [
 			'delete' => sprintf(
 				'<a href="?page=%s&action=%s&submission=%s&_wpnonce=%s">%s</a>',
-				esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))),
+				esc_attr($page),
 				'delete',
 				absint($item['id']),
 				wp_create_nonce('mtforms_delete_submission'),
-				__('Delete', MTFORMS_TEXT_DOMAIN)
+				__('Delete', 'mtforms')
 			),
 		];
 
@@ -95,7 +99,9 @@ class SubmissionsTable extends \WP_List_Table
 	{
 		$per_page = 20;
 		$current_page = $this->get_pagenum();
-		$search = isset($_REQUEST['s']) ? sanitize_text_field($_REQUEST['s']) : '';
+		// Search term is read from the URL for list filtering only (no state change).
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$search = isset($_REQUEST['s']) ? sanitize_text_field(wp_unslash($_REQUEST['s'])) : '';
 
 		$this->_column_headers = [$this->get_columns(), [], $this->get_sortable_columns()];
 
@@ -113,7 +119,7 @@ class SubmissionsTable extends \WP_List_Table
 	public function get_bulk_actions()
 	{
 		return [
-			'bulk-delete' => __('Delete', MTFORMS_TEXT_DOMAIN),
+			'bulk-delete' => __('Delete', 'mtforms'),
 		];
 	}
 
@@ -122,12 +128,12 @@ class SubmissionsTable extends \WP_List_Table
 		if ('delete' === $this->current_action()) {
 			$nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])) : '';
 			if (!wp_verify_nonce($nonce, 'mtforms_delete_submission')) {
-				wp_die(esc_html__('Security check failed.', MTFORMS_TEXT_DOMAIN));
+				wp_die(esc_html__('Security check failed.', 'mtforms'));
 			}
 
 			if (isset($_GET['submission'])) {
 				$this->repository->delete(absint($_GET['submission']));
-				echo '<div class="updated"><p>' . esc_html__('Submission deleted.', MTFORMS_TEXT_DOMAIN) . '</p></div>';
+				echo '<div class="updated"><p>' . esc_html__('Submission deleted.', 'mtforms') . '</p></div>';
 			}
 		}
 
@@ -137,14 +143,14 @@ class SubmissionsTable extends \WP_List_Table
 		if (('bulk-delete' === $action || 'bulk-delete' === $action2) && isset($_REQUEST['submission'])) {
 			$nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])) : '';
 			if (!wp_verify_nonce($nonce, 'bulk-submissions')) {
-				wp_die(esc_html__('Security check failed.', MTFORMS_TEXT_DOMAIN));
+				wp_die(esc_html__('Security check failed.', 'mtforms'));
 			}
 
 			$submissions = array_map('absint', (array) $_REQUEST['submission']);
 			foreach ($submissions as $id) {
 				$this->repository->delete($id);
 			}
-			echo '<div class="updated"><p>' . esc_html__('Submissions deleted.', MTFORMS_TEXT_DOMAIN) . '</p></div>';
+			echo '<div class="updated"><p>' . esc_html__('Submissions deleted.', 'mtforms') . '</p></div>';
 		}
 	}
 }
