@@ -104,7 +104,9 @@ $footer_text = wp_kses_post($footer_text);
                     <tr>
                         <td class="email-content" style="padding:36px 40px;">
                             <p style="margin:0 0 28px; font-size:15px; color:#64748b;">
-                                <?php printf(
+                                <?php
+                                /* translators: %s: name of the website the submission was sent from. */
+                                printf(
                                     esc_html__('You received a new message from %s.', 'mtforms'),
                                     '<strong>' . esc_html($site_name) . '</strong>'
                                 ); ?>
@@ -133,8 +135,10 @@ $footer_text = wp_kses_post($footer_text);
                             <?php if ($show_credit): ?>
                                 <p style="margin:0 0 8px;">
                                     <span style="display:inline-block; width:8px; height:8px; background-color:<?php echo esc_attr( $accent_color ); ?>; border-radius:50%; margin:0 4px 2px; vertical-align:middle;"></span>
-                                    <?php printf(
-                                        esc_html__('Submitted on %s via %s', 'mtforms'),
+                                    <?php
+                                    /* translators: 1: date the form was submitted, 2: website name. */
+                                    printf(
+                                        esc_html__('Submitted on %1$s via %2$s', 'mtforms'),
                                         esc_html($date),
                                         esc_html($site_name)
                                     ); ?>

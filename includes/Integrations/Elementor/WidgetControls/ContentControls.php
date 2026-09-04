@@ -288,6 +288,7 @@ trait ContentControls {
 			$this->add_control(
 				"show_{$field}",
 				[
+					/* translators: %s: the form field name (name, email, phone, website, subject, or message). */
 					'label' => sprintf(esc_html__('Show %s Field', 'mtforms'), ucfirst($field)),
 					'type' => \Elementor\Controls_Manager::SWITCHER,
 					'label_on' => esc_html__('Yes', 'mtforms'),
@@ -300,6 +301,7 @@ trait ContentControls {
 			$this->add_control(
 				"required_{$field}",
 				[
+					/* translators: %s: the form field name (name, email, phone, website, subject, or message). */
 					'label' => sprintf(esc_html__('%s Required', 'mtforms'), ucfirst($field)),
 					'type' => \Elementor\Controls_Manager::SWITCHER,
 					'label_on' => esc_html__('Yes', 'mtforms'),

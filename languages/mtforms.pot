@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-20 18:19+0000\n"
+"POT-Creation-Date: 2026-09-20 18:25+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: includes/Admin/settings-view.php:29, includes/Admin/settings-view.php:277, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1076
+#: includes/Admin/settings-view.php:29, includes/Admin/settings-view.php:277, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1078
 msgid "Email Settings"
 msgstr ""
 
@@ -78,7 +78,7 @@ msgstr ""
 msgid "IP-based flood protection"
 msgstr ""
 
-#: includes/Admin/settings-view.php:128, includes/Integrations/Elementor/WidgetControls/ContentControls.php:548, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1686
+#: includes/Admin/settings-view.php:128, includes/Integrations/Elementor/WidgetControls/ContentControls.php:550, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1686
 msgid "GDPR Consent"
 msgstr ""
 
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Leave a Review"
 msgstr ""
 
-#: includes/Admin/settings-view.php:283, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1085
+#: includes/Admin/settings-view.php:283, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1087
 msgid "Recipient Email"
 msgstr ""
 
@@ -318,27 +318,27 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:210, includes/Admin/SubmissionsTable.php:38, includes/Integrations/Elementor/WidgetControls/ContentControls.php:391
+#: includes/Admin/SettingsPage.php:210, includes/Admin/SubmissionsTable.php:38, includes/Integrations/Elementor/WidgetControls/ContentControls.php:393
 msgid "Name"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:211, includes/Admin/SubmissionsTable.php:39, includes/Integrations/Elementor/WidgetControls/ContentControls.php:417
+#: includes/Admin/SettingsPage.php:211, includes/Admin/SubmissionsTable.php:39, includes/Integrations/Elementor/WidgetControls/ContentControls.php:419
 msgid "Email"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:212, includes/Integrations/Elementor/WidgetControls/ContentControls.php:443
+#: includes/Admin/SettingsPage.php:212, includes/Integrations/Elementor/WidgetControls/ContentControls.php:445
 msgid "Phone"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:213, includes/Integrations/Elementor/WidgetControls/ContentControls.php:469
+#: includes/Admin/SettingsPage.php:213, includes/Integrations/Elementor/WidgetControls/ContentControls.php:471
 msgid "Website"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:214, includes/Admin/SubmissionsTable.php:40, includes/Integrations/Elementor/WidgetControls/ContentControls.php:495, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1136
+#: includes/Admin/SettingsPage.php:214, includes/Admin/SubmissionsTable.php:40, includes/Integrations/Elementor/WidgetControls/ContentControls.php:497, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1138
 msgid "Subject"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:215, includes/Admin/SubmissionsTable.php:41, includes/Integrations/Elementor/WidgetControls/ContentControls.php:521, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1149
+#: includes/Admin/SettingsPage.php:215, includes/Admin/SubmissionsTable.php:41, includes/Integrations/Elementor/WidgetControls/ContentControls.php:523, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1151
 msgid "Message"
 msgstr ""
 
@@ -394,19 +394,21 @@ msgstr ""
 msgid "New Form Submission"
 msgstr ""
 
-#: includes/Integrations/Elementor/Partials/email-template.php:108
+#. translators: %s: name of the website the submission was sent from.
+#: includes/Integrations/Elementor/Partials/email-template.php:110
 msgid "You received a new message from %s."
 msgstr ""
 
-#: includes/Integrations/Elementor/Partials/email-template.php:137
-msgid "Submitted on %s via %s"
+#. translators: 1: date the form was submitted, 2: website name.
+#: includes/Integrations/Elementor/Partials/email-template.php:141
+msgid "Submitted on %1$s via %2$s"
 msgstr ""
 
 #: includes/Integrations/Elementor/Partials/field-item.php:82
 msgid "(required)"
 msgstr ""
 
-#: includes/Integrations/Elementor/Widget.php:49, includes/Integrations/Elementor/WidgetControls/ContentControls.php:620
+#: includes/Integrations/Elementor/Widget.php:49, includes/Integrations/Elementor/WidgetControls/ContentControls.php:622
 msgid "Name is required"
 msgstr ""
 
@@ -414,47 +416,47 @@ msgstr ""
 msgid "Name must be at least 2 characters"
 msgstr ""
 
-#: includes/Integrations/Elementor/Widget.php:51, includes/Integrations/Elementor/WidgetControls/ContentControls.php:635
+#: includes/Integrations/Elementor/Widget.php:51, includes/Integrations/Elementor/WidgetControls/ContentControls.php:637
 msgid "Email is required"
 msgstr ""
 
-#: includes/Integrations/Elementor/Widget.php:52, includes/Integrations/Elementor/WidgetControls/ContentControls.php:650
+#: includes/Integrations/Elementor/Widget.php:52, includes/Integrations/Elementor/WidgetControls/ContentControls.php:652
 msgid "Email is invalid"
 msgstr ""
 
-#: includes/Integrations/Elementor/Widget.php:53, includes/Integrations/Elementor/WidgetControls/ContentControls.php:664
+#: includes/Integrations/Elementor/Widget.php:53, includes/Integrations/Elementor/WidgetControls/ContentControls.php:666
 msgid "Phone number is required"
 msgstr ""
 
-#: includes/Integrations/Elementor/Widget.php:54, includes/Integrations/Elementor/WidgetControls/ContentControls.php:679
+#: includes/Integrations/Elementor/Widget.php:54, includes/Integrations/Elementor/WidgetControls/ContentControls.php:681
 msgid "Please enter a valid phone number"
 msgstr ""
 
-#: includes/Integrations/Elementor/Widget.php:55, includes/Integrations/Elementor/WidgetControls/ContentControls.php:693
+#: includes/Integrations/Elementor/Widget.php:55, includes/Integrations/Elementor/WidgetControls/ContentControls.php:695
 msgid "Website URL is required"
 msgstr ""
 
-#: includes/Integrations/Elementor/Widget.php:56, includes/Integrations/Elementor/WidgetControls/ContentControls.php:708
+#: includes/Integrations/Elementor/Widget.php:56, includes/Integrations/Elementor/WidgetControls/ContentControls.php:710
 msgid "Please enter a valid URL"
 msgstr ""
 
-#: includes/Integrations/Elementor/Widget.php:57, includes/Integrations/Elementor/WidgetControls/ContentControls.php:722
+#: includes/Integrations/Elementor/Widget.php:57, includes/Integrations/Elementor/WidgetControls/ContentControls.php:724
 msgid "Subject is required"
 msgstr ""
 
-#: includes/Integrations/Elementor/Widget.php:58, includes/Integrations/Elementor/WidgetControls/ContentControls.php:737
+#: includes/Integrations/Elementor/Widget.php:58, includes/Integrations/Elementor/WidgetControls/ContentControls.php:739
 msgid "Message is required"
 msgstr ""
 
-#: includes/Integrations/Elementor/Widget.php:59, includes/Integrations/Elementor/WidgetControls/ContentControls.php:752, includes/Services/FormValidator.php:59
+#: includes/Integrations/Elementor/Widget.php:59, includes/Integrations/Elementor/WidgetControls/ContentControls.php:754, includes/Services/FormValidator.php:59
 msgid "You must agree to the terms"
 msgstr ""
 
-#: includes/Integrations/Elementor/Widget.php:60, includes/Integrations/Elementor/WidgetControls/ContentControls.php:766
+#: includes/Integrations/Elementor/Widget.php:60, includes/Integrations/Elementor/WidgetControls/ContentControls.php:768
 msgid "Sending..."
 msgstr ""
 
-#: includes/Integrations/Elementor/Widget.php:61, includes/Integrations/Elementor/WidgetControls/ContentControls.php:777, includes/Integrations/Elementor/WidgetControls/ContentControls.php:951
+#: includes/Integrations/Elementor/Widget.php:61, includes/Integrations/Elementor/WidgetControls/ContentControls.php:779, includes/Integrations/Elementor/WidgetControls/ContentControls.php:953
 msgid "Send Message"
 msgstr ""
 
@@ -754,11 +756,11 @@ msgstr ""
 msgid "Show Labels"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:249, includes/Integrations/Elementor/WidgetControls/ContentControls.php:261, includes/Integrations/Elementor/WidgetControls/ContentControls.php:273, includes/Integrations/Elementor/WidgetControls/ContentControls.php:293, includes/Integrations/Elementor/WidgetControls/ContentControls.php:305, includes/Integrations/Elementor/WidgetControls/ContentControls.php:328, includes/Integrations/Elementor/WidgetControls/ContentControls.php:347, includes/Integrations/Elementor/WidgetControls/ContentControls.php:360, includes/Integrations/Elementor/WidgetControls/ContentControls.php:849, includes/Integrations/Elementor/WidgetControls/ContentControls.php:865, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1126, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1174
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:249, includes/Integrations/Elementor/WidgetControls/ContentControls.php:261, includes/Integrations/Elementor/WidgetControls/ContentControls.php:273, includes/Integrations/Elementor/WidgetControls/ContentControls.php:294, includes/Integrations/Elementor/WidgetControls/ContentControls.php:307, includes/Integrations/Elementor/WidgetControls/ContentControls.php:330, includes/Integrations/Elementor/WidgetControls/ContentControls.php:349, includes/Integrations/Elementor/WidgetControls/ContentControls.php:362, includes/Integrations/Elementor/WidgetControls/ContentControls.php:851, includes/Integrations/Elementor/WidgetControls/ContentControls.php:867, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1128, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1176
 msgid "Yes"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:250, includes/Integrations/Elementor/WidgetControls/ContentControls.php:262, includes/Integrations/Elementor/WidgetControls/ContentControls.php:274, includes/Integrations/Elementor/WidgetControls/ContentControls.php:294, includes/Integrations/Elementor/WidgetControls/ContentControls.php:306, includes/Integrations/Elementor/WidgetControls/ContentControls.php:329, includes/Integrations/Elementor/WidgetControls/ContentControls.php:348, includes/Integrations/Elementor/WidgetControls/ContentControls.php:361, includes/Integrations/Elementor/WidgetControls/ContentControls.php:850, includes/Integrations/Elementor/WidgetControls/ContentControls.php:866, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1127, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1175
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:250, includes/Integrations/Elementor/WidgetControls/ContentControls.php:262, includes/Integrations/Elementor/WidgetControls/ContentControls.php:274, includes/Integrations/Elementor/WidgetControls/ContentControls.php:295, includes/Integrations/Elementor/WidgetControls/ContentControls.php:308, includes/Integrations/Elementor/WidgetControls/ContentControls.php:331, includes/Integrations/Elementor/WidgetControls/ContentControls.php:350, includes/Integrations/Elementor/WidgetControls/ContentControls.php:363, includes/Integrations/Elementor/WidgetControls/ContentControls.php:852, includes/Integrations/Elementor/WidgetControls/ContentControls.php:868, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1129, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1177
 msgid "No"
 msgstr ""
 
@@ -770,391 +772,393 @@ msgstr ""
 msgid "Show Icons"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:291
+#. translators: %s: the form field name (name, email, phone, website, subject, or message).
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:292
 msgid "Show %s Field"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:303
+#. translators: %s: the form field name (name, email, phone, website, subject, or message).
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:305
 msgid "%s Required"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:326
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:328
 msgid "Show GDPR Consent"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:345
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:347
 msgid "Show Captcha"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:351
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:353
 msgid "See captcha configuration in MTForms settings."
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:358
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:360
 msgid "Enable Honeypot"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:364
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:366
 msgid "A hidden field to catch spam bots."
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:381, includes/Integrations/Elementor/WidgetControls/StyleControls.php:442
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:383, includes/Integrations/Elementor/WidgetControls/StyleControls.php:442
 msgid "Labels"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:389
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:391
 msgid "Name Label"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:402
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:404
 msgid "Name Placeholder"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:404
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:406
 msgid "Enter your name"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:415
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:417
 msgid "Email Label"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:428
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:430
 msgid "Email Placeholder"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:430
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:432
 msgid "Enter your email"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:441
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:443
 msgid "Phone Label"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:454
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:456
 msgid "Phone Placeholder"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:456
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:458
 msgid "Enter your phone number"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:467
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:469
 msgid "Website Label"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:480
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:482
 msgid "Website Placeholder"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:482
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:484
 msgid "Your website URL"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:493
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:495
 msgid "Subject Label"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:506
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:508
 msgid "Subject Placeholder"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:508
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:510
 msgid "Enter subject"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:519
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:521
 msgid "Message Label"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:532
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:534
 msgid "Message Placeholder"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:534
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:536
 msgid "Write your message here..."
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:546
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:548
 msgid "GDPR Label"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:559
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:561
 msgid "GDPR Text"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:561
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:563
 msgid "I consent to having this website store my submitted information so they can respond to my inquiry."
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:575, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1340
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:577, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1340
 msgid "Messages"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:584
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:586
 msgid "Success Message"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:586
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:588
 msgid "Thank you! Your message has been sent successfully."
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:595
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:597
 msgid "Error Message"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:597
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:599
 msgid "Oops! Something went wrong. Please try again."
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:609
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:611
 msgid "Validation Messages"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:618
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:620
 msgid "Name Required"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:633
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:635
 msgid "Email Required"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:648
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:650
 msgid "Email Invalid"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:662
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:664
 msgid "Phone Required"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:677
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:679
 msgid "Phone Invalid"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:691
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:693
 msgid "Website Required"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:706
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:708
 msgid "Website Invalid"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:720
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:722
 msgid "Subject Required"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:735
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:737
 msgid "Message Required"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:750
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:752
 msgid "GDPR Required"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:764
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:766
 msgid "Sending Text"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:775
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:777
 msgid "Submit Button Text"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:795
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:797
 msgid "Icons"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:806
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:808
 msgid "Location"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:811
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:813
 msgid "Label"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:816
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:818
 msgid "Input"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:828
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:830
 msgid "Position"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:832, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1012
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:834, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1014
 msgid "Before Text"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:836, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1013
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:838, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1015
 msgid "After Text"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:847, includes/Integrations/Elementor/WidgetControls/ContentControls.php:907
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:849, includes/Integrations/Elementor/WidgetControls/ContentControls.php:909
 msgid "Message Icon"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:863, includes/Integrations/Elementor/WidgetControls/ContentControls.php:911
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:865, includes/Integrations/Elementor/WidgetControls/ContentControls.php:913
 msgid "GDPR Icon"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:879
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:881
 msgid "Icon Assignment"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:887
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:889
 msgid "Name Icon"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:891
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:893
 msgid "Email Icon"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:895
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:897
 msgid "Phone Icon"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:899
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:901
 msgid "Website Icon"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:903
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:905
 msgid "Subject Icon"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:941, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1067
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:943, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1067
 msgid "Submit Button"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:949
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:951
 msgid "Button Text"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:958
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:960
 msgid "Button Width"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:962
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:964
 msgid "Auto"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:963
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:965
 msgid "Full Width"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:971
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:973
 msgid "Button Alignment"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:975, includes/Integrations/Elementor/WidgetControls/StyleControls.php:332
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:977, includes/Integrations/Elementor/WidgetControls/StyleControls.php:332
 msgid "Left"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:979, includes/Integrations/Elementor/WidgetControls/StyleControls.php:336
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:981, includes/Integrations/Elementor/WidgetControls/StyleControls.php:336
 msgid "Center"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:983, includes/Integrations/Elementor/WidgetControls/StyleControls.php:340
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:985, includes/Integrations/Elementor/WidgetControls/StyleControls.php:340
 msgid "Right"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1000
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1002
 msgid "Button Icon"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1008
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1010
 msgid "Icon Position"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1024
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1026
 msgid "Loader Style"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1028
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1030
 msgid "Premium Spinner"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1029
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1031
 msgid "Pulsing Dots"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1030
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1032
 msgid "Bouncing Bars"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1031
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1033
 msgid "Dual Ring"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1032
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1034
 msgid "Growing Circles"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1049
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1051
 msgid "Advanced Settings"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1057
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1059
 msgid "Form HTML ID"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1059
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1061
 msgid "Unique ID for the form element (optional)."
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1067
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1069
 msgid "Custom CSS Classes"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1087
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1089
 msgid "Optional recipient email address. If empty, global settings will be used."
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1095
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1097
 msgid "CC Email"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1097
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1099
 msgid "Optional CC email addresses, separate with commas."
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1105
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1107
 msgid "BCC Email"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1107
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1109
 msgid "Optional BCC email addresses, separate with commas."
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1115
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1117
 msgid "Auto-Responder"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1124
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1126
 msgid "Enable Auto-Responder"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1138
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1140
 msgid "Thank you for contacting us!"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1151
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1153
 msgid "Hi {name}, thank you for your message. We will get back to you soon."
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1152
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1154
 msgid "Available tags: {name}, {email}, {subject}"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1163
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1165
 msgid "Redirect After Submit"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1172
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1174
 msgid "Enable Redirect"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1184
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1186
 msgid "Redirect URL"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1186
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:1188
 msgid "https://your-link.com"
 msgstr ""
 

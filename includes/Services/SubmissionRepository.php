@@ -137,6 +137,7 @@ class SubmissionRepository
 
 		if (false === $result) {
 			if (defined('WP_DEBUG') && WP_DEBUG) {
+				// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- Debug-only diagnostics behind WP_DEBUG.
 				error_log('[MTForms] Submission insert failed (table: ' . $this->table_name . '): ' . $wpdb->last_error);
 			}
 
@@ -216,6 +217,7 @@ class SubmissionRepository
 			return (int) $wpdb->get_var($wpdb->prepare($query, $params));
 		}
 
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Query has no user-supplied parameters; still wrapped in $wpdb->prepare().
 		return (int) $wpdb->get_var($wpdb->prepare($query));
 	}
 

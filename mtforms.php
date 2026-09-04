@@ -5,7 +5,7 @@
  * Description:       A modern, feature-rich contact form plugin with multiple skins, layouts, GDPR support, and Elementor integration.
  * Version:           1.0.0
  * Author:            Muhammad Tariq
- * Author URI:        https://profiles.wordpress.org/muhammadtariq
+ * Author URI:        https://profiles.wordpress.org/mtariqsmd/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Requires at least: 5.8
