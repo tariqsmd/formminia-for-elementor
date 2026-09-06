@@ -105,8 +105,8 @@ $footer_text = wp_kses_post($footer_text);
                         <td class="email-content" style="padding:36px 40px;">
                             <p style="margin:0 0 28px; font-size:15px; color:#64748b;">
                                 <?php
-                                /* translators: %s: name of the website the submission was sent from. */
                                 printf(
+                                    /* translators: %s: name of the website the submission was sent from. */
                                     esc_html__('You received a new message from %s.', 'mtforms'),
                                     '<strong>' . esc_html($site_name) . '</strong>'
                                 ); ?>
@@ -136,8 +136,8 @@ $footer_text = wp_kses_post($footer_text);
                                 <p style="margin:0 0 8px;">
                                     <span style="display:inline-block; width:8px; height:8px; background-color:<?php echo esc_attr( $accent_color ); ?>; border-radius:50%; margin:0 4px 2px; vertical-align:middle;"></span>
                                     <?php
-                                    /* translators: 1: date the form was submitted, 2: website name. */
                                     printf(
+                                        /* translators: 1: date the form was submitted, 2: website name. */
                                         esc_html__('Submitted on %1$s via %2$s', 'mtforms'),
                                         esc_html($date),
                                         esc_html($site_name)
