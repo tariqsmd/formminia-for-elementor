@@ -1,10 +1,10 @@
 === MTForms ===
 Contributors: mtariqsmd
-Donate link: https://paypal.me/mhtas
 Tags: contact form, elementor form builder, elementor, gdpr, captcha
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 7.0
+Requires Plugins: elementor
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -71,11 +71,6 @@ By default notifications go to your site's admin email. To override it globally,
 4. The submissions screen with search, CSV export and delete.
 
 == Changelog ==
-
-= 1.0.0 =
-* Initial release.
-
-== Upgrade Notice ==
 
 = 1.0.0 =
 * Initial release.

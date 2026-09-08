@@ -26,7 +26,7 @@ class Widget extends \Elementor\Widget_Base
 
 		wp_register_style(
 			'mtforms',
-			MTFORMS_PLUGIN_URL . 'assets/css/mtforms.css',
+			MTFORMS_PLUGIN_URL . 'assets/css/mtforms.min.css',
 			[],
 			MTFORMS_VERSION
 		);

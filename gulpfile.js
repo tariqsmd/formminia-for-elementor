@@ -99,6 +99,7 @@ gulp.task('dist', function () {
         '!mtforms.zip',
         '!dist/**',
         '!dist',
+        '!assets/**/*.scss',
         '!**/*.map'
     ])
         .pipe(gulp.dest('dist'));

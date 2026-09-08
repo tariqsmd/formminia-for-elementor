@@ -45,7 +45,7 @@ class SettingsPage
 
 		wp_enqueue_style(
 			$this->plugin_name,
-			MTFORMS_PLUGIN_URL . 'assets/admin/css/mtforms-admin.css',
+			MTFORMS_PLUGIN_URL . 'assets/admin/css/mtforms-admin.min.css',
 			array(),
 			$this->version,
 			'all'
