@@ -10,7 +10,7 @@ const browserSync = require('browser-sync').create();
 
 // BrowserSync Configuration
 const bsConfig = {
-    proxy: "http://fse.local/", // Change this to your local site URL if needed
+    proxy: process.env.WP_PROXY || 'http://localhost/', // Set WP_PROXY to your local site URL
     notify: true, // Show "Connected" message to confirm it's working
     open: true,
     ghostMode: {

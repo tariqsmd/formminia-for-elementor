@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-20 18:31+0000\n"
+"POT-Creation-Date: 2026-09-20 18:58+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -14,275 +14,275 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: includes/Admin/settings-view.php:25, includes/Admin/settings-view.php:198
+#: includes/Admin/settings-view.php:25, includes/Admin/settings-view.php:82
 msgid "General"
 msgstr ""
 
-#: includes/Admin/settings-view.php:29, includes/Admin/settings-view.php:277, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1078
+#: includes/Admin/settings-view.php:29, includes/Admin/settings-view.php:161, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1078
 msgid "Email Settings"
 msgstr ""
 
-#: includes/Admin/settings-view.php:43, includes/Admin/SettingsPage.php:85, includes/Admin/SettingsPage.php:86, includes/Integrations/Elementor/Integration.php:28
-msgid "MTForms"
-msgstr ""
-
-#: includes/Admin/settings-view.php:77
-msgid "Features"
-msgstr ""
-
-#: includes/Admin/settings-view.php:80
+#: includes/Admin/settings-view.php:33, includes/Admin/settings-view.php:365, includes/Admin/settings-view.php:373
 msgid "Support"
 msgstr ""
 
-#: includes/Admin/settings-view.php:87
+#: includes/Admin/settings-view.php:47, includes/Admin/SettingsPage.php:85, includes/Admin/SettingsPage.php:86, includes/Integrations/Elementor/Integration.php:28
+msgid "MTForms"
+msgstr ""
+
+#: includes/Admin/settings-view.php:370
+msgid "Features"
+msgstr ""
+
+#: includes/Admin/settings-view.php:380
 msgid "What's included"
 msgstr ""
 
-#: includes/Admin/settings-view.php:93
+#: includes/Admin/settings-view.php:386
 msgid "Preset Skins"
 msgstr ""
 
-#: includes/Admin/settings-view.php:94
+#: includes/Admin/settings-view.php:387
 msgid "5 ready-made form styles"
 msgstr ""
 
-#: includes/Admin/settings-view.php:100, includes/Integrations/Elementor/WidgetControls/StyleControls.php:533
+#: includes/Admin/settings-view.php:393, includes/Integrations/Elementor/WidgetControls/StyleControls.php:533
 msgid "Field Icons"
 msgstr ""
 
-#: includes/Admin/settings-view.php:101
+#: includes/Admin/settings-view.php:394
 msgid "Inline SVG icons per field"
 msgstr ""
 
-#: includes/Admin/settings-view.php:107
+#: includes/Admin/settings-view.php:400
 msgid "HTML Email Template"
 msgstr ""
 
-#: includes/Admin/settings-view.php:108
+#: includes/Admin/settings-view.php:401
 msgid "Professional email layout"
 msgstr ""
 
-#: includes/Admin/settings-view.php:114
+#: includes/Admin/settings-view.php:407
 msgid "Spam Protection"
 msgstr ""
 
-#: includes/Admin/settings-view.php:115
+#: includes/Admin/settings-view.php:408
 msgid "reCAPTCHA, Turnstile & honeypot"
 msgstr ""
 
-#: includes/Admin/settings-view.php:121
+#: includes/Admin/settings-view.php:414
 msgid "Rate Limiting"
 msgstr ""
 
-#: includes/Admin/settings-view.php:122
+#: includes/Admin/settings-view.php:415
 msgid "IP-based flood protection"
 msgstr ""
 
-#: includes/Admin/settings-view.php:128, includes/Integrations/Elementor/WidgetControls/ContentControls.php:550, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1686
+#: includes/Admin/settings-view.php:421, includes/Integrations/Elementor/WidgetControls/ContentControls.php:550, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1686
 msgid "GDPR Consent"
 msgstr ""
 
-#: includes/Admin/settings-view.php:129
+#: includes/Admin/settings-view.php:422
 msgid "Built-in consent checkbox"
 msgstr ""
 
-#: includes/Admin/settings-view.php:135, includes/Integrations/Elementor/WidgetControls/ContentControls.php:117
+#: includes/Admin/settings-view.php:428, includes/Integrations/Elementor/WidgetControls/ContentControls.php:117
 msgid "Floating Labels"
 msgstr ""
 
-#: includes/Admin/settings-view.php:136
+#: includes/Admin/settings-view.php:429
 msgid "CSS animated placeholders"
 msgstr ""
 
-#: includes/Admin/settings-view.php:142
+#: includes/Admin/settings-view.php:435
 msgid "Responsive Design"
 msgstr ""
 
-#: includes/Admin/settings-view.php:143
+#: includes/Admin/settings-view.php:436
 msgid "Works on all screen sizes"
 msgstr ""
 
-#: includes/Admin/settings-view.php:154
+#: includes/Admin/settings-view.php:447
 msgid "Enjoying MTForms?"
 msgstr ""
 
-#: includes/Admin/settings-view.php:157
+#: includes/Admin/settings-view.php:450
 msgid "If this plugin saves you time, consider supporting its development."
 msgstr ""
 
-#: includes/Admin/settings-view.php:162
+#: includes/Admin/settings-view.php:455
 msgid "Buy Me a Coffee"
 msgstr ""
 
-#: includes/Admin/settings-view.php:167
+#: includes/Admin/settings-view.php:460
 msgid "Donate via PayPal"
 msgstr ""
 
-#: includes/Admin/settings-view.php:172
+#: includes/Admin/settings-view.php:465
 msgid "Found a bug?"
 msgstr ""
 
-#: includes/Admin/settings-view.php:177
+#: includes/Admin/settings-view.php:470
 msgid "Report an Issue"
 msgstr ""
 
-#: includes/Admin/settings-view.php:182
+#: includes/Admin/settings-view.php:475
 msgid "Leave a Review"
 msgstr ""
 
-#: includes/Admin/settings-view.php:283, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1087
+#: includes/Admin/settings-view.php:167, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1087
 msgid "Recipient Email"
 msgstr ""
 
-#: includes/Admin/settings-view.php:290
+#: includes/Admin/settings-view.php:174
 msgid "The email address where form submissions will be sent."
 msgstr ""
 
-#: includes/Admin/settings-view.php:297
+#: includes/Admin/settings-view.php:181
 msgid "Email CC"
 msgstr ""
 
-#: includes/Admin/settings-view.php:304
+#: includes/Admin/settings-view.php:188
 msgid "Comma separated list of email addresses to CC."
 msgstr ""
 
-#: includes/Admin/settings-view.php:310
+#: includes/Admin/settings-view.php:194
 msgid "Email BCC"
 msgstr ""
 
-#: includes/Admin/settings-view.php:317
+#: includes/Admin/settings-view.php:201
 msgid "Comma separated list of email addresses to BCC."
 msgstr ""
 
-#: includes/Admin/settings-view.php:323
+#: includes/Admin/settings-view.php:207
 msgid "Default Subject"
 msgstr ""
 
-#: includes/Admin/settings-view.php:330
+#: includes/Admin/settings-view.php:214
 msgid "The subject line used for notification emails."
 msgstr ""
 
-#: includes/Admin/settings-view.php:336
+#: includes/Admin/settings-view.php:220
 msgid "From Name"
 msgstr ""
 
-#: includes/Admin/settings-view.php:343
+#: includes/Admin/settings-view.php:227
 msgid "The name that appears in the \"From\" field of the email."
 msgstr ""
 
-#: includes/Admin/settings-view.php:349
+#: includes/Admin/settings-view.php:233
 msgid "Enable HTML Template"
 msgstr ""
 
-#: includes/Admin/settings-view.php:357
+#: includes/Admin/settings-view.php:241
 msgid "Use the professional HTML email template for notifications."
 msgstr ""
 
-#: includes/Admin/settings-view.php:364
+#: includes/Admin/settings-view.php:248
 msgid "Header Accent Color"
 msgstr ""
 
-#: includes/Admin/settings-view.php:371
+#: includes/Admin/settings-view.php:255
 msgid "Background color for the email header bar."
 msgstr ""
 
-#: includes/Admin/settings-view.php:378
+#: includes/Admin/settings-view.php:262
 msgid "Email Background Color"
 msgstr ""
 
-#: includes/Admin/settings-view.php:385
+#: includes/Admin/settings-view.php:269
 msgid "Background color of the email context."
 msgstr ""
 
-#: includes/Admin/settings-view.php:392
+#: includes/Admin/settings-view.php:276
 msgid "Content Background Color"
 msgstr ""
 
-#: includes/Admin/settings-view.php:400
+#: includes/Admin/settings-view.php:284
 msgid "Background color of the email content container."
 msgstr ""
 
-#: includes/Admin/settings-view.php:407
+#: includes/Admin/settings-view.php:291
 msgid "Email Text Color"
 msgstr ""
 
-#: includes/Admin/settings-view.php:414
+#: includes/Admin/settings-view.php:298
 msgid "Primary text color for the email content."
 msgstr ""
 
-#: includes/Admin/settings-view.php:421
+#: includes/Admin/settings-view.php:305
 msgid "Email Logo"
 msgstr ""
 
-#: includes/Admin/settings-view.php:430
+#: includes/Admin/settings-view.php:314
 msgid "Select Image"
 msgstr ""
 
-#: includes/Admin/settings-view.php:433
+#: includes/Admin/settings-view.php:317
 msgid "Remove"
 msgstr ""
 
-#: includes/Admin/settings-view.php:440
+#: includes/Admin/settings-view.php:324
 msgid "Displayed inside the email header. Recommended height: 40–50px."
 msgstr ""
 
-#: includes/Admin/settings-view.php:447
+#: includes/Admin/settings-view.php:331
 msgid "Footer Text"
 msgstr ""
 
-#: includes/Admin/settings-view.php:453
+#: includes/Admin/settings-view.php:337
 msgid "Optional extra line in the email footer (e.g. your address or a note)."
 msgstr ""
 
-#: includes/Admin/settings-view.php:460
+#: includes/Admin/settings-view.php:344
 msgid "Show Footer Credit"
 msgstr ""
 
-#: includes/Admin/settings-view.php:468
+#: includes/Admin/settings-view.php:352
 msgid "Show \"Submitted via [Site Name]\" in the email footer."
 msgstr ""
 
-#: includes/Admin/settings-view.php:474, includes/Admin/settings-view.php:270
+#: includes/Admin/settings-view.php:358, includes/Admin/settings-view.php:154
 msgid "Save Changes"
 msgstr ""
 
-#: includes/Admin/settings-view.php:201
+#: includes/Admin/settings-view.php:85
 msgid "Security Settings"
 msgstr ""
 
-#: includes/Admin/settings-view.php:205
+#: includes/Admin/settings-view.php:89
 msgid "Captcha Provider"
 msgstr ""
 
-#: includes/Admin/settings-view.php:211, includes/Integrations/Elementor/WidgetControls/ContentControls.php:54, includes/Integrations/Elementor/WidgetControls/ContentControls.php:116
+#: includes/Admin/settings-view.php:95, includes/Integrations/Elementor/WidgetControls/ContentControls.php:54, includes/Integrations/Elementor/WidgetControls/ContentControls.php:116
 msgid "None"
 msgstr ""
 
-#: includes/Admin/settings-view.php:214
+#: includes/Admin/settings-view.php:98
 msgid "Google reCAPTCHA v2"
 msgstr ""
 
-#: includes/Admin/settings-view.php:217
+#: includes/Admin/settings-view.php:101
 msgid "Cloudflare Turnstile"
 msgstr ""
 
-#: includes/Admin/settings-view.php:221
+#: includes/Admin/settings-view.php:105
 msgid "Select the validation service you want to use to prevent spam."
 msgstr ""
 
-#: includes/Admin/settings-view.php:229
+#: includes/Admin/settings-view.php:113
 msgid "reCAPTCHA Site Key"
 msgstr ""
 
-#: includes/Admin/settings-view.php:239
+#: includes/Admin/settings-view.php:123
 msgid "reCAPTCHA Secret Key"
 msgstr ""
 
-#: includes/Admin/settings-view.php:251
+#: includes/Admin/settings-view.php:135
 msgid "Turnstile Site Key"
 msgstr ""
 
-#: includes/Admin/settings-view.php:261
+#: includes/Admin/settings-view.php:145
 msgid "Turnstile Secret Key"
 msgstr ""
 

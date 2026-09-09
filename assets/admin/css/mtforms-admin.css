@@ -596,6 +596,34 @@ input:checked + .mtforms-slider::before {
 }
 
 /* ════════════════════════════════════════════════════════════ */
+/* SUPPORT CARD (top-level tab)                                 */
+/* ════════════════════════════════════════════════════════════ */
+.mtforms-support-card .mtforms-info-tabs {
+  border: 1px solid var(--mtforms-admin-border);
+  border-radius: 8px 8px 0 0;
+}
+.mtforms-support-card .mtforms-info-panel {
+  padding: 24px;
+  border: 1px solid var(--mtforms-admin-border);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  background: #fff;
+}
+.mtforms-support-card .mtforms-features-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 28px;
+}
+.mtforms-support-card .mtforms-info-panel#panel-support {
+  max-width: 520px;
+}
+
+@media screen and (max-width: 780px) {
+  .mtforms-support-card .mtforms-features-list {
+    grid-template-columns: 1fr;
+  }
+}
+/* ════════════════════════════════════════════════════════════ */
 /* RESPONSIVE                                                   */
 /* ════════════════════════════════════════════════════════════ */
 @media screen and (max-width: 1200px) {
