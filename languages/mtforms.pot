@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-20 18:58+0000\n"
+"POT-Creation-Date: 2026-09-20 19:05+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Email Settings"
 msgstr ""
 
-#: includes/Admin/settings-view.php:33, includes/Admin/settings-view.php:365, includes/Admin/settings-view.php:373
+#: includes/Admin/settings-view.php:33, includes/Admin/settings-view.php:432
 msgid "Support"
 msgstr ""
 
@@ -30,103 +30,95 @@ msgstr ""
 msgid "MTForms"
 msgstr ""
 
-#: includes/Admin/settings-view.php:370
+#: includes/Admin/settings-view.php:369
 msgid "Features"
 msgstr ""
 
-#: includes/Admin/settings-view.php:380
-msgid "What's included"
-msgstr ""
-
-#: includes/Admin/settings-view.php:386
+#: includes/Admin/settings-view.php:375
 msgid "Preset Skins"
 msgstr ""
 
-#: includes/Admin/settings-view.php:387
+#: includes/Admin/settings-view.php:376
 msgid "5 ready-made form styles"
 msgstr ""
 
-#: includes/Admin/settings-view.php:393, includes/Integrations/Elementor/WidgetControls/StyleControls.php:533
+#: includes/Admin/settings-view.php:382, includes/Integrations/Elementor/WidgetControls/StyleControls.php:533
 msgid "Field Icons"
 msgstr ""
 
-#: includes/Admin/settings-view.php:394
+#: includes/Admin/settings-view.php:383
 msgid "Inline SVG icons per field"
 msgstr ""
 
-#: includes/Admin/settings-view.php:400
+#: includes/Admin/settings-view.php:389
 msgid "HTML Email Template"
 msgstr ""
 
-#: includes/Admin/settings-view.php:401
+#: includes/Admin/settings-view.php:390
 msgid "Professional email layout"
 msgstr ""
 
-#: includes/Admin/settings-view.php:407
+#: includes/Admin/settings-view.php:396
 msgid "Spam Protection"
 msgstr ""
 
-#: includes/Admin/settings-view.php:408
+#: includes/Admin/settings-view.php:397
 msgid "reCAPTCHA, Turnstile & honeypot"
 msgstr ""
 
-#: includes/Admin/settings-view.php:414
+#: includes/Admin/settings-view.php:403
 msgid "Rate Limiting"
 msgstr ""
 
-#: includes/Admin/settings-view.php:415
+#: includes/Admin/settings-view.php:404
 msgid "IP-based flood protection"
 msgstr ""
 
-#: includes/Admin/settings-view.php:421, includes/Integrations/Elementor/WidgetControls/ContentControls.php:550, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1686
+#: includes/Admin/settings-view.php:410, includes/Integrations/Elementor/WidgetControls/ContentControls.php:550, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1686
 msgid "GDPR Consent"
 msgstr ""
 
-#: includes/Admin/settings-view.php:422
+#: includes/Admin/settings-view.php:411
 msgid "Built-in consent checkbox"
 msgstr ""
 
-#: includes/Admin/settings-view.php:428, includes/Integrations/Elementor/WidgetControls/ContentControls.php:117
+#: includes/Admin/settings-view.php:417, includes/Integrations/Elementor/WidgetControls/ContentControls.php:117
 msgid "Floating Labels"
 msgstr ""
 
-#: includes/Admin/settings-view.php:429
+#: includes/Admin/settings-view.php:418
 msgid "CSS animated placeholders"
 msgstr ""
 
-#: includes/Admin/settings-view.php:435
+#: includes/Admin/settings-view.php:424
 msgid "Responsive Design"
 msgstr ""
 
-#: includes/Admin/settings-view.php:436
+#: includes/Admin/settings-view.php:425
 msgid "Works on all screen sizes"
 msgstr ""
 
-#: includes/Admin/settings-view.php:447
-msgid "Enjoying MTForms?"
-msgstr ""
-
-#: includes/Admin/settings-view.php:450
+#: includes/Admin/settings-view.php:435
 msgid "If this plugin saves you time, consider supporting its development."
 msgstr ""
 
-#: includes/Admin/settings-view.php:455
+#: includes/Admin/settings-view.php:440
 msgid "Buy Me a Coffee"
 msgstr ""
 
-#: includes/Admin/settings-view.php:460
+#: includes/Admin/settings-view.php:445
 msgid "Donate via PayPal"
 msgstr ""
 
-#: includes/Admin/settings-view.php:465
+#: includes/Admin/settings-view.php:450
 msgid "Found a bug?"
 msgstr ""
 
-#: includes/Admin/settings-view.php:470
+#: includes/Admin/settings-view.php:455
 msgid "Report an Issue"
 msgstr ""
 
-#: includes/Admin/settings-view.php:475
+#: includes/Admin/settings-view.php:460
 msgid "Leave a Review"
 msgstr ""
 

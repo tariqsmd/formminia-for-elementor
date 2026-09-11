@@ -3,8 +3,8 @@
  * MTForms Admin Styles
  */
 :root {
-  --mtforms-admin-primary: #6366f1;
-  --mtforms-admin-primary-dark: #4f46e5;
+  --mtforms-admin-primary: #dc2626;
+  --mtforms-admin-primary-dark: #b91c1c;
   --mtforms-admin-bg: #f8fafc;
   --mtforms-admin-card-bg: #ffffff;
   --mtforms-admin-text: #1e293b;
@@ -67,7 +67,7 @@
 }
 .mtforms-page-header-brand .version-tag {
   font-size: 11px;
-  background: linear-gradient(135deg, var(--mtforms-admin-primary) 0%, #a855f7 100%);
+  background: linear-gradient(135deg, var(--mtforms-admin-primary) 0%, #ef4444 100%);
   color: #fff;
   padding: 3px 9px;
   border-radius: 20px;
@@ -144,11 +144,11 @@
   flex-shrink: 0;
 }
 .mtforms-sidebar-nav-item:hover {
-  background: rgba(99, 102, 241, 0.06);
+  background: rgba(220, 38, 38, 0.06);
   color: var(--mtforms-admin-primary);
 }
 .mtforms-sidebar-nav-item.is-active {
-  background: rgba(99, 102, 241, 0.1);
+  background: rgba(220, 38, 38, 0.1);
   color: var(--mtforms-admin-primary);
   font-weight: 600;
 }
@@ -228,7 +228,7 @@
 .form-table td input[type=email]:focus,
 .form-table td select:focus {
   border-color: var(--mtforms-admin-primary);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
   background: #fff;
   outline: none;
 }
@@ -301,13 +301,13 @@
   font-size: 14px !important;
   font-weight: 600 !important;
   border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2) !important;
   transition: all 0.2s ease !important;
 }
 .wp-core-ui .button-primary:hover {
   background: var(--mtforms-admin-primary-dark) !important;
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3) !important;
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.3) !important;
 }
 
 /* Toggle switch */
@@ -365,56 +365,8 @@ input:checked + .mtforms-slider::before {
 }
 
 /* ════════════════════════════════════════════════════════════ */
-/* SIDEBAR INFO PANELS (inside left sidebar)                     */
+/* SUPPORT PANEL STYLES                                         */
 /* ════════════════════════════════════════════════════════════ */
-.mtforms-info-sticky-wrapper {
-  display: flex;
-  flex-direction: column;
-  padding: 0 14px 24px;
-}
-
-/* Sub-tab strip */
-.mtforms-info-tabs {
-  display: flex;
-  border-bottom: 1px solid var(--mtforms-admin-border);
-  background: var(--mtforms-admin-bg);
-}
-
-.mtforms-info-tab {
-  flex: 1;
-  border: none;
-  background: transparent;
-  padding: 13px 6px;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--mtforms-admin-text-light);
-  cursor: pointer;
-  transition: color 0.15s ease;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-.mtforms-info-tab:hover {
-  color: var(--mtforms-admin-primary);
-}
-.mtforms-info-tab.is-active {
-  color: var(--mtforms-admin-primary);
-  border-bottom-color: var(--mtforms-admin-primary);
-  background: #fff;
-}
-
-/* Panels */
-.mtforms-info-panel {
-  display: none;
-  padding: 20px;
-  flex-direction: column;
-}
-.mtforms-info-panel.is-active {
-  display: flex;
-  flex-direction: column;
-}
-
 /* About panel — logo block */
 .mtforms-info-logo {
   display: flex;
@@ -477,7 +429,7 @@ input:checked + .mtforms-slider::before {
 .mtforms-info-link:hover {
   border-color: var(--mtforms-admin-primary);
   color: var(--mtforms-admin-primary);
-  background: rgba(99, 102, 241, 0.04);
+  background: rgba(220, 38, 38, 0.04);
 }
 
 /* Features panel */
@@ -598,28 +550,35 @@ input:checked + .mtforms-slider::before {
 /* ════════════════════════════════════════════════════════════ */
 /* SUPPORT CARD (top-level tab)                                 */
 /* ════════════════════════════════════════════════════════════ */
-.mtforms-support-card .mtforms-info-tabs {
-  border: 1px solid var(--mtforms-admin-border);
-  border-radius: 8px 8px 0 0;
+.mtforms-support-card .mtforms-support-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
 }
-.mtforms-support-card .mtforms-info-panel {
-  padding: 24px;
+.mtforms-support-card .mtforms-support-section {
   border: 1px solid var(--mtforms-admin-border);
-  border-top: none;
-  border-radius: 0 0 8px 8px;
+  border-radius: 10px;
   background: #fff;
+  padding: 24px;
+}
+.mtforms-support-card .mtforms-support-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--mtforms-admin-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--mtforms-admin-border);
 }
 .mtforms-support-card .mtforms-features-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px 28px;
-}
-.mtforms-support-card .mtforms-info-panel#panel-support {
-  max-width: 520px;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
-@media screen and (max-width: 780px) {
-  .mtforms-support-card .mtforms-features-list {
+@media screen and (max-width: 960px) {
+  .mtforms-support-card .mtforms-support-sections {
     grid-template-columns: 1fr;
   }
 }
