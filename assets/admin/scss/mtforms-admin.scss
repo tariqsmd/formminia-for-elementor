@@ -597,6 +597,28 @@ input:checked+.mtforms-slider::before {
     padding: 24px;
   }
 
+  .mtforms-support-section-support {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mtforms-support-actions {
+    margin-top: auto;
+  }
+
+  .mtforms-payment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .mtforms-payment-grid .mtforms-btn-coffee,
+  .mtforms-payment-grid .mtforms-btn-donate {
+    margin: 0;
+    padding: 11px 12px;
+    font-size: 12px;
+  }
+
   .mtforms-support-section-title {
     font-size: 13px;
     font-weight: 700;
@@ -612,6 +634,50 @@ input:checked+.mtforms-slider::before {
     display: grid;
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+}
+
+.mtforms-pay-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 12px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+  border: 2px solid;
+  box-sizing: border-box;
+  transition: all 0.15s ease;
+
+  .dashicons {
+    font-size: 15px;
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+}
+
+.mtforms-pay-easypaisa {
+  background: #16a34a;
+  border-color: #15803d;
+
+  &:hover {
+    background: #15803d;
+    color: #fff;
+  }
+}
+
+.mtforms-pay-jazzcash {
+  background: #7f1d1d;
+  border-color: #5f1414;
+
+  &:hover {
+    background: #5f1414;
+    color: #fff;
   }
 }
 

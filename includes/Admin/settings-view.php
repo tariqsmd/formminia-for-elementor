@@ -365,6 +365,57 @@ $tabs = [
 
                     <div class="mtforms-support-sections">
 
+                        <section class="mtforms-support-section mtforms-support-section-support">
+                            <h3 class="mtforms-support-section-title"><?php esc_html_e('Support', 'mtforms'); ?></h3>
+
+                            <p class="mtforms-info-desc">
+                                <?php esc_html_e('If this plugin saves you time, consider supporting its development.', 'mtforms'); ?>
+                            </p>
+
+                            <div class="mtforms-support-actions">
+
+                                <div class="mtforms-payment-grid">
+                                    <a href="https://buymeacoffee.com/mhtas" target="_blank" class="mtforms-btn-coffee">
+                                        <span>☕</span>
+                                        <?php esc_html_e('Buy Me a Coffee', 'mtforms'); ?>
+                                    </a>
+
+                                    <a href="https://paypal.me/mhtas" target="_blank" class="mtforms-btn-donate">
+                                        <span class="dashicons dashicons-heart"></span>
+                                        <?php esc_html_e('Donate via PayPal', 'mtforms'); ?>
+                                    </a>
+
+                                    <!-- TODO: point the two wallet buttons at your payment account before release. -->
+                                    <a href="https://www.easypaisa.com.pk/" target="_blank" class="mtforms-pay-btn mtforms-pay-easypaisa">
+                                        <span class="dashicons dashicons-money-alt"></span>
+                                        <?php esc_html_e('EasyPaisa', 'mtforms'); ?>
+                                    </a>
+
+                                    <a href="https://wallet.jazzcash.com.pk/" target="_blank" class="mtforms-pay-btn mtforms-pay-jazzcash">
+                                        <span class="dashicons dashicons-wallet"></span>
+                                        <?php esc_html_e('JazzCash', 'mtforms'); ?>
+                                    </a>
+                                </div>
+
+                                <div class="mtforms-info-divider"></div>
+
+                                <p class="mtforms-info-panel-title"><?php esc_html_e('Found a bug?', 'mtforms'); ?></p>
+
+                                <div class="mtforms-info-links">
+                                    <a href="https://github.com/mhtas/mtforms/issues" target="_blank" class="mtforms-info-link">
+                                        <span class="dashicons dashicons-warning"></span>
+                                        <?php esc_html_e('Report an Issue', 'mtforms'); ?>
+                                    </a>
+                                    <a href="https://wordpress.org/support/plugin/mtforms/reviews/#new-post" target="_blank"
+                                        class="mtforms-info-link">
+                                        <span class="dashicons dashicons-star-filled"></span>
+                                        <?php esc_html_e('Leave a Review', 'mtforms'); ?>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </section>
+
                         <section class="mtforms-support-section">
                             <h3 class="mtforms-support-section-title"><?php esc_html_e('Features', 'mtforms'); ?></h3>
 
@@ -426,40 +477,6 @@ $tabs = [
                                     </div>
                                 </li>
                             </ul>
-                        </section>
-
-                        <section class="mtforms-support-section">
-                            <h3 class="mtforms-support-section-title"><?php esc_html_e('Support', 'mtforms'); ?></h3>
-
-                            <p class="mtforms-info-desc">
-                                <?php esc_html_e('If this plugin saves you time, consider supporting its development.', 'mtforms'); ?>
-                            </p>
-
-                            <a href="https://buymeacoffee.com/mhtas" target="_blank" class="mtforms-btn-coffee">
-                                <span>☕</span>
-                                <?php esc_html_e('Buy Me a Coffee', 'mtforms'); ?>
-                            </a>
-
-                            <a href="https://paypal.me/mhtas" target="_blank" class="mtforms-btn-donate">
-                                <span class="dashicons dashicons-heart"></span>
-                                <?php esc_html_e('Donate via PayPal', 'mtforms'); ?>
-                            </a>
-
-                            <div class="mtforms-info-divider"></div>
-
-                            <p class="mtforms-info-panel-title"><?php esc_html_e('Found a bug?', 'mtforms'); ?></p>
-
-                            <div class="mtforms-info-links">
-                                <a href="https://github.com/mhtas/mtforms/issues" target="_blank" class="mtforms-info-link">
-                                    <span class="dashicons dashicons-warning"></span>
-                                    <?php esc_html_e('Report an Issue', 'mtforms'); ?>
-                                </a>
-                                <a href="https://wordpress.org/support/plugin/mtforms/reviews/#new-post" target="_blank"
-                                    class="mtforms-info-link">
-                                    <span class="dashicons dashicons-star-filled"></span>
-                                    <?php esc_html_e('Leave a Review', 'mtforms'); ?>
-                                </a>
-                            </div>
                         </section>
 
                     </div>
