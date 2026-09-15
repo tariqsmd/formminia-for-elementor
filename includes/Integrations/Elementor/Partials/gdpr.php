@@ -86,7 +86,7 @@ if ( $settings['show_gdpr'] === 'yes' ): ?>
             <input type="checkbox" name="mtforms_gdpr" class="mtforms-checkbox" id="gdpr-<?php echo esc_attr( $widget_id ); ?>" required>
             <span class="mtforms-checkbox-custom"></span>
             <span class="mtforms-checkbox-text">
-                <?php echo esc_html( $settings['gdpr_text'] ); ?>
+                <?php echo wp_kses_post( $settings['gdpr_text'] ); ?>
             </span>
         </label>
         <input type="hidden" name="mtforms_gdpr_enabled" value="yes">

@@ -157,13 +157,20 @@ class SubmissionMailer
 			return false;
 		}
 
-		$enabled = isset($submission->raw['mtforms_enable_autoresponder']) && $submission->raw['mtforms_enable_autoresponder'] === 'yes';
+		// Autoresponder settings are read from the stored Elementor widget
+		// configuration, never from client-submitted data. This prevents the
+		// server from being used as an open relay for arbitrary emails.
+		$widget_id = isset($submission->raw['mtforms_form_id']) ? sanitize_text_field(wp_unslash($submission->raw['mtforms_form_id'])) : '';
+		$post_id = isset($submission->raw['mtforms_post_id']) ? absint($submission->raw['mtforms_post_id']) : 0;
+		$widget_settings = $this->get_widget_mail_settings($widget_id, $post_id);
+
+		$enabled = isset($widget_settings['enable_autoresponder']) && $widget_settings['enable_autoresponder'] === 'yes';
 		if (!$enabled) {
 			return false;
 		}
 
-		$subject = isset($submission->raw['mtforms_autoresponder_subject']) ? sanitize_text_field($submission->raw['mtforms_autoresponder_subject']) : __('Thank you for your submission', 'mtforms');
-		$message = isset($submission->raw['mtforms_autoresponder_message']) ? sanitize_textarea_field($submission->raw['mtforms_autoresponder_message']) : '';
+		$subject = !empty($widget_settings['autoresponder_subject']) ? sanitize_text_field($widget_settings['autoresponder_subject']) : __('Thank you for your submission', 'mtforms');
+		$message = !empty($widget_settings['autoresponder_message']) ? sanitize_textarea_field($widget_settings['autoresponder_message']) : '';
 
 		if (empty($message)) {
 			return false;
@@ -227,9 +234,9 @@ class SubmissionMailer
 	 *
 	 * @return array
 	 */
-	protected function get_widget_mail_settings($widget_id)
+	protected function get_widget_mail_settings($widget_id, $post_id = 0)
 	{
-		return (new ElementorWidgetSettings())->get($widget_id);
+		return (new ElementorWidgetSettings())->get($widget_id, $post_id);
 	}
 
 	/**

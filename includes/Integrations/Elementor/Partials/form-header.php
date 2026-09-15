@@ -66,4 +66,5 @@ if (!empty($settings['form_id'])) {
 			<input type="hidden" name="mtforms_required_fields" value="<?php echo esc_attr(implode(',', $args['required_fields'])); ?>">
 		<?php endif; ?>
 		<input type="hidden" name="mtforms_form_id" value="<?php echo esc_attr($widget_id); ?>">
+		<input type="hidden" name="mtforms_post_id" value="<?php echo esc_attr((int) get_the_ID()); ?>">
 		<div class="mtforms-form-inner">

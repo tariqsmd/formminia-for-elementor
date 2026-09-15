@@ -150,17 +150,23 @@ class SubmissionRepository
 	/**
 	 * Get submissions.
 	 *
-	 * @param int    $limit  Number of submissions to retrieve.
-	 * @param int    $offset Offset.
-	 * @param string $search Search query.
+	 * @param int    $limit   Number of submissions to retrieve.
+	 * @param int    $offset  Offset.
+	 * @param string $search  Search query.
+	 * @param string $orderby Column to sort by (name, email, subject, created_at).
+	 * @param string $order   Sort direction (ASC or DESC).
 	 *
 	 * @return array
 	 */
-	public function get_submissions($limit = 20, $offset = 0, $search = '')
+	public function get_submissions($limit = 20, $offset = 0, $search = '', $orderby = 'created_at', $order = 'DESC')
 	{
 		global $wpdb;
 
 		$this->ensure_table();
+
+		$allowed_sort = array('name', 'email', 'subject', 'created_at');
+		$orderby = in_array($orderby, $allowed_sort, true) ? $orderby : 'created_at';
+		$order = strtoupper($order) === 'ASC' ? 'ASC' : 'DESC';
 
 		$query = "SELECT * FROM {$this->table_name}";
 		$where = [];
@@ -179,7 +185,7 @@ class SubmissionRepository
 			$query .= " WHERE " . implode(" AND ", $where);
 		}
 
-		$query .= " ORDER BY created_at DESC LIMIT %d OFFSET %d";
+		$query .= " ORDER BY {$orderby} {$order} LIMIT %d OFFSET %d";
 		$params[] = $limit;
 		$params[] = $offset;
 
@@ -217,8 +223,8 @@ class SubmissionRepository
 			return (int) $wpdb->get_var($wpdb->prepare($query, $params));
 		}
 
-		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Query has no user-supplied parameters; still wrapped in $wpdb->prepare().
-		return (int) $wpdb->get_var($wpdb->prepare($query));
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Static command; no user-supplied values; only the table name is interpolated.
+		return (int) $wpdb->get_var($query);
 	}
 
 	/**

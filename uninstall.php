@@ -47,6 +47,7 @@ $options = array(
 	'mtforms_email_content_bg_color',
 	'mtforms_email_text_color',
 	'mtforms_email_show_footer_credit',
+	'mtforms_submissions_table_ready',
 );
 
 foreach ( $options as $option ) {

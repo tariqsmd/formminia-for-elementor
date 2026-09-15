@@ -167,7 +167,8 @@ class FormController
 		// "Show CAPTCHA" enabled. The setting is read from the saved
 		// Elementor document data, never from client input.
 		$widget_id = isset($data['mtforms_form_id']) ? sanitize_text_field(wp_unslash($data['mtforms_form_id'])) : '';
-		$widget_settings = (new ElementorWidgetSettings())->get($widget_id);
+		$post_id = isset($data['mtforms_post_id']) ? absint($data['mtforms_post_id']) : 0;
+		$widget_settings = (new ElementorWidgetSettings())->get($widget_id, $post_id);
 		$show_captcha = isset($widget_settings['show_captcha']) && $widget_settings['show_captcha'] === 'yes';
 
 		if ($show_captcha) {

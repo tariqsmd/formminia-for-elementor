@@ -102,13 +102,17 @@ protected function column_name($item)
 		// Search term is read from the URL for list filtering only (no state change).
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$search = isset($_REQUEST['s']) ? sanitize_text_field(wp_unslash($_REQUEST['s'])) : '';
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$orderby = isset($_REQUEST['orderby']) ? sanitize_text_field(wp_unslash($_REQUEST['orderby'])) : 'created_at';
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$order = isset($_REQUEST['order']) ? strtoupper(sanitize_text_field(wp_unslash($_REQUEST['order']))) : 'DESC';
 
 		$this->_column_headers = [$this->get_columns(), [], $this->get_sortable_columns()];
 
 		$this->process_bulk_action();
 
 		$total_items = $this->repository->get_total_count($search);
-		$this->items = $this->repository->get_submissions($per_page, ($current_page - 1) * $per_page, $search);
+		$this->items = $this->repository->get_submissions($per_page, ($current_page - 1) * $per_page, $search, $orderby, $order);
 
 		$this->set_pagination_args([
 			'total_items' => $total_items,
@@ -125,6 +129,10 @@ protected function column_name($item)
 
 	protected function process_bulk_action()
 	{
+		if (!current_user_can('manage_options')) {
+			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'mtforms'));
+		}
+
 		if ('delete' === $this->current_action()) {
 			$nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])) : '';
 			if (!wp_verify_nonce($nonce, 'mtforms_delete_submission')) {

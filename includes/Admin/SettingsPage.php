@@ -117,21 +117,16 @@ class SettingsPage
 	{
 		$table = new SubmissionsTable();
 		$table->prepare_items();
-
-		// Handle export.
-		if (isset($_GET['action']) && $_GET['action'] === 'export_csv') {
-			if (!isset($_GET['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_wpnonce'])), 'mtforms_export_csv')) {
-				wp_die(esc_html__('Security check failed.', 'mtforms'));
-			}
-			$this->handle_export_csv();
-		}
 		?>
 		<div class="wrap">
 			<h1 class="wp-heading-inline"><?php esc_html_e('MTForms Submissions', 'mtforms'); ?></h1>
 			<a href="<?php echo esc_url(wp_nonce_url(add_query_arg('action', 'export_csv'), 'mtforms_export_csv')); ?>" class="page-title-action"><?php esc_html_e('Export to CSV', 'mtforms'); ?></a>
 			<hr class="wp-header-end">
 
-			<form method="get">
+			<form method="post">
+				<?php wp_nonce_field('bulk-submissions'); ?>
+				<!-- Page slug echo only; no state change. -->
+				<?php // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- The form carries its own nonce; this read is for a hidden field only. ?>
 				<input type="hidden" name="page" value="<?php echo isset($_REQUEST['page']) ? esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))) : 'mtforms-submissions'; ?>" />
 				<?php
 				$table->search_box(esc_html__('Search Submissions', 'mtforms'), 'submission');
@@ -140,6 +135,33 @@ class SettingsPage
 			</form>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Handle the CSV export request before any output is sent.
+	 *
+	 * Hooked to admin_init so the download headers are never preceded by
+	 * admin panel markup.
+	 */
+	public function maybe_handle_export_csv()
+	{
+		if (!isset($_GET['page']) || 'mtforms-submissions' !== $_GET['page']) {
+			return;
+		}
+
+		if (!isset($_GET['action']) || 'export_csv' !== $_GET['action']) {
+			return;
+		}
+
+		if (!current_user_can('manage_options')) {
+			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'mtforms'));
+		}
+
+		if (!isset($_GET['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_wpnonce'])), 'mtforms_export_csv')) {
+			wp_die(esc_html__('Security check failed.', 'mtforms'));
+		}
+
+		$this->handle_export_csv();
 	}
 
 	/**
@@ -166,8 +188,49 @@ class SettingsPage
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CONTENT_BG_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_TEXT_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_SHOW_FOOTER_CREDIT, ['sanitize_callback' => 'sanitize_text_field']);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CC, ['sanitize_callback' => 'sanitize_email']);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BCC, ['sanitize_callback' => 'sanitize_email']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CC, ['sanitize_callback' => 'MTForms\Admin\SettingsPage::sanitize_email_list']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BCC, ['sanitize_callback' => 'MTForms\Admin\SettingsPage::sanitize_email_list']);
+	}
+
+	/**
+	 * Sanitize a comma-separated list of email addresses.
+	 *
+	 * WordPress's sanitize_email() only accepts a single address, so lists
+	 * are validated address by address and re-joined.
+	 *
+	 * @param mixed $value Raw option value.
+	 *
+	 * @return string
+	 */
+	public static function sanitize_email_list($value)
+	{
+		if (!is_string($value)) {
+			return '';
+		}
+
+		$emails = array_map('trim', explode(',', $value));
+		$valid = array_unique(array_filter($emails, 'is_email'));
+
+		return implode(', ', $valid);
+	}
+
+	/**
+	 * Show an admin notice when the Elementor dependency is inactive.
+	 *
+	 * Displayed only on MTForms admin screens.
+	 */
+	public function maybe_display_elementor_notice()
+	{
+		$screen = function_exists('get_current_screen') ? get_current_screen() : null;
+		if (!$screen || strpos((string) $screen->id, 'mtforms') === false) {
+			return;
+		}
+
+		if (defined('ELEMENTOR_VERSION')) {
+			return;
+		}
+
+		echo '<div class="notice notice-warning is-dismissible"><p>' . esc_html__('MTForms requires the Elementor plugin to build forms. Install and activate Elementor to get started.', 'mtforms') . '</p></div>';
 	}
 
 	/**

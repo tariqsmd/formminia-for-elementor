@@ -24,11 +24,16 @@ class ElementorWidgetSettings {
 	/**
 	 * Fetch the settings for a given Elementor widget ID.
 	 *
+	 * When a post ID is known the document data is loaded straight from that
+	 * post's meta (using the primary key index). Otherwise a wildcard scan of
+	 * _elementor_data is used as a fallback. Settings are cached for 5 minutes.
+	 *
 	 * @param string $widget_id Elementor element/widget ID.
+	 * @param int    $post_id   Optional post containing the widget.
 	 *
 	 * @return array
 	 */
-	public function get( $widget_id ) {
+	public function get( $widget_id, $post_id = 0 ) {
 		if ( empty( $widget_id ) || ! class_exists( '\Elementor\Plugin' ) ) {
 			return array();
 		}
@@ -40,6 +45,59 @@ class ElementorWidgetSettings {
 			return is_array( $cached ) ? $cached : array();
 		}
 
+		$settings = $this->find_widget_on_post( $widget_id, (int) $post_id );
+
+		if ( empty( $settings ) ) {
+			$settings = $this->find_widget_anywhere( $widget_id );
+		}
+
+		wp_cache_set( $cache_key, $settings, '', 5 * MINUTE_IN_SECONDS );
+
+		return $settings;
+	}
+
+	/**
+	 * Look for the widget inside a single post's _elementor_data meta.
+	 *
+	 * Avoids the wildcard scan entirely when the containing post is known.
+	 *
+	 * @param string $widget_id Elementor element/widget ID.
+	 * @param int    $post_id   Post ID.
+	 *
+	 * @return array
+	 */
+	protected function find_widget_on_post( $widget_id, $post_id ) {
+		if ( $post_id <= 0 ) {
+			return array();
+		}
+
+		$data = get_post_meta( $post_id, '_elementor_data', true );
+
+		if ( is_string( $data ) ) {
+			$data = json_decode( $data, true );
+		}
+
+		if ( ! is_array( $data ) ) {
+			return array();
+		}
+
+		$widget = $this->find_widget_by_id( $data, $widget_id );
+
+		if ( null !== $widget && isset( $widget['settings'] ) && is_array( $widget['settings'] ) ) {
+			return $widget['settings'];
+		}
+
+		return array();
+	}
+
+	/**
+	 * Fall back to scanning _elementor_data across all posts.
+	 *
+	 * @param string $widget_id Elementor element/widget ID.
+	 *
+	 * @return array
+	 */
+	protected function find_widget_anywhere( $widget_id ) {
 		global $wpdb;
 
 		$like_lookup = array(
@@ -58,8 +116,6 @@ class ElementorWidgetSettings {
 		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Query is fully prepared below; only the table name is interpolated.
 		$rows = $wpdb->get_results( $wpdb->prepare( $sql, $params ), ARRAY_A );
 
-		$settings = array();
-
 		if ( is_array( $rows ) ) {
 			foreach ( $rows as $row ) {
 				$data = json_decode( $row['meta_value'], true );
@@ -69,15 +125,12 @@ class ElementorWidgetSettings {
 
 				$widget = $this->find_widget_by_id( $data, $widget_id );
 				if ( null !== $widget && isset( $widget['settings'] ) && is_array( $widget['settings'] ) ) {
-					$settings = $widget['settings'];
-					break;
+					return $widget['settings'];
 				}
 			}
 		}
 
-		wp_cache_set( $cache_key, $settings, '', 5 * MINUTE_IN_SECONDS );
-
-		return $settings;
+		return array();
 	}
 
 	/**

@@ -109,6 +109,8 @@ class Plugin {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_admin_menu' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_settings' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'maybe_handle_export_csv' );
+		$this->loader->add_action( 'admin_notices', $plugin_admin, 'maybe_display_elementor_notice' );
 	}
 
 	/**
