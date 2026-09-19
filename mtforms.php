@@ -23,7 +23,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Plugin Constants
  */
-define( 'MTFORMS_VERSION', '1.0.1' );
+define( 'MTFORMS_VERSION', '1.0.2' );
 define( 'MTFORMS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'MTFORMS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 

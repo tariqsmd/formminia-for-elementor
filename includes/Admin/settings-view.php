@@ -683,16 +683,6 @@ $has_elementor = defined( 'ELEMENTOR_VERSION' ) || did_action( 'elementor/loaded
 											<span class="dashicons dashicons-heart"></span>
 											<?php esc_html_e( 'Donate via PayPal', 'mtforms' ); ?>
 										</a>
-
-										<a href="https://www.easypaisa.com.pk/" target="_blank" rel="noopener noreferrer" class="support-pay-btn easypaisa-btn">
-											<span class="dashicons dashicons-money-alt"></span>
-											<?php esc_html_e( 'EasyPaisa', 'mtforms' ); ?>
-										</a>
-
-										<a href="https://wallet.jazzcash.com.pk/" target="_blank" rel="noopener noreferrer" class="support-pay-btn jazzcash-btn">
-											<span class="dashicons dashicons-wallet"></span>
-											<?php esc_html_e( 'JazzCash', 'mtforms' ); ?>
-										</a>
 									</div>
 
 									<div class="mtforms-sidebar-divider" style="margin: 14px 0;"></div>

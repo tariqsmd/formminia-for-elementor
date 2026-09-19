@@ -4,37 +4,37 @@
  */
 
 :root {
-  --mtforms-primary: #4f46e5;
-  --mtforms-primary-hover: #4338ca;
-  --mtforms-primary-light: #eef2ff;
-  --mtforms-primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-  
+  --mtforms-primary: #c0392b;
+  --mtforms-primary-hover: #a93226;
+  --mtforms-primary-light: #fdf2f0;
+  --mtforms-primary-gradient: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+
   --mtforms-success: #10b981;
   --mtforms-success-light: #ecfdf5;
   --mtforms-warning: #f59e0b;
   --mtforms-warning-light: #fffbeb;
-  --mtforms-danger: #ef4444;
-  --mtforms-danger-light: #fef2f2;
-  
-  --mtforms-bg: #f8fafc;
+  --mtforms-danger: #c0392b;
+  --mtforms-danger-light: #fdf2f0;
+
+  --mtforms-bg: #fdfafa;
   --mtforms-card-bg: #ffffff;
   --mtforms-text: #0f172a;
   --mtforms-text-muted: #64748b;
   --mtforms-text-light: #94a3b8;
-  --mtforms-border: #e2e8f0;
-  --mtforms-border-focus: #818cf8;
-  
+  --mtforms-border: #f0dbd9;
+  --mtforms-border-focus: #e74c3c;
+
   --mtforms-radius-sm: 6px;
   --mtforms-radius-md: 10px;
   --mtforms-radius-lg: 14px;
   --mtforms-radius-xl: 18px;
-  
-  --mtforms-shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
-  --mtforms-shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.08), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
-  --mtforms-shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
-  --mtforms-shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
-  --mtforms-shadow-card: 0 0 0 1px rgba(15, 23, 42, 0.04), 0 2px 4px 0 rgba(15, 23, 42, 0.04);
-  
+
+  --mtforms-shadow-xs: 0 1px 2px 0 rgba(192, 57, 43, 0.05);
+  --mtforms-shadow-sm: 0 1px 3px 0 rgba(192, 57, 43, 0.08), 0 1px 2px -1px rgba(192, 57, 43, 0.04);
+  --mtforms-shadow-md: 0 4px 6px -1px rgba(192, 57, 43, 0.07), 0 2px 4px -2px rgba(192, 57, 43, 0.04);
+  --mtforms-shadow-lg: 0 10px 15px -3px rgba(192, 57, 43, 0.08), 0 4px 6px -4px rgba(192, 57, 43, 0.04);
+  --mtforms-shadow-card: 0 0 0 1px rgba(192, 57, 43, 0.04), 0 2px 4px 0 rgba(192, 57, 43, 0.04);
+
   --mtforms-sidebar-width: 270px;
   --mtforms-header-height: 72px;
 }
@@ -661,7 +661,7 @@
   &.is-selected {
     border-color: var(--mtforms-primary);
     background: #fafafa;
-    box-shadow: 0 0 0 1px var(--mtforms-primary), 0 8px 20px -4px rgba(79, 70, 229, 0.15);
+    box-shadow: 0 0 0 1px var(--mtforms-primary), 0 8px 20px -4px rgba(192, 57, 43, 0.20);
 
     .provider-radio-check {
       border-color: var(--mtforms-primary);
@@ -985,6 +985,13 @@
       background: var(--mtforms-primary-light);
       color: var(--mtforms-primary);
     }
+
+    &.is-active {
+      border-color: var(--mtforms-primary);
+      background: var(--mtforms-primary-light);
+      color: var(--mtforms-primary);
+      box-shadow: 0 0 0 2px var(--mtforms-primary);
+    }
   }
 }
 
@@ -1181,13 +1188,19 @@
 .mtforms-sticky-save {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 16px;
   padding: 18px 24px;
   background: #ffffff;
   border: 1px solid var(--mtforms-border);
   border-radius: var(--mtforms-radius-md);
   box-shadow: var(--mtforms-shadow-md);
   margin-top: 10px;
+
+  // Save button comes first (left), status text comes after
+  .mtforms-btn-primary {
+    order: -1;
+  }
 
   .save-status-text {
     display: flex;
@@ -1207,7 +1220,7 @@
 /* ════════════════════════════════════════════════════════════ */
 .support-hero {
   padding: 32px 36px;
-  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%);
+  background: linear-gradient(135deg, #c0392b 0%, #e74c3c 50%, #e87d72 100%);
   color: #ffffff;
   border: none;
   margin-bottom: 24px;

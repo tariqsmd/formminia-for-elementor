@@ -176,16 +176,32 @@ class SubmissionMailer
 			return false;
 		}
 
-		// Replace tags (escaped for HTML context).
+		// Replace tags.
 		$tags = [
 			'{name}'    => esc_html($submission->name),
 			'{email}'   => esc_html($submission->email),
 			'{subject}' => esc_html($submission->subject),
 		];
 		$message = str_replace(array_keys($tags), array_values($tags), $message);
-		$message = nl2br($message);
 
-		$from_name = $this->config->get('mtforms_email_from_name', get_bloginfo('name'));
+		// Build the body using the branded HTML template when available,
+		// otherwise fall back to a simple HTML string.
+		$template_path = MTFORMS_PLUGIN_DIR . 'includes/Integrations/Elementor/Partials/email-template.php';
+		$template_path = apply_filters('mtforms_email_template_path', $template_path, []);
+
+		if (file_exists($template_path)) {
+			ob_start();
+			// Inject a single "message" field so the template renders it cleanly.
+			$fields    = [ __('Message', 'mtforms') => $message ];
+			$date      = current_time('mysql');
+			$site_name = get_bloginfo('name');
+			include $template_path;
+			$body = (string) ob_get_clean();
+		} else {
+			$body = '<p>' . nl2br(esc_html($message)) . '</p>';
+		}
+
+		$from_name  = $this->config->get('mtforms_email_from_name', get_bloginfo('name'));
 		$from_email = get_option('admin_email');
 
 		$headers = [
@@ -193,7 +209,7 @@ class SubmissionMailer
 			'From: ' . wp_specialchars_decode($from_name, ENT_QUOTES) . ' <' . $from_email . '>',
 		];
 
-		return $this->mailer->send($submission->email, $subject, $message, $headers);
+		return $this->mailer->send($submission->email, $subject, $body, $headers);
 	}
 
 	/**
