@@ -672,21 +672,6 @@ $has_elementor = defined( 'ELEMENTOR_VERSION' ) || did_action( 'elementor/loaded
 							</div>
 							<div class="mtforms-card-body">
 								<div class="support-action-list">
-									<!-- Payments / Donation Grid -->
-									<div class="support-payment-buttons">
-										<a href="https://buymeacoffee.com/mtariqsmd" target="_blank" rel="noopener noreferrer" class="support-pay-btn coffee-btn">
-											<span>☕</span>
-											<?php esc_html_e( 'Buy Me a Coffee', 'mtforms' ); ?>
-										</a>
-
-										<a href="https://paypal.me/mtariqsmd" target="_blank" rel="noopener noreferrer" class="support-pay-btn paypal-btn">
-											<span class="dashicons dashicons-heart"></span>
-											<?php esc_html_e( 'Donate via PayPal', 'mtforms' ); ?>
-										</a>
-									</div>
-
-									<div class="mtforms-sidebar-divider" style="margin: 14px 0;"></div>
-
 									<a href="https://github.com/tariqsmd/mtforms/issues" target="_blank" rel="noopener noreferrer" class="support-action-card">
 										<span class="dashicons dashicons-warning"></span>
 										<div>
