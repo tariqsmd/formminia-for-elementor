@@ -206,25 +206,21 @@ class SubmissionRepository
 
 		$this->ensure_table();
 
-		$query = "SELECT COUNT(*) FROM {$this->table_name}";
-		$params = [];
-
-		if (!empty($search)) {
-			$query .= " WHERE (name LIKE %s OR email LIKE %s OR subject LIKE %s OR message LIKE %s)";
-			$search_term = '%' . $wpdb->esc_like($search) . '%';
-			$params[] = $search_term;
-			$params[] = $search_term;
-			$params[] = $search_term;
-			$params[] = $search_term;
+		if (empty($search)) {
+			return (int) $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}mtforms_submissions");
 		}
 
-		if (!empty($params)) {
-			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Query is fully prepared below; only the table name is interpolated.
-			return (int) $wpdb->get_var($wpdb->prepare($query, $params));
-		}
+		$search_term = '%' . $wpdb->esc_like($search) . '%';
 
-		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Static command; no user-supplied values; only the table name is interpolated.
-		return (int) $wpdb->get_var($query);
+		return (int) $wpdb->get_var(
+			$wpdb->prepare(
+				'SELECT COUNT(*) FROM ' . $wpdb->prefix . 'mtforms_submissions WHERE (name LIKE %s OR email LIKE %s OR subject LIKE %s OR message LIKE %s)',
+				$search_term,
+				$search_term,
+				$search_term,
+				$search_term
+			)
+		);
 	}
 
 	/**

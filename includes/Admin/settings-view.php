@@ -10,6 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// This file is a partial view template included by the controller, so its variables are shared with the calling scope.
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+
 // Active tab is read from the URL to decide which panel renders (display only).
 // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 $active_tab = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : 'general';
@@ -47,6 +50,10 @@ $footer_text      = get_option( 'mtforms_email_footer_text', '' );
 $show_credit      = get_option( 'mtforms_email_show_footer_credit', 'yes' );
 
 $has_elementor = defined( 'ELEMENTOR_VERSION' ) || did_action( 'elementor/loaded' );
+
+// Documentation link to the Cloudflare Turnstile dashboard (not an offloaded asset).
+// phpcs:ignore PluginCheck.CodeAnalysis.Offloading.OffloadedContent
+$turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 ?>
 
 <div class="wrap mtforms-admin-wrap">
@@ -252,7 +259,7 @@ $has_elementor = defined( 'ELEMENTOR_VERSION' ) || did_action( 'elementor/loaded
 									<div>
 										<strong><?php esc_html_e( 'Need Cloudflare Turnstile credentials?', 'mtforms' ); ?></strong>
 										<p><?php esc_html_e( 'Create a new widget in your Cloudflare dashboard under Turnstile -> Add Site (Managed or Non-interactive mode).', 'mtforms' ); ?></p>
-										<a href="https://dash.cloudflare.com/?to=/:account/turnstile" target="_blank" rel="noopener noreferrer" class="external-link">
+										<a href="<?php echo esc_url( $turnstile_docs_url ); ?>" target="_blank" rel="noopener noreferrer" class="external-link">
 											<?php esc_html_e( 'Open Cloudflare Turnstile Dashboard', 'mtforms' ); ?>
 											<span class="dashicons dashicons-external"></span>
 										</a>
@@ -530,7 +537,7 @@ $has_elementor = defined( 'ELEMENTOR_VERSION' ) || did_action( 'elementor/loaded
 
 										<!-- Body -->
 										<div class="email-mock-body" style="color: <?php echo esc_attr( $text_color ); ?>;">
-											<p class="mock-intro"><?php printf( esc_html__( 'You received a new inquiry from %s:', 'mtforms' ), '<strong>' . esc_html( get_bloginfo( 'name' ) ) . '</strong>' ); ?></p>
+											<p class="mock-intro"><?php printf( /* translators: %s: website name. */ esc_html__( 'You received a new inquiry from %s:', 'mtforms' ), '<strong>' . esc_html( get_bloginfo( 'name' ) ) . '</strong>' ); ?></p>
 
 											<div class="mock-field-row">
 												<span class="mock-label"><?php esc_html_e( 'NAME', 'mtforms' ); ?></span>
@@ -552,7 +559,7 @@ $has_elementor = defined( 'ELEMENTOR_VERSION' ) || did_action( 'elementor/loaded
 
 										<!-- Footer -->
 										<div class="email-mock-footer">
-											<p id="emailMockFooterText"><?php echo ! empty( $footer_text ) ? esc_html( $footer_text ) : esc_html__( 'Submitted via ' . get_bloginfo( 'name' ), 'mtforms' ); ?></p>
+											<p id="emailMockFooterText"><?php echo ! empty( $footer_text ) ? esc_html( $footer_text ) : sprintf( /* translators: %s: website name. */ esc_html__( 'Submitted via %s', 'mtforms' ), esc_html( get_bloginfo( 'name' ) ) ); ?></p>
 											<span>&copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
 										</div>
 									</div>

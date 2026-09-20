@@ -69,18 +69,23 @@ gulp.task('zip', function () {
         '!gulpfile.js',
         '!package.json',
         '!package-lock.json',
+        '!composer.json',
+        '!README.md',
         '!.gitignore',
         '!.git/**',
         '!.git',
         '!.vscode/**',
         '!.vscode',
-        '!mtforms.zip'
+        '!dist/**',
+        '!dist',
+        '!assets/**/*.scss',
+        '!**/*.map'
     ])
         .pipe(zip('mtforms.zip'))
-        .pipe(gulp.dest('.'));
+        .pipe(gulp.dest('dist'));
 });
 
-// Prepare an upload-ready copy of the plugin (excludes dev/build files)
+// Prepare an upload-ready zip of the plugin (excludes dev/build files)
 gulp.task('dist', function () {
     return gulp.src([
         '**',
@@ -96,12 +101,12 @@ gulp.task('dist', function () {
         '!.git',
         '!.vscode/**',
         '!.vscode',
-        '!mtforms.zip',
         '!dist/**',
         '!dist',
         '!assets/**/*.scss',
         '!**/*.map'
     ])
+        .pipe(zip('mtforms.zip'))
         .pipe(gulp.dest('dist'));
 });
 
