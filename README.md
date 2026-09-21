@@ -12,7 +12,7 @@ A modern, feature-rich contact form plugin for WordPress and Elementor. Multiple
 
 1. Upload the `mt-elementor-forms` folder to `/wp-content/plugins/`, or install through the WordPress admin Plugins screen.
 2. Activate the plugin, then open **MT Elementor Forms** in the admin menu to configure global settings (CAPTCHA provider, email template, recipients).
-3. Edit any page with Elementor, search for the **MT Elementor Forms** widget, and drag it to the content area.
+3. Edit any page with Elementor, search for the **MT Contact Form** widget, and drag it to the content area.
 
 ## Architecture
 
