@@ -141,3 +141,7 @@ Thumbs.db
 
 # Build artifacts
 *.zip
+
+# Composer (metadata kept in composer.json; autoload handled by bootstrap.php)
+vendor/
+composer.lock
