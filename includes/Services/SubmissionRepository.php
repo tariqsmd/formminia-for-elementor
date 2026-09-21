@@ -1,6 +1,6 @@
 <?php
 
-namespace MTForms\Services;
+namespace MTEF\Services;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * This repository is the sanctioned database access layer for the custom
- * mtforms_submissions table, so direct $wpdb usage is deliberate.
+ * mtef_submissions table, so direct $wpdb usage is deliberate.
  */
 // phpcs:disable WordPress.DB.DirectDatabaseQuery
 
@@ -37,7 +37,7 @@ class SubmissionRepository
 	public function __construct()
 	{
 		global $wpdb;
-		$this->table_name = $wpdb->prefix . 'mtforms_submissions';
+		$this->table_name = $wpdb->prefix . 'mtef_submissions';
 	}
 
 	/**
@@ -56,13 +56,13 @@ class SubmissionRepository
 		}
 		self::$table_verified = true;
 
-		if (get_option('mtforms_submissions_table_ready') === '1') {
+		if (get_option('mtef_submissions_table_ready') === '1') {
 			return;
 		}
 
 		$exists = $wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $this->table_name));
 		if ($exists) {
-			update_option('mtforms_submissions_table_ready', '1');
+			update_option('mtef_submissions_table_ready', '1');
 			return;
 		}
 
@@ -91,7 +91,7 @@ class SubmissionRepository
 
 		$exists = $wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $this->table_name));
 		if ($exists) {
-			update_option('mtforms_submissions_table_ready', '1');
+			update_option('mtef_submissions_table_ready', '1');
 		}
 	}
 
@@ -116,7 +116,7 @@ class SubmissionRepository
 			'website'    => $submission->website,
 			'subject'    => $submission->subject,
 			'message'    => $submission->message,
-			'form_id'    => isset($submission->raw['mtforms_form_id']) ? sanitize_text_field($submission->raw['mtforms_form_id']) : '',
+			'form_id'    => isset($submission->raw['mtef_form_id']) ? sanitize_text_field($submission->raw['mtef_form_id']) : '',
 			'ip_address' => isset($meta['ip_address']) ? sanitize_text_field($meta['ip_address']) : '',
 			'user_agent' => isset($meta['user_agent']) ? sanitize_textarea_field($meta['user_agent']) : '',
 		];
@@ -138,7 +138,7 @@ class SubmissionRepository
 		if (false === $result) {
 			if (defined('WP_DEBUG') && WP_DEBUG) {
 				// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- Debug-only diagnostics behind WP_DEBUG.
-				error_log('[MTForms] Submission insert failed (table: ' . $this->table_name . '): ' . $wpdb->last_error);
+				error_log('[MT Elementor Forms] Submission insert failed (table: ' . $this->table_name . '): ' . $wpdb->last_error);
 			}
 
 			return false;
@@ -207,14 +207,14 @@ class SubmissionRepository
 		$this->ensure_table();
 
 		if (empty($search)) {
-			return (int) $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}mtforms_submissions");
+			return (int) $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}mtef_submissions");
 		}
 
 		$search_term = '%' . $wpdb->esc_like($search) . '%';
 
 		return (int) $wpdb->get_var(
 			$wpdb->prepare(
-				'SELECT COUNT(*) FROM ' . $wpdb->prefix . 'mtforms_submissions WHERE (name LIKE %s OR email LIKE %s OR subject LIKE %s OR message LIKE %s)',
+				'SELECT COUNT(*) FROM ' . $wpdb->prefix . 'mtef_submissions WHERE (name LIKE %s OR email LIKE %s OR subject LIKE %s OR message LIKE %s)',
 				$search_term,
 				$search_term,
 				$search_term,

@@ -1,16 +1,16 @@
 <?php
 
-namespace MTForms\Integrations\Elementor;
+namespace MTEF\Integrations\Elementor;
 
-use MTForms\Integrations\Elementor\WidgetControls\ContentControls;
-use MTForms\Integrations\Elementor\WidgetControls\StyleControls;
+use MTEF\Integrations\Elementor\WidgetControls\ContentControls;
+use MTEF\Integrations\Elementor\WidgetControls\StyleControls;
 
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
 /**
- * Elementor Widget Class - MT Contact Form
+ * Elementor Widget Class - MT Elementor Forms
  *
  * Comprehensive contact form widget with extensive customization options.
  *
@@ -25,43 +25,43 @@ class Widget extends \Elementor\Widget_Base
 		parent::__construct($data, $args);
 
 		wp_register_style(
-			'mtforms',
-			MTFORMS_PLUGIN_URL . 'assets/css/mtforms.min.css',
+			'mtef',
+			MTEF_PLUGIN_URL . 'assets/css/mtef.min.css',
 			[],
-			MTFORMS_VERSION
+			MTEF_VERSION
 		);
 
 		wp_register_script(
-			'mtforms',
-			MTFORMS_PLUGIN_URL . 'assets/js/mtforms.js',
-			['elementor-frontend', 'mtforms-just-validate'],
-			MTFORMS_VERSION,
+			'mtef',
+			MTEF_PLUGIN_URL . 'assets/js/mtef.js',
+			['elementor-frontend', 'mtef-just-validate'],
+			MTEF_VERSION,
 			true
 		);
 
 		wp_localize_script(
-			'mtforms',
-			'mtforms_ajax',
+			'mtef',
+			'mtef_ajax',
 			array(
 				'ajax_url' => admin_url('admin-ajax.php'),
-				'nonce' => wp_create_nonce('mtforms-submit-form'),
+				'nonce' => wp_create_nonce('mtef-submit-form'),
 				'i18n' => array(
-					'name_required' => esc_html__('Name is required', 'mtforms'),
-					'name_min' => esc_html__('Name must be at least 2 characters', 'mtforms'),
-					'email_required' => esc_html__('Email is required', 'mtforms'),
-					'email_invalid' => esc_html__('Email is invalid', 'mtforms'),
-					'phone_required' => esc_html__('Phone number is required', 'mtforms'),
-					'phone_invalid' => esc_html__('Please enter a valid phone number', 'mtforms'),
-					'website_required' => esc_html__('Website URL is required', 'mtforms'),
-					'website_invalid' => esc_html__('Please enter a valid URL', 'mtforms'),
-					'subject_required' => esc_html__('Subject is required', 'mtforms'),
-					'message_required' => esc_html__('Message is required', 'mtforms'),
-					'gdpr_required' => esc_html__('You must agree to the terms', 'mtforms'),
-					'sending' => esc_html__('Sending...', 'mtforms'),
-					'send_message' => esc_html__('Send Message', 'mtforms'),
-					'error_generic' => esc_html__('An unexpected error occurred. Please try again.', 'mtforms'),
+					'name_required' => esc_html__('Name is required', 'mt-elementor-forms'),
+					'name_min' => esc_html__('Name must be at least 2 characters', 'mt-elementor-forms'),
+					'email_required' => esc_html__('Email is required', 'mt-elementor-forms'),
+					'email_invalid' => esc_html__('Email is invalid', 'mt-elementor-forms'),
+					'phone_required' => esc_html__('Phone number is required', 'mt-elementor-forms'),
+					'phone_invalid' => esc_html__('Please enter a valid phone number', 'mt-elementor-forms'),
+					'website_required' => esc_html__('Website URL is required', 'mt-elementor-forms'),
+					'website_invalid' => esc_html__('Please enter a valid URL', 'mt-elementor-forms'),
+					'subject_required' => esc_html__('Subject is required', 'mt-elementor-forms'),
+					'message_required' => esc_html__('Message is required', 'mt-elementor-forms'),
+					'gdpr_required' => esc_html__('You must agree to the terms', 'mt-elementor-forms'),
+					'sending' => esc_html__('Sending...', 'mt-elementor-forms'),
+					'send_message' => esc_html__('Send Message', 'mt-elementor-forms'),
+					'error_generic' => esc_html__('An unexpected error occurred. Please try again.', 'mt-elementor-forms'),
 				),
-				'captcha_provider' => get_option('mtforms_captcha_provider', 'none'),
+				'captcha_provider' => get_option('mtef_captcha_provider', 'none'),
 			)
 		);
 
@@ -74,7 +74,7 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function get_name()
 	{
-		return 'mtforms';
+		return 'mtef';
 	}
 
 	/**
@@ -84,7 +84,7 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function get_title()
 	{
-		return esc_html__('MT Contact Form', 'mtforms');
+		return esc_html__('MT Elementor Forms', 'mt-elementor-forms');
 	}
 
 	/**
@@ -104,7 +104,7 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function get_categories()
 	{
-		return ['mtforms'];
+		return ['mtef'];
 	}
 
 	/**
@@ -124,7 +124,7 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function get_style_depends()
 	{
-		return ['mtforms'];
+		return ['mtef'];
 	}
 
 	/**
@@ -134,7 +134,7 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function get_script_depends()
 	{
-		return ['mtforms'];
+		return ['mtef'];
 	}
 
 	/**

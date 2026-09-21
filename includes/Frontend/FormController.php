@@ -1,20 +1,20 @@
 <?php
 
-namespace MTForms\Frontend;
+namespace MTEF\Frontend;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use MTForms\Services\Captcha\CaptchaVerifierInterface;
-use MTForms\Services\FormSubmission;
-use MTForms\Services\FormValidator;
-use MTForms\Services\Email\SubmissionMailer;
-use MTForms\Services\ElementorWidgetSettings;
-use MTForms\Services\SubmissionRepository;
+use MTEF\Services\Captcha\CaptchaVerifierInterface;
+use MTEF\Services\FormSubmission;
+use MTEF\Services\FormValidator;
+use MTEF\Services\Email\SubmissionMailer;
+use MTEF\Services\ElementorWidgetSettings;
+use MTEF\Services\SubmissionRepository;
 
 /**
- * Public-facing form controller for MTForms.
+ * Public-facing form controller for MT Elementor Forms.
  *
  * Handles:
  * - Asset registration/enqueueing.
@@ -74,12 +74,12 @@ class FormController
 	{
 		// Allow overriding JustValidate source to a self-hosted file.
 		$just_validate_src = apply_filters(
-			'mtforms_just_validate_src',
-			MTFORMS_PLUGIN_URL . 'assets/js/just-validate.min.js'
+			'mtef_just_validate_src',
+			MTEF_PLUGIN_URL . 'assets/js/just-validate.min.js'
 		);
 
 		wp_register_script(
-			'mtforms-just-validate',
+			'mtef-just-validate',
 			$just_validate_src,
 			array(),
 			'4.3.0',
@@ -87,15 +87,15 @@ class FormController
 		);
 
 		// Register Captcha scripts (will be enqueued on-demand by the Elementor widget)
-		$captcha_provider = get_option('mtforms_captcha_provider', 'none');
+		$captcha_provider = get_option('mtef_captcha_provider', 'none');
 		if ($captcha_provider === 'recaptcha') {
-			$site_key = get_option('mtforms_recaptcha_site_key');
+			$site_key = get_option('mtef_recaptcha_site_key');
 			if (!empty($site_key)) {
 				// phpcs:ignore PluginCheck.CodeAnalysis.EnqueuedResourceOffloading.OffloadedContent -- Captcha scripts must be served by the provider's CDN.
 				wp_register_script('google-recaptcha', 'https://www.google.com/recaptcha/api.js', array(), null, true);
 			}
 		} elseif ($captcha_provider === 'turnstile') {
-			$site_key = get_option('mtforms_turnstile_site_key');
+			$site_key = get_option('mtef_turnstile_site_key');
 			if (!empty($site_key)) {
 				// phpcs:ignore PluginCheck.CodeAnalysis.EnqueuedResourceOffloading.OffloadedContent -- Captcha scripts must be served by the provider's CDN.
 				wp_register_script('cloudflare-turnstile', 'https://challenges.cloudflare.com/turnstile/v0/api.js', array(), null, true);
@@ -117,19 +117,19 @@ class FormController
 	public function handle_form_submission()
 	{
 		// Verify nonce.
-		if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'mtforms-submit-form')) {
+		if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'mtef-submit-form')) {
 			wp_send_json_error(
 				array(
-					'message' => esc_html__('Security check failed.', 'mtforms'),
+					'message' => esc_html__('Security check failed.', 'mt-elementor-forms'),
 				)
 			);
 		}
 
 		// Simple honeypot field to prevent basic spam bots.
-		if (!empty($_POST['mtforms_hp'])) {
+		if (!empty($_POST['mtef_hp'])) {
 			wp_send_json_error(
 				array(
-					'message' => esc_html__('Spam detected. Please try again.', 'mtforms'),
+					'message' => esc_html__('Spam detected. Please try again.', 'mt-elementor-forms'),
 				)
 			);
 		}
@@ -137,13 +137,13 @@ class FormController
 		// Basic IP-based rate limiting.
 		$ip_address = isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'])) : '';
 		if ($ip_address) {
-			$key = 'mtforms_rate_' . md5($ip_address);
+			$key = 'mtef_rate_' . md5($ip_address);
 			$count = (int) get_transient($key);
 
 			if ($count >= 10) {
 				wp_send_json_error(
 					array(
-						'message' => esc_html__('Too many submissions from this IP. Please try again later.', 'mtforms'),
+						'message' => esc_html__('Too many submissions from this IP. Please try again later.', 'mt-elementor-forms'),
 					)
 				);
 			}
@@ -151,7 +151,9 @@ class FormController
 			set_transient($key, $count + 1, 5 * MINUTE_IN_SECONDS);
 		}
 
-		$data = $_POST; // phpcs:ignore WordPress.Security.NonceVerification.Missing
+		// Nonce verified above; each value is sanitized by FormSubmission and
+		// the captcha verifiers. Unslash here so raw values are never slashed.
+		$data = wp_unslash( $_POST ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
 		$submission = FormSubmission::from_post_array($data);
 		$validation = $this->validator->validate($submission);
 
@@ -166,8 +168,8 @@ class FormController
 		// Only verify CAPTCHA when the submitting widget actually has
 		// "Show CAPTCHA" enabled. The setting is read from the saved
 		// Elementor document data, never from client input.
-		$widget_id = isset($data['mtforms_form_id']) ? sanitize_text_field(wp_unslash($data['mtforms_form_id'])) : '';
-		$post_id = isset($data['mtforms_post_id']) ? absint($data['mtforms_post_id']) : 0;
+		$widget_id = isset($data['mtef_form_id']) ? sanitize_text_field(wp_unslash($data['mtef_form_id'])) : '';
+		$post_id = isset($data['mtef_post_id']) ? absint($data['mtef_post_id']) : 0;
 		$widget_settings = (new ElementorWidgetSettings())->get($widget_id, $post_id);
 		$show_captcha = isset($widget_settings['show_captcha']) && $widget_settings['show_captcha'] === 'yes';
 
@@ -204,14 +206,14 @@ class FormController
 
 			wp_send_json_success(
 				array(
-					'message' => esc_html__('Message sent successfully!', 'mtforms'),
+					'message' => esc_html__('Message sent successfully!', 'mt-elementor-forms'),
 				)
 			);
 		}
 
 		wp_send_json_error(
 			array(
-				'message' => esc_html__('Failed to send message. Please try again.', 'mtforms'),
+				'message' => esc_html__('Failed to send message. Please try again.', 'mt-elementor-forms'),
 			)
 		);
 	}

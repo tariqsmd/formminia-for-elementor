@@ -1,13 +1,13 @@
 <?php
 
-namespace MTForms\Services;
+namespace MTEF\Services;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * Server-side validator for MTForms submissions.
+ * Server-side validator for MT Elementor Forms submissions.
  */
 class FormValidator {
 
@@ -21,11 +21,11 @@ class FormValidator {
 	public function validate(FormSubmission $submission)
 	{
 		/**
-		 * Allow custom validation before MTForms runs its own rules.
+		 * Allow custom validation before MT Elementor Forms runs its own rules.
 		 *
 		 * Return a \WP_Error to short-circuit validation.
 		 */
-		$pre = apply_filters('mtforms_before_validate_submission', null, $submission);
+		$pre = apply_filters('mtef_before_validate_submission', null, $submission);
 		if ($pre instanceof \WP_Error) {
 			return $pre;
 		}
@@ -37,45 +37,45 @@ class FormValidator {
 		foreach ($required_fields as $field) {
 			$value = '';
 			switch ($field) {
-				case 'mtforms_name':
+				case 'mtef_name':
 					$value = $submission->name;
 					break;
-				case 'mtforms_email':
+				case 'mtef_email':
 					$value = $submission->email;
 					break;
-				case 'mtforms_phone':
+				case 'mtef_phone':
 					$value = $submission->phone;
 					break;
-				case 'mtforms_website':
+				case 'mtef_website':
 					$value = $submission->website;
 					break;
-				case 'mtforms_subject':
+				case 'mtef_subject':
 					$value = $submission->subject;
 					break;
-				case 'mtforms_message':
+				case 'mtef_message':
 					$value = $submission->message;
 					break;
-				case 'mtforms_gdpr':
+				case 'mtef_gdpr':
 					if (!$submission->gdpr_accepted) {
-						return new \WP_Error('mtforms_gdpr_required', esc_html__('You must agree to the terms', 'mtforms'));
+						return new \WP_Error('mtef_gdpr_required', esc_html__('You must agree to the terms', 'mt-elementor-forms'));
 					}
 					continue 2;
 			}
 
 			if (empty($value)) {
-				return new \WP_Error('mtforms_required', esc_html__('Please fill in all required fields.', 'mtforms'));
+				return new \WP_Error('mtef_required', esc_html__('Please fill in all required fields.', 'mt-elementor-forms'));
 			}
 		}
 
 		// Ensure at least one actual field has data (sanity check)
 		$all_fields = [$submission->name, $submission->email, $submission->phone, $submission->website, $submission->subject, $submission->message];
 		if (empty(array_filter($all_fields))) {
-			return new \WP_Error('mtforms_empty', esc_html__('Please fill in at least one field.', 'mtforms'));
+			return new \WP_Error('mtef_empty', esc_html__('Please fill in at least one field.', 'mt-elementor-forms'));
 		}
 
 		// Email format validation (only if email is provided or required)
 		if (!empty($submission->email) && !is_email($submission->email)) {
-			return new \WP_Error('mtforms_invalid_email', esc_html__('Invalid email address.', 'mtforms'));
+			return new \WP_Error('mtef_invalid_email', esc_html__('Invalid email address.', 'mt-elementor-forms'));
 		}
 
 		/**
@@ -83,7 +83,7 @@ class FormValidator {
 		 *
 		 * Return a \WP_Error to make the submission invalid.
 		 */
-		$post = apply_filters('mtforms_after_validate_submission', null, $submission);
+		$post = apply_filters('mtef_after_validate_submission', null, $submission);
 		if ($post instanceof \WP_Error) {
 			return $post;
 		}
@@ -104,14 +104,14 @@ class FormValidator {
 	 */
 	protected function resolve_required_fields(FormSubmission $submission)
 	{
-		$widget_id = isset($submission->raw['mtforms_form_id']) ? sanitize_text_field(wp_unslash($submission->raw['mtforms_form_id'])) : '';
-		$post_id = isset($submission->raw['mtforms_post_id']) ? absint($submission->raw['mtforms_post_id']) : 0;
+		$widget_id = isset($submission->raw['mtef_form_id']) ? sanitize_text_field(wp_unslash($submission->raw['mtef_form_id'])) : '';
+		$post_id = isset($submission->raw['mtef_post_id']) ? absint($submission->raw['mtef_post_id']) : 0;
 
 		$settings = (new ElementorWidgetSettings())->get($widget_id, $post_id);
 
 		if (empty($settings)) {
 			// Widget could not be resolved; fall back to the client-declared list.
-			return isset($submission->raw['mtforms_required_fields']) ? explode(',', sanitize_text_field(wp_unslash($submission->raw['mtforms_required_fields']))) : [];
+			return isset($submission->raw['mtef_required_fields']) ? explode(',', sanitize_text_field(wp_unslash($submission->raw['mtef_required_fields']))) : [];
 		}
 
 		$show_defaults = array(
@@ -139,13 +139,13 @@ class FormValidator {
 			$required = isset($settings['required_' . $field]) ? $settings['required_' . $field] : $required_defaults[$field];
 
 			if ($show === 'yes' && $required === 'yes') {
-				$required_fields[] = 'mtforms_' . $field;
+				$required_fields[] = 'mtef_' . $field;
 			}
 		}
 
 		$show_gdpr = isset($settings['show_gdpr']) ? $settings['show_gdpr'] : 'no';
 		if ($show_gdpr === 'yes') {
-			$required_fields[] = 'mtforms_gdpr';
+			$required_fields[] = 'mtef_gdpr';
 		}
 
 		return $required_fields;

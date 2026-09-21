@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       MTForms
- * Plugin URI:        https://wordpress.org/plugins/mtforms/
+ * Plugin Name:       MT Elementor Forms
+ * Plugin URI:        https://wordpress.org/plugins/mt-elementor-forms/
  * Description:       A modern, feature-rich contact form plugin with multiple skins, layouts, GDPR support, and Elementor integration.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Muhammad Tariq
  * Author URI:        https://profiles.wordpress.org/mtariqsmd/
  * License:           GPLv2 or later
@@ -11,7 +11,7 @@
  * Requires at least: 5.8
  * Requires PHP:      7.0
  * Requires Plugins:  elementor
- * Text Domain:       mtforms
+ * Text Domain:       mt-elementor-forms
  * Domain Path:       /languages
  */
 
@@ -23,28 +23,28 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Plugin Constants
  */
-define( 'MTFORMS_VERSION', '1.0.0' );
-define( 'MTFORMS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-define( 'MTFORMS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'MTEF_VERSION', '1.0.1' );
+define( 'MTEF_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'MTEF_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 /**
  * The code that runs during plugin activation.
  */
-function mtforms_activate() {
-	\MTForms\Core\Activator::activate();
+function mtef_activate() {
+	\MTEF\Core\Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  */
-function mtforms_deactivate() {
-	\MTForms\Core\Deactivator::deactivate();
+function mtef_deactivate() {
+	\MTEF\Core\Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'mtforms_activate' );
-register_deactivation_hook( __FILE__, 'mtforms_deactivate' );
+register_activation_hook( __FILE__, 'mtef_activate' );
+register_deactivation_hook( __FILE__, 'mtef_deactivate' );
 
-require MTFORMS_PLUGIN_DIR . 'includes/Core/bootstrap.php';
+require MTEF_PLUGIN_DIR . 'includes/Core/bootstrap.php';
 
 /**
  * Begins execution of the plugin.
@@ -55,9 +55,9 @@ require MTFORMS_PLUGIN_DIR . 'includes/Core/bootstrap.php';
  *
  * @since    1.0.0
  */
-function mtforms_run() {
-	$plugin = \MTForms\Core\Plugin::get_instance();
+function mtef_run() {
+	$plugin = \MTEF\Core\Plugin::get_instance();
 	$plugin->run();
 }
 
-mtforms_run();
+mtef_run();

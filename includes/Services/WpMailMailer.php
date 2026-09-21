@@ -1,6 +1,6 @@
 <?php
 
-namespace MTForms\Services;
+namespace MTEF\Services;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -34,7 +34,7 @@ class WpMailMailer {
 		 * }
 		 */
 		$args = apply_filters(
-			'mtforms_email_args',
+			'mtef_email_args',
 			array(
 				'to'      => $to,
 				'subject' => $subject,

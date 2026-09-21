@@ -1,6 +1,6 @@
 <?php
 
-namespace MTForms\Admin;
+namespace MTEF\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -10,10 +10,10 @@ if (!class_exists('WP_List_Table')) {
 	require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
 }
 
-use MTForms\Services\SubmissionRepository;
+use MTEF\Services\SubmissionRepository;
 
 /**
- * List Table class for MTForms submissions.
+ * List Table class for MT Elementor Forms submissions.
  */
 class SubmissionsTable extends \WP_List_Table
 {
@@ -23,8 +23,8 @@ class SubmissionsTable extends \WP_List_Table
 	public function __construct()
 	{
 		parent::__construct([
-			'singular' => __('Submission', 'mtforms'),
-			'plural'   => __('Submissions', 'mtforms'),
+			'singular' => __('Submission', 'mt-elementor-forms'),
+			'plural'   => __('Submissions', 'mt-elementor-forms'),
 			'ajax'     => false,
 		]);
 
@@ -35,11 +35,11 @@ class SubmissionsTable extends \WP_List_Table
 	{
 		return [
 			'cb'         => '<input type="checkbox" />',
-			'name'       => __('Name', 'mtforms'),
-			'email'      => __('Email', 'mtforms'),
-			'subject'    => __('Subject', 'mtforms'),
-			'message'    => __('Message', 'mtforms'),
-			'created_at' => __('Date', 'mtforms'),
+			'name'       => __('Name', 'mt-elementor-forms'),
+			'email'      => __('Email', 'mt-elementor-forms'),
+			'subject'    => __('Subject', 'mt-elementor-forms'),
+			'message'    => __('Message', 'mt-elementor-forms'),
+			'created_at' => __('Date', 'mt-elementor-forms'),
 		];
 	}
 
@@ -79,7 +79,7 @@ protected function column_name($item)
 	{
 		// List-table page slug is read from the URL for building row links only (no state change).
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$page = isset($_REQUEST['page']) ? sanitize_text_field(wp_unslash($_REQUEST['page'])) : 'mtforms';
+		$page = isset($_REQUEST['page']) ? sanitize_text_field(wp_unslash($_REQUEST['page'])) : 'mtef';
 
 		$actions = [
 			'delete' => sprintf(
@@ -87,8 +87,8 @@ protected function column_name($item)
 				esc_attr($page),
 				'delete',
 				absint($item['id']),
-				wp_create_nonce('mtforms_delete_submission'),
-				__('Delete', 'mtforms')
+				wp_create_nonce('mtef_delete_submission'),
+				__('Delete', 'mt-elementor-forms')
 			),
 		];
 
@@ -123,25 +123,25 @@ protected function column_name($item)
 	public function get_bulk_actions()
 	{
 		return [
-			'bulk-delete' => __('Delete', 'mtforms'),
+			'bulk-delete' => __('Delete', 'mt-elementor-forms'),
 		];
 	}
 
 	protected function process_bulk_action()
 	{
 		if (!current_user_can('manage_options')) {
-			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'mtforms'));
+			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'mt-elementor-forms'));
 		}
 
 		if ('delete' === $this->current_action()) {
 			$nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])) : '';
-			if (!wp_verify_nonce($nonce, 'mtforms_delete_submission')) {
-				wp_die(esc_html__('Security check failed.', 'mtforms'));
+			if (!wp_verify_nonce($nonce, 'mtef_delete_submission')) {
+				wp_die(esc_html__('Security check failed.', 'mt-elementor-forms'));
 			}
 
 			if (isset($_GET['submission'])) {
 				$this->repository->delete(absint($_GET['submission']));
-				echo '<div class="updated"><p>' . esc_html__('Submission deleted.', 'mtforms') . '</p></div>';
+				echo '<div class="updated"><p>' . esc_html__('Submission deleted.', 'mt-elementor-forms') . '</p></div>';
 			}
 		}
 
@@ -151,14 +151,14 @@ protected function column_name($item)
 		if (('bulk-delete' === $action || 'bulk-delete' === $action2) && isset($_REQUEST['submission'])) {
 			$nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])) : '';
 			if (!wp_verify_nonce($nonce, 'bulk-submissions')) {
-				wp_die(esc_html__('Security check failed.', 'mtforms'));
+				wp_die(esc_html__('Security check failed.', 'mt-elementor-forms'));
 			}
 
 			$submissions = array_map('absint', (array) $_REQUEST['submission']);
 			foreach ($submissions as $id) {
 				$this->repository->delete($id);
 			}
-			echo '<div class="updated"><p>' . esc_html__('Submissions deleted.', 'mtforms') . '</p></div>';
+			echo '<div class="updated"><p>' . esc_html__('Submissions deleted.', 'mt-elementor-forms') . '</p></div>';
 		}
 	}
 }

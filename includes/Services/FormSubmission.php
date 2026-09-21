@@ -1,6 +1,6 @@
 <?php
 
-namespace MTForms\Services;
+namespace MTEF\Services;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -59,17 +59,40 @@ class FormSubmission
 	public static function from_post_array(array $data)
 	{
 		$instance = new self();
-		$instance->name = isset($data['mtforms_name']) ? sanitize_text_field(wp_unslash($data['mtforms_name'])) : '';
-		$instance->email = isset($data['mtforms_email']) ? sanitize_email(wp_unslash($data['mtforms_email'])) : '';
-		$instance->phone = isset($data['mtforms_phone']) ? sanitize_text_field(wp_unslash($data['mtforms_phone'])) : '';
-		$instance->website = isset($data['mtforms_website']) ? esc_url_raw(wp_unslash($data['mtforms_website'])) : '';
-		$instance->subject = isset($data['mtforms_subject']) ? sanitize_text_field(wp_unslash($data['mtforms_subject'])) : '';
-		$instance->message = isset($data['mtforms_message']) ? sanitize_textarea_field(wp_unslash($data['mtforms_message'])) : '';
-		$instance->gdpr_enabled = isset($data['mtforms_gdpr_enabled']) && sanitize_text_field(wp_unslash($data['mtforms_gdpr_enabled'])) === 'yes';
-		$instance->gdpr_accepted = isset($data['mtforms_gdpr']);
-		$instance->raw = $data;
+		$instance->name = isset($data['mtef_name']) ? sanitize_text_field(wp_unslash($data['mtef_name'])) : '';
+		$instance->email = isset($data['mtef_email']) ? sanitize_email(wp_unslash($data['mtef_email'])) : '';
+		$instance->phone = isset($data['mtef_phone']) ? sanitize_text_field(wp_unslash($data['mtef_phone'])) : '';
+		$instance->website = isset($data['mtef_website']) ? esc_url_raw(wp_unslash($data['mtef_website'])) : '';
+		$instance->subject = isset($data['mtef_subject']) ? sanitize_text_field(wp_unslash($data['mtef_subject'])) : '';
+		$instance->message = isset($data['mtef_message']) ? sanitize_textarea_field(wp_unslash($data['mtef_message'])) : '';
+		$instance->gdpr_enabled = isset($data['mtef_gdpr_enabled']) && sanitize_text_field(wp_unslash($data['mtef_gdpr_enabled'])) === 'yes';
+		$instance->gdpr_accepted = isset($data['mtef_gdpr']);
+		// The raw payload is sanitized recursively so it is safe to expose to
+		// logging and extension hooks. Keys are preserved as-is; only values
+		// are cleaned.
+		$instance->raw = self::sanitize_payload($data);
 
 		return $instance;
+	}
+
+	/**
+	 * Recursively sanitize a request payload before storing/exposing it.
+	 *
+	 * @param mixed $value Value to sanitize.
+	 *
+	 * @return mixed
+	 */
+	private static function sanitize_payload($value)
+	{
+		if (is_array($value)) {
+			return array_map(array(__CLASS__, 'sanitize_payload'), $value);
+		}
+
+		if (is_scalar($value) || $value === null) {
+			return sanitize_text_field(wp_unslash((string) $value));
+		}
+
+		return $value;
 	}
 }
 

@@ -1,5 +1,5 @@
 {
-  "name": "muhammadtariq/mtforms",
+  "name": "muhammadtariq/mt-elementor-forms",
   "description": "A modern, feature-rich contact form plugin with multiple skins, layouts, GDPR support, and Elementor integration.",
   "type": "wordpress-plugin",
   "license": "GPL-2.0-or-later",
@@ -13,7 +13,7 @@
   },
   "autoload": {
     "psr-4": {
-      "MTForms\\": "includes/"
+      "MTEF\\": "includes/"
     }
   },
   "config": {

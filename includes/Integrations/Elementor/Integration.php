@@ -1,13 +1,13 @@
 <?php
 
-namespace MTForms\Integrations\Elementor;
+namespace MTEF\Integrations\Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * Namespaced Elementor integration for MTForms.
+ * Namespaced Elementor integration for MT Elementor Forms.
  */
 class Integration {
 
@@ -17,22 +17,22 @@ class Integration {
 	}
 
 	/**
-	 * Register the MTForms Elementor category.
+	 * Register the MT Elementor Forms Elementor category.
 	 *
 	 * @param \Elementor\Elements_Manager $elements_manager Elements manager.
 	 */
 	public function register_categories( $elements_manager ) {
 		$elements_manager->add_category(
-			'mtforms',
+			'mtef',
 			array(
-				'title' => esc_html__( 'MTForms', 'mtforms' ),
+				'title' => esc_html__( 'MT Elementor Forms', 'mt-elementor-forms' ),
 				'icon'  => 'eicon-form-horizontal',
 			)
 		);
 	}
 
 	/**
-	 * Register MTForms Elementor widget.
+	 * Register MT Elementor Forms Elementor widget.
 	 *
 	 * @param \Elementor\Widgets_Manager $widgets_manager Widgets manager.
 	 */

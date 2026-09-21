@@ -28,17 +28,17 @@ if ($settings['show_gdpr_icons'] === 'yes') {
 }
 
 // Add class if GDPR icons are enabled
-$gdpr_group_classes = array( 'mtforms-form-group', 'mtforms-gdpr-group' );
+$gdpr_group_classes = array( 'mtef-form-group', 'mtef-gdpr-group' );
 if ( $show_input_icon ) {
-	$gdpr_group_classes[] = 'mtforms-gdpr-has-icon';
+	$gdpr_group_classes[] = 'mtef-gdpr-has-icon';
 }
 
 if ( $settings['show_gdpr'] === 'yes' ): ?>
     <div class="<?php echo esc_attr( implode( ' ', $gdpr_group_classes ) ); ?>">
         <?php if ( $settings['show_labels'] === 'yes' ): ?>
-            <label class="mtforms-gdpr-heading" for="gdpr-<?php echo esc_attr( $widget_id ); ?>">
+            <label class="mtef-gdpr-heading" for="gdpr-<?php echo esc_attr( $widget_id ); ?>">
                 <?php if ($show_label_icon && $icon_position === 'before'): ?>
-                    <span class="mtforms-icon mtforms-label-icon">
+                    <span class="mtef-icon mtef-label-icon">
                         <?php
                         $gdpr_icon = $settings['icon_gdpr'] ?? [];
                         if (!empty($gdpr_icon['value'])) {
@@ -50,12 +50,12 @@ if ( $settings['show_gdpr'] === 'yes' ): ?>
                     </span>
                 <?php endif; ?>
 
-                <span class="mtforms-label-text">
+                <span class="mtef-label-text">
                     <?php echo esc_html( $settings['gdpr_label'] ); ?>
                 </span>
 
                 <?php if ($show_label_icon && $icon_position === 'after'): ?>
-                    <span class="mtforms-icon mtforms-label-icon">
+                    <span class="mtef-icon mtef-label-icon">
                         <?php
                         $gdpr_icon = $settings['icon_gdpr'] ?? [];
                         if (!empty($gdpr_icon['value'])) {
@@ -68,10 +68,10 @@ if ( $settings['show_gdpr'] === 'yes' ): ?>
                 <?php endif; ?>
             </label>
         <?php endif; ?>
-        <label class="mtforms-checkbox-label">
+        <label class="mtef-checkbox-label">
             <!-- Icon before checkbox -->
             <?php if ( $show_input_icon ): ?>
-                <span class="mtforms-icon mtforms-gdpr-icon">
+                <span class="mtef-icon mtef-gdpr-icon">
                     <?php
                     $gdpr_icon = $settings['icon_gdpr'] ?? [];
                     if (!empty($gdpr_icon['value'])) {
@@ -83,12 +83,12 @@ if ( $settings['show_gdpr'] === 'yes' ): ?>
                 </span>
             <?php endif; ?>
 
-            <input type="checkbox" name="mtforms_gdpr" class="mtforms-checkbox" id="gdpr-<?php echo esc_attr( $widget_id ); ?>" required>
-            <span class="mtforms-checkbox-custom"></span>
-            <span class="mtforms-checkbox-text">
+            <input type="checkbox" name="mtef_gdpr" class="mtef-checkbox" id="gdpr-<?php echo esc_attr( $widget_id ); ?>" required>
+            <span class="mtef-checkbox-custom"></span>
+            <span class="mtef-checkbox-text">
                 <?php echo wp_kses_post( $settings['gdpr_text'] ); ?>
             </span>
         </label>
-        <input type="hidden" name="mtforms_gdpr_enabled" value="yes">
+        <input type="hidden" name="mtef_gdpr_enabled" value="yes">
     </div>
 <?php endif;

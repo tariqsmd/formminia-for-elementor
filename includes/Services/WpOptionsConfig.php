@@ -1,13 +1,13 @@
 <?php
 
-namespace MTForms\Services;
+namespace MTEF\Services;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * Small wrapper around WordPress options for MTForms.
+ * Small wrapper around WordPress options for MT Elementor Forms.
  */
 class WpOptionsConfig {
 

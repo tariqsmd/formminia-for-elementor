@@ -1,7 +1,7 @@
 {
-  "name": "mtforms",
-  "version": "1.0.0",
-  "description": "A comprehensive contact form plugin for WordPress with MTForms branding.",
+  "name": "mt-elementor-forms",
+  "version": "1.0.1",
+  "description": "A comprehensive contact form plugin for WordPress with MT Elementor Forms branding.",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
 /**
- * HTML Email Template for MTForms
+ * HTML Email Template for MT Elementor Forms
  *
  * Available variables (set by SubmissionMailer::build_body):
  *   $fields    array   Label => value pairs.
@@ -20,13 +20,13 @@ $date = isset($date) ? $date : current_time('mysql');
 $site_name = isset($site_name) ? $site_name : get_bloginfo('name');
 
 // Branding pulled from admin options.
-$accent_color = get_option('mtforms_email_accent_color', '#6366f1');
-$bg_color = get_option('mtforms_email_bg_color', '#f4f7f6');
-$content_bg = get_option('mtforms_email_content_bg_color', '#ffffff');
-$text_color = get_option('mtforms_email_text_color', '#1e293b');
-$logo_url = get_option('mtforms_email_logo_url', '');
-$footer_text = get_option('mtforms_email_footer_text', '');
-$show_credit = get_option('mtforms_email_show_footer_credit', 'yes') === 'yes';
+$accent_color = get_option('mtef_email_accent_color', '#6366f1');
+$bg_color = get_option('mtef_email_bg_color', '#f4f7f6');
+$content_bg = get_option('mtef_email_content_bg_color', '#ffffff');
+$text_color = get_option('mtef_email_text_color', '#1e293b');
+$logo_url = get_option('mtef_email_logo_url', '');
+$footer_text = get_option('mtef_email_footer_text', '');
+$show_credit = get_option('mtef_email_show_footer_credit', 'yes') === 'yes';
 
 // Sanitize.
 $accent_color = sanitize_hex_color($accent_color) ?: '#6366f1';
@@ -73,7 +73,7 @@ $footer_text = wp_kses_post($footer_text);
 <body style="margin:0; padding:0; background-color:<?php echo esc_attr( $bg_color ); ?>; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     <!-- Preview text (hidden) -->
     <div style="display:none; max-height:0; overflow:hidden;">
-        <?php echo esc_html($site_name); ?> - <?php esc_html_e('New Form Submission', 'mtforms'); ?>
+        <?php echo esc_html($site_name); ?> - <?php esc_html_e('New Form Submission', 'mt-elementor-forms'); ?>
     </div>
 
     <!-- Wrapper -->
@@ -95,7 +95,7 @@ $footer_text = wp_kses_post($footer_text);
                                 <img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php echo esc_attr($site_name); ?>" width="150" height="50" style="display:block; margin:0 auto 14px; max-height:50px; width:auto; height:auto;">
                             <?php endif; ?>
                             <h1 style="margin:0; font-size:22px; font-weight:700; color:#fff; letter-spacing:0.3px;">
-                                <?php esc_html_e('New Form Submission', 'mtforms'); ?>
+                                <?php esc_html_e('New Form Submission', 'mt-elementor-forms'); ?>
                             </h1>
                         </td>
                     </tr>
@@ -107,7 +107,7 @@ $footer_text = wp_kses_post($footer_text);
                                 <?php
                                 printf(
                                     /* translators: %s: name of the website the submission was sent from. */
-                                    esc_html__('You received a new message from %s.', 'mtforms'),
+                                    esc_html__('You received a new message from %s.', 'mt-elementor-forms'),
                                     '<strong>' . esc_html($site_name) . '</strong>'
                                 ); ?>
                             </p>
@@ -138,7 +138,7 @@ $footer_text = wp_kses_post($footer_text);
                                     <?php
                                     printf(
                                         /* translators: 1: date the form was submitted, 2: website name. */
-                                        esc_html__('Submitted on %1$s via %2$s', 'mtforms'),
+                                        esc_html__('Submitted on %1$s via %2$s', 'mt-elementor-forms'),
                                         esc_html($date),
                                         esc_html($site_name)
                                     ); ?>

@@ -1,13 +1,13 @@
 
 /**
- * MTForms Elementor Widget Handler
+ * MT Elementor Forms Elementor Widget Handler
  *
- * This class handles the frontend functionality of the MTForms widget,
+ * This class handles the frontend functionality of the MT Elementor Forms widget,
  * including validation with JustValidate, AJAX submission, and UI animations.
  *
  * @since 1.0.0
  */
-class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
+class MTEFWidgetHandler extends elementorModules.frontend.handlers.Base {
 
     /**
      * Define default settings and selectors
@@ -16,14 +16,14 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
         const widgetId = this.getID();
         return {
             selectors: {
-                form: '.mtforms-form',
-                container: '.mtforms-container',
-                submitBtn: '.mtforms-submit-btn',
-                submitBtnText: '.mtforms-btn-text',
-                responseMsg: '.mtforms-response-message',
-                formGroup: '.mtforms-form-group',
-                floatingInput: '.mtforms-layout-floating .mtforms-input, .mtforms-layout-floating .mtforms-textarea, .mtforms-layout-material .mtforms-input, .mtforms-layout-material .mtforms-textarea',
-                checkbox: '.mtforms-checkbox-label input[type="checkbox"]'
+                form: '.mtef-form',
+                container: '.mtef-container',
+                submitBtn: '.mtef-submit-btn',
+                submitBtnText: '.mtef-btn-text',
+                responseMsg: '.mtef-response-message',
+                formGroup: '.mtef-form-group',
+                floatingInput: '.mtef-layout-floating .mtef-input, .mtef-layout-floating .mtef-textarea, .mtef-layout-material .mtef-input, .mtef-layout-material .mtef-textarea',
+                checkbox: '.mtef-checkbox-label input[type="checkbox"]'
             }
         };
     }
@@ -66,7 +66,7 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
      */
     initConfig() {
         const settings = this.getElementSettings();
-        const globalConfig = typeof mtforms_ajax !== 'undefined' ? mtforms_ajax : { i18n: {} };
+        const globalConfig = typeof mtef_ajax !== 'undefined' ? mtef_ajax : { i18n: {} };
         const globalI18n = globalConfig.i18n || {};
 
         this.config = {
@@ -146,7 +146,7 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
      */
     initValidation() {
         const $form = this.elements.$form;
-        const formId = $form.attr('id') || `mtforms-form-${this.getID()}`;
+        const formId = $form.attr('id') || `mtef-form-${this.getID()}`;
 
         // Ensure unique ID for JustValidate
         if (!$form.attr('id')) {
@@ -178,25 +178,25 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
         const i18n = this.config.i18n;
 
         const fieldConfigs = {
-            mtforms_name: {
+            mtef_name: {
                 required: i18n.name_required,
                 rules: [{ rule: 'minLength', value: 2, errorMessage: i18n.name_min }]
             },
-            mtforms_email: {
+            mtef_email: {
                 required: i18n.email_required,
                 rules: [{ rule: 'email', errorMessage: i18n.email_invalid }]
             },
-            mtforms_phone: {
+            mtef_phone: {
                 required: i18n.phone_required,
                 rules: [{ rule: 'customRegexp', value: /^[\d\s\-\+\(\)]*$/, errorMessage: i18n.phone_invalid }]
             },
-            mtforms_website: {
+            mtef_website: {
                 required: i18n.website_required,
                 rules: [{ rule: 'customRegexp', value: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/, errorMessage: i18n.website_invalid }]
             },
-            mtforms_subject: { required: i18n.subject_required },
-            mtforms_message: { required: i18n.message_required },
-            mtforms_gdpr: { required: i18n.gdpr_required }
+            mtef_subject: { required: i18n.subject_required },
+            mtef_message: { required: i18n.message_required },
+            mtef_gdpr: { required: i18n.gdpr_required }
         };
 
         Object.keys(fieldConfigs).forEach(fieldName => {
@@ -205,7 +205,7 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
                 const config = fieldConfigs[fieldName];
                 const rules = [];
 
-                if ($field.prop('required') || fieldName === 'mtforms_gdpr') {
+                if ($field.prop('required') || fieldName === 'mtef_gdpr') {
                     rules.push({ rule: 'required', errorMessage: config.required });
                 }
 
@@ -254,7 +254,7 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
 
         // 3. Construct Data
         const formData = new FormData(elements.$form[0]);
-        formData.append('action', 'mtforms_submit_form');
+        formData.append('action', 'mtef_submit_form');
         formData.append('nonce', this.config.nonce);
 
         // 4. Send Request
@@ -345,7 +345,7 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
         }
 
         $responseMsg.addClass('error').html(this.config.i18n.error_generic).fadeIn();
-        console.error('MTForms Submission Error:', error);
+        console.error('MT Elementor Forms Submission Error:', error);
     }
 
     /**
@@ -420,9 +420,9 @@ class MTFormsWidgetHandler extends elementorModules.frontend.handlers.Base {
 }
 
 jQuery(window).on('elementor/frontend/init', () => {
-    const handleMTFormsWidget = ($element) => {
-        elementorFrontend.elementsHandler.addHandler(MTFormsWidgetHandler, { $element });
+    const handleMT Elementor FormsWidget = ($element) => {
+        elementorFrontend.elementsHandler.addHandler(MTEFWidgetHandler, { $element });
     };
 
-    elementorFrontend.hooks.addAction('frontend/element_ready/mtforms.default', handleMTFormsWidget);
+    elementorFrontend.hooks.addAction('frontend/element_ready/mtef.default', handleMT Elementor FormsWidget);
 });

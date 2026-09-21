@@ -1,6 +1,6 @@
 <?php
 
-namespace MTForms\Services;
+namespace MTEF\Services;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -38,7 +38,7 @@ class ElementorWidgetSettings {
 			return array();
 		}
 
-		$cache_key = 'mtforms_widget_settings_' . md5( $widget_id );
+		$cache_key = 'mtef_widget_settings_' . md5( $widget_id );
 		$cached = wp_cache_get( $cache_key );
 
 		if ( false !== $cached ) {

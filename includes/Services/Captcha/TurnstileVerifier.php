@@ -1,12 +1,12 @@
 <?php
 
-namespace MTForms\Services\Captcha;
+namespace MTEF\Services\Captcha;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use MTForms\Services\FormSubmission;
+use MTEF\Services\FormSubmission;
 
 /**
  * Cloudflare Turnstile verifier.
@@ -33,15 +33,15 @@ class TurnstileVerifier implements CaptchaVerifierInterface {
 
 		if ( $this->secret_key === '' ) {
 			return new \WP_Error(
-				'mtforms_turnstile_config',
-				esc_html__( 'Captcha is not configured correctly.', 'mtforms' )
+				'mtef_turnstile_config',
+				esc_html__( 'Captcha is not configured correctly.', 'mt-elementor-forms' )
 			);
 		}
 
 		if ( $response === '' ) {
 			return new \WP_Error(
-				'mtforms_turnstile_missing',
-				esc_html__( 'Please complete the Captcha.', 'mtforms' )
+				'mtef_turnstile_missing',
+				esc_html__( 'Please complete the Captcha.', 'mt-elementor-forms' )
 			);
 		}
 
@@ -60,11 +60,11 @@ class TurnstileVerifier implements CaptchaVerifierInterface {
 			/**
 			 * Fires when Turnstile verification fails due to HTTP error.
 			 */
-			do_action( 'mtforms_captcha_error', $remote, 'turnstile' );
+			do_action( 'mtef_captcha_error', $remote, 'turnstile' );
 
 			return new \WP_Error(
-				'mtforms_turnstile_http_error',
-				esc_html__( 'Captcha verification request failed.', 'mtforms' )
+				'mtef_turnstile_http_error',
+				esc_html__( 'Captcha verification request failed.', 'mt-elementor-forms' )
 			);
 		}
 
@@ -73,8 +73,8 @@ class TurnstileVerifier implements CaptchaVerifierInterface {
 
 		if ( ! isset( $result->success ) || ! $result->success ) {
 			return new \WP_Error(
-				'mtforms_turnstile_invalid',
-				esc_html__( 'Captcha verification failed.', 'mtforms' )
+				'mtef_turnstile_invalid',
+				esc_html__( 'Captcha verification failed.', 'mt-elementor-forms' )
 			);
 		}
 

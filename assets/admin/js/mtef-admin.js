@@ -15,13 +15,13 @@
             }
         };
 
-        $('.mtforms-color-picker').wpColorPicker(colorPickerOptions);
+        $('.mtef-color-picker').wpColorPicker(colorPickerOptions);
 
         function syncPreviewFromPickers() {
-            var accent  = $('#mtforms_email_accent_color').val();
-            var bg      = $('#mtforms_email_bg_color').val();
-            var content = $('#mtforms_email_content_bg_color').val();
-            var text    = $('#mtforms_email_text_color').val();
+            var accent  = $('#mtef_email_accent_color').val();
+            var bg      = $('#mtef_email_bg_color').val();
+            var content = $('#mtef_email_content_bg_color').val();
+            var text    = $('#mtef_email_text_color').val();
 
             if (accent)  { $('#emailMockHeader').css('background-color', accent); }
             if (bg)      { $('#emailPreviewCanvas').css('background-color', bg); }
@@ -54,10 +54,10 @@
                 }
             }
 
-            setColor($('#mtforms_email_accent_color'),       accent);
-            setColor($('#mtforms_email_bg_color'),           bg);
-            setColor($('#mtforms_email_content_bg_color'),   content);
-            setColor($('#mtforms_email_text_color'),         text);
+            setColor($('#mtef_email_accent_color'),       accent);
+            setColor($('#mtef_email_bg_color'),           bg);
+            setColor($('#mtef_email_content_bg_color'),   content);
+            setColor($('#mtef_email_text_color'),         text);
 
             // Sync the live preview immediately
             if (accent)  { $('#emailMockHeader').css('background-color', accent); }
@@ -71,18 +71,18 @@
         });
 
         // Subject field → live preview
-        $('#mtforms_email_subject').on('input', function () {
+        $('#mtef_email_subject').on('input', function () {
             $('#emailMockSubjectPreview').text($(this).val());
         });
 
         // Footer text → live preview
-        $('#mtforms_email_footer_text').on('input', function () {
+        $('#mtef_email_footer_text').on('input', function () {
             var val = $(this).val().trim();
-            $('#emailMockFooterText').text(val || 'Submitted via ' + (window._mtformsSiteName || ''));
+            $('#emailMockFooterText').text(val || 'Submitted via ' + (window._mtefSiteName || ''));
         });
 
         // Logo URL → live preview
-        $('#mtforms_email_logo_url').on('input', function () {
+        $('#mtef_email_logo_url').on('input', function () {
             var url = $(this).val().trim();
             if (url) {
                 $('#emailMockLogo').attr('src', url);
@@ -95,14 +95,14 @@
         // ──────────────────────────────────────────────────────────────
         // 3. Media Library Uploader for Logo
         // ──────────────────────────────────────────────────────────────
-        $(document).on('click', '.mtforms-media-upload-btn', function (e) {
+        $(document).on('click', '.mtef-media-upload-btn', function (e) {
             e.preventDefault();
             var $button  = $(this);
-            var $wrapper = $button.closest('.mtforms-card, .logo-uploader-group').length
-                ? $button.closest('.mtforms-card, .logo-uploader-group')
+            var $wrapper = $button.closest('.mtef-card, .logo-uploader-group').length
+                ? $button.closest('.mtef-card, .logo-uploader-group')
                 : $button.closest('section');
-            var $urlInp  = $('#mtforms_email_logo_url');
-            var $remove  = $wrapper.find('.mtforms-media-remove-btn');
+            var $urlInp  = $('#mtef_email_logo_url');
+            var $remove  = $wrapper.find('.mtef-media-remove-btn');
 
             var custom_uploader = wp.media({
                 title:    'Select Logo',
@@ -115,9 +115,9 @@
             }).open();
         });
 
-        $(document).on('click', '.mtforms-media-remove-btn', function (e) {
+        $(document).on('click', '.mtef-media-remove-btn', function (e) {
             e.preventDefault();
-            $('#mtforms_email_logo_url').val('').trigger('input');
+            $('#mtef_email_logo_url').val('').trigger('input');
             $(this).hide();
         });
 
@@ -150,10 +150,10 @@
             $card.addClass('is-selected');
 
             // Sync hidden select
-            $('#mtforms_captcha_provider').val(provider);
+            $('#mtef_captcha_provider').val(provider);
 
             // Show/hide credential panels
-            $('.mtforms-credentials-panel').hide();
+            $('.mtef-credentials-panel').hide();
             if (provider === 'recaptcha') {
                 $('.recaptcha-fields').fadeIn(200);
             } else if (provider === 'turnstile') {
@@ -162,11 +162,11 @@
         });
 
         // Also handle the hidden select (for any native change)
-        $('#mtforms_captcha_provider').on('change', function () {
+        $('#mtef_captcha_provider').on('change', function () {
             var provider = $(this).val();
             $('.provider-card').removeClass('is-selected');
             $('.provider-card[data-provider="' + provider + '"]').addClass('is-selected');
-            $('.mtforms-credentials-panel').hide();
+            $('.mtef-credentials-panel').hide();
             if (provider === 'recaptcha') {
                 $('.recaptcha-fields').fadeIn(200);
             } else if (provider === 'turnstile') {

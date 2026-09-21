@@ -1,17 +1,17 @@
 <?php
 
-namespace MTForms\Admin;
+namespace MTEF\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use MTForms\Admin\SubmissionsTable;
+use MTEF\Admin\SubmissionsTable;
 
 /**
- * Admin settings page for MTForms.
+ * Admin settings page for MT Elementor Forms.
  *
- * Modern, namespaced counterpart to the legacy MTForms_Admin class.
+ * Modern, namespaced counterpart to the legacy MTEF_Admin class.
  */
 class SettingsPage
 {
@@ -39,13 +39,13 @@ class SettingsPage
 	 */
 	public function enqueue_styles($hook)
 	{
-		if ('toplevel_page_mtforms' !== $hook && 'mtforms_page_mtforms-submissions' !== $hook) {
+		if ('toplevel_page_mtef' !== $hook && 'mtef_page_mtef-submissions' !== $hook) {
 			return;
 		}
 
 		wp_enqueue_style(
 			$this->plugin_name,
-			MTFORMS_PLUGIN_URL . 'assets/admin/css/mtforms-admin.min.css',
+			MTEF_PLUGIN_URL . 'assets/admin/css/mtef-admin.min.css',
 			array(),
 			$this->version,
 			'all'
@@ -61,7 +61,7 @@ class SettingsPage
 	 */
 	public function enqueue_scripts($hook)
 	{
-		if ('toplevel_page_mtforms' !== $hook && 'mtforms_page_mtforms-submissions' !== $hook) {
+		if ('toplevel_page_mtef' !== $hook && 'mtef_page_mtef-submissions' !== $hook) {
 			return;
 		}
 
@@ -69,7 +69,7 @@ class SettingsPage
 
 		wp_enqueue_script(
 			$this->plugin_name,
-			MTFORMS_PLUGIN_URL . 'assets/admin/js/mtforms-admin.js',
+			MTEF_PLUGIN_URL . 'assets/admin/js/mtef-admin.js',
 			array('jquery', 'wp-color-picker'),
 			$this->version,
 			true
@@ -82,30 +82,30 @@ class SettingsPage
 	public function add_admin_menu()
 	{
 		add_menu_page(
-			__('MTForms', 'mtforms'),
-			__('MTForms', 'mtforms'),
+			__('MT Elementor Forms', 'mt-elementor-forms'),
+			__('MT Elementor Forms', 'mt-elementor-forms'),
 			'manage_options',
-			'mtforms',
+			'mtef',
 			array($this, 'display_plugin_setup_page'),
 			'dashicons-email',
 			79
 		);
 
 		add_submenu_page(
-			'mtforms',
-			__('Settings', 'mtforms'),
-			__('Settings', 'mtforms'),
+			'mtef',
+			__('Settings', 'mt-elementor-forms'),
+			__('Settings', 'mt-elementor-forms'),
 			'manage_options',
-			'mtforms',
+			'mtef',
 			array($this, 'display_plugin_setup_page')
 		);
 
 		add_submenu_page(
-			'mtforms',
-			__('Submissions', 'mtforms'),
-			__('Submissions', 'mtforms'),
+			'mtef',
+			__('Submissions', 'mt-elementor-forms'),
+			__('Submissions', 'mt-elementor-forms'),
 			'manage_options',
-			'mtforms-submissions',
+			'mtef-submissions',
 			array($this, 'display_submissions_page')
 		);
 	}
@@ -119,17 +119,17 @@ class SettingsPage
 		$table->prepare_items();
 		?>
 		<div class="wrap">
-			<h1 class="wp-heading-inline"><?php esc_html_e('MTForms Submissions', 'mtforms'); ?></h1>
-			<a href="<?php echo esc_url(wp_nonce_url(add_query_arg('action', 'export_csv'), 'mtforms_export_csv')); ?>" class="page-title-action"><?php esc_html_e('Export to CSV', 'mtforms'); ?></a>
+			<h1 class="wp-heading-inline"><?php esc_html_e('MT Elementor Forms Submissions', 'mt-elementor-forms'); ?></h1>
+			<a href="<?php echo esc_url(wp_nonce_url(add_query_arg('action', 'export_csv'), 'mtef_export_csv')); ?>" class="page-title-action"><?php esc_html_e('Export to CSV', 'mt-elementor-forms'); ?></a>
 			<hr class="wp-header-end">
 
 			<form method="post">
 				<?php wp_nonce_field('bulk-submissions'); ?>
 				<!-- Page slug echo only; no state change. -->
 				<?php // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- The form carries its own nonce; this read is for a hidden field only. ?>
-				<input type="hidden" name="page" value="<?php echo isset($_REQUEST['page']) ? esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))) : 'mtforms-submissions'; ?>" />
+				<input type="hidden" name="page" value="<?php echo isset($_REQUEST['page']) ? esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))) : 'mtef-submissions'; ?>" />
 				<?php
-				$table->search_box(esc_html__('Search Submissions', 'mtforms'), 'submission');
+				$table->search_box(esc_html__('Search Submissions', 'mt-elementor-forms'), 'submission');
 				$table->display();
 				?>
 			</form>
@@ -145,7 +145,7 @@ class SettingsPage
 	 */
 	public function maybe_handle_export_csv()
 	{
-		if (!isset($_GET['page']) || 'mtforms-submissions' !== $_GET['page']) {
+		if (!isset($_GET['page']) || 'mtef-submissions' !== $_GET['page']) {
 			return;
 		}
 
@@ -154,11 +154,11 @@ class SettingsPage
 		}
 
 		if (!current_user_can('manage_options')) {
-			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'mtforms'));
+			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'mt-elementor-forms'));
 		}
 
-		if (!isset($_GET['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_wpnonce'])), 'mtforms_export_csv')) {
-			wp_die(esc_html__('Security check failed.', 'mtforms'));
+		if (!isset($_GET['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_wpnonce'])), 'mtef_export_csv')) {
+			wp_die(esc_html__('Security check failed.', 'mt-elementor-forms'));
 		}
 
 		$this->handle_export_csv();
@@ -188,8 +188,8 @@ class SettingsPage
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CONTENT_BG_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_TEXT_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_SHOW_FOOTER_CREDIT, ['sanitize_callback' => 'sanitize_text_field']);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CC, ['sanitize_callback' => 'MTForms\Admin\SettingsPage::sanitize_email_list']);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BCC, ['sanitize_callback' => 'MTForms\Admin\SettingsPage::sanitize_email_list']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CC, ['sanitize_callback' => 'MTEF\Admin\SettingsPage::sanitize_email_list']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BCC, ['sanitize_callback' => 'MTEF\Admin\SettingsPage::sanitize_email_list']);
 	}
 
 	/**
@@ -217,12 +217,12 @@ class SettingsPage
 	/**
 	 * Show an admin notice when the Elementor dependency is inactive.
 	 *
-	 * Displayed only on MTForms admin screens.
+	 * Displayed only on MT Elementor Forms admin screens.
 	 */
 	public function maybe_display_elementor_notice()
 	{
 		$screen = function_exists('get_current_screen') ? get_current_screen() : null;
-		if (!$screen || strpos((string) $screen->id, 'mtforms') === false) {
+		if (!$screen || strpos((string) $screen->id, 'mtef') === false) {
 			return;
 		}
 
@@ -230,7 +230,7 @@ class SettingsPage
 			return;
 		}
 
-		echo '<div class="notice notice-warning is-dismissible"><p>' . esc_html__('MTForms requires the Elementor plugin to build forms. Install and activate Elementor to get started.', 'mtforms') . '</p></div>';
+		echo '<div class="notice notice-warning is-dismissible"><p>' . esc_html__('MT Elementor Forms requires the Elementor plugin to build forms. Install and activate Elementor to get started.', 'mt-elementor-forms') . '</p></div>';
 	}
 
 	/**
@@ -238,7 +238,7 @@ class SettingsPage
 	 */
 	public function display_plugin_setup_page()
 	{
-		$path = MTFORMS_PLUGIN_DIR . 'includes/Admin/settings-view.php';
+		$path = MTEF_PLUGIN_DIR . 'includes/Admin/settings-view.php';
 		if (file_exists($path)) {
 			include_once $path;
 		}
@@ -250,17 +250,17 @@ class SettingsPage
 	protected function handle_export_csv()
 	{
 		if (!current_user_can('manage_options')) {
-			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'mtforms'));
+			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'mt-elementor-forms'));
 		}
 
-		$repository = new \MTForms\Services\SubmissionRepository();
+		$repository = new \MTEF\Services\SubmissionRepository();
 		$submissions = $repository->get_submissions(1000, 0); // Export last 1000 submissions
 
 		if (empty($submissions)) {
 			return;
 		}
 
-		$filename = 'mtforms-submissions-' . wp_date('Y-m-d') . '.csv';
+		$filename = 'mtef-submissions-' . wp_date('Y-m-d') . '.csv';
 
 		header('Content-Type: text/csv; charset=utf-8');
 		header('Content-Disposition: attachment; filename=' . $filename);
@@ -269,16 +269,16 @@ class SettingsPage
 
 		// Header row.
 		fputcsv($output, [
-			__('ID', 'mtforms'),
-			__('Name', 'mtforms'),
-			__('Email', 'mtforms'),
-			__('Phone', 'mtforms'),
-			__('Website', 'mtforms'),
-			__('Subject', 'mtforms'),
-			__('Message', 'mtforms'),
-			__('Form ID', 'mtforms'),
-			__('IP Address', 'mtforms'),
-			__('Date', 'mtforms'),
+			__('ID', 'mt-elementor-forms'),
+			__('Name', 'mt-elementor-forms'),
+			__('Email', 'mt-elementor-forms'),
+			__('Phone', 'mt-elementor-forms'),
+			__('Website', 'mt-elementor-forms'),
+			__('Subject', 'mt-elementor-forms'),
+			__('Message', 'mt-elementor-forms'),
+			__('Form ID', 'mt-elementor-forms'),
+			__('IP Address', 'mt-elementor-forms'),
+			__('Date', 'mt-elementor-forms'),
 		]);
 
 		foreach ($submissions as $submission) {

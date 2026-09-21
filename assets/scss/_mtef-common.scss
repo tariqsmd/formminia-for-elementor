@@ -1,33 +1,33 @@
-.mtforms {
+.mtef {
 
   &-form-wrapper {
     width: 100%;
     margin: 0 auto;
-    padding: var(--mtforms-form-padding);
-    background-color: var(--mtforms-bg);
-    border-radius: var(--mtforms-radius);
-    box-shadow: var(--mtforms-shadow);
-    color: var(--mtforms-text);
-    accent-color: var(--mtforms-primary);
+    padding: var(--mtef-form-padding);
+    background-color: var(--mtef-bg);
+    border-radius: var(--mtef-radius);
+    box-shadow: var(--mtef-shadow);
+    color: var(--mtef-text);
+    accent-color: var(--mtef-primary);
 
     .just-validate-error-label {
       margin-top: 4px;
       font-size: 12px;
       font-weight: 500;
-      color: var(--mtforms-error) !important;
-      animation: mtforms-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      color: var(--mtef-error) !important;
+      animation: mtef-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
     }
   }
 
   &-form-inner {
     display: flex;
     flex-direction: column;
-    gap: var(--mtforms-inner-gap);
+    gap: var(--mtef-inner-gap);
     transition: opacity 0.3s ease;
   }
 
   &-form.submitting {
-    .mtforms-form-inner {
+    .mtef-form-inner {
       opacity: 0.8;
       pointer-events: none;
     }
@@ -35,27 +35,27 @@
 
   &-fields-wrapper {
     display: grid;
-    grid-template-columns: repeat(var(--mtforms-columns, 1), 1fr);
+    grid-template-columns: repeat(var(--mtef-columns, 1), 1fr);
     width: 100%;
-    gap: var(--mtforms-inner-gap, 1.5rem);
+    gap: var(--mtef-inner-gap, 1.5rem);
   }
 
   &-form-title {
     margin: 0 0 1rem;
     line-height: 1.2;
-    color: var(--mtforms-title-color);
-    font-size: var(--mtforms-title-size);
-    font-weight: var(--mtforms-title-weight);
-    text-transform: var(--mtforms-title-transform);
-    letter-spacing: var(--mtforms-title-spacing);
+    color: var(--mtef-title-color);
+    font-size: var(--mtef-title-size);
+    font-weight: var(--mtef-title-weight);
+    text-transform: var(--mtef-title-transform);
+    letter-spacing: var(--mtef-title-spacing);
   }
 
   &-form-group {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: var(--mtforms-icon-spacing, 0.75rem);
-    margin-bottom: var(--mtforms-inner-gap, 1.5rem);
+    gap: var(--mtef-icon-spacing, 0.75rem);
+    margin-bottom: var(--mtef-inner-gap, 1.5rem);
     width: 100%;
     position: relative;
 
@@ -68,14 +68,14 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: var(--mtforms-label-size);
-      font-weight: var(--mtforms-label-weight);
-      color: var(--mtforms-label-color);
-      text-transform: var(--mtforms-label-transform);
-      letter-spacing: var(--mtforms-label-spacing);
+      font-size: var(--mtef-label-size);
+      font-weight: var(--mtef-label-weight);
+      color: var(--mtef-label-color);
+      text-transform: var(--mtef-label-transform);
+      letter-spacing: var(--mtef-label-spacing);
 
       .required {
-        color: var(--mtforms-error);
+        color: var(--mtef-error);
       }
     }
 
@@ -83,15 +83,15 @@
       margin-top: 4px;
       font-size: 12px;
       font-weight: 500;
-      color: var(--mtforms-error) !important;
-      animation: mtforms-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      color: var(--mtef-error) !important;
+      animation: mtef-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
     }
   }
 
   &-field-inner {
     display: flex;
     flex-direction: column;
-    gap: var(--mtforms-group-gap);
+    gap: var(--mtef-group-gap);
     flex: 1;
     position: relative;
     min-width: 0;
@@ -101,10 +101,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--mtforms-icon-size);
-    width: var(--mtforms-icon-size);
-    height: var(--mtforms-icon-size);
-    color: var(--mtforms-primary);
+    font-size: var(--mtef-icon-size);
+    width: var(--mtef-icon-size);
+    height: var(--mtef-icon-size);
+    color: var(--mtef-primary);
     flex-shrink: 0;
 
     svg {
@@ -127,8 +127,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: var(--mtforms-icon-size, 1.25rem);
-    width: var(--mtforms-icon-size, 1.25rem);
+    height: var(--mtef-icon-size, 1.25rem);
+    width: var(--mtef-icon-size, 1.25rem);
   }
 
   &-input-wrap {
@@ -137,7 +137,7 @@
     flex-direction: column;
     gap: .2rem;
 
-    .mtforms-input-icon {
+    .mtef-input-icon {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -150,8 +150,8 @@
       }
     }
 
-    .mtforms-input,
-    .mtforms-textarea {
+    .mtef-input,
+    .mtef-textarea {
       flex: 1;
       width: 100%;
     }
@@ -160,34 +160,34 @@
   &-input,
   &-textarea {
     width: 100%;
-    padding: var(--mtforms-field-padding);
-    font-size: var(--mtforms-input-size);
+    padding: var(--mtef-field-padding);
+    font-size: var(--mtef-input-size);
     font-family: inherit;
     outline: none;
-    transition: var(--mtforms-transition);
-    border: var(--mtforms-field-border-width) solid var(--mtforms-input-border);
-    background-color: var(--mtforms-input-bg);
-    color: var(--mtforms-input-color);
-    border-radius: var(--mtforms-field-radius);
+    transition: var(--mtef-transition);
+    border: var(--mtef-field-border-width) solid var(--mtef-input-border);
+    background-color: var(--mtef-input-bg);
+    color: var(--mtef-input-color);
+    border-radius: var(--mtef-field-radius);
 
     &::placeholder {
-      color: var(--mtforms-placeholder);
+      color: var(--mtef-placeholder);
       opacity: 0.8;
     }
 
     &:hover {
-      border-color: var(--mtforms-primary);
+      border-color: var(--mtef-primary);
     }
 
     &:focus {
-      border-color: var(--mtforms-input-focus-border);
-      background-color: var(--mtforms-input-focus-bg);
-      color: var(--mtforms-input-focus-color);
-      box-shadow: var(--mtforms-input-focus-shadow);
+      border-color: var(--mtef-input-focus-border);
+      background-color: var(--mtef-input-focus-bg);
+      color: var(--mtef-input-focus-color);
+      box-shadow: var(--mtef-input-focus-shadow);
     }
 
     &.just-validate-error-field {
-      border-color: var(--mtforms-error) !important;
+      border-color: var(--mtef-error) !important;
       background-color: rgba(239, 68, 68, 0.02);
     }
   }
@@ -202,12 +202,12 @@
     flex-direction: column;
     align-items: flex-start;
 
-    .mtforms-gdpr-heading {
+    .mtef-gdpr-heading {
       display: flex;
       align-items: center;
-      font-size: var(--mtforms-label-size);
-      font-weight: var(--mtforms-label-weight);
-      color: var(--mtforms-label-color);
+      font-size: var(--mtef-label-size);
+      font-weight: var(--mtef-label-weight);
+      color: var(--mtef-label-color);
     }
 
     label {
@@ -218,7 +218,7 @@
       cursor: pointer;
     }
 
-    .mtforms-gdpr-icon {
+    .mtef-gdpr-icon {
       margin-top: 0.14rem;
     }
 
@@ -233,9 +233,9 @@
     height: 0;
     width: 0;
 
-    &:checked~.mtforms-checkbox-custom {
-      background-color: var(--mtforms-primary);
-      border-color: var(--mtforms-primary);
+    &:checked~.mtef-checkbox-custom {
+      background-color: var(--mtef-primary);
+      border-color: var(--mtef-primary);
 
       &::after {
         display: block;
@@ -249,10 +249,10 @@
     height: 20px;
     width: 20px;
     margin-top: 2px;
-    border: 2px solid var(--mtforms-input-border);
-    background-color: var(--mtforms-input-bg);
+    border: 2px solid var(--mtef-input-border);
+    background-color: var(--mtef-input-bg);
     border-radius: 4px;
-    transition: var(--mtforms-transition);
+    transition: var(--mtef-transition);
 
     &::after {
       content: "";
@@ -272,23 +272,23 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--mtforms-btn-gap);
+    gap: var(--mtef-btn-gap);
     width: fit-content;
-    padding: var(--mtforms-btn-padding);
-    font-size: var(--mtforms-btn-size);
-    font-weight: var(--mtforms-btn-weight);
-    text-transform: var(--mtforms-btn-transform);
-    letter-spacing: var(--mtforms-btn-spacing);
+    padding: var(--mtef-btn-padding);
+    font-size: var(--mtef-btn-size);
+    font-weight: var(--mtef-btn-weight);
+    text-transform: var(--mtef-btn-transform);
+    letter-spacing: var(--mtef-btn-spacing);
     cursor: pointer;
-    transition: var(--mtforms-transition);
+    transition: var(--mtef-transition);
     border: 1px solid transparent;
-    background-color: var(--mtforms-btn-bg);
-    color: var(--mtforms-btn-color);
-    border-radius: var(--mtforms-btn-radius);
+    background-color: var(--mtef-btn-bg);
+    color: var(--mtef-btn-color);
+    border-radius: var(--mtef-btn-radius);
 
     &:hover {
-      background-color: var(--mtforms-btn-hover-bg);
-      color: var(--mtforms-btn-hover-color);
+      background-color: var(--mtef-btn-hover-bg);
+      color: var(--mtef-btn-hover-color);
       transform: translateY(-1px);
     }
 
@@ -302,13 +302,13 @@
       pointer-events: none;
       cursor: default;
 
-      .mtforms-btn-text,
-      .mtforms-btn-icon {
+      .mtef-btn-text,
+      .mtef-btn-icon {
         opacity: 0;
         visibility: hidden;
       }
 
-      .mtforms-loader-container {
+      .mtef-loader-container {
         opacity: 1;
         visibility: visible;
         display: flex;
@@ -323,31 +323,31 @@
     }
 
     /* 1. Premium Spinner */
-    &.mtforms-loader-spinner.loading {
-      .mtforms-loader-element:first-child {
+    &.mtef-loader-spinner.loading {
+      .mtef-loader-element:first-child {
         width: 22px;
         height: 22px;
         border: 2px solid rgba(255, 255, 255, 0.3);
         border-radius: 50%;
         border-top-color: #fff;
-        animation: mtforms-spin 0.6s linear infinite;
+        animation: mtef-spin 0.6s linear infinite;
         display: block;
       }
 
-      .mtforms-loader-element:not(:first-child) {
+      .mtef-loader-element:not(:first-child) {
         display: none;
       }
     }
 
     /* 2. Pulsing Dots */
-    &.mtforms-loader-dots.loading {
-      .mtforms-loader-element {
+    &.mtef-loader-dots.loading {
+      .mtef-loader-element {
         width: 8px;
         height: 8px;
         background: #fff;
         border-radius: 50%;
         display: block;
-        animation: mtforms-dots 1.4s infinite ease-in-out both;
+        animation: mtef-dots 1.4s infinite ease-in-out both;
 
         &:nth-child(1) {
           animation-delay: -0.32s;
@@ -360,13 +360,13 @@
     }
 
     /* 3. Bouncing Bars */
-    &.mtforms-loader-bars.loading {
-      .mtforms-loader-element {
+    &.mtef-loader-bars.loading {
+      .mtef-loader-element {
         width: 4px;
         height: 18px;
         background: #fff;
         display: block;
-        animation: mtforms-bars 1.2s infinite ease-in-out;
+        animation: mtef-bars 1.2s infinite ease-in-out;
 
         &:nth-child(1) {
           animation-delay: -1.1s;
@@ -383,34 +383,34 @@
     }
 
     /* 4. Dual Ring */
-    &.mtforms-loader-dual-ring.loading {
-      .mtforms-loader-element:first-child {
+    &.mtef-loader-dual-ring.loading {
+      .mtef-loader-element:first-child {
         display: block;
         width: 24px;
         height: 24px;
         border-radius: 50%;
         border: 2px solid #fff;
         border-color: #fff transparent #fff transparent;
-        animation: mtforms-spin 1.2s linear infinite;
+        animation: mtef-spin 1.2s linear infinite;
       }
 
-      .mtforms-loader-element:not(:first-child) {
+      .mtef-loader-element:not(:first-child) {
         display: none;
       }
     }
 
     /* 5. Growing Circles */
-    &.mtforms-loader-grow.loading {
-      .mtforms-loader-element:first-child {
+    &.mtef-loader-grow.loading {
+      .mtef-loader-element:first-child {
         display: block;
         width: 20px;
         height: 20px;
         background: #fff;
         border-radius: 50%;
-        animation: mtforms-grow 1s infinite ease-in-out;
+        animation: mtef-grow 1s infinite ease-in-out;
       }
 
-      .mtforms-loader-element:not(:first-child) {
+      .mtef-loader-element:not(:first-child) {
         display: none;
       }
     }
@@ -433,7 +433,7 @@
   &-button-full {
     width: 100%;
 
-    .mtforms-submit-btn {
+    .mtef-submit-btn {
       width: 100% !important;
     }
   }
@@ -464,11 +464,11 @@
     font-weight: 700;
 
     &.success {
-      color: var(--mtforms-success);
+      color: var(--mtef-success);
     }
 
     &.error {
-      color: var(--mtforms-error);
+      color: var(--mtef-error);
     }
   }
 }

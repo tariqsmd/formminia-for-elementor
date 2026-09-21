@@ -1,78 +1,78 @@
 :root {
   /* Core Colors */
-  --mtforms-primary: #000;
-  --mtforms-secondary: #4f46e5;
-  --mtforms-bg: #ffffff;
-  --mtforms-text: #0f172a;
-  --mtforms-text-light: #64748b;
-  --mtforms-error: #ef4444;
-  --mtforms-success: #10b981;
+  --mtef-primary: #000;
+  --mtef-secondary: #4f46e5;
+  --mtef-bg: #ffffff;
+  --mtef-text: #0f172a;
+  --mtef-text-light: #64748b;
+  --mtef-error: #ef4444;
+  --mtef-success: #10b981;
 
   
   /* Typography */
-  --mtforms-title-color: var(--mtforms-text);
-  --mtforms-label-color: var(--mtforms-text);
+  --mtef-title-color: var(--mtef-text);
+  --mtef-label-color: var(--mtef-text);
   
   /* Input Fields */
-  --mtforms-input-bg: #f8fafc;
-  --mtforms-input-color: var(--mtforms-text);
-  --mtforms-input-border: #e2e8f0;
-  --mtforms-input-focus-bg: #ffffff;
-  --mtforms-input-focus-color: var(--mtforms-text);
-  --mtforms-input-focus-border: var(--mtforms-primary);
-  --mtforms-input-focus-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-  --mtforms-focus: rgba(99, 102, 241, 0.1);
-  --mtforms-placeholder: #94a3b8;
+  --mtef-input-bg: #f8fafc;
+  --mtef-input-color: var(--mtef-text);
+  --mtef-input-border: #e2e8f0;
+  --mtef-input-focus-bg: #ffffff;
+  --mtef-input-focus-color: var(--mtef-text);
+  --mtef-input-focus-border: var(--mtef-primary);
+  --mtef-input-focus-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  --mtef-focus: rgba(99, 102, 241, 0.1);
+  --mtef-placeholder: #94a3b8;
 
   /* Checkbox */
-  --mtforms-check-bg: var(--mtforms-input-bg);
-  --mtforms-check-border: var(--mtforms-input-border);
-  --mtforms-check-color: var(--mtforms-primary);
-  --mtforms-check-tick: #ffffff;
+  --mtef-check-bg: var(--mtef-input-bg);
+  --mtef-check-border: var(--mtef-input-border);
+  --mtef-check-color: var(--mtef-primary);
+  --mtef-check-tick: #ffffff;
 
   /* Buttons */
-  --mtforms-btn-bg: var(--mtforms-primary);
-  --mtforms-btn-color: #ffffff;
-  --mtforms-btn-hover-bg: var(--mtforms-secondary);
-  --mtforms-btn-hover-color: #ffffff;
-  --mtforms-btn-shadow: none;
-  --mtforms-btn-hover-shadow: none;
+  --mtef-btn-bg: var(--mtef-primary);
+  --mtef-btn-color: #ffffff;
+  --mtef-btn-hover-bg: var(--mtef-secondary);
+  --mtef-btn-hover-color: #ffffff;
+  --mtef-btn-shadow: none;
+  --mtef-btn-hover-shadow: none;
 
   /* Structure */
-  --mtforms-form-padding: 2rem;
-  --mtforms-inner-gap: 1.5rem;
-  --mtforms-group-gap: 0.5rem;
-  --mtforms-radius: 8px;
-  --mtforms-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-  --mtforms-transition: all 0.3s ease;
-  --mtforms-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --mtef-form-padding: 2rem;
+  --mtef-inner-gap: 1.5rem;
+  --mtef-group-gap: 0.5rem;
+  --mtef-radius: 8px;
+  --mtef-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --mtef-transition: all 0.3s ease;
+  --mtef-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Field Typography */
-  --mtforms-title-size: 1.75rem;
-  --mtforms-title-weight: 700;
-  --mtforms-title-transform: none;
-  --mtforms-title-spacing: normal;
-  --mtforms-label-size: 0.95rem;
-  --mtforms-label-weight: 600;
-  --mtforms-label-transform: none;
-  --mtforms-label-spacing: normal;
-  --mtforms-input-size: 1rem;
+  --mtef-title-size: 1.75rem;
+  --mtef-title-weight: 700;
+  --mtef-title-transform: none;
+  --mtef-title-spacing: normal;
+  --mtef-label-size: 0.95rem;
+  --mtef-label-weight: 600;
+  --mtef-label-transform: none;
+  --mtef-label-spacing: normal;
+  --mtef-input-size: 1rem;
 
   /* Field Spacing & Border */
-  --mtforms-field-padding: 0.85rem 1rem;
-  --mtforms-field-border-width: 1px;
-  --mtforms-field-radius: calc(var(--mtforms-radius) * 0.75);
+  --mtef-field-padding: 0.85rem 1rem;
+  --mtef-field-border-width: 1px;
+  --mtef-field-radius: calc(var(--mtef-radius) * 0.75);
 
   /* Button Spacing & Typography */
-  --mtforms-btn-padding: 0.9rem 2.25rem;
-  --mtforms-btn-size: 1rem;
-  --mtforms-btn-weight: 600;
-  --mtforms-btn-transform: none;
-  --mtforms-btn-spacing: normal;
-  --mtforms-btn-radius: var(--mtforms-radius);
-  --mtforms-btn-gap: 0.75rem;
+  --mtef-btn-padding: 0.9rem 2.25rem;
+  --mtef-btn-size: 1rem;
+  --mtef-btn-weight: 600;
+  --mtef-btn-transform: none;
+  --mtef-btn-spacing: normal;
+  --mtef-btn-radius: var(--mtef-radius);
+  --mtef-btn-gap: 0.75rem;
 
   /* Icon Sizing */
-  --mtforms-icon-size: 1.1rem;
-  --mtforms-icon-spacing: 0.5rem;
+  --mtef-icon-size: 1.1rem;
+  --mtef-icon-spacing: 0.5rem;
 }

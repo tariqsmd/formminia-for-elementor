@@ -9,5 +9,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-</div><!-- .mtforms-form-inner -->
-</form></div><!-- .mtforms-form-wrapper -->
+</div><!-- .mtef-form-inner -->
+</form></div><!-- .mtef-form-wrapper -->

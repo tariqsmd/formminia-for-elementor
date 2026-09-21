@@ -1,12 +1,12 @@
 <?php
 
-namespace MTForms\Services\Captcha;
+namespace MTEF\Services\Captcha;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use MTForms\Services\FormSubmission;
+use MTEF\Services\FormSubmission;
 
 /**
  * Google reCAPTCHA v2 verifier.
@@ -33,15 +33,15 @@ class RecaptchaVerifier implements CaptchaVerifierInterface {
 
 		if ( $this->secret_key === '' ) {
 			return new \WP_Error(
-				'mtforms_recaptcha_config',
-				esc_html__( 'reCAPTCHA is not configured correctly.', 'mtforms' )
+				'mtef_recaptcha_config',
+				esc_html__( 'reCAPTCHA is not configured correctly.', 'mt-elementor-forms' )
 			);
 		}
 
 		if ( $response === '' ) {
 			return new \WP_Error(
-				'mtforms_recaptcha_missing',
-				esc_html__( 'Please complete the reCAPTCHA.', 'mtforms' )
+				'mtef_recaptcha_missing',
+				esc_html__( 'Please complete the reCAPTCHA.', 'mt-elementor-forms' )
 			);
 		}
 
@@ -60,11 +60,11 @@ class RecaptchaVerifier implements CaptchaVerifierInterface {
 			/**
 			 * Fires when reCAPTCHA verification fails due to HTTP error.
 			 */
-			do_action( 'mtforms_captcha_error', $remote, 'recaptcha' );
+			do_action( 'mtef_captcha_error', $remote, 'recaptcha' );
 
 			return new \WP_Error(
-				'mtforms_recaptcha_http_error',
-				esc_html__( 'reCAPTCHA verification request failed.', 'mtforms' )
+				'mtef_recaptcha_http_error',
+				esc_html__( 'reCAPTCHA verification request failed.', 'mt-elementor-forms' )
 			);
 		}
 
@@ -73,8 +73,8 @@ class RecaptchaVerifier implements CaptchaVerifierInterface {
 
 		if ( ! isset( $result->success ) || ! $result->success ) {
 			return new \WP_Error(
-				'mtforms_recaptcha_invalid',
-				esc_html__( 'reCAPTCHA verification failed.', 'mtforms' )
+				'mtef_recaptcha_invalid',
+				esc_html__( 'reCAPTCHA verification failed.', 'mt-elementor-forms' )
 			);
 		}
 

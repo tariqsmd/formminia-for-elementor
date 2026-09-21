@@ -1,6 +1,6 @@
 <?php
 
-namespace MTForms\Core;
+namespace MTEF\Core;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Fired during plugin deactivation.
  *
  * @since      1.0.0
- * @package    MTForms
+ * @package    MT Elementor Forms
  * @author     Muhammad Tariq
  */
 class Deactivator {

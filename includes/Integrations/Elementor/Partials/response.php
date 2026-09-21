@@ -9,4 +9,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="mtforms-response-message"></div>
+<div class="mtef-response-message"></div>

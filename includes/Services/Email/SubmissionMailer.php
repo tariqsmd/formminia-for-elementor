@@ -1,15 +1,15 @@
 <?php
 
-namespace MTForms\Services\Email;
+namespace MTEF\Services\Email;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use MTForms\Services\FormSubmission;
-use MTForms\Services\WpMailMailer;
-use MTForms\Services\WpOptionsConfig;
-use MTForms\Services\ElementorWidgetSettings;
+use MTEF\Services\FormSubmission;
+use MTEF\Services\WpMailMailer;
+use MTEF\Services\WpOptionsConfig;
+use MTEF\Services\ElementorWidgetSettings;
 
 /**
  * Builds and sends notification emails for form submissions.
@@ -41,42 +41,42 @@ class SubmissionMailer
 		$form_fields = array();
 
 		if (!empty($submission->name)) {
-			$form_fields[__('Name', 'mtforms')] = $submission->name;
+			$form_fields[__('Name', 'mt-elementor-forms')] = $submission->name;
 		}
 
 		if (!empty($submission->email)) {
-			$form_fields[__('Email', 'mtforms')] = $submission->email;
+			$form_fields[__('Email', 'mt-elementor-forms')] = $submission->email;
 		}
 
 		if (!empty($submission->phone)) {
-			$form_fields[__('Phone', 'mtforms')] = $submission->phone;
+			$form_fields[__('Phone', 'mt-elementor-forms')] = $submission->phone;
 		}
 
 		if (!empty($submission->website)) {
-			$form_fields[__('Website', 'mtforms')] = $submission->website;
+			$form_fields[__('Website', 'mt-elementor-forms')] = $submission->website;
 		}
 
 		if (!empty($submission->subject)) {
-			$form_fields[__('Subject', 'mtforms')] = $submission->subject;
+			$form_fields[__('Subject', 'mt-elementor-forms')] = $submission->subject;
 		}
 
 		if (!empty($submission->message)) {
-			$form_fields[__('Message', 'mtforms')] = $submission->message;
+			$form_fields[__('Message', 'mt-elementor-forms')] = $submission->message;
 		}
 
-		$widget_id = isset($submission->raw['mtforms_form_id']) ? sanitize_text_field(wp_unslash($submission->raw['mtforms_form_id'])) : '';
+		$widget_id = isset($submission->raw['mtef_form_id']) ? sanitize_text_field(wp_unslash($submission->raw['mtef_form_id'])) : '';
 		$widget_settings = $this->get_widget_mail_settings($widget_id);
 
 		$to = (isset($widget_settings['mail_to']) && is_string($widget_settings['mail_to']) && is_email($widget_settings['mail_to']))
 			? sanitize_email($widget_settings['mail_to'])
-			: $this->config->get('mtforms_admin_email', get_option('admin_email'));
+			: $this->config->get('mtef_admin_email', get_option('admin_email'));
 
-		$from_name = $this->config->get('mtforms_email_from_name', get_bloginfo('name'));
-		$default_sub = $this->config->get('mtforms_email_subject', 'New Contact Form Submission');
-		$use_html = $this->config->get('mtforms_enable_html_email', 'yes') === 'yes';
+		$from_name = $this->config->get('mtef_email_from_name', get_bloginfo('name'));
+		$default_sub = $this->config->get('mtef_email_subject', 'New Contact Form Submission');
+		$use_html = $this->config->get('mtef_enable_html_email', 'yes') === 'yes';
 
-		$to = apply_filters('mtforms_email_to', $to, $submission, $form_fields);
-		$from_name = apply_filters('mtforms_email_from_name', $from_name, $submission, $form_fields);
+		$to = apply_filters('mtef_email_to', $to, $submission, $form_fields);
+		$from_name = apply_filters('mtef_email_from_name', $from_name, $submission, $form_fields);
 
 		// Basic header injection protection.
 		$from_name_safe = str_replace(array("\r", "\n"), '', (string) $from_name);
@@ -93,30 +93,30 @@ class SubmissionMailer
 		}
 
 		// Handle CC (server-side only).
-		$cc_emails = $this->resolve_email_list($widget_settings, 'mail_cc', $this->config->get('mtforms_email_cc', ''));
+		$cc_emails = $this->resolve_email_list($widget_settings, 'mail_cc', $this->config->get('mtef_email_cc', ''));
 		if (!empty($cc_emails)) {
 			$headers[] = 'Cc: ' . implode(', ', $cc_emails);
 		}
 
 		// Handle BCC (server-side only).
-		$bcc_emails = $this->resolve_email_list($widget_settings, 'mail_bcc', $this->config->get('mtforms_email_bcc', ''));
+		$bcc_emails = $this->resolve_email_list($widget_settings, 'mail_bcc', $this->config->get('mtef_email_bcc', ''));
 		if (!empty($bcc_emails)) {
 			$headers[] = 'Bcc: ' . implode(', ', $bcc_emails);
 		}
 
-		$headers = apply_filters('mtforms_email_headers', $headers, $submission, $form_fields);
+		$headers = apply_filters('mtef_email_headers', $headers, $submission, $form_fields);
 
 		$email_subject = $default_sub;
 		if ($submission->subject !== '') {
 			$email_subject = sprintf(
 				/* translators: 1: Default subject, 2: Submission subject */
-				__('[%1$s] %2$s', 'mtforms'),
+				__('[%1$s] %2$s', 'mt-elementor-forms'),
 				$default_sub,
 				$submission->subject
 			);
 		}
 
-		$email_subject = apply_filters('mtforms_email_subject', $email_subject, $submission, $form_fields);
+		$email_subject = apply_filters('mtef_email_subject', $email_subject, $submission, $form_fields);
 
 		$email_body = $this->build_body($submission, $form_fields, $use_html);
 
@@ -127,19 +127,19 @@ class SubmissionMailer
 		 * @param FormSubmission $submission
 		 * @param array          $form_fields
 		 */
-		$email_body = apply_filters('mtforms_email_body', $email_body, $submission, $form_fields);
+		$email_body = apply_filters('mtef_email_body', $email_body, $submission, $form_fields);
 
 		/**
 		 * Action before sending the email.
 		 */
-		do_action('mtforms_before_send', $submission, $email_subject, $email_body, $headers, $form_fields);
+		do_action('mtef_before_send', $submission, $email_subject, $email_body, $headers, $form_fields);
 
 		$sent = $this->mailer->send($to, $email_subject, $email_body, $headers);
 
 		/**
 		 * Action after sending the email.
 		 */
-		do_action('mtforms_after_send', $sent, $submission, $email_subject, $email_body, $headers, $form_fields);
+		do_action('mtef_after_send', $sent, $submission, $email_subject, $email_body, $headers, $form_fields);
 
 		return $sent;
 	}
@@ -160,8 +160,8 @@ class SubmissionMailer
 		// Autoresponder settings are read from the stored Elementor widget
 		// configuration, never from client-submitted data. This prevents the
 		// server from being used as an open relay for arbitrary emails.
-		$widget_id = isset($submission->raw['mtforms_form_id']) ? sanitize_text_field(wp_unslash($submission->raw['mtforms_form_id'])) : '';
-		$post_id = isset($submission->raw['mtforms_post_id']) ? absint($submission->raw['mtforms_post_id']) : 0;
+		$widget_id = isset($submission->raw['mtef_form_id']) ? sanitize_text_field(wp_unslash($submission->raw['mtef_form_id'])) : '';
+		$post_id = isset($submission->raw['mtef_post_id']) ? absint($submission->raw['mtef_post_id']) : 0;
 		$widget_settings = $this->get_widget_mail_settings($widget_id, $post_id);
 
 		$enabled = isset($widget_settings['enable_autoresponder']) && $widget_settings['enable_autoresponder'] === 'yes';
@@ -169,7 +169,7 @@ class SubmissionMailer
 			return false;
 		}
 
-		$subject = !empty($widget_settings['autoresponder_subject']) ? sanitize_text_field($widget_settings['autoresponder_subject']) : __('Thank you for your submission', 'mtforms');
+		$subject = !empty($widget_settings['autoresponder_subject']) ? sanitize_text_field($widget_settings['autoresponder_subject']) : __('Thank you for your submission', 'mt-elementor-forms');
 		$message = !empty($widget_settings['autoresponder_message']) ? sanitize_textarea_field($widget_settings['autoresponder_message']) : '';
 
 		if (empty($message)) {
@@ -186,13 +186,13 @@ class SubmissionMailer
 
 		// Build the body using the branded HTML template when available,
 		// otherwise fall back to a simple HTML string.
-		$template_path = MTFORMS_PLUGIN_DIR . 'includes/Integrations/Elementor/Partials/email-template.php';
-		$template_path = apply_filters('mtforms_email_template_path', $template_path, []);
+		$template_path = MTEF_PLUGIN_DIR . 'includes/Integrations/Elementor/Partials/email-template.php';
+		$template_path = apply_filters('mtef_email_template_path', $template_path, []);
 
 		if (file_exists($template_path)) {
 			ob_start();
 			// Inject a single "message" field so the template renders it cleanly.
-			$fields    = [ __('Message', 'mtforms') => $message ];
+			$fields    = [ __('Message', 'mt-elementor-forms') => $message ];
 			$date      = current_time('mysql');
 			$site_name = get_bloginfo('name');
 			include $template_path;
@@ -201,7 +201,7 @@ class SubmissionMailer
 			$body = '<p>' . nl2br(esc_html($message)) . '</p>';
 		}
 
-		$from_name  = $this->config->get('mtforms_email_from_name', get_bloginfo('name'));
+		$from_name  = $this->config->get('mtef_email_from_name', get_bloginfo('name'));
 		$from_email = get_option('admin_email');
 
 		$headers = [
@@ -267,14 +267,14 @@ class SubmissionMailer
 	protected function build_body(FormSubmission $submission, array $form_fields, $use_html)
 	{
 		if ($use_html) {
-			$template_path = MTFORMS_PLUGIN_DIR . 'includes/Integrations/Elementor/Partials/email-template.php';
+			$template_path = MTEF_PLUGIN_DIR . 'includes/Integrations/Elementor/Partials/email-template.php';
 
 			/**
 			 * Filter the email template path.
 			 *
 			 * Allows themes/plugins to override the HTML template.
 			 */
-			$template_path = apply_filters('mtforms_email_template_path', $template_path, $form_fields);
+			$template_path = apply_filters('mtef_email_template_path', $template_path, $form_fields);
 
 			if (file_exists($template_path)) {
 				ob_start();

@@ -1,12 +1,12 @@
 <?php
 
-namespace MTForms\Services\Captcha;
+namespace MTEF\Services\Captcha;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use MTForms\Services\FormSubmission;
+use MTEF\Services\FormSubmission;
 
 /**
  * Contract for captcha verification providers.

@@ -2,7 +2,7 @@
 /**
  * Provide an admin area view for the plugin
  *
- * @package    MTForms
+ * @package    MT Elementor Forms
  */
 
 // Prevent direct access.
@@ -19,35 +19,35 @@ $active_tab = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['ta
 
 $tabs = array(
 	'general' => array(
-		'label'    => __( 'General', 'mtforms' ),
-		'subtitle' => __( 'Security & Anti-Spam', 'mtforms' ),
+		'label'    => __( 'General', 'mt-elementor-forms' ),
+		'subtitle' => __( 'Security & Anti-Spam', 'mt-elementor-forms' ),
 		'icon'     => 'dashicons-shield',
 	),
 	'email'   => array(
-		'label'    => __( 'Email Settings', 'mtforms' ),
-		'subtitle' => __( 'Templates & Branding', 'mtforms' ),
+		'label'    => __( 'Email Settings', 'mt-elementor-forms' ),
+		'subtitle' => __( 'Templates & Branding', 'mt-elementor-forms' ),
 		'icon'     => 'dashicons-email-alt',
 	),
 	'support' => array(
-		'label'    => __( 'Support & Guide', 'mtforms' ),
-		'subtitle' => __( 'Features & Payments', 'mtforms' ),
+		'label'    => __( 'Support & Guide', 'mt-elementor-forms' ),
+		'subtitle' => __( 'Features & Payments', 'mt-elementor-forms' ),
 		'icon'     => 'dashicons-heart',
 	),
 );
 
 // Pre-fetch option values.
-$captcha_provider = get_option( 'mtforms_captcha_provider', 'none' );
-$admin_email      = get_option( 'mtforms_admin_email', get_option( 'admin_email' ) );
-$email_subject    = get_option( 'mtforms_email_subject', 'New Contact Form Submission' );
-$email_from_name  = get_option( 'mtforms_email_from_name', get_bloginfo( 'name' ) );
-$enable_html      = get_option( 'mtforms_enable_html_email', 'yes' );
-$accent_color     = get_option( 'mtforms_email_accent_color', '#4f46e5' );
-$bg_color         = get_option( 'mtforms_email_bg_color', '#f8fafc' );
-$content_bg       = get_option( 'mtforms_email_content_bg_color', '#ffffff' );
-$text_color       = get_option( 'mtforms_email_text_color', '#1e293b' );
-$logo_url         = get_option( 'mtforms_email_logo_url', '' );
-$footer_text      = get_option( 'mtforms_email_footer_text', '' );
-$show_credit      = get_option( 'mtforms_email_show_footer_credit', 'yes' );
+$captcha_provider = get_option( 'mtef_captcha_provider', 'none' );
+$admin_email      = get_option( 'mtef_admin_email', get_option( 'admin_email' ) );
+$email_subject    = get_option( 'mtef_email_subject', 'New Contact Form Submission' );
+$email_from_name  = get_option( 'mtef_email_from_name', get_bloginfo( 'name' ) );
+$enable_html      = get_option( 'mtef_enable_html_email', 'yes' );
+$accent_color     = get_option( 'mtef_email_accent_color', '#4f46e5' );
+$bg_color         = get_option( 'mtef_email_bg_color', '#f8fafc' );
+$content_bg       = get_option( 'mtef_email_content_bg_color', '#ffffff' );
+$text_color       = get_option( 'mtef_email_text_color', '#1e293b' );
+$logo_url         = get_option( 'mtef_email_logo_url', '' );
+$footer_text      = get_option( 'mtef_email_footer_text', '' );
+$show_credit      = get_option( 'mtef_email_show_footer_credit', 'yes' );
 
 $has_elementor = defined( 'ELEMENTOR_VERSION' ) || did_action( 'elementor/loaded' );
 
@@ -56,40 +56,40 @@ $has_elementor = defined( 'ELEMENTOR_VERSION' ) || did_action( 'elementor/loaded
 $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 ?>
 
-<div class="wrap mtforms-admin-wrap">
+<div class="wrap mtef-admin-wrap">
 
 	<!-- ══════════════════════════════════════════════════════ -->
 	<!-- MODERN TOP HEADER                                      -->
 	<!-- ══════════════════════════════════════════════════════ -->
-	<header class="mtforms-page-header">
-		<div class="mtforms-page-header-brand">
-			<div class="mtforms-logo-badge">
+	<header class="mtef-page-header">
+		<div class="mtef-page-header-brand">
+			<div class="mtef-logo-badge">
 				<svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 					<path d="M22 6L12 13L2 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				</svg>
 			</div>
-			<div class="mtforms-title-area">
-				<div class="mtforms-title-row">
-					<h1><?php esc_html_e( 'MTForms', 'mtforms' ); ?></h1>
-					<span class="mtforms-version-pill">v<?php echo esc_html( MTFORMS_VERSION ); ?></span>
-					<span class="mtforms-status-pill <?php echo $has_elementor ? 'is-active' : 'is-warning'; ?>">
+			<div class="mtef-title-area">
+				<div class="mtef-title-row">
+					<h1><?php esc_html_e( 'MT Elementor Forms', 'mt-elementor-forms' ); ?></h1>
+					<span class="mtef-version-pill">v<?php echo esc_html( MTEF_VERSION ); ?></span>
+					<span class="mtef-status-pill <?php echo $has_elementor ? 'is-active' : 'is-warning'; ?>">
 						<span class="status-dot"></span>
-						<?php echo $has_elementor ? esc_html__( 'Elementor Ready', 'mtforms' ) : esc_html__( 'Elementor Required', 'mtforms' ); ?>
+						<?php echo $has_elementor ? esc_html__( 'Elementor Ready', 'mt-elementor-forms' ) : esc_html__( 'Elementor Required', 'mt-elementor-forms' ); ?>
 					</span>
 				</div>
-				<p class="mtforms-subtitle"><?php esc_html_e( 'Modern contact forms with 50+ skins, anti-spam, and styled notifications', 'mtforms' ); ?></p>
+				<p class="mtef-subtitle"><?php esc_html_e( 'Modern contact forms with 50+ skins, anti-spam, and styled notifications', 'mt-elementor-forms' ); ?></p>
 			</div>
 		</div>
 
-		<div class="mtforms-page-header-actions">
-			<a href="<?php echo esc_url( admin_url( 'admin.php?page=mtforms-submissions' ) ); ?>" class="mtforms-btn-secondary">
+		<div class="mtef-page-header-actions">
+			<a href="<?php echo esc_url( admin_url( 'admin.php?page=mtef-submissions' ) ); ?>" class="mtef-btn-secondary">
 				<span class="dashicons dashicons-list-view"></span>
-				<?php esc_html_e( 'View Submissions', 'mtforms' ); ?>
+				<?php esc_html_e( 'View Submissions', 'mt-elementor-forms' ); ?>
 			</a>
-			<a href="https://wordpress.org/support/plugin/mtforms/" target="_blank" rel="noopener noreferrer" class="mtforms-btn-secondary">
+			<a href="https://wordpress.org/support/plugin/mt-elementor-forms/" target="_blank" rel="noopener noreferrer" class="mtef-btn-secondary">
 				<span class="dashicons dashicons-editor-help"></span>
-				<?php esc_html_e( 'Documentation', 'mtforms' ); ?>
+				<?php esc_html_e( 'Documentation', 'mt-elementor-forms' ); ?>
 			</a>
 		</div>
 	</header>
@@ -97,14 +97,14 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 	<!-- ══════════════════════════════════════════════════════ -->
 	<!-- ADMIN LAYOUT                                           -->
 	<!-- ══════════════════════════════════════════════════════ -->
-	<div class="mtforms-admin-layout">
+	<div class="mtef-admin-layout">
 
 		<!-- ═══ LEFT SIDEBAR ═══ -->
-		<aside class="mtforms-admin-sidebar">
-			<nav class="mtforms-sidebar-nav" aria-label="<?php esc_attr_e( 'Plugin Settings Navigation', 'mtforms' ); ?>">
+		<aside class="mtef-admin-sidebar">
+			<nav class="mtef-sidebar-nav" aria-label="<?php esc_attr_e( 'Plugin Settings Navigation', 'mt-elementor-forms' ); ?>">
 				<?php foreach ( $tabs as $tab_key => $tab ) : ?>
-					<a href="?page=mtforms&tab=<?php echo esc_attr( $tab_key ); ?>"
-						class="mtforms-sidebar-nav-item <?php echo $active_tab === $tab_key ? 'is-active' : ''; ?>">
+					<a href="?page=mtef&tab=<?php echo esc_attr( $tab_key ); ?>"
+						class="mtef-sidebar-nav-item <?php echo $active_tab === $tab_key ? 'is-active' : ''; ?>">
 						<span class="nav-item-icon dashicons <?php echo esc_attr( $tab['icon'] ); ?>"></span>
 						<span class="nav-item-text">
 							<span class="nav-item-title"><?php echo esc_html( $tab['label'] ); ?></span>
@@ -116,52 +116,52 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 			</nav>
 
 			<!-- Quick Link / Shortcut Card -->
-			<div class="mtforms-sidebar-card">
+			<div class="mtef-sidebar-card">
 				<div class="sidebar-card-header">
 					<span class="dashicons dashicons-admin-appearance"></span>
-					<strong><?php esc_html_e( '50+ Preset Skins', 'mtforms' ); ?></strong>
+					<strong><?php esc_html_e( '50+ Preset Skins', 'mt-elementor-forms' ); ?></strong>
 				</div>
-				<p><?php esc_html_e( 'Edit any page with Elementor, search for the "MTForms" widget, and choose from 50 built-in skins.', 'mtforms' ); ?></p>
+				<p><?php esc_html_e( 'Edit any page with Elementor, search for the "MT Elementor Forms" widget, and choose from 50 built-in skins.', 'mt-elementor-forms' ); ?></p>
 				<a href="https://github.com/tariqsmd/mtforms/issues" target="_blank" rel="noopener noreferrer" class="sidebar-link">
 					<span class="dashicons dashicons-external"></span>
-					<?php esc_html_e( 'Request a Skin / Feature', 'mtforms' ); ?>
+					<?php esc_html_e( 'Request a Skin / Feature', 'mt-elementor-forms' ); ?>
 				</a>
 			</div>
 		</aside>
 		<!-- ═══ /LEFT SIDEBAR ═══ -->
 
 		<!-- ═══ MAIN CONTENT ═══ -->
-		<main class="mtforms-admin-main">
+		<main class="mtef-admin-main">
 
 			<?php if ( 'general' === $active_tab ) : ?>
 
-				<form method="post" action="options.php" class="mtforms-form-layout">
-					<?php settings_fields( \MTForms\Admin\Options::GROUP_GENERAL ); ?>
+				<form method="post" action="options.php" class="mtef-form-layout">
+					<?php settings_fields( \MTEF\Admin\Options::GROUP_GENERAL ); ?>
 
 					<!-- SECTION 1: SPAM PROTECTION -->
-					<section class="mtforms-card">
-						<div class="mtforms-card-header">
+					<section class="mtef-card">
+						<div class="mtef-card-header">
 							<div class="header-icon-wrap shield-icon">
 								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 									<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
 								</svg>
 							</div>
 							<div>
-								<h2><?php esc_html_e( 'Anti-Spam & CAPTCHA Provider', 'mtforms' ); ?></h2>
-								<p class="section-desc"><?php esc_html_e( 'Choose which validation challenge to use across your forms to stop automated bot submissions.', 'mtforms' ); ?></p>
+								<h2><?php esc_html_e( 'Anti-Spam & CAPTCHA Provider', 'mt-elementor-forms' ); ?></h2>
+								<p class="section-desc"><?php esc_html_e( 'Choose which validation challenge to use across your forms to stop automated bot submissions.', 'mt-elementor-forms' ); ?></p>
 							</div>
 						</div>
 
-						<div class="mtforms-card-body">
+						<div class="mtef-card-body">
 							<!-- Hidden Select for native form submission -->
-							<select name="mtforms_captcha_provider" id="mtforms_captcha_provider" class="mtforms-provider-select" style="display:none;">
-								<option value="none" <?php selected( $captcha_provider, 'none' ); ?>><?php esc_html_e( 'None', 'mtforms' ); ?></option>
-								<option value="recaptcha" <?php selected( $captcha_provider, 'recaptcha' ); ?>><?php esc_html_e( 'Google reCAPTCHA v2', 'mtforms' ); ?></option>
-								<option value="turnstile" <?php selected( $captcha_provider, 'turnstile' ); ?>><?php esc_html_e( 'Cloudflare Turnstile', 'mtforms' ); ?></option>
+							<select name="mtef_captcha_provider" id="mtef_captcha_provider" class="mtef-provider-select" style="display:none;">
+								<option value="none" <?php selected( $captcha_provider, 'none' ); ?>><?php esc_html_e( 'None', 'mt-elementor-forms' ); ?></option>
+								<option value="recaptcha" <?php selected( $captcha_provider, 'recaptcha' ); ?>><?php esc_html_e( 'Google reCAPTCHA v2', 'mt-elementor-forms' ); ?></option>
+								<option value="turnstile" <?php selected( $captcha_provider, 'turnstile' ); ?>><?php esc_html_e( 'Cloudflare Turnstile', 'mt-elementor-forms' ); ?></option>
 							</select>
 
 							<!-- Visual Provider Selector Cards -->
-							<div class="mtforms-provider-grid">
+							<div class="mtef-provider-grid">
 								<!-- Card 1: None -->
 								<div class="provider-card <?php echo 'none' === $captcha_provider ? 'is-selected' : ''; ?>" data-provider="none">
 									<div class="provider-radio-check"></div>
@@ -169,10 +169,10 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 										<span class="dashicons dashicons-dismiss"></span>
 									</div>
 									<div class="provider-info">
-										<h3><?php esc_html_e( 'Disabled', 'mtforms' ); ?></h3>
-										<p><?php esc_html_e( 'No CAPTCHA challenge. Forms will still use the honeypot and IP rate limiting.', 'mtforms' ); ?></p>
+										<h3><?php esc_html_e( 'Disabled', 'mt-elementor-forms' ); ?></h3>
+										<p><?php esc_html_e( 'No CAPTCHA challenge. Forms will still use the honeypot and IP rate limiting.', 'mt-elementor-forms' ); ?></p>
 									</div>
-									<span class="provider-tag default-tag"><?php esc_html_e( 'Basic Spam Filter', 'mtforms' ); ?></span>
+									<span class="provider-tag default-tag"><?php esc_html_e( 'Basic Spam Filter', 'mt-elementor-forms' ); ?></span>
 								</div>
 
 								<!-- Card 2: reCAPTCHA v2 -->
@@ -186,10 +186,10 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 										</svg>
 									</div>
 									<div class="provider-info">
-										<h3><?php esc_html_e( 'Google reCAPTCHA v2', 'mtforms' ); ?></h3>
-										<p><?php esc_html_e( 'The familiar "I\'m not a robot" checkbox challenge. Requires Google API keys.', 'mtforms' ); ?></p>
+										<h3><?php esc_html_e( 'Google reCAPTCHA v2', 'mt-elementor-forms' ); ?></h3>
+										<p><?php esc_html_e( 'The familiar "I\'m not a robot" checkbox challenge. Requires Google API keys.', 'mt-elementor-forms' ); ?></p>
 									</div>
-									<span class="provider-tag google-tag"><?php esc_html_e( 'Checkbox Challenge', 'mtforms' ); ?></span>
+									<span class="provider-tag google-tag"><?php esc_html_e( 'Checkbox Challenge', 'mt-elementor-forms' ); ?></span>
 								</div>
 
 								<!-- Card 3: Cloudflare Turnstile -->
@@ -201,128 +201,128 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 										</svg>
 									</div>
 									<div class="provider-info">
-										<h3><?php esc_html_e( 'Cloudflare Turnstile', 'mtforms' ); ?></h3>
-										<p><?php esc_html_e( 'Modern, privacy-first alternative. Seamless non-interactive verification.', 'mtforms' ); ?></p>
+										<h3><?php esc_html_e( 'Cloudflare Turnstile', 'mt-elementor-forms' ); ?></h3>
+										<p><?php esc_html_e( 'Modern, privacy-first alternative. Seamless non-interactive verification.', 'mt-elementor-forms' ); ?></p>
 									</div>
-									<span class="provider-tag recommended-tag"><?php esc_html_e( 'Recommended', 'mtforms' ); ?></span>
+									<span class="provider-tag recommended-tag"><?php esc_html_e( 'Recommended', 'mt-elementor-forms' ); ?></span>
 								</div>
 							</div>
 
 							<!-- Provider Credentials Box: reCAPTCHA -->
-							<div class="mtforms-credentials-panel recaptcha-fields" <?php echo 'recaptcha' !== $captcha_provider ? 'style="display:none;"' : ''; ?>>
+							<div class="mtef-credentials-panel recaptcha-fields" <?php echo 'recaptcha' !== $captcha_provider ? 'style="display:none;"' : ''; ?>>
 								<div class="credentials-banner">
 									<span class="dashicons dashicons-info"></span>
 									<div>
-										<strong><?php esc_html_e( 'Need reCAPTCHA v2 credentials?', 'mtforms' ); ?></strong>
-										<p><?php esc_html_e( 'Register your site in the Google reCAPTCHA Console and select "Challenge (v2)" -> "I\'m not a robot" Checkbox.', 'mtforms' ); ?></p>
+										<strong><?php esc_html_e( 'Need reCAPTCHA v2 credentials?', 'mt-elementor-forms' ); ?></strong>
+										<p><?php esc_html_e( 'Register your site in the Google reCAPTCHA Console and select "Challenge (v2)" -> "I\'m not a robot" Checkbox.', 'mt-elementor-forms' ); ?></p>
 										<a href="https://www.google.com/recaptcha/admin" target="_blank" rel="noopener noreferrer" class="external-link">
-											<?php esc_html_e( 'Open Google reCAPTCHA Console', 'mtforms' ); ?>
+											<?php esc_html_e( 'Open Google reCAPTCHA Console', 'mt-elementor-forms' ); ?>
 											<span class="dashicons dashicons-external"></span>
 										</a>
 									</div>
 								</div>
 
-								<div class="mtforms-field-group">
-									<label for="mtforms_recaptcha_site_key">
-										<?php esc_html_e( 'reCAPTCHA Site Key', 'mtforms' ); ?>
+								<div class="mtef-field-group">
+									<label for="mtef_recaptcha_site_key">
+										<?php esc_html_e( 'reCAPTCHA Site Key', 'mt-elementor-forms' ); ?>
 										<span class="required-asterisk">*</span>
 									</label>
 									<div class="input-wrap">
-										<input type="text" id="mtforms_recaptcha_site_key" name="mtforms_recaptcha_site_key"
-											value="<?php echo esc_attr( get_option( 'mtforms_recaptcha_site_key', '' ) ); ?>"
+										<input type="text" id="mtef_recaptcha_site_key" name="mtef_recaptcha_site_key"
+											value="<?php echo esc_attr( get_option( 'mtef_recaptcha_site_key', '' ) ); ?>"
 											class="regular-text" placeholder="e.g. 6Ld...AAAAA..." autocomplete="off" />
 									</div>
-									<p class="field-hint"><?php esc_html_e( 'Public site key displayed in your form HTML.', 'mtforms' ); ?></p>
+									<p class="field-hint"><?php esc_html_e( 'Public site key displayed in your form HTML.', 'mt-elementor-forms' ); ?></p>
 								</div>
 
-								<div class="mtforms-field-group">
-									<label for="mtforms_recaptcha_secret_key">
-										<?php esc_html_e( 'reCAPTCHA Secret Key', 'mtforms' ); ?>
+								<div class="mtef-field-group">
+									<label for="mtef_recaptcha_secret_key">
+										<?php esc_html_e( 'reCAPTCHA Secret Key', 'mt-elementor-forms' ); ?>
 										<span class="required-asterisk">*</span>
 									</label>
 									<div class="input-wrap password-wrap">
-										<input type="password" id="mtforms_recaptcha_secret_key" name="mtforms_recaptcha_secret_key"
-											value="<?php echo esc_attr( get_option( 'mtforms_recaptcha_secret_key', '' ) ); ?>"
+										<input type="password" id="mtef_recaptcha_secret_key" name="mtef_recaptcha_secret_key"
+											value="<?php echo esc_attr( get_option( 'mtef_recaptcha_secret_key', '' ) ); ?>"
 											class="regular-text password-input" placeholder="e.g. 6Ld...AAAAA..." autocomplete="off" />
-										<button type="button" class="btn-toggle-password" title="<?php esc_attr_e( 'Toggle password visibility', 'mtforms' ); ?>">
+										<button type="button" class="btn-toggle-password" title="<?php esc_attr_e( 'Toggle password visibility', 'mt-elementor-forms' ); ?>">
 											<span class="dashicons dashicons-visibility"></span>
 										</button>
 									</div>
-									<p class="field-hint"><?php esc_html_e( 'Secret key used for secure server-side verification. Never share this key.', 'mtforms' ); ?></p>
+									<p class="field-hint"><?php esc_html_e( 'Secret key used for secure server-side verification. Never share this key.', 'mt-elementor-forms' ); ?></p>
 								</div>
 							</div>
 
 							<!-- Provider Credentials Box: Turnstile -->
-							<div class="mtforms-credentials-panel turnstile-fields" <?php echo 'turnstile' !== $captcha_provider ? 'style="display:none;"' : ''; ?>>
+							<div class="mtef-credentials-panel turnstile-fields" <?php echo 'turnstile' !== $captcha_provider ? 'style="display:none;"' : ''; ?>>
 								<div class="credentials-banner">
 									<span class="dashicons dashicons-info"></span>
 									<div>
-										<strong><?php esc_html_e( 'Need Cloudflare Turnstile credentials?', 'mtforms' ); ?></strong>
-										<p><?php esc_html_e( 'Create a new widget in your Cloudflare dashboard under Turnstile -> Add Site (Managed or Non-interactive mode).', 'mtforms' ); ?></p>
+										<strong><?php esc_html_e( 'Need Cloudflare Turnstile credentials?', 'mt-elementor-forms' ); ?></strong>
+										<p><?php esc_html_e( 'Create a new widget in your Cloudflare dashboard under Turnstile -> Add Site (Managed or Non-interactive mode).', 'mt-elementor-forms' ); ?></p>
 										<a href="<?php echo esc_url( $turnstile_docs_url ); ?>" target="_blank" rel="noopener noreferrer" class="external-link">
-											<?php esc_html_e( 'Open Cloudflare Turnstile Dashboard', 'mtforms' ); ?>
+											<?php esc_html_e( 'Open Cloudflare Turnstile Dashboard', 'mt-elementor-forms' ); ?>
 											<span class="dashicons dashicons-external"></span>
 										</a>
 									</div>
 								</div>
 
-								<div class="mtforms-field-group">
-									<label for="mtforms_turnstile_site_key">
-										<?php esc_html_e( 'Turnstile Site Key', 'mtforms' ); ?>
+								<div class="mtef-field-group">
+									<label for="mtef_turnstile_site_key">
+										<?php esc_html_e( 'Turnstile Site Key', 'mt-elementor-forms' ); ?>
 										<span class="required-asterisk">*</span>
 									</label>
 									<div class="input-wrap">
-										<input type="text" id="mtforms_turnstile_site_key" name="mtforms_turnstile_site_key"
-											value="<?php echo esc_attr( get_option( 'mtforms_turnstile_site_key', '' ) ); ?>"
+										<input type="text" id="mtef_turnstile_site_key" name="mtef_turnstile_site_key"
+											value="<?php echo esc_attr( get_option( 'mtef_turnstile_site_key', '' ) ); ?>"
 											class="regular-text" placeholder="e.g. 0x4AAAAAA..." autocomplete="off" />
 									</div>
-									<p class="field-hint"><?php esc_html_e( 'Public site key provided by Cloudflare.', 'mtforms' ); ?></p>
+									<p class="field-hint"><?php esc_html_e( 'Public site key provided by Cloudflare.', 'mt-elementor-forms' ); ?></p>
 								</div>
 
-								<div class="mtforms-field-group">
-									<label for="mtforms_turnstile_secret_key">
-										<?php esc_html_e( 'Turnstile Secret Key', 'mtforms' ); ?>
+								<div class="mtef-field-group">
+									<label for="mtef_turnstile_secret_key">
+										<?php esc_html_e( 'Turnstile Secret Key', 'mt-elementor-forms' ); ?>
 										<span class="required-asterisk">*</span>
 									</label>
 									<div class="input-wrap password-wrap">
-										<input type="password" id="mtforms_turnstile_secret_key" name="mtforms_turnstile_secret_key"
-											value="<?php echo esc_attr( get_option( 'mtforms_turnstile_secret_key', '' ) ); ?>"
+										<input type="password" id="mtef_turnstile_secret_key" name="mtef_turnstile_secret_key"
+											value="<?php echo esc_attr( get_option( 'mtef_turnstile_secret_key', '' ) ); ?>"
 											class="regular-text password-input" placeholder="e.g. 0x4AAAAAA..." autocomplete="off" />
-										<button type="button" class="btn-toggle-password" title="<?php esc_attr_e( 'Toggle password visibility', 'mtforms' ); ?>">
+										<button type="button" class="btn-toggle-password" title="<?php esc_attr_e( 'Toggle password visibility', 'mt-elementor-forms' ); ?>">
 											<span class="dashicons dashicons-visibility"></span>
 										</button>
 									</div>
-									<p class="field-hint"><?php esc_html_e( 'Secret key for server-side siteverify endpoint.', 'mtforms' ); ?></p>
+									<p class="field-hint"><?php esc_html_e( 'Secret key for server-side siteverify endpoint.', 'mt-elementor-forms' ); ?></p>
 								</div>
 							</div>
 						</div>
 					</section>
 
 					<!-- STICKY ACTION BAR -->
-					<div class="mtforms-sticky-save">
+					<div class="mtef-sticky-save">
 						<div class="save-status-text">
 							<span class="dashicons dashicons-saved"></span>
-							<span><?php esc_html_e( 'Configure settings and click save to apply changes.', 'mtforms' ); ?></span>
+							<span><?php esc_html_e( 'Configure settings and click save to apply changes.', 'mt-elementor-forms' ); ?></span>
 						</div>
-						<button type="submit" class="mtforms-btn-primary">
+						<button type="submit" class="mtef-btn-primary">
 							<span class="dashicons dashicons-yes-alt"></span>
-							<?php esc_html_e( 'Save Settings', 'mtforms' ); ?>
+							<?php esc_html_e( 'Save Settings', 'mt-elementor-forms' ); ?>
 						</button>
 					</div>
 				</form>
 
 			<?php elseif ( 'email' === $active_tab ) : ?>
 
-				<form method="post" action="options.php" class="mtforms-form-layout">
-					<?php settings_fields( \MTForms\Admin\Options::GROUP_EMAIL ); ?>
+				<form method="post" action="options.php" class="mtef-form-layout">
+					<?php settings_fields( \MTEF\Admin\Options::GROUP_EMAIL ); ?>
 
-					<div class="mtforms-two-col-grid">
+					<div class="mtef-two-col-grid">
 						<!-- LEFT COLUMN: SETTINGS -->
 						<div class="settings-col">
 
 							<!-- SECTION 1: RECIPIENTS & ROUTING -->
-							<section class="mtforms-card">
-								<div class="mtforms-card-header">
+							<section class="mtef-card">
+								<div class="mtef-card-header">
 									<div class="header-icon-wrap mail-icon">
 										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 											<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -330,54 +330,54 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 										</svg>
 									</div>
 									<div>
-										<h2><?php esc_html_e( 'Notification Routing', 'mtforms' ); ?></h2>
-										<p class="section-desc"><?php esc_html_e( 'Configure who receives notifications when a contact form is submitted.', 'mtforms' ); ?></p>
+										<h2><?php esc_html_e( 'Notification Routing', 'mt-elementor-forms' ); ?></h2>
+										<p class="section-desc"><?php esc_html_e( 'Configure who receives notifications when a contact form is submitted.', 'mt-elementor-forms' ); ?></p>
 									</div>
 								</div>
 
-								<div class="mtforms-card-body">
-									<div class="mtforms-field-group">
-										<label for="mtforms_admin_email">
-											<?php esc_html_e( 'Recipient Email', 'mtforms' ); ?>
+								<div class="mtef-card-body">
+									<div class="mtef-field-group">
+										<label for="mtef_admin_email">
+											<?php esc_html_e( 'Recipient Email', 'mt-elementor-forms' ); ?>
 											<span class="required-asterisk">*</span>
 										</label>
 										<div class="input-wrap">
-											<input type="email" id="mtforms_admin_email" name="mtforms_admin_email"
+											<input type="email" id="mtef_admin_email" name="mtef_admin_email"
 												value="<?php echo esc_attr( $admin_email ); ?>"
 												class="regular-text" required />
 										</div>
-										<p class="field-hint"><?php esc_html_e( 'Primary email address where submission notifications are delivered.', 'mtforms' ); ?></p>
+										<p class="field-hint"><?php esc_html_e( 'Primary email address where submission notifications are delivered.', 'mt-elementor-forms' ); ?></p>
 									</div>
 
 									<div class="form-row-2col">
-										<div class="mtforms-field-group">
-											<label for="mtforms_email_cc"><?php esc_html_e( 'CC Addresses', 'mtforms' ); ?></label>
-											<input type="text" id="mtforms_email_cc" name="mtforms_email_cc"
-												value="<?php echo esc_attr( get_option( 'mtforms_email_cc', '' ) ); ?>"
+										<div class="mtef-field-group">
+											<label for="mtef_email_cc"><?php esc_html_e( 'CC Addresses', 'mt-elementor-forms' ); ?></label>
+											<input type="text" id="mtef_email_cc" name="mtef_email_cc"
+												value="<?php echo esc_attr( get_option( 'mtef_email_cc', '' ) ); ?>"
 												class="regular-text" placeholder="team@domain.com, lead@domain.com" />
-											<p class="field-hint"><?php esc_html_e( 'Comma-separated email list.', 'mtforms' ); ?></p>
+											<p class="field-hint"><?php esc_html_e( 'Comma-separated email list.', 'mt-elementor-forms' ); ?></p>
 										</div>
 
-										<div class="mtforms-field-group">
-											<label for="mtforms_email_bcc"><?php esc_html_e( 'BCC Addresses', 'mtforms' ); ?></label>
-											<input type="text" id="mtforms_email_bcc" name="mtforms_email_bcc"
-												value="<?php echo esc_attr( get_option( 'mtforms_email_bcc', '' ) ); ?>"
+										<div class="mtef-field-group">
+											<label for="mtef_email_bcc"><?php esc_html_e( 'BCC Addresses', 'mt-elementor-forms' ); ?></label>
+											<input type="text" id="mtef_email_bcc" name="mtef_email_bcc"
+												value="<?php echo esc_attr( get_option( 'mtef_email_bcc', '' ) ); ?>"
 												class="regular-text" placeholder="archive@domain.com" />
-											<p class="field-hint"><?php esc_html_e( 'Blind carbon copy addresses.', 'mtforms' ); ?></p>
+											<p class="field-hint"><?php esc_html_e( 'Blind carbon copy addresses.', 'mt-elementor-forms' ); ?></p>
 										</div>
 									</div>
 
 									<div class="form-row-2col">
-										<div class="mtforms-field-group">
-											<label for="mtforms_email_from_name"><?php esc_html_e( 'Sender Name ("From")', 'mtforms' ); ?></label>
-											<input type="text" id="mtforms_email_from_name" name="mtforms_email_from_name"
+										<div class="mtef-field-group">
+											<label for="mtef_email_from_name"><?php esc_html_e( 'Sender Name ("From")', 'mt-elementor-forms' ); ?></label>
+											<input type="text" id="mtef_email_from_name" name="mtef_email_from_name"
 												value="<?php echo esc_attr( $email_from_name ); ?>"
 												class="regular-text" />
 										</div>
 
-										<div class="mtforms-field-group">
-											<label for="mtforms_email_subject"><?php esc_html_e( 'Default Subject', 'mtforms' ); ?></label>
-											<input type="text" id="mtforms_email_subject" name="mtforms_email_subject"
+										<div class="mtef-field-group">
+											<label for="mtef_email_subject"><?php esc_html_e( 'Default Subject', 'mt-elementor-forms' ); ?></label>
+											<input type="text" id="mtef_email_subject" name="mtef_email_subject"
 												value="<?php echo esc_attr( $email_subject ); ?>"
 												class="regular-text" />
 										</div>
@@ -386,8 +386,8 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 							</section>
 
 							<!-- SECTION 2: HTML TEMPLATE & BRANDING -->
-							<section class="mtforms-card">
-								<div class="mtforms-card-header">
+							<section class="mtef-card">
+								<div class="mtef-card-header">
 									<div class="header-icon-wrap palette-icon">
 										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 											<circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/>
@@ -398,114 +398,114 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 										</svg>
 									</div>
 									<div>
-										<h2><?php esc_html_e( 'Template Branding & Colors', 'mtforms' ); ?></h2>
-										<p class="section-desc"><?php esc_html_e( 'Customize your HTML email notification layout, colors, logo and footer.', 'mtforms' ); ?></p>
+										<h2><?php esc_html_e( 'Template Branding & Colors', 'mt-elementor-forms' ); ?></h2>
+										<p class="section-desc"><?php esc_html_e( 'Customize your HTML email notification layout, colors, logo and footer.', 'mt-elementor-forms' ); ?></p>
 									</div>
 								</div>
 
-								<div class="mtforms-card-body">
-									<div class="mtforms-toggle-row">
+								<div class="mtef-card-body">
+									<div class="mtef-toggle-row">
 										<div class="toggle-meta">
-											<strong><?php esc_html_e( 'Enable HTML Email Template', 'mtforms' ); ?></strong>
-											<p><?php esc_html_e( 'Renders a responsive, branded email template instead of plain text.', 'mtforms' ); ?></p>
+											<strong><?php esc_html_e( 'Enable HTML Email Template', 'mt-elementor-forms' ); ?></strong>
+											<p><?php esc_html_e( 'Renders a responsive, branded email template instead of plain text.', 'mt-elementor-forms' ); ?></p>
 										</div>
-										<label class="mtforms-switch">
-											<input type="checkbox" name="mtforms_enable_html_email" value="yes" <?php checked( $enable_html, 'yes' ); ?> id="toggle_enable_html">
-											<span class="mtforms-slider round"></span>
+										<label class="mtef-switch">
+											<input type="checkbox" name="mtef_enable_html_email" value="yes" <?php checked( $enable_html, 'yes' ); ?> id="toggle_enable_html">
+											<span class="mtef-slider round"></span>
 										</label>
 									</div>
 
 									<!-- Quick Palette Presets -->
-									<div class="mtforms-preset-palettes">
-										<span class="palette-label"><?php esc_html_e( 'Color Presets:', 'mtforms' ); ?></span>
+									<div class="mtef-preset-palettes">
+										<span class="palette-label"><?php esc_html_e( 'Color Presets:', 'mt-elementor-forms' ); ?></span>
 										<div class="palette-buttons">
 											<button type="button" class="btn-palette" data-accent="#4f46e5" data-bg="#f8fafc" data-content="#ffffff" data-text="#1e293b">
 												<span class="swatch" style="background:#4f46e5;"></span>
-												<?php esc_html_e( 'Indigo Modern', 'mtforms' ); ?>
+												<?php esc_html_e( 'Indigo Modern', 'mt-elementor-forms' ); ?>
 											</button>
 											<button type="button" class="btn-palette" data-accent="#059669" data-bg="#f0fdf4" data-content="#ffffff" data-text="#0f172a">
 												<span class="swatch" style="background:#059669;"></span>
-												<?php esc_html_e( 'Emerald Clean', 'mtforms' ); ?>
+												<?php esc_html_e( 'Emerald Clean', 'mt-elementor-forms' ); ?>
 											</button>
 											<button type="button" class="btn-palette" data-accent="#0284c7" data-bg="#f0f9ff" data-content="#ffffff" data-text="#0f172a">
 												<span class="swatch" style="background:#0284c7;"></span>
-												<?php esc_html_e( 'Ocean Sky', 'mtforms' ); ?>
+												<?php esc_html_e( 'Ocean Sky', 'mt-elementor-forms' ); ?>
 											</button>
 											<button type="button" class="btn-palette" data-accent="#0f172a" data-bg="#f1f5f9" data-content="#ffffff" data-text="#0f172a">
 												<span class="swatch" style="background:#0f172a;"></span>
-												<?php esc_html_e( 'Slate Luxury', 'mtforms' ); ?>
+												<?php esc_html_e( 'Slate Luxury', 'mt-elementor-forms' ); ?>
 											</button>
 											<button type="button" class="btn-palette" data-accent="#e11d48" data-bg="#fff1f2" data-content="#ffffff" data-text="#1e293b">
 												<span class="swatch" style="background:#e11d48;"></span>
-												<?php esc_html_e( 'Rose Crimson', 'mtforms' ); ?>
+												<?php esc_html_e( 'Rose Crimson', 'mt-elementor-forms' ); ?>
 											</button>
 										</div>
 									</div>
 
 									<div class="colors-grid">
 										<div class="color-item">
-											<label for="mtforms_email_accent_color"><?php esc_html_e( 'Header Bar Accent', 'mtforms' ); ?></label>
-											<input type="text" id="mtforms_email_accent_color" name="mtforms_email_accent_color"
+											<label for="mtef_email_accent_color"><?php esc_html_e( 'Header Bar Accent', 'mt-elementor-forms' ); ?></label>
+											<input type="text" id="mtef_email_accent_color" name="mtef_email_accent_color"
 												value="<?php echo esc_attr( $accent_color ); ?>"
-												class="mtforms-color-picker" data-preview-target="header" />
+												class="mtef-color-picker" data-preview-target="header" />
 										</div>
 
 										<div class="color-item">
-											<label for="mtforms_email_bg_color"><?php esc_html_e( 'Email Canvas BG', 'mtforms' ); ?></label>
-											<input type="text" id="mtforms_email_bg_color" name="mtforms_email_bg_color"
+											<label for="mtef_email_bg_color"><?php esc_html_e( 'Email Canvas BG', 'mt-elementor-forms' ); ?></label>
+											<input type="text" id="mtef_email_bg_color" name="mtef_email_bg_color"
 												value="<?php echo esc_attr( $bg_color ); ?>"
-												class="mtforms-color-picker" data-preview-target="canvas" />
+												class="mtef-color-picker" data-preview-target="canvas" />
 										</div>
 
 										<div class="color-item">
-											<label for="mtforms_email_content_bg_color"><?php esc_html_e( 'Card Container BG', 'mtforms' ); ?></label>
-											<input type="text" id="mtforms_email_content_bg_color" name="mtforms_email_content_bg_color"
+											<label for="mtef_email_content_bg_color"><?php esc_html_e( 'Card Container BG', 'mt-elementor-forms' ); ?></label>
+											<input type="text" id="mtef_email_content_bg_color" name="mtef_email_content_bg_color"
 												value="<?php echo esc_attr( $content_bg ); ?>"
-												class="mtforms-color-picker" data-preview-target="content" />
+												class="mtef-color-picker" data-preview-target="content" />
 										</div>
 
 										<div class="color-item">
-											<label for="mtforms_email_text_color"><?php esc_html_e( 'Primary Text Color', 'mtforms' ); ?></label>
-											<input type="text" id="mtforms_email_text_color" name="mtforms_email_text_color"
+											<label for="mtef_email_text_color"><?php esc_html_e( 'Primary Text Color', 'mt-elementor-forms' ); ?></label>
+											<input type="text" id="mtef_email_text_color" name="mtef_email_text_color"
 												value="<?php echo esc_attr( $text_color ); ?>"
-												class="mtforms-color-picker" data-preview-target="text" />
+												class="mtef-color-picker" data-preview-target="text" />
 										</div>
 									</div>
 
 									<!-- Logo Uploader -->
-									<div class="mtforms-field-group logo-uploader-group">
-										<label><?php esc_html_e( 'Email Header Logo', 'mtforms' ); ?></label>
-										<div class="mtforms-media-field">
-											<input type="text" id="mtforms_email_logo_url" name="mtforms_email_logo_url"
+									<div class="mtef-field-group logo-uploader-group">
+										<label><?php esc_html_e( 'Email Header Logo', 'mt-elementor-forms' ); ?></label>
+										<div class="mtef-media-field">
+											<input type="text" id="mtef_email_logo_url" name="mtef_email_logo_url"
 												value="<?php echo esc_attr( $logo_url ); ?>"
-												class="regular-text mtforms-media-url" placeholder="https://domain.com/wp-content/uploads/logo.png" />
-											<button type="button" class="mtforms-btn-secondary mtforms-media-upload-btn">
+												class="regular-text mtef-media-url" placeholder="https://domain.com/wp-content/uploads/logo.png" />
+											<button type="button" class="mtef-btn-secondary mtef-media-upload-btn">
 												<span class="dashicons dashicons-upload"></span>
-												<?php esc_html_e( 'Choose Logo', 'mtforms' ); ?>
+												<?php esc_html_e( 'Choose Logo', 'mt-elementor-forms' ); ?>
 											</button>
-											<button type="button" class="mtforms-btn-danger mtforms-media-remove-btn" <?php echo empty( $logo_url ) ? 'style="display:none;"' : ''; ?>>
+											<button type="button" class="mtef-btn-danger mtef-media-remove-btn" <?php echo empty( $logo_url ) ? 'style="display:none;"' : ''; ?>>
 												<span class="dashicons dashicons-trash"></span>
-												<?php esc_html_e( 'Remove', 'mtforms' ); ?>
+												<?php esc_html_e( 'Remove', 'mt-elementor-forms' ); ?>
 											</button>
 										</div>
-										<p class="field-hint"><?php esc_html_e( 'Recommended height: 40px–50px with transparent background.', 'mtforms' ); ?></p>
+										<p class="field-hint"><?php esc_html_e( 'Recommended height: 40px–50px with transparent background.', 'mt-elementor-forms' ); ?></p>
 									</div>
 
 									<!-- Footer Settings -->
-									<div class="mtforms-field-group">
-										<label for="mtforms_email_footer_text"><?php esc_html_e( 'Custom Footer Note', 'mtforms' ); ?></label>
-										<textarea id="mtforms_email_footer_text" name="mtforms_email_footer_text" rows="2"
-											class="regular-text" placeholder="<?php esc_attr_e( 'e.g. Acme Corp • 123 Innovation Way • contact@acme.com', 'mtforms' ); ?>"><?php echo esc_textarea( $footer_text ); ?></textarea>
+									<div class="mtef-field-group">
+										<label for="mtef_email_footer_text"><?php esc_html_e( 'Custom Footer Note', 'mt-elementor-forms' ); ?></label>
+										<textarea id="mtef_email_footer_text" name="mtef_email_footer_text" rows="2"
+											class="regular-text" placeholder="<?php esc_attr_e( 'e.g. Acme Corp • 123 Innovation Way • contact@acme.com', 'mt-elementor-forms' ); ?>"><?php echo esc_textarea( $footer_text ); ?></textarea>
 									</div>
 
-									<div class="mtforms-toggle-row">
+									<div class="mtef-toggle-row">
 										<div class="toggle-meta">
-											<strong><?php esc_html_e( 'Show "Submitted via Site" Credit', 'mtforms' ); ?></strong>
-											<p><?php esc_html_e( 'Displays the timestamp and site link in the email footer.', 'mtforms' ); ?></p>
+											<strong><?php esc_html_e( 'Show "Submitted via Site" Credit', 'mt-elementor-forms' ); ?></strong>
+											<p><?php esc_html_e( 'Displays the timestamp and site link in the email footer.', 'mt-elementor-forms' ); ?></p>
 										</div>
-										<label class="mtforms-switch">
-											<input type="checkbox" name="mtforms_email_show_footer_credit" value="yes" <?php checked( $show_credit, 'yes' ); ?>>
-											<span class="mtforms-slider round"></span>
+										<label class="mtef-switch">
+											<input type="checkbox" name="mtef_email_show_footer_credit" value="yes" <?php checked( $show_credit, 'yes' ); ?>>
+											<span class="mtef-slider round"></span>
 										</label>
 									</div>
 								</div>
@@ -515,51 +515,51 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 
 						<!-- RIGHT COLUMN: LIVE INTERACTIVE EMAIL PREVIEW -->
 						<div class="preview-col">
-							<div class="mtforms-sticky-preview">
+							<div class="mtef-sticky-preview">
 								<div class="preview-frame-header">
 									<div class="window-dots">
 										<span></span><span></span><span></span>
 									</div>
-									<span class="preview-title"><?php esc_html_e( 'Live Notification Preview', 'mtforms' ); ?></span>
-									<span class="live-badge"><?php esc_html_e( 'Real-time', 'mtforms' ); ?></span>
+									<span class="preview-title"><?php esc_html_e( 'Live Notification Preview', 'mt-elementor-forms' ); ?></span>
+									<span class="live-badge"><?php esc_html_e( 'Real-time', 'mt-elementor-forms' ); ?></span>
 								</div>
 
 								<!-- Live Render Box -->
-								<div class="mtforms-email-preview-canvas" id="emailPreviewCanvas" style="background-color: <?php echo esc_attr( $bg_color ); ?>;">
+								<div class="mtef-email-preview-canvas" id="emailPreviewCanvas" style="background-color: <?php echo esc_attr( $bg_color ); ?>;">
 									<div class="email-mock-card" id="emailMockCard" style="background-color: <?php echo esc_attr( $content_bg ); ?>;">
 										<!-- Header -->
 										<div class="email-mock-header" id="emailMockHeader" style="background-color: <?php echo esc_attr( $accent_color ); ?>;">
 											<div class="mock-logo-wrap" id="emailMockLogoWrap" <?php echo empty( $logo_url ) ? 'style="display:none;"' : ''; ?>>
 												<img src="<?php echo esc_url( $logo_url ); ?>" alt="Logo" id="emailMockLogo" />
 											</div>
-											<h4 id="emailMockHeading"><?php esc_html_e( 'New Form Submission', 'mtforms' ); ?></h4>
+											<h4 id="emailMockHeading"><?php esc_html_e( 'New Form Submission', 'mt-elementor-forms' ); ?></h4>
 										</div>
 
 										<!-- Body -->
 										<div class="email-mock-body" style="color: <?php echo esc_attr( $text_color ); ?>;">
-											<p class="mock-intro"><?php printf( /* translators: %s: website name. */ esc_html__( 'You received a new inquiry from %s:', 'mtforms' ), '<strong>' . esc_html( get_bloginfo( 'name' ) ) . '</strong>' ); ?></p>
+											<p class="mock-intro"><?php printf( /* translators: %s: website name. */ esc_html__( 'You received a new inquiry from %s:', 'mt-elementor-forms' ), '<strong>' . esc_html( get_bloginfo( 'name' ) ) . '</strong>' ); ?></p>
 
 											<div class="mock-field-row">
-												<span class="mock-label"><?php esc_html_e( 'NAME', 'mtforms' ); ?></span>
+												<span class="mock-label"><?php esc_html_e( 'NAME', 'mt-elementor-forms' ); ?></span>
 												<span class="mock-value">Sarah Jenkins</span>
 											</div>
 											<div class="mock-field-row">
-												<span class="mock-label"><?php esc_html_e( 'EMAIL', 'mtforms' ); ?></span>
+												<span class="mock-label"><?php esc_html_e( 'EMAIL', 'mt-elementor-forms' ); ?></span>
 												<span class="mock-value">sarah.jenkins@example.com</span>
 											</div>
 											<div class="mock-field-row">
-												<span class="mock-label"><?php esc_html_e( 'SUBJECT', 'mtforms' ); ?></span>
+												<span class="mock-label"><?php esc_html_e( 'SUBJECT', 'mt-elementor-forms' ); ?></span>
 												<span class="mock-value" id="emailMockSubjectPreview"><?php echo esc_html( $email_subject ); ?></span>
 											</div>
 											<div class="mock-field-row no-border">
-												<span class="mock-label"><?php esc_html_e( 'MESSAGE', 'mtforms' ); ?></span>
-												<span class="mock-value"><?php esc_html_e( 'Hi, I would like to inquire about your services and schedule a consultation next week.', 'mtforms' ); ?></span>
+												<span class="mock-label"><?php esc_html_e( 'MESSAGE', 'mt-elementor-forms' ); ?></span>
+												<span class="mock-value"><?php esc_html_e( 'Hi, I would like to inquire about your services and schedule a consultation next week.', 'mt-elementor-forms' ); ?></span>
 											</div>
 										</div>
 
 										<!-- Footer -->
 										<div class="email-mock-footer">
-											<p id="emailMockFooterText"><?php echo ! empty( $footer_text ) ? esc_html( $footer_text ) : sprintf( /* translators: %s: website name. */ esc_html__( 'Submitted via %s', 'mtforms' ), esc_html( get_bloginfo( 'name' ) ) ); ?></p>
+											<p id="emailMockFooterText"><?php echo ! empty( $footer_text ) ? esc_html( $footer_text ) : sprintf( /* translators: %s: website name. */ esc_html__( 'Submitted via %s', 'mt-elementor-forms' ), esc_html( get_bloginfo( 'name' ) ) ); ?></p>
 											<span>&copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
 										</div>
 									</div>
@@ -569,97 +569,97 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 					</div>
 
 					<!-- STICKY ACTION BAR -->
-					<div class="mtforms-sticky-save">
+					<div class="mtef-sticky-save">
 						<div class="save-status-text">
 							<span class="dashicons dashicons-saved"></span>
-							<span><?php esc_html_e( 'All changes are ready to save.', 'mtforms' ); ?></span>
+							<span><?php esc_html_e( 'All changes are ready to save.', 'mt-elementor-forms' ); ?></span>
 						</div>
-						<button type="submit" class="mtforms-btn-primary">
+						<button type="submit" class="mtef-btn-primary">
 							<span class="dashicons dashicons-yes-alt"></span>
-							<?php esc_html_e( 'Save Email Settings', 'mtforms' ); ?>
+							<?php esc_html_e( 'Save Email Settings', 'mt-elementor-forms' ); ?>
 						</button>
 					</div>
 				</form>
 
 			<?php elseif ( 'support' === $active_tab ) : ?>
 
-				<div class="mtforms-support-layout">
+				<div class="mtef-support-layout">
 					<!-- Welcome Hero -->
-					<div class="mtforms-card support-hero">
+					<div class="mtef-card support-hero">
 						<div class="hero-text">
-							<span class="hero-badge"><?php esc_html_e( 'Getting Started & Support', 'mtforms' ); ?></span>
-							<h2><?php esc_html_e( 'Build High-Converting Forms with Elementor', 'mtforms' ); ?></h2>
-							<p><?php esc_html_e( 'MTForms gives you 50+ preset styles, spam protection, and styled email templates. Follow the quick guide below or support development.', 'mtforms' ); ?></p>
+							<span class="hero-badge"><?php esc_html_e( 'Getting Started & Support', 'mt-elementor-forms' ); ?></span>
+							<h2><?php esc_html_e( 'Build High-Converting Forms with Elementor', 'mt-elementor-forms' ); ?></h2>
+							<p><?php esc_html_e( 'MT Elementor Forms gives you 50+ preset styles, spam protection, and styled email templates. Follow the quick guide below or support development.', 'mt-elementor-forms' ); ?></p>
 						</div>
 					</div>
 
 					<!-- 3-Step Quick Start Cards -->
-					<div class="mtforms-steps-grid">
-						<div class="mtforms-step-card">
+					<div class="mtef-steps-grid">
+						<div class="mtef-step-card">
 							<span class="step-num">01</span>
-							<h3><?php esc_html_e( 'Open Elementor', 'mtforms' ); ?></h3>
-							<p><?php esc_html_e( 'Edit any page, post, or template with the Elementor page builder.', 'mtforms' ); ?></p>
+							<h3><?php esc_html_e( 'Open Elementor', 'mt-elementor-forms' ); ?></h3>
+							<p><?php esc_html_e( 'Edit any page, post, or template with the Elementor page builder.', 'mt-elementor-forms' ); ?></p>
 						</div>
-						<div class="mtforms-step-card">
+						<div class="mtef-step-card">
 							<span class="step-num">02</span>
-							<h3><?php esc_html_e( 'Drag "MT Contact Form"', 'mtforms' ); ?></h3>
-							<p><?php esc_html_e( 'Search for "MTForms" in the Elementor widget panel and drag it into your page section.', 'mtforms' ); ?></p>
+							<h3><?php esc_html_e( 'Drag "MT Elementor Forms"', 'mt-elementor-forms' ); ?></h3>
+							<p><?php esc_html_e( 'Search for "MT Elementor Forms" in the Elementor widget panel and drag it into your page section.', 'mt-elementor-forms' ); ?></p>
 						</div>
-						<div class="mtforms-step-card">
+						<div class="mtef-step-card">
 							<span class="step-num">03</span>
-							<h3><?php esc_html_e( 'Pick a Preset Skin', 'mtforms' ); ?></h3>
-							<p><?php esc_html_e( 'Select from 50 built-in skins or 7 layouts (Floating, Material, Inline, Boxed).', 'mtforms' ); ?></p>
+							<h3><?php esc_html_e( 'Pick a Preset Skin', 'mt-elementor-forms' ); ?></h3>
+							<p><?php esc_html_e( 'Select from 50 built-in skins or 7 layouts (Floating, Material, Inline, Boxed).', 'mt-elementor-forms' ); ?></p>
 						</div>
 					</div>
 
 					<!-- 2-Column Info & Community -->
-					<div class="mtforms-two-col-grid" style="margin-top: 24px;">
+					<div class="mtef-two-col-grid" style="margin-top: 24px;">
 						<!-- Features Included -->
-						<div class="mtforms-card">
-							<div class="mtforms-card-header">
+						<div class="mtef-card">
+							<div class="mtef-card-header">
 								<div class="header-icon-wrap" style="background:#f0fdf4; color:#16a34a;">
 									<span class="dashicons dashicons-awards"></span>
 								</div>
 								<div>
-									<h2><?php esc_html_e( 'Included Features', 'mtforms' ); ?></h2>
-									<p class="section-desc"><?php esc_html_e( 'Everything available out of the box in MTForms', 'mtforms' ); ?></p>
+									<h2><?php esc_html_e( 'Included Features', 'mt-elementor-forms' ); ?></h2>
+									<p class="section-desc"><?php esc_html_e( 'Everything available out of the box in MT Elementor Forms', 'mt-elementor-forms' ); ?></p>
 								</div>
 							</div>
-							<div class="mtforms-card-body">
+							<div class="mtef-card-body">
 								<ul class="features-checklist">
 									<li>
 										<span class="check-icon">✓</span>
 										<div>
-											<strong><?php esc_html_e( '50 Preset Design Skins', 'mtforms' ); ?></strong>
-											<span><?php esc_html_e( 'Neumorphic, Glassmorphism, Material, Retro & Minimalist styles.', 'mtforms' ); ?></span>
+											<strong><?php esc_html_e( '50 Preset Design Skins', 'mt-elementor-forms' ); ?></strong>
+											<span><?php esc_html_e( 'Neumorphic, Glassmorphism, Material, Retro & Minimalist styles.', 'mt-elementor-forms' ); ?></span>
 										</div>
 									</li>
 									<li>
 										<span class="check-icon">✓</span>
 										<div>
-											<strong><?php esc_html_e( '7 Layout Structures', 'mtforms' ); ?></strong>
-											<span><?php esc_html_e( 'Floating Labels, Material Minimal, Inset Shadow, Inline layout, etc.', 'mtforms' ); ?></span>
+											<strong><?php esc_html_e( '7 Layout Structures', 'mt-elementor-forms' ); ?></strong>
+											<span><?php esc_html_e( 'Floating Labels, Material Minimal, Inset Shadow, Inline layout, etc.', 'mt-elementor-forms' ); ?></span>
 										</div>
 									</li>
 									<li>
 										<span class="check-icon">✓</span>
 										<div>
-											<strong><?php esc_html_e( 'Submissions Database Storage', 'mtforms' ); ?></strong>
-											<span><?php esc_html_e( 'Never miss an inquiry. Search, export to CSV and manage from admin.', 'mtforms' ); ?></span>
+											<strong><?php esc_html_e( 'Submissions Database Storage', 'mt-elementor-forms' ); ?></strong>
+											<span><?php esc_html_e( 'Never miss an inquiry. Search, export to CSV and manage from admin.', 'mt-elementor-forms' ); ?></span>
 										</div>
 									</li>
 									<li>
 										<span class="check-icon">✓</span>
 										<div>
-											<strong><?php esc_html_e( 'Spam Protection Suite', 'mtforms' ); ?></strong>
-											<span><?php esc_html_e( 'Google reCAPTCHA v2, Cloudflare Turnstile, honeypot and IP rate limiting.', 'mtforms' ); ?></span>
+											<strong><?php esc_html_e( 'Spam Protection Suite', 'mt-elementor-forms' ); ?></strong>
+											<span><?php esc_html_e( 'Google reCAPTCHA v2, Cloudflare Turnstile, honeypot and IP rate limiting.', 'mt-elementor-forms' ); ?></span>
 										</div>
 									</li>
 									<li>
 										<span class="check-icon">✓</span>
 										<div>
-											<strong><?php esc_html_e( 'GDPR Consent Checkbox', 'mtforms' ); ?></strong>
-											<span><?php esc_html_e( 'Custom consent text with privacy policy links.', 'mtforms' ); ?></span>
+											<strong><?php esc_html_e( 'GDPR Consent Checkbox', 'mt-elementor-forms' ); ?></strong>
+											<span><?php esc_html_e( 'Custom consent text with privacy policy links.', 'mt-elementor-forms' ); ?></span>
 										</div>
 									</li>
 								</ul>
@@ -667,32 +667,32 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 						</div>
 
 						<!-- Support & Contributions -->
-						<div class="mtforms-card">
-							<div class="mtforms-card-header">
+						<div class="mtef-card">
+							<div class="mtef-card-header">
 								<div class="header-icon-wrap" style="background:#eef2ff; color:#4f46e5;">
 									<span class="dashicons dashicons-heart"></span>
 								</div>
 								<div>
-									<h2><?php esc_html_e( 'Support & Feedback', 'mtforms' ); ?></h2>
-									<p class="section-desc"><?php esc_html_e( 'Support development or report bugs directly to the team.', 'mtforms' ); ?></p>
+									<h2><?php esc_html_e( 'Support & Feedback', 'mt-elementor-forms' ); ?></h2>
+									<p class="section-desc"><?php esc_html_e( 'Support development or report bugs directly to the team.', 'mt-elementor-forms' ); ?></p>
 								</div>
 							</div>
-							<div class="mtforms-card-body">
+							<div class="mtef-card-body">
 								<div class="support-action-list">
 									<a href="https://github.com/tariqsmd/mtforms/issues" target="_blank" rel="noopener noreferrer" class="support-action-card">
 										<span class="dashicons dashicons-warning"></span>
 										<div>
-											<strong><?php esc_html_e( 'Report an Issue / Bug', 'mtforms' ); ?></strong>
-											<span><?php esc_html_e( 'File an issue on the official GitHub repository.', 'mtforms' ); ?></span>
+											<strong><?php esc_html_e( 'Report an Issue / Bug', 'mt-elementor-forms' ); ?></strong>
+											<span><?php esc_html_e( 'File an issue on the official GitHub repository.', 'mt-elementor-forms' ); ?></span>
 										</div>
 										<span class="dashicons dashicons-arrow-right-alt2 arrow-icon"></span>
 									</a>
 
-									<a href="https://wordpress.org/support/plugin/mtforms/reviews/#new-post" target="_blank" rel="noopener noreferrer" class="support-action-card">
+									<a href="https://wordpress.org/support/plugin/mt-elementor-forms/reviews/#new-post" target="_blank" rel="noopener noreferrer" class="support-action-card">
 										<span class="dashicons dashicons-star-filled star-icon"></span>
 										<div>
-											<strong><?php esc_html_e( 'Leave a 5-Star Review', 'mtforms' ); ?></strong>
-											<span><?php esc_html_e( 'Help support future development by reviewing on WordPress.org.', 'mtforms' ); ?></span>
+											<strong><?php esc_html_e( 'Leave a 5-Star Review', 'mt-elementor-forms' ); ?></strong>
+											<span><?php esc_html_e( 'Help support future development by reviewing on WordPress.org.', 'mt-elementor-forms' ); ?></span>
 										</div>
 										<span class="dashicons dashicons-arrow-right-alt2 arrow-icon"></span>
 									</a>
@@ -707,6 +707,6 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 		</main>
 		<!-- ═══ /MAIN CONTENT ═══ -->
 
-	</div><!-- .mtforms-admin-layout -->
+	</div><!-- .mtef-admin-layout -->
 
-</div><!-- .mtforms-admin-wrap -->
+</div><!-- .mtef-admin-wrap -->

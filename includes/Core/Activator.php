@@ -1,6 +1,6 @@
 <?php
 
-namespace MTForms\Core;
+namespace MTEF\Core;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Fired during plugin activation.
  *
  * @since      1.0.0
- * @package    MTForms
+ * @package    MT Elementor Forms
  * @author     Muhammad Tariq
  */
 class Activator {
@@ -20,7 +20,7 @@ class Activator {
 	public static function activate() {
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . 'mtforms_submissions';
+		$table_name = $wpdb->prefix . 'mtef_submissions';
 		$charset_collate = $wpdb->get_charset_collate();
 
 		$sql = "CREATE TABLE $table_name (

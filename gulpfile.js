@@ -55,9 +55,9 @@ gulp.task('styles', function () {
 gulp.task('translate', function () {
     return gulp.src(['**/*.php', '!node_modules/**', '!vendor/**', '!dist/**'])
         .pipe(wpPot({
-            package: 'MTForms'
+            package: 'MT Elementor Forms'
         }))
-        .pipe(gulp.dest('languages/mtforms.pot'));
+        .pipe(gulp.dest('languages/mt-elementor-forms.pot'));
 });
 
 // Zip the plugin for distribution
@@ -81,7 +81,7 @@ gulp.task('zip', function () {
         '!assets/**/*.scss',
         '!**/*.map'
     ])
-        .pipe(zip('mtforms.zip'))
+        .pipe(zip('mt-elementor-forms.zip'))
         .pipe(gulp.dest('dist'));
 });
 
@@ -106,7 +106,7 @@ gulp.task('dist', function () {
         '!assets/**/*.scss',
         '!**/*.map'
     ])
-        .pipe(zip('mtforms.zip'))
+        .pipe(zip('mt-elementor-forms.zip'))
         .pipe(gulp.dest('dist'));
 });
 
