@@ -420,9 +420,9 @@ class MTEFWidgetHandler extends elementorModules.frontend.handlers.Base {
 }
 
 jQuery(window).on('elementor/frontend/init', () => {
-    const handleMT Elementor FormsWidget = ($element) => {
+    const handleMTEFWidget = ($element) => {
         elementorFrontend.elementsHandler.addHandler(MTEFWidgetHandler, { $element });
     };
 
-    elementorFrontend.hooks.addAction('frontend/element_ready/mtef.default', handleMT Elementor FormsWidget);
+    elementorFrontend.hooks.addAction('frontend/element_ready/mtef.default', handleMTEFWidget);
 });

@@ -84,7 +84,7 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function get_title()
 	{
-		return esc_html__('MT Elementor Forms', 'mt-elementor-forms');
+		return esc_html__('MT Contact Form', 'mt-elementor-forms');
 	}
 
 	/**

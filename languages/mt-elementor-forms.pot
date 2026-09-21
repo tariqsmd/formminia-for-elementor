@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-21 12:15+0000\n"
+"POT-Creation-Date: 2026-09-21 12:26+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Features & Payments"
 msgstr ""
 
-#: includes/Admin/settings-view.php:74, includes/Admin/SettingsPage.php:85, includes/Admin/SettingsPage.php:86, includes/Integrations/Elementor/Integration.php:28, includes/Integrations/Elementor/Widget.php:87
+#: includes/Admin/settings-view.php:74, includes/Admin/SettingsPage.php:85, includes/Admin/SettingsPage.php:86, includes/Integrations/Elementor/Integration.php:28
 msgid "MT Elementor Forms"
 msgstr ""
 
@@ -654,6 +654,10 @@ msgstr ""
 
 #: includes/Integrations/Elementor/Widget.php:62
 msgid "An unexpected error occurred. Please try again."
+msgstr ""
+
+#: includes/Integrations/Elementor/Widget.php:87
+msgid "MT Contact Form"
 msgstr ""
 
 #: includes/Integrations/Elementor/WidgetControls/ContentControls.php:32
