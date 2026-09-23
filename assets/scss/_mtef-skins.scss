@@ -598,10 +598,11 @@
 
     --mtef-radius: 24px;
     --mtef-form-padding: 3.5rem;
-    accent-color: var(--mtef-primary);
 
+    accent-color: var(--mtef-primary);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    background: var(--mtef-bg);
 
     .mtef-input,
     .mtef-textarea {
@@ -610,12 +611,7 @@
     }
 
     .mtef-submit-btn {
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
-
-        &:hover {
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
-        }
+        border: 1px solid #fff;
     }
 }
 
@@ -1038,6 +1034,8 @@
     .mtef-submit-btn {
         backdrop-filter: blur(5px);
         border: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: var(--mtef-input-bg);
+        color: var(--mtef-label-color);
 
         &:hover {
             background: rgba(255, 255, 255, 0.25);
@@ -1463,6 +1461,15 @@
     .mtef-input:focus {
         border-color: #008489 !important;
     }
+
+    .mtef-submit-btn {
+        border-color:var(--mtef-label-color);
+        color: var(--mtef-label-color);
+
+        &:hover{
+            color: #ffffff;
+        }
+    }
 }
 
 /* Frosted Glass */
@@ -1498,7 +1505,16 @@
     .mtef-input,
     .mtef-textarea {
         backdrop-filter: blur(4px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid var(--mtef-label-color);
+    }
+
+    .mtef-submit-btn {
+        border-color:var(--mtef-label-color);
+        color: var(--mtef-label-color);
+
+        &:hover{
+            color: #ffffff;
+        }
     }
 }
 
@@ -1711,10 +1727,11 @@
     }
 
     .mtef-submit-btn {
-        box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
+        border-color:var(--mtef-label-color);
+        color:var(--mtef-label-color);
 
         &:hover {
-            box-shadow: 0 8px 25px rgba(244, 63, 94, 0.5);
+            color:#fff;
         }
     }
 }

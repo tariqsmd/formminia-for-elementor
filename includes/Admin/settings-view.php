@@ -86,12 +86,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 				<div class="mtef-title-row">
 					<h1><?php esc_html_e( 'FormMinia for Elementor', 'formminia-for-elementor' ); ?></h1>
 					<span class="mtef-version-pill">v<?php echo esc_html( MTEF_VERSION ); ?></span>
-					<span class="mtef-status-pill <?php echo $has_elementor ? 'is-active' : 'is-warning'; ?>">
-						<span class="status-dot"></span>
-						<?php echo $has_elementor ? esc_html__( 'Elementor Ready', 'formminia-for-elementor' ) : esc_html__( 'Elementor Required', 'formminia-for-elementor' ); ?>
-					</span>
 				</div>
-				<p class="mtef-subtitle"><?php esc_html_e( 'Modern contact forms with 50+ skins, anti-spam, and styled notifications', 'formminia-for-elementor' ); ?></p>
 			</div>
 		</div>
 

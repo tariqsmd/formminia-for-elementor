@@ -93,7 +93,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
   flex-shrink: 0;
 }
 
@@ -195,7 +194,6 @@
   padding: 10px 22px !important;
   border: none !important;
   border-radius: var(--mtef-radius-md) !important;
-  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3) !important;
   cursor: pointer !important;
   text-decoration: none !important;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -208,7 +206,6 @@
 
   &:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(79, 70, 229, 0.4) !important;
     color: #ffffff !important;
   }
 
@@ -661,7 +658,7 @@
   &.is-selected {
     border-color: var(--mtef-primary);
     background: #fafafa;
-    box-shadow: 0 0 0 1px var(--mtef-primary), 0 8px 20px -4px rgba(192, 57, 43, 0.20);
+    //box-shadow: 0 0 0 1px var(--mtef-primary), 0 8px 20px -4px rgba(192, 57, 43, 0.20);
 
     .provider-radio-check {
       border-color: var(--mtef-primary);
@@ -1188,7 +1185,7 @@
 .mtef-sticky-save {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 16px;
   padding: 18px 24px;
   background: #ffffff;
