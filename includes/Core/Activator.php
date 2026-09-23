@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Fired during plugin activation.
  *
  * @since      1.0.0
- * @package    Quick Forms for Elementor
+ * @package    FormMinia for Elementor
  * @author     Muhammad Tariq
  */
 class Activator {

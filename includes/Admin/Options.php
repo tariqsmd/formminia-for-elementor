@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Centralized option keys for Quick Forms for Elementor admin settings.
+ * Centralized option keys for FormMinia for Elementor admin settings.
  */
 class Options
 {

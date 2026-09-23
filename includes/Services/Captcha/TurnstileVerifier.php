@@ -34,14 +34,14 @@ class TurnstileVerifier implements CaptchaVerifierInterface {
 		if ( $this->secret_key === '' ) {
 			return new \WP_Error(
 				'mtef_turnstile_config',
-				esc_html__( 'Captcha is not configured correctly.', 'quick-forms-for-elementor' )
+				esc_html__( 'Captcha is not configured correctly.', 'formminia-for-elementor' )
 			);
 		}
 
 		if ( $response === '' ) {
 			return new \WP_Error(
 				'mtef_turnstile_missing',
-				esc_html__( 'Please complete the Captcha.', 'quick-forms-for-elementor' )
+				esc_html__( 'Please complete the Captcha.', 'formminia-for-elementor' )
 			);
 		}
 
@@ -64,7 +64,7 @@ class TurnstileVerifier implements CaptchaVerifierInterface {
 
 			return new \WP_Error(
 				'mtef_turnstile_http_error',
-				esc_html__( 'Captcha verification request failed.', 'quick-forms-for-elementor' )
+				esc_html__( 'Captcha verification request failed.', 'formminia-for-elementor' )
 			);
 		}
 
@@ -74,7 +74,7 @@ class TurnstileVerifier implements CaptchaVerifierInterface {
 		if ( ! isset( $result->success ) || ! $result->success ) {
 			return new \WP_Error(
 				'mtef_turnstile_invalid',
-				esc_html__( 'Captcha verification failed.', 'quick-forms-for-elementor' )
+				esc_html__( 'Captcha verification failed.', 'formminia-for-elementor' )
 			);
 		}
 

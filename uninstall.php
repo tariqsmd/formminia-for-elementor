@@ -1,10 +1,10 @@
 <?php
 /**
- * Quick Forms for Elementor uninstall handler.
+ * FormMinia for Elementor uninstall handler.
  *
  * Removes the submissions table, all plugin options and rate-limit transients.
  *
- * @package Quick Forms for Elementor
+ * @package FormMinia for Elementor
  */
 
 // Prevent direct access.

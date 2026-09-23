@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Elementor Widget Class - Quick Forms for Elementor
+ * Elementor Widget Class - FormMinia for Elementor
  *
  * Comprehensive contact form widget with extensive customization options.
  *
@@ -46,20 +46,20 @@ class Widget extends \Elementor\Widget_Base
 				'ajax_url' => admin_url('admin-ajax.php'),
 				'nonce' => wp_create_nonce('mtef-submit-form'),
 				'i18n' => array(
-					'name_required' => esc_html__('Name is required', 'quick-forms-for-elementor'),
-					'name_min' => esc_html__('Name must be at least 2 characters', 'quick-forms-for-elementor'),
-					'email_required' => esc_html__('Email is required', 'quick-forms-for-elementor'),
-					'email_invalid' => esc_html__('Email is invalid', 'quick-forms-for-elementor'),
-					'phone_required' => esc_html__('Phone number is required', 'quick-forms-for-elementor'),
-					'phone_invalid' => esc_html__('Please enter a valid phone number', 'quick-forms-for-elementor'),
-					'website_required' => esc_html__('Website URL is required', 'quick-forms-for-elementor'),
-					'website_invalid' => esc_html__('Please enter a valid URL', 'quick-forms-for-elementor'),
-					'subject_required' => esc_html__('Subject is required', 'quick-forms-for-elementor'),
-					'message_required' => esc_html__('Message is required', 'quick-forms-for-elementor'),
-					'gdpr_required' => esc_html__('You must agree to the terms', 'quick-forms-for-elementor'),
-					'sending' => esc_html__('Sending...', 'quick-forms-for-elementor'),
-					'send_message' => esc_html__('Send Message', 'quick-forms-for-elementor'),
-					'error_generic' => esc_html__('An unexpected error occurred. Please try again.', 'quick-forms-for-elementor'),
+					'name_required' => esc_html__('Name is required', 'formminia-for-elementor'),
+					'name_min' => esc_html__('Name must be at least 2 characters', 'formminia-for-elementor'),
+					'email_required' => esc_html__('Email is required', 'formminia-for-elementor'),
+					'email_invalid' => esc_html__('Email is invalid', 'formminia-for-elementor'),
+					'phone_required' => esc_html__('Phone number is required', 'formminia-for-elementor'),
+					'phone_invalid' => esc_html__('Please enter a valid phone number', 'formminia-for-elementor'),
+					'website_required' => esc_html__('Website URL is required', 'formminia-for-elementor'),
+					'website_invalid' => esc_html__('Please enter a valid URL', 'formminia-for-elementor'),
+					'subject_required' => esc_html__('Subject is required', 'formminia-for-elementor'),
+					'message_required' => esc_html__('Message is required', 'formminia-for-elementor'),
+					'gdpr_required' => esc_html__('You must agree to the terms', 'formminia-for-elementor'),
+					'sending' => esc_html__('Sending...', 'formminia-for-elementor'),
+					'send_message' => esc_html__('Send Message', 'formminia-for-elementor'),
+					'error_generic' => esc_html__('An unexpected error occurred. Please try again.', 'formminia-for-elementor'),
 				),
 				'captcha_provider' => get_option('mtef_captcha_provider', 'none'),
 			)
@@ -84,7 +84,7 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function get_title()
 	{
-		return esc_html__('Quick Forms', 'quick-forms-for-elementor');
+		return esc_html__('Contact Form', 'formminia-for-elementor');
 	}
 
 	/**

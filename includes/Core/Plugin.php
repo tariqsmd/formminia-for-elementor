@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Core plugin orchestrator for Quick Forms for Elementor.
+ * Core plugin orchestrator for FormMinia for Elementor.
  *
  * This class is responsible for:
  * - Loading dependencies.
@@ -83,7 +83,7 @@ class Plugin {
 	 * Load plugin dependencies.
 	 */
 	protected function load_dependencies() {
-		// All classes are autoloaded via the Quick Forms for Elementor namespace.
+		// All classes are autoloaded via the FormMinia for Elementor namespace.
 		$this->loader = new Loader();
 	}
 

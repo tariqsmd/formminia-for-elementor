@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Namespaced Elementor integration for Quick Forms for Elementor.
+ * Namespaced Elementor integration for FormMinia for Elementor.
  */
 class Integration {
 
@@ -17,7 +17,7 @@ class Integration {
 	}
 
 	/**
-	 * Register the Quick Forms for Elementor Elementor category.
+	 * Register the FormMinia for Elementor Elementor category.
 	 *
 	 * @param \Elementor\Elements_Manager $elements_manager Elements manager.
 	 */
@@ -25,14 +25,14 @@ class Integration {
 		$elements_manager->add_category(
 			'mtef',
 			array(
-				'title' => esc_html__( 'Quick Forms for Elementor', 'quick-forms-for-elementor' ),
+				'title' => esc_html__( 'FormMinia', 'formminia-for-elementor' ),
 				'icon'  => 'eicon-form-horizontal',
 			)
 		);
 	}
 
 	/**
-	 * Register Quick Forms for Elementor Elementor widget.
+	 * Register FormMinia for Elementor Elementor widget.
 	 *
 	 * @param \Elementor\Widgets_Manager $widgets_manager Widgets manager.
 	 */

@@ -14,7 +14,7 @@ use MTEF\Services\ElementorWidgetSettings;
 use MTEF\Services\SubmissionRepository;
 
 /**
- * Public-facing form controller for Quick Forms for Elementor.
+ * Public-facing form controller for FormMinia for Elementor.
  *
  * Handles:
  * - Asset registration/enqueueing.
@@ -120,7 +120,7 @@ class FormController
 		if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'mtef-submit-form')) {
 			wp_send_json_error(
 				array(
-					'message' => esc_html__('Security check failed.', 'quick-forms-for-elementor'),
+					'message' => esc_html__('Security check failed.', 'formminia-for-elementor'),
 				)
 			);
 		}
@@ -129,7 +129,7 @@ class FormController
 		if (!empty($_POST['mtef_hp'])) {
 			wp_send_json_error(
 				array(
-					'message' => esc_html__('Spam detected. Please try again.', 'quick-forms-for-elementor'),
+					'message' => esc_html__('Spam detected. Please try again.', 'formminia-for-elementor'),
 				)
 			);
 		}
@@ -143,7 +143,7 @@ class FormController
 			if ($count >= 10) {
 				wp_send_json_error(
 					array(
-						'message' => esc_html__('Too many submissions from this IP. Please try again later.', 'quick-forms-for-elementor'),
+						'message' => esc_html__('Too many submissions from this IP. Please try again later.', 'formminia-for-elementor'),
 					)
 				);
 			}
@@ -206,14 +206,14 @@ class FormController
 
 			wp_send_json_success(
 				array(
-					'message' => esc_html__('Message sent successfully!', 'quick-forms-for-elementor'),
+					'message' => esc_html__('Message sent successfully!', 'formminia-for-elementor'),
 				)
 			);
 		}
 
 		wp_send_json_error(
 			array(
-				'message' => esc_html__('Failed to send message. Please try again.', 'quick-forms-for-elementor'),
+				'message' => esc_html__('Failed to send message. Please try again.', 'formminia-for-elementor'),
 			)
 		);
 	}

@@ -1,12 +1,12 @@
-# Copyright (C) 2026 Quick Forms for Elementor
-# This file is distributed under the same license as the Quick Forms for Elementor package.
+# Copyright (C) 2026 FormMinia for Elementor
+# This file is distributed under the same license as the FormMinia for Elementor package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Quick Forms for Elementor\n"
+"Project-Id-Version: FormMinia for Elementor\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-23 07:40+0000\n"
+"POT-Creation-Date: 2026-09-23 16:46+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -38,8 +38,8 @@ msgstr ""
 msgid "Features & Payments"
 msgstr ""
 
-#: includes/Admin/settings-view.php:87, includes/Admin/SettingsPage.php:85, includes/Integrations/Elementor/Integration.php:28
-msgid "Quick Forms for Elementor"
+#: includes/Admin/settings-view.php:87, includes/Admin/SettingsPage.php:85
+msgid "FormMinia for Elementor"
 msgstr ""
 
 #: includes/Admin/settings-view.php:91
@@ -71,7 +71,7 @@ msgid "50+ Preset Skins"
 msgstr ""
 
 #: includes/Admin/settings-view.php:137
-msgid "Edit any page with Elementor, search for the \"Quick Forms\" widget, and choose from 50 built-in skins."
+msgid "Edit any page with Elementor, search for the \"Contact Form\" widget, and choose from 50 built-in skins."
 msgstr ""
 
 #: includes/Admin/settings-view.php:140
@@ -87,7 +87,7 @@ msgid "Build High-Converting Forms with Elementor"
 msgstr ""
 
 #: includes/Admin/settings-view.php:605
-msgid "Quick Forms for Elementor gives you 50+ preset styles, spam protection, and styled email templates. Follow the quick guide below or support development."
+msgid "FormMinia for Elementor gives you 50+ preset styles, spam protection, and styled email templates. Follow the quick guide below or support development."
 msgstr ""
 
 #: includes/Admin/settings-view.php:613
@@ -99,11 +99,11 @@ msgid "Edit any page, post, or template with the Elementor page builder."
 msgstr ""
 
 #: includes/Admin/settings-view.php:618
-msgid "Drag \"Quick Forms for Elementor\""
+msgid "Drag \"Contact Form\""
 msgstr ""
 
 #: includes/Admin/settings-view.php:619
-msgid "Search for \"Quick Forms\" in the Elementor widget panel and drag it into your page section."
+msgid "Open the \"FormMinia\" category in the Elementor widget panel and drag the \"Contact Form\" widget into your page section."
 msgstr ""
 
 #: includes/Admin/settings-view.php:623
@@ -119,7 +119,7 @@ msgid "Included Features"
 msgstr ""
 
 #: includes/Admin/settings-view.php:638
-msgid "Everything available out of the box in Quick Forms for Elementor"
+msgid "Everything available out of the box in FormMinia for Elementor"
 msgstr ""
 
 #: includes/Admin/settings-view.php:646
@@ -478,8 +478,8 @@ msgstr ""
 msgid "Save Settings"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:86, includes/Integrations/Elementor/Widget.php:87
-msgid "Quick Forms"
+#: includes/Admin/SettingsPage.php:86, includes/Integrations/Elementor/Integration.php:28
+msgid "FormMinia"
 msgstr ""
 
 #: includes/Admin/SettingsPage.php:96, includes/Admin/SettingsPage.php:97
@@ -491,7 +491,7 @@ msgid "Submissions"
 msgstr ""
 
 #: includes/Admin/SettingsPage.php:122
-msgid "Quick Forms for Elementor Submissions"
+msgid "FormMinia for Elementor Submissions"
 msgstr ""
 
 #: includes/Admin/SettingsPage.php:123
@@ -511,7 +511,7 @@ msgid "Security check failed."
 msgstr ""
 
 #: includes/Admin/SettingsPage.php:233
-msgid "Quick Forms for Elementor requires the Elementor plugin to build forms. Install and activate Elementor to get started."
+msgid "FormMinia for Elementor requires the Elementor plugin to build forms. Install and activate Elementor to get started."
 msgstr ""
 
 #: includes/Admin/SettingsPage.php:272
@@ -587,7 +587,7 @@ msgid "Failed to send message. Please try again."
 msgstr ""
 
 #: includes/Integrations/Elementor/Partials/captcha.php:46
-msgid "CAPTCHA is enabled on this form, but the selected provider is not configured. Add the site key under Quick Forms for Elementor » General settings."
+msgid "CAPTCHA is enabled on this form, but the selected provider is not configured. Add the site key under FormMinia for Elementor » General settings."
 msgstr ""
 
 #. translators: %s: name of the website the submission was sent from.
@@ -658,6 +658,10 @@ msgstr ""
 
 #: includes/Integrations/Elementor/Widget.php:62
 msgid "An unexpected error occurred. Please try again."
+msgstr ""
+
+#: includes/Integrations/Elementor/Widget.php:87
+msgid "Contact Form"
 msgstr ""
 
 #: includes/Integrations/Elementor/WidgetControls/ContentControls.php:32
@@ -987,7 +991,7 @@ msgid "Show Captcha"
 msgstr ""
 
 #: includes/Integrations/Elementor/WidgetControls/ContentControls.php:353
-msgid "See captcha configuration in Quick Forms for Elementor settings."
+msgid "See captcha configuration in FormMinia for Elementor settings."
 msgstr ""
 
 #: includes/Integrations/Elementor/WidgetControls/ContentControls.php:360

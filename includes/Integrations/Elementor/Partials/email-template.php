@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
 /**
- * HTML Email Template for Quick Forms for Elementor
+ * HTML Email Template for FormMinia for Elementor
  *
  * Available variables (set by SubmissionMailer::build_body):
  *   $fields    array   Label => value pairs.
@@ -73,7 +73,7 @@ $footer_text = wp_kses_post($footer_text);
 <body style="margin:0; padding:0; background-color:<?php echo esc_attr( $bg_color ); ?>; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     <!-- Preview text (hidden) -->
     <div style="display:none; max-height:0; overflow:hidden;">
-        <?php echo esc_html($site_name); ?> - <?php esc_html_e('New Form Submission', 'quick-forms-for-elementor'); ?>
+        <?php echo esc_html($site_name); ?> - <?php esc_html_e('New Form Submission', 'formminia-for-elementor'); ?>
     </div>
 
     <!-- Wrapper -->
@@ -95,7 +95,7 @@ $footer_text = wp_kses_post($footer_text);
                                 <img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php echo esc_attr($site_name); ?>" width="150" height="50" style="display:block; margin:0 auto 14px; max-height:50px; width:auto; height:auto;">
                             <?php endif; ?>
                             <h1 style="margin:0; font-size:22px; font-weight:700; color:#fff; letter-spacing:0.3px;">
-                                <?php esc_html_e('New Form Submission', 'quick-forms-for-elementor'); ?>
+                                <?php esc_html_e('New Form Submission', 'formminia-for-elementor'); ?>
                             </h1>
                         </td>
                     </tr>
@@ -107,7 +107,7 @@ $footer_text = wp_kses_post($footer_text);
                                 <?php
                                 printf(
                                     /* translators: %s: name of the website the submission was sent from. */
-                                    esc_html__('You received a new message from %s.', 'quick-forms-for-elementor'),
+                                    esc_html__('You received a new message from %s.', 'formminia-for-elementor'),
                                     '<strong>' . esc_html($site_name) . '</strong>'
                                 ); ?>
                             </p>
@@ -138,7 +138,7 @@ $footer_text = wp_kses_post($footer_text);
                                     <?php
                                     printf(
                                         /* translators: 1: date the form was submitted, 2: website name. */
-                                        esc_html__('Submitted on %1$s via %2$s', 'quick-forms-for-elementor'),
+                                        esc_html__('Submitted on %1$s via %2$s', 'formminia-for-elementor'),
                                         esc_html($date),
                                         esc_html($site_name)
                                     ); ?>

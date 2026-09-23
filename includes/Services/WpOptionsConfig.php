@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Small wrapper around WordPress options for Quick Forms for Elementor.
+ * Small wrapper around WordPress options for FormMinia for Elementor.
  */
 class WpOptionsConfig {
 

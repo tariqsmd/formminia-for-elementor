@@ -138,7 +138,7 @@ class SubmissionRepository
 		if (false === $result) {
 			if (defined('WP_DEBUG') && WP_DEBUG) {
 				// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- Debug-only diagnostics behind WP_DEBUG.
-				error_log('[Quick Forms for Elementor] Submission insert failed (table: ' . $this->table_name . '): ' . $wpdb->last_error);
+				error_log('[FormMinia for Elementor] Submission insert failed (table: ' . $this->table_name . '): ' . $wpdb->last_error);
 			}
 
 			return false;

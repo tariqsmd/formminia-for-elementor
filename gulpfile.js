@@ -55,9 +55,9 @@ gulp.task('styles', function () {
 gulp.task('translate', function () {
     return gulp.src(['**/*.php', '!node_modules/**', '!vendor/**', '!dist/**'])
         .pipe(wpPot({
-            package: 'Quick Forms for Elementor'
+            package: 'FormMinia for Elementor'
         }))
-        .pipe(gulp.dest('languages/quick-forms-for-elementor.pot'));
+        .pipe(gulp.dest('languages/formminia-for-elementor.pot'));
 });
 
 // Zip the plugin for distribution
@@ -84,7 +84,7 @@ gulp.task('zip', function () {
         '!assets/**/*.scss',
         '!**/*.map'
     ])
-        .pipe(zip('quick-forms-for-elementor.zip'))
+        .pipe(zip('formminia-for-elementor.zip'))
         .pipe(gulp.dest('dist'));
 });
 
@@ -112,7 +112,7 @@ gulp.task('dist', function () {
         '!assets/**/*.scss',
         '!**/*.map'
     ])
-        .pipe(zip('quick-forms-for-elementor.zip'))
+        .pipe(zip('formminia-for-elementor.zip'))
         .pipe(gulp.dest('dist'));
 });
 

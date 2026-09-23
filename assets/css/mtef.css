@@ -523,7 +523,7 @@
   }
 }
 /**
- * Quick Forms for Elementor Default Skin (Skin 0)
+ * FormMinia for Elementor Default Skin (Skin 0)
  * 
  * A clean, minimalist base that uses root CSS variables.
  */
@@ -605,9 +605,9 @@
 }
 
 /**
- * Quick Forms for Elementor Custom Skins
+ * FormMinia for Elementor Custom Skins
  * 
- * Elegant, premium preset skins for the Quick Forms for Elementor Elementor Widget.
+ * Elegant, premium preset skins for the FormMinia for Elementor Elementor Widget.
  * Refactored to use CSS Variable overrides for better performance and customization.
  */
 /* Modern Indigo */
@@ -3714,7 +3714,7 @@
   }
 }
 /**
- * Quick Forms for Elementor Layout Styles
+ * FormMinia for Elementor Layout Styles
  */
 .mtef-fields-wrapper {
   display: grid;

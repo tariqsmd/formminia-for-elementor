@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 use MTEF\Admin\SubmissionsTable;
 
 /**
- * Admin settings page for Quick Forms for Elementor.
+ * Admin settings page for FormMinia for Elementor.
  *
  * Modern, namespaced counterpart to the legacy MTEF_Admin class.
  */
@@ -82,8 +82,8 @@ class SettingsPage
 	public function add_admin_menu()
 	{
 		add_menu_page(
-			__('Quick Forms for Elementor', 'quick-forms-for-elementor'),
-			__('Quick Forms', 'quick-forms-for-elementor'),
+			__('FormMinia for Elementor', 'formminia-for-elementor'),
+			__('FormMinia', 'formminia-for-elementor'),
 			'manage_options',
 			'mtef',
 			array($this, 'display_plugin_setup_page'),
@@ -93,8 +93,8 @@ class SettingsPage
 
 		add_submenu_page(
 			'mtef',
-			__('Settings', 'quick-forms-for-elementor'),
-			__('Settings', 'quick-forms-for-elementor'),
+			__('Settings', 'formminia-for-elementor'),
+			__('Settings', 'formminia-for-elementor'),
 			'manage_options',
 			'mtef',
 			array($this, 'display_plugin_setup_page')
@@ -102,8 +102,8 @@ class SettingsPage
 
 		add_submenu_page(
 			'mtef',
-			__('Submissions', 'quick-forms-for-elementor'),
-			__('Submissions', 'quick-forms-for-elementor'),
+			__('Submissions', 'formminia-for-elementor'),
+			__('Submissions', 'formminia-for-elementor'),
 			'manage_options',
 			'mtef-submissions',
 			array($this, 'display_submissions_page')
@@ -119,8 +119,8 @@ class SettingsPage
 		$table->prepare_items();
 		?>
 		<div class="wrap">
-			<h1 class="wp-heading-inline"><?php esc_html_e('Quick Forms for Elementor Submissions', 'quick-forms-for-elementor'); ?></h1>
-			<a href="<?php echo esc_url(wp_nonce_url(add_query_arg('action', 'export_csv'), 'mtef_export_csv')); ?>" class="page-title-action"><?php esc_html_e('Export to CSV', 'quick-forms-for-elementor'); ?></a>
+			<h1 class="wp-heading-inline"><?php esc_html_e('FormMinia for Elementor Submissions', 'formminia-for-elementor'); ?></h1>
+			<a href="<?php echo esc_url(wp_nonce_url(add_query_arg('action', 'export_csv'), 'mtef_export_csv')); ?>" class="page-title-action"><?php esc_html_e('Export to CSV', 'formminia-for-elementor'); ?></a>
 			<hr class="wp-header-end">
 
 			<form method="post">
@@ -129,7 +129,7 @@ class SettingsPage
 				<?php // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- The form carries its own nonce; this read is for a hidden field only. ?>
 				<input type="hidden" name="page" value="<?php echo isset($_REQUEST['page']) ? esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))) : 'mtef-submissions'; ?>" />
 				<?php
-				$table->search_box(esc_html__('Search Submissions', 'quick-forms-for-elementor'), 'submission');
+				$table->search_box(esc_html__('Search Submissions', 'formminia-for-elementor'), 'submission');
 				$table->display();
 				?>
 			</form>
@@ -154,11 +154,11 @@ class SettingsPage
 		}
 
 		if (!current_user_can('manage_options')) {
-			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'quick-forms-for-elementor'));
+			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'formminia-for-elementor'));
 		}
 
 		if (!isset($_GET['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_wpnonce'])), 'mtef_export_csv')) {
-			wp_die(esc_html__('Security check failed.', 'quick-forms-for-elementor'));
+			wp_die(esc_html__('Security check failed.', 'formminia-for-elementor'));
 		}
 
 		$this->handle_export_csv();
@@ -217,7 +217,7 @@ class SettingsPage
 	/**
 	 * Show an admin notice when the Elementor dependency is inactive.
 	 *
-	 * Displayed only on Quick Forms for Elementor admin screens.
+	 * Displayed only on FormMinia for Elementor admin screens.
 	 */
 	public function maybe_display_elementor_notice()
 	{
@@ -230,7 +230,7 @@ class SettingsPage
 			return;
 		}
 
-		echo '<div class="notice notice-warning is-dismissible"><p>' . esc_html__('Quick Forms for Elementor requires the Elementor plugin to build forms. Install and activate Elementor to get started.', 'quick-forms-for-elementor') . '</p></div>';
+		echo '<div class="notice notice-warning is-dismissible"><p>' . esc_html__('FormMinia for Elementor requires the Elementor plugin to build forms. Install and activate Elementor to get started.', 'formminia-for-elementor') . '</p></div>';
 	}
 
 	/**
@@ -250,7 +250,7 @@ class SettingsPage
 	protected function handle_export_csv()
 	{
 		if (!current_user_can('manage_options')) {
-			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'quick-forms-for-elementor'));
+			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'formminia-for-elementor'));
 		}
 
 		$repository = new \MTEF\Services\SubmissionRepository();
@@ -269,16 +269,16 @@ class SettingsPage
 
 		// Header row.
 		fputcsv($output, [
-			__('ID', 'quick-forms-for-elementor'),
-			__('Name', 'quick-forms-for-elementor'),
-			__('Email', 'quick-forms-for-elementor'),
-			__('Phone', 'quick-forms-for-elementor'),
-			__('Website', 'quick-forms-for-elementor'),
-			__('Subject', 'quick-forms-for-elementor'),
-			__('Message', 'quick-forms-for-elementor'),
-			__('Form ID', 'quick-forms-for-elementor'),
-			__('IP Address', 'quick-forms-for-elementor'),
-			__('Date', 'quick-forms-for-elementor'),
+			__('ID', 'formminia-for-elementor'),
+			__('Name', 'formminia-for-elementor'),
+			__('Email', 'formminia-for-elementor'),
+			__('Phone', 'formminia-for-elementor'),
+			__('Website', 'formminia-for-elementor'),
+			__('Subject', 'formminia-for-elementor'),
+			__('Message', 'formminia-for-elementor'),
+			__('Form ID', 'formminia-for-elementor'),
+			__('IP Address', 'formminia-for-elementor'),
+			__('Date', 'formminia-for-elementor'),
 		]);
 
 		foreach ($submissions as $submission) {
