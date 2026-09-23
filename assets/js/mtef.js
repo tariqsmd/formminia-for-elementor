@@ -1,8 +1,8 @@
 
 /**
- * Quick & Modern Forms for Elementor Elementor Widget Handler
+ * Quick Forms for Elementor Elementor Widget Handler
  *
- * This class handles the frontend functionality of the Quick & Modern Forms for Elementor widget,
+ * This class handles the frontend functionality of the Quick Forms for Elementor widget,
  * including validation with JustValidate, AJAX submission, and UI animations.
  *
  * @since 1.0.0
@@ -345,7 +345,7 @@ class MTEFWidgetHandler extends elementorModules.frontend.handlers.Base {
         }
 
         $responseMsg.addClass('error').html(this.config.i18n.error_generic).fadeIn();
-        console.error('Quick & Modern Forms for Elementor Submission Error:', error);
+        console.error('Quick Forms for Elementor Submission Error:', error);
     }
 
     /**

@@ -32,7 +32,7 @@ trait StyleControls {
 		$this->start_controls_section(
 			'section_style_field_group',
 			[
-				'label' => esc_html__('Field Group', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Field Group', 'quick-forms-for-elementor'),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -40,7 +40,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'group_margin',
 			[
-				'label' => esc_html__('Margin', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Margin', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -52,7 +52,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'group_padding',
 			[
-				'label' => esc_html__('Padding', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Padding', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -64,7 +64,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'group_border_radius',
 			[
-				'label' => esc_html__('Border Radius', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Border Radius', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -109,7 +109,7 @@ trait StyleControls {
 		$this->start_controls_section(
 			'section_style_form',
 			[
-				'label' => esc_html__('Form Container', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Form Container', 'quick-forms-for-elementor'),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -117,7 +117,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'form_margin',
 			[
-				'label' => esc_html__('Margin', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Margin', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -129,7 +129,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'form_padding',
 			[
-				'label' => esc_html__('Padding', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Padding', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -142,7 +142,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'field_row_gap',
 			[
-				'label' => esc_html__('Row Gap', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Row Gap', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em', 'rem'],
 				'range' => [
@@ -160,7 +160,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'field_column_gap',
 			[
-				'label' => esc_html__('Column Gap', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Column Gap', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => ['px', 'em', 'rem'],
 				'range' => [
@@ -178,7 +178,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'form_border_radius',
 			[
-				'label' => esc_html__('Border Radius', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Border Radius', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -214,9 +214,9 @@ trait StyleControls {
 		$this->add_control(
 			'accent_color',
 			[
-				'label' => esc_html__('Accent Color (Native Fields)', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Accent Color (Native Fields)', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
-				'description' => esc_html__('Styles native checkboxes, radio buttons, and range sliders.', 'quick-modern-forms-for-elementor'),
+				'description' => esc_html__('Styles native checkboxes, radio buttons, and range sliders.', 'quick-forms-for-elementor'),
 				'selectors' => [
 					'{{WRAPPER}} .mtef-form-wrapper' => 'accent-color: {{VALUE}};',
 				],
@@ -235,7 +235,7 @@ trait StyleControls {
 		$this->start_controls_section(
 			'section_style_title',
 			[
-				'label' => esc_html__('Form Title', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Form Title', 'quick-forms-for-elementor'),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'form_title!' => '',
@@ -246,7 +246,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'title_margin',
 			[
-				'label' => esc_html__('Margin', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Margin', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -258,7 +258,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'title_padding',
 			[
-				'label' => esc_html__('Padding', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Padding', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -270,7 +270,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'title_border_radius',
 			[
-				'label' => esc_html__('Border Radius', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Border Radius', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -306,7 +306,7 @@ trait StyleControls {
 		$this->add_control(
 			'title_color',
 			[
-				'label' => esc_html__('Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-form-title' => 'color: {{VALUE}};',
@@ -325,19 +325,19 @@ trait StyleControls {
 		$this->add_control(
 			'title_align',
 			[
-				'label' => esc_html__('Alignment', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Alignment', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
-						'title' => esc_html__('Left', 'quick-modern-forms-for-elementor'),
+						'title' => esc_html__('Left', 'quick-forms-for-elementor'),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__('Center', 'quick-modern-forms-for-elementor'),
+						'title' => esc_html__('Center', 'quick-forms-for-elementor'),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__('Right', 'quick-modern-forms-for-elementor'),
+						'title' => esc_html__('Right', 'quick-forms-for-elementor'),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -363,7 +363,7 @@ trait StyleControls {
 		$this->start_controls_section(
 			'section_style_fields_wrapper',
 			[
-				'label' => esc_html__('Fields Wrapper', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Fields Wrapper', 'quick-forms-for-elementor'),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -371,7 +371,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'fields_wrapper_margin',
 			[
-				'label' => esc_html__('Margin', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Margin', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -383,7 +383,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'fields_wrapper_padding',
 			[
-				'label' => esc_html__('Padding', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Padding', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -395,7 +395,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'fields_wrapper_border_radius',
 			[
-				'label' => esc_html__('Border Radius', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Border Radius', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -439,7 +439,7 @@ trait StyleControls {
 		$this->start_controls_section(
 			'section_style_labels',
 			[
-				'label' => esc_html__('Labels', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Labels', 'quick-forms-for-elementor'),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_labels' => 'yes',
@@ -450,7 +450,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'label_margin',
 			[
-				'label' => esc_html__('Margin', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Margin', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -462,7 +462,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'label_padding',
 			[
-				'label' => esc_html__('Padding', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Padding', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -474,7 +474,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'label_border_radius',
 			[
-				'label' => esc_html__('Border Radius', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Border Radius', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -510,7 +510,7 @@ trait StyleControls {
 		$this->add_control(
 			'label_color',
 			[
-				'label' => esc_html__('Label Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Label Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-form-group label' => 'color: {{VALUE}};',
@@ -530,7 +530,7 @@ trait StyleControls {
 		$this->add_control(
 			'heading_field_icons',
 			[
-				'label' => esc_html__('Field Icons', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Field Icons', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -542,7 +542,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'icon_margin',
 			[
-				'label' => esc_html__('Margin', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Margin', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -557,7 +557,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'icon_padding',
 			[
-				'label' => esc_html__('Padding', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Padding', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -572,7 +572,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'icon_border_radius',
 			[
-				'label' => esc_html__('Border Radius', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Border Radius', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -609,7 +609,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label' => esc_html__('Icon Size', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Icon Size', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -630,7 +630,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'icon_spacing',
 			[
-				'label' => esc_html__('Icon Spacing', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Icon Spacing', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -651,7 +651,7 @@ trait StyleControls {
 		$this->add_control(
 			'icon_color',
 			[
-				'label' => esc_html__('Icon Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Icon Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-icon svg' => 'fill: {{VALUE}};',
@@ -666,7 +666,7 @@ trait StyleControls {
 		$this->add_control(
 			'icon_bg_color',
 			[
-				'label' => esc_html__('Background Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Background Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-icon' => 'background-color: {{VALUE}};',
@@ -692,7 +692,7 @@ trait StyleControls {
 		$this->add_control(
 			'heading_inline_layout',
 			[
-				'label' => esc_html__('Inline Layout', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Inline Layout', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
@@ -704,7 +704,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'inline_label_width',
 			[
-				'label' => esc_html__('Label Width', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Label Width', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'range' => [
@@ -733,7 +733,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'inline_field_width',
 			[
-				'label' => esc_html__('Field Width', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Field Width', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'range' => [
@@ -762,7 +762,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'inline_gap',
 			[
-				'label' => esc_html__('Gap Between Label & Field', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Gap Between Label & Field', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -793,7 +793,7 @@ trait StyleControls {
 		$this->start_controls_section(
 			'section_style_inputs',
 			[
-				'label' => esc_html__('Fields Global Settings', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Fields Global Settings', 'quick-forms-for-elementor'),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -801,7 +801,7 @@ trait StyleControls {
 		$this->add_control(
 			'heading_input_style',
 			[
-				'label' => esc_html__('Input Options', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Input Options', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -810,24 +810,24 @@ trait StyleControls {
 		$this->add_control(
 			'input_style',
 			[
-				'label' => esc_html__('Input Style', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Input Style', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SELECT,
 				'default' => 'default',
 				'options' => [
-					'default' => __('Default', 'quick-modern-forms-for-elementor'),
-					'underline' => __('Underline Only', 'quick-modern-forms-for-elementor'),
-					'rounded' => __('Rounded', 'quick-modern-forms-for-elementor'),
-					'pill' => __('Pill Shape', 'quick-modern-forms-for-elementor'),
-					'shadow' => __('Shadow', 'quick-modern-forms-for-elementor'),
+					'default' => __('Default', 'quick-forms-for-elementor'),
+					'underline' => __('Underline Only', 'quick-forms-for-elementor'),
+					'rounded' => __('Rounded', 'quick-forms-for-elementor'),
+					'pill' => __('Pill Shape', 'quick-forms-for-elementor'),
+					'shadow' => __('Shadow', 'quick-forms-for-elementor'),
 				],
-				'description' => esc_html__('Sets the visual style for input fields.', 'quick-modern-forms-for-elementor'),
+				'description' => esc_html__('Sets the visual style for input fields.', 'quick-forms-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'textarea_rows',
 			[
-				'label' => esc_html__('Textarea Rows', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Textarea Rows', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'min' => 2,
 				'max' => 20,
@@ -844,14 +844,14 @@ trait StyleControls {
 		$this->start_controls_tab(
 			'tab_input_normal',
 			[
-				'label' => esc_html__('Normal', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Normal', 'quick-forms-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			'input_bg_color',
 			[
-				'label' => esc_html__('Background Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Background Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-input, {{WRAPPER}} .mtef-textarea' => 'background-color: {{VALUE}};',
@@ -862,7 +862,7 @@ trait StyleControls {
 		$this->add_control(
 			'input_text_color',
 			[
-				'label' => esc_html__('Text Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Text Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-input, {{WRAPPER}} .mtef-textarea' => 'color: {{VALUE}};',
@@ -875,7 +875,7 @@ trait StyleControls {
 		$this->start_controls_tab(
 			'tab_input_focus',
 			[
-				'label' => esc_html__('Focus', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Focus', 'quick-forms-for-elementor'),
 			]
 		);
 
@@ -890,7 +890,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'input_focus_scale',
 			[
-				'label' => esc_html__('Focus Scale', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Focus Scale', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range' => [
@@ -909,7 +909,7 @@ trait StyleControls {
 		$this->add_control(
 			'input_focus_border_color',
 			[
-				'label' => esc_html__('Focus Border Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Focus Border Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-input:focus, {{WRAPPER}} .mtef-textarea:focus' => 'border-color: {{VALUE}};',
@@ -920,7 +920,7 @@ trait StyleControls {
 		$this->add_control(
 			'input_focus_bg_color',
 			[
-				'label' => esc_html__('Background Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Background Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-input:focus, {{WRAPPER}} .mtef-textarea:focus' => 'background-color: {{VALUE}};',
@@ -931,7 +931,7 @@ trait StyleControls {
 		$this->add_control(
 			'input_focus_text_color',
 			[
-				'label' => esc_html__('Text Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Text Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-input:focus, {{WRAPPER}} .mtef-textarea:focus' => 'color: {{VALUE}};',
@@ -946,7 +946,7 @@ trait StyleControls {
 		$this->add_control(
 			'heading_input_advanced',
 			[
-				'label' => esc_html__('Advanced Style', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Advanced Style', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -955,7 +955,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'input_margin',
 			[
-				'label' => esc_html__('Margin', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Margin', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -967,7 +967,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'input_padding',
 			[
-				'label' => esc_html__('Padding', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Padding', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -979,7 +979,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'input_border_radius',
 			[
-				'label' => esc_html__('Border Radius', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Border Radius', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -1015,7 +1015,7 @@ trait StyleControls {
 		$this->add_control(
 			'placeholder_color',
 			[
-				'label' => esc_html__('Placeholder Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Placeholder Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-input::placeholder, {{WRAPPER}} .mtef-textarea::placeholder' => 'color: {{VALUE}};',
@@ -1034,7 +1034,7 @@ trait StyleControls {
 		$this->add_control(
 			'input_transition',
 			[
-				'label' => esc_html__('Transition Duration', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Transition Duration', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1064,7 +1064,7 @@ trait StyleControls {
 		$this->start_controls_section(
 			'section_style_button',
 			[
-				'label' => esc_html__('Submit Button', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Submit Button', 'quick-forms-for-elementor'),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1074,7 +1074,7 @@ trait StyleControls {
 		$this->start_controls_tab(
 			'tab_button_normal',
 			[
-				'label' => esc_html__('Normal', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Normal', 'quick-forms-for-elementor'),
 			]
 		);
 
@@ -1089,7 +1089,7 @@ trait StyleControls {
 		$this->add_control(
 			'button_text_color',
 			[
-				'label' => esc_html__('Text Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Text Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-submit-btn' => 'color: {{VALUE}};',
@@ -1110,14 +1110,14 @@ trait StyleControls {
 		$this->start_controls_tab(
 			'tab_button_hover',
 			[
-				'label' => esc_html__('Hover', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Hover', 'quick-forms-for-elementor'),
 			]
 		);
 
 		$this->add_responsive_control(
 			'button_hover_scale',
 			[
-				'label' => esc_html__('Hover Scale', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Hover Scale', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range' => [
@@ -1136,7 +1136,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'button_hover_translate',
 			[
-				'label' => esc_html__('Hover Offset (Y)', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Hover Offset (Y)', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range' => [
@@ -1157,7 +1157,7 @@ trait StyleControls {
 		$this->add_control(
 			'button_hover_border_color',
 			[
-				'label' => esc_html__('Border Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Border Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-submit-btn:hover' => 'border-color: {{VALUE}};',
@@ -1168,7 +1168,7 @@ trait StyleControls {
 		$this->add_control(
 			'button_hover_animation',
 			[
-				'label' => esc_html__('Hover Animation', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Hover Animation', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::HOVER_ANIMATION,
 			]
 		);
@@ -1176,7 +1176,7 @@ trait StyleControls {
 		$this->add_control(
 			'button_hover_text_color',
 			[
-				'label' => esc_html__('Text Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Text Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-submit-btn:hover' => 'color: {{VALUE}};',
@@ -1199,7 +1199,7 @@ trait StyleControls {
 		$this->add_control(
 			'heading_button_advanced',
 			[
-				'label' => esc_html__('Advanced Style', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Advanced Style', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1208,7 +1208,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'button_margin',
 			[
-				'label' => esc_html__('Margin', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Margin', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -1220,7 +1220,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'button_padding',
 			[
-				'label' => esc_html__('Padding', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Padding', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -1232,7 +1232,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'button_border_radius',
 			[
-				'label' => esc_html__('Border Radius', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Border Radius', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -1268,7 +1268,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'button_icon_size',
 			[
-				'label' => esc_html__('Icon Size', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Icon Size', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1289,7 +1289,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'button_icon_spacing',
 			[
-				'label' => esc_html__('Icon Spacing', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Icon Spacing', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -1310,7 +1310,7 @@ trait StyleControls {
 		$this->add_control(
 			'button_icon_color',
 			[
-				'label' => esc_html__('Icon Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Icon Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-btn-icon' => 'color: {{VALUE}};',
@@ -1337,7 +1337,7 @@ trait StyleControls {
 		$this->start_controls_section(
 			'section_style_messages',
 			[
-				'label' => esc_html__('Messages', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Messages', 'quick-forms-for-elementor'),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1345,7 +1345,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'message_margin',
 			[
-				'label' => esc_html__('Margin', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Margin', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -1357,7 +1357,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'message_padding',
 			[
-				'label' => esc_html__('Padding', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Padding', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -1369,7 +1369,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'message_border_radius',
 			[
-				'label' => esc_html__('Border Radius', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Border Radius', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -1389,7 +1389,7 @@ trait StyleControls {
 		$this->add_control(
 			'success_color',
 			[
-				'label' => esc_html__('Success Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Success Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'default' => '#4caf50',
 				'selectors' => [
@@ -1401,7 +1401,7 @@ trait StyleControls {
 		$this->add_control(
 			'error_color',
 			[
-				'label' => esc_html__('Error Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Error Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'default' => '#f44336',
 				'selectors' => [
@@ -1428,37 +1428,37 @@ trait StyleControls {
 	{
 		$fields = [
 			'name' => [
-				'label' => esc_html__('Name Field', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Name Field', 'quick-forms-for-elementor'),
 				'selector' => '.mtef-field-name .mtef-input',
 				'wrapper' => '.mtef-form-group.mtef-field-name',
 				'field_key' => 'name',
 			],
 			'email' => [
-				'label' => esc_html__('Email Field', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Email Field', 'quick-forms-for-elementor'),
 				'selector' => '.mtef-field-email .mtef-input',
 				'wrapper' => '.mtef-form-group.mtef-field-email',
 				'field_key' => 'email',
 			],
 			'phone' => [
-				'label' => esc_html__('Phone Field', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Phone Field', 'quick-forms-for-elementor'),
 				'selector' => '.mtef-field-tel .mtef-input',
 				'wrapper' => '.mtef-form-group.mtef-field-tel',
 				'field_key' => 'phone',
 			],
 			'website' => [
-				'label' => esc_html__('Website Field', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Website Field', 'quick-forms-for-elementor'),
 				'selector' => '.mtef-field-url .mtef-input',
 				'wrapper' => '.mtef-form-group.mtef-field-url',
 				'field_key' => 'website',
 			],
 			'subject' => [
-				'label' => esc_html__('Subject Field', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Subject Field', 'quick-forms-for-elementor'),
 				'selector' => '.mtef-field-subject .mtef-input',
 				'wrapper' => '.mtef-form-group.mtef-field-subject',
 				'field_key' => 'subject',
 			],
 			'message' => [
-				'label' => esc_html__('Message Field', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Message Field', 'quick-forms-for-elementor'),
 				'selector' => '.mtef-field-textarea .mtef-textarea',
 				'wrapper' => '.mtef-form-group.mtef-field-textarea',
 				'field_key' => 'message',
@@ -1487,7 +1487,7 @@ trait StyleControls {
 			$this->add_responsive_control(
 				"width_{$field_key}",
 				[
-					'label' => esc_html__('Column Width', 'quick-modern-forms-for-elementor'),
+					'label' => esc_html__('Column Width', 'quick-forms-for-elementor'),
 					'type' => \Elementor\Controls_Manager::SLIDER,
 					'size_units' => ['%'],
 					'range' => [
@@ -1512,7 +1512,7 @@ trait StyleControls {
 		$this->start_controls_tab(
 			"tab_{$id}_normal",
 			[
-				'label' => esc_html__('Normal', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Normal', 'quick-forms-for-elementor'),
 			]
 		);
 
@@ -1535,7 +1535,7 @@ trait StyleControls {
 		$this->add_control(
 			"{$id}_bg_color",
 			[
-				'label' => esc_html__('Background Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Background Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					"{{WRAPPER}} {$selector}" => 'background-color: {{VALUE}} !important;',
@@ -1546,7 +1546,7 @@ trait StyleControls {
 		$this->add_control(
 			"{$id}_text_color",
 			[
-				'label' => esc_html__('Text Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Text Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					"{{WRAPPER}} {$selector}" => 'color: {{VALUE}} !important;',
@@ -1559,14 +1559,14 @@ trait StyleControls {
 		$this->start_controls_tab(
 			"tab_{$id}_focus",
 			[
-				'label' => esc_html__('Focus', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Focus', 'quick-forms-for-elementor'),
 			]
 		);
 
 		$this->add_control(
 			"{$id}_focus_border_color",
 			[
-				'label' => esc_html__('Border Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Border Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					"{{WRAPPER}} {$selector}:focus" => 'border-color: {{VALUE}} !important;',
@@ -1585,7 +1585,7 @@ trait StyleControls {
 		$this->add_control(
 			"{$id}_focus_bg_color",
 			[
-				'label' => esc_html__('Background Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Background Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					"{{WRAPPER}} {$selector}:focus" => 'background-color: {{VALUE}} !important;',
@@ -1596,7 +1596,7 @@ trait StyleControls {
 		$this->add_control(
 			"{$id}_focus_text_color",
 			[
-				'label' => esc_html__('Text Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Text Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					"{{WRAPPER}} {$selector}:focus" => 'color: {{VALUE}} !important;',
@@ -1611,7 +1611,7 @@ trait StyleControls {
 		$this->add_control(
 			"heading_{$id}_advanced",
 			[
-				'label' => esc_html__('Advanced Style', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Advanced Style', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -1620,7 +1620,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			"{$id}_margin",
 			[
-				'label' => esc_html__('Margin', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Margin', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -1632,7 +1632,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			"{$id}_padding",
 			[
-				'label' => esc_html__('Padding', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Padding', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -1644,7 +1644,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			"{$id}_border_radius",
 			[
-				'label' => esc_html__('Border Radius', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Border Radius', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -1664,7 +1664,7 @@ trait StyleControls {
 		$this->add_control(
 			"{$id}_placeholder_color",
 			[
-				'label' => esc_html__('Placeholder Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Placeholder Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					"{{WRAPPER}} {$selector}::placeholder" => 'color: {{VALUE}} !important;',
@@ -1683,7 +1683,7 @@ trait StyleControls {
 		$this->start_controls_section(
 			'section_style_gdpr',
 			[
-				'label' => esc_html__('GDPR Consent', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('GDPR Consent', 'quick-forms-for-elementor'),
 				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_gdpr' => 'yes',
@@ -1694,7 +1694,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'gdpr_margin',
 			[
-				'label' => esc_html__('Margin', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Margin', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -1706,7 +1706,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'gdpr_padding',
 			[
-				'label' => esc_html__('Padding', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Padding', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -1718,7 +1718,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'gdpr_border_radius',
 			[
-				'label' => esc_html__('Border Radius', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Border Radius', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
@@ -1746,7 +1746,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'gdpr_label_margin',
 			[
-				'label' => esc_html__('Label Margin', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Label Margin', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -1758,7 +1758,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'gdpr_checkbox_margin',
 			[
-				'label' => esc_html__('Checkbox Margin', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Checkbox Margin', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
@@ -1786,7 +1786,7 @@ trait StyleControls {
 		$this->add_control(
 			'gdpr_label_color',
 			[
-				'label' => esc_html__('Label Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Label Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-gdpr-heading' => 'color: {{VALUE}};',
@@ -1797,7 +1797,7 @@ trait StyleControls {
 		$this->add_control(
 			'gdpr_text_color',
 			[
-				'label' => esc_html__('Text Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Text Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-checkbox-text' => 'color: {{VALUE}};',
@@ -1808,7 +1808,7 @@ trait StyleControls {
 		$this->add_control(
 			'gdpr_link_color',
 			[
-				'label' => esc_html__('Link Color', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Link Color', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .mtef-checkbox-text a' => 'color: {{VALUE}};',
@@ -1819,7 +1819,7 @@ trait StyleControls {
 		$this->add_responsive_control(
 			'gdpr_checkbox_width',
 			[
-				'label' => esc_html__('Checkbox Label Width', 'quick-modern-forms-for-elementor'),
+				'label' => esc_html__('Checkbox Label Width', 'quick-forms-for-elementor'),
 				'type' => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'range' => [

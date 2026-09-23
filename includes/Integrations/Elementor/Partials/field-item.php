@@ -79,7 +79,7 @@ if ($show_input_icon) {
                     <?php echo esc_html($label); ?>
                     <?php if ($required): ?>
                         <span class="required" aria-hidden="true">*</span>
-                        <span class="screen-reader-text"><?php esc_html_e('(required)', 'quick-modern-forms-for-elementor'); ?></span>
+                        <span class="screen-reader-text"><?php esc_html_e('(required)', 'quick-forms-for-elementor'); ?></span>
                     <?php endif; ?>
                 </span>
 

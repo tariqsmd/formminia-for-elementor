@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Small wrapper around WordPress options for Quick & Modern Forms for Elementor.
+ * Small wrapper around WordPress options for Quick Forms for Elementor.
  */
 class WpOptionsConfig {
 

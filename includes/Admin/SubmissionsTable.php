@@ -13,7 +13,7 @@ if (!class_exists('WP_List_Table')) {
 use MTEF\Services\SubmissionRepository;
 
 /**
- * List Table class for Quick & Modern Forms for Elementor submissions.
+ * List Table class for Quick Forms for Elementor submissions.
  */
 class SubmissionsTable extends \WP_List_Table
 {
@@ -23,8 +23,8 @@ class SubmissionsTable extends \WP_List_Table
 	public function __construct()
 	{
 		parent::__construct([
-			'singular' => __('Submission', 'quick-modern-forms-for-elementor'),
-			'plural'   => __('Submissions', 'quick-modern-forms-for-elementor'),
+			'singular' => __('Submission', 'quick-forms-for-elementor'),
+			'plural'   => __('Submissions', 'quick-forms-for-elementor'),
 			'ajax'     => false,
 		]);
 
@@ -35,11 +35,11 @@ class SubmissionsTable extends \WP_List_Table
 	{
 		return [
 			'cb'         => '<input type="checkbox" />',
-			'name'       => __('Name', 'quick-modern-forms-for-elementor'),
-			'email'      => __('Email', 'quick-modern-forms-for-elementor'),
-			'subject'    => __('Subject', 'quick-modern-forms-for-elementor'),
-			'message'    => __('Message', 'quick-modern-forms-for-elementor'),
-			'created_at' => __('Date', 'quick-modern-forms-for-elementor'),
+			'name'       => __('Name', 'quick-forms-for-elementor'),
+			'email'      => __('Email', 'quick-forms-for-elementor'),
+			'subject'    => __('Subject', 'quick-forms-for-elementor'),
+			'message'    => __('Message', 'quick-forms-for-elementor'),
+			'created_at' => __('Date', 'quick-forms-for-elementor'),
 		];
 	}
 
@@ -88,7 +88,7 @@ protected function column_name($item)
 				'delete',
 				absint($item['id']),
 				wp_create_nonce('mtef_delete_submission'),
-				__('Delete', 'quick-modern-forms-for-elementor')
+				__('Delete', 'quick-forms-for-elementor')
 			),
 		];
 
@@ -123,25 +123,25 @@ protected function column_name($item)
 	public function get_bulk_actions()
 	{
 		return [
-			'bulk-delete' => __('Delete', 'quick-modern-forms-for-elementor'),
+			'bulk-delete' => __('Delete', 'quick-forms-for-elementor'),
 		];
 	}
 
 	protected function process_bulk_action()
 	{
 		if (!current_user_can('manage_options')) {
-			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'quick-modern-forms-for-elementor'));
+			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'quick-forms-for-elementor'));
 		}
 
 		if ('delete' === $this->current_action()) {
 			$nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])) : '';
 			if (!wp_verify_nonce($nonce, 'mtef_delete_submission')) {
-				wp_die(esc_html__('Security check failed.', 'quick-modern-forms-for-elementor'));
+				wp_die(esc_html__('Security check failed.', 'quick-forms-for-elementor'));
 			}
 
 			if (isset($_GET['submission'])) {
 				$this->repository->delete(absint($_GET['submission']));
-				echo '<div class="updated"><p>' . esc_html__('Submission deleted.', 'quick-modern-forms-for-elementor') . '</p></div>';
+				echo '<div class="updated"><p>' . esc_html__('Submission deleted.', 'quick-forms-for-elementor') . '</p></div>';
 			}
 		}
 
@@ -151,14 +151,14 @@ protected function column_name($item)
 		if (('bulk-delete' === $action || 'bulk-delete' === $action2) && isset($_REQUEST['submission'])) {
 			$nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])) : '';
 			if (!wp_verify_nonce($nonce, 'bulk-submissions')) {
-				wp_die(esc_html__('Security check failed.', 'quick-modern-forms-for-elementor'));
+				wp_die(esc_html__('Security check failed.', 'quick-forms-for-elementor'));
 			}
 
 			$submissions = array_map('absint', (array) $_REQUEST['submission']);
 			foreach ($submissions as $id) {
 				$this->repository->delete($id);
 			}
-			echo '<div class="updated"><p>' . esc_html__('Submissions deleted.', 'quick-modern-forms-for-elementor') . '</p></div>';
+			echo '<div class="updated"><p>' . esc_html__('Submissions deleted.', 'quick-forms-for-elementor') . '</p></div>';
 		}
 	}
 }

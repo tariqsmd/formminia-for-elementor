@@ -1,10 +1,10 @@
 <?php
 /**
- * Quick & Modern Forms for Elementor uninstall handler.
+ * Quick Forms for Elementor uninstall handler.
  *
  * Removes the submissions table, all plugin options and rate-limit transients.
  *
- * @package Quick & Modern Forms for Elementor
+ * @package Quick Forms for Elementor
  */
 
 // Prevent direct access.

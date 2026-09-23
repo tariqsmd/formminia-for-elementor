@@ -43,7 +43,7 @@ if ( $captcha_provider === 'recaptcha' ) {
 if ( ! function_exists( 'mtef_show_captcha_config_error' ) ) {
 	function mtef_show_captcha_config_error() {
 		echo '<div class="mtef-captcha-config-error" style="border:1px solid #d63638;background:#fcf0f1;color:#8a1f11;padding:10px 14px;border-radius:4px;font-size:14px;line-height:1.5;">'
-			. esc_html__( 'CAPTCHA is enabled on this form, but the selected provider is not configured. Add the site key under Quick & Modern Forms for Elementor » General settings.', 'quick-modern-forms-for-elementor' )
+			. esc_html__( 'CAPTCHA is enabled on this form, but the selected provider is not configured. Add the site key under Quick Forms for Elementor » General settings.', 'quick-forms-for-elementor' )
 			. '</div>';
 	}
 }

@@ -41,27 +41,27 @@ class SubmissionMailer
 		$form_fields = array();
 
 		if (!empty($submission->name)) {
-			$form_fields[__('Name', 'quick-modern-forms-for-elementor')] = $submission->name;
+			$form_fields[__('Name', 'quick-forms-for-elementor')] = $submission->name;
 		}
 
 		if (!empty($submission->email)) {
-			$form_fields[__('Email', 'quick-modern-forms-for-elementor')] = $submission->email;
+			$form_fields[__('Email', 'quick-forms-for-elementor')] = $submission->email;
 		}
 
 		if (!empty($submission->phone)) {
-			$form_fields[__('Phone', 'quick-modern-forms-for-elementor')] = $submission->phone;
+			$form_fields[__('Phone', 'quick-forms-for-elementor')] = $submission->phone;
 		}
 
 		if (!empty($submission->website)) {
-			$form_fields[__('Website', 'quick-modern-forms-for-elementor')] = $submission->website;
+			$form_fields[__('Website', 'quick-forms-for-elementor')] = $submission->website;
 		}
 
 		if (!empty($submission->subject)) {
-			$form_fields[__('Subject', 'quick-modern-forms-for-elementor')] = $submission->subject;
+			$form_fields[__('Subject', 'quick-forms-for-elementor')] = $submission->subject;
 		}
 
 		if (!empty($submission->message)) {
-			$form_fields[__('Message', 'quick-modern-forms-for-elementor')] = $submission->message;
+			$form_fields[__('Message', 'quick-forms-for-elementor')] = $submission->message;
 		}
 
 		$widget_id = isset($submission->raw['mtef_form_id']) ? sanitize_text_field(wp_unslash($submission->raw['mtef_form_id'])) : '';
@@ -110,7 +110,7 @@ class SubmissionMailer
 		if ($submission->subject !== '') {
 			$email_subject = sprintf(
 				/* translators: 1: Default subject, 2: Submission subject */
-				__('[%1$s] %2$s', 'quick-modern-forms-for-elementor'),
+				__('[%1$s] %2$s', 'quick-forms-for-elementor'),
 				$default_sub,
 				$submission->subject
 			);
@@ -169,7 +169,7 @@ class SubmissionMailer
 			return false;
 		}
 
-		$subject = !empty($widget_settings['autoresponder_subject']) ? sanitize_text_field($widget_settings['autoresponder_subject']) : __('Thank you for your submission', 'quick-modern-forms-for-elementor');
+		$subject = !empty($widget_settings['autoresponder_subject']) ? sanitize_text_field($widget_settings['autoresponder_subject']) : __('Thank you for your submission', 'quick-forms-for-elementor');
 		$message = !empty($widget_settings['autoresponder_message']) ? sanitize_textarea_field($widget_settings['autoresponder_message']) : '';
 
 		if (empty($message)) {
@@ -192,7 +192,7 @@ class SubmissionMailer
 		if (file_exists($template_path)) {
 			ob_start();
 			// Inject a single "message" field so the template renders it cleanly.
-			$fields    = [ __('Message', 'quick-modern-forms-for-elementor') => $message ];
+			$fields    = [ __('Message', 'quick-forms-for-elementor') => $message ];
 			$date      = current_time('mysql');
 			$site_name = get_bloginfo('name');
 			include $template_path;

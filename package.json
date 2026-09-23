@@ -1,7 +1,7 @@
 {
-  "name": "quick-modern-forms-for-elementor",
+  "name": "quick-forms-for-elementor",
   "version": "1.0.1",
-  "description": "A comprehensive contact form plugin for WordPress with Quick & Modern Forms for Elementor branding.",
+  "description": "A comprehensive contact form plugin for WordPress with Quick Forms for Elementor branding.",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

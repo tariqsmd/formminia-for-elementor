@@ -34,14 +34,14 @@ class RecaptchaVerifier implements CaptchaVerifierInterface {
 		if ( $this->secret_key === '' ) {
 			return new \WP_Error(
 				'mtef_recaptcha_config',
-				esc_html__( 'reCAPTCHA is not configured correctly.', 'quick-modern-forms-for-elementor' )
+				esc_html__( 'reCAPTCHA is not configured correctly.', 'quick-forms-for-elementor' )
 			);
 		}
 
 		if ( $response === '' ) {
 			return new \WP_Error(
 				'mtef_recaptcha_missing',
-				esc_html__( 'Please complete the reCAPTCHA.', 'quick-modern-forms-for-elementor' )
+				esc_html__( 'Please complete the reCAPTCHA.', 'quick-forms-for-elementor' )
 			);
 		}
 
@@ -64,7 +64,7 @@ class RecaptchaVerifier implements CaptchaVerifierInterface {
 
 			return new \WP_Error(
 				'mtef_recaptcha_http_error',
-				esc_html__( 'reCAPTCHA verification request failed.', 'quick-modern-forms-for-elementor' )
+				esc_html__( 'reCAPTCHA verification request failed.', 'quick-forms-for-elementor' )
 			);
 		}
 
@@ -74,7 +74,7 @@ class RecaptchaVerifier implements CaptchaVerifierInterface {
 		if ( ! isset( $result->success ) || ! $result->success ) {
 			return new \WP_Error(
 				'mtef_recaptcha_invalid',
-				esc_html__( 'reCAPTCHA verification failed.', 'quick-modern-forms-for-elementor' )
+				esc_html__( 'reCAPTCHA verification failed.', 'quick-forms-for-elementor' )
 			);
 		}
 

@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:       Quick & Modern Forms for Elementor
- * Plugin URI:        https://wordpress.org/plugins/quick-modern-forms-for-elementor/
+ * Plugin Name:       Quick Forms for Elementor
+ * Plugin URI:        https://wordpress.org/plugins/quick-forms-for-elementor/
  * Description:       A modern, feature-rich contact form plugin with multiple skins, layouts, GDPR support, and Elementor integration.
  * Version:           1.0.1
  * Author:            Muhammad Tariq
@@ -11,7 +11,7 @@
  * Requires at least: 6.8
  * Requires PHP:      7.4
  * Requires Plugins:  elementor
- * Text Domain:       quick-modern-forms-for-elementor
+ * Text Domain:       quick-forms-for-elementor
  * Domain Path:       /languages
  */
 
