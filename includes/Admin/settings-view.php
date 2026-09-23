@@ -2,7 +2,7 @@
 /**
  * Provide an admin area view for the plugin
  *
- * @package    MT Elementor Forms
+ * @package    Quick & Modern Forms for Elementor
  */
 
 // Prevent direct access.
@@ -19,18 +19,18 @@ $active_tab = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['ta
 
 $tabs = array(
 	'general' => array(
-		'label'    => __( 'General', 'mt-elementor-forms' ),
-		'subtitle' => __( 'Security & Anti-Spam', 'mt-elementor-forms' ),
+		'label'    => __( 'General', 'quick-modern-forms-for-elementor' ),
+		'subtitle' => __( 'Security & Anti-Spam', 'quick-modern-forms-for-elementor' ),
 		'icon'     => 'dashicons-shield',
 	),
 	'email'   => array(
-		'label'    => __( 'Email Settings', 'mt-elementor-forms' ),
-		'subtitle' => __( 'Templates & Branding', 'mt-elementor-forms' ),
+		'label'    => __( 'Email Settings', 'quick-modern-forms-for-elementor' ),
+		'subtitle' => __( 'Templates & Branding', 'quick-modern-forms-for-elementor' ),
 		'icon'     => 'dashicons-email-alt',
 	),
 	'support' => array(
-		'label'    => __( 'Support & Guide', 'mt-elementor-forms' ),
-		'subtitle' => __( 'Features & Payments', 'mt-elementor-forms' ),
+		'label'    => __( 'Support & Guide', 'quick-modern-forms-for-elementor' ),
+		'subtitle' => __( 'Features & Payments', 'quick-modern-forms-for-elementor' ),
 		'icon'     => 'dashicons-heart',
 	),
 );
@@ -71,25 +71,25 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 			</div>
 			<div class="mtef-title-area">
 				<div class="mtef-title-row">
-					<h1><?php esc_html_e( 'MT Elementor Forms', 'mt-elementor-forms' ); ?></h1>
+					<h1><?php esc_html_e( 'Quick & Modern Forms for Elementor', 'quick-modern-forms-for-elementor' ); ?></h1>
 					<span class="mtef-version-pill">v<?php echo esc_html( MTEF_VERSION ); ?></span>
 					<span class="mtef-status-pill <?php echo $has_elementor ? 'is-active' : 'is-warning'; ?>">
 						<span class="status-dot"></span>
-						<?php echo $has_elementor ? esc_html__( 'Elementor Ready', 'mt-elementor-forms' ) : esc_html__( 'Elementor Required', 'mt-elementor-forms' ); ?>
+						<?php echo $has_elementor ? esc_html__( 'Elementor Ready', 'quick-modern-forms-for-elementor' ) : esc_html__( 'Elementor Required', 'quick-modern-forms-for-elementor' ); ?>
 					</span>
 				</div>
-				<p class="mtef-subtitle"><?php esc_html_e( 'Modern contact forms with 50+ skins, anti-spam, and styled notifications', 'mt-elementor-forms' ); ?></p>
+				<p class="mtef-subtitle"><?php esc_html_e( 'Modern contact forms with 50+ skins, anti-spam, and styled notifications', 'quick-modern-forms-for-elementor' ); ?></p>
 			</div>
 		</div>
 
 		<div class="mtef-page-header-actions">
 			<a href="<?php echo esc_url( admin_url( 'admin.php?page=mtef-submissions' ) ); ?>" class="mtef-btn-secondary">
 				<span class="dashicons dashicons-list-view"></span>
-				<?php esc_html_e( 'View Submissions', 'mt-elementor-forms' ); ?>
+				<?php esc_html_e( 'View Submissions', 'quick-modern-forms-for-elementor' ); ?>
 			</a>
-			<a href="https://wordpress.org/support/plugin/mt-elementor-forms/" target="_blank" rel="noopener noreferrer" class="mtef-btn-secondary">
+			<a href="https://wordpress.org/support/plugin/quick-modern-forms-for-elementor/" target="_blank" rel="noopener noreferrer" class="mtef-btn-secondary">
 				<span class="dashicons dashicons-editor-help"></span>
-				<?php esc_html_e( 'Documentation', 'mt-elementor-forms' ); ?>
+				<?php esc_html_e( 'Documentation', 'quick-modern-forms-for-elementor' ); ?>
 			</a>
 		</div>
 	</header>
@@ -101,7 +101,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 
 		<!-- ═══ LEFT SIDEBAR ═══ -->
 		<aside class="mtef-admin-sidebar">
-			<nav class="mtef-sidebar-nav" aria-label="<?php esc_attr_e( 'Plugin Settings Navigation', 'mt-elementor-forms' ); ?>">
+			<nav class="mtef-sidebar-nav" aria-label="<?php esc_attr_e( 'Plugin Settings Navigation', 'quick-modern-forms-for-elementor' ); ?>">
 				<?php foreach ( $tabs as $tab_key => $tab ) : ?>
 					<a href="?page=mtef&tab=<?php echo esc_attr( $tab_key ); ?>"
 						class="mtef-sidebar-nav-item <?php echo $active_tab === $tab_key ? 'is-active' : ''; ?>">
@@ -119,12 +119,12 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 			<div class="mtef-sidebar-card">
 				<div class="sidebar-card-header">
 					<span class="dashicons dashicons-admin-appearance"></span>
-					<strong><?php esc_html_e( '50+ Preset Skins', 'mt-elementor-forms' ); ?></strong>
+					<strong><?php esc_html_e( '50+ Preset Skins', 'quick-modern-forms-for-elementor' ); ?></strong>
 				</div>
-				<p><?php esc_html_e( 'Edit any page with Elementor, search for the "MT Elementor Forms" widget, and choose from 50 built-in skins.', 'mt-elementor-forms' ); ?></p>
+				<p><?php esc_html_e( 'Edit any page with Elementor, search for the "Quick & Modern Forms" widget, and choose from 50 built-in skins.', 'quick-modern-forms-for-elementor' ); ?></p>
 				<a href="https://github.com/tariqsmd/mtforms/issues" target="_blank" rel="noopener noreferrer" class="sidebar-link">
 					<span class="dashicons dashicons-external"></span>
-					<?php esc_html_e( 'Request a Skin / Feature', 'mt-elementor-forms' ); ?>
+					<?php esc_html_e( 'Request a Skin / Feature', 'quick-modern-forms-for-elementor' ); ?>
 				</a>
 			</div>
 		</aside>
@@ -147,17 +147,17 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 								</svg>
 							</div>
 							<div>
-								<h2><?php esc_html_e( 'Anti-Spam & CAPTCHA Provider', 'mt-elementor-forms' ); ?></h2>
-								<p class="section-desc"><?php esc_html_e( 'Choose which validation challenge to use across your forms to stop automated bot submissions.', 'mt-elementor-forms' ); ?></p>
+								<h2><?php esc_html_e( 'Anti-Spam & CAPTCHA Provider', 'quick-modern-forms-for-elementor' ); ?></h2>
+								<p class="section-desc"><?php esc_html_e( 'Choose which validation challenge to use across your forms to stop automated bot submissions.', 'quick-modern-forms-for-elementor' ); ?></p>
 							</div>
 						</div>
 
 						<div class="mtef-card-body">
 							<!-- Hidden Select for native form submission -->
 							<select name="mtef_captcha_provider" id="mtef_captcha_provider" class="mtef-provider-select" style="display:none;">
-								<option value="none" <?php selected( $captcha_provider, 'none' ); ?>><?php esc_html_e( 'None', 'mt-elementor-forms' ); ?></option>
-								<option value="recaptcha" <?php selected( $captcha_provider, 'recaptcha' ); ?>><?php esc_html_e( 'Google reCAPTCHA v2', 'mt-elementor-forms' ); ?></option>
-								<option value="turnstile" <?php selected( $captcha_provider, 'turnstile' ); ?>><?php esc_html_e( 'Cloudflare Turnstile', 'mt-elementor-forms' ); ?></option>
+								<option value="none" <?php selected( $captcha_provider, 'none' ); ?>><?php esc_html_e( 'None', 'quick-modern-forms-for-elementor' ); ?></option>
+								<option value="recaptcha" <?php selected( $captcha_provider, 'recaptcha' ); ?>><?php esc_html_e( 'Google reCAPTCHA v2', 'quick-modern-forms-for-elementor' ); ?></option>
+								<option value="turnstile" <?php selected( $captcha_provider, 'turnstile' ); ?>><?php esc_html_e( 'Cloudflare Turnstile', 'quick-modern-forms-for-elementor' ); ?></option>
 							</select>
 
 							<!-- Visual Provider Selector Cards -->
@@ -169,10 +169,10 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 										<span class="dashicons dashicons-dismiss"></span>
 									</div>
 									<div class="provider-info">
-										<h3><?php esc_html_e( 'Disabled', 'mt-elementor-forms' ); ?></h3>
-										<p><?php esc_html_e( 'No CAPTCHA challenge. Forms will still use the honeypot and IP rate limiting.', 'mt-elementor-forms' ); ?></p>
+										<h3><?php esc_html_e( 'Disabled', 'quick-modern-forms-for-elementor' ); ?></h3>
+										<p><?php esc_html_e( 'No CAPTCHA challenge. Forms will still use the honeypot and IP rate limiting.', 'quick-modern-forms-for-elementor' ); ?></p>
 									</div>
-									<span class="provider-tag default-tag"><?php esc_html_e( 'Basic Spam Filter', 'mt-elementor-forms' ); ?></span>
+									<span class="provider-tag default-tag"><?php esc_html_e( 'Basic Spam Filter', 'quick-modern-forms-for-elementor' ); ?></span>
 								</div>
 
 								<!-- Card 2: reCAPTCHA v2 -->
@@ -186,10 +186,10 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 										</svg>
 									</div>
 									<div class="provider-info">
-										<h3><?php esc_html_e( 'Google reCAPTCHA v2', 'mt-elementor-forms' ); ?></h3>
-										<p><?php esc_html_e( 'The familiar "I\'m not a robot" checkbox challenge. Requires Google API keys.', 'mt-elementor-forms' ); ?></p>
+										<h3><?php esc_html_e( 'Google reCAPTCHA v2', 'quick-modern-forms-for-elementor' ); ?></h3>
+										<p><?php esc_html_e( 'The familiar "I\'m not a robot" checkbox challenge. Requires Google API keys.', 'quick-modern-forms-for-elementor' ); ?></p>
 									</div>
-									<span class="provider-tag google-tag"><?php esc_html_e( 'Checkbox Challenge', 'mt-elementor-forms' ); ?></span>
+									<span class="provider-tag google-tag"><?php esc_html_e( 'Checkbox Challenge', 'quick-modern-forms-for-elementor' ); ?></span>
 								</div>
 
 								<!-- Card 3: Cloudflare Turnstile -->
@@ -201,10 +201,10 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 										</svg>
 									</div>
 									<div class="provider-info">
-										<h3><?php esc_html_e( 'Cloudflare Turnstile', 'mt-elementor-forms' ); ?></h3>
-										<p><?php esc_html_e( 'Modern, privacy-first alternative. Seamless non-interactive verification.', 'mt-elementor-forms' ); ?></p>
+										<h3><?php esc_html_e( 'Cloudflare Turnstile', 'quick-modern-forms-for-elementor' ); ?></h3>
+										<p><?php esc_html_e( 'Modern, privacy-first alternative. Seamless non-interactive verification.', 'quick-modern-forms-for-elementor' ); ?></p>
 									</div>
-									<span class="provider-tag recommended-tag"><?php esc_html_e( 'Recommended', 'mt-elementor-forms' ); ?></span>
+									<span class="provider-tag recommended-tag"><?php esc_html_e( 'Recommended', 'quick-modern-forms-for-elementor' ); ?></span>
 								</div>
 							</div>
 
@@ -213,10 +213,10 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 								<div class="credentials-banner">
 									<span class="dashicons dashicons-info"></span>
 									<div>
-										<strong><?php esc_html_e( 'Need reCAPTCHA v2 credentials?', 'mt-elementor-forms' ); ?></strong>
-										<p><?php esc_html_e( 'Register your site in the Google reCAPTCHA Console and select "Challenge (v2)" -> "I\'m not a robot" Checkbox.', 'mt-elementor-forms' ); ?></p>
+										<strong><?php esc_html_e( 'Need reCAPTCHA v2 credentials?', 'quick-modern-forms-for-elementor' ); ?></strong>
+										<p><?php esc_html_e( 'Register your site in the Google reCAPTCHA Console and select "Challenge (v2)" -> "I\'m not a robot" Checkbox.', 'quick-modern-forms-for-elementor' ); ?></p>
 										<a href="https://www.google.com/recaptcha/admin" target="_blank" rel="noopener noreferrer" class="external-link">
-											<?php esc_html_e( 'Open Google reCAPTCHA Console', 'mt-elementor-forms' ); ?>
+											<?php esc_html_e( 'Open Google reCAPTCHA Console', 'quick-modern-forms-for-elementor' ); ?>
 											<span class="dashicons dashicons-external"></span>
 										</a>
 									</div>
@@ -224,7 +224,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 
 								<div class="mtef-field-group">
 									<label for="mtef_recaptcha_site_key">
-										<?php esc_html_e( 'reCAPTCHA Site Key', 'mt-elementor-forms' ); ?>
+										<?php esc_html_e( 'reCAPTCHA Site Key', 'quick-modern-forms-for-elementor' ); ?>
 										<span class="required-asterisk">*</span>
 									</label>
 									<div class="input-wrap">
@@ -232,23 +232,23 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 											value="<?php echo esc_attr( get_option( 'mtef_recaptcha_site_key', '' ) ); ?>"
 											class="regular-text" placeholder="e.g. 6Ld...AAAAA..." autocomplete="off" />
 									</div>
-									<p class="field-hint"><?php esc_html_e( 'Public site key displayed in your form HTML.', 'mt-elementor-forms' ); ?></p>
+									<p class="field-hint"><?php esc_html_e( 'Public site key displayed in your form HTML.', 'quick-modern-forms-for-elementor' ); ?></p>
 								</div>
 
 								<div class="mtef-field-group">
 									<label for="mtef_recaptcha_secret_key">
-										<?php esc_html_e( 'reCAPTCHA Secret Key', 'mt-elementor-forms' ); ?>
+										<?php esc_html_e( 'reCAPTCHA Secret Key', 'quick-modern-forms-for-elementor' ); ?>
 										<span class="required-asterisk">*</span>
 									</label>
 									<div class="input-wrap password-wrap">
 										<input type="password" id="mtef_recaptcha_secret_key" name="mtef_recaptcha_secret_key"
 											value="<?php echo esc_attr( get_option( 'mtef_recaptcha_secret_key', '' ) ); ?>"
 											class="regular-text password-input" placeholder="e.g. 6Ld...AAAAA..." autocomplete="off" />
-										<button type="button" class="btn-toggle-password" title="<?php esc_attr_e( 'Toggle password visibility', 'mt-elementor-forms' ); ?>">
+										<button type="button" class="btn-toggle-password" title="<?php esc_attr_e( 'Toggle password visibility', 'quick-modern-forms-for-elementor' ); ?>">
 											<span class="dashicons dashicons-visibility"></span>
 										</button>
 									</div>
-									<p class="field-hint"><?php esc_html_e( 'Secret key used for secure server-side verification. Never share this key.', 'mt-elementor-forms' ); ?></p>
+									<p class="field-hint"><?php esc_html_e( 'Secret key used for secure server-side verification. Never share this key.', 'quick-modern-forms-for-elementor' ); ?></p>
 								</div>
 							</div>
 
@@ -257,10 +257,10 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 								<div class="credentials-banner">
 									<span class="dashicons dashicons-info"></span>
 									<div>
-										<strong><?php esc_html_e( 'Need Cloudflare Turnstile credentials?', 'mt-elementor-forms' ); ?></strong>
-										<p><?php esc_html_e( 'Create a new widget in your Cloudflare dashboard under Turnstile -> Add Site (Managed or Non-interactive mode).', 'mt-elementor-forms' ); ?></p>
+										<strong><?php esc_html_e( 'Need Cloudflare Turnstile credentials?', 'quick-modern-forms-for-elementor' ); ?></strong>
+										<p><?php esc_html_e( 'Create a new widget in your Cloudflare dashboard under Turnstile -> Add Site (Managed or Non-interactive mode).', 'quick-modern-forms-for-elementor' ); ?></p>
 										<a href="<?php echo esc_url( $turnstile_docs_url ); ?>" target="_blank" rel="noopener noreferrer" class="external-link">
-											<?php esc_html_e( 'Open Cloudflare Turnstile Dashboard', 'mt-elementor-forms' ); ?>
+											<?php esc_html_e( 'Open Cloudflare Turnstile Dashboard', 'quick-modern-forms-for-elementor' ); ?>
 											<span class="dashicons dashicons-external"></span>
 										</a>
 									</div>
@@ -268,7 +268,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 
 								<div class="mtef-field-group">
 									<label for="mtef_turnstile_site_key">
-										<?php esc_html_e( 'Turnstile Site Key', 'mt-elementor-forms' ); ?>
+										<?php esc_html_e( 'Turnstile Site Key', 'quick-modern-forms-for-elementor' ); ?>
 										<span class="required-asterisk">*</span>
 									</label>
 									<div class="input-wrap">
@@ -276,23 +276,23 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 											value="<?php echo esc_attr( get_option( 'mtef_turnstile_site_key', '' ) ); ?>"
 											class="regular-text" placeholder="e.g. 0x4AAAAAA..." autocomplete="off" />
 									</div>
-									<p class="field-hint"><?php esc_html_e( 'Public site key provided by Cloudflare.', 'mt-elementor-forms' ); ?></p>
+									<p class="field-hint"><?php esc_html_e( 'Public site key provided by Cloudflare.', 'quick-modern-forms-for-elementor' ); ?></p>
 								</div>
 
 								<div class="mtef-field-group">
 									<label for="mtef_turnstile_secret_key">
-										<?php esc_html_e( 'Turnstile Secret Key', 'mt-elementor-forms' ); ?>
+										<?php esc_html_e( 'Turnstile Secret Key', 'quick-modern-forms-for-elementor' ); ?>
 										<span class="required-asterisk">*</span>
 									</label>
 									<div class="input-wrap password-wrap">
 										<input type="password" id="mtef_turnstile_secret_key" name="mtef_turnstile_secret_key"
 											value="<?php echo esc_attr( get_option( 'mtef_turnstile_secret_key', '' ) ); ?>"
 											class="regular-text password-input" placeholder="e.g. 0x4AAAAAA..." autocomplete="off" />
-										<button type="button" class="btn-toggle-password" title="<?php esc_attr_e( 'Toggle password visibility', 'mt-elementor-forms' ); ?>">
+										<button type="button" class="btn-toggle-password" title="<?php esc_attr_e( 'Toggle password visibility', 'quick-modern-forms-for-elementor' ); ?>">
 											<span class="dashicons dashicons-visibility"></span>
 										</button>
 									</div>
-									<p class="field-hint"><?php esc_html_e( 'Secret key for server-side siteverify endpoint.', 'mt-elementor-forms' ); ?></p>
+									<p class="field-hint"><?php esc_html_e( 'Secret key for server-side siteverify endpoint.', 'quick-modern-forms-for-elementor' ); ?></p>
 								</div>
 							</div>
 						</div>
@@ -302,11 +302,11 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 					<div class="mtef-sticky-save">
 						<div class="save-status-text">
 							<span class="dashicons dashicons-saved"></span>
-							<span><?php esc_html_e( 'Configure settings and click save to apply changes.', 'mt-elementor-forms' ); ?></span>
+							<span><?php esc_html_e( 'Configure settings and click save to apply changes.', 'quick-modern-forms-for-elementor' ); ?></span>
 						</div>
 						<button type="submit" class="mtef-btn-primary">
 							<span class="dashicons dashicons-yes-alt"></span>
-							<?php esc_html_e( 'Save Settings', 'mt-elementor-forms' ); ?>
+							<?php esc_html_e( 'Save Settings', 'quick-modern-forms-for-elementor' ); ?>
 						</button>
 					</div>
 				</form>
@@ -330,15 +330,15 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 										</svg>
 									</div>
 									<div>
-										<h2><?php esc_html_e( 'Notification Routing', 'mt-elementor-forms' ); ?></h2>
-										<p class="section-desc"><?php esc_html_e( 'Configure who receives notifications when a contact form is submitted.', 'mt-elementor-forms' ); ?></p>
+										<h2><?php esc_html_e( 'Notification Routing', 'quick-modern-forms-for-elementor' ); ?></h2>
+										<p class="section-desc"><?php esc_html_e( 'Configure who receives notifications when a contact form is submitted.', 'quick-modern-forms-for-elementor' ); ?></p>
 									</div>
 								</div>
 
 								<div class="mtef-card-body">
 									<div class="mtef-field-group">
 										<label for="mtef_admin_email">
-											<?php esc_html_e( 'Recipient Email', 'mt-elementor-forms' ); ?>
+											<?php esc_html_e( 'Recipient Email', 'quick-modern-forms-for-elementor' ); ?>
 											<span class="required-asterisk">*</span>
 										</label>
 										<div class="input-wrap">
@@ -346,37 +346,37 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 												value="<?php echo esc_attr( $admin_email ); ?>"
 												class="regular-text" required />
 										</div>
-										<p class="field-hint"><?php esc_html_e( 'Primary email address where submission notifications are delivered.', 'mt-elementor-forms' ); ?></p>
+										<p class="field-hint"><?php esc_html_e( 'Primary email address where submission notifications are delivered.', 'quick-modern-forms-for-elementor' ); ?></p>
 									</div>
 
 									<div class="form-row-2col">
 										<div class="mtef-field-group">
-											<label for="mtef_email_cc"><?php esc_html_e( 'CC Addresses', 'mt-elementor-forms' ); ?></label>
+											<label for="mtef_email_cc"><?php esc_html_e( 'CC Addresses', 'quick-modern-forms-for-elementor' ); ?></label>
 											<input type="text" id="mtef_email_cc" name="mtef_email_cc"
 												value="<?php echo esc_attr( get_option( 'mtef_email_cc', '' ) ); ?>"
 												class="regular-text" placeholder="team@domain.com, lead@domain.com" />
-											<p class="field-hint"><?php esc_html_e( 'Comma-separated email list.', 'mt-elementor-forms' ); ?></p>
+											<p class="field-hint"><?php esc_html_e( 'Comma-separated email list.', 'quick-modern-forms-for-elementor' ); ?></p>
 										</div>
 
 										<div class="mtef-field-group">
-											<label for="mtef_email_bcc"><?php esc_html_e( 'BCC Addresses', 'mt-elementor-forms' ); ?></label>
+											<label for="mtef_email_bcc"><?php esc_html_e( 'BCC Addresses', 'quick-modern-forms-for-elementor' ); ?></label>
 											<input type="text" id="mtef_email_bcc" name="mtef_email_bcc"
 												value="<?php echo esc_attr( get_option( 'mtef_email_bcc', '' ) ); ?>"
 												class="regular-text" placeholder="archive@domain.com" />
-											<p class="field-hint"><?php esc_html_e( 'Blind carbon copy addresses.', 'mt-elementor-forms' ); ?></p>
+											<p class="field-hint"><?php esc_html_e( 'Blind carbon copy addresses.', 'quick-modern-forms-for-elementor' ); ?></p>
 										</div>
 									</div>
 
 									<div class="form-row-2col">
 										<div class="mtef-field-group">
-											<label for="mtef_email_from_name"><?php esc_html_e( 'Sender Name ("From")', 'mt-elementor-forms' ); ?></label>
+											<label for="mtef_email_from_name"><?php esc_html_e( 'Sender Name ("From")', 'quick-modern-forms-for-elementor' ); ?></label>
 											<input type="text" id="mtef_email_from_name" name="mtef_email_from_name"
 												value="<?php echo esc_attr( $email_from_name ); ?>"
 												class="regular-text" />
 										</div>
 
 										<div class="mtef-field-group">
-											<label for="mtef_email_subject"><?php esc_html_e( 'Default Subject', 'mt-elementor-forms' ); ?></label>
+											<label for="mtef_email_subject"><?php esc_html_e( 'Default Subject', 'quick-modern-forms-for-elementor' ); ?></label>
 											<input type="text" id="mtef_email_subject" name="mtef_email_subject"
 												value="<?php echo esc_attr( $email_subject ); ?>"
 												class="regular-text" />
@@ -398,16 +398,16 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 										</svg>
 									</div>
 									<div>
-										<h2><?php esc_html_e( 'Template Branding & Colors', 'mt-elementor-forms' ); ?></h2>
-										<p class="section-desc"><?php esc_html_e( 'Customize your HTML email notification layout, colors, logo and footer.', 'mt-elementor-forms' ); ?></p>
+										<h2><?php esc_html_e( 'Template Branding & Colors', 'quick-modern-forms-for-elementor' ); ?></h2>
+										<p class="section-desc"><?php esc_html_e( 'Customize your HTML email notification layout, colors, logo and footer.', 'quick-modern-forms-for-elementor' ); ?></p>
 									</div>
 								</div>
 
 								<div class="mtef-card-body">
 									<div class="mtef-toggle-row">
 										<div class="toggle-meta">
-											<strong><?php esc_html_e( 'Enable HTML Email Template', 'mt-elementor-forms' ); ?></strong>
-											<p><?php esc_html_e( 'Renders a responsive, branded email template instead of plain text.', 'mt-elementor-forms' ); ?></p>
+											<strong><?php esc_html_e( 'Enable HTML Email Template', 'quick-modern-forms-for-elementor' ); ?></strong>
+											<p><?php esc_html_e( 'Renders a responsive, branded email template instead of plain text.', 'quick-modern-forms-for-elementor' ); ?></p>
 										</div>
 										<label class="mtef-switch">
 											<input type="checkbox" name="mtef_enable_html_email" value="yes" <?php checked( $enable_html, 'yes' ); ?> id="toggle_enable_html">
@@ -417,55 +417,55 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 
 									<!-- Quick Palette Presets -->
 									<div class="mtef-preset-palettes">
-										<span class="palette-label"><?php esc_html_e( 'Color Presets:', 'mt-elementor-forms' ); ?></span>
+										<span class="palette-label"><?php esc_html_e( 'Color Presets:', 'quick-modern-forms-for-elementor' ); ?></span>
 										<div class="palette-buttons">
 											<button type="button" class="btn-palette" data-accent="#4f46e5" data-bg="#f8fafc" data-content="#ffffff" data-text="#1e293b">
 												<span class="swatch" style="background:#4f46e5;"></span>
-												<?php esc_html_e( 'Indigo Modern', 'mt-elementor-forms' ); ?>
+												<?php esc_html_e( 'Indigo Modern', 'quick-modern-forms-for-elementor' ); ?>
 											</button>
 											<button type="button" class="btn-palette" data-accent="#059669" data-bg="#f0fdf4" data-content="#ffffff" data-text="#0f172a">
 												<span class="swatch" style="background:#059669;"></span>
-												<?php esc_html_e( 'Emerald Clean', 'mt-elementor-forms' ); ?>
+												<?php esc_html_e( 'Emerald Clean', 'quick-modern-forms-for-elementor' ); ?>
 											</button>
 											<button type="button" class="btn-palette" data-accent="#0284c7" data-bg="#f0f9ff" data-content="#ffffff" data-text="#0f172a">
 												<span class="swatch" style="background:#0284c7;"></span>
-												<?php esc_html_e( 'Ocean Sky', 'mt-elementor-forms' ); ?>
+												<?php esc_html_e( 'Ocean Sky', 'quick-modern-forms-for-elementor' ); ?>
 											</button>
 											<button type="button" class="btn-palette" data-accent="#0f172a" data-bg="#f1f5f9" data-content="#ffffff" data-text="#0f172a">
 												<span class="swatch" style="background:#0f172a;"></span>
-												<?php esc_html_e( 'Slate Luxury', 'mt-elementor-forms' ); ?>
+												<?php esc_html_e( 'Slate Luxury', 'quick-modern-forms-for-elementor' ); ?>
 											</button>
 											<button type="button" class="btn-palette" data-accent="#e11d48" data-bg="#fff1f2" data-content="#ffffff" data-text="#1e293b">
 												<span class="swatch" style="background:#e11d48;"></span>
-												<?php esc_html_e( 'Rose Crimson', 'mt-elementor-forms' ); ?>
+												<?php esc_html_e( 'Rose Crimson', 'quick-modern-forms-for-elementor' ); ?>
 											</button>
 										</div>
 									</div>
 
 									<div class="colors-grid">
 										<div class="color-item">
-											<label for="mtef_email_accent_color"><?php esc_html_e( 'Header Bar Accent', 'mt-elementor-forms' ); ?></label>
+											<label for="mtef_email_accent_color"><?php esc_html_e( 'Header Bar Accent', 'quick-modern-forms-for-elementor' ); ?></label>
 											<input type="text" id="mtef_email_accent_color" name="mtef_email_accent_color"
 												value="<?php echo esc_attr( $accent_color ); ?>"
 												class="mtef-color-picker" data-preview-target="header" />
 										</div>
 
 										<div class="color-item">
-											<label for="mtef_email_bg_color"><?php esc_html_e( 'Email Canvas BG', 'mt-elementor-forms' ); ?></label>
+											<label for="mtef_email_bg_color"><?php esc_html_e( 'Email Canvas BG', 'quick-modern-forms-for-elementor' ); ?></label>
 											<input type="text" id="mtef_email_bg_color" name="mtef_email_bg_color"
 												value="<?php echo esc_attr( $bg_color ); ?>"
 												class="mtef-color-picker" data-preview-target="canvas" />
 										</div>
 
 										<div class="color-item">
-											<label for="mtef_email_content_bg_color"><?php esc_html_e( 'Card Container BG', 'mt-elementor-forms' ); ?></label>
+											<label for="mtef_email_content_bg_color"><?php esc_html_e( 'Card Container BG', 'quick-modern-forms-for-elementor' ); ?></label>
 											<input type="text" id="mtef_email_content_bg_color" name="mtef_email_content_bg_color"
 												value="<?php echo esc_attr( $content_bg ); ?>"
 												class="mtef-color-picker" data-preview-target="content" />
 										</div>
 
 										<div class="color-item">
-											<label for="mtef_email_text_color"><?php esc_html_e( 'Primary Text Color', 'mt-elementor-forms' ); ?></label>
+											<label for="mtef_email_text_color"><?php esc_html_e( 'Primary Text Color', 'quick-modern-forms-for-elementor' ); ?></label>
 											<input type="text" id="mtef_email_text_color" name="mtef_email_text_color"
 												value="<?php echo esc_attr( $text_color ); ?>"
 												class="mtef-color-picker" data-preview-target="text" />
@@ -474,34 +474,34 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 
 									<!-- Logo Uploader -->
 									<div class="mtef-field-group logo-uploader-group">
-										<label><?php esc_html_e( 'Email Header Logo', 'mt-elementor-forms' ); ?></label>
+										<label><?php esc_html_e( 'Email Header Logo', 'quick-modern-forms-for-elementor' ); ?></label>
 										<div class="mtef-media-field">
 											<input type="text" id="mtef_email_logo_url" name="mtef_email_logo_url"
 												value="<?php echo esc_attr( $logo_url ); ?>"
 												class="regular-text mtef-media-url" placeholder="https://domain.com/wp-content/uploads/logo.png" />
 											<button type="button" class="mtef-btn-secondary mtef-media-upload-btn">
 												<span class="dashicons dashicons-upload"></span>
-												<?php esc_html_e( 'Choose Logo', 'mt-elementor-forms' ); ?>
+												<?php esc_html_e( 'Choose Logo', 'quick-modern-forms-for-elementor' ); ?>
 											</button>
 											<button type="button" class="mtef-btn-danger mtef-media-remove-btn" <?php echo empty( $logo_url ) ? 'style="display:none;"' : ''; ?>>
 												<span class="dashicons dashicons-trash"></span>
-												<?php esc_html_e( 'Remove', 'mt-elementor-forms' ); ?>
+												<?php esc_html_e( 'Remove', 'quick-modern-forms-for-elementor' ); ?>
 											</button>
 										</div>
-										<p class="field-hint"><?php esc_html_e( 'Recommended height: 40px–50px with transparent background.', 'mt-elementor-forms' ); ?></p>
+										<p class="field-hint"><?php esc_html_e( 'Recommended height: 40px–50px with transparent background.', 'quick-modern-forms-for-elementor' ); ?></p>
 									</div>
 
 									<!-- Footer Settings -->
 									<div class="mtef-field-group">
-										<label for="mtef_email_footer_text"><?php esc_html_e( 'Custom Footer Note', 'mt-elementor-forms' ); ?></label>
+										<label for="mtef_email_footer_text"><?php esc_html_e( 'Custom Footer Note', 'quick-modern-forms-for-elementor' ); ?></label>
 										<textarea id="mtef_email_footer_text" name="mtef_email_footer_text" rows="2"
-											class="regular-text" placeholder="<?php esc_attr_e( 'e.g. Acme Corp • 123 Innovation Way • contact@acme.com', 'mt-elementor-forms' ); ?>"><?php echo esc_textarea( $footer_text ); ?></textarea>
+											class="regular-text" placeholder="<?php esc_attr_e( 'e.g. Acme Corp • 123 Innovation Way • contact@acme.com', 'quick-modern-forms-for-elementor' ); ?>"><?php echo esc_textarea( $footer_text ); ?></textarea>
 									</div>
 
 									<div class="mtef-toggle-row">
 										<div class="toggle-meta">
-											<strong><?php esc_html_e( 'Show "Submitted via Site" Credit', 'mt-elementor-forms' ); ?></strong>
-											<p><?php esc_html_e( 'Displays the timestamp and site link in the email footer.', 'mt-elementor-forms' ); ?></p>
+											<strong><?php esc_html_e( 'Show "Submitted via Site" Credit', 'quick-modern-forms-for-elementor' ); ?></strong>
+											<p><?php esc_html_e( 'Displays the timestamp and site link in the email footer.', 'quick-modern-forms-for-elementor' ); ?></p>
 										</div>
 										<label class="mtef-switch">
 											<input type="checkbox" name="mtef_email_show_footer_credit" value="yes" <?php checked( $show_credit, 'yes' ); ?>>
@@ -520,8 +520,8 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 									<div class="window-dots">
 										<span></span><span></span><span></span>
 									</div>
-									<span class="preview-title"><?php esc_html_e( 'Live Notification Preview', 'mt-elementor-forms' ); ?></span>
-									<span class="live-badge"><?php esc_html_e( 'Real-time', 'mt-elementor-forms' ); ?></span>
+									<span class="preview-title"><?php esc_html_e( 'Live Notification Preview', 'quick-modern-forms-for-elementor' ); ?></span>
+									<span class="live-badge"><?php esc_html_e( 'Real-time', 'quick-modern-forms-for-elementor' ); ?></span>
 								</div>
 
 								<!-- Live Render Box -->
@@ -532,34 +532,34 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 											<div class="mock-logo-wrap" id="emailMockLogoWrap" <?php echo empty( $logo_url ) ? 'style="display:none;"' : ''; ?>>
 												<img src="<?php echo esc_url( $logo_url ); ?>" alt="Logo" id="emailMockLogo" />
 											</div>
-											<h4 id="emailMockHeading"><?php esc_html_e( 'New Form Submission', 'mt-elementor-forms' ); ?></h4>
+											<h4 id="emailMockHeading"><?php esc_html_e( 'New Form Submission', 'quick-modern-forms-for-elementor' ); ?></h4>
 										</div>
 
 										<!-- Body -->
 										<div class="email-mock-body" style="color: <?php echo esc_attr( $text_color ); ?>;">
-											<p class="mock-intro"><?php printf( /* translators: %s: website name. */ esc_html__( 'You received a new inquiry from %s:', 'mt-elementor-forms' ), '<strong>' . esc_html( get_bloginfo( 'name' ) ) . '</strong>' ); ?></p>
+											<p class="mock-intro"><?php printf( /* translators: %s: website name. */ esc_html__( 'You received a new inquiry from %s:', 'quick-modern-forms-for-elementor' ), '<strong>' . esc_html( get_bloginfo( 'name' ) ) . '</strong>' ); ?></p>
 
 											<div class="mock-field-row">
-												<span class="mock-label"><?php esc_html_e( 'NAME', 'mt-elementor-forms' ); ?></span>
+												<span class="mock-label"><?php esc_html_e( 'NAME', 'quick-modern-forms-for-elementor' ); ?></span>
 												<span class="mock-value">Sarah Jenkins</span>
 											</div>
 											<div class="mock-field-row">
-												<span class="mock-label"><?php esc_html_e( 'EMAIL', 'mt-elementor-forms' ); ?></span>
+												<span class="mock-label"><?php esc_html_e( 'EMAIL', 'quick-modern-forms-for-elementor' ); ?></span>
 												<span class="mock-value">sarah.jenkins@example.com</span>
 											</div>
 											<div class="mock-field-row">
-												<span class="mock-label"><?php esc_html_e( 'SUBJECT', 'mt-elementor-forms' ); ?></span>
+												<span class="mock-label"><?php esc_html_e( 'SUBJECT', 'quick-modern-forms-for-elementor' ); ?></span>
 												<span class="mock-value" id="emailMockSubjectPreview"><?php echo esc_html( $email_subject ); ?></span>
 											</div>
 											<div class="mock-field-row no-border">
-												<span class="mock-label"><?php esc_html_e( 'MESSAGE', 'mt-elementor-forms' ); ?></span>
-												<span class="mock-value"><?php esc_html_e( 'Hi, I would like to inquire about your services and schedule a consultation next week.', 'mt-elementor-forms' ); ?></span>
+												<span class="mock-label"><?php esc_html_e( 'MESSAGE', 'quick-modern-forms-for-elementor' ); ?></span>
+												<span class="mock-value"><?php esc_html_e( 'Hi, I would like to inquire about your services and schedule a consultation next week.', 'quick-modern-forms-for-elementor' ); ?></span>
 											</div>
 										</div>
 
 										<!-- Footer -->
 										<div class="email-mock-footer">
-											<p id="emailMockFooterText"><?php echo ! empty( $footer_text ) ? esc_html( $footer_text ) : sprintf( /* translators: %s: website name. */ esc_html__( 'Submitted via %s', 'mt-elementor-forms' ), esc_html( get_bloginfo( 'name' ) ) ); ?></p>
+											<p id="emailMockFooterText"><?php echo ! empty( $footer_text ) ? esc_html( $footer_text ) : sprintf( /* translators: %s: website name. */ esc_html__( 'Submitted via %s', 'quick-modern-forms-for-elementor' ), esc_html( get_bloginfo( 'name' ) ) ); ?></p>
 											<span>&copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
 										</div>
 									</div>
@@ -572,11 +572,11 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 					<div class="mtef-sticky-save">
 						<div class="save-status-text">
 							<span class="dashicons dashicons-saved"></span>
-							<span><?php esc_html_e( 'All changes are ready to save.', 'mt-elementor-forms' ); ?></span>
+							<span><?php esc_html_e( 'All changes are ready to save.', 'quick-modern-forms-for-elementor' ); ?></span>
 						</div>
 						<button type="submit" class="mtef-btn-primary">
 							<span class="dashicons dashicons-yes-alt"></span>
-							<?php esc_html_e( 'Save Email Settings', 'mt-elementor-forms' ); ?>
+							<?php esc_html_e( 'Save Email Settings', 'quick-modern-forms-for-elementor' ); ?>
 						</button>
 					</div>
 				</form>
@@ -587,9 +587,9 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 					<!-- Welcome Hero -->
 					<div class="mtef-card support-hero">
 						<div class="hero-text">
-							<span class="hero-badge"><?php esc_html_e( 'Getting Started & Support', 'mt-elementor-forms' ); ?></span>
-							<h2><?php esc_html_e( 'Build High-Converting Forms with Elementor', 'mt-elementor-forms' ); ?></h2>
-							<p><?php esc_html_e( 'MT Elementor Forms gives you 50+ preset styles, spam protection, and styled email templates. Follow the quick guide below or support development.', 'mt-elementor-forms' ); ?></p>
+							<span class="hero-badge"><?php esc_html_e( 'Getting Started & Support', 'quick-modern-forms-for-elementor' ); ?></span>
+							<h2><?php esc_html_e( 'Build High-Converting Forms with Elementor', 'quick-modern-forms-for-elementor' ); ?></h2>
+							<p><?php esc_html_e( 'Quick & Modern Forms for Elementor gives you 50+ preset styles, spam protection, and styled email templates. Follow the quick guide below or support development.', 'quick-modern-forms-for-elementor' ); ?></p>
 						</div>
 					</div>
 
@@ -597,18 +597,18 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 					<div class="mtef-steps-grid">
 						<div class="mtef-step-card">
 							<span class="step-num">01</span>
-							<h3><?php esc_html_e( 'Open Elementor', 'mt-elementor-forms' ); ?></h3>
-							<p><?php esc_html_e( 'Edit any page, post, or template with the Elementor page builder.', 'mt-elementor-forms' ); ?></p>
+							<h3><?php esc_html_e( 'Open Elementor', 'quick-modern-forms-for-elementor' ); ?></h3>
+							<p><?php esc_html_e( 'Edit any page, post, or template with the Elementor page builder.', 'quick-modern-forms-for-elementor' ); ?></p>
 						</div>
 						<div class="mtef-step-card">
 							<span class="step-num">02</span>
-							<h3><?php esc_html_e( 'Drag "MT Elementor Forms"', 'mt-elementor-forms' ); ?></h3>
-							<p><?php esc_html_e( 'Search for "MT Elementor Forms" in the Elementor widget panel and drag it into your page section.', 'mt-elementor-forms' ); ?></p>
+							<h3><?php esc_html_e( 'Drag "Quick & Modern Forms for Elementor"', 'quick-modern-forms-for-elementor' ); ?></h3>
+							<p><?php esc_html_e( 'Search for "Quick & Modern Forms" in the Elementor widget panel and drag it into your page section.', 'quick-modern-forms-for-elementor' ); ?></p>
 						</div>
 						<div class="mtef-step-card">
 							<span class="step-num">03</span>
-							<h3><?php esc_html_e( 'Pick a Preset Skin', 'mt-elementor-forms' ); ?></h3>
-							<p><?php esc_html_e( 'Select from 50 built-in skins or 7 layouts (Floating, Material, Inline, Boxed).', 'mt-elementor-forms' ); ?></p>
+							<h3><?php esc_html_e( 'Pick a Preset Skin', 'quick-modern-forms-for-elementor' ); ?></h3>
+							<p><?php esc_html_e( 'Select from 50 built-in skins or 7 layouts (Floating, Material, Inline, Boxed).', 'quick-modern-forms-for-elementor' ); ?></p>
 						</div>
 					</div>
 
@@ -621,8 +621,8 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 									<span class="dashicons dashicons-awards"></span>
 								</div>
 								<div>
-									<h2><?php esc_html_e( 'Included Features', 'mt-elementor-forms' ); ?></h2>
-									<p class="section-desc"><?php esc_html_e( 'Everything available out of the box in MT Elementor Forms', 'mt-elementor-forms' ); ?></p>
+									<h2><?php esc_html_e( 'Included Features', 'quick-modern-forms-for-elementor' ); ?></h2>
+									<p class="section-desc"><?php esc_html_e( 'Everything available out of the box in Quick & Modern Forms for Elementor', 'quick-modern-forms-for-elementor' ); ?></p>
 								</div>
 							</div>
 							<div class="mtef-card-body">
@@ -630,36 +630,36 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 									<li>
 										<span class="check-icon">✓</span>
 										<div>
-											<strong><?php esc_html_e( '50 Preset Design Skins', 'mt-elementor-forms' ); ?></strong>
-											<span><?php esc_html_e( 'Neumorphic, Glassmorphism, Material, Retro & Minimalist styles.', 'mt-elementor-forms' ); ?></span>
+											<strong><?php esc_html_e( '50 Preset Design Skins', 'quick-modern-forms-for-elementor' ); ?></strong>
+											<span><?php esc_html_e( 'Neumorphic, Glassmorphism, Material, Retro & Minimalist styles.', 'quick-modern-forms-for-elementor' ); ?></span>
 										</div>
 									</li>
 									<li>
 										<span class="check-icon">✓</span>
 										<div>
-											<strong><?php esc_html_e( '7 Layout Structures', 'mt-elementor-forms' ); ?></strong>
-											<span><?php esc_html_e( 'Floating Labels, Material Minimal, Inset Shadow, Inline layout, etc.', 'mt-elementor-forms' ); ?></span>
+											<strong><?php esc_html_e( '7 Layout Structures', 'quick-modern-forms-for-elementor' ); ?></strong>
+											<span><?php esc_html_e( 'Floating Labels, Material Minimal, Inset Shadow, Inline layout, etc.', 'quick-modern-forms-for-elementor' ); ?></span>
 										</div>
 									</li>
 									<li>
 										<span class="check-icon">✓</span>
 										<div>
-											<strong><?php esc_html_e( 'Submissions Database Storage', 'mt-elementor-forms' ); ?></strong>
-											<span><?php esc_html_e( 'Never miss an inquiry. Search, export to CSV and manage from admin.', 'mt-elementor-forms' ); ?></span>
+											<strong><?php esc_html_e( 'Submissions Database Storage', 'quick-modern-forms-for-elementor' ); ?></strong>
+											<span><?php esc_html_e( 'Never miss an inquiry. Search, export to CSV and manage from admin.', 'quick-modern-forms-for-elementor' ); ?></span>
 										</div>
 									</li>
 									<li>
 										<span class="check-icon">✓</span>
 										<div>
-											<strong><?php esc_html_e( 'Spam Protection Suite', 'mt-elementor-forms' ); ?></strong>
-											<span><?php esc_html_e( 'Google reCAPTCHA v2, Cloudflare Turnstile, honeypot and IP rate limiting.', 'mt-elementor-forms' ); ?></span>
+											<strong><?php esc_html_e( 'Spam Protection Suite', 'quick-modern-forms-for-elementor' ); ?></strong>
+											<span><?php esc_html_e( 'Google reCAPTCHA v2, Cloudflare Turnstile, honeypot and IP rate limiting.', 'quick-modern-forms-for-elementor' ); ?></span>
 										</div>
 									</li>
 									<li>
 										<span class="check-icon">✓</span>
 										<div>
-											<strong><?php esc_html_e( 'GDPR Consent Checkbox', 'mt-elementor-forms' ); ?></strong>
-											<span><?php esc_html_e( 'Custom consent text with privacy policy links.', 'mt-elementor-forms' ); ?></span>
+											<strong><?php esc_html_e( 'GDPR Consent Checkbox', 'quick-modern-forms-for-elementor' ); ?></strong>
+											<span><?php esc_html_e( 'Custom consent text with privacy policy links.', 'quick-modern-forms-for-elementor' ); ?></span>
 										</div>
 									</li>
 								</ul>
@@ -673,8 +673,8 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 									<span class="dashicons dashicons-heart"></span>
 								</div>
 								<div>
-									<h2><?php esc_html_e( 'Support & Feedback', 'mt-elementor-forms' ); ?></h2>
-									<p class="section-desc"><?php esc_html_e( 'Support development or report bugs directly to the team.', 'mt-elementor-forms' ); ?></p>
+									<h2><?php esc_html_e( 'Support & Feedback', 'quick-modern-forms-for-elementor' ); ?></h2>
+									<p class="section-desc"><?php esc_html_e( 'Support development or report bugs directly to the team.', 'quick-modern-forms-for-elementor' ); ?></p>
 								</div>
 							</div>
 							<div class="mtef-card-body">
@@ -682,17 +682,17 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 									<a href="https://github.com/tariqsmd/mtforms/issues" target="_blank" rel="noopener noreferrer" class="support-action-card">
 										<span class="dashicons dashicons-warning"></span>
 										<div>
-											<strong><?php esc_html_e( 'Report an Issue / Bug', 'mt-elementor-forms' ); ?></strong>
-											<span><?php esc_html_e( 'File an issue on the official GitHub repository.', 'mt-elementor-forms' ); ?></span>
+											<strong><?php esc_html_e( 'Report an Issue / Bug', 'quick-modern-forms-for-elementor' ); ?></strong>
+											<span><?php esc_html_e( 'File an issue on the official GitHub repository.', 'quick-modern-forms-for-elementor' ); ?></span>
 										</div>
 										<span class="dashicons dashicons-arrow-right-alt2 arrow-icon"></span>
 									</a>
 
-									<a href="https://wordpress.org/support/plugin/mt-elementor-forms/reviews/#new-post" target="_blank" rel="noopener noreferrer" class="support-action-card">
+									<a href="https://wordpress.org/support/plugin/quick-modern-forms-for-elementor/reviews/#new-post" target="_blank" rel="noopener noreferrer" class="support-action-card">
 										<span class="dashicons dashicons-star-filled star-icon"></span>
 										<div>
-											<strong><?php esc_html_e( 'Leave a 5-Star Review', 'mt-elementor-forms' ); ?></strong>
-											<span><?php esc_html_e( 'Help support future development by reviewing on WordPress.org.', 'mt-elementor-forms' ); ?></span>
+											<strong><?php esc_html_e( 'Leave a 5-Star Review', 'quick-modern-forms-for-elementor' ); ?></strong>
+											<span><?php esc_html_e( 'Help support future development by reviewing on WordPress.org.', 'quick-modern-forms-for-elementor' ); ?></span>
 										</div>
 										<span class="dashicons dashicons-arrow-right-alt2 arrow-icon"></span>
 									</a>

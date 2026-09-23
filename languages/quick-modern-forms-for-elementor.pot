@@ -1,12 +1,12 @@
-# Copyright (C) 2026 MT Elementor Forms
-# This file is distributed under the same license as the MT Elementor Forms package.
+# Copyright (C) 2026 Quick & Modern Forms for Elementor
+# This file is distributed under the same license as the Quick & Modern Forms for Elementor package.
 msgid ""
 msgstr ""
-"Project-Id-Version: MT Elementor Forms\n"
+"Project-Id-Version: Quick & Modern Forms for Elementor\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-21 13:41+0000\n"
+"POT-Creation-Date: 2026-09-23 05:10+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -39,7 +39,7 @@ msgid "Features & Payments"
 msgstr ""
 
 #: includes/Admin/settings-view.php:74, includes/Admin/SettingsPage.php:85, includes/Admin/SettingsPage.php:86, includes/Integrations/Elementor/Integration.php:28
-msgid "MT Elementor Forms"
+msgid "Quick & Modern Forms for Elementor"
 msgstr ""
 
 #: includes/Admin/settings-view.php:78
@@ -71,7 +71,7 @@ msgid "50+ Preset Skins"
 msgstr ""
 
 #: includes/Admin/settings-view.php:124
-msgid "Edit any page with Elementor, search for the \"MT Elementor Forms\" widget, and choose from 50 built-in skins."
+msgid "Edit any page with Elementor, search for the \"Quick & Modern Forms\" widget, and choose from 50 built-in skins."
 msgstr ""
 
 #: includes/Admin/settings-view.php:127
@@ -87,7 +87,7 @@ msgid "Build High-Converting Forms with Elementor"
 msgstr ""
 
 #: includes/Admin/settings-view.php:592
-msgid "MT Elementor Forms gives you 50+ preset styles, spam protection, and styled email templates. Follow the quick guide below or support development."
+msgid "Quick & Modern Forms for Elementor gives you 50+ preset styles, spam protection, and styled email templates. Follow the quick guide below or support development."
 msgstr ""
 
 #: includes/Admin/settings-view.php:600
@@ -99,11 +99,11 @@ msgid "Edit any page, post, or template with the Elementor page builder."
 msgstr ""
 
 #: includes/Admin/settings-view.php:605
-msgid "Drag \"MT Elementor Forms\""
+msgid "Drag \"Quick & Modern Forms for Elementor\""
 msgstr ""
 
 #: includes/Admin/settings-view.php:606
-msgid "Search for \"MT Elementor Forms\" in the Elementor widget panel and drag it into your page section."
+msgid "Search for \"Quick & Modern Forms\" in the Elementor widget panel and drag it into your page section."
 msgstr ""
 
 #: includes/Admin/settings-view.php:610
@@ -119,7 +119,7 @@ msgid "Included Features"
 msgstr ""
 
 #: includes/Admin/settings-view.php:625
-msgid "Everything available out of the box in MT Elementor Forms"
+msgid "Everything available out of the box in Quick & Modern Forms for Elementor"
 msgstr ""
 
 #: includes/Admin/settings-view.php:633
@@ -487,7 +487,7 @@ msgid "Submissions"
 msgstr ""
 
 #: includes/Admin/SettingsPage.php:122
-msgid "MT Elementor Forms Submissions"
+msgid "Quick & Modern Forms for Elementor Submissions"
 msgstr ""
 
 #: includes/Admin/SettingsPage.php:123
@@ -507,7 +507,7 @@ msgid "Security check failed."
 msgstr ""
 
 #: includes/Admin/SettingsPage.php:233
-msgid "MT Elementor Forms requires the Elementor plugin to build forms. Install and activate Elementor to get started."
+msgid "Quick & Modern Forms for Elementor requires the Elementor plugin to build forms. Install and activate Elementor to get started."
 msgstr ""
 
 #: includes/Admin/SettingsPage.php:272
@@ -583,7 +583,7 @@ msgid "Failed to send message. Please try again."
 msgstr ""
 
 #: includes/Integrations/Elementor/Partials/captcha.php:46
-msgid "CAPTCHA is enabled on this form, but the selected provider is not configured. Add the site key under MT Elementor Forms » General settings."
+msgid "CAPTCHA is enabled on this form, but the selected provider is not configured. Add the site key under Quick & Modern Forms for Elementor » General settings."
 msgstr ""
 
 #. translators: %s: name of the website the submission was sent from.
@@ -657,7 +657,7 @@ msgid "An unexpected error occurred. Please try again."
 msgstr ""
 
 #: includes/Integrations/Elementor/Widget.php:87
-msgid "MT Contact Form"
+msgid "Quick & Modern Forms"
 msgstr ""
 
 #: includes/Integrations/Elementor/WidgetControls/ContentControls.php:32
@@ -987,7 +987,7 @@ msgid "Show Captcha"
 msgstr ""
 
 #: includes/Integrations/Elementor/WidgetControls/ContentControls.php:353
-msgid "See captcha configuration in MT Elementor Forms settings."
+msgid "See captcha configuration in Quick & Modern Forms for Elementor settings."
 msgstr ""
 
 #: includes/Integrations/Elementor/WidgetControls/ContentControls.php:360

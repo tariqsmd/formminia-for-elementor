@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Fired during plugin deactivation.
  *
  * @since      1.0.0
- * @package    MT Elementor Forms
+ * @package    Quick & Modern Forms for Elementor
  * @author     Muhammad Tariq
  */
 class Deactivator {

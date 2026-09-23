@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Server-side validator for MT Elementor Forms submissions.
+ * Server-side validator for Quick & Modern Forms for Elementor submissions.
  */
 class FormValidator {
 
@@ -21,7 +21,7 @@ class FormValidator {
 	public function validate(FormSubmission $submission)
 	{
 		/**
-		 * Allow custom validation before MT Elementor Forms runs its own rules.
+		 * Allow custom validation before Quick & Modern Forms for Elementor runs its own rules.
 		 *
 		 * Return a \WP_Error to short-circuit validation.
 		 */
@@ -57,25 +57,25 @@ class FormValidator {
 					break;
 				case 'mtef_gdpr':
 					if (!$submission->gdpr_accepted) {
-						return new \WP_Error('mtef_gdpr_required', esc_html__('You must agree to the terms', 'mt-elementor-forms'));
+						return new \WP_Error('mtef_gdpr_required', esc_html__('You must agree to the terms', 'quick-modern-forms-for-elementor'));
 					}
 					continue 2;
 			}
 
 			if (empty($value)) {
-				return new \WP_Error('mtef_required', esc_html__('Please fill in all required fields.', 'mt-elementor-forms'));
+				return new \WP_Error('mtef_required', esc_html__('Please fill in all required fields.', 'quick-modern-forms-for-elementor'));
 			}
 		}
 
 		// Ensure at least one actual field has data (sanity check)
 		$all_fields = [$submission->name, $submission->email, $submission->phone, $submission->website, $submission->subject, $submission->message];
 		if (empty(array_filter($all_fields))) {
-			return new \WP_Error('mtef_empty', esc_html__('Please fill in at least one field.', 'mt-elementor-forms'));
+			return new \WP_Error('mtef_empty', esc_html__('Please fill in at least one field.', 'quick-modern-forms-for-elementor'));
 		}
 
 		// Email format validation (only if email is provided or required)
 		if (!empty($submission->email) && !is_email($submission->email)) {
-			return new \WP_Error('mtef_invalid_email', esc_html__('Invalid email address.', 'mt-elementor-forms'));
+			return new \WP_Error('mtef_invalid_email', esc_html__('Invalid email address.', 'quick-modern-forms-for-elementor'));
 		}
 
 		/**

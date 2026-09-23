@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * MT Elementor Forms Core Bootstrap
+ * Quick & Modern Forms for Elementor Core Bootstrap
  *
  * Registers a PSR-4 style autoloader with explicit class-to-file mapping
  * for reliable loading on both case-sensitive (Linux) and case-insensitive (Windows/macOS) filesystems.

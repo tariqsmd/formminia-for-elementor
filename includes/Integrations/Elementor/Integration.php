@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Namespaced Elementor integration for MT Elementor Forms.
+ * Namespaced Elementor integration for Quick & Modern Forms for Elementor.
  */
 class Integration {
 
@@ -17,7 +17,7 @@ class Integration {
 	}
 
 	/**
-	 * Register the MT Elementor Forms Elementor category.
+	 * Register the Quick & Modern Forms for Elementor Elementor category.
 	 *
 	 * @param \Elementor\Elements_Manager $elements_manager Elements manager.
 	 */
@@ -25,14 +25,14 @@ class Integration {
 		$elements_manager->add_category(
 			'mtef',
 			array(
-				'title' => esc_html__( 'MT Elementor Forms', 'mt-elementor-forms' ),
+				'title' => esc_html__( 'Quick & Modern Forms for Elementor', 'quick-modern-forms-for-elementor' ),
 				'icon'  => 'eicon-form-horizontal',
 			)
 		);
 	}
 
 	/**
-	 * Register MT Elementor Forms Elementor widget.
+	 * Register Quick & Modern Forms for Elementor Elementor widget.
 	 *
 	 * @param \Elementor\Widgets_Manager $widgets_manager Widgets manager.
 	 */

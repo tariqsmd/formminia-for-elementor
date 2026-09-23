@@ -1,4 +1,4 @@
-# MT Elementor Forms
+# Quick & Modern Forms for Elementor
 
 A modern, feature-rich contact form plugin for WordPress and Elementor. Multiple skins and layouts, GDPR support, spam protection, and professional HTML email notifications.
 
@@ -10,9 +10,9 @@ A modern, feature-rich contact form plugin for WordPress and Elementor. Multiple
 
 ## Installation
 
-1. Upload the `mt-elementor-forms` folder to `/wp-content/plugins/`, or install through the WordPress admin Plugins screen.
-2. Activate the plugin, then open **MT Elementor Forms** in the admin menu to configure global settings (CAPTCHA provider, email template, recipients).
-3. Edit any page with Elementor, search for the **MT Contact Form** widget, and drag it to the content area.
+1. Upload the `quick-modern-forms-for-elementor` folder to `/wp-content/plugins/`, or install through the WordPress admin Plugins screen.
+2. Activate the plugin, then open **Quick & Modern Forms for Elementor** in the admin menu to configure global settings (CAPTCHA provider, email template, recipients).
+3. Edit any page with Elementor, search for the **Quick & Modern Forms** widget, and drag it to the content area.
 
 ## Architecture
 

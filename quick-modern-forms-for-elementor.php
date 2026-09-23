@@ -1,17 +1,17 @@
 <?php
 /**
- * Plugin Name:       MT Elementor Forms
- * Plugin URI:        https://wordpress.org/plugins/mt-elementor-forms/
+ * Plugin Name:       Quick & Modern Forms for Elementor
+ * Plugin URI:        https://wordpress.org/plugins/quick-modern-forms-for-elementor/
  * Description:       A modern, feature-rich contact form plugin with multiple skins, layouts, GDPR support, and Elementor integration.
  * Version:           1.0.1
  * Author:            Muhammad Tariq
  * Author URI:        https://profiles.wordpress.org/mtariqsmd/
  * License:           GPLv2 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Requires at least: 5.8
- * Requires PHP:      7.0
+ * Requires at least: 6.8
+ * Requires PHP:      7.4
  * Requires Plugins:  elementor
- * Text Domain:       mt-elementor-forms
+ * Text Domain:       quick-modern-forms-for-elementor
  * Domain Path:       /languages
  */
 

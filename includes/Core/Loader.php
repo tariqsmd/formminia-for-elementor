@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * run function to execute the list of actions and filters.
  *
  * @since      1.0.0
- * @package    MT Elementor Forms
+ * @package    Quick & Modern Forms for Elementor
  * @author     Muhammad Tariq
  */
 class Loader {

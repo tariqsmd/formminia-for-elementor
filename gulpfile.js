@@ -55,9 +55,9 @@ gulp.task('styles', function () {
 gulp.task('translate', function () {
     return gulp.src(['**/*.php', '!node_modules/**', '!vendor/**', '!dist/**'])
         .pipe(wpPot({
-            package: 'MT Elementor Forms'
+            package: 'Quick & Modern Forms for Elementor'
         }))
-        .pipe(gulp.dest('languages/mt-elementor-forms.pot'));
+        .pipe(gulp.dest('languages/quick-modern-forms-for-elementor.pot'));
 });
 
 // Zip the plugin for distribution
@@ -84,7 +84,7 @@ gulp.task('zip', function () {
         '!assets/**/*.scss',
         '!**/*.map'
     ])
-        .pipe(zip('mt-elementor-forms.zip'))
+        .pipe(zip('quick-modern-forms-for-elementor.zip'))
         .pipe(gulp.dest('dist'));
 });
 
@@ -112,7 +112,7 @@ gulp.task('dist', function () {
         '!assets/**/*.scss',
         '!**/*.map'
     ])
-        .pipe(zip('mt-elementor-forms.zip'))
+        .pipe(zip('quick-modern-forms-for-elementor.zip'))
         .pipe(gulp.dest('dist'));
 });
 

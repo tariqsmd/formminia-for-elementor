@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 use MTEF\Admin\SubmissionsTable;
 
 /**
- * Admin settings page for MT Elementor Forms.
+ * Admin settings page for Quick & Modern Forms for Elementor.
  *
  * Modern, namespaced counterpart to the legacy MTEF_Admin class.
  */
@@ -82,8 +82,8 @@ class SettingsPage
 	public function add_admin_menu()
 	{
 		add_menu_page(
-			__('MT Elementor Forms', 'mt-elementor-forms'),
-			__('MT Elementor Forms', 'mt-elementor-forms'),
+			__('Quick & Modern Forms for Elementor', 'quick-modern-forms-for-elementor'),
+			__('Quick & Modern Forms for Elementor', 'quick-modern-forms-for-elementor'),
 			'manage_options',
 			'mtef',
 			array($this, 'display_plugin_setup_page'),
@@ -93,8 +93,8 @@ class SettingsPage
 
 		add_submenu_page(
 			'mtef',
-			__('Settings', 'mt-elementor-forms'),
-			__('Settings', 'mt-elementor-forms'),
+			__('Settings', 'quick-modern-forms-for-elementor'),
+			__('Settings', 'quick-modern-forms-for-elementor'),
 			'manage_options',
 			'mtef',
 			array($this, 'display_plugin_setup_page')
@@ -102,8 +102,8 @@ class SettingsPage
 
 		add_submenu_page(
 			'mtef',
-			__('Submissions', 'mt-elementor-forms'),
-			__('Submissions', 'mt-elementor-forms'),
+			__('Submissions', 'quick-modern-forms-for-elementor'),
+			__('Submissions', 'quick-modern-forms-for-elementor'),
 			'manage_options',
 			'mtef-submissions',
 			array($this, 'display_submissions_page')
@@ -119,8 +119,8 @@ class SettingsPage
 		$table->prepare_items();
 		?>
 		<div class="wrap">
-			<h1 class="wp-heading-inline"><?php esc_html_e('MT Elementor Forms Submissions', 'mt-elementor-forms'); ?></h1>
-			<a href="<?php echo esc_url(wp_nonce_url(add_query_arg('action', 'export_csv'), 'mtef_export_csv')); ?>" class="page-title-action"><?php esc_html_e('Export to CSV', 'mt-elementor-forms'); ?></a>
+			<h1 class="wp-heading-inline"><?php esc_html_e('Quick & Modern Forms for Elementor Submissions', 'quick-modern-forms-for-elementor'); ?></h1>
+			<a href="<?php echo esc_url(wp_nonce_url(add_query_arg('action', 'export_csv'), 'mtef_export_csv')); ?>" class="page-title-action"><?php esc_html_e('Export to CSV', 'quick-modern-forms-for-elementor'); ?></a>
 			<hr class="wp-header-end">
 
 			<form method="post">
@@ -129,7 +129,7 @@ class SettingsPage
 				<?php // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- The form carries its own nonce; this read is for a hidden field only. ?>
 				<input type="hidden" name="page" value="<?php echo isset($_REQUEST['page']) ? esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))) : 'mtef-submissions'; ?>" />
 				<?php
-				$table->search_box(esc_html__('Search Submissions', 'mt-elementor-forms'), 'submission');
+				$table->search_box(esc_html__('Search Submissions', 'quick-modern-forms-for-elementor'), 'submission');
 				$table->display();
 				?>
 			</form>
@@ -154,11 +154,11 @@ class SettingsPage
 		}
 
 		if (!current_user_can('manage_options')) {
-			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'mt-elementor-forms'));
+			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'quick-modern-forms-for-elementor'));
 		}
 
 		if (!isset($_GET['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_wpnonce'])), 'mtef_export_csv')) {
-			wp_die(esc_html__('Security check failed.', 'mt-elementor-forms'));
+			wp_die(esc_html__('Security check failed.', 'quick-modern-forms-for-elementor'));
 		}
 
 		$this->handle_export_csv();
@@ -217,7 +217,7 @@ class SettingsPage
 	/**
 	 * Show an admin notice when the Elementor dependency is inactive.
 	 *
-	 * Displayed only on MT Elementor Forms admin screens.
+	 * Displayed only on Quick & Modern Forms for Elementor admin screens.
 	 */
 	public function maybe_display_elementor_notice()
 	{
@@ -230,7 +230,7 @@ class SettingsPage
 			return;
 		}
 
-		echo '<div class="notice notice-warning is-dismissible"><p>' . esc_html__('MT Elementor Forms requires the Elementor plugin to build forms. Install and activate Elementor to get started.', 'mt-elementor-forms') . '</p></div>';
+		echo '<div class="notice notice-warning is-dismissible"><p>' . esc_html__('Quick & Modern Forms for Elementor requires the Elementor plugin to build forms. Install and activate Elementor to get started.', 'quick-modern-forms-for-elementor') . '</p></div>';
 	}
 
 	/**
@@ -250,7 +250,7 @@ class SettingsPage
 	protected function handle_export_csv()
 	{
 		if (!current_user_can('manage_options')) {
-			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'mt-elementor-forms'));
+			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'quick-modern-forms-for-elementor'));
 		}
 
 		$repository = new \MTEF\Services\SubmissionRepository();
@@ -269,16 +269,16 @@ class SettingsPage
 
 		// Header row.
 		fputcsv($output, [
-			__('ID', 'mt-elementor-forms'),
-			__('Name', 'mt-elementor-forms'),
-			__('Email', 'mt-elementor-forms'),
-			__('Phone', 'mt-elementor-forms'),
-			__('Website', 'mt-elementor-forms'),
-			__('Subject', 'mt-elementor-forms'),
-			__('Message', 'mt-elementor-forms'),
-			__('Form ID', 'mt-elementor-forms'),
-			__('IP Address', 'mt-elementor-forms'),
-			__('Date', 'mt-elementor-forms'),
+			__('ID', 'quick-modern-forms-for-elementor'),
+			__('Name', 'quick-modern-forms-for-elementor'),
+			__('Email', 'quick-modern-forms-for-elementor'),
+			__('Phone', 'quick-modern-forms-for-elementor'),
+			__('Website', 'quick-modern-forms-for-elementor'),
+			__('Subject', 'quick-modern-forms-for-elementor'),
+			__('Message', 'quick-modern-forms-for-elementor'),
+			__('Form ID', 'quick-modern-forms-for-elementor'),
+			__('IP Address', 'quick-modern-forms-for-elementor'),
+			__('Date', 'quick-modern-forms-for-elementor'),
 		]);
 
 		foreach ($submissions as $submission) {
