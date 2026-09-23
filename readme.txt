@@ -5,7 +5,7 @@ Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 7.4
 Requires Plugins: elementor
-Stable tag: 1.0.1
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -81,13 +81,11 @@ By default notifications go to your site's admin email. To override it globally,
 
 == Changelog ==
 
-= 1.0.1 =
+= 1.0.0 =
+* Initial release.
 * Renamed plugin to "FormMinia for Elementor".
 * Sanitized raw form submissions before they are stored or logged.
 * Added documentation of external services (Google reCAPTCHA, Cloudflare Turnstile) privacy policies and terms.
-
-= 1.0.0 =
-* Initial release.
 
 == Credits ==
 
