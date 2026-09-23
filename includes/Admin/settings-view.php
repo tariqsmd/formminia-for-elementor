@@ -85,9 +85,9 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 			<div class="mtef-title-area">
 				<div class="mtef-title-row">
 					<h1><?php esc_html_e( 'FormMinia for Elementor', 'formminia-for-elementor' ); ?></h1>
-					<span class="mtef-version-pill">v<?php echo esc_html( MTEF_VERSION ); ?></span>
 				</div>
-			</div>
+				<p class="mtef-subtitle">v<?php echo esc_html( MTEF_VERSION ); ?></p>
+            </div>
 		</div>
 
 		<div class="mtef-page-header-actions">
