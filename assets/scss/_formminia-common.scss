@@ -1,33 +1,33 @@
-.mtef {
+.formminia {
 
   &-form-wrapper {
     width: 100%;
     margin: 0 auto;
-    padding: var(--mtef-form-padding);
-    background-color: var(--mtef-bg);
-    border-radius: var(--mtef-radius);
-    box-shadow: var(--mtef-shadow);
-    color: var(--mtef-text);
-    accent-color: var(--mtef-primary);
+    padding: var(--formminia-form-padding);
+    background-color: var(--formminia-bg);
+    border-radius: var(--formminia-radius);
+    box-shadow: var(--formminia-shadow);
+    color: var(--formminia-text);
+    accent-color: var(--formminia-primary);
 
     .just-validate-error-label {
       margin-top: 4px;
       font-size: 12px;
       font-weight: 500;
-      color: var(--mtef-error) !important;
-      animation: mtef-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      color: var(--formminia-error) !important;
+      animation: formminia-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
     }
   }
 
   &-form-inner {
     display: flex;
     flex-direction: column;
-    gap: var(--mtef-inner-gap);
+    gap: var(--formminia-inner-gap);
     transition: opacity 0.3s ease;
   }
 
   &-form.submitting {
-    .mtef-form-inner {
+    .formminia-form-inner {
       opacity: 0.8;
       pointer-events: none;
     }
@@ -35,27 +35,27 @@
 
   &-fields-wrapper {
     display: grid;
-    grid-template-columns: repeat(var(--mtef-columns, 1), 1fr);
+    grid-template-columns: repeat(var(--formminia-columns, 1), 1fr);
     width: 100%;
-    gap: var(--mtef-inner-gap, 1.5rem);
+    gap: var(--formminia-inner-gap, 1.5rem);
   }
 
   &-form-title {
     margin: 0 0 1rem;
     line-height: 1.2;
-    color: var(--mtef-title-color);
-    font-size: var(--mtef-title-size);
-    font-weight: var(--mtef-title-weight);
-    text-transform: var(--mtef-title-transform);
-    letter-spacing: var(--mtef-title-spacing);
+    color: var(--formminia-title-color);
+    font-size: var(--formminia-title-size);
+    font-weight: var(--formminia-title-weight);
+    text-transform: var(--formminia-title-transform);
+    letter-spacing: var(--formminia-title-spacing);
   }
 
   &-form-group {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: var(--mtef-icon-spacing, 0.75rem);
-    margin-bottom: var(--mtef-inner-gap, 1.5rem);
+    gap: var(--formminia-icon-spacing, 0.75rem);
+    margin-bottom: var(--formminia-inner-gap, 1.5rem);
     width: 100%;
     position: relative;
 
@@ -68,14 +68,14 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: var(--mtef-label-size);
-      font-weight: var(--mtef-label-weight);
-      color: var(--mtef-label-color);
-      text-transform: var(--mtef-label-transform);
-      letter-spacing: var(--mtef-label-spacing);
+      font-size: var(--formminia-label-size);
+      font-weight: var(--formminia-label-weight);
+      color: var(--formminia-label-color);
+      text-transform: var(--formminia-label-transform);
+      letter-spacing: var(--formminia-label-spacing);
 
       .required {
-        color: var(--mtef-error);
+        color: var(--formminia-error);
       }
     }
 
@@ -83,15 +83,15 @@
       margin-top: 4px;
       font-size: 12px;
       font-weight: 500;
-      color: var(--mtef-error) !important;
-      animation: mtef-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      color: var(--formminia-error) !important;
+      animation: formminia-shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
     }
   }
 
   &-field-inner {
     display: flex;
     flex-direction: column;
-    gap: var(--mtef-group-gap);
+    gap: var(--formminia-group-gap);
     flex: 1;
     position: relative;
     min-width: 0;
@@ -101,10 +101,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--mtef-icon-size);
-    width: var(--mtef-icon-size);
-    height: var(--mtef-icon-size);
-    color: var(--mtef-primary);
+    font-size: var(--formminia-icon-size);
+    width: var(--formminia-icon-size);
+    height: var(--formminia-icon-size);
+    color: var(--formminia-primary);
     flex-shrink: 0;
 
     svg {
@@ -127,8 +127,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: var(--mtef-icon-size, 1.25rem);
-    width: var(--mtef-icon-size, 1.25rem);
+    height: var(--formminia-icon-size, 1.25rem);
+    width: var(--formminia-icon-size, 1.25rem);
   }
 
   &-input-wrap {
@@ -137,7 +137,7 @@
     flex-direction: column;
     gap: .2rem;
 
-    .mtef-input-icon {
+    .formminia-input-icon {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -150,8 +150,8 @@
       }
     }
 
-    .mtef-input,
-    .mtef-textarea {
+    .formminia-input,
+    .formminia-textarea {
       flex: 1;
       width: 100%;
     }
@@ -160,34 +160,34 @@
   &-input,
   &-textarea {
     width: 100%;
-    padding: var(--mtef-field-padding);
-    font-size: var(--mtef-input-size);
+    padding: var(--formminia-field-padding);
+    font-size: var(--formminia-input-size);
     font-family: inherit;
     outline: none;
-    transition: var(--mtef-transition);
-    border: var(--mtef-field-border-width) solid var(--mtef-input-border);
-    background-color: var(--mtef-input-bg);
-    color: var(--mtef-input-color);
-    border-radius: var(--mtef-field-radius);
+    transition: var(--formminia-transition);
+    border: var(--formminia-field-border-width) solid var(--formminia-input-border);
+    background-color: var(--formminia-input-bg);
+    color: var(--formminia-input-color);
+    border-radius: var(--formminia-field-radius);
 
     &::placeholder {
-      color: var(--mtef-placeholder);
+      color: var(--formminia-placeholder);
       opacity: 0.8;
     }
 
     &:hover {
-      border-color: var(--mtef-primary);
+      border-color: var(--formminia-primary);
     }
 
     &:focus {
-      border-color: var(--mtef-input-focus-border);
-      background-color: var(--mtef-input-focus-bg);
-      color: var(--mtef-input-focus-color);
-      box-shadow: var(--mtef-input-focus-shadow);
+      border-color: var(--formminia-input-focus-border);
+      background-color: var(--formminia-input-focus-bg);
+      color: var(--formminia-input-focus-color);
+      box-shadow: var(--formminia-input-focus-shadow);
     }
 
     &.just-validate-error-field {
-      border-color: var(--mtef-error) !important;
+      border-color: var(--formminia-error) !important;
       background-color: rgba(239, 68, 68, 0.02);
     }
   }
@@ -202,12 +202,12 @@
     flex-direction: column;
     align-items: flex-start;
 
-    .mtef-gdpr-heading {
+    .formminia-gdpr-heading {
       display: flex;
       align-items: center;
-      font-size: var(--mtef-label-size);
-      font-weight: var(--mtef-label-weight);
-      color: var(--mtef-label-color);
+      font-size: var(--formminia-label-size);
+      font-weight: var(--formminia-label-weight);
+      color: var(--formminia-label-color);
     }
 
     label {
@@ -218,7 +218,7 @@
       cursor: pointer;
     }
 
-    .mtef-gdpr-icon {
+    .formminia-gdpr-icon {
       margin-top: 0.14rem;
     }
 
@@ -233,9 +233,9 @@
     height: 0;
     width: 0;
 
-    &:checked~.mtef-checkbox-custom {
-      background-color: var(--mtef-primary);
-      border-color: var(--mtef-primary);
+    &:checked~.formminia-checkbox-custom {
+      background-color: var(--formminia-primary);
+      border-color: var(--formminia-primary);
 
       &::after {
         display: block;
@@ -249,10 +249,10 @@
     height: 20px;
     width: 20px;
     margin-top: 2px;
-    border: 2px solid var(--mtef-input-border);
-    background-color: var(--mtef-input-bg);
+    border: 2px solid var(--formminia-input-border);
+    background-color: var(--formminia-input-bg);
     border-radius: 4px;
-    transition: var(--mtef-transition);
+    transition: var(--formminia-transition);
 
     &::after {
       content: "";
@@ -272,23 +272,23 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--mtef-btn-gap);
+    gap: var(--formminia-btn-gap);
     width: fit-content;
-    padding: var(--mtef-btn-padding);
-    font-size: var(--mtef-btn-size);
-    font-weight: var(--mtef-btn-weight);
-    text-transform: var(--mtef-btn-transform);
-    letter-spacing: var(--mtef-btn-spacing);
+    padding: var(--formminia-btn-padding);
+    font-size: var(--formminia-btn-size);
+    font-weight: var(--formminia-btn-weight);
+    text-transform: var(--formminia-btn-transform);
+    letter-spacing: var(--formminia-btn-spacing);
     cursor: pointer;
-    transition: var(--mtef-transition);
+    transition: var(--formminia-transition);
     border: 1px solid transparent;
-    background-color: var(--mtef-btn-bg);
-    color: var(--mtef-btn-color);
-    border-radius: var(--mtef-btn-radius);
+    background-color: var(--formminia-btn-bg);
+    color: var(--formminia-btn-color);
+    border-radius: var(--formminia-btn-radius);
 
     &:hover {
-      background-color: var(--mtef-btn-hover-bg);
-      color: var(--mtef-btn-hover-color);
+      background-color: var(--formminia-btn-hover-bg);
+      color: var(--formminia-btn-hover-color);
       transform: translateY(-1px);
     }
 
@@ -302,13 +302,13 @@
       pointer-events: none;
       cursor: default;
 
-      .mtef-btn-text,
-      .mtef-btn-icon {
+      .formminia-btn-text,
+      .formminia-btn-icon {
         opacity: 0;
         visibility: hidden;
       }
 
-      .mtef-loader-container {
+      .formminia-loader-container {
         opacity: 1;
         visibility: visible;
         display: flex;
@@ -323,31 +323,31 @@
     }
 
     /* 1. Premium Spinner */
-    &.mtef-loader-spinner.loading {
-      .mtef-loader-element:first-child {
+    &.formminia-loader-spinner.loading {
+      .formminia-loader-element:first-child {
         width: 22px;
         height: 22px;
         border: 2px solid rgba(255, 255, 255, 0.3);
         border-radius: 50%;
         border-top-color: #fff;
-        animation: mtef-spin 0.6s linear infinite;
+        animation: formminia-spin 0.6s linear infinite;
         display: block;
       }
 
-      .mtef-loader-element:not(:first-child) {
+      .formminia-loader-element:not(:first-child) {
         display: none;
       }
     }
 
     /* 2. Pulsing Dots */
-    &.mtef-loader-dots.loading {
-      .mtef-loader-element {
+    &.formminia-loader-dots.loading {
+      .formminia-loader-element {
         width: 8px;
         height: 8px;
         background: #fff;
         border-radius: 50%;
         display: block;
-        animation: mtef-dots 1.4s infinite ease-in-out both;
+        animation: formminia-dots 1.4s infinite ease-in-out both;
 
         &:nth-child(1) {
           animation-delay: -0.32s;
@@ -360,13 +360,13 @@
     }
 
     /* 3. Bouncing Bars */
-    &.mtef-loader-bars.loading {
-      .mtef-loader-element {
+    &.formminia-loader-bars.loading {
+      .formminia-loader-element {
         width: 4px;
         height: 18px;
         background: #fff;
         display: block;
-        animation: mtef-bars 1.2s infinite ease-in-out;
+        animation: formminia-bars 1.2s infinite ease-in-out;
 
         &:nth-child(1) {
           animation-delay: -1.1s;
@@ -383,34 +383,34 @@
     }
 
     /* 4. Dual Ring */
-    &.mtef-loader-dual-ring.loading {
-      .mtef-loader-element:first-child {
+    &.formminia-loader-dual-ring.loading {
+      .formminia-loader-element:first-child {
         display: block;
         width: 24px;
         height: 24px;
         border-radius: 50%;
         border: 2px solid #fff;
         border-color: #fff transparent #fff transparent;
-        animation: mtef-spin 1.2s linear infinite;
+        animation: formminia-spin 1.2s linear infinite;
       }
 
-      .mtef-loader-element:not(:first-child) {
+      .formminia-loader-element:not(:first-child) {
         display: none;
       }
     }
 
     /* 5. Growing Circles */
-    &.mtef-loader-grow.loading {
-      .mtef-loader-element:first-child {
+    &.formminia-loader-grow.loading {
+      .formminia-loader-element:first-child {
         display: block;
         width: 20px;
         height: 20px;
         background: #fff;
         border-radius: 50%;
-        animation: mtef-grow 1s infinite ease-in-out;
+        animation: formminia-grow 1s infinite ease-in-out;
       }
 
-      .mtef-loader-element:not(:first-child) {
+      .formminia-loader-element:not(:first-child) {
         display: none;
       }
     }
@@ -433,7 +433,7 @@
   &-button-full {
     width: 100%;
 
-    .mtef-submit-btn {
+    .formminia-submit-btn {
       width: 100% !important;
     }
   }
@@ -464,11 +464,11 @@
     font-weight: 700;
 
     &.success {
-      color: var(--mtef-success);
+      color: var(--formminia-success);
     }
 
     &.error {
-      color: var(--mtef-error);
+      color: var(--formminia-error);
     }
   }
 }

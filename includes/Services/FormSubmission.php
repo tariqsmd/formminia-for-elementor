@@ -1,6 +1,6 @@
 <?php
 
-namespace MTEF\Services;
+namespace FORMMINIA\Services;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -59,14 +59,14 @@ class FormSubmission
 	public static function from_post_array(array $data)
 	{
 		$instance = new self();
-		$instance->name = isset($data['mtef_name']) ? sanitize_text_field(wp_unslash($data['mtef_name'])) : '';
-		$instance->email = isset($data['mtef_email']) ? sanitize_email(wp_unslash($data['mtef_email'])) : '';
-		$instance->phone = isset($data['mtef_phone']) ? sanitize_text_field(wp_unslash($data['mtef_phone'])) : '';
-		$instance->website = isset($data['mtef_website']) ? esc_url_raw(wp_unslash($data['mtef_website'])) : '';
-		$instance->subject = isset($data['mtef_subject']) ? sanitize_text_field(wp_unslash($data['mtef_subject'])) : '';
-		$instance->message = isset($data['mtef_message']) ? sanitize_textarea_field(wp_unslash($data['mtef_message'])) : '';
-		$instance->gdpr_enabled = isset($data['mtef_gdpr_enabled']) && sanitize_text_field(wp_unslash($data['mtef_gdpr_enabled'])) === 'yes';
-		$instance->gdpr_accepted = isset($data['mtef_gdpr']);
+		$instance->name = isset($data['formminia_name']) ? sanitize_text_field(wp_unslash($data['formminia_name'])) : '';
+		$instance->email = isset($data['formminia_email']) ? sanitize_email(wp_unslash($data['formminia_email'])) : '';
+		$instance->phone = isset($data['formminia_phone']) ? sanitize_text_field(wp_unslash($data['formminia_phone'])) : '';
+		$instance->website = isset($data['formminia_website']) ? esc_url_raw(wp_unslash($data['formminia_website'])) : '';
+		$instance->subject = isset($data['formminia_subject']) ? sanitize_text_field(wp_unslash($data['formminia_subject'])) : '';
+		$instance->message = isset($data['formminia_message']) ? sanitize_textarea_field(wp_unslash($data['formminia_message'])) : '';
+		$instance->gdpr_enabled = isset($data['formminia_gdpr_enabled']) && sanitize_text_field(wp_unslash($data['formminia_gdpr_enabled'])) === 'yes';
+		$instance->gdpr_accepted = isset($data['formminia_gdpr']);
 		// The raw payload is sanitized recursively so it is safe to expose to
 		// logging and extension hooks. Keys are preserved as-is; only values
 		// are cleaned.

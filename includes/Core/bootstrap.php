@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * for reliable loading on both case-sensitive (Linux) and case-insensitive (Windows/macOS) filesystems.
  */
 
-if ( ! defined( 'MTEF_VERSION' ) ) {
+if ( ! defined( 'FORMMINIA_VERSION' ) ) {
 	return;
 }
 
@@ -21,48 +21,48 @@ if ( ! defined( 'MTEF_VERSION' ) ) {
  *
  * Keys are fully qualified class names; values are relative paths from includes/.
  */
-$mtef_class_map = array(
+$formminia_class_map = array(
 	// Core
-	'MTEF\Core\Plugin'              => 'Core/Plugin.php',
-	'MTEF\Core\Loader'              => 'Core/Loader.php',
-	'MTEF\Core\Activator'           => 'Core/Activator.php',
-	'MTEF\Core\Deactivator'         => 'Core/Deactivator.php',
+	'FORMMINIA\Core\Plugin'              => 'Core/Plugin.php',
+	'FORMMINIA\Core\Loader'              => 'Core/Loader.php',
+	'FORMMINIA\Core\Activator'           => 'Core/Activator.php',
+	'FORMMINIA\Core\Deactivator'         => 'Core/Deactivator.php',
 
 	// Admin
-	'MTEF\Admin\SettingsPage'       => 'Admin/SettingsPage.php',
-	'MTEF\Admin\Options'            => 'Admin/Options.php',
-	'MTEF\Admin\SubmissionsTable'   => 'Admin/SubmissionsTable.php',
+	'FORMMINIA\Admin\SettingsPage'       => 'Admin/SettingsPage.php',
+	'FORMMINIA\Admin\Options'            => 'Admin/Options.php',
+	'FORMMINIA\Admin\SubmissionsTable'   => 'Admin/SubmissionsTable.php',
 
 	// Services
-	'MTEF\Services\FormValidator'           => 'Services/FormValidator.php',
-	'MTEF\Services\FormSubmission'          => 'Services/FormSubmission.php',
-	'MTEF\Services\SubmissionRepository'    => 'Services/SubmissionRepository.php',
-	'MTEF\Services\WpOptionsConfig'         => 'Services/WpOptionsConfig.php',
-	'MTEF\Services\WpMailMailer'            => 'Services/WpMailMailer.php',
-	'MTEF\Services\ElementorWidgetSettings' => 'Services/ElementorWidgetSettings.php',
-	'MTEF\Services\Email\SubmissionMailer'  => 'Services/Email/SubmissionMailer.php',
+	'FORMMINIA\Services\FormValidator'           => 'Services/FormValidator.php',
+	'FORMMINIA\Services\FormSubmission'          => 'Services/FormSubmission.php',
+	'FORMMINIA\Services\SubmissionRepository'    => 'Services/SubmissionRepository.php',
+	'FORMMINIA\Services\WpOptionsConfig'         => 'Services/WpOptionsConfig.php',
+	'FORMMINIA\Services\WpMailMailer'            => 'Services/WpMailMailer.php',
+	'FORMMINIA\Services\ElementorWidgetSettings' => 'Services/ElementorWidgetSettings.php',
+	'FORMMINIA\Services\Email\SubmissionMailer'  => 'Services/Email/SubmissionMailer.php',
 
 	// Captcha
-	'MTEF\Services\Captcha\CaptchaVerifierInterface' => 'Services/Captcha/CaptchaVerifierInterface.php',
-	'MTEF\Services\Captcha\RecaptchaVerifier'        => 'Services/Captcha/RecaptchaVerifier.php',
-	'MTEF\Services\Captcha\TurnstileVerifier'        => 'Services/Captcha/TurnstileVerifier.php',
-	'MTEF\Services\Captcha\NullCaptchaVerifier'      => 'Services/Captcha/NullCaptchaVerifier.php',
+	'FORMMINIA\Services\Captcha\CaptchaVerifierInterface' => 'Services/Captcha/CaptchaVerifierInterface.php',
+	'FORMMINIA\Services\Captcha\RecaptchaVerifier'        => 'Services/Captcha/RecaptchaVerifier.php',
+	'FORMMINIA\Services\Captcha\TurnstileVerifier'        => 'Services/Captcha/TurnstileVerifier.php',
+	'FORMMINIA\Services\Captcha\NullCaptchaVerifier'      => 'Services/Captcha/NullCaptchaVerifier.php',
 
 	// Frontend
-	'MTEF\Frontend\FormController'  => 'Frontend/FormController.php',
+	'FORMMINIA\Frontend\FormController'  => 'Frontend/FormController.php',
 
 	// Integrations
-	'MTEF\Integrations\Elementor\Integration' => 'Integrations/Elementor/Integration.php',
-	'MTEF\Integrations\Elementor\Widget'       => 'Integrations/Elementor/Widget.php',
-	'MTEF\Integrations\Elementor\WidgetControls\ContentControls' => 'Integrations/Elementor/WidgetControls/ContentControls.php',
-	'MTEF\Integrations\Elementor\WidgetControls\StyleControls'   => 'Integrations/Elementor/WidgetControls/StyleControls.php',
-	'MTEF\Integrations\Elementor\WidgetRenderer'                 => 'Integrations/Elementor/WidgetRenderer.php',
+	'FORMMINIA\Integrations\Elementor\Integration' => 'Integrations/Elementor/Integration.php',
+	'FORMMINIA\Integrations\Elementor\Widget'       => 'Integrations/Elementor/Widget.php',
+	'FORMMINIA\Integrations\Elementor\WidgetControls\ContentControls' => 'Integrations/Elementor/WidgetControls/ContentControls.php',
+	'FORMMINIA\Integrations\Elementor\WidgetControls\StyleControls'   => 'Integrations/Elementor/WidgetControls/StyleControls.php',
+	'FORMMINIA\Integrations\Elementor\WidgetRenderer'                 => 'Integrations/Elementor/WidgetRenderer.php',
 );
 
 spl_autoload_register(
-	static function ( $class ) use ( $mtef_class_map ) {
-		if ( isset( $mtef_class_map[ $class ] ) ) {
-			$file = MTEF_PLUGIN_DIR . 'includes/' . $mtef_class_map[ $class ];
+	static function ( $class ) use ( $formminia_class_map ) {
+		if ( isset( $formminia_class_map[ $class ] ) ) {
+			$file = FORMMINIA_PLUGIN_DIR . 'includes/' . $formminia_class_map[ $class ];
 			if ( file_exists( $file ) ) {
 				require_once $file;
 			}

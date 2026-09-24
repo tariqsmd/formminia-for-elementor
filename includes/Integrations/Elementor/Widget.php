@@ -1,9 +1,9 @@
 <?php
 
-namespace MTEF\Integrations\Elementor;
+namespace FORMMINIA\Integrations\Elementor;
 
-use MTEF\Integrations\Elementor\WidgetControls\ContentControls;
-use MTEF\Integrations\Elementor\WidgetControls\StyleControls;
+use FORMMINIA\Integrations\Elementor\WidgetControls\ContentControls;
+use FORMMINIA\Integrations\Elementor\WidgetControls\StyleControls;
 
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
@@ -25,26 +25,26 @@ class Widget extends \Elementor\Widget_Base
 		parent::__construct($data, $args);
 
 		wp_register_style(
-			'mtef',
-			MTEF_PLUGIN_URL . 'assets/css/mtef.min.css',
+			'formminia',
+			FORMMINIA_PLUGIN_URL . 'assets/css/formminia.min.css',
 			[],
-			MTEF_VERSION
+			FORMMINIA_VERSION
 		);
 
 		wp_register_script(
-			'mtef',
-			MTEF_PLUGIN_URL . 'assets/js/mtef.js',
-			['elementor-frontend', 'mtef-just-validate'],
-			MTEF_VERSION,
+			'formminia',
+			FORMMINIA_PLUGIN_URL . 'assets/js/formminia.js',
+			['elementor-frontend', 'formminia-just-validate'],
+			FORMMINIA_VERSION,
 			true
 		);
 
 		wp_localize_script(
-			'mtef',
-			'mtef_ajax',
+			'formminia',
+			'formminia_ajax',
 			array(
 				'ajax_url' => admin_url('admin-ajax.php'),
-				'nonce' => wp_create_nonce('mtef-submit-form'),
+				'nonce' => wp_create_nonce('formminia-submit-form'),
 				'i18n' => array(
 					'name_required' => esc_html__('Name is required', 'formminia-for-elementor'),
 					'name_min' => esc_html__('Name must be at least 2 characters', 'formminia-for-elementor'),
@@ -61,7 +61,7 @@ class Widget extends \Elementor\Widget_Base
 					'send_message' => esc_html__('Send Message', 'formminia-for-elementor'),
 					'error_generic' => esc_html__('An unexpected error occurred. Please try again.', 'formminia-for-elementor'),
 				),
-				'captcha_provider' => get_option('mtef_captcha_provider', 'none'),
+				'captcha_provider' => get_option('formminia_captcha_provider', 'none'),
 			)
 		);
 
@@ -74,7 +74,7 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function get_name()
 	{
-		return 'mtef';
+		return 'formminia';
 	}
 
 	/**
@@ -104,7 +104,7 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function get_categories()
 	{
-		return ['mtef'];
+		return ['formminia'];
 	}
 
 	/**
@@ -124,7 +124,7 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function get_style_depends()
 	{
-		return ['mtef'];
+		return ['formminia'];
 	}
 
 	/**
@@ -134,7 +134,7 @@ class Widget extends \Elementor\Widget_Base
 	 */
 	public function get_script_depends()
 	{
-		return ['mtef'];
+		return ['formminia'];
 	}
 
 	/**

@@ -2,60 +2,60 @@
  * FormMinia for Elementor Layout Styles
  */
 
-.mtef-fields-wrapper {
+.formminia-fields-wrapper {
     display: grid;
-    grid-template-columns: repeat(var(--mtef-columns, 1), 1fr);
-    gap: var(--mtef-inner-gap, 20px);
+    grid-template-columns: repeat(var(--formminia-columns, 1), 1fr);
+    gap: var(--formminia-inner-gap, 20px);
 }
 
 /* Legacy column support or if someone still uses these classes */
-.mtef-columns {
+.formminia-columns {
     &-1, &-2, &-3, &-4, &-5 {
-        .mtef-fields-wrapper {
+        .formminia-fields-wrapper {
             display: grid;
         }
     }
 }
 
 /* Icon Presence Classes */
-.mtef-form-has-icon {
+.formminia-form-has-icon {
     /* Add any special styling here when field icons are present */
     /* This class is automatically added when show_icons_inputs or show_icons_textarea is enabled */
 }
 
-.mtef-gdpr-has-icon {
+.formminia-gdpr-has-icon {
     /* Add any special styling here when GDPR icons are enabled */
     /* This class is automatically added when show_icons_gdpr is enabled */
 }
 
 /* Default Layout */
-.mtef-form-wrapper:not(.mtef-layout-inline):not(.mtef-layout-floating):not(.mtef-layout-material) {
-    .mtef-form-group {
+.formminia-form-wrapper:not(.formminia-layout-inline):not(.formminia-layout-floating):not(.formminia-layout-material) {
+    .formminia-form-group {
         // flex-direction: row;
         // align-items: center;
         
         /* When no icons are present, field-inner takes full width */
-        .mtef-field-inner {
+        .formminia-field-inner {
             flex: 1;
         }
     }
 }
 
 /* Floating Labels Layout */
-.mtef-layout-floating {
-    .mtef-field-inner {
+.formminia-layout-floating {
+    .formminia-field-inner {
         position: relative;
 
-        > label:not(.mtef-floating-label) {
+        > label:not(.formminia-floating-label) {
             display: none;
         }
     }
 
-    .mtef-input-wrap {
+    .formminia-input-wrap {
         position: relative;
     }
 
-    .mtef-floating-label {
+    .formminia-floating-label {
         position: absolute;
          top: 26px;
         left: 1.125rem;
@@ -63,66 +63,66 @@
         transition: all 0.2s ease;
         font-weight: 500;
         font-size: 0.95rem;
-        color: var(--mtef-text-light, #64748b);
+        color: var(--formminia-text-light, #64748b);
         z-index: 5;
         background: transparent;
         transform: translateY(-50%);
         padding: 0 4px;
     }
 
-    .mtef-form-group.is-focused .mtef-floating-label,
-    .mtef-form-group.has-value .mtef-floating-label {
+    .formminia-form-group.is-focused .formminia-floating-label,
+    .formminia-form-group.has-value .formminia-floating-label {
         top: 0;
         left: 0.75rem;
         font-size: 0.75rem;
-        color: var(--mtef-primary, #2563eb);
-        background-color: var(--mtef-bg, #ffffff);
+        color: var(--formminia-primary, #2563eb);
+        background-color: var(--formminia-bg, #ffffff);
         font-weight: 600;
         transform: translateY(-50%) scale(0.9);
     }
 
     /* Support for skins that change background */
     @at-root {
-        [class*="mtef-skin-"] .mtef-layout-floating .mtef-form-group.is-focused .mtef-floating-label,
-        [class*="mtef-skin-"] .mtef-layout-floating .mtef-form-group.has-value .mtef-floating-label {
-            background-color: var(--mtef-bg);
-            color: var(--mtef-primary);
+        [class*="formminia-skin-"] .formminia-layout-floating .formminia-form-group.is-focused .formminia-floating-label,
+        [class*="formminia-skin-"] .formminia-layout-floating .formminia-form-group.has-value .formminia-floating-label {
+            background-color: var(--formminia-bg);
+            color: var(--formminia-primary);
         }
     }
 
-    .mtef-input::placeholder,
-    .mtef-textarea::placeholder {
+    .formminia-input::placeholder,
+    .formminia-textarea::placeholder {
         color: transparent;
     }
 
-    .mtef-form-group.is-focused .mtef-input::placeholder,
-    .mtef-form-group.is-focused .mtef-textarea::placeholder {
-        color: var(--mtef-text-light, #94a3b8);
+    .formminia-form-group.is-focused .formminia-input::placeholder,
+    .formminia-form-group.is-focused .formminia-textarea::placeholder {
+        color: var(--formminia-text-light, #94a3b8);
     }
 }
 
 /* Material Layout */
-.mtef-layout-material {
-    .mtef-form-wrapper {
+.formminia-layout-material {
+    .formminia-form-wrapper {
         padding: 1rem;
     }
 
-    .mtef-input,
-    .mtef-textarea {
+    .formminia-input,
+    .formminia-textarea {
         border: none;
-        border-bottom: 2px solid var(--mtef-input-border);
+        border-bottom: 2px solid var(--formminia-input-border);
         background: transparent !important;
         border-radius: 0 !important;
         padding-left: 0;
         padding-right: 0;
 
         &:focus {
-            border-bottom-color: var(--mtef-primary);
+            border-bottom-color: var(--formminia-primary);
             box-shadow: none !important;
         }
     }
 
-    .mtef-input-wrap {
+    .formminia-input-wrap {
         position: relative;
 
         &::after {
@@ -132,7 +132,7 @@
             left: 50%;
             width: 0;
             height: 2px;
-            background-color: var(--mtef-primary);
+            background-color: var(--formminia-primary);
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
@@ -143,14 +143,14 @@
     }
 
     /* Handle icons in material */
-    &.mtef-with-icons {
+    &.formminia-with-icons {
 
-        .mtef-input,
-        .mtef-textarea {
+        .formminia-input,
+        .formminia-textarea {
             padding-left: 32px;
         }
 
-        .mtef-field-icon {
+        .formminia-field-icon {
             top: 12px;
             left: 0;
         }
@@ -158,62 +158,62 @@
 }
 
 /* Compact Layout */
-.mtef-layout-compact {
-    --mtef-form-padding: 1rem;
-    --mtef-inner-gap: 0.75rem;
-    --mtef-group-gap: 0.25rem;
-    --mtef-label-size: 0.875rem;
-    --mtef-field-padding: 0.6rem 0.875rem;
-    --mtef-input-size: 0.9rem;
-    --mtef-btn-padding: 0.75rem 1.5rem;
-    --mtef-btn-size: 0.9rem;
+.formminia-layout-compact {
+    --formminia-form-padding: 1rem;
+    --formminia-inner-gap: 0.75rem;
+    --formminia-group-gap: 0.25rem;
+    --formminia-label-size: 0.875rem;
+    --formminia-field-padding: 0.6rem 0.875rem;
+    --formminia-input-size: 0.9rem;
+    --formminia-btn-padding: 0.75rem 1.5rem;
+    --formminia-btn-size: 0.9rem;
 }
 
 /* Boxed Borderless Layout */
-.mtef-layout-boxed-border {
-    --mtef-bg: #ffffff;
-    --mtef-form-padding: 3rem;
-    --mtef-input-border: transparent;
-    --mtef-input-bg: #f8fafc;
-    --mtef-input-focus-bg: #f1f5f9;
-    --mtef-field-border-width: 0;
+.formminia-layout-boxed-border {
+    --formminia-bg: #ffffff;
+    --formminia-form-padding: 3rem;
+    --formminia-input-border: transparent;
+    --formminia-input-bg: #f8fafc;
+    --formminia-input-focus-bg: #f1f5f9;
+    --formminia-field-border-width: 0;
 }
 
 /* Inset Shadow Layout */
-.mtef-layout-inset {
+.formminia-layout-inset {
 
-    .mtef-input,
-    .mtef-textarea {
+    .formminia-input,
+    .formminia-textarea {
         border: 1px solid #e2e8f0;
         box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
         border-radius: 8px;
 
         &:focus {
-            border-color: var(--mtef-primary);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 0 0 3px var(--mtef-focus);
+            border-color: var(--formminia-primary);
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 0 0 3px var(--formminia-focus);
         }
     }
 }
 
 /* Inline Layout */
-.mtef-layout-inline {
-    .mtef-form-group {
+.formminia-layout-inline {
+    .formminia-form-group {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
-        gap: var(--mtef-group-gap);
+        gap: var(--formminia-group-gap);
     }
 
-    .mtef-field-inner {
+    .formminia-field-inner {
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: var(--mtef-group-gap);
+        gap: var(--formminia-group-gap);
         flex: 1;
     }
 
-    .mtef-field-inner label:not(.mtef-checkbox-label) {
+    .formminia-field-inner label:not(.formminia-checkbox-label) {
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -221,11 +221,11 @@
     }
 
     /* ensure checkbox label respects width settings */
-    .mtef-field-inner .mtef-checkbox-label {
+    .formminia-field-inner .formminia-checkbox-label {
         flex: 0 0 auto;
     }
 
-    .mtef-input-wrap {
+    .formminia-input-wrap {
         flex: 1 1 60%;
         display: flex;
         align-items: center;
@@ -233,29 +233,29 @@
         max-width: 60%;
     }
 
-    .mtef-field-icon {
-        margin-right: var(--mtef-icon-spacing);
+    .formminia-field-icon {
+        margin-right: var(--formminia-icon-spacing);
         flex-shrink: 0;
     }
 
     /* On small screens, stack the layout */
     @media (max-width: 768px) {
-        .mtef-form-group {
+        .formminia-form-group {
             flex-direction: column;
             align-items: flex-start;
         }
 
-        .mtef-field-inner {
+        .formminia-field-inner {
             flex-direction: column;
             align-items: flex-start;
         }
 
-        .mtef-field-inner label {
+        .formminia-field-inner label {
             min-width: 100%;
             margin-bottom: 10px;
         }
 
-        .mtef-input-wrap {
+        .formminia-input-wrap {
             width: 100%;
             max-width: 100%;
         }

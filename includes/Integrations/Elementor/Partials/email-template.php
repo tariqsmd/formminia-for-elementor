@@ -20,13 +20,13 @@ $date = isset($date) ? $date : current_time('mysql');
 $site_name = isset($site_name) ? $site_name : get_bloginfo('name');
 
 // Branding pulled from admin options.
-$accent_color = get_option('mtef_email_accent_color', '#6366f1');
-$bg_color = get_option('mtef_email_bg_color', '#f4f7f6');
-$content_bg = get_option('mtef_email_content_bg_color', '#ffffff');
-$text_color = get_option('mtef_email_text_color', '#1e293b');
-$logo_url = get_option('mtef_email_logo_url', '');
-$footer_text = get_option('mtef_email_footer_text', '');
-$show_credit = get_option('mtef_email_show_footer_credit', 'yes') === 'yes';
+$accent_color = get_option('formminia_email_accent_color', '#6366f1');
+$bg_color = get_option('formminia_email_bg_color', '#f4f7f6');
+$content_bg = get_option('formminia_email_content_bg_color', '#ffffff');
+$text_color = get_option('formminia_email_text_color', '#1e293b');
+$logo_url = get_option('formminia_email_logo_url', '');
+$footer_text = get_option('formminia_email_footer_text', '');
+$show_credit = get_option('formminia_email_show_footer_credit', 'yes') === 'yes';
 
 // Sanitize.
 $accent_color = sanitize_hex_color($accent_color) ?: '#6366f1';

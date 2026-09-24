@@ -7,7 +7,7 @@
  *
  * @since 1.0.0
  */
-class MTEFWidgetHandler extends elementorModules.frontend.handlers.Base {
+class FORMMINIAWidgetHandler extends elementorModules.frontend.handlers.Base {
 
     /**
      * Define default settings and selectors
@@ -16,14 +16,14 @@ class MTEFWidgetHandler extends elementorModules.frontend.handlers.Base {
         const widgetId = this.getID();
         return {
             selectors: {
-                form: '.mtef-form',
-                container: '.mtef-container',
-                submitBtn: '.mtef-submit-btn',
-                submitBtnText: '.mtef-btn-text',
-                responseMsg: '.mtef-response-message',
-                formGroup: '.mtef-form-group',
-                floatingInput: '.mtef-layout-floating .mtef-input, .mtef-layout-floating .mtef-textarea, .mtef-layout-material .mtef-input, .mtef-layout-material .mtef-textarea',
-                checkbox: '.mtef-checkbox-label input[type="checkbox"]'
+                form: '.formminia-form',
+                container: '.formminia-container',
+                submitBtn: '.formminia-submit-btn',
+                submitBtnText: '.formminia-btn-text',
+                responseMsg: '.formminia-response-message',
+                formGroup: '.formminia-form-group',
+                floatingInput: '.formminia-layout-floating .formminia-input, .formminia-layout-floating .formminia-textarea, .formminia-layout-material .formminia-input, .formminia-layout-material .formminia-textarea',
+                checkbox: '.formminia-checkbox-label input[type="checkbox"]'
             }
         };
     }
@@ -66,7 +66,7 @@ class MTEFWidgetHandler extends elementorModules.frontend.handlers.Base {
      */
     initConfig() {
         const settings = this.getElementSettings();
-        const globalConfig = typeof mtef_ajax !== 'undefined' ? mtef_ajax : { i18n: {} };
+        const globalConfig = typeof formminia_ajax !== 'undefined' ? formminia_ajax : { i18n: {} };
         const globalI18n = globalConfig.i18n || {};
 
         this.config = {
@@ -146,7 +146,7 @@ class MTEFWidgetHandler extends elementorModules.frontend.handlers.Base {
      */
     initValidation() {
         const $form = this.elements.$form;
-        const formId = $form.attr('id') || `mtef-form-${this.getID()}`;
+        const formId = $form.attr('id') || `formminia-form-${this.getID()}`;
 
         // Ensure unique ID for JustValidate
         if (!$form.attr('id')) {
@@ -178,25 +178,25 @@ class MTEFWidgetHandler extends elementorModules.frontend.handlers.Base {
         const i18n = this.config.i18n;
 
         const fieldConfigs = {
-            mtef_name: {
+            formminia_name: {
                 required: i18n.name_required,
                 rules: [{ rule: 'minLength', value: 2, errorMessage: i18n.name_min }]
             },
-            mtef_email: {
+            formminia_email: {
                 required: i18n.email_required,
                 rules: [{ rule: 'email', errorMessage: i18n.email_invalid }]
             },
-            mtef_phone: {
+            formminia_phone: {
                 required: i18n.phone_required,
                 rules: [{ rule: 'customRegexp', value: /^[\d\s\-\+\(\)]*$/, errorMessage: i18n.phone_invalid }]
             },
-            mtef_website: {
+            formminia_website: {
                 required: i18n.website_required,
                 rules: [{ rule: 'customRegexp', value: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/, errorMessage: i18n.website_invalid }]
             },
-            mtef_subject: { required: i18n.subject_required },
-            mtef_message: { required: i18n.message_required },
-            mtef_gdpr: { required: i18n.gdpr_required }
+            formminia_subject: { required: i18n.subject_required },
+            formminia_message: { required: i18n.message_required },
+            formminia_gdpr: { required: i18n.gdpr_required }
         };
 
         Object.keys(fieldConfigs).forEach(fieldName => {
@@ -205,7 +205,7 @@ class MTEFWidgetHandler extends elementorModules.frontend.handlers.Base {
                 const config = fieldConfigs[fieldName];
                 const rules = [];
 
-                if ($field.prop('required') || fieldName === 'mtef_gdpr') {
+                if ($field.prop('required') || fieldName === 'formminia_gdpr') {
                     rules.push({ rule: 'required', errorMessage: config.required });
                 }
 
@@ -254,7 +254,7 @@ class MTEFWidgetHandler extends elementorModules.frontend.handlers.Base {
 
         // 3. Construct Data
         const formData = new FormData(elements.$form[0]);
-        formData.append('action', 'mtef_submit_form');
+        formData.append('action', 'formminia_submit_form');
         formData.append('nonce', this.config.nonce);
 
         // 4. Send Request
@@ -420,9 +420,9 @@ class MTEFWidgetHandler extends elementorModules.frontend.handlers.Base {
 }
 
 jQuery(window).on('elementor/frontend/init', () => {
-    const handleMTEFWidget = ($element) => {
-        elementorFrontend.elementsHandler.addHandler(MTEFWidgetHandler, { $element });
+    const handleFORMMINIAWidget = ($element) => {
+        elementorFrontend.elementsHandler.addHandler(FORMMINIAWidgetHandler, { $element });
     };
 
-    elementorFrontend.hooks.addAction('frontend/element_ready/mtef.default', handleMTEFWidget);
+    elementorFrontend.hooks.addAction('frontend/element_ready/formminia.default', handleFORMMINIAWidget);
 });

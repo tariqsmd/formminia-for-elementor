@@ -1,6 +1,6 @@
 <wpml-config>
     <elementor-widgets>
-        <widget name="mtef">
+        <widget name="formminia">
             <fields>
                 <field type="Form Title" editor_type="LINE">form_title</field>
                 <field type="Button Text" editor_type="LINE">button_text</field>

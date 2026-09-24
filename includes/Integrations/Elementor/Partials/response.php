@@ -9,4 +9,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="mtef-response-message"></div>
+<div class="formminia-response-message"></div>

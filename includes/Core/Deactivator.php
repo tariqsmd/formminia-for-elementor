@@ -1,6 +1,6 @@
 <?php
 
-namespace MTEF\Core;
+namespace FORMMINIA\Core;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

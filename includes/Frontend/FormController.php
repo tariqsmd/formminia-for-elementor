@@ -1,17 +1,17 @@
 <?php
 
-namespace MTEF\Frontend;
+namespace FORMMINIA\Frontend;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use MTEF\Services\Captcha\CaptchaVerifierInterface;
-use MTEF\Services\FormSubmission;
-use MTEF\Services\FormValidator;
-use MTEF\Services\Email\SubmissionMailer;
-use MTEF\Services\ElementorWidgetSettings;
-use MTEF\Services\SubmissionRepository;
+use FORMMINIA\Services\Captcha\CaptchaVerifierInterface;
+use FORMMINIA\Services\FormSubmission;
+use FORMMINIA\Services\FormValidator;
+use FORMMINIA\Services\Email\SubmissionMailer;
+use FORMMINIA\Services\ElementorWidgetSettings;
+use FORMMINIA\Services\SubmissionRepository;
 
 /**
  * Public-facing form controller for FormMinia for Elementor.
@@ -74,12 +74,12 @@ class FormController
 	{
 		// Allow overriding JustValidate source to a self-hosted file.
 		$just_validate_src = apply_filters(
-			'mtef_just_validate_src',
-			MTEF_PLUGIN_URL . 'assets/js/just-validate.min.js'
+			'formminia_just_validate_src',
+			FORMMINIA_PLUGIN_URL . 'assets/js/just-validate.min.js'
 		);
 
 		wp_register_script(
-			'mtef-just-validate',
+			'formminia-just-validate',
 			$just_validate_src,
 			array(),
 			'4.3.0',
@@ -87,15 +87,15 @@ class FormController
 		);
 
 		// Register Captcha scripts (will be enqueued on-demand by the Elementor widget)
-		$captcha_provider = get_option('mtef_captcha_provider', 'none');
+		$captcha_provider = get_option('formminia_captcha_provider', 'none');
 		if ($captcha_provider === 'recaptcha') {
-			$site_key = get_option('mtef_recaptcha_site_key');
+			$site_key = get_option('formminia_recaptcha_site_key');
 			if (!empty($site_key)) {
 				// phpcs:ignore PluginCheck.CodeAnalysis.EnqueuedResourceOffloading.OffloadedContent -- Captcha scripts must be served by the provider's CDN.
 				wp_register_script('google-recaptcha', 'https://www.google.com/recaptcha/api.js', array(), $this->version, true);
 			}
 		} elseif ($captcha_provider === 'turnstile') {
-			$site_key = get_option('mtef_turnstile_site_key');
+			$site_key = get_option('formminia_turnstile_site_key');
 			if (!empty($site_key)) {
 				// phpcs:ignore PluginCheck.CodeAnalysis.EnqueuedResourceOffloading.OffloadedContent -- Captcha scripts must be served by the provider's CDN.
 				wp_register_script('cloudflare-turnstile', 'https://challenges.cloudflare.com/turnstile/v0/api.js', array(), $this->version, true);
@@ -117,7 +117,7 @@ class FormController
 	public function handle_form_submission()
 	{
 		// Verify nonce.
-		if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'mtef-submit-form')) {
+		if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'formminia-submit-form')) {
 			wp_send_json_error(
 				array(
 					'message' => esc_html__('Security check failed.', 'formminia-for-elementor'),
@@ -126,7 +126,7 @@ class FormController
 		}
 
 		// Simple honeypot field to prevent basic spam bots.
-		if (!empty($_POST['mtef_hp'])) {
+		if (!empty($_POST['formminia_hp'])) {
 			wp_send_json_error(
 				array(
 					'message' => esc_html__('Spam detected. Please try again.', 'formminia-for-elementor'),
@@ -137,7 +137,7 @@ class FormController
 		// Basic IP-based rate limiting.
 		$ip_address = isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'])) : '';
 		if ($ip_address) {
-			$key = 'mtef_rate_' . md5($ip_address);
+			$key = 'formminia_rate_' . md5($ip_address);
 			$count = (int) get_transient($key);
 
 			if ($count >= 10) {
@@ -168,8 +168,8 @@ class FormController
 		// Only verify CAPTCHA when the submitting widget actually has
 		// "Show CAPTCHA" enabled. The setting is read from the saved
 		// Elementor document data, never from client input.
-		$widget_id = isset($data['mtef_form_id']) ? sanitize_text_field(wp_unslash($data['mtef_form_id'])) : '';
-		$post_id = isset($data['mtef_post_id']) ? absint($data['mtef_post_id']) : 0;
+		$widget_id = isset($data['formminia_form_id']) ? sanitize_text_field(wp_unslash($data['formminia_form_id'])) : '';
+		$post_id = isset($data['formminia_post_id']) ? absint($data['formminia_post_id']) : 0;
 		$widget_settings = (new ElementorWidgetSettings())->get($widget_id, $post_id);
 		$show_captcha = isset($widget_settings['show_captcha']) && $widget_settings['show_captcha'] === 'yes';
 

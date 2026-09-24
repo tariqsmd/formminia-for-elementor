@@ -18,9 +18,9 @@ A modern, feature-rich contact form plugin for WordPress and Elementor. Multiple
 
 All PHP lives under `includes/` and is loaded by the composer-free autoloader in `includes/Core/bootstrap.php`, which maps fully-qualified class names to file paths (case-sensitive, Windows-safe).
 
-- **Core (`includes/Core`)** — `MTEF\Core\Plugin` (main orchestrator), `Loader`, `activator`, `deactivator`.
+- **Core (`includes/Core`)** — `FORMMINIA\Core\Plugin` (main orchestrator), `Loader`, `activator`, `deactivator`.
 - **Admin (`includes/Admin`)** — `SettingsPage` (Settings API + submissions screen), `Options` (canonical option keys), `SubmissionsTable` (WP_List_Table with search, CSV export, bulk/single delete), `settings-view` template.
-- **Frontend (`includes/Frontend`)** — `MTEF\Frontend\FormController`: registers assets and handles the AJAX submission endpoint (nonce, honeypot, IP rate limiting).
+- **Frontend (`includes/Frontend`)** — `FORMMINIA\Frontend\FormController`: registers assets and handles the AJAX submission endpoint (nonce, honeypot, IP rate limiting).
 - **Services (`includes/Services`)** — `FormSubmission` (sanitized value object), `FormValidator`, `SubmissionRepository`, `WpOptionsConfig`, `WpMailMailer`; `Captcha\*` (reCAPTCHA v2 / Turnstile / no-op verifiers); `Email\SubmissionMailer` (notification + auto-responder emails).
 - **Integrations (`includes/Integrations/Elementor`)** — `Integration` (registers the widget), `Widget`, `WidgetRenderer`, `WidgetControls\ContentControls` and `WidgetControls\StyleControls`.
 
@@ -29,20 +29,20 @@ All PHP lives under `includes/` and is loaded by the composer-free autoloader in
 Key actions and filters:
 
 - **Validation**
-    - `mtef_before_validate_submission( $pre, $submission )` — filter
-    - `mtef_after_validate_submission( $post, $submission )` — filter
+    - `formminia_before_validate_submission( $pre, $submission )` — filter
+    - `formminia_after_validate_submission( $post, $submission )` — filter
 - **Captcha**
-    - `mtef_captcha_error( $response, $provider )` — action
-    - `mtef_just_validate_src( $src )` — filter, override the JustValidate script URL (e.g. self-hosted)
+    - `formminia_captcha_error( $response, $provider )` — action
+    - `formminia_just_validate_src( $src )` — filter, override the JustValidate script URL (e.g. self-hosted)
 - **Email**
-    - `mtef_email_to( $to, $submission, $fields )` — filter
-    - `mtef_email_from_name( $from_name, $submission, $fields )` — filter
-    - `mtef_email_headers( $headers, $submission, $fields )` — filter
-    - `mtef_email_subject( $subject, $submission, $fields )` — filter
-    - `mtef_email_body( $body, $submission, $fields )` — filter
-    - `mtef_email_template_path( $path, $fields )` — filter
-    - `mtef_before_send( $submission, $subject, $body, $headers, $fields )` — action
-    - `mtef_after_send( $sent, $submission, $subject, $body, $headers, $fields )` — action
+    - `formminia_email_to( $to, $submission, $fields )` — filter
+    - `formminia_email_from_name( $from_name, $submission, $fields )` — filter
+    - `formminia_email_headers( $headers, $submission, $fields )` — filter
+    - `formminia_email_subject( $subject, $submission, $fields )` — filter
+    - `formminia_email_body( $body, $submission, $fields )` — filter
+    - `formminia_email_template_path( $path, $fields )` — filter
+    - `formminia_before_send( $submission, $subject, $body, $headers, $fields )` — action
+    - `formminia_after_send( $sent, $submission, $subject, $body, $headers, $fields )` — action
 
 ## Privacy
 

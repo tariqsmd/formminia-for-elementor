@@ -23,28 +23,28 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Plugin Constants
  */
-define( 'MTEF_VERSION', '1.0.0' );
-define( 'MTEF_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-define( 'MTEF_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'FORMMINIA_VERSION', '1.0.0' );
+define( 'FORMMINIA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'FORMMINIA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 /**
  * The code that runs during plugin activation.
  */
-function mtef_activate() {
-	\MTEF\Core\Activator::activate();
+function formminia_activate() {
+	\FORMMINIA\Core\Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  */
-function mtef_deactivate() {
-	\MTEF\Core\Deactivator::deactivate();
+function formminia_deactivate() {
+	\FORMMINIA\Core\Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'mtef_activate' );
-register_deactivation_hook( __FILE__, 'mtef_deactivate' );
+register_activation_hook( __FILE__, 'formminia_activate' );
+register_deactivation_hook( __FILE__, 'formminia_deactivate' );
 
-require MTEF_PLUGIN_DIR . 'includes/Core/bootstrap.php';
+require FORMMINIA_PLUGIN_DIR . 'includes/Core/bootstrap.php';
 
 /**
  * Begins execution of the plugin.
@@ -55,9 +55,9 @@ require MTEF_PLUGIN_DIR . 'includes/Core/bootstrap.php';
  *
  * @since    1.0.0
  */
-function mtef_run() {
-	$plugin = \MTEF\Core\Plugin::get_instance();
+function formminia_run() {
+	$plugin = \FORMMINIA\Core\Plugin::get_instance();
 	$plugin->run();
 }
 
-mtef_run();
+formminia_run();

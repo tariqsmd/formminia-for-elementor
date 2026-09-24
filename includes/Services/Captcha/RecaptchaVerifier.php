@@ -1,12 +1,12 @@
 <?php
 
-namespace MTEF\Services\Captcha;
+namespace FORMMINIA\Services\Captcha;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use MTEF\Services\FormSubmission;
+use FORMMINIA\Services\FormSubmission;
 
 /**
  * Google reCAPTCHA v2 verifier.
@@ -33,14 +33,14 @@ class RecaptchaVerifier implements CaptchaVerifierInterface {
 
 		if ( $this->secret_key === '' ) {
 			return new \WP_Error(
-				'mtef_recaptcha_config',
+				'formminia_recaptcha_config',
 				esc_html__( 'reCAPTCHA is not configured correctly.', 'formminia-for-elementor' )
 			);
 		}
 
 		if ( $response === '' ) {
 			return new \WP_Error(
-				'mtef_recaptcha_missing',
+				'formminia_recaptcha_missing',
 				esc_html__( 'Please complete the reCAPTCHA.', 'formminia-for-elementor' )
 			);
 		}
@@ -60,10 +60,10 @@ class RecaptchaVerifier implements CaptchaVerifierInterface {
 			/**
 			 * Fires when reCAPTCHA verification fails due to HTTP error.
 			 */
-			do_action( 'mtef_captcha_error', $remote, 'recaptcha' );
+			do_action( 'formminia_captcha_error', $remote, 'recaptcha' );
 
 			return new \WP_Error(
-				'mtef_recaptcha_http_error',
+				'formminia_recaptcha_http_error',
 				esc_html__( 'reCAPTCHA verification request failed.', 'formminia-for-elementor' )
 			);
 		}
@@ -73,7 +73,7 @@ class RecaptchaVerifier implements CaptchaVerifierInterface {
 
 		if ( ! isset( $result->success ) || ! $result->success ) {
 			return new \WP_Error(
-				'mtef_recaptcha_invalid',
+				'formminia_recaptcha_invalid',
 				esc_html__( 'reCAPTCHA verification failed.', 'formminia-for-elementor' )
 			);
 		}

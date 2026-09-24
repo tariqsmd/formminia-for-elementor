@@ -1,6 +1,6 @@
 <?php
 
-namespace MTEF\Services;
+namespace FORMMINIA\Services;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -38,7 +38,7 @@ class ElementorWidgetSettings {
 			return array();
 		}
 
-		$cache_key = 'mtef_widget_settings_' . md5( $widget_id );
+		$cache_key = 'formminia_widget_settings_' . md5( $widget_id );
 		$cached = wp_cache_get( $cache_key );
 
 		if ( false !== $cached ) {

@@ -3,36 +3,36 @@
  * 
  * A clean, minimalist base that uses root CSS variables.
  */
-.mtef-skin-0 {
+.formminia-skin-0 {
   /* It primarily inherits from :root, but we can ensure base structural overrides here if needed */
   
-  .mtef {
+  .formminia {
     &-form-wrapper {
        /* Inherits from common.scss which uses variables */
     }
 
     &-form-group label {
-      color: var(--mtef-primary);
+      color: var(--formminia-primary);
     }
 
     &-input,
     &-textarea {
       &:hover,
       &:focus {
-        border-color: var(--mtef-primary);
+        border-color: var(--formminia-primary);
       }
     }
 
     &-submit-btn {
       background-color: transparent;
-      border: 2px solid var(--mtef-primary);
-      color: var(--mtef-primary);
+      border: 2px solid var(--formminia-primary);
+      color: var(--formminia-primary);
       box-shadow: none;
 
       &:hover {
-        background-color: var(--mtef-primary);
+        background-color: var(--formminia-primary);
         color: #fff;
-        box-shadow: var(--mtef-btn-shadow);
+        box-shadow: var(--formminia-btn-shadow);
       }
     }
   }
@@ -41,21 +41,21 @@
 /* ════════════════════════════════════════════════════════════ */
 /* GLOBAL UTILITIES (Input Styles)                             */
 /* ════════════════════════════════════════════════════════════ */
-.mtef {
+.formminia {
 
   /* Input Style: Underline */
   &-input-style-underline {
-    .mtef-input,
-    .mtef-textarea {
+    .formminia-input,
+    .formminia-textarea {
       border: none !important;
-      border-bottom: 2px solid var(--mtef-input-border) !important;
+      border-bottom: 2px solid var(--formminia-input-border) !important;
       border-radius: 0 !important;
       background: transparent !important;
       padding-left: 0 !important;
       padding-right: 0 !important;
 
       &:focus {
-        border-bottom-color: var(--mtef-primary) !important;
+        border-bottom-color: var(--formminia-primary) !important;
         box-shadow: none !important;
       }
     }
@@ -63,30 +63,30 @@
 
   /* Input Style: Rounded */
   &-input-style-rounded {
-    .mtef-input,
-    .mtef-textarea {
+    .formminia-input,
+    .formminia-textarea {
       border-radius: 12px !important;
     }
   }
 
   /* Input Style: Pill */
   &-input-style-pill {
-    .mtef-input,
-    .mtef-textarea {
+    .formminia-input,
+    .formminia-textarea {
       border-radius: 50px !important;
       padding-left: 1.5rem !important;
       padding-right: 1.5rem !important;
     }
 
-    .mtef-textarea {
+    .formminia-textarea {
       border-radius: 25px !important;
     }
   }
 
   /* Input Style: Shadow */
   &-input-style-shadow {
-    .mtef-input,
-    .mtef-textarea {
+    .formminia-input,
+    .formminia-textarea {
       border: none !important;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
       background: #fff !important;

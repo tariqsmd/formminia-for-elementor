@@ -21,7 +21,7 @@ $required = $args['required'] ? 'required' : '';
 $settings = $args['settings'];
 $icon_svg = $args['icon_svg'];
 
-$group_classes = array('mtef-form-group', 'mtef-field-' . $type);
+$group_classes = array('formminia-form-group', 'formminia-field-' . $type);
 
 // Determine if field icons should be shown
 $show_input_icon = false;
@@ -39,8 +39,8 @@ if ($settings['icon_location'] === 'label') {
 }
 
 if ($show_input_icon) {
-    $group_classes[] = 'mtef-form-has-icon';
-    $group_classes[] = 'mtef-icon-' . $icon_position;
+    $group_classes[] = 'formminia-form-has-icon';
+    $group_classes[] = 'formminia-icon-' . $icon_position;
 }
 ?>
 
@@ -49,7 +49,7 @@ if ($show_input_icon) {
     // Show icon before of input field   
     if ($show_input_icon && $icon_position === 'before'):
         ?>
-        <span class="mtef-icon mtef-field-icon">
+        <span class="formminia-icon formminia-field-icon">
             <?php
             if (!empty($args['icon']['value'])) {
                 \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
@@ -60,11 +60,11 @@ if ($show_input_icon) {
         </span>
     <?php endif; ?>
 
-    <div class="mtef-field-inner">
+    <div class="formminia-field-inner">
         <?php if ($settings['show_labels'] === 'yes'): ?>
             <label for="<?php echo esc_attr($field_id); ?>">
                 <?php if ($show_label_icon && $icon_position === 'before'): ?>
-                    <span class="mtef-icon mtef-label-icon">
+                    <span class="formminia-icon formminia-label-icon">
                         <?php
                         if (!empty($args['icon']['value'])) {
                             \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
@@ -75,7 +75,7 @@ if ($show_input_icon) {
                     </span>
                 <?php endif; ?>
 
-                <span class="mtef-label-text">
+                <span class="formminia-label-text">
                     <?php echo esc_html($label); ?>
                     <?php if ($required): ?>
                         <span class="required" aria-hidden="true">*</span>
@@ -84,7 +84,7 @@ if ($show_input_icon) {
                 </span>
 
                 <?php if ($show_label_icon && $icon_position === 'after'): ?>
-                    <span class="mtef-icon mtef-label-icon">
+                    <span class="formminia-icon formminia-label-icon">
                         <?php
                         if (!empty($args['icon']['value'])) {
                             \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);
@@ -96,20 +96,20 @@ if ($show_input_icon) {
                 <?php endif; ?>
             </label>
         <?php endif; ?>
-        <div class="mtef-input-wrap">
+        <div class="formminia-input-wrap">
 
             <?php if ('textarea' === $type): ?>
                 <textarea name="<?php echo esc_attr($name); ?>" id="<?php echo esc_attr($field_id); ?>"
-                    class="mtef-textarea mtef-input-<?php echo esc_attr($type); ?>"
+                    class="formminia-textarea formminia-input-<?php echo esc_attr($type); ?>"
                     rows="<?php echo esc_attr($settings['textarea_rows']); ?>" <?php if ($settings['show_labels'] !== 'yes'): ?>aria-label="<?php echo esc_attr($label); ?>" <?php endif; ?><?php if ($settings['show_placeholders'] === 'yes'): ?>placeholder="<?php echo esc_attr($placeholder); ?>" <?php endif; ?><?php echo esc_attr( $required ); ?>></textarea>
             <?php else: ?>
                 <input type="<?php echo esc_attr($type); ?>" name="<?php echo esc_attr($name); ?>"
                     id="<?php echo esc_attr($field_id); ?>"
-                    class="mtef-input mtef-input-<?php echo esc_attr($type); ?>" <?php if ($settings['show_labels'] !== 'yes'): ?>aria-label="<?php echo esc_attr($label); ?>" <?php endif; ?><?php if ($settings['show_placeholders'] === 'yes'): ?>placeholder="<?php echo esc_attr($placeholder); ?>" <?php endif; ?><?php echo esc_attr( $required ); ?>>
+                    class="formminia-input formminia-input-<?php echo esc_attr($type); ?>" <?php if ($settings['show_labels'] !== 'yes'): ?>aria-label="<?php echo esc_attr($label); ?>" <?php endif; ?><?php if ($settings['show_placeholders'] === 'yes'): ?>placeholder="<?php echo esc_attr($placeholder); ?>" <?php endif; ?><?php echo esc_attr( $required ); ?>>
             <?php endif; ?>
 
             <?php if ($settings['layout'] === 'floating'): ?>
-                <label class="mtef-floating-label" for="<?php echo esc_attr($field_id); ?>">
+                <label class="formminia-floating-label" for="<?php echo esc_attr($field_id); ?>">
                     <?php echo esc_html($label); ?>
                     <?php if ($required): ?>
                         <span class="required">*</span>
@@ -125,7 +125,7 @@ if ($show_input_icon) {
     // Show icon after of input field
     if ($show_input_icon && $icon_position === 'after'):
         ?>
-        <span class="mtef-icon mtef-field-icon">
+        <span class="formminia-icon formminia-field-icon">
             <?php
             if (!empty($args['icon']['value'])) {
                 \Elementor\Icons_Manager::render_icon($args['icon'], ['aria-hidden' => 'true']);

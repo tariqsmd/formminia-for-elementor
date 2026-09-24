@@ -1,6 +1,6 @@
 <?php
 
-namespace MTEF\Integrations\Elementor\WidgetControls;
+namespace FORMMINIA\Integrations\Elementor\WidgetControls;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -44,7 +44,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-group' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-form-group' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -56,7 +56,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-group' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-form-group' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -68,7 +68,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-group' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-form-group' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -77,7 +77,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Border::get_type(),
 			[
 				'name' => 'group_border',
-				'selector' => '{{WRAPPER}} .mtef-form-group',
+				'selector' => '{{WRAPPER}} .formminia-form-group',
 			]
 		);
 
@@ -85,7 +85,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'group_box_shadow',
-				'selector' => '{{WRAPPER}} .mtef-form-group',
+				'selector' => '{{WRAPPER}} .formminia-form-group',
 			]
 		);
 
@@ -93,7 +93,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'group_background',
-				'selector' => '{{WRAPPER}} .mtef-form-group',
+				'selector' => '{{WRAPPER}} .formminia-form-group',
 			]
 		);
 
@@ -121,7 +121,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-form-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -133,7 +133,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-form-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -152,7 +152,7 @@ trait StyleControls {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-inner, {{WRAPPER}} .mtef-fields-wrapper' => 'row-gap: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-form-inner, {{WRAPPER}} .formminia-fields-wrapper' => 'row-gap: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -170,7 +170,7 @@ trait StyleControls {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-fields-wrapper' => 'column-gap: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-fields-wrapper' => 'column-gap: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -182,7 +182,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-form-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -191,7 +191,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Border::get_type(),
 			[
 				'name' => 'form_border',
-				'selector' => '{{WRAPPER}} .mtef-form-wrapper',
+				'selector' => '{{WRAPPER}} .formminia-form-wrapper',
 			]
 		);
 
@@ -199,7 +199,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'form_box_shadow',
-				'selector' => '{{WRAPPER}} .mtef-form-wrapper',
+				'selector' => '{{WRAPPER}} .formminia-form-wrapper',
 			]
 		);
 
@@ -207,7 +207,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'form_background',
-				'selector' => '{{WRAPPER}} .mtef-form-wrapper',
+				'selector' => '{{WRAPPER}} .formminia-form-wrapper',
 			]
 		);
 
@@ -218,7 +218,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'description' => esc_html__('Styles native checkboxes, radio buttons, and range sliders.', 'formminia-for-elementor'),
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-wrapper' => 'accent-color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-form-wrapper' => 'accent-color: {{VALUE}};',
 				],
 				'separator' => 'before',
 			]
@@ -250,7 +250,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-form-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -262,7 +262,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-form-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -274,7 +274,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-form-title' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -283,7 +283,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Border::get_type(),
 			[
 				'name' => 'title_border',
-				'selector' => '{{WRAPPER}} .mtef-form-title',
+				'selector' => '{{WRAPPER}} .formminia-form-title',
 			]
 		);
 
@@ -291,7 +291,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'title_typography',
-				'selector' => '{{WRAPPER}} .mtef-form-title',
+				'selector' => '{{WRAPPER}} .formminia-form-title',
 			]
 		);
 
@@ -299,7 +299,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Text_Shadow::get_type(),
 			[
 				'name' => 'title_text_shadow',
-				'selector' => '{{WRAPPER}} .mtef-form-title',
+				'selector' => '{{WRAPPER}} .formminia-form-title',
 			]
 		);
 
@@ -309,7 +309,7 @@ trait StyleControls {
 				'label' => esc_html__('Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-form-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -318,7 +318,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'title_background',
-				'selector' => '{{WRAPPER}} .mtef-form-title',
+				'selector' => '{{WRAPPER}} .formminia-form-title',
 			]
 		);
 
@@ -342,7 +342,7 @@ trait StyleControls {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-title' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .formminia-form-title' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -375,7 +375,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-fields-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-fields-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -387,7 +387,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-fields-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-fields-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -399,7 +399,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-fields-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-fields-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -408,7 +408,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Border::get_type(),
 			[
 				'name' => 'fields_wrapper_border',
-				'selector' => '{{WRAPPER}} .mtef-fields-wrapper',
+				'selector' => '{{WRAPPER}} .formminia-fields-wrapper',
 			]
 		);
 
@@ -416,7 +416,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'fields_wrapper_box_shadow',
-				'selector' => '{{WRAPPER}} .mtef-fields-wrapper',
+				'selector' => '{{WRAPPER}} .formminia-fields-wrapper',
 			]
 		);
 
@@ -424,7 +424,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'fields_wrapper_background',
-				'selector' => '{{WRAPPER}} .mtef-fields-wrapper',
+				'selector' => '{{WRAPPER}} .formminia-fields-wrapper',
 			]
 		);
 
@@ -454,7 +454,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-group label' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-form-group label' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -466,7 +466,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-group label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-form-group label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -478,7 +478,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-group label' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-form-group label' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -487,7 +487,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Border::get_type(),
 			[
 				'name' => 'label_border',
-				'selector' => '{{WRAPPER}} .mtef-form-group label',
+				'selector' => '{{WRAPPER}} .formminia-form-group label',
 			]
 		);
 
@@ -495,7 +495,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'label_box_shadow',
-				'selector' => '{{WRAPPER}} .mtef-form-group label',
+				'selector' => '{{WRAPPER}} .formminia-form-group label',
 			]
 		);
 
@@ -503,7 +503,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'label_typography',
-				'selector' => '{{WRAPPER}} .mtef-form-group label',
+				'selector' => '{{WRAPPER}} .formminia-form-group label',
 			]
 		);
 
@@ -513,7 +513,7 @@ trait StyleControls {
 				'label' => esc_html__('Label Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-group label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-form-group label' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -522,7 +522,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'label_background',
-				'selector' => '{{WRAPPER}} .mtef-form-group label',
+				'selector' => '{{WRAPPER}} .formminia-form-group label',
 			]
 		);
 
@@ -546,7 +546,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'show_icons' => 'yes',
@@ -561,7 +561,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'show_icons' => 'yes',
@@ -576,7 +576,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'show_icons' => 'yes',
@@ -588,7 +588,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Border::get_type(),
 			[
 				'name' => 'icon_border',
-				'selector' => '{{WRAPPER}} .mtef-icon',
+				'selector' => '{{WRAPPER}} .formminia-icon',
 				'condition' => [
 					'show_icons' => 'yes',
 				],
@@ -599,7 +599,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'icon_box_shadow',
-				'selector' => '{{WRAPPER}} .mtef-icon',
+				'selector' => '{{WRAPPER}} .formminia-icon',
 				'condition' => [
 					'show_icons' => 'yes',
 				],
@@ -618,8 +618,8 @@ trait StyleControls {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .mtef-icon' => 'font-size: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-icon' => 'font-size: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'show_icons' => 'yes',
@@ -639,8 +639,8 @@ trait StyleControls {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-icon-left .mtef-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .mtef-icon-right .mtef-icon' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-icon-left .formminia-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-icon-right .formminia-icon' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'show_icons' => 'yes',
@@ -654,8 +654,8 @@ trait StyleControls {
 				'label' => esc_html__('Icon Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-icon svg' => 'fill: {{VALUE}};',
-					'{{WRAPPER}} .mtef-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .formminia-icon' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'show_icons' => 'yes',
@@ -669,7 +669,7 @@ trait StyleControls {
 				'label' => esc_html__('Background Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-icon' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-icon' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
 					'show_icons' => 'yes',
@@ -681,7 +681,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'icon_background',
-				'selector' => '{{WRAPPER}} .mtef-icon',
+				'selector' => '{{WRAPPER}} .formminia-icon',
 				'condition' => [
 					'show_icons' => 'yes',
 				],
@@ -722,7 +722,7 @@ trait StyleControls {
 					'size' => 150,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-layout-inline .mtef-form-group label' => 'min-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-layout-inline .formminia-form-group label' => 'min-width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'layout' => 'inline',
@@ -751,7 +751,7 @@ trait StyleControls {
 					'size' => 60,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-layout-inline .mtef-input-wrap' => 'flex: 1 1 {{SIZE}}{{UNIT}}; max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-layout-inline .formminia-input-wrap' => 'flex: 1 1 {{SIZE}}{{UNIT}}; max-width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'layout' => 'inline',
@@ -774,7 +774,7 @@ trait StyleControls {
 					'size' => 15,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-layout-inline .mtef-form-group' => 'gap: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-layout-inline .formminia-form-group' => 'gap: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'layout' => 'inline',
@@ -854,7 +854,7 @@ trait StyleControls {
 				'label' => esc_html__('Background Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-input, {{WRAPPER}} .mtef-textarea' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-input, {{WRAPPER}} .formminia-textarea' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -865,7 +865,7 @@ trait StyleControls {
 				'label' => esc_html__('Text Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-input, {{WRAPPER}} .mtef-textarea' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-input, {{WRAPPER}} .formminia-textarea' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -883,7 +883,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'input_focus_box_shadow',
-				'selector' => '{{WRAPPER}} .mtef-input:focus, {{WRAPPER}} .mtef-textarea:focus',
+				'selector' => '{{WRAPPER}} .formminia-input:focus, {{WRAPPER}} .formminia-textarea:focus',
 			]
 		);
 
@@ -901,7 +901,7 @@ trait StyleControls {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-input:focus, {{WRAPPER}} .mtef-textarea:focus' => 'transform: scale({{SIZE}});',
+					'{{WRAPPER}} .formminia-input:focus, {{WRAPPER}} .formminia-textarea:focus' => 'transform: scale({{SIZE}});',
 				],
 			]
 		);
@@ -912,7 +912,7 @@ trait StyleControls {
 				'label' => esc_html__('Focus Border Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-input:focus, {{WRAPPER}} .mtef-textarea:focus' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-input:focus, {{WRAPPER}} .formminia-textarea:focus' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -923,7 +923,7 @@ trait StyleControls {
 				'label' => esc_html__('Background Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-input:focus, {{WRAPPER}} .mtef-textarea:focus' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-input:focus, {{WRAPPER}} .formminia-textarea:focus' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -934,7 +934,7 @@ trait StyleControls {
 				'label' => esc_html__('Text Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-input:focus, {{WRAPPER}} .mtef-textarea:focus' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-input:focus, {{WRAPPER}} .formminia-textarea:focus' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -959,7 +959,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-input, {{WRAPPER}} .mtef-textarea' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-input, {{WRAPPER}} .formminia-textarea' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -971,7 +971,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-input, {{WRAPPER}} .mtef-textarea' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-input, {{WRAPPER}} .formminia-textarea' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -983,7 +983,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-input, {{WRAPPER}} .mtef-textarea' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-input, {{WRAPPER}} .formminia-textarea' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -992,7 +992,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Border::get_type(),
 			[
 				'name' => 'input_border',
-				'selector' => '{{WRAPPER}} .mtef-input, {{WRAPPER}} .mtef-textarea',
+				'selector' => '{{WRAPPER}} .formminia-input, {{WRAPPER}} .formminia-textarea',
 			]
 		);
 
@@ -1000,7 +1000,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'input_box_shadow',
-				'selector' => '{{WRAPPER}} .mtef-input, {{WRAPPER}} .mtef-textarea',
+				'selector' => '{{WRAPPER}} .formminia-input, {{WRAPPER}} .formminia-textarea',
 			]
 		);
 
@@ -1008,7 +1008,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'input_typography',
-				'selector' => '{{WRAPPER}} .mtef-input, {{WRAPPER}} .mtef-textarea',
+				'selector' => '{{WRAPPER}} .formminia-input, {{WRAPPER}} .formminia-textarea',
 			]
 		);
 
@@ -1018,7 +1018,7 @@ trait StyleControls {
 				'label' => esc_html__('Placeholder Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-input::placeholder, {{WRAPPER}} .mtef-textarea::placeholder' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-input::placeholder, {{WRAPPER}} .formminia-textarea::placeholder' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1027,7 +1027,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'input_background',
-				'selector' => '{{WRAPPER}} .mtef-input, {{WRAPPER}} .mtef-textarea',
+				'selector' => '{{WRAPPER}} .formminia-input, {{WRAPPER}} .formminia-textarea',
 			]
 		);
 
@@ -1044,7 +1044,7 @@ trait StyleControls {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-input, {{WRAPPER}} .mtef-textarea' => 'transition: all {{SIZE}}s ease-in-out;',
+					'{{WRAPPER}} .formminia-input, {{WRAPPER}} .formminia-textarea' => 'transition: all {{SIZE}}s ease-in-out;',
 				],
 			]
 		);
@@ -1082,7 +1082,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Text_Shadow::get_type(),
 			[
 				'name' => 'button_text_shadow',
-				'selector' => '{{WRAPPER}} .mtef-submit-btn',
+				'selector' => '{{WRAPPER}} .formminia-submit-btn',
 			]
 		);
 
@@ -1092,7 +1092,7 @@ trait StyleControls {
 				'label' => esc_html__('Text Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-submit-btn' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-submit-btn' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1101,7 +1101,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'button_background',
-				'selector' => '{{WRAPPER}} .mtef-submit-btn',
+				'selector' => '{{WRAPPER}} .formminia-submit-btn',
 			]
 		);
 
@@ -1128,7 +1128,7 @@ trait StyleControls {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-submit-btn:hover' => 'transform: scale({{SIZE}});',
+					'{{WRAPPER}} .formminia-submit-btn:hover' => 'transform: scale({{SIZE}});',
 				],
 			]
 		);
@@ -1146,7 +1146,7 @@ trait StyleControls {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-submit-btn:hover' => 'transform: translateY({{SIZE}}{{UNIT}});',
+					'{{WRAPPER}} .formminia-submit-btn:hover' => 'transform: translateY({{SIZE}}{{UNIT}});',
 				],
 				'condition' => [
 					'button_hover_scale[size]' => '', // Only show if scale is not set to avoid conflicts, or use a group transform
@@ -1160,7 +1160,7 @@ trait StyleControls {
 				'label' => esc_html__('Border Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-submit-btn:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-submit-btn:hover' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
@@ -1179,7 +1179,7 @@ trait StyleControls {
 				'label' => esc_html__('Text Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-submit-btn:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-submit-btn:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1188,7 +1188,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'button_hover_background',
-				'selector' => '{{WRAPPER}} .mtef-submit-btn:hover',
+				'selector' => '{{WRAPPER}} .formminia-submit-btn:hover',
 			]
 		);
 
@@ -1212,7 +1212,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-submit-btn-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-submit-btn-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1224,7 +1224,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-submit-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-submit-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1236,7 +1236,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-submit-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-submit-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1245,7 +1245,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Border::get_type(),
 			[
 				'name' => 'button_border',
-				'selector' => '{{WRAPPER}} .mtef-submit-btn',
+				'selector' => '{{WRAPPER}} .formminia-submit-btn',
 			]
 		);
 
@@ -1253,7 +1253,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'button_box_shadow',
-				'selector' => '{{WRAPPER}} .mtef-submit-btn',
+				'selector' => '{{WRAPPER}} .formminia-submit-btn',
 			]
 		);
 
@@ -1261,7 +1261,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'button_typography',
-				'selector' => '{{WRAPPER}} .mtef-submit-btn',
+				'selector' => '{{WRAPPER}} .formminia-submit-btn',
 			]
 		);
 
@@ -1277,8 +1277,8 @@ trait StyleControls {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-btn-icon' => 'font-size: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .mtef-btn-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
+					'{{WRAPPER}} .formminia-btn-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-btn-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: auto;',
 				],
 				'condition' => [
 					'button_icon[value]!' => '',
@@ -1298,8 +1298,8 @@ trait StyleControls {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-btn-icon-left' => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .mtef-btn-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-btn-icon-left' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-btn-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'button_icon[value]!' => '',
@@ -1313,8 +1313,8 @@ trait StyleControls {
 				'label' => esc_html__('Icon Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-btn-icon' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .mtef-btn-icon svg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .formminia-btn-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-btn-icon svg' => 'fill: {{VALUE}};',
 				],
 				'condition' => [
 					'button_icon[value]!' => '',
@@ -1349,7 +1349,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-response-message' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-response-message' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1361,7 +1361,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-response-message' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-response-message' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1373,7 +1373,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-response-message' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-response-message' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1382,7 +1382,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'message_typography',
-				'selector' => '{{WRAPPER}} .mtef-response-message',
+				'selector' => '{{WRAPPER}} .formminia-response-message',
 			]
 		);
 
@@ -1393,7 +1393,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'default' => '#4caf50',
 				'selectors' => [
-					'{{WRAPPER}} .mtef-response-message.success' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-response-message.success' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1405,7 +1405,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'default' => '#f44336',
 				'selectors' => [
-					'{{WRAPPER}} .mtef-response-message.error' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-response-message.error' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1414,7 +1414,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'message_background',
-				'selector' => '{{WRAPPER}} .mtef-response-message',
+				'selector' => '{{WRAPPER}} .formminia-response-message',
 			]
 		);
 
@@ -1429,38 +1429,38 @@ trait StyleControls {
 		$fields = [
 			'name' => [
 				'label' => esc_html__('Name Field', 'formminia-for-elementor'),
-				'selector' => '.mtef-field-name .mtef-input',
-				'wrapper' => '.mtef-form-group.mtef-field-name',
+				'selector' => '.formminia-field-name .formminia-input',
+				'wrapper' => '.formminia-form-group.formminia-field-name',
 				'field_key' => 'name',
 			],
 			'email' => [
 				'label' => esc_html__('Email Field', 'formminia-for-elementor'),
-				'selector' => '.mtef-field-email .mtef-input',
-				'wrapper' => '.mtef-form-group.mtef-field-email',
+				'selector' => '.formminia-field-email .formminia-input',
+				'wrapper' => '.formminia-form-group.formminia-field-email',
 				'field_key' => 'email',
 			],
 			'phone' => [
 				'label' => esc_html__('Phone Field', 'formminia-for-elementor'),
-				'selector' => '.mtef-field-tel .mtef-input',
-				'wrapper' => '.mtef-form-group.mtef-field-tel',
+				'selector' => '.formminia-field-tel .formminia-input',
+				'wrapper' => '.formminia-form-group.formminia-field-tel',
 				'field_key' => 'phone',
 			],
 			'website' => [
 				'label' => esc_html__('Website Field', 'formminia-for-elementor'),
-				'selector' => '.mtef-field-url .mtef-input',
-				'wrapper' => '.mtef-form-group.mtef-field-url',
+				'selector' => '.formminia-field-url .formminia-input',
+				'wrapper' => '.formminia-form-group.formminia-field-url',
 				'field_key' => 'website',
 			],
 			'subject' => [
 				'label' => esc_html__('Subject Field', 'formminia-for-elementor'),
-				'selector' => '.mtef-field-subject .mtef-input',
-				'wrapper' => '.mtef-form-group.mtef-field-subject',
+				'selector' => '.formminia-field-subject .formminia-input',
+				'wrapper' => '.formminia-form-group.formminia-field-subject',
 				'field_key' => 'subject',
 			],
 			'message' => [
 				'label' => esc_html__('Message Field', 'formminia-for-elementor'),
-				'selector' => '.mtef-field-textarea .mtef-textarea',
-				'wrapper' => '.mtef-form-group.mtef-field-textarea',
+				'selector' => '.formminia-field-textarea .formminia-textarea',
+				'wrapper' => '.formminia-form-group.formminia-field-textarea',
 				'field_key' => 'message',
 			],
 		];
@@ -1698,7 +1698,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-gdpr-consent' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-gdpr-consent' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1710,7 +1710,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-gdpr-consent' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-gdpr-consent' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1722,7 +1722,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-gdpr-consent' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-gdpr-consent' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1731,7 +1731,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Border::get_type(),
 			[
 				'name' => 'gdpr_border',
-				'selector' => '{{WRAPPER}} .mtef-gdpr-consent',
+				'selector' => '{{WRAPPER}} .formminia-gdpr-consent',
 			]
 		);
 
@@ -1739,7 +1739,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'gdpr_box_shadow',
-				'selector' => '{{WRAPPER}} .mtef-gdpr-consent',
+				'selector' => '{{WRAPPER}} .formminia-gdpr-consent',
 			]
 		);
 
@@ -1750,7 +1750,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-gdpr-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-gdpr-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1762,7 +1762,7 @@ trait StyleControls {
 				'type' => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em', '%'],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-checkbox' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-checkbox' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1771,7 +1771,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'gdpr_label_typography',
-				'selector' => '{{WRAPPER}} .mtef-gdpr-heading',
+				'selector' => '{{WRAPPER}} .formminia-gdpr-heading',
 			]
 		);
 
@@ -1779,7 +1779,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Typography::get_type(),
 			[
 				'name' => 'gdpr_typography',
-				'selector' => '{{WRAPPER}} .mtef-checkbox-text',
+				'selector' => '{{WRAPPER}} .formminia-checkbox-text',
 			]
 		);
 
@@ -1789,7 +1789,7 @@ trait StyleControls {
 				'label' => esc_html__('Label Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-gdpr-heading' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-gdpr-heading' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1800,7 +1800,7 @@ trait StyleControls {
 				'label' => esc_html__('Text Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-checkbox-text' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-checkbox-text' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1811,7 +1811,7 @@ trait StyleControls {
 				'label' => esc_html__('Link Color', 'formminia-for-elementor'),
 				'type' => \Elementor\Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .mtef-checkbox-text a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .formminia-checkbox-text a' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1833,7 +1833,7 @@ trait StyleControls {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-layout-inline .mtef-gdpr-group .mtef-checkbox-label' => 'width: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .formminia-layout-inline .formminia-gdpr-group .formminia-checkbox-label' => 'width: {{SIZE}}{{UNIT}};'
 				],
 				'condition' => [
 					'layout' => 'inline',
@@ -1846,7 +1846,7 @@ trait StyleControls {
 			\Elementor\Group_Control_Background::get_type(),
 			[
 				'name' => 'gdpr_background',
-				'selector' => '{{WRAPPER}} .mtef-gdpr-consent',
+				'selector' => '{{WRAPPER}} .formminia-gdpr-consent',
 			]
 		);
 

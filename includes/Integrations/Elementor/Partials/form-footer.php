@@ -9,5 +9,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-</div><!-- .mtef-form-inner -->
-</form></div><!-- .mtef-form-wrapper -->
+</div><!-- .formminia-form-inner -->
+</form></div><!-- .formminia-form-wrapper -->

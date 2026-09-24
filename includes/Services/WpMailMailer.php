@@ -1,6 +1,6 @@
 <?php
 
-namespace MTEF\Services;
+namespace FORMMINIA\Services;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -34,7 +34,7 @@ class WpMailMailer {
 		 * }
 		 */
 		$args = apply_filters(
-			'mtef_email_args',
+			'formminia_email_args',
 			array(
 				'to'      => $to,
 				'subject' => $subject,

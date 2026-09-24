@@ -36,18 +36,18 @@ $tabs = array(
 );
 
 // Pre-fetch option values.
-$captcha_provider = get_option( 'mtef_captcha_provider', 'none' );
-$admin_email      = get_option( 'mtef_admin_email', get_option( 'admin_email' ) );
-$email_subject    = get_option( 'mtef_email_subject', 'New Contact Form Submission' );
-$email_from_name  = get_option( 'mtef_email_from_name', get_bloginfo( 'name' ) );
-$enable_html      = get_option( 'mtef_enable_html_email', 'yes' );
-$accent_color     = get_option( 'mtef_email_accent_color', '#4f46e5' );
-$bg_color         = get_option( 'mtef_email_bg_color', '#f8fafc' );
-$content_bg       = get_option( 'mtef_email_content_bg_color', '#ffffff' );
-$text_color       = get_option( 'mtef_email_text_color', '#1e293b' );
-$logo_url         = get_option( 'mtef_email_logo_url', '' );
-$footer_text      = get_option( 'mtef_email_footer_text', '' );
-$show_credit      = get_option( 'mtef_email_show_footer_credit', 'yes' );
+$captcha_provider = get_option( 'formminia_captcha_provider', 'none' );
+$admin_email      = get_option( 'formminia_admin_email', get_option( 'admin_email' ) );
+$email_subject    = get_option( 'formminia_email_subject', 'New Contact Form Submission' );
+$email_from_name  = get_option( 'formminia_email_from_name', get_bloginfo( 'name' ) );
+$enable_html      = get_option( 'formminia_enable_html_email', 'yes' );
+$accent_color     = get_option( 'formminia_email_accent_color', '#4f46e5' );
+$bg_color         = get_option( 'formminia_email_bg_color', '#f8fafc' );
+$content_bg       = get_option( 'formminia_email_content_bg_color', '#ffffff' );
+$text_color       = get_option( 'formminia_email_text_color', '#1e293b' );
+$logo_url         = get_option( 'formminia_email_logo_url', '' );
+$footer_text      = get_option( 'formminia_email_footer_text', '' );
+$show_credit      = get_option( 'formminia_email_show_footer_credit', 'yes' );
 
 $has_elementor = defined( 'ELEMENTOR_VERSION' ) || did_action( 'elementor/loaded' );
 
@@ -69,33 +69,33 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 <!-- ══════════════════════════════════════════════════════ -->
 <!-- PLUGIN CONTENT                                         -->
 <!-- ══════════════════════════════════════════════════════ -->
-<div class="mtef-admin-wrap">
+<div class="formminia-admin-wrap">
 
 	<!-- ══════════════════════════════════════════════════════ -->
 	<!-- MODERN TOP HEADER                                      -->
 	<!-- ══════════════════════════════════════════════════════ -->
-	<header class="mtef-page-header">
-		<div class="mtef-page-header-brand">
-			<div class="mtef-logo-badge">
+	<header class="formminia-page-header">
+		<div class="formminia-page-header-brand">
+			<div class="formminia-logo-badge">
 				<svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 					<path d="M22 6L12 13L2 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				</svg>
 			</div>
-			<div class="mtef-title-area">
-				<div class="mtef-title-row">
+			<div class="formminia-title-area">
+				<div class="formminia-title-row">
 					<h1><?php esc_html_e( 'FormMinia for Elementor', 'formminia-for-elementor' ); ?></h1>
 				</div>
-				<p class="mtef-subtitle">v<?php echo esc_html( MTEF_VERSION ); ?></p>
+				<p class="formminia-subtitle">v<?php echo esc_html( FORMMINIA_VERSION ); ?></p>
             </div>
 		</div>
 
-		<div class="mtef-page-header-actions">
-			<a href="<?php echo esc_url( admin_url( 'admin.php?page=mtef-submissions' ) ); ?>" class="mtef-btn-secondary">
+		<div class="formminia-page-header-actions">
+			<a href="<?php echo esc_url( admin_url( 'admin.php?page=formminia-submissions' ) ); ?>" class="formminia-btn-secondary">
 				<span class="dashicons dashicons-list-view"></span>
 				<?php esc_html_e( 'View Submissions', 'formminia-for-elementor' ); ?>
 			</a>
-			<a href="https://wordpress.org/support/plugin/formminia-for-elementor/" target="_blank" rel="noopener noreferrer" class="mtef-btn-secondary">
+			<a href="https://wordpress.org/support/plugin/formminia-for-elementor/" target="_blank" rel="noopener noreferrer" class="formminia-btn-secondary">
 				<span class="dashicons dashicons-editor-help"></span>
 				<?php esc_html_e( 'Documentation', 'formminia-for-elementor' ); ?>
 			</a>
@@ -105,14 +105,14 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 	<!-- ══════════════════════════════════════════════════════ -->
 	<!-- ADMIN LAYOUT                                           -->
 	<!-- ══════════════════════════════════════════════════════ -->
-	<div class="mtef-admin-layout">
+	<div class="formminia-admin-layout">
 
 		<!-- ═══ LEFT SIDEBAR ═══ -->
-		<aside class="mtef-admin-sidebar">
-			<nav class="mtef-sidebar-nav" aria-label="<?php esc_attr_e( 'Plugin Settings Navigation', 'formminia-for-elementor' ); ?>">
+		<aside class="formminia-admin-sidebar">
+			<nav class="formminia-sidebar-nav" aria-label="<?php esc_attr_e( 'Plugin Settings Navigation', 'formminia-for-elementor' ); ?>">
 				<?php foreach ( $tabs as $tab_key => $tab ) : ?>
-					<a href="?page=mtef&tab=<?php echo esc_attr( $tab_key ); ?>"
-						class="mtef-sidebar-nav-item <?php echo $active_tab === $tab_key ? 'is-active' : ''; ?>">
+					<a href="?page=formminia&tab=<?php echo esc_attr( $tab_key ); ?>"
+						class="formminia-sidebar-nav-item <?php echo $active_tab === $tab_key ? 'is-active' : ''; ?>">
 						<span class="nav-item-icon dashicons <?php echo esc_attr( $tab['icon'] ); ?>"></span>
 						<span class="nav-item-text">
 							<span class="nav-item-title"><?php echo esc_html( $tab['label'] ); ?></span>
@@ -124,7 +124,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 			</nav>
 
 			<!-- Quick Link / Shortcut Card -->
-			<div class="mtef-sidebar-card">
+			<div class="formminia-sidebar-card">
 				<div class="sidebar-card-header">
 					<span class="dashicons dashicons-admin-appearance"></span>
 					<strong><?php esc_html_e( '50+ Preset Skins', 'formminia-for-elementor' ); ?></strong>
@@ -139,16 +139,16 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 		<!-- ═══ /LEFT SIDEBAR ═══ -->
 
 		<!-- ═══ MAIN CONTENT ═══ -->
-		<main class="mtef-admin-main">
+		<main class="formminia-admin-main">
 
 			<?php if ( 'general' === $active_tab ) : ?>
 
-				<form method="post" action="options.php" class="mtef-form-layout">
-					<?php settings_fields( \MTEF\Admin\Options::GROUP_GENERAL ); ?>
+				<form method="post" action="options.php" class="formminia-form-layout">
+					<?php settings_fields( \FORMMINIA\Admin\Options::GROUP_GENERAL ); ?>
 
 					<!-- SECTION 1: SPAM PROTECTION -->
-					<section class="mtef-card">
-						<div class="mtef-card-header">
+					<section class="formminia-card">
+						<div class="formminia-card-header">
 							<div class="header-icon-wrap shield-icon">
 								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 									<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -160,16 +160,16 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 							</div>
 						</div>
 
-						<div class="mtef-card-body">
+						<div class="formminia-card-body">
 							<!-- Hidden Select for native form submission -->
-							<select name="mtef_captcha_provider" id="mtef_captcha_provider" class="mtef-provider-select" style="display:none;">
+							<select name="formminia_captcha_provider" id="formminia_captcha_provider" class="formminia-provider-select" style="display:none;">
 								<option value="none" <?php selected( $captcha_provider, 'none' ); ?>><?php esc_html_e( 'None', 'formminia-for-elementor' ); ?></option>
 								<option value="recaptcha" <?php selected( $captcha_provider, 'recaptcha' ); ?>><?php esc_html_e( 'Google reCAPTCHA v2', 'formminia-for-elementor' ); ?></option>
 								<option value="turnstile" <?php selected( $captcha_provider, 'turnstile' ); ?>><?php esc_html_e( 'Cloudflare Turnstile', 'formminia-for-elementor' ); ?></option>
 							</select>
 
 							<!-- Visual Provider Selector Cards -->
-							<div class="mtef-provider-grid">
+							<div class="formminia-provider-grid">
 								<!-- Card 1: None -->
 								<div class="provider-card <?php echo 'none' === $captcha_provider ? 'is-selected' : ''; ?>" data-provider="none">
 									<div class="provider-radio-check"></div>
@@ -217,7 +217,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 							</div>
 
 							<!-- Provider Credentials Box: reCAPTCHA -->
-							<div class="mtef-credentials-panel recaptcha-fields" <?php echo 'recaptcha' !== $captcha_provider ? 'style="display:none;"' : ''; ?>>
+							<div class="formminia-credentials-panel recaptcha-fields" <?php echo 'recaptcha' !== $captcha_provider ? 'style="display:none;"' : ''; ?>>
 								<div class="credentials-banner">
 									<span class="dashicons dashicons-info"></span>
 									<div>
@@ -230,27 +230,27 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 									</div>
 								</div>
 
-								<div class="mtef-field-group">
-									<label for="mtef_recaptcha_site_key">
+								<div class="formminia-field-group">
+									<label for="formminia_recaptcha_site_key">
 										<?php esc_html_e( 'reCAPTCHA Site Key', 'formminia-for-elementor' ); ?>
 										<span class="required-asterisk">*</span>
 									</label>
 									<div class="input-wrap">
-										<input type="text" id="mtef_recaptcha_site_key" name="mtef_recaptcha_site_key"
-											value="<?php echo esc_attr( get_option( 'mtef_recaptcha_site_key', '' ) ); ?>"
+										<input type="text" id="formminia_recaptcha_site_key" name="formminia_recaptcha_site_key"
+											value="<?php echo esc_attr( get_option( 'formminia_recaptcha_site_key', '' ) ); ?>"
 											class="regular-text" placeholder="e.g. 6Ld...AAAAA..." autocomplete="off" />
 									</div>
 									<p class="field-hint"><?php esc_html_e( 'Public site key displayed in your form HTML.', 'formminia-for-elementor' ); ?></p>
 								</div>
 
-								<div class="mtef-field-group">
-									<label for="mtef_recaptcha_secret_key">
+								<div class="formminia-field-group">
+									<label for="formminia_recaptcha_secret_key">
 										<?php esc_html_e( 'reCAPTCHA Secret Key', 'formminia-for-elementor' ); ?>
 										<span class="required-asterisk">*</span>
 									</label>
 									<div class="input-wrap password-wrap">
-										<input type="password" id="mtef_recaptcha_secret_key" name="mtef_recaptcha_secret_key"
-											value="<?php echo esc_attr( get_option( 'mtef_recaptcha_secret_key', '' ) ); ?>"
+										<input type="password" id="formminia_recaptcha_secret_key" name="formminia_recaptcha_secret_key"
+											value="<?php echo esc_attr( get_option( 'formminia_recaptcha_secret_key', '' ) ); ?>"
 											class="regular-text password-input" placeholder="e.g. 6Ld...AAAAA..." autocomplete="off" />
 										<button type="button" class="btn-toggle-password" title="<?php esc_attr_e( 'Toggle password visibility', 'formminia-for-elementor' ); ?>">
 											<span class="dashicons dashicons-visibility"></span>
@@ -261,7 +261,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 							</div>
 
 							<!-- Provider Credentials Box: Turnstile -->
-							<div class="mtef-credentials-panel turnstile-fields" <?php echo 'turnstile' !== $captcha_provider ? 'style="display:none;"' : ''; ?>>
+							<div class="formminia-credentials-panel turnstile-fields" <?php echo 'turnstile' !== $captcha_provider ? 'style="display:none;"' : ''; ?>>
 								<div class="credentials-banner">
 									<span class="dashicons dashicons-info"></span>
 									<div>
@@ -274,27 +274,27 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 									</div>
 								</div>
 
-								<div class="mtef-field-group">
-									<label for="mtef_turnstile_site_key">
+								<div class="formminia-field-group">
+									<label for="formminia_turnstile_site_key">
 										<?php esc_html_e( 'Turnstile Site Key', 'formminia-for-elementor' ); ?>
 										<span class="required-asterisk">*</span>
 									</label>
 									<div class="input-wrap">
-										<input type="text" id="mtef_turnstile_site_key" name="mtef_turnstile_site_key"
-											value="<?php echo esc_attr( get_option( 'mtef_turnstile_site_key', '' ) ); ?>"
+										<input type="text" id="formminia_turnstile_site_key" name="formminia_turnstile_site_key"
+											value="<?php echo esc_attr( get_option( 'formminia_turnstile_site_key', '' ) ); ?>"
 											class="regular-text" placeholder="e.g. 0x4AAAAAA..." autocomplete="off" />
 									</div>
 									<p class="field-hint"><?php esc_html_e( 'Public site key provided by Cloudflare.', 'formminia-for-elementor' ); ?></p>
 								</div>
 
-								<div class="mtef-field-group">
-									<label for="mtef_turnstile_secret_key">
+								<div class="formminia-field-group">
+									<label for="formminia_turnstile_secret_key">
 										<?php esc_html_e( 'Turnstile Secret Key', 'formminia-for-elementor' ); ?>
 										<span class="required-asterisk">*</span>
 									</label>
 									<div class="input-wrap password-wrap">
-										<input type="password" id="mtef_turnstile_secret_key" name="mtef_turnstile_secret_key"
-											value="<?php echo esc_attr( get_option( 'mtef_turnstile_secret_key', '' ) ); ?>"
+										<input type="password" id="formminia_turnstile_secret_key" name="formminia_turnstile_secret_key"
+											value="<?php echo esc_attr( get_option( 'formminia_turnstile_secret_key', '' ) ); ?>"
 											class="regular-text password-input" placeholder="e.g. 0x4AAAAAA..." autocomplete="off" />
 										<button type="button" class="btn-toggle-password" title="<?php esc_attr_e( 'Toggle password visibility', 'formminia-for-elementor' ); ?>">
 											<span class="dashicons dashicons-visibility"></span>
@@ -307,12 +307,12 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 					</section>
 
 					<!-- STICKY ACTION BAR -->
-					<div class="mtef-sticky-save">
+					<div class="formminia-sticky-save">
 						<div class="save-status-text">
 							<span class="dashicons dashicons-saved"></span>
 							<span><?php esc_html_e( 'Configure settings and click save to apply changes.', 'formminia-for-elementor' ); ?></span>
 						</div>
-						<button type="submit" class="mtef-btn-primary">
+						<button type="submit" class="formminia-btn-primary">
 							<span class="dashicons dashicons-yes-alt"></span>
 							<?php esc_html_e( 'Save Settings', 'formminia-for-elementor' ); ?>
 						</button>
@@ -321,16 +321,16 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 
 			<?php elseif ( 'email' === $active_tab ) : ?>
 
-				<form method="post" action="options.php" class="mtef-form-layout">
-					<?php settings_fields( \MTEF\Admin\Options::GROUP_EMAIL ); ?>
+				<form method="post" action="options.php" class="formminia-form-layout">
+					<?php settings_fields( \FORMMINIA\Admin\Options::GROUP_EMAIL ); ?>
 
-					<div class="mtef-two-col-grid">
+					<div class="formminia-two-col-grid">
 						<!-- LEFT COLUMN: SETTINGS -->
 						<div class="settings-col">
 
 							<!-- SECTION 1: RECIPIENTS & ROUTING -->
-							<section class="mtef-card">
-								<div class="mtef-card-header">
+							<section class="formminia-card">
+								<div class="formminia-card-header">
 									<div class="header-icon-wrap mail-icon">
 										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 											<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -343,14 +343,14 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 									</div>
 								</div>
 
-								<div class="mtef-card-body">
-									<div class="mtef-field-group">
-										<label for="mtef_admin_email">
+								<div class="formminia-card-body">
+									<div class="formminia-field-group">
+										<label for="formminia_admin_email">
 											<?php esc_html_e( 'Recipient Email', 'formminia-for-elementor' ); ?>
 											<span class="required-asterisk">*</span>
 										</label>
 										<div class="input-wrap">
-											<input type="email" id="mtef_admin_email" name="mtef_admin_email"
+											<input type="email" id="formminia_admin_email" name="formminia_admin_email"
 												value="<?php echo esc_attr( $admin_email ); ?>"
 												class="regular-text" required />
 										</div>
@@ -358,34 +358,34 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 									</div>
 
 									<div class="form-row-2col">
-										<div class="mtef-field-group">
-											<label for="mtef_email_cc"><?php esc_html_e( 'CC Addresses', 'formminia-for-elementor' ); ?></label>
-											<input type="text" id="mtef_email_cc" name="mtef_email_cc"
-												value="<?php echo esc_attr( get_option( 'mtef_email_cc', '' ) ); ?>"
+										<div class="formminia-field-group">
+											<label for="formminia_email_cc"><?php esc_html_e( 'CC Addresses', 'formminia-for-elementor' ); ?></label>
+											<input type="text" id="formminia_email_cc" name="formminia_email_cc"
+												value="<?php echo esc_attr( get_option( 'formminia_email_cc', '' ) ); ?>"
 												class="regular-text" placeholder="team@domain.com, lead@domain.com" />
 											<p class="field-hint"><?php esc_html_e( 'Comma-separated email list.', 'formminia-for-elementor' ); ?></p>
 										</div>
 
-										<div class="mtef-field-group">
-											<label for="mtef_email_bcc"><?php esc_html_e( 'BCC Addresses', 'formminia-for-elementor' ); ?></label>
-											<input type="text" id="mtef_email_bcc" name="mtef_email_bcc"
-												value="<?php echo esc_attr( get_option( 'mtef_email_bcc', '' ) ); ?>"
+										<div class="formminia-field-group">
+											<label for="formminia_email_bcc"><?php esc_html_e( 'BCC Addresses', 'formminia-for-elementor' ); ?></label>
+											<input type="text" id="formminia_email_bcc" name="formminia_email_bcc"
+												value="<?php echo esc_attr( get_option( 'formminia_email_bcc', '' ) ); ?>"
 												class="regular-text" placeholder="archive@domain.com" />
 											<p class="field-hint"><?php esc_html_e( 'Blind carbon copy addresses.', 'formminia-for-elementor' ); ?></p>
 										</div>
 									</div>
 
 									<div class="form-row-2col">
-										<div class="mtef-field-group">
-											<label for="mtef_email_from_name"><?php esc_html_e( 'Sender Name ("From")', 'formminia-for-elementor' ); ?></label>
-											<input type="text" id="mtef_email_from_name" name="mtef_email_from_name"
+										<div class="formminia-field-group">
+											<label for="formminia_email_from_name"><?php esc_html_e( 'Sender Name ("From")', 'formminia-for-elementor' ); ?></label>
+											<input type="text" id="formminia_email_from_name" name="formminia_email_from_name"
 												value="<?php echo esc_attr( $email_from_name ); ?>"
 												class="regular-text" />
 										</div>
 
-										<div class="mtef-field-group">
-											<label for="mtef_email_subject"><?php esc_html_e( 'Default Subject', 'formminia-for-elementor' ); ?></label>
-											<input type="text" id="mtef_email_subject" name="mtef_email_subject"
+										<div class="formminia-field-group">
+											<label for="formminia_email_subject"><?php esc_html_e( 'Default Subject', 'formminia-for-elementor' ); ?></label>
+											<input type="text" id="formminia_email_subject" name="formminia_email_subject"
 												value="<?php echo esc_attr( $email_subject ); ?>"
 												class="regular-text" />
 										</div>
@@ -394,8 +394,8 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 							</section>
 
 							<!-- SECTION 2: HTML TEMPLATE & BRANDING -->
-							<section class="mtef-card">
-								<div class="mtef-card-header">
+							<section class="formminia-card">
+								<div class="formminia-card-header">
 									<div class="header-icon-wrap palette-icon">
 										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 											<circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/>
@@ -411,20 +411,20 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 									</div>
 								</div>
 
-								<div class="mtef-card-body">
-									<div class="mtef-toggle-row">
+								<div class="formminia-card-body">
+									<div class="formminia-toggle-row">
 										<div class="toggle-meta">
 											<strong><?php esc_html_e( 'Enable HTML Email Template', 'formminia-for-elementor' ); ?></strong>
 											<p><?php esc_html_e( 'Renders a responsive, branded email template instead of plain text.', 'formminia-for-elementor' ); ?></p>
 										</div>
-										<label class="mtef-switch">
-											<input type="checkbox" name="mtef_enable_html_email" value="yes" <?php checked( $enable_html, 'yes' ); ?> id="toggle_enable_html">
-											<span class="mtef-slider round"></span>
+										<label class="formminia-switch">
+											<input type="checkbox" name="formminia_enable_html_email" value="yes" <?php checked( $enable_html, 'yes' ); ?> id="toggle_enable_html">
+											<span class="formminia-slider round"></span>
 										</label>
 									</div>
 
 									<!-- Quick Palette Presets -->
-									<div class="mtef-preset-palettes">
+									<div class="formminia-preset-palettes">
 										<span class="palette-label"><?php esc_html_e( 'Color Presets:', 'formminia-for-elementor' ); ?></span>
 										<div class="palette-buttons">
 											<button type="button" class="btn-palette" data-accent="#4f46e5" data-bg="#f8fafc" data-content="#ffffff" data-text="#1e293b">
@@ -452,46 +452,46 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 
 									<div class="colors-grid">
 										<div class="color-item">
-											<label for="mtef_email_accent_color"><?php esc_html_e( 'Header Bar Accent', 'formminia-for-elementor' ); ?></label>
-											<input type="text" id="mtef_email_accent_color" name="mtef_email_accent_color"
+											<label for="formminia_email_accent_color"><?php esc_html_e( 'Header Bar Accent', 'formminia-for-elementor' ); ?></label>
+											<input type="text" id="formminia_email_accent_color" name="formminia_email_accent_color"
 												value="<?php echo esc_attr( $accent_color ); ?>"
-												class="mtef-color-picker" data-preview-target="header" />
+												class="formminia-color-picker" data-preview-target="header" />
 										</div>
 
 										<div class="color-item">
-											<label for="mtef_email_bg_color"><?php esc_html_e( 'Email Canvas BG', 'formminia-for-elementor' ); ?></label>
-											<input type="text" id="mtef_email_bg_color" name="mtef_email_bg_color"
+											<label for="formminia_email_bg_color"><?php esc_html_e( 'Email Canvas BG', 'formminia-for-elementor' ); ?></label>
+											<input type="text" id="formminia_email_bg_color" name="formminia_email_bg_color"
 												value="<?php echo esc_attr( $bg_color ); ?>"
-												class="mtef-color-picker" data-preview-target="canvas" />
+												class="formminia-color-picker" data-preview-target="canvas" />
 										</div>
 
 										<div class="color-item">
-											<label for="mtef_email_content_bg_color"><?php esc_html_e( 'Card Container BG', 'formminia-for-elementor' ); ?></label>
-											<input type="text" id="mtef_email_content_bg_color" name="mtef_email_content_bg_color"
+											<label for="formminia_email_content_bg_color"><?php esc_html_e( 'Card Container BG', 'formminia-for-elementor' ); ?></label>
+											<input type="text" id="formminia_email_content_bg_color" name="formminia_email_content_bg_color"
 												value="<?php echo esc_attr( $content_bg ); ?>"
-												class="mtef-color-picker" data-preview-target="content" />
+												class="formminia-color-picker" data-preview-target="content" />
 										</div>
 
 										<div class="color-item">
-											<label for="mtef_email_text_color"><?php esc_html_e( 'Primary Text Color', 'formminia-for-elementor' ); ?></label>
-											<input type="text" id="mtef_email_text_color" name="mtef_email_text_color"
+											<label for="formminia_email_text_color"><?php esc_html_e( 'Primary Text Color', 'formminia-for-elementor' ); ?></label>
+											<input type="text" id="formminia_email_text_color" name="formminia_email_text_color"
 												value="<?php echo esc_attr( $text_color ); ?>"
-												class="mtef-color-picker" data-preview-target="text" />
+												class="formminia-color-picker" data-preview-target="text" />
 										</div>
 									</div>
 
 									<!-- Logo Uploader -->
-									<div class="mtef-field-group logo-uploader-group">
+									<div class="formminia-field-group logo-uploader-group">
 										<label><?php esc_html_e( 'Email Header Logo', 'formminia-for-elementor' ); ?></label>
-										<div class="mtef-media-field">
-											<input type="text" id="mtef_email_logo_url" name="mtef_email_logo_url"
+										<div class="formminia-media-field">
+											<input type="text" id="formminia_email_logo_url" name="formminia_email_logo_url"
 												value="<?php echo esc_attr( $logo_url ); ?>"
-												class="regular-text mtef-media-url" placeholder="https://domain.com/wp-content/uploads/logo.png" />
-											<button type="button" class="mtef-btn-secondary mtef-media-upload-btn">
+												class="regular-text formminia-media-url" placeholder="https://domain.com/wp-content/uploads/logo.png" />
+											<button type="button" class="formminia-btn-secondary formminia-media-upload-btn">
 												<span class="dashicons dashicons-upload"></span>
 												<?php esc_html_e( 'Choose Logo', 'formminia-for-elementor' ); ?>
 											</button>
-											<button type="button" class="mtef-btn-danger mtef-media-remove-btn" <?php echo empty( $logo_url ) ? 'style="display:none;"' : ''; ?>>
+											<button type="button" class="formminia-btn-danger formminia-media-remove-btn" <?php echo empty( $logo_url ) ? 'style="display:none;"' : ''; ?>>
 												<span class="dashicons dashicons-trash"></span>
 												<?php esc_html_e( 'Remove', 'formminia-for-elementor' ); ?>
 											</button>
@@ -500,20 +500,20 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 									</div>
 
 									<!-- Footer Settings -->
-									<div class="mtef-field-group">
-										<label for="mtef_email_footer_text"><?php esc_html_e( 'Custom Footer Note', 'formminia-for-elementor' ); ?></label>
-										<textarea id="mtef_email_footer_text" name="mtef_email_footer_text" rows="2"
+									<div class="formminia-field-group">
+										<label for="formminia_email_footer_text"><?php esc_html_e( 'Custom Footer Note', 'formminia-for-elementor' ); ?></label>
+										<textarea id="formminia_email_footer_text" name="formminia_email_footer_text" rows="2"
 											class="regular-text" placeholder="<?php esc_attr_e( 'e.g. Acme Corp • 123 Innovation Way • contact@acme.com', 'formminia-for-elementor' ); ?>"><?php echo esc_textarea( $footer_text ); ?></textarea>
 									</div>
 
-									<div class="mtef-toggle-row">
+									<div class="formminia-toggle-row">
 										<div class="toggle-meta">
 											<strong><?php esc_html_e( 'Show "Submitted via Site" Credit', 'formminia-for-elementor' ); ?></strong>
 											<p><?php esc_html_e( 'Displays the timestamp and site link in the email footer.', 'formminia-for-elementor' ); ?></p>
 										</div>
-										<label class="mtef-switch">
-											<input type="checkbox" name="mtef_email_show_footer_credit" value="yes" <?php checked( $show_credit, 'yes' ); ?>>
-											<span class="mtef-slider round"></span>
+										<label class="formminia-switch">
+											<input type="checkbox" name="formminia_email_show_footer_credit" value="yes" <?php checked( $show_credit, 'yes' ); ?>>
+											<span class="formminia-slider round"></span>
 										</label>
 									</div>
 								</div>
@@ -523,7 +523,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 
 						<!-- RIGHT COLUMN: LIVE INTERACTIVE EMAIL PREVIEW -->
 						<div class="preview-col">
-							<div class="mtef-sticky-preview">
+							<div class="formminia-sticky-preview">
 								<div class="preview-frame-header">
 									<div class="window-dots">
 										<span></span><span></span><span></span>
@@ -533,7 +533,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 								</div>
 
 								<!-- Live Render Box -->
-								<div class="mtef-email-preview-canvas" id="emailPreviewCanvas" style="background-color: <?php echo esc_attr( $bg_color ); ?>;">
+								<div class="formminia-email-preview-canvas" id="emailPreviewCanvas" style="background-color: <?php echo esc_attr( $bg_color ); ?>;">
 									<div class="email-mock-card" id="emailMockCard" style="background-color: <?php echo esc_attr( $content_bg ); ?>;">
 										<!-- Header -->
 										<div class="email-mock-header" id="emailMockHeader" style="background-color: <?php echo esc_attr( $accent_color ); ?>;">
@@ -577,12 +577,12 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 					</div>
 
 					<!-- STICKY ACTION BAR -->
-					<div class="mtef-sticky-save">
+					<div class="formminia-sticky-save">
 						<div class="save-status-text">
 							<span class="dashicons dashicons-saved"></span>
 							<span><?php esc_html_e( 'All changes are ready to save.', 'formminia-for-elementor' ); ?></span>
 						</div>
-						<button type="submit" class="mtef-btn-primary">
+						<button type="submit" class="formminia-btn-primary">
 							<span class="dashicons dashicons-yes-alt"></span>
 							<?php esc_html_e( 'Save Email Settings', 'formminia-for-elementor' ); ?>
 						</button>
@@ -591,9 +591,9 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 
 			<?php elseif ( 'support' === $active_tab ) : ?>
 
-				<div class="mtef-support-layout">
+				<div class="formminia-support-layout">
 					<!-- Welcome Hero -->
-					<div class="mtef-card support-hero">
+					<div class="formminia-card support-hero">
 						<div class="hero-text">
 							<span class="hero-badge"><?php esc_html_e( 'Getting Started & Support', 'formminia-for-elementor' ); ?></span>
 							<h2><?php esc_html_e( 'Build High-Converting Forms with Elementor', 'formminia-for-elementor' ); ?></h2>
@@ -602,18 +602,18 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 					</div>
 
 					<!-- 3-Step Quick Start Cards -->
-					<div class="mtef-steps-grid">
-						<div class="mtef-step-card">
+					<div class="formminia-steps-grid">
+						<div class="formminia-step-card">
 							<span class="step-num">01</span>
 							<h3><?php esc_html_e( 'Open Elementor', 'formminia-for-elementor' ); ?></h3>
 							<p><?php esc_html_e( 'Edit any page, post, or template with the Elementor page builder.', 'formminia-for-elementor' ); ?></p>
 						</div>
-						<div class="mtef-step-card">
+						<div class="formminia-step-card">
 							<span class="step-num">02</span>
 							<h3><?php esc_html_e( 'Drag "Contact Form"', 'formminia-for-elementor' ); ?></h3>
 							<p><?php esc_html_e( 'Open the "FormMinia" category in the Elementor widget panel and drag the "Contact Form" widget into your page section.', 'formminia-for-elementor' ); ?></p>
 						</div>
-						<div class="mtef-step-card">
+						<div class="formminia-step-card">
 							<span class="step-num">03</span>
 							<h3><?php esc_html_e( 'Pick a Preset Skin', 'formminia-for-elementor' ); ?></h3>
 							<p><?php esc_html_e( 'Select from 50 built-in skins or 7 layouts (Floating, Material, Inline, Boxed).', 'formminia-for-elementor' ); ?></p>
@@ -621,10 +621,10 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 					</div>
 
 					<!-- 2-Column Info & Community -->
-					<div class="mtef-two-col-grid" style="margin-top: 24px;">
+					<div class="formminia-two-col-grid" style="margin-top: 24px;">
 						<!-- Features Included -->
-						<div class="mtef-card">
-							<div class="mtef-card-header">
+						<div class="formminia-card">
+							<div class="formminia-card-header">
 								<div class="header-icon-wrap" style="background:#f0fdf4; color:#16a34a;">
 									<span class="dashicons dashicons-awards"></span>
 								</div>
@@ -633,7 +633,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 									<p class="section-desc"><?php esc_html_e( 'Everything available out of the box in FormMinia for Elementor', 'formminia-for-elementor' ); ?></p>
 								</div>
 							</div>
-							<div class="mtef-card-body">
+							<div class="formminia-card-body">
 								<ul class="features-checklist">
 									<li>
 										<span class="check-icon">✓</span>
@@ -675,8 +675,8 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 						</div>
 
 						<!-- Support & Contributions -->
-						<div class="mtef-card">
-							<div class="mtef-card-header">
+						<div class="formminia-card">
+							<div class="formminia-card-header">
 								<div class="header-icon-wrap" style="background:#eef2ff; color:#4f46e5;">
 									<span class="dashicons dashicons-heart"></span>
 								</div>
@@ -685,7 +685,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 									<p class="section-desc"><?php esc_html_e( 'Support development or report bugs directly to the team.', 'formminia-for-elementor' ); ?></p>
 								</div>
 							</div>
-							<div class="mtef-card-body">
+							<div class="formminia-card-body">
 								<div class="support-action-list">
 									<a href="https://github.com/tariqsmd/mtforms/issues" target="_blank" rel="noopener noreferrer" class="support-action-card">
 										<span class="dashicons dashicons-warning"></span>
@@ -715,6 +715,6 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 		</main>
 		<!-- ═══ /MAIN CONTENT ═══ -->
 
-	</div><!-- .mtef-admin-layout -->
+	</div><!-- .formminia-admin-layout -->
 
-</div><!-- .mtef-admin-wrap -->
+</div><!-- .formminia-admin-wrap -->

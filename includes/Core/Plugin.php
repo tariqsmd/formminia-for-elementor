@@ -1,6 +1,6 @@
 <?php
 
-namespace MTEF\Core;
+namespace FORMMINIA\Core;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * - Registering admin and public hooks.
  * - Wiring Elementor integration.
  *
- * It is the modern, namespaced counterpart to the legacy MTEF_Core class.
+ * It is the modern, namespaced counterpart to the legacy FORMMINIA_Core class.
  */
 class Plugin {
 
@@ -65,13 +65,13 @@ class Plugin {
 	 * Sets up configuration and registers hooks.
 	 */
 	protected function __construct() {
-		if ( defined( 'MTEF_VERSION' ) ) {
-			$this->version = MTEF_VERSION;
+		if ( defined( 'FORMMINIA_VERSION' ) ) {
+			$this->version = FORMMINIA_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
 
-		$this->plugin_name = 'mtef';
+		$this->plugin_name = 'formminia';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -95,14 +95,14 @@ class Plugin {
 	 */
 	protected function set_locale() {
 		// Register Elementor integration (namespaced).
-		new \MTEF\Integrations\Elementor\Integration();
+		new \FORMMINIA\Integrations\Elementor\Integration();
 	}
 
 	/**
 	 * Register admin hooks.
 	 */
 	protected function define_admin_hooks() {
-		$plugin_admin = new \MTEF\Admin\SettingsPage( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new \FORMMINIA\Admin\SettingsPage( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -116,26 +116,26 @@ class Plugin {
 	 * Register public hooks.
 	 */
 	protected function define_public_hooks() {
-		$validator = new \MTEF\Services\FormValidator();
+		$validator = new \FORMMINIA\Services\FormValidator();
 
-		$provider = get_option( 'mtef_captcha_provider', 'none' );
+		$provider = get_option( 'formminia_captcha_provider', 'none' );
 		if ( $provider === 'recaptcha' ) {
-			$secret           = get_option( 'mtef_recaptcha_secret_key' );
-			$captcha_verifier = new \MTEF\Services\Captcha\RecaptchaVerifier( (string)$secret );
+			$secret           = get_option( 'formminia_recaptcha_secret_key' );
+			$captcha_verifier = new \FORMMINIA\Services\Captcha\RecaptchaVerifier( (string)$secret );
 		} else if ( $provider === 'turnstile' ) {
-			$secret           = get_option( 'mtef_turnstile_secret_key' );
-			$captcha_verifier = new \MTEF\Services\Captcha\TurnstileVerifier( (string)$secret );
+			$secret           = get_option( 'formminia_turnstile_secret_key' );
+			$captcha_verifier = new \FORMMINIA\Services\Captcha\TurnstileVerifier( (string)$secret );
 		} else {
-			$captcha_verifier = new \MTEF\Services\Captcha\NullCaptchaVerifier();
+			$captcha_verifier = new \FORMMINIA\Services\Captcha\NullCaptchaVerifier();
 		}
 
-		$config = new \MTEF\Services\WpOptionsConfig();
-		$mailer = new \MTEF\Services\WpMailMailer();
-		$repository = new \MTEF\Services\SubmissionRepository();
+		$config = new \FORMMINIA\Services\WpOptionsConfig();
+		$mailer = new \FORMMINIA\Services\WpMailMailer();
+		$repository = new \FORMMINIA\Services\SubmissionRepository();
 
-		$submission_mailer = new \MTEF\Services\Email\SubmissionMailer( $config, $mailer );
+		$submission_mailer = new \FORMMINIA\Services\Email\SubmissionMailer( $config, $mailer );
 
-		$controller = new \MTEF\Frontend\FormController(
+		$controller = new \FORMMINIA\Frontend\FormController(
 			$this->get_plugin_name(),
 			$this->get_version(),
 			$validator,
@@ -147,8 +147,8 @@ class Plugin {
 		$this->loader->add_action( 'wp_enqueue_scripts', $controller, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $controller, 'enqueue_scripts' );
 
-		$this->loader->add_action( 'wp_ajax_mtef_submit_form', $controller, 'handle_form_submission' );
-		$this->loader->add_action( 'wp_ajax_nopriv_mtef_submit_form', $controller, 'handle_form_submission' );
+		$this->loader->add_action( 'wp_ajax_formminia_submit_form', $controller, 'handle_form_submission' );
+		$this->loader->add_action( 'wp_ajax_nopriv_formminia_submit_form', $controller, 'handle_form_submission' );
 	}
 
 	/**

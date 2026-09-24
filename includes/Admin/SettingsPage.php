@@ -1,17 +1,17 @@
 <?php
 
-namespace MTEF\Admin;
+namespace FORMMINIA\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use MTEF\Admin\SubmissionsTable;
+use FORMMINIA\Admin\SubmissionsTable;
 
 /**
  * Admin settings page for FormMinia for Elementor.
  *
- * Modern, namespaced counterpart to the legacy MTEF_Admin class.
+ * Modern, namespaced counterpart to the legacy FORMMINIA_Admin class.
  */
 class SettingsPage
 {
@@ -39,13 +39,13 @@ class SettingsPage
 	 */
 	public function enqueue_styles($hook)
 	{
-		if ('toplevel_page_mtef' !== $hook && 'mtef_page_mtef-submissions' !== $hook) {
+		if ('toplevel_page_formminia' !== $hook && 'formminia_page_formminia-submissions' !== $hook) {
 			return;
 		}
 
 		wp_enqueue_style(
 			$this->plugin_name,
-			MTEF_PLUGIN_URL . 'assets/admin/css/mtef-admin.min.css',
+			FORMMINIA_PLUGIN_URL . 'assets/admin/css/formminia-admin.min.css',
 			array(),
 			$this->version,
 			'all'
@@ -61,7 +61,7 @@ class SettingsPage
 	 */
 	public function enqueue_scripts($hook)
 	{
-		if ('toplevel_page_mtef' !== $hook && 'mtef_page_mtef-submissions' !== $hook) {
+		if ('toplevel_page_formminia' !== $hook && 'formminia_page_formminia-submissions' !== $hook) {
 			return;
 		}
 
@@ -69,7 +69,7 @@ class SettingsPage
 
 		wp_enqueue_script(
 			$this->plugin_name,
-			MTEF_PLUGIN_URL . 'assets/admin/js/mtef-admin.js',
+			FORMMINIA_PLUGIN_URL . 'assets/admin/js/formminia-admin.js',
 			array('jquery', 'wp-color-picker'),
 			$this->version,
 			true
@@ -85,27 +85,27 @@ class SettingsPage
 			__('FormMinia for Elementor', 'formminia-for-elementor'),
 			__('FormMinia', 'formminia-for-elementor'),
 			'manage_options',
-			'mtef',
+			'formminia',
 			array($this, 'display_plugin_setup_page'),
 			'dashicons-email',
 			79
 		);
 
 		add_submenu_page(
-			'mtef',
+			'formminia',
 			__('Settings', 'formminia-for-elementor'),
 			__('Settings', 'formminia-for-elementor'),
 			'manage_options',
-			'mtef',
+			'formminia',
 			array($this, 'display_plugin_setup_page')
 		);
 
 		add_submenu_page(
-			'mtef',
+			'formminia',
 			__('Submissions', 'formminia-for-elementor'),
 			__('Submissions', 'formminia-for-elementor'),
 			'manage_options',
-			'mtef-submissions',
+			'formminia-submissions',
 			array($this, 'display_submissions_page')
 		);
 	}
@@ -120,14 +120,14 @@ class SettingsPage
 		?>
 		<div class="wrap">
 			<h1 class="wp-heading-inline"><?php esc_html_e('FormMinia for Elementor Submissions', 'formminia-for-elementor'); ?></h1>
-			<a href="<?php echo esc_url(wp_nonce_url(add_query_arg('action', 'export_csv'), 'mtef_export_csv')); ?>" class="page-title-action"><?php esc_html_e('Export to CSV', 'formminia-for-elementor'); ?></a>
+			<a href="<?php echo esc_url(wp_nonce_url(add_query_arg('action', 'export_csv'), 'formminia_export_csv')); ?>" class="page-title-action"><?php esc_html_e('Export to CSV', 'formminia-for-elementor'); ?></a>
 			<hr class="wp-header-end">
 
 			<form method="post">
 				<?php wp_nonce_field('bulk-submissions'); ?>
 				<!-- Page slug echo only; no state change. -->
 				<?php // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- The form carries its own nonce; this read is for a hidden field only. ?>
-				<input type="hidden" name="page" value="<?php echo isset($_REQUEST['page']) ? esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))) : 'mtef-submissions'; ?>" />
+				<input type="hidden" name="page" value="<?php echo isset($_REQUEST['page']) ? esc_attr(sanitize_text_field(wp_unslash($_REQUEST['page']))) : 'formminia-submissions'; ?>" />
 				<?php
 				$table->search_box(esc_html__('Search Submissions', 'formminia-for-elementor'), 'submission');
 				$table->display();
@@ -145,7 +145,7 @@ class SettingsPage
 	 */
 	public function maybe_handle_export_csv()
 	{
-		if (!isset($_GET['page']) || 'mtef-submissions' !== $_GET['page']) {
+		if (!isset($_GET['page']) || 'formminia-submissions' !== $_GET['page']) {
 			return;
 		}
 
@@ -157,7 +157,7 @@ class SettingsPage
 			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'formminia-for-elementor'));
 		}
 
-		if (!isset($_GET['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_wpnonce'])), 'mtef_export_csv')) {
+		if (!isset($_GET['_wpnonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_wpnonce'])), 'formminia_export_csv')) {
 			wp_die(esc_html__('Security check failed.', 'formminia-for-elementor'));
 		}
 
@@ -188,8 +188,8 @@ class SettingsPage
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CONTENT_BG_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_TEXT_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_SHOW_FOOTER_CREDIT, ['sanitize_callback' => 'sanitize_text_field']);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CC, ['sanitize_callback' => 'MTEF\Admin\SettingsPage::sanitize_email_list']);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BCC, ['sanitize_callback' => 'MTEF\Admin\SettingsPage::sanitize_email_list']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CC, ['sanitize_callback' => 'FORMMINIA\Admin\SettingsPage::sanitize_email_list']);
+		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BCC, ['sanitize_callback' => 'FORMMINIA\Admin\SettingsPage::sanitize_email_list']);
 	}
 
 	/**
@@ -222,7 +222,7 @@ class SettingsPage
 	public function maybe_display_elementor_notice()
 	{
 		$screen = function_exists('get_current_screen') ? get_current_screen() : null;
-		if (!$screen || strpos((string) $screen->id, 'mtef') === false) {
+		if (!$screen || strpos((string) $screen->id, 'formminia') === false) {
 			return;
 		}
 
@@ -238,7 +238,7 @@ class SettingsPage
 	 */
 	public function display_plugin_setup_page()
 	{
-		$path = MTEF_PLUGIN_DIR . 'includes/Admin/settings-view.php';
+		$path = FORMMINIA_PLUGIN_DIR . 'includes/Admin/settings-view.php';
 		if (file_exists($path)) {
 			include_once $path;
 		}
@@ -253,14 +253,14 @@ class SettingsPage
 			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'formminia-for-elementor'));
 		}
 
-		$repository = new \MTEF\Services\SubmissionRepository();
+		$repository = new \FORMMINIA\Services\SubmissionRepository();
 		$submissions = $repository->get_submissions(1000, 0); // Export last 1000 submissions
 
 		if (empty($submissions)) {
 			return;
 		}
 
-		$filename = 'mtef-submissions-' . wp_date('Y-m-d') . '.csv';
+		$filename = 'formminia-submissions-' . wp_date('Y-m-d') . '.csv';
 
 		header('Content-Type: text/csv; charset=utf-8');
 		header('Content-Disposition: attachment; filename=' . $filename);

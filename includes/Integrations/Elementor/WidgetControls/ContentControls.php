@@ -1,6 +1,6 @@
 <?php
 
-namespace MTEF\Integrations\Elementor\WidgetControls;
+namespace FORMMINIA\Integrations\Elementor\WidgetControls;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -145,7 +145,7 @@ trait ContentControls {
 					'size' => 150,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-layout-inline .mtef-form-group label' => 'min-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-layout-inline .formminia-form-group label' => 'min-width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'layout' => 'inline',
@@ -174,7 +174,7 @@ trait ContentControls {
 					'size' => 60,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-layout-inline .mtef-input-wrap' => 'flex: 1 1 {{SIZE}}{{UNIT}}; max-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-layout-inline .formminia-input-wrap' => 'flex: 1 1 {{SIZE}}{{UNIT}}; max-width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'layout' => 'inline',
@@ -197,7 +197,7 @@ trait ContentControls {
 					'size' => 15,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-layout-inline .mtef-form-group' => 'gap: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .formminia-layout-inline .formminia-form-group' => 'gap: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'layout' => 'inline',
@@ -220,7 +220,7 @@ trait ContentControls {
 					'6' => __('6 Columns', 'formminia-for-elementor'),
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-fields-wrapper' => '--mtef-columns: {{VALUE}};',
+					'{{WRAPPER}} .formminia-fields-wrapper' => '--formminia-columns: {{VALUE}};',
 				],
 			]
 		);
@@ -991,7 +991,7 @@ trait ContentControls {
 					'button_width!' => 'full',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .mtef-form-actions' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .formminia-form-actions' => 'text-align: {{VALUE}};',
 				],
 			]
 		);

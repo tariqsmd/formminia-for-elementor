@@ -1,0 +1,3596 @@
+/**
+ * FormMinia for Elementor Custom Skins
+ * 
+ * Elegant, premium preset skins for the FormMinia for Elementor Elementor Widget.
+ * Refactored to use CSS Variable overrides for better performance and customization.
+ */
+
+/* Modern Indigo */
+.formminia-skin-1 {
+    /* Variable Overrides */
+    --formminia-bg: #1a1c23;
+    --formminia-text: #ffffff;
+    --formminia-text-light: #94a3b8;
+    --formminia-primary: #818cf8;
+    --formminia-secondary: #4f46e5;
+
+    --formminia-title-color: #818cf8;
+    --formminia-title-weight: 800;
+    --formminia-title-spacing: -0.025em;
+    --formminia-label-color: #94a3b8;
+    --formminia-label-size: 0.875rem;
+    --formminia-label-weight: 600;
+    --formminia-label-transform: uppercase;
+    --formminia-label-spacing: 0.05em;
+
+    --formminia-input-bg: #2d2f39;
+    --formminia-input-border: #3f414d;
+    --formminia-input-color: #f1f5f9;
+    --formminia-input-focus-bg: #2d2f39;
+    --formminia-input-focus-border: #6366f1;
+    --formminia-input-focus-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+    --formminia-placeholder: #64748b;
+
+    --formminia-field-radius: 8px;
+
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-bg: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    --formminia-btn-hover-color: #ffffff;
+    --formminia-btn-hover-bg: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+    --formminia-btn-padding: 1.25rem 2rem;
+
+    --formminia-radius: 12px;
+    --formminia-form-padding: 2.5rem;
+    --formminia-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    accent-color: var(--formminia-primary);
+}
+
+/* Nature's Breath */
+.formminia-skin-2 {
+    /* Variable Overrides */
+    --formminia-bg: #fdfdfb;
+    --formminia-text: #134e4a;
+    --formminia-primary: #10b981;
+    --formminia-secondary: #059669;
+
+    --formminia-title-color: #065f46;
+    --formminia-label-color: #134e4a;
+
+    --formminia-input-bg: #f8fafc;
+    --formminia-input-border: #d1d5db;
+    --formminia-input-focus-border: #10b981;
+    --formminia-field-radius: 12px;
+    --formminia-field-padding: 0.875rem 1.25rem;
+
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-bg: #059669;
+    --formminia-btn-hover-color: #ffffff;
+    --formminia-btn-hover-bg: #047857;
+    --formminia-btn-radius: 50px;
+    --formminia-btn-padding: 1rem 3rem;
+
+    --formminia-radius: 20px;
+    --formminia-shadow: 0 10px 30px rgba(5, 150, 105, 0.05);
+    accent-color: var(--formminia-primary);
+
+    border: 1px solid #e2e8f0;
+
+    .formminia-form-title {
+        border-left: 4px solid var(--formminia-primary);
+        padding-left: 1.5rem;
+    }
+
+    .formminia-checkbox-custom {
+        border-radius: 50%;
+    }
+}
+
+/* Sleek Corporate */
+.formminia-skin-3 {
+    /* Variable Overrides */
+    --formminia-bg: #ffffff;
+    --formminia-text: #1e293b;
+    --formminia-primary: #0f172a;
+    --formminia-secondary: #1e293b;
+
+    --formminia-title-color: #1e293b;
+    --formminia-title-size: 1.5rem;
+    --formminia-title-transform: uppercase;
+    --formminia-title-spacing: 1px;
+    --formminia-label-color: #475569;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #e2e8f0;
+    --formminia-input-focus-border: #0f172a;
+    --formminia-field-radius: 0;
+
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-bg: #0f172a;
+    --formminia-btn-hover-color: #ffffff;
+    --formminia-btn-hover-bg: #1e293b;
+    --formminia-btn-radius: 0;
+    --formminia-btn-padding: 1.25rem 2.5rem;
+    --formminia-btn-transform: uppercase;
+    --formminia-btn-spacing: 2px;
+
+    --formminia-radius: 4px;
+    --formminia-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    accent-color: var(--formminia-primary);
+    accent-color: var(--formminia-primary);
+
+    border: 1px solid #e1e8ed;
+}
+
+/* Cotton Candy */
+.formminia-skin-4 {
+    /* Variable Overrides */
+    --formminia-bg: #ffffff;
+    --formminia-text: #db2777;
+    --formminia-primary: #f472b6;
+    --formminia-secondary: #ec4899;
+
+    --formminia-title-color: #db2777;
+    --formminia-label-color: #be185d;
+
+    --formminia-input-bg: #fdf2f8;
+    --formminia-input-border: #fbcfe8;
+    --formminia-input-focus-border: #f472b6;
+    --formminia-input-focus-bg: #ffffff;
+    --formminia-field-radius: 12px;
+    --formminia-field-border-width: 1.5px;
+
+    --formminia-btn-bg: #f472b6;
+    --formminia-btn-hover-bg: #ec4899;
+    --formminia-btn-hover-shadow: 0 5px 15px rgba(236, 72, 153, 0.3);
+    --formminia-btn-radius: 12px;
+
+    --formminia-radius: 30px;
+    --formminia-form-padding: 3rem;
+    --formminia-shadow: 0 10px 30px rgba(219, 39, 119, 0.05);
+    accent-color: var(--formminia-primary);
+
+    border: 1px solid #fce7f3;
+}
+
+/* Neumorphic Light */
+.formminia-skin-5 {
+    --formminia-bg: #e8edf2;
+    --formminia-text: #334155;
+    --formminia-text-light: #64748b;
+    --formminia-primary: #6366f1;
+    --formminia-secondary: #4f46e5;
+
+    --formminia-title-color: #1e293b;
+    --formminia-title-weight: 800;
+    --formminia-label-color: #64748b;
+    --formminia-label-size: 0.85rem;
+
+    --formminia-input-bg: #e8edf2;
+    --formminia-input-border: transparent;
+    --formminia-input-color: #1e293b;
+    --formminia-input-focus-bg: #e8edf2;
+    --formminia-input-focus-border: transparent;
+    --formminia-input-focus-shadow: inset 4px 4px 8px #c5cad0, inset -4px -4px 8px #ffffff, 0 0 0 2px rgba(99, 102, 241, 0.2);
+    --formminia-placeholder: #94a3b8;
+    --formminia-field-radius: 14px;
+    --formminia-field-border-width: 0;
+    --formminia-field-padding: 1rem 1.25rem;
+
+    --formminia-btn-bg: #e8edf2;
+    --formminia-btn-color: #6366f1;
+    --formminia-btn-hover-bg: #6366f1;
+    --formminia-btn-hover-color: #ffffff;
+    --formminia-btn-shadow: 6px 6px 12px #c5cad0, -6px -6px 12px #ffffff;
+    --formminia-btn-hover-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+    --formminia-btn-radius: 14px;
+    --formminia-btn-padding: 1.1rem 2.5rem;
+    --formminia-btn-weight: 700;
+
+    --formminia-radius: 24px;
+    --formminia-form-padding: 3rem;
+    --formminia-shadow: 12px 12px 24px #c5cad0, -12px -12px 24px #ffffff;
+    accent-color: var(--formminia-primary);
+
+    /* Neumorphic inset shadow on inputs */
+    .formminia-input,
+    .formminia-textarea {
+        box-shadow: inset 4px 4px 8px #c5cad0, inset -4px -4px 8px #ffffff;
+    }
+
+    /* Raised neumorphic button */
+    .formminia-submit-btn {
+        border: none;
+
+        &:hover {
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3) !important;
+        }
+
+        &:active {
+            box-shadow: inset 3px 3px 6px #c5cad0, inset -3px -3px 6px #ffffff !important;
+        }
+    }
+
+    /* Flat neumorphic checkbox */
+    .formminia-checkbox-custom {
+        box-shadow: inset 2px 2px 4px #c5cad0, inset -2px -2px 4px #ffffff;
+        border: none;
+    }
+}
+
+/* Purple Haze */
+.formminia-skin-6 {
+    --formminia-bg: #faf9fc;
+    --formminia-text: #2e1a47;
+    --formminia-primary: #a85eea;
+    --formminia-secondary: #8b5bd6;
+
+    --formminia-title-color: #6b21a8;
+    --formminia-title-weight: 800;
+    --formminia-label-color: #7c3aed;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #e9d5ff;
+    --formminia-input-focus-border: #a855f7;
+    --formminia-input-focus-shadow: 0 0 0 3px rgba(168, 94, 234, 0.15);
+    --formminia-field-radius: 10px;
+
+    --formminia-btn-bg: linear-gradient(135deg, #a855f7 0%, #d946ef 100%);
+    --formminia-btn-color: var(--formminia-text);
+    --formminia-btn-hover-bg: linear-gradient(135deg, #9333ea 0%, #be185d 100%);
+    --formminia-btn-hover-color: var(--formminia-text);
+    --formminia-btn-radius: 10px;
+    --formminia-btn-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
+
+    --formminia-radius: 16px;
+    --formminia-form-padding: 3rem;
+    --formminia-shadow: 0 15px 40px rgba(168, 85, 247, 0.1);
+    accent-color: var(--formminia-primary);
+}
+
+/* Sunset Vibes */
+.formminia-skin-7 {
+    --formminia-bg: #fff7ed;
+    --formminia-text: #7c2d12;
+    --formminia-primary: #fb923c;
+    --formminia-secondary: #f97316;
+
+    --formminia-title-color: #92400e;
+    --formminia-label-color: #b45309;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #fed7aa;
+    --formminia-input-focus-border: #fb923c;
+    --formminia-input-focus-shadow: 0 0 0 3px rgba(251, 146, 60, 0.15);
+    --formminia-field-radius: 8px;
+
+    --formminia-btn-bg: linear-gradient(135deg, #fb923c 0%, #f43f5e 100%);
+    --formminia-btn-color: var(--formminia-text);
+    --formminia-btn-hover-bg: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+    --formminia-btn-hover-color: var(--formminia-text);
+    --formminia-btn-radius: 50px;
+    --formminia-btn-padding: 1rem 2.5rem;
+
+    --formminia-radius: 16px;
+    --formminia-form-padding: 3rem;
+    --formminia-shadow: 0 15px 40px rgba(251, 146, 60, 0.1);
+    accent-color: var(--formminia-primary);
+
+    border: 1px solid #fed7aa;
+}
+
+/* Ocean Deep */
+.formminia-skin-8 {
+    --formminia-bg: #ecfdf5;
+    --formminia-text: #0f766e;
+    --formminia-primary: #14b8a6;
+    --formminia-secondary: #0d9488;
+
+    --formminia-title-color: #134e4a;
+    --formminia-title-weight: 800;
+    --formminia-label-color: #0f766e;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #a7f3d0;
+    --formminia-input-focus-border: #14b8a6;
+    --formminia-input-focus-shadow: 0 0 0 3px rgba(20, 184, 166, 0.15);
+    --formminia-field-radius: 12px;
+
+    --formminia-btn-bg: linear-gradient(135deg, #14b8a6 0%, #0891b2 100%);
+    --formminia-btn-color: var(--formminia-text);
+    --formminia-btn-hover-bg: linear-gradient(135deg, #0d9488 0%, #0e7490 100%);
+    --formminia-btn-hover-color: var(--formminia-text);
+    --formminia-btn-radius: 12px;
+
+    --formminia-radius: 20px;
+    --formminia-form-padding: 3rem;
+    --formminia-shadow: 0 12px 35px rgba(20, 184, 166, 0.1);
+    accent-color: var(--formminia-primary);
+}
+
+/* Crystal White */
+.formminia-skin-9 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #374151;
+    --formminia-primary: #3b82f6;
+    --formminia-secondary: #2563eb;
+
+    --formminia-title-color: #1f2937;
+    --formminia-title-weight: 600;
+    --formminia-label-color: #6b7280;
+
+    --formminia-input-bg: #f9fafb;
+    --formminia-input-border: #f3f4f6;
+    --formminia-input-focus-border: #3b82f6;
+    --formminia-input-focus-bg: #ffffff;
+    --formminia-input-focus-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    --formminia-field-radius: 8px;
+
+    --formminia-btn-bg: #3b82f6;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-hover-bg: #2563eb;
+    --formminia-btn-hover-color: #ffffff;
+    --formminia-btn-radius: 8px;
+    --formminia-btn-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+
+    --formminia-radius: 12px;
+    --formminia-form-padding: 2.5rem;
+    --formminia-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    accent-color: var(--formminia-primary);
+}
+
+/* Vibrant Coral */
+.formminia-skin-10 {
+    --formminia-bg: #fff5f7;
+    --formminia-text: #be183d;
+    --formminia-primary: #ff6b9d;
+    --formminia-secondary: #ff1744;
+
+    --formminia-title-color: #c2185b;
+    --formminia-title-weight: 800;
+    --formminia-label-color: #f50057;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #ffb3d9;
+    --formminia-input-focus-border: #ff6b9d;
+    --formminia-input-focus-shadow: 0 0 0 3px rgba(255, 107, 157, 0.15);
+    --formminia-field-radius: 12px;
+
+    --formminia-btn-bg: linear-gradient(135deg, #ff6b9d 0%, #ff1744 100%);
+    --formminia-btn-color: var(--formminia-text);
+    --formminia-btn-hover-bg: linear-gradient(135deg, #ff5290 0%, #d60035 100%);
+    --formminia-btn-hover-color: var(--formminia-text);
+    --formminia-btn-radius: 12px;
+
+    --formminia-radius: 18px;
+    --formminia-form-padding: 3rem;
+    --formminia-shadow: 0 12px 35px rgba(255, 107, 157, 0.15);
+    accent-color: var(--formminia-primary);
+
+    border: 1px solid #ff99c8;
+}
+
+/* Platinum Luxury */
+.formminia-skin-11 {
+    --formminia-bg: #f5f5f5;
+    --formminia-text: #3c3c3c;
+    --formminia-primary: #c0a080;
+    --formminia-secondary: #8b8680;
+
+    --formminia-title-color: #1a1a1a;
+    --formminia-title-weight: 700;
+    --formminia-title-spacing: 1px;
+    --formminia-label-color: #5a5a5a;
+    --formminia-label-transform: uppercase;
+    --formminia-label-spacing: 0.05em;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #d3d3d3;
+    --formminia-input-focus-border: #c0a080;
+    --formminia-input-focus-shadow: 0 0 0 2px rgba(192, 160, 128, 0.1);
+    --formminia-field-radius: 2px;
+
+    --formminia-btn-bg: #8b8680;
+    --formminia-btn-color: var(--formminia-text);
+    --formminia-btn-hover-bg: #6b6660;
+    --formminia-btn-hover-color: var(--formminia-text);
+    --formminia-btn-radius: 2px;
+    --formminia-btn-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+
+    --formminia-radius: 4px;
+    --formminia-form-padding: 4rem;
+    --formminia-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    accent-color: var(--formminia-primary);
+
+    border: 2px solid #d3d3d3;
+}
+
+/* Midnight Glow */
+.formminia-skin-12 {
+    --formminia-bg: #0a0a0f;
+    --formminia-text: #e0e7ff;
+    --formminia-primary: #22d3ee;
+    --formminia-secondary: #818cf8;
+
+    --formminia-title-color: #22d3ee;
+    --formminia-title-weight: 800;
+    --formminia-title-size: 2.25rem;
+    --formminia-title-spacing: 0.1em;
+    --formminia-label-color: #818cf8;
+    --formminia-label-size: 0.85rem;
+    --formminia-label-transform: uppercase;
+
+    --formminia-input-bg: rgba(255, 255, 255, 0.03);
+    --formminia-input-border: rgba(34, 211, 238, 0.2);
+    --formminia-input-color: #e0e7ff;
+    --formminia-input-focus-bg: rgba(34, 211, 238, 0.05);
+    --formminia-input-focus-border: #22d3ee;
+    --formminia-input-focus-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
+    --formminia-field-radius: 12px;
+    --formminia-field-padding: 1.1rem 1.5rem;
+
+    --formminia-btn-bg: linear-gradient(135deg, #22d3ee 0%, #818cf8 100%);
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-hover-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+    --formminia-btn-radius: 50px;
+    --formminia-btn-padding: 1.25rem 3rem;
+    --formminia-btn-weight: 700;
+    --formminia-btn-transform: uppercase;
+
+    --formminia-radius: 30px;
+    --formminia-form-padding: 4rem;
+    --formminia-shadow: 0 0 60px rgba(34, 211, 238, 0.08);
+    accent-color: var(--formminia-primary);
+
+    position: relative;
+    border: 1px solid rgba(34, 211, 238, 0.15);
+
+    /* Inner subtle glow */
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: radial-gradient(circle at top right, rgba(129, 140, 248, 0.05) 0%, transparent 70%);
+        pointer-events: none;
+    }
+
+    .formminia-form-title {
+        text-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+    }
+}
+
+/* Cyberpunk Glitch */
+.formminia-skin-13 {
+    --formminia-bg: #050505;
+    --formminia-text: #00ff00;
+    --formminia-primary: #ff00ff;
+    --formminia-secondary: #00ffff;
+
+    --formminia-title-color: #00ff00;
+    --formminia-title-weight: 900;
+    --formminia-title-transform: uppercase;
+    --formminia-title-spacing: 4px;
+    --formminia-label-color: #00ffff;
+    --formminia-label-size: 0.75rem;
+    --formminia-label-transform: uppercase;
+
+    --formminia-input-bg: rgba(255, 0, 255, 0.05);
+    --formminia-input-border: #ff00ff;
+    --formminia-input-color: #ffffff;
+    --formminia-input-focus-bg: rgba(0, 255, 255, 0.1);
+    --formminia-input-focus-border: #00ffff;
+    --formminia-input-focus-shadow: 4px 4px 0px #ff00ff;
+    --formminia-field-radius: 0;
+    --formminia-field-border-width: 2px;
+
+    --formminia-btn-bg: #00ff00;
+    --formminia-btn-color: #000000;
+    --formminia-btn-radius: 0;
+    --formminia-btn-weight: 900;
+    --formminia-btn-transform: uppercase;
+    --formminia-btn-padding: 1.5rem 3rem;
+
+    --formminia-radius: 0;
+    --formminia-form-padding: 4rem;
+    --formminia-shadow: 10px 10px 0px #ff00ff, 20px 20px 0px #00ffff;
+    accent-color: var(--formminia-primary);
+
+    border: 3px solid #00ff00;
+    position: relative;
+
+    &::before {
+        content: 'SYSTEM_ACTIVE';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-family: monospace;
+        font-size: 10px;
+        color: #ff00ff;
+        opacity: 0.5;
+    }
+
+    .formminia-submit-btn {
+        clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 5px 5px 0px #ff00ff;
+        }
+    }
+
+    .formminia-form-title {
+        text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff;
+    }
+}
+
+/* Paper Stack */
+.formminia-skin-14 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #2d3436;
+    --formminia-primary: #0984e3;
+    --formminia-secondary: #636e72;
+
+    --formminia-title-color: #2d3436;
+    --formminia-title-weight: 700;
+    --formminia-label-color: #636e72;
+    --formminia-label-weight: 600;
+
+    --formminia-input-bg: #f9f9f9;
+    --formminia-input-border: #dfe6e9;
+    --formminia-input-focus-bg: #ffffff;
+    --formminia-input-focus-border: #0984e3;
+    --formminia-field-radius: 4px;
+
+    --formminia-btn-bg: #2d3436;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-hover-bg: #000000;
+    --formminia-btn-radius: 4px;
+
+    --formminia-radius: 2px;
+    --formminia-form-padding: 4rem;
+    accent-color: var(--formminia-primary);
+
+    border: 1px solid #dfe6e9;
+    position: relative;
+    background: var(--formminia-bg);
+
+    /* Stacked paper effect */
+    box-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.15),
+        0 10px 0 -5px #eee,
+        0 10px 1px -4px rgba(0, 0, 0, 0.15),
+        0 20px 0 -10px #eee,
+        0 20px 1px -9px rgba(0, 0, 0, 0.15);
+
+    .formminia-submit-btn {
+        box-shadow: 0 4px 0 #000;
+
+        &:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #000;
+        }
+    }
+}
+
+/* Liquid Metal */
+.formminia-skin-15 {
+    --formminia-bg: linear-gradient(145deg, #232526, #414345);
+    --formminia-text: #ffffff;
+    --formminia-primary: #00d2ff;
+    --formminia-secondary: #92fe9d;
+
+    --formminia-title-color: #ffffff;
+    --formminia-title-weight: 900;
+    --formminia-title-size: 2.5rem;
+    --formminia-label-color: rgba(255, 255, 255, 0.7);
+
+    --formminia-input-bg: rgba(0, 0, 0, 0.2);
+    --formminia-input-border: rgba(255, 255, 255, 0.1);
+    --formminia-input-color: #ffffff;
+    --formminia-input-focus-border: #00d2ff;
+    --formminia-field-radius: 12px;
+
+    --formminia-btn-bg: linear-gradient(to right, #00d2ff, #3a7bd5);
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 12px;
+    --formminia-btn-weight: 800;
+
+    --formminia-radius: 24px;
+    --formminia-form-padding: 3.5rem;
+
+    accent-color: var(--formminia-primary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    background: var(--formminia-bg);
+
+    .formminia-input,
+    .formminia-textarea {
+        backdrop-filter: blur(10px);
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .formminia-submit-btn {
+        border: 1px solid #fff;
+    }
+}
+
+/* Vintage Terminal */
+.formminia-skin-16 {
+    --formminia-bg: #1a1a1a;
+    --formminia-text: #33ff33;
+    --formminia-primary: #33ff33;
+    --formminia-secondary: #1a1a1a;
+
+    --formminia-title-color: #33ff33;
+    --formminia-title-weight: 400;
+    --formminia-title-size: 1.5rem;
+    --formminia-title-spacing: 2px;
+    --formminia-label-color: #33ff33;
+    --formminia-label-size: 0.9rem;
+
+    --formminia-input-bg: #000000;
+    --formminia-input-border: #33ff33;
+    --formminia-input-color: #33ff33;
+    --formminia-input-focus-bg: #0a2a0a;
+    --formminia-field-radius: 0;
+
+    --formminia-btn-bg: #33ff33;
+    --formminia-btn-color: #000000;
+    --formminia-btn-radius: 0;
+    --formminia-btn-weight: 700;
+
+    --formminia-radius: 0;
+    --formminia-form-padding: 2.5rem;
+    accent-color: var(--formminia-primary);
+
+    border: 2px solid #33ff33;
+    font-family: 'Courier New', Courier, monospace;
+
+    /* Scanline effect */
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        background-size: 100% 4px, 3px 100%;
+        pointer-events: none;
+        z-index: 10;
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        border-style: solid;
+        caret-color: #33ff33;
+
+        &::placeholder {
+            color: rgba(51, 255, 51, 0.3);
+        }
+    }
+
+    .formminia-submit-btn {
+        border: none;
+
+        &:hover {
+            background: #22cc22;
+        }
+    }
+}
+
+/* Minimalist Tech */
+.formminia-skin-17 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #1d1d1f;
+    --formminia-primary: #0071e3;
+    --formminia-secondary: #86868b;
+
+    --formminia-title-color: #1d1d1f;
+    --formminia-title-weight: 600;
+    --formminia-title-size: 2.25rem;
+    --formminia-label-color: #1d1d1f;
+    --formminia-label-weight: 500;
+
+    --formminia-input-bg: #f5f5f7;
+    --formminia-input-border: transparent;
+    --formminia-input-focus-bg: #ffffff;
+    --formminia-input-focus-border: #0071e3;
+    --formminia-field-radius: 12px;
+    --formminia-field-padding: 1rem 1.25rem;
+
+    --formminia-btn-bg: #0071e3;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-hover-bg: #0077ed;
+    --formminia-btn-radius: 980px;
+    /* Pill shape */
+    --formminia-btn-weight: 500;
+
+    --formminia-radius: 20px;
+    --formminia-form-padding: 4rem;
+    --formminia-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+    accent-color: var(--formminia-primary);
+
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Apple Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    border: 1px solid #d2d2d7;
+
+    .formminia-input:focus {
+        box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1) !important;
+    }
+}
+
+/* Vibrant Pulse */
+.formminia-skin-18 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #191414;
+    --formminia-primary: #1db954;
+    --formminia-secondary: #535353;
+
+    --formminia-title-color: #191414;
+    --formminia-title-weight: 700;
+    --formminia-title-size: 2rem;
+    --formminia-label-color: #191414;
+    --formminia-label-weight: 700;
+
+    --formminia-input-bg: #f8f8f8;
+    --formminia-input-border: 1px solid #dcdcdc;
+    --formminia-input-color: #191414;
+    --formminia-input-focus-bg: #ffffff;
+    --formminia-input-focus-border: #1db954;
+    --formminia-field-radius: 4px;
+
+    --formminia-btn-bg: #1db954;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-hover-bg: #1ed760;
+    --formminia-btn-radius: 500px;
+    --formminia-btn-weight: 700;
+    --formminia-btn-padding: 1rem 2.5rem;
+
+    --formminia-radius: 12px;
+    --formminia-form-padding: 3rem;
+    --formminia-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    accent-color: var(--formminia-primary);
+
+    .formminia-submit-btn {
+        transition: transform 33ms cubic-bezier(.3, 0, 0, 1);
+
+        &:hover {
+            transform: scale(1.04);
+        }
+    }
+}
+
+/* Clean Material */
+.formminia-skin-19 {
+    --formminia-bg: #fef7ff;
+    /* Material M3 Surface Container */
+    --formminia-text: #1d1b20;
+    --formminia-primary: #6750a4;
+    --formminia-secondary: #625b71;
+
+    --formminia-title-color: #1d1b20;
+    --formminia-title-weight: 400;
+    --formminia-label-color: #49454f;
+    --formminia-label-size: 0.875rem;
+
+    --formminia-input-bg: #e7e0ec;
+    --formminia-input-border: #49454f;
+    --formminia-input-focus-bg: #e7e0ec;
+    --formminia-input-focus-border: #6750a4;
+    --formminia-field-radius: 4px 4px 0 0;
+    --formminia-field-border-width: 0 0 1px 0;
+
+    --formminia-btn-bg: #6750a4;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-hover-bg: #7a66b6;
+    --formminia-btn-radius: 100px;
+    --formminia-btn-weight: 500;
+
+    --formminia-radius: 28px;
+    --formminia-form-padding: 2.5rem;
+    --formminia-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+    accent-color: var(--formminia-primary);
+
+    .formminia-input,
+    .formminia-textarea {
+        border-style: solid;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+            border-bottom-width: 2px;
+        }
+    }
+}
+
+/* Social Connect */
+.formminia-skin-20 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #1c1e21;
+    --formminia-primary: #0866ff;
+    --formminia-secondary: #65676b;
+
+    --formminia-title-color: #1c1e21;
+    --formminia-title-weight: 700;
+    --formminia-label-color: #1c1e21;
+    --formminia-label-size: 0.9rem;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #dddfe2;
+    --formminia-input-focus-border: #0866ff;
+    --formminia-input-focus-shadow: 0 0 0 2px #e7f3ff;
+    --formminia-field-radius: 6px;
+
+    --formminia-btn-bg: #0866ff;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-hover-bg: #1877f2;
+    --formminia-btn-radius: 6px;
+    --formminia-btn-weight: 700;
+    --formminia-btn-size: 1.1rem;
+
+    --formminia-radius: 8px;
+    --formminia-form-padding: 2rem;
+    --formminia-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+    accent-color: var(--formminia-primary);
+
+    border: 1px solid #dddfe2;
+}
+
+/* Soft Clay */
+.formminia-skin-21 {
+    --formminia-bg: #f0f4f9;
+    --formminia-text: #4a5568;
+    --formminia-primary: #667eea;
+    --formminia-secondary: #764ba2;
+
+    --formminia-title-color: #2d3748;
+    --formminia-title-weight: 800;
+    --formminia-label-color: #4a5568;
+
+    --formminia-input-bg: #f0f4f9;
+    --formminia-input-border: none;
+    --formminia-input-focus-bg: #f0f4f9;
+    --formminia-field-radius: 20px;
+    --formminia-field-padding: 1.2rem 1.5rem;
+
+    --formminia-btn-bg: #667eea;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 30px;
+    --formminia-btn-weight: 700;
+
+    --formminia-radius: 40px;
+    --formminia-form-padding: 4rem;
+    accent-color: var(--formminia-primary);
+
+    background: var(--formminia-bg);
+    box-shadow:
+        20px 20px 60px #ccd1d9,
+        -20px -20px 60px #ffffff;
+    border: none;
+
+    .formminia-input,
+    .formminia-textarea {
+        box-shadow:
+            inset 6px 6px 12px #d1d9e6,
+            inset -6px -6px 12px #ffffff;
+        transition: all 0.3s ease;
+
+        &:focus {
+            box-shadow:
+                inset 2px 2px 5px #d1d9e6,
+                inset -5px -5px 10px #ffffff;
+            transform: scale(0.99);
+        }
+    }
+
+    .formminia-submit-btn {
+        box-shadow:
+            8px 8px 15px #ccd1d9,
+            -8px -8px 15px #ffffff;
+
+        &:hover {
+            box-shadow:
+                inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+                4px 4px 10px #ccd1d9;
+        }
+    }
+}
+
+/* Pop Brutalist */
+.formminia-skin-22 {
+    --formminia-bg: #ffde03;
+    /* Bright Yellow */
+    --formminia-text: #000000;
+    --formminia-primary: #000000;
+    --formminia-secondary: #ff00ff;
+
+    --formminia-title-color: #000000;
+    --formminia-title-weight: 900;
+    --formminia-title-size: 2.5rem;
+    --formminia-title-transform: uppercase;
+    --formminia-label-color: #000000;
+    --formminia-label-weight: 900;
+    --formminia-label-transform: uppercase;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #000000;
+    --formminia-input-color: #000000;
+    --formminia-input-focus-bg: #ffffff;
+    --formminia-input-focus-border: #000000;
+    --formminia-input-focus-shadow: 4px 4px 0px #000000;
+    --formminia-field-radius: 0;
+    --formminia-field-border-width: 3px;
+
+    --formminia-btn-bg: #00ff00;
+    /* Neon Green */
+    --formminia-btn-color: #000000;
+    --formminia-btn-radius: 0;
+    --formminia-btn-weight: 900;
+    --formminia-btn-transform: uppercase;
+    --formminia-btn-padding: 1.25rem 2.5rem;
+
+    --formminia-radius: 0;
+    --formminia-form-padding: 3.5rem;
+    --formminia-shadow: 8px 8px 0px #000000;
+    accent-color: var(--formminia-primary);
+
+    border: 3px solid #000000;
+    background: var(--formminia-bg);
+
+    .formminia-submit-btn {
+        border: 3px solid #000000;
+        box-shadow: 4px 4px 0px #000000;
+        transition: all 0.1s;
+
+        &:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000000;
+        }
+
+        &:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px #000000;
+        }
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        border-style: solid;
+    }
+}
+
+/* Aura Gradient */
+.formminia-skin-23 {
+    --formminia-bg: #f8fafc;
+    --formminia-text: #0f172a;
+    --formminia-primary: #38bdf8;
+    --formminia-secondary: #818cf8;
+
+    --formminia-title-color: #0f172a;
+    --formminia-title-weight: 800;
+    --formminia-title-size: 2.25rem;
+    --formminia-label-color: #475569;
+
+    --formminia-input-bg: rgba(255, 255, 255, 0.8);
+    --formminia-input-border: rgba(0, 0, 0, 0.1);
+    --formminia-input-color: #0f172a;
+    --formminia-input-focus-bg: #ffffff;
+    --formminia-input-focus-border: #38bdf8;
+    --formminia-field-radius: 16px;
+
+    --formminia-btn-bg: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 12px;
+    --formminia-btn-weight: 600;
+
+    --formminia-radius: 32px;
+    --formminia-form-padding: 4rem;
+    accent-color: var(--formminia-primary);
+
+    position: relative;
+    overflow: hidden;
+    background: var(--formminia-bg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+
+    /* Animated Mesh Gradient Background */
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.2) 0px, transparent 50%),
+            radial-gradient(at 100% 0%, rgba(129, 140, 248, 0.2) 0px, transparent 50%),
+            radial-gradient(at 100% 100%, rgba(232, 121, 249, 0.2) 0px, transparent 50%),
+            radial-gradient(at 0% 100%, rgba(56, 189, 248, 0.2) 0px, transparent 50%);
+        filter: blur(40px);
+        animation: formminia-mesh-float 10s ease-in-out infinite alternate;
+        z-index: 0;
+    }
+
+    @keyframes formminia-mesh-float {
+        0% {
+            transform: scale(1) rotate(0deg);
+        }
+
+        100% {
+            transform: scale(1.1) rotate(2deg);
+        }
+    }
+
+    .formminia-form-inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        backdrop-filter: blur(10px);
+
+        &:focus {
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+        }
+    }
+
+    .formminia-submit-btn {
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: var(--formminia-input-bg);
+        color: var(--formminia-label-color);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #38bdf8;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+        }
+    }
+}
+
+/* Royal Executive */
+.formminia-skin-24 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #1e293b;
+    --formminia-primary: #b48c5a;
+    /* Muted Gold */
+    --formminia-secondary: #64748b;
+
+    --formminia-title-color: #1e293b;
+    --formminia-title-weight: 300;
+    --formminia-title-size: 2.5rem;
+    --formminia-title-spacing: 0.15em;
+    --formminia-label-color: #64748b;
+    --formminia-label-transform: uppercase;
+    --formminia-label-size: 0.75rem;
+
+    --formminia-input-bg: #fcfcfc;
+    --formminia-input-border: rgba(180, 140, 90, 0.3);
+    --formminia-input-color: #1e293b;
+    --formminia-input-focus-border: #b48c5a;
+    --formminia-field-radius: 0;
+    --formminia-field-border-width: 0 0 1px 0;
+
+    --formminia-btn-bg: #b48c5a;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 0;
+    --formminia-btn-weight: 600;
+    --formminia-btn-transform: uppercase;
+    --formminia-btn-spacing: 3px;
+
+    --formminia-radius: 0;
+    --formminia-form-padding: 5rem;
+    --formminia-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
+    accent-color: var(--formminia-primary);
+
+    border: 1px solid rgba(180, 140, 90, 0.15);
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        border: 1px solid rgba(180, 140, 90, 0.1);
+        pointer-events: none;
+    }
+
+    .formminia-submit-btn {
+        border: 1px solid #b48c5a;
+        background: transparent;
+        color: #b48c5a;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+            background: #b48c5a;
+            color: #ffffff;
+            box-shadow: 0 0 40px rgba(180, 140, 90, 0.2);
+        }
+    }
+}
+
+/* Organic Flow */
+.formminia-skin-25 {
+    --formminia-bg: #fdfbf7;
+    --formminia-text: #2d3436;
+    --formminia-primary: #55efc4;
+    --formminia-secondary: #00b894;
+
+    --formminia-title-color: #2d3436;
+    --formminia-title-weight: 800;
+    --formminia-label-color: #636e72;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #dfe6e9;
+    --formminia-input-focus-border: #00b894;
+    --formminia-field-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    /* Organic shape */
+
+    --formminia-btn-bg: #00b894;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    --formminia-btn-padding: 1.2rem 2.5rem;
+
+    --formminia-radius: 60px 30px 70px 40px;
+    --formminia-form-padding: 4rem;
+    --formminia-shadow: 0 20px 40px rgba(0, 184, 148, 0.05);
+    accent-color: var(--formminia-primary);
+
+    border: 2px solid #f1f2f6;
+
+    .formminia-input,
+    .formminia-textarea {
+        border-width: 2px;
+        transition: border-radius 0.5s ease;
+
+        &:focus {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+    }
+
+    .formminia-submit-btn {
+        transition: border-radius 0.5s ease, transform 0.3s ease;
+
+        &:hover {
+            border-radius: 50%;
+            transform: rotate(2deg) scale(1.05);
+        }
+    }
+}
+
+/* Retro Pixel */
+.formminia-skin-26 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #000000;
+    --formminia-primary: #ff0000;
+    --formminia-secondary: #ff00ff;
+
+    --formminia-title-color: #000000;
+    --formminia-title-weight: 400;
+    --formminia-title-size: 2rem;
+    --formminia-title-spacing: 2px;
+    --formminia-label-color: #ff00ff;
+    --formminia-label-size: 0.8rem;
+
+    --formminia-input-bg: #f5f5f5;
+    --formminia-input-border: #000000;
+    --formminia-input-color: #000000;
+    --formminia-input-focus-bg: #ffffff;
+    --formminia-input-focus-border: #ff0000;
+    --formminia-field-radius: 0;
+
+    --formminia-btn-bg: #ff0000;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 0;
+    --formminia-btn-weight: 400;
+
+    --formminia-radius: 0;
+    --formminia-form-padding: 3rem;
+    accent-color: var(--formminia-primary);
+
+    /* Pixel border effect */
+    border: 4px solid #000000;
+    box-shadow:
+        0 4px 0 0 #ccc,
+        0 -4px 0 0 #ccc,
+        4px 0 0 0 #ccc,
+        -4px 0 0 0 #ccc,
+        0 8px 0 0 #eee,
+        8px 0 0 0 #eee;
+
+    font-family: 'Press Start 2P', 'Courier New', Courier, monospace;
+
+    .formminia-input,
+    .formminia-textarea {
+        border: 4px solid #000;
+        box-shadow: 4px 4px 0 #eee;
+
+        &:focus {
+            border-color: #ff0000;
+            box-shadow: 4px 4px 0 #ffebeb;
+        }
+    }
+
+    .formminia-submit-btn {
+        border: 4px solid #000;
+        box-shadow: 4px 4px 0 #eee;
+        text-transform: uppercase;
+
+        &:hover {
+            background: #ff4444;
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 #eee;
+        }
+
+        &:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px #000;
+        }
+    }
+}
+
+/* Dynamic Stream */
+.formminia-skin-27 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #0f1419;
+    --formminia-primary: #1d9bf0;
+    --formminia-secondary: #536471;
+
+    --formminia-title-color: #0f1419;
+    --formminia-title-weight: 700;
+    --formminia-title-size: 1.75rem;
+    --formminia-label-color: #536471;
+    --formminia-label-size: 0.9rem;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #cfd9de;
+    --formminia-input-color: #0f1419;
+    --formminia-input-focus-bg: #ffffff;
+    --formminia-input-focus-border: #1d9bf0;
+    --formminia-field-radius: 4px;
+
+    --formminia-btn-bg: #0f1419;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-hover-bg: #272c30;
+    --formminia-btn-radius: 9999px;
+    --formminia-btn-weight: 700;
+    --formminia-btn-padding: 0.75rem 2rem;
+
+    --formminia-radius: 16px;
+    --formminia-form-padding: 2.5rem;
+    --formminia-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    accent-color: var(--formminia-primary);
+
+    border: 1px solid #eff3f4;
+
+    .formminia-input:focus {
+        box-shadow: 0 0 0 1px #1d9bf0 !important;
+    }
+
+    .formminia-submit-btn {
+        width: 100%;
+        transition: background-color 0.2s ease;
+    }
+}
+
+/* Corporate Network */
+.formminia-skin-28 {
+    --formminia-bg: #ffffff;
+    --formminia-text: rgba(0, 0, 0, 0.9);
+    --formminia-primary: #0077b5;
+    --formminia-secondary: rgba(0, 0, 0, 0.6);
+
+    --formminia-title-color: rgba(0, 0, 0, 0.9);
+    --formminia-title-weight: 600;
+    --formminia-label-color: rgba(0, 0, 0, 0.6);
+    --formminia-label-weight: 400;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: rgba(0, 0, 0, 0.6);
+    --formminia-input-focus-border: #0077b5;
+    --formminia-input-focus-shadow: 0 0 0 1px #0077b5;
+    --formminia-field-radius: 4px;
+
+    --formminia-btn-bg: #0077b5;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-hover-bg: #004182;
+    --formminia-btn-radius: 1.6rem;
+    --formminia-btn-weight: 600;
+
+    --formminia-radius: 8px;
+    --formminia-form-padding: 2rem;
+    --formminia-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 4px 4px rgba(0, 0, 0, 0.05);
+    accent-color: var(--formminia-primary);
+
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+    .formminia-submit-btn {
+        width: 100%;
+        transition: background-color 0.167s ease;
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        transition: box-shadow 0.2s ease;
+    }
+}
+
+/* Marketplace Hub */
+.formminia-skin-29 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #111111;
+    --formminia-primary: #f3a847;
+    /* Amazon-like Orange */
+    --formminia-secondary: #232f3e;
+
+    --formminia-title-color: #232f3e;
+    --formminia-title-weight: 700;
+    --formminia-label-color: #111111;
+    --formminia-label-weight: 700;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #888888;
+    --formminia-input-focus-border: #e77600;
+    --formminia-input-focus-shadow: 0 0 3px 2px rgba(228, 121, 17, .5);
+    --formminia-field-radius: 3px;
+
+    --formminia-btn-bg: #f0c14b;
+    --formminia-btn-color: #111111;
+    --formminia-btn-hover-bg: #f4d078;
+    --formminia-btn-radius: 3px;
+    --formminia-btn-weight: 400;
+
+    --formminia-radius: 4px;
+    --formminia-form-padding: 2.5rem;
+    --formminia-shadow: 0 1px 0 rgba(255, 255, 255, .4) inset, 0 1px 0 rgba(0, 0, 0, .08);
+    accent-color: var(--formminia-primary);
+
+    border: 1px solid #ddd;
+
+    .formminia-submit-btn {
+        border: 1px solid;
+        border-color: #a88734 #9c7e31 #846a29;
+    }
+}
+
+/* Cinema Spotlight */
+.formminia-skin-30 {
+    --formminia-bg: #f5f5f5;
+    --formminia-text: #221f1f;
+    --formminia-primary: #e50914;
+    /* Netflix-like Red */
+    --formminia-secondary: #545454;
+
+    --formminia-title-color: #e50914;
+    --formminia-title-weight: 900;
+    --formminia-title-size: 2.5rem;
+    --formminia-label-color: #221f1f;
+    --formminia-label-weight: 600;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #333333;
+    --formminia-input-focus-bg: #ffffff;
+    --formminia-input-focus-border: #e50914;
+    --formminia-field-radius: 2px;
+
+    --formminia-btn-bg: #e50914;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-hover-bg: #ff0a16;
+    --formminia-btn-radius: 4px;
+    --formminia-btn-weight: 700;
+    --formminia-btn-transform: uppercase;
+
+    --formminia-radius: 8px;
+    --formminia-form-padding: 3rem;
+    --formminia-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    accent-color: var(--formminia-primary);
+
+    border-top: 5px solid #e50914;
+}
+
+/* Team Collaboration */
+.formminia-skin-31 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #1d1c1d;
+    --formminia-primary: #4a154b;
+    /* Slack-like Purple */
+    --formminia-secondary: #616061;
+
+    --formminia-title-color: #1d1c1d;
+    --formminia-title-weight: 900;
+    --formminia-label-color: #1d1c1d;
+    --formminia-label-weight: 700;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: rgba(29, 28, 29, 0.3);
+    --formminia-input-focus-border: #1264a3;
+    --formminia-input-focus-shadow: 0 0 0 1px #1264a3, 0 0 0 5px rgba(18, 100, 163, 0.1);
+    --formminia-field-radius: 4px;
+
+    --formminia-btn-bg: #007a5a;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-hover-bg: #148567;
+    --formminia-btn-radius: 4px;
+    --formminia-btn-weight: 700;
+
+    --formminia-radius: 12px;
+    --formminia-form-padding: 2.5rem;
+    --formminia-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    accent-color: var(--formminia-primary);
+
+    border: 1px solid #dddddd;
+
+    .formminia-submit-btn {
+        width: 100%;
+    }
+}
+
+/* Travel Explorer */
+.formminia-skin-32 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #484848;
+    --formminia-primary: #ff5a5f;
+    /* Airbnb-like Coral */
+    --formminia-secondary: #767676;
+
+    --formminia-title-color: #ff5a5f;
+    --formminia-title-weight: 800;
+    --formminia-label-color: #484848;
+    --formminia-label-weight: 600;
+    --formminia-label-transform: uppercase;
+    --formminia-label-size: 0.75rem;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #ebebeb;
+    --formminia-input-focus-border: #008489;
+    --formminia-field-radius: 8px;
+    --formminia-field-padding: 1rem;
+
+    --formminia-btn-bg: linear-gradient(to right, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-hover-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+    --formminia-btn-radius: 8px;
+    --formminia-btn-weight: 600;
+
+    --formminia-radius: 12px;
+    --formminia-form-padding: 3rem;
+    --formminia-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    accent-color: var(--formminia-primary);
+
+    border: 1px solid #ebebeb;
+
+    .formminia-input:focus {
+        border-color: #008489 !important;
+    }
+
+    .formminia-submit-btn {
+        border-color:var(--formminia-label-color);
+        color: var(--formminia-label-color);
+
+        &:hover{
+            color: #ffffff;
+        }
+    }
+}
+
+/* Frosted Glass */
+.formminia-skin-33 {
+    --formminia-bg: rgba(255, 255, 255, 0.4);
+    --formminia-text: #1e293b;
+    --formminia-primary: #6366f1;
+    --formminia-secondary: #a855f7;
+
+    --formminia-title-color: #1e293b;
+    --formminia-title-weight: 800;
+    --formminia-label-color: #475569;
+
+    --formminia-input-bg: rgba(255, 255, 255, 0.5);
+    --formminia-input-border: rgba(255, 255, 255, 0.3);
+    --formminia-input-focus-bg: rgba(255, 255, 255, 0.8);
+    --formminia-field-radius: 12px;
+
+    --formminia-btn-bg: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 12px;
+    --formminia-btn-weight: 600;
+
+    --formminia-radius: 24px;
+    --formminia-form-padding: 3.5rem;
+    --formminia-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    accent-color: var(--formminia-primary);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    .formminia-input,
+    .formminia-textarea {
+        backdrop-filter: blur(4px);
+        border: 1px solid var(--formminia-label-color);
+    }
+
+    .formminia-submit-btn {
+        border-color:var(--formminia-label-color);
+        color: var(--formminia-label-color);
+
+        &:hover{
+            color: #ffffff;
+        }
+    }
+}
+
+/* Floating Depth */
+.formminia-skin-34 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #334155;
+    --formminia-primary: #0ea5e9;
+    --formminia-secondary: #0284c7;
+
+    --formminia-title-color: #0f172a;
+    --formminia-title-weight: 900;
+    --formminia-title-size: 2.5rem;
+    --formminia-label-color: #64748b;
+
+    --formminia-input-bg: #f8fafc;
+    --formminia-input-border: transparent;
+    --formminia-input-focus-bg: #ffffff;
+    --formminia-input-focus-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --formminia-field-radius: 16px;
+
+    --formminia-btn-bg: #0ea5e9;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 16px;
+    --formminia-btn-shadow: 0 20px 25px -5px rgba(14, 165, 233, 0.4);
+
+    --formminia-radius: 32px;
+    --formminia-form-padding: 4rem;
+    --formminia-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.15), 0 30px 60px -30px rgba(0, 0, 0, 0.2);
+    accent-color: var(--formminia-primary);
+
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-10px);
+    }
+
+    .formminia-submit-btn {
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 30px -5px rgba(14, 165, 233, 0.5);
+        }
+    }
+}
+
+/* Serif Elegance */
+.formminia-skin-35 {
+    --formminia-bg: #fafaf9;
+    --formminia-text: #1c1917;
+    --formminia-primary: #1c1917;
+    --formminia-secondary: #44403c;
+
+    --formminia-title-color: #1c1917;
+    --formminia-title-weight: 400;
+    --formminia-title-size: 3rem;
+    --formminia-label-color: #44403c;
+    --formminia-label-transform: uppercase;
+    --formminia-label-spacing: 0.1em;
+    --formminia-label-size: 0.75rem;
+
+    --formminia-input-bg: transparent;
+    --formminia-input-border: #d6d3d1;
+    --formminia-input-focus-border: #1c1917;
+    --formminia-field-radius: 0;
+    --formminia-field-border-width: 0 0 1px 0;
+    --formminia-field-padding: 1rem 0;
+
+    --formminia-btn-bg: #1c1917;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 0;
+    --formminia-btn-padding: 1.25rem 3rem;
+    --formminia-btn-transform: uppercase;
+    --formminia-btn-spacing: 0.2em;
+
+    --formminia-radius: 0;
+    --formminia-form-padding: 5rem;
+    --formminia-shadow: none;
+    accent-color: var(--formminia-primary);
+
+    font-family: 'Playfair Display', 'Georgia', serif;
+    border-top: 8px solid #1c1917;
+
+    .formminia-form-title {
+        margin-bottom: 3rem;
+        font-style: italic;
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        font-family: sans-serif;
+        font-size: 1.1rem;
+    }
+
+    .formminia-submit-btn {
+        width: auto;
+        margin-top: 2rem;
+    }
+}
+
+/* Geometric Pop */
+.formminia-skin-36 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #2d3436;
+    --formminia-primary: #00cec9;
+    --formminia-secondary: #6c5ce7;
+
+    --formminia-title-color: #2d3436;
+    --formminia-title-weight: 900;
+    --formminia-title-size: 2.5rem;
+    --formminia-label-color: #6c5ce7;
+    --formminia-label-weight: 800;
+
+    --formminia-input-bg: #f1f2f6;
+    --formminia-input-border: #dfe6e9;
+    --formminia-input-focus-bg: #ffffff;
+    --formminia-input-focus-border: #00cec9;
+    --formminia-field-radius: 0;
+
+    --formminia-btn-bg: #6c5ce7;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 0;
+    --formminia-btn-weight: 900;
+    --formminia-btn-transform: uppercase;
+
+    --formminia-radius: 0;
+    --formminia-form-padding: 4rem;
+    --formminia-shadow: 15px 15px 0px rgba(108, 92, 231, 0.1);
+    accent-color: var(--formminia-primary);
+
+    border: 4px solid #2d3436;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 95% 100%, 0% 100%);
+
+    .formminia-form-title {
+        background: #00cec9;
+        color: #ffffff;
+        padding: 1rem 2rem;
+        display: inline-block;
+        transform: rotate(-2deg) translate(-10px, -20px);
+        box-shadow: 5px 5px 0px #2d3436;
+    }
+
+    .formminia-submit-btn {
+        clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+
+        &:hover {
+            background: #00cec9;
+        }
+    }
+}
+
+/* Gradient Aura */
+.formminia-skin-37 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #1e293b;
+    --formminia-primary: #f43f5e;
+    --formminia-secondary: #fb923c;
+
+    --formminia-title-color: #1e293b;
+    --formminia-title-weight: 800;
+    --formminia-label-color: #64748b;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #e2e8f0;
+    --formminia-input-focus-border: #f43f5e;
+    --formminia-field-radius: 12px;
+
+    --formminia-btn-bg: linear-gradient(to right, #f43f5e, #fb923c);
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 12px;
+    --formminia-btn-weight: 700;
+
+    --formminia-radius: 20px;
+    --formminia-form-padding: 3rem;
+    --formminia-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    accent-color: var(--formminia-primary);
+
+    position: relative;
+    background: #fff;
+    padding: 3rem;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        background: linear-gradient(135deg, #f43f5e, #fb923c, #8b5cf6, #3b82f6);
+        background-size: 300% 300%;
+        animation: formminia-aura-rotate 6s linear infinite;
+        border-radius: 24px;
+        z-index: -1;
+    }
+
+    @keyframes formminia-aura-rotate {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .formminia-submit-btn {
+        border-color:var(--formminia-label-color);
+        color:var(--formminia-label-color);
+
+        &:hover {
+            color:#fff;
+        }
+    }
+}
+
+/* Organic Playful - Based on provided image */
+.formminia-skin-38 {
+    --formminia-bg: #fdf7e2;
+    /* Cream/Off-white background */
+    --formminia-text: #2d3436;
+    --formminia-primary: #d35400;
+    /* Burnt Orange */
+    --formminia-secondary: #2d5a27;
+    /* Forest Green */
+
+    --formminia-title-color: #2d3436;
+    --formminia-title-weight: 900;
+    --formminia-title-size: 3.5rem;
+    --formminia-title-transform: uppercase;
+    --formminia-title-spacing: -0.02em;
+    --formminia-label-color: #2d3436;
+    --formminia-label-weight: 700;
+    --formminia-label-size: 1.1rem;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #2d3436;
+    --formminia-input-focus-border: #d35400;
+    --formminia-field-radius: 12px;
+    --formminia-field-padding: 1.25rem;
+
+    --formminia-btn-bg: #d35400;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 50px;
+    --formminia-btn-weight: 900;
+    --formminia-btn-transform: uppercase;
+    --formminia-btn-size: 1.25rem;
+    --formminia-btn-padding: 1.5rem 3rem;
+
+    --formminia-radius: 40px;
+    --formminia-form-padding: 4rem;
+    --formminia-shadow: 0 30px 0px rgba(45, 90, 39, 0.1);
+    /* Forest Green subtle shadow */
+    accent-color: var(--formminia-primary);
+
+    background: var(--formminia-bg);
+    border: 3px solid #2d3436;
+    position: relative;
+    overflow: hidden;
+
+    /* Wavy Header Effect */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: var(--formminia-secondary);
+        mask-image: radial-gradient(circle at 50% 100%, transparent 40px, #000 41px);
+        mask-size: 80px 100px;
+        mask-position: 50% -50px;
+        z-index: 0;
+        opacity: 0.1;
+    }
+
+    .formminia-form-title {
+        font-family: 'Arial Black', Gadget, sans-serif;
+        color: var(--formminia-primary);
+        text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);
+        position: relative;
+        z-index: 1;
+        margin-bottom: 3rem;
+
+        &::after {
+            content: '✦';
+            position: absolute;
+            top: -20px;
+            right: -30px;
+            font-size: 1.5rem;
+            color: var(--formminia-secondary);
+            animation: formminia-organic-sparkle 2s ease-in-out infinite;
+        }
+    }
+
+    @keyframes formminia-organic-sparkle {
+
+        0%,
+        100% {
+            transform: scale(1) rotate(0deg);
+            opacity: 0.5;
+        }
+
+        50% {
+            transform: scale(1.5) rotate(15deg);
+            opacity: 1;
+        }
+    }
+
+    .formminia-form-inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        border-width: 3px;
+        font-weight: 600;
+        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &:focus {
+            transform: scale(1.02);
+            box-shadow: 8px 8px 0px rgba(211, 84, 0, 0.1);
+        }
+    }
+
+    .formminia-submit-btn {
+        border: 3px solid #2d3436;
+        box-shadow: 6px 6px 0px #2d3436;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: var(--formminia-secondary);
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px #2d3436;
+        }
+
+        &:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #2d3436;
+        }
+    }
+
+    /* Custom checkmark/radio styles for that playful look */
+    input[type="checkbox"],
+    input[type="radio"] {
+        accent-color: var(--formminia-primary);
+    }
+}
+
+/* Luxury Earth - Based on provided image (Kiva style) */
+.formminia-skin-39 {
+    --formminia-bg: #f4ede4;
+    /* Light Cream background from image */
+    --formminia-text: #2c1810;
+    /* Dark Chocolate brown text */
+    --formminia-primary: #2c1810;
+    --formminia-secondary: #8b5e3c;
+    /* Caramel accent */
+
+    --formminia-title-color: #2c1810;
+    --formminia-title-weight: 400;
+    --formminia-title-size: 3.25rem;
+    --formminia-label-color: #2c1810;
+    --formminia-label-weight: 600;
+    --formminia-label-transform: uppercase;
+    --formminia-label-spacing: 0.15em;
+    --formminia-label-size: 0.75rem;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #d9d1c7;
+    --formminia-input-focus-border: #2c1810;
+    --formminia-field-radius: 0px;
+    --formminia-field-padding: 1.1rem;
+
+    --formminia-btn-bg: #ffffff;
+    --formminia-btn-color: #2c1810;
+    --formminia-btn-radius: 0px;
+    --formminia-btn-weight: 700;
+    --formminia-btn-transform: uppercase;
+    --formminia-btn-spacing: 0.25em;
+    --formminia-btn-padding: 1.25rem 3rem;
+
+    --formminia-radius: 0px;
+    --formminia-form-padding: 5rem;
+    --formminia-shadow: 0 20px 50px rgba(44, 24, 16, 0.05);
+    accent-color: var(--formminia-primary);
+
+    background: var(--formminia-bg);
+    border: 1px solid #d9d1c7;
+    font-family: 'Inter', sans-serif;
+    /* Clean sans-serif for body */
+
+    .formminia-form-title {
+        font-family: 'Playfair Display', 'Georgia', serif;
+        /* Elegant serif for title */
+        font-style: italic;
+        line-height: 1.1;
+        margin-bottom: 3.5rem;
+        letter-spacing: -0.01em;
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        border-width: 0 0 1px 0;
+        /* Bottom border only for a minimalist look */
+        background: transparent;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        padding-left: 0;
+
+        &:focus {
+            border-bottom-color: #2c1810;
+            border-bottom-width: 1px;
+            padding-left: 10px;
+            background: rgba(139, 94, 60, 0.03);
+            box-shadow: inset 0 -10px 10px -10px rgba(44, 24, 16, 0.1);
+        }
+    }
+
+    .formminia-submit-btn {
+        border: 1px solid #2c1810;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-weight: 700;
+
+        &:hover {
+            background: #2c1810;
+            color: #ffffff;
+            letter-spacing: 0.35em;
+        }
+    }
+
+    /* Refined Label style to match "5mg" footer text */
+    .formminia-form-group label {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: #2c1810;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.01em;
+        text-transform: none;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 1px;
+            background: #8b5e3c;
+            margin-top: 5px;
+            opacity: 0.4;
+        }
+    }
+
+    /* Add a decorative divider before submit button */
+    .formminia-submit-btn-wrap {
+        border-top: 1px solid #d9d1c7;
+        padding-top: 2rem;
+        margin-top: 1rem;
+        position: relative;
+
+        &::before {
+            content: '✦';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--formminia-bg);
+            padding: 0 15px;
+            color: #8b5e3c;
+            font-size: 1.2rem;
+        }
+    }
+
+    /* Subtle background texture effect */
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        opacity: 0.03;
+        pointer-events: none;
+        z-index: 0;
+    }
+}
+
+/* Midnight Mint - Another luxury variation from the design */
+.formminia-skin-40 {
+    --formminia-bg: #12403a;
+    /* Deep Teal/Mint background */
+    --formminia-text: #ffffff;
+    --formminia-primary: #e2b87e;
+    /* Gold accent */
+    --formminia-secondary: rgba(255, 255, 255, 0.7);
+
+    --formminia-title-color: #ffffff;
+    --formminia-title-weight: 300;
+    --formminia-title-size: 3rem;
+    --formminia-label-color: #e2b87e;
+    --formminia-label-weight: 700;
+    --formminia-label-transform: uppercase;
+    --formminia-label-spacing: 0.2em;
+    --formminia-label-size: 0.7rem;
+
+    --formminia-input-bg: rgba(255, 255, 255, 0.05);
+    --formminia-input-border: rgba(226, 184, 126, 0.3);
+    --formminia-input-color: #ffffff;
+    --formminia-input-focus-border: #e2b87e;
+    --formminia-field-radius: 0px;
+
+    --formminia-btn-bg: transparent;
+    --formminia-btn-color: #e2b87e;
+    --formminia-btn-radius: 0px;
+    --formminia-btn-weight: 700;
+    --formminia-btn-transform: uppercase;
+    --formminia-btn-spacing: 0.3em;
+    --formminia-btn-padding: 1.25rem 2.5rem;
+
+    --formminia-radius: 0px;
+    --formminia-form-padding: 4.5rem;
+    --formminia-shadow: 0 40px 100px rgba(0, 0, 0, 0.3);
+    accent-color: var(--formminia-primary);
+
+    background: var(--formminia-bg);
+    border: 1px solid rgba(226, 184, 126, 0.2);
+    position: relative;
+
+    .formminia-form-title {
+        font-family: 'Playfair Display', serif;
+        text-align: center;
+        letter-spacing: 0.05em;
+        margin-bottom: 4rem;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background: #e2b87e;
+            margin: 20px auto 0;
+        }
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        border-width: 0 0 1px 0;
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        padding-left: 0;
+        border-style: none none solid none;
+        background: transparent;
+
+        &:focus {
+            background: rgba(226, 184, 126, 0.05);
+            padding-left: 20px;
+            border-bottom-color: #e2b87e;
+            box-shadow: 0 15px 20px -15px rgba(226, 184, 126, 0.4);
+            transform: translateY(-2px);
+        }
+    }
+
+    .formminia-submit-btn {
+        border: 1px solid #e2b87e;
+        width: 100%;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+            background: #e2b87e;
+            color: #12403a;
+            box-shadow: 0 0 30px rgba(226, 184, 126, 0.3);
+        }
+    }
+
+    /* Subtle botanical background detail */
+    &::before {
+        content: '🌿';
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2rem;
+        opacity: 0.1;
+        filter: grayscale(1) brightness(2);
+    }
+}
+
+/* Playful Modernist - Based on provided image */
+.formminia-skin-41 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #1a1a1a;
+    --formminia-primary: #e91e63;
+    /* Pink */
+    --formminia-secondary: #ffeb3b;
+    /* Yellow */
+
+    --formminia-title-color: #1a1a1a;
+    --formminia-title-weight: 800;
+    --formminia-title-size: 2.75rem;
+    --formminia-title-spacing: -0.02em;
+
+    --formminia-label-color: #1a1a1a;
+    --formminia-label-weight: 700;
+    --formminia-label-size: 1rem;
+
+    --formminia-input-bg: #f7f7f7;
+    --formminia-input-border: #e0e0e0;
+    --formminia-input-focus-border: #e91e63;
+    --formminia-field-radius: 16px;
+    --formminia-field-padding: 1rem 1.25rem;
+
+    --formminia-btn-bg: #e91e63;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 16px;
+    --formminia-btn-weight: 800;
+    --formminia-btn-padding: 1.25rem 2.5rem;
+    --formminia-btn-size: 1.1rem;
+
+    --formminia-radius: 24px;
+    --formminia-form-padding: 3.5rem;
+    --formminia-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    accent-color: var(--formminia-primary);
+
+    background: var(--formminia-bg);
+    border: 1px solid #f0f0f0;
+    position: relative;
+    overflow: hidden;
+
+    /* Decorative elements to match the image's playful style */
+    &::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        width: 100px;
+        height: 100px;
+        background: var(--formminia-secondary);
+        border-radius: 50%;
+        opacity: 0.1;
+        z-index: 0;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -30px;
+        left: -30px;
+        width: 120px;
+        height: 120px;
+        background: var(--formminia-primary);
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        opacity: 0.05;
+        z-index: 0;
+    }
+
+    .formminia-form-inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    .formminia-form-title {
+        font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.1;
+        margin-bottom: 2.5rem;
+
+        span {
+            color: var(--formminia-primary);
+        }
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        border-width: 2px;
+        border-style: solid;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:focus {
+            background: #ffffff;
+            box-shadow: 0 10px 20px rgba(233, 30, 99, 0.1);
+            transform: translateY(-2px);
+        }
+    }
+
+    .formminia-submit-btn {
+        box-shadow: 0 10px 20px rgba(233, 30, 99, 0.2);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 15px 30px rgba(233, 30, 99, 0.3);
+            background: #d81b60;
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+
+    /* Checkbox/Radio customization */
+    .formminia-checkbox-custom,
+    .formminia-radio-custom {
+        border-radius: 8px;
+        border-width: 2px;
+        border-color: #e0e0e0;
+
+        &::after {
+            background: var(--formminia-primary);
+        }
+    }
+
+    .formminia-form-group {
+        margin-bottom: 1.75rem;
+    }
+}
+
+/* Zesty Lemon Squeeze - Based on Swoon design */
+.formminia-skin-42 {
+    --formminia-bg: #ffd204;
+    --formminia-text: #726500;
+    --formminia-primary: #7065a3;
+    /* Purple button from design */
+    --formminia-secondary: #fef9e7;
+    /* Creamy yellow section */
+
+    --formminia-title-color: #726500;
+    --formminia-title-weight: 900;
+    --formminia-title-size: 3rem;
+    --formminia-title-spacing: -0.02em;
+    --formminia-title-transform: uppercase;
+
+    --formminia-label-color: #726500;
+    --formminia-label-weight: 800;
+    --formminia-label-size: 1.1rem;
+    --formminia-label-transform: uppercase;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #ffd204;
+    --formminia-input-focus-border: #7065a3;
+    --formminia-field-radius: 50px;
+    /* Bubbly pills */
+    --formminia-field-padding: 1rem 1.75rem;
+
+    --formminia-btn-bg: #7065a3;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 50px;
+    --formminia-btn-weight: 800;
+    --formminia-btn-padding: 1.25rem 3rem;
+    --formminia-btn-size: 1.1rem;
+    --formminia-btn-transform: uppercase;
+
+    --formminia-radius: 40px;
+    --formminia-form-padding: 4rem;
+    --formminia-shadow: 0 30px 60px rgba(114, 101, 0, 0.15);
+    accent-color: var(--formminia-primary);
+
+    background: var(--formminia-bg);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    /* Wavy background top */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 200px;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fef9e7' fill-opacity='1' d='M0,192L48,176C96,160,192,128,288,128C384,128,480,160,576,186.7C672,213,768,235,864,229.3C960,224,1056,192,1152,181.3C1248,171,1344,181,1392,186.7L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E") no-repeat top/cover;
+        z-index: -1;
+        opacity: 0.5;
+    }
+
+    /* Bouncy decorative lemons or shapes */
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -50px;
+        right: -30px;
+        width: 180px;
+        height: 180px;
+        background-color: #fef9e7;
+        mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M44.7,-76.4C58.3,-69.2,70,-58.5,77.4,-45.5C84.8,-32.5,88,-17.1,87.3,-2.1C86.5,12.8,81.8,27.4,74,40.4C66.1,53.3,55.1,64.7,42,72.4C28.8,80.1,13.4,84.1,-1.5,86.7C-16.4,89.3,-32.8,90.4,-47,84C-61.1,77.5,-73,63.5,-80.4,48C-87.7,32.5,-90.6,15.5,-88.7,-0.9C-86.8,-17.3,-80.1,-33.1,-70.1,-46.3C-60,-59.5,-46.6,-70.2,-32.6,-77.2C-18.7,-84.1,-9.3,-87.3,3.3,-92.9C15.9,-98.6,29.8,-106.3,44.7,-76.4Z' transform='translate(100 100)' /%3E%3C/svg%3E") no-repeat center/contain;
+        -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M44.7,-76.4C58.3,-69.2,70,-58.5,77.4,-45.5C84.8,-32.5,88,-17.1,87.3,-2.1C86.5,12.8,81.8,27.4,74,40.4C66.1,53.3,55.1,64.7,42,72.4C28.8,80.1,13.4,84.1,-1.5,86.7C-16.4,89.3,-32.8,90.4,-47,84C-61.1,77.5,-73,63.5,-80.4,48C-87.7,32.5,-90.6,15.5,-88.7,-0.9C-86.8,-17.3,-80.1,-33.1,-70.1,-46.3C-60,-59.5,-46.6,-70.2,-32.6,-77.2C-18.7,-84.1,-9.3,-87.3,3.3,-92.9C15.9,-98.6,29.8,-106.3,44.7,-76.4Z' transform='translate(100 100)' /%3E%3C/svg%3E") no-repeat center/contain;
+        z-index: -1;
+        opacity: 0.8;
+    }
+
+    .formminia-form-inner {
+        position: relative;
+        z-index: 2;
+    }
+
+    .formminia-form-title {
+        font-family: 'Fredoka', 'Bubblegum Sans', 'Outfit', sans-serif;
+        text-align: center;
+        margin-bottom: 3.5rem;
+        color: #726500;
+        text-shadow: 2px 2px 0 #fff;
+        line-height: 1;
+        transform: rotate(-2deg);
+
+        &::selection {
+            background: var(--formminia-primary);
+            color: #fff;
+        }
+    }
+
+    .formminia-form-group {
+        margin-bottom: 2rem;
+
+        label {
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+            background: #fff;
+            padding: 2px 10px;
+            border-radius: 10px;
+            transform: rotate(1deg);
+        }
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        border: 4px solid #fff;
+        box-shadow: 8px 8px 0 rgba(114, 101, 0, 0.1);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &:focus {
+            transform: scale(1.02);
+            box-shadow: 12px 12px 0 rgba(114, 101, 0, 0.15);
+            border-color: var(--formminia-primary);
+        }
+    }
+
+    .formminia-submit-btn {
+        box-shadow: 0 10px 0 #4f467a;
+        /* Darker purple shadow */
+        transition: all 0.2s ease;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+
+        &:hover {
+            transform: translateY(2px);
+            box-shadow: 0 8px 0 #4f467a;
+            background: #7e74bb;
+        }
+
+        &:active {
+            transform: translateY(10px);
+            box-shadow: none;
+        }
+    }
+
+    /* Small lemon icon decoration using a pseudo element on the title */
+    .formminia-form-title::before {
+        content: '🍋';
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%) rotate(15deg);
+        font-size: 3rem;
+    }
+}
+
+/* Artisanal Butcher - Based on Barakah Meats design */
+.formminia-skin-43 {
+    --formminia-bg: #f8f8f8;
+    --formminia-text: #000000;
+    --formminia-primary: #e31e24;
+    /* Meat Red */
+    --formminia-secondary: #222222;
+
+    --formminia-title-color: #000000;
+    --formminia-title-weight: 900;
+    --formminia-title-size: 3.5rem;
+    --formminia-title-transform: uppercase;
+    --formminia-title-spacing: -0.04em;
+
+    --formminia-label-color: #000000;
+    --formminia-label-weight: 700;
+    --formminia-label-size: 0.9rem;
+    --formminia-label-transform: uppercase;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #000000;
+    --formminia-input-focus-border: #e31e24;
+    --formminia-field-radius: 0;
+    --formminia-field-padding: 1.25rem;
+
+    --formminia-btn-bg: #e31e24;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 100px;
+    --formminia-btn-weight: 800;
+    --formminia-btn-transform: uppercase;
+    --formminia-btn-padding: 1.5rem 3.5rem;
+    accent-color: var(--formminia-primary);
+}
+
+/* Zesty Lemon Squeeze - Skin 42 */
+.formminia-skin-42 {
+    --formminia-bg: #ffd204;
+    --formminia-text: #726500;
+    --formminia-primary: #7065a3;
+    --formminia-secondary: #fef9e7;
+    --formminia-title-color: #726500;
+    --formminia-title-weight: 900;
+    --formminia-title-size: 3rem;
+    --formminia-title-spacing: -0.02em;
+    --formminia-title-transform: uppercase;
+    --formminia-label-color: #726500;
+    --formminia-label-weight: 800;
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #ffd204;
+    --formminia-input-focus-border: #7065a3;
+    --formminia-field-radius: 50px;
+    --formminia-btn-bg: #7065a3;
+    --formminia-btn-color: #ffffff;
+    --formminia-radius: 40px;
+    --formminia-form-padding: 4rem;
+    accent-color: var(--formminia-primary);
+
+    background: var(--formminia-bg);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 200px;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fef9e7' fill-opacity='1' d='M0,192L48,176C96,160,192,128,288,128C384,128,480,160,576,186.7C672,213,768,235,864,229.3C960,224,1056,192,1152,181.3C1248,171,1344,181,1392,186.7L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E") no-repeat top/cover;
+        z-index: -1;
+        opacity: 0.5;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -50px;
+        right: -30px;
+        width: 180px;
+        height: 180px;
+        background-color: #fef9e7;
+        mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M44.7,-76.4C58.3,-69.2,70,-58.5,77.4,-45.5C84.8,-32.5,88,-17.1,87.3,-2.1C86.5,12.8,81.8,27.4,74,40.4C66.1,53.3,55.1,64.7,42,72.4C28.8,80.1,13.4,84.1,-1.5,86.7C-16.4,89.3,-32.8,90.4,-47,84C-61.1,77.5,-73,63.5,-80.4,48C-87.7,32.5,-90.6,15.5,-88.7,-0.9C-86.8,-17.3,-80.1,-33.1,-70.1,-46.3C-60,-59.5,-46.6,-70.2,-32.6,-77.2C-18.7,-84.1,-9.3,-87.3,3.3,-92.9C15.9,-98.6,29.8,-106.3,44.7,-76.4Z' transform='translate(100 100)' /%3E%3C/svg%3E") no-repeat center/contain;
+        -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M44.7,-76.4C58.3,-69.2,70,-58.5,77.4,-45.5C84.8,-32.5,88,-17.1,87.3,-2.1C86.5,12.8,81.8,27.4,74,40.4C66.1,53.3,55.1,64.7,42,72.4C28.8,80.1,13.4,84.1,-1.5,86.7C-16.4,89.3,-32.8,90.4,-47,84C-61.1,77.5,-73,63.5,-80.4,48C-87.7,32.5,-90.6,15.5,-88.7,-0.9C-86.8,-17.3,-80.1,-33.1,-70.1,-46.3C-60,-59.5,-46.6,-70.2,-32.6,-77.2C-18.7,-84.1,-9.3,-87.3,3.3,-92.9C15.9,-98.6,29.8,-106.3,44.7,-76.4Z' transform='translate(100 100)' /%3E%3C/svg%3E") no-repeat center/contain;
+        z-index: -1;
+        opacity: 0.8;
+    }
+
+    .formminia-form-inner {
+        position: relative;
+        z-index: 2;
+    }
+
+    .formminia-form-title {
+        font-family: 'Fredoka', sans-serif;
+        text-align: center;
+        margin-bottom: 3.5rem;
+        color: #726500;
+        text-shadow: 2px 2px 0 #fff;
+        line-height: 1;
+        transform: rotate(-2deg);
+
+        &::before {
+            content: '🍋';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%) rotate(15deg);
+            font-size: 3rem;
+        }
+    }
+
+    .formminia-form-group {
+        margin-bottom: 2rem;
+
+        label {
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+            background: #fff;
+            padding: 2px 10px;
+            border-radius: 10px;
+            transform: rotate(1deg);
+        }
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        border: 4px solid #fff;
+        box-shadow: 8px 8px 0 rgba(114, 101, 0, 0.1);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &:focus {
+            transform: scale(1.02);
+            box-shadow: 12px 12px 0 rgba(114, 101, 0, 0.15);
+            border-color: var(--formminia-primary);
+        }
+    }
+
+    .formminia-submit-btn {
+        box-shadow: 0 10px 0 #4f467a;
+        transition: all 0.2s ease;
+
+        &:hover {
+            transform: translateY(2px);
+            box-shadow: 0 8px 0 #4f467a;
+            background: #7e74bb;
+        }
+
+        &:active {
+            transform: translateY(10px);
+            box-shadow: none;
+        }
+    }
+}
+
+/* Playful Butcher - Skin 43 */
+.formminia-skin-43 {
+    --formminia-bg: #fffbf9;
+    --formminia-text: #2d1616;
+    --formminia-primary: #e31e24;
+    --formminia-secondary: #ffeadb;
+    --formminia-title-color: #2d1616;
+    --formminia-title-weight: 900;
+    --formminia-title-size: 3rem;
+    --formminia-title-transform: uppercase;
+    --formminia-label-color: #e31e24;
+    --formminia-label-weight: 800;
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #f8e1e1;
+    --formminia-input-focus-border: #e31e24;
+    --formminia-field-radius: 20px;
+    --formminia-btn-bg: #e31e24;
+    --formminia-btn-color: #ffffff;
+    --formminia-radius: 35px;
+    --formminia-form-padding: 3.5rem;
+    accent-color: var(--formminia-primary);
+
+    background: var(--formminia-bg);
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #f8e1e1;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 140px;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23e31e24' fill-opacity='1' d='M0,256L60,240C120,224,240,192,360,197.3C480,203,600,245,720,256C840,267,960,245,1080,218.7C1200,192,1320,160,1380,144L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z'%3E%3C/path%3E%3C/svg%3E") no-repeat top/cover;
+        z-index: 0;
+    }
+
+    &::after {
+        content: 'CHOICE';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        width: 100px;
+        height: 100px;
+        background: #e31e24;
+        color: #fff;
+        border-radius: 50%;
+        font-weight: 900;
+        transform: rotate(15deg);
+        border: 4px dashed #fff;
+        box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.05);
+        z-index: 1;
+    }
+
+    .formminia-form-inner {
+        position: relative;
+        z-index: 2;
+    }
+
+    .formminia-form-title {
+        font-family: 'Fredoka', sans-serif;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 4rem;
+        transform: rotate(-1.5deg);
+    }
+
+    .formminia-form-group {
+        margin-bottom: 2rem;
+
+        label {
+            background: #fff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            border: 2px solid #f8e1e1;
+            transform: rotate(1deg);
+            display: inline-block;
+        }
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        border-color: #f8e1e1;
+        border-radius: 20px;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &:focus {
+            transform: scale(1.01);
+            border-color: var(--formminia-primary);
+            box-shadow: 10px 10px 0 rgba(227, 30, 36, 0.1);
+        }
+    }
+
+    .formminia-submit-btn {
+        border-radius: 50px;
+        box-shadow: 0 10px 0 #9e1519;
+        transition: all 0.2s ease;
+
+        &:hover {
+            transform: translateY(2px);
+            box-shadow: 0 8px 0 #9e1519;
+            background: #f12b32;
+        }
+
+        &:active {
+            transform: translateY(10px);
+            box-shadow: none;
+        }
+    }
+}
+
+/* Playful Athlete - Skin 44 */
+.formminia-skin-44 {
+    --formminia-bg: #f5fffa;
+    --formminia-text: #0b1f1c;
+    --formminia-primary: #00ff88;
+    --formminia-secondary: #004d40;
+    --formminia-title-color: #0b1f1c;
+    --formminia-title-weight: 900;
+    --formminia-title-size: 3.5rem;
+    --formminia-title-transform: uppercase;
+    --formminia-label-color: #0b1f1c;
+    --formminia-label-weight: 800;
+    --formminia-input-bg: #ffffff;
+    --formminia-field-radius: 50px;
+    --formminia-radius: 40px;
+    --formminia-form-padding: 4rem;
+    accent-color: var(--formminia-primary);
+
+    background: var(--formminia-bg);
+    position: relative;
+    overflow: hidden;
+    border: 4px solid #00ff88;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 300px;
+        height: 300px;
+        background: #00ff88;
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        opacity: 0.1;
+        z-index: 0;
+        animation: formminia-athlete-blob 10s infinite alternate;
+    }
+
+    &::after {
+        content: '🎾';
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        font-size: 3rem;
+        transform: rotate(-20deg);
+        z-index: 1;
+    }
+
+    @keyframes formminia-athlete-blob {
+        from {
+            transform: rotate(0deg) scale(1);
+        }
+
+        to {
+            transform: rotate(20deg) scale(1.1);
+        }
+    }
+
+    .formminia-form-inner {
+        position: relative;
+        z-index: 2;
+    }
+
+    .formminia-form-title {
+        font-family: 'Fredoka', sans-serif;
+        text-align: center;
+        margin-bottom: 3.5rem;
+        line-height: 0.9;
+
+        span {
+            background: #00ff88;
+            padding: 0 10px;
+            border-radius: 10px;
+        }
+    }
+
+    .formminia-form-group {
+        margin-bottom: 2rem;
+
+        label {
+            background: #0b1f1c;
+            color: #ffffff;
+            padding: 4px 16px;
+            border-radius: 99px;
+            transform: rotate(-1deg);
+            display: inline-block;
+            box-shadow: 4px 4px 0 #00ff88;
+        }
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        border-radius: 50px;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &:focus {
+            transform: scale(1.02);
+            border-color: #0b1f1c;
+            box-shadow: 12px 12px 0 rgba(0, 255, 136, 0.2);
+        }
+    }
+
+    .formminia-submit-btn {
+        border-radius: 50px;
+        box-shadow: 0 12px 0 #00bf66;
+        transition: all 0.2s ease;
+
+        &:hover {
+            transform: translateY(2px);
+            box-shadow: 0 8px 0 #00bf66;
+            background: #2eff9c;
+        }
+
+        &:active {
+            transform: translateY(12px);
+            box-shadow: none;
+        }
+    }
+}
+
+/* Fintech Neo - Skin 45 (SaaS Innovation Design) */
+.formminia-skin-45 {
+    --formminia-bg: #ffffff;
+    --formminia-text: #0b0f19;
+    --formminia-primary: #8338ec;
+    --formminia-secondary: #f4f7fe;
+
+    --formminia-title-color: #0b0f19;
+    --formminia-title-weight: 800;
+    --formminia-title-size: 2.75rem;
+    --formminia-title-transform: uppercase;
+    --formminia-title-spacing: -0.04em;
+
+    --formminia-label-color: #0b0f19;
+    --formminia-label-weight: 700;
+    --formminia-label-size: 0.9rem;
+    --formminia-label-transform: uppercase;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #e2e8f0;
+    --formminia-input-focus-border: #8338ec;
+    --formminia-field-radius: 12px;
+    --formminia-field-padding: 1rem 1.25rem;
+
+    --formminia-btn-bg: #8338ec;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 100px;
+    --formminia-btn-weight: 700;
+
+    --formminia-radius: 24px;
+    --formminia-form-padding: 4rem;
+    --formminia-shadow: 0 40px 100px rgba(131, 56, 236, 0.08);
+    accent-color: var(--formminia-primary);
+
+    background: var(--formminia-bg);
+    position: relative;
+    border: 1px solid #f0f4f8;
+    overflow: hidden;
+
+    /* Technical Grid Pattern from design */
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-size: 30px 30px;
+        background-image:
+            linear-gradient(to right, rgba(131, 56, 236, 0.03) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(131, 56, 236, 0.03) 1px, transparent 1px);
+        z-index: 0;
+    }
+
+    .formminia-form-inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    .formminia-form-title {
+        font-family: 'Outfit', 'Inter', sans-serif;
+        text-align: center;
+        margin-bottom: 3rem;
+        letter-spacing: -0.05em;
+        line-height: 1;
+    }
+
+    .formminia-form-group {
+        margin-bottom: 2rem;
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            letter-spacing: 0.05em;
+        }
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        background: #fff;
+        border: 2px solid #eef2f7;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+        transition: all 0.25s ease;
+
+        &:focus {
+            background: #fff;
+            border-color: var(--formminia-primary);
+            box-shadow: 0 0 0 4px rgba(131, 56, 236, 0.1);
+            transform: translateY(-2px);
+        }
+
+        &::placeholder {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+    }
+
+    .formminia-submit-btn {
+        padding: 1.25rem 3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        box-shadow: 0 10px 30px rgba(131, 56, 236, 0.25);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        &::after {
+            content: '→';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            background: #7124e0;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(131, 56, 236, 0.35);
+
+            &::after {
+                transform: translateX(5px);
+            }
+        }
+
+        &:active {
+            transform: translateY(-1px);
+        }
+    }
+
+    /* Modern minimalist checkbox */
+    .formminia-checkbox-label {
+        color: #64748b;
+        font-size: 0.85rem;
+
+        a {
+            color: var(--formminia-primary);
+            text-decoration: none;
+            font-weight: 600;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+/* Sketchy Peanuts - Skin 46 (Organic Scribble Design) */
+.formminia-skin-46 {
+    --formminia-bg: #fffbf0;
+    --formminia-text: #2d3436;
+    --formminia-primary: #e1ae4f;
+    --formminia-secondary: #c06c5d;
+    --formminia-accent: #4a7ba5;
+
+    --formminia-title-color: #2d3436;
+    --formminia-title-weight: 800;
+    --formminia-title-size: 2.5rem;
+    --formminia-title-transform: none;
+
+    --formminia-label-color: #c06c5d;
+    --formminia-label-weight: 700;
+    --formminia-label-size: 1.1rem;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #2d3436;
+    --formminia-input-focus-border: #e1ae4f;
+    --formminia-field-radius: 12px 25px 12px 20px / 25px 12px 20px 12px;
+
+    --formminia-btn-bg: #e1ae4f;
+    --formminia-btn-color: #2d3436;
+    --formminia-btn-radius: 100px;
+
+    --formminia-radius: 30px;
+    --formminia-form-padding: 3.5rem;
+    accent-color: var(--formminia-primary);
+
+    background: var(--formminia-bg);
+    position: relative;
+    border: 3px solid #2d3436;
+    box-shadow: 12px 12px 0 rgba(192, 108, 93, 0.4);
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,20 Q40,10 50,30 T80,20' fill='none' stroke='%23e1ae4f' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M30,40 Q50,30 60,50 T90,40' fill='none' stroke='%23c06c5d' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/contain;
+        z-index: 0;
+        opacity: 0.6;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        width: 80px;
+        height: 40px;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10,40 Q30,10 50,30 T90,20' fill='none' stroke='%234a7ba5' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/contain;
+        z-index: 0;
+        opacity: 0.5;
+    }
+
+    .formminia-form-inner {
+        position: relative;
+        z-index: 2;
+    }
+
+    .formminia-form-title {
+        font-family: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
+        text-align: center;
+        margin-bottom: 3.5rem;
+        transform: rotate(-1deg);
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 25%;
+            width: 50%;
+            height: 4px;
+            background: var(--formminia-secondary);
+            border-radius: 10px;
+            opacity: 0.4;
+        }
+    }
+
+    .formminia-form-group {
+        margin-bottom: 2.25rem;
+
+        label {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 0 5px;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: 2px;
+                left: 0;
+                width: 100%;
+                height: 8px;
+                background: var(--formminia-primary);
+                z-index: -1;
+                opacity: 0.2;
+                border-radius: 20px;
+            }
+        }
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        border: 3px solid #2d3436;
+        border-radius: var(--formminia-field-radius);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &:focus {
+            transform: scale(1.02) rotate(0.5deg);
+            border-color: var(--formminia-primary);
+            box-shadow: 6px 6px 0 rgba(225, 174, 79, 0.2);
+        }
+    }
+
+    .formminia-submit-btn {
+        background: var(--formminia-accent);
+        color: #fff;
+        border: 3px solid #2d3436;
+        border-radius: 15px 40px 15px 35px / 40px 15px 35px 15px;
+        box-shadow: 6px 6px 0 #2d3436;
+        transition: all 0.2s ease;
+
+        &:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0 #2d3436;
+            background: #5a8bb5;
+        }
+
+        &:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0 0 0 #2d3436;
+        }
+    }
+}
+
+/* Solar Vault - Skin 47 (Premium Glassmorphism Design) */
+.formminia-skin-47 {
+    --formminia-bg: rgba(15, 23, 42, 0.92);
+    /* Dark slate tint for visibility on all backgrounds */
+    --formminia-text: #ffffff;
+    --formminia-primary: #ffd700;
+    /* Solar Yellow */
+    --formminia-secondary: rgba(255, 255, 255, 0.1);
+
+    --formminia-title-color: #ffffff;
+    --formminia-title-weight: 800;
+    --formminia-title-size: 3.5rem;
+    --formminia-title-transform: none;
+    --formminia-title-spacing: -0.05em;
+
+    --formminia-label-color: rgba(255, 255, 255, 0.6);
+    --formminia-label-weight: 600;
+    --formminia-label-size: 0.85rem;
+    --formminia-label-transform: uppercase;
+
+    --formminia-input-bg: rgba(255, 255, 255, 0.05);
+    --formminia-input-border: rgba(255, 255, 255, 0.15);
+    --formminia-input-focus-border: #ffd700;
+    --formminia-field-radius: 16px;
+
+    --formminia-btn-bg: #ffffff;
+    --formminia-btn-color: #0b0f19;
+    --formminia-btn-radius: 100px;
+
+    --formminia-radius: 32px;
+    --formminia-form-padding: 4.5rem;
+    accent-color: var(--formminia-primary);
+
+    background: var(--formminia-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.2);
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -100px;
+        left: -100px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .formminia-form-inner {
+        position: relative;
+        z-index: 2;
+    }
+
+    .formminia-form-title {
+        font-family: 'Outfit', sans-serif;
+        text-align: center;
+        margin-bottom: 3.5rem;
+        line-height: 1;
+        letter-spacing: -0.06em;
+        text-transform: uppercase;
+
+        &::after {
+            content: '⚡';
+            display: inline-block;
+            color: var(--formminia-primary);
+            margin-left: 8px;
+            font-size: 0.8em;
+            vertical-align: top;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
+        }
+    }
+
+    .formminia-form-group {
+        margin-bottom: 2.5rem;
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+            letter-spacing: 0.1em;
+            padding-left: 4px;
+        }
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        background: var(--formminia-input-bg);
+        border: 1px solid var(--formminia-input-border);
+        color: #ffffff;
+        padding: 1.25rem 1.5rem;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:focus {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--formminia-primary);
+            box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1);
+            outline: none;
+        }
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+    }
+
+    .formminia-submit-btn {
+        padding: 1.2rem 3rem;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border: none;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: auto;
+        margin-top: 1rem;
+
+        &::after {
+            content: '⚡';
+            font-size: 1.1rem;
+            filter: grayscale(1) brightness(0);
+        }
+
+        &:hover {
+            background: #ffffff;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.15);
+        }
+
+        &:active {
+            transform: translateY(-2px);
+        }
+    }
+
+    .formminia-response-message {
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+        margin-top: 2rem;
+        padding: 1rem;
+        text-align: center;
+
+        &.success {
+            border-color: #ffd700;
+            color: #ffd700;
+        }
+    }
+}
+
+/* Social Mastodon - Skin 48 (Decentralized Network Design) */
+.formminia-skin-48 {
+    --formminia-bg: #f2f5f7;
+    --formminia-text: #282c37;
+    --formminia-primary: #6364ff;
+    /* Mastodon Purple */
+    --formminia-secondary: #2b90d9;
+    /* Mastodon Blue */
+
+    --formminia-title-color: #ffffff;
+    --formminia-title-weight: 700;
+    --formminia-title-size: 2rem;
+
+    --formminia-label-color: #282c37;
+    --formminia-label-weight: 600;
+
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #d9e1e8;
+    --formminia-input-focus-border: #6364ff;
+
+    --formminia-btn-bg: #6364ff;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 4px;
+
+    --formminia-radius: 12px;
+    --formminia-form-padding: 0;
+    accent-color: var(--formminia-primary);
+
+    background: var(--formminia-bg);
+    overflow: hidden;
+    border: 1px solid #d9e1e8;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+    .formminia-form-inner {
+        padding: 2rem ;
+    }
+
+    /* Starry Header */
+    .formminia-form-title {
+        background-color: #191b22;
+        background-image:
+            radial-gradient(1px 1px at 20px 30px, #fff, rgba(0, 0, 0, 0)),
+            radial-gradient(1.5px 1.5px at 100px 70px, #fff, rgba(0, 0, 0, 0)),
+            radial-gradient(1px 1px at 150px 110px, #fff, rgba(0, 0, 0, 0)),
+            radial-gradient(2px 2px at 200px 40px, #fff, rgba(0, 0, 0, 0));
+        background-size: 200px 200px;
+        padding: 3.5rem 2rem 5.5rem;
+        margin-bottom: 0;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23f2f5f7' fill-opacity='1' d='M0,160L80,176C160,192,320,224,480,213.3C640,203,800,149,960,138.7C1120,128,1280,160,1360,176L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom/cover;
+            z-index: 2;
+        }
+
+        &::before {
+            content: '🐘';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.5rem;
+            opacity: 0.8;
+            filter: brightness(2);
+        }
+    }
+
+    .formminia-fields-wrapper,
+    .formminia-field-item,
+    .formminia-gdpr-wrapper,
+    .formminia-submit-wrapper {
+        padding: 0 2rem;
+    }
+
+    .formminia-fields-wrapper {
+        margin-top: -1rem;
+        position: relative;
+        z-index: 3;
+    }
+
+    .formminia-form-group {
+        margin-bottom: 1.5rem;
+
+        label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #9baec8;
+            margin-bottom: 8px;
+            display: block;
+        }
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        background: #ffffff;
+        border: 1px solid #d9e1e8;
+        border-radius: 4px;
+        padding: 12px;
+        transition: all 0.2s ease;
+
+        &:focus {
+            border-color: var(--formminia-primary);
+            box-shadow: 0 0 0 4px rgba(99, 100, 255, 0.1);
+        }
+    }
+
+    .formminia-submit-btn {
+        width: 100%;
+        padding: 1rem;
+        font-weight: 700;
+        border-radius: 4px;
+        background: var(--formminia-primary);
+        box-shadow: 0 4px 6px rgba(99, 100, 255, 0.2);
+        transition: all 0.2s ease;
+        margin-bottom: 2rem;
+
+        &:hover {
+            background: #535bf2;
+            transform: translateY(-1px);
+        }
+    }
+
+    .formminia-response-message.success {
+        background: rgba(43, 144, 217, 0.1);
+        border: 1px solid #2b90d9;
+        color: #2b90d9;
+        border-radius: 4px;
+        margin: 1rem 2rem 2rem;
+    }
+}
+
+/* Prime Butcher - Skin 49 (Premium Halal Design) */
+.formminia-skin-49 {
+    --formminia-bg: #f8f8f8;
+    --formminia-text: #1a1a1a;
+    --formminia-primary: #e31e24; /* Meat Red */
+    --formminia-secondary: #000000;
+    
+    --formminia-title-color: #000000;
+    --formminia-title-weight: 800;
+    --formminia-title-size: 2.5rem;
+    --formminia-title-transform: uppercase;
+    
+    --formminia-label-color: #1a1a1a;
+    --formminia-label-weight: 700;
+    --formminia-label-size: 0.9rem;
+    --formminia-label-transform: uppercase;
+    
+    --formminia-input-bg: #ffffff;
+    --formminia-input-border: #e0e0e0;
+    --formminia-input-focus-border: #e31e24;
+    --formminia-field-radius: 0;
+    
+    --formminia-btn-bg: #e31e24;
+    --formminia-btn-color: #ffffff;
+    --formminia-btn-radius: 50px;
+    --formminia-btn-weight: 800;
+    
+    --formminia-radius: 0;
+    --formminia-form-padding: 4rem;
+    accent-color: var(--formminia-primary);
+
+    background: var(--formminia-bg);
+    border: 1px solid #ddd;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: 'HALAL';
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        font-size: 0.8rem;
+        font-weight: 900;
+        color: var(--formminia-primary);
+        border: 2px solid var(--formminia-primary);
+        padding: 5px 10px;
+        opacity: 0.4;
+        transform: rotate(-15deg);
+        z-index: 0;
+        letter-spacing: 2px;
+    }
+
+    .formminia-form-inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    .formminia-form-title {
+        font-family: Arial, sans-serif;
+        text-align: left;
+        margin-bottom: 3.5rem;
+        letter-spacing: -0.02em;
+        line-height: 1;
+        
+        span {
+            color: var(--formminia-primary);
+        }
+    }
+
+    .formminia-fields-wrapper {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .formminia-form-group {
+        margin-bottom: 0;
+        label {
+            display: block;
+            margin-bottom: 8px;
+            letter-spacing: 0.05em;
+        }
+    }
+
+    .formminia-input,
+    .formminia-textarea {
+        border-width: 0 0 2px 0;
+        border-color: #ddd;
+        background: transparent;
+        padding: 12px 0;
+        transition: all 0.3s ease;
+        &:focus {
+            border-bottom-color: var(--formminia-primary);
+            padding-left: 10px;
+            background: rgba(227, 30, 36, 0.02);
+            outline: none;
+        }
+    }
+
+    .formminia-submit-btn {
+        padding: 1.25rem 3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        box-shadow: 0 5px 15px rgba(227, 30, 36, 0.2);
+        transition: all 0.3s ease;
+        border: none;
+        margin-top: 2rem;
+        &:hover {
+            background: #000;
+            color: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+
+    .formminia-response-message.success {
+        border-left: 4px solid var(--formminia-primary);
+        background: #fff;
+        color: #1a1a1a;
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+}
+
+/* 50. Holographic Aurora */
+.formminia-skin-50 {
+    --holo-gradient: linear-gradient(135deg, #ff0080, #ff8c00, #40e0d0, #9932cc);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at center, rgba(153, 50, 204, 0.05) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .formminia-form-title {
+        background: var(--holo-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        text-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .formminia-input, 
+    .formminia-textarea {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #1a1a1a;
+        padding: 1.25rem;
+        border-radius: 12px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        backdrop-filter: blur(4px);
+
+        &::placeholder {
+            color: rgba(0, 0, 0, 0.4);
+        }
+
+        &:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #40e0d0;
+            box-shadow: 0 0 15px rgba(64, 224, 208, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+    }
+
+    .formminia-submit-btn {
+        background: var(--holo-gradient);
+        background-size: 300% 300%;
+        border: none;
+        padding: 1.25rem 3.5rem;
+        border-radius: 100px;
+        color: #fff;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        box-shadow: 0 10px 30px rgba(255, 0, 128, 0.2);
+        transition: all 0.5s ease;
+        position: relative;
+        z-index: 1;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--holo-gradient);
+            background-size: 300% 300%;
+            border-radius: 100px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            filter: blur(10px);
+        }
+
+        &:hover {
+            background-position: right center;
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 0, 128, 0.3);
+            
+            &::after {
+                opacity: 0.8;
+                animation: formminia-holo-pulse 2s infinite linear;
+            }
+        }
+    }
+
+    .formminia-checkbox-custom {
+        border-radius: 6px;
+        background: rgba(0, 0, 0, 0.05);
+        border: 2px solid rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .formminia-checkbox:checked ~ .formminia-checkbox-custom {
+        background: var(--holo-gradient);
+        border-color: transparent;
+        box-shadow: 0 0 10px rgba(64, 224, 208, 0.5);
+    }
+}
+
+@keyframes formminia-holo-pulse {
+    0% { background-position: 0% 50%; opacity: 0.5; }
+    50% { background-position: 100% 50%; opacity: 0.8; }
+    100% { background-position: 0% 50%; opacity: 0.5; }
+}

@@ -1,6 +1,6 @@
 <?php
 
-namespace MTEF\Core;
+namespace FORMMINIA\Core;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -20,7 +20,7 @@ class Activator {
 	public static function activate() {
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . 'mtef_submissions';
+		$table_name = $wpdb->prefix . 'formminia_submissions';
 		$charset_collate = $wpdb->get_charset_collate();
 
 		$sql = "CREATE TABLE $table_name (

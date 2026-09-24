@@ -1,6 +1,6 @@
 <?php
 
-namespace MTEF\Integrations\Elementor;
+namespace FORMMINIA\Integrations\Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -23,7 +23,7 @@ class Integration {
 	 */
 	public function register_categories( $elements_manager ) {
 		$elements_manager->add_category(
-			'mtef',
+			'formminia',
 			array(
 				'title' => esc_html__( 'FormMinia', 'formminia-for-elementor' ),
 				'icon'  => 'eicon-form-horizontal',

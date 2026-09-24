@@ -1,6 +1,6 @@
 <?php
 
-namespace MTEF\Admin;
+namespace FORMMINIA\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -10,7 +10,7 @@ if (!class_exists('WP_List_Table')) {
 	require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
 }
 
-use MTEF\Services\SubmissionRepository;
+use FORMMINIA\Services\SubmissionRepository;
 
 /**
  * List Table class for FormMinia for Elementor submissions.
@@ -79,7 +79,7 @@ protected function column_name($item)
 	{
 		// List-table page slug is read from the URL for building row links only (no state change).
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$page = isset($_REQUEST['page']) ? sanitize_text_field(wp_unslash($_REQUEST['page'])) : 'mtef';
+		$page = isset($_REQUEST['page']) ? sanitize_text_field(wp_unslash($_REQUEST['page'])) : 'formminia';
 
 		$actions = [
 			'delete' => sprintf(
@@ -87,7 +87,7 @@ protected function column_name($item)
 				esc_attr($page),
 				'delete',
 				absint($item['id']),
-				wp_create_nonce('mtef_delete_submission'),
+				wp_create_nonce('formminia_delete_submission'),
 				__('Delete', 'formminia-for-elementor')
 			),
 		];
@@ -135,7 +135,7 @@ protected function column_name($item)
 
 		if ('delete' === $this->current_action()) {
 			$nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_wpnonce'])) : '';
-			if (!wp_verify_nonce($nonce, 'mtef_delete_submission')) {
+			if (!wp_verify_nonce($nonce, 'formminia_delete_submission')) {
 				wp_die(esc_html__('Security check failed.', 'formminia-for-elementor'));
 			}
 
