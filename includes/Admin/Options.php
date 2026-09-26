@@ -15,6 +15,7 @@ class Options
 	const GROUP_SETTINGS = 'formminia_settings';
 	const GROUP_GENERAL = 'formminia_settings_general';
 	const GROUP_EMAIL = 'formminia_settings_email';
+	const GROUP_TEMPLATE = 'formminia_settings_template';
 	const CAPTCHA_PROVIDER = 'formminia_captcha_provider';
 	const RECAPTCHA_SITE_KEY = 'formminia_recaptcha_site_key';
 	const RECAPTCHA_SECRET_KEY = 'formminia_recaptcha_secret_key';

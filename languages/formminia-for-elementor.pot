@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-24 12:47+0000\n"
+"POT-Creation-Date: 2026-09-26 07:47+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -26,443 +26,451 @@ msgstr ""
 msgid "Email Settings"
 msgstr ""
 
-#: includes/Admin/settings-view.php:28
-msgid "Templates & Branding"
-msgstr ""
-
-#: includes/Admin/settings-view.php:32
-msgid "Support & Guide"
-msgstr ""
-
-#: includes/Admin/settings-view.php:33
-msgid "Features & Payments"
-msgstr ""
-
-#: includes/Admin/settings-view.php:87, includes/Admin/SettingsPage.php:85
-msgid "FormMinia for Elementor"
-msgstr ""
-
-#: includes/Admin/settings-view.php:96
-msgid "View Submissions"
-msgstr ""
-
-#: includes/Admin/settings-view.php:100
-msgid "Documentation"
-msgstr ""
-
-#: includes/Admin/settings-view.php:112
-msgid "Plugin Settings Navigation"
-msgstr ""
-
-#: includes/Admin/settings-view.php:130
-msgid "50+ Preset Skins"
-msgstr ""
-
-#: includes/Admin/settings-view.php:132
-msgid "Edit any page with Elementor, search for the \"Contact Form\" widget, and choose from 50 built-in skins."
-msgstr ""
-
-#: includes/Admin/settings-view.php:135
-msgid "Request a Skin / Feature"
-msgstr ""
-
-#: includes/Admin/settings-view.php:598
-msgid "Getting Started & Support"
-msgstr ""
-
-#: includes/Admin/settings-view.php:599
-msgid "Build High-Converting Forms with Elementor"
-msgstr ""
-
-#: includes/Admin/settings-view.php:600
-msgid "FormMinia for Elementor gives you 50+ preset styles, spam protection, and styled email templates. Follow the quick guide below or support development."
-msgstr ""
-
-#: includes/Admin/settings-view.php:608
-msgid "Open Elementor"
-msgstr ""
-
-#: includes/Admin/settings-view.php:609
-msgid "Edit any page, post, or template with the Elementor page builder."
-msgstr ""
-
-#: includes/Admin/settings-view.php:613
-msgid "Drag \"Contact Form\""
-msgstr ""
-
-#: includes/Admin/settings-view.php:614
-msgid "Open the \"FormMinia\" category in the Elementor widget panel and drag the \"Contact Form\" widget into your page section."
-msgstr ""
-
-#: includes/Admin/settings-view.php:618
-msgid "Pick a Preset Skin"
-msgstr ""
-
-#: includes/Admin/settings-view.php:619
-msgid "Select from 50 built-in skins or 7 layouts (Floating, Material, Inline, Boxed)."
-msgstr ""
-
-#: includes/Admin/settings-view.php:632
-msgid "Included Features"
-msgstr ""
-
-#: includes/Admin/settings-view.php:633
-msgid "Everything available out of the box in FormMinia for Elementor"
-msgstr ""
-
-#: includes/Admin/settings-view.php:641
-msgid "50 Preset Design Skins"
-msgstr ""
-
-#: includes/Admin/settings-view.php:642
-msgid "Neumorphic, Glassmorphism, Material, Retro & Minimalist styles."
-msgstr ""
-
-#: includes/Admin/settings-view.php:648
-msgid "7 Layout Structures"
-msgstr ""
-
-#: includes/Admin/settings-view.php:649
-msgid "Floating Labels, Material Minimal, Inset Shadow, Inline layout, etc."
-msgstr ""
-
-#: includes/Admin/settings-view.php:655
-msgid "Submissions Database Storage"
-msgstr ""
-
-#: includes/Admin/settings-view.php:656
-msgid "Never miss an inquiry. Search, export to CSV and manage from admin."
-msgstr ""
-
-#: includes/Admin/settings-view.php:662
-msgid "Spam Protection Suite"
-msgstr ""
-
-#: includes/Admin/settings-view.php:663
-msgid "Google reCAPTCHA v2, Cloudflare Turnstile, honeypot and IP rate limiting."
-msgstr ""
-
-#: includes/Admin/settings-view.php:669
-msgid "GDPR Consent Checkbox"
-msgstr ""
-
-#: includes/Admin/settings-view.php:670
-msgid "Custom consent text with privacy policy links."
-msgstr ""
-
-#: includes/Admin/settings-view.php:684
-msgid "Support & Feedback"
-msgstr ""
-
-#: includes/Admin/settings-view.php:685
-msgid "Support development or report bugs directly to the team."
-msgstr ""
-
-#: includes/Admin/settings-view.php:693
-msgid "Report an Issue / Bug"
-msgstr ""
-
-#: includes/Admin/settings-view.php:694
-msgid "File an issue on the official GitHub repository."
-msgstr ""
-
-#: includes/Admin/settings-view.php:702
-msgid "Leave a 5-Star Review"
-msgstr ""
-
-#: includes/Admin/settings-view.php:703
-msgid "Help support future development by reviewing on WordPress.org."
-msgstr ""
-
-#: includes/Admin/settings-view.php:341
+#: includes/Admin/settings-view.php:28, includes/Admin/settings-view.php:342
 msgid "Notification Routing"
 msgstr ""
 
-#: includes/Admin/settings-view.php:342
-msgid "Configure who receives notifications when a contact form is submitted."
+#: includes/Admin/settings-view.php:32
+msgid "Template & Branding"
 msgstr ""
 
-#: includes/Admin/settings-view.php:349, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1087
-msgid "Recipient Email"
+#: includes/Admin/settings-view.php:33
+msgid "Email Look & Colors"
 msgstr ""
 
-#: includes/Admin/settings-view.php:357
-msgid "Primary email address where submission notifications are delivered."
+#: includes/Admin/settings-view.php:37
+msgid "Support & Guide"
 msgstr ""
 
-#: includes/Admin/settings-view.php:362
-msgid "CC Addresses"
+#: includes/Admin/settings-view.php:38
+msgid "Features & Payments"
 msgstr ""
 
-#: includes/Admin/settings-view.php:366
-msgid "Comma-separated email list."
+#: includes/Admin/settings-view.php:92, includes/Admin/SettingsPage.php:85
+msgid "FormMinia for Elementor"
 msgstr ""
 
-#: includes/Admin/settings-view.php:370
-msgid "BCC Addresses"
+#: includes/Admin/settings-view.php:101
+msgid "View Submissions"
 msgstr ""
 
-#: includes/Admin/settings-view.php:374
-msgid "Blind carbon copy addresses."
+#: includes/Admin/settings-view.php:105
+msgid "Documentation"
 msgstr ""
 
-#: includes/Admin/settings-view.php:380
-msgid "Sender Name (\"From\")"
+#: includes/Admin/settings-view.php:117
+msgid "Plugin Settings Navigation"
 msgstr ""
 
-#: includes/Admin/settings-view.php:387
-msgid "Default Subject"
+#: includes/Admin/settings-view.php:135
+msgid "50+ Preset Skins"
 msgstr ""
 
-#: includes/Admin/settings-view.php:409
-msgid "Template Branding & Colors"
+#: includes/Admin/settings-view.php:137
+msgid "Edit any page with Elementor, search for the \"Contact Form\" widget, and choose from 50 built-in skins."
 msgstr ""
 
-#: includes/Admin/settings-view.php:410
-msgid "Customize your HTML email notification layout, colors, logo and footer."
+#: includes/Admin/settings-view.php:140
+msgid "Request a Skin / Feature"
 msgstr ""
 
-#: includes/Admin/settings-view.php:417
-msgid "Enable HTML Email Template"
+#: includes/Admin/settings-view.php:621
+msgid "Getting Started & Support"
 msgstr ""
 
-#: includes/Admin/settings-view.php:418
-msgid "Renders a responsive, branded email template instead of plain text."
+#: includes/Admin/settings-view.php:622
+msgid "Build High-Converting Forms with Elementor"
 msgstr ""
 
-#: includes/Admin/settings-view.php:428
-msgid "Color Presets:"
+#: includes/Admin/settings-view.php:623
+msgid "FormMinia for Elementor gives you 50+ preset styles, spam protection, and styled email templates. Follow the quick guide below or support development."
+msgstr ""
+
+#: includes/Admin/settings-view.php:631
+msgid "Open Elementor"
+msgstr ""
+
+#: includes/Admin/settings-view.php:632
+msgid "Edit any page, post, or template with the Elementor page builder."
+msgstr ""
+
+#: includes/Admin/settings-view.php:636
+msgid "Drag \"Contact Form\""
+msgstr ""
+
+#: includes/Admin/settings-view.php:637
+msgid "Open the \"FormMinia\" category in the Elementor widget panel and drag the \"Contact Form\" widget into your page section."
+msgstr ""
+
+#: includes/Admin/settings-view.php:641
+msgid "Pick a Preset Skin"
+msgstr ""
+
+#: includes/Admin/settings-view.php:642
+msgid "Select from 50 built-in skins or 7 layouts (Floating, Material, Inline, Boxed)."
+msgstr ""
+
+#: includes/Admin/settings-view.php:655
+msgid "Included Features"
+msgstr ""
+
+#: includes/Admin/settings-view.php:656
+msgid "Everything available out of the box in FormMinia for Elementor"
+msgstr ""
+
+#: includes/Admin/settings-view.php:664
+msgid "50 Preset Design Skins"
+msgstr ""
+
+#: includes/Admin/settings-view.php:665
+msgid "Neumorphic, Glassmorphism, Material, Retro & Minimalist styles."
+msgstr ""
+
+#: includes/Admin/settings-view.php:671
+msgid "7 Layout Structures"
+msgstr ""
+
+#: includes/Admin/settings-view.php:672
+msgid "Floating Labels, Material Minimal, Inset Shadow, Inline layout, etc."
+msgstr ""
+
+#: includes/Admin/settings-view.php:678
+msgid "Submissions Database Storage"
+msgstr ""
+
+#: includes/Admin/settings-view.php:679
+msgid "Never miss an inquiry. Search, export to CSV and manage from admin."
+msgstr ""
+
+#: includes/Admin/settings-view.php:685
+msgid "Spam Protection Suite"
+msgstr ""
+
+#: includes/Admin/settings-view.php:686
+msgid "Google reCAPTCHA v2, Cloudflare Turnstile, honeypot and IP rate limiting."
+msgstr ""
+
+#: includes/Admin/settings-view.php:692
+msgid "GDPR Consent Checkbox"
+msgstr ""
+
+#: includes/Admin/settings-view.php:693
+msgid "Custom consent text with privacy policy links."
+msgstr ""
+
+#: includes/Admin/settings-view.php:707
+msgid "Support & Feedback"
+msgstr ""
+
+#: includes/Admin/settings-view.php:708
+msgid "Support development or report bugs directly to the team."
+msgstr ""
+
+#: includes/Admin/settings-view.php:716
+msgid "Report an Issue / Bug"
+msgstr ""
+
+#: includes/Admin/settings-view.php:717
+msgid "File an issue on the official GitHub repository."
+msgstr ""
+
+#: includes/Admin/settings-view.php:725
+msgid "Leave a 5-Star Review"
+msgstr ""
+
+#: includes/Admin/settings-view.php:726
+msgid "Help support future development by reviewing on WordPress.org."
 msgstr ""
 
 #: includes/Admin/settings-view.php:432
-msgid "Indigo Modern"
+msgid "Template Branding & Colors"
 msgstr ""
 
-#: includes/Admin/settings-view.php:436
-msgid "Emerald Clean"
+#: includes/Admin/settings-view.php:433
+msgid "Customize your HTML email notification layout, colors, logo and footer."
 msgstr ""
 
 #: includes/Admin/settings-view.php:440
-msgid "Ocean Sky"
+msgid "Enable HTML Email Template"
 msgstr ""
 
-#: includes/Admin/settings-view.php:444
-msgid "Slate Luxury"
+#: includes/Admin/settings-view.php:441
+msgid "Renders a responsive, branded email template instead of plain text."
 msgstr ""
 
-#: includes/Admin/settings-view.php:448
-msgid "Rose Crimson"
+#: includes/Admin/settings-view.php:451
+msgid "Color Presets:"
 msgstr ""
 
 #: includes/Admin/settings-view.php:455
+msgid "Indigo Modern"
+msgstr ""
+
+#: includes/Admin/settings-view.php:459
+msgid "Emerald Clean"
+msgstr ""
+
+#: includes/Admin/settings-view.php:463
+msgid "Ocean Sky"
+msgstr ""
+
+#: includes/Admin/settings-view.php:467
+msgid "Slate Luxury"
+msgstr ""
+
+#: includes/Admin/settings-view.php:471
+msgid "Rose Crimson"
+msgstr ""
+
+#: includes/Admin/settings-view.php:478
 msgid "Header Bar Accent"
 msgstr ""
 
-#: includes/Admin/settings-view.php:462
+#: includes/Admin/settings-view.php:485
 msgid "Email Canvas BG"
 msgstr ""
 
-#: includes/Admin/settings-view.php:469
+#: includes/Admin/settings-view.php:492
 msgid "Card Container BG"
 msgstr ""
 
-#: includes/Admin/settings-view.php:476
+#: includes/Admin/settings-view.php:499
 msgid "Primary Text Color"
 msgstr ""
 
-#: includes/Admin/settings-view.php:485
+#: includes/Admin/settings-view.php:508
 msgid "Email Header Logo"
 msgstr ""
 
-#: includes/Admin/settings-view.php:492
+#: includes/Admin/settings-view.php:515
 msgid "Choose Logo"
 msgstr ""
 
-#: includes/Admin/settings-view.php:496
+#: includes/Admin/settings-view.php:519
 msgid "Remove"
 msgstr ""
 
-#: includes/Admin/settings-view.php:499
+#: includes/Admin/settings-view.php:522
 msgid "Recommended height: 40px–50px with transparent background."
 msgstr ""
 
-#: includes/Admin/settings-view.php:504
+#: includes/Admin/settings-view.php:527
 msgid "Custom Footer Note"
 msgstr ""
 
-#: includes/Admin/settings-view.php:506
+#: includes/Admin/settings-view.php:529
 msgid "e.g. Acme Corp • 123 Innovation Way • contact@acme.com"
 msgstr ""
 
-#: includes/Admin/settings-view.php:511
+#: includes/Admin/settings-view.php:534
 msgid "Show \"Submitted via Site\" Credit"
 msgstr ""
 
-#: includes/Admin/settings-view.php:512
+#: includes/Admin/settings-view.php:535
 msgid "Displays the timestamp and site link in the email footer."
 msgstr ""
 
-#: includes/Admin/settings-view.php:531
+#: includes/Admin/settings-view.php:554
 msgid "Live Notification Preview"
 msgstr ""
 
-#: includes/Admin/settings-view.php:532
+#: includes/Admin/settings-view.php:555
 msgid "Real-time"
 msgstr ""
 
-#: includes/Admin/settings-view.php:543, includes/Integrations/Elementor/Partials/email-template.php:76, includes/Integrations/Elementor/Partials/email-template.php:98
+#: includes/Admin/settings-view.php:566, includes/Integrations/Elementor/Partials/email-template.php:76, includes/Integrations/Elementor/Partials/email-template.php:98
 msgid "New Form Submission"
 msgstr ""
 
-#: includes/Admin/settings-view.php:548
+#: includes/Admin/settings-view.php:571
 msgid "You received a new inquiry from %s:"
 msgstr ""
 
-#: includes/Admin/settings-view.php:551
+#: includes/Admin/settings-view.php:574
 msgid "NAME"
 msgstr ""
 
-#: includes/Admin/settings-view.php:555
+#: includes/Admin/settings-view.php:578
 msgid "EMAIL"
 msgstr ""
 
-#: includes/Admin/settings-view.php:559
+#: includes/Admin/settings-view.php:582
 msgid "SUBJECT"
 msgstr ""
 
-#: includes/Admin/settings-view.php:563
+#: includes/Admin/settings-view.php:586
 msgid "MESSAGE"
 msgstr ""
 
-#: includes/Admin/settings-view.php:564
+#: includes/Admin/settings-view.php:587
 msgid "Hi, I would like to inquire about your services and schedule a consultation next week."
 msgstr ""
 
-#: includes/Admin/settings-view.php:570
+#: includes/Admin/settings-view.php:593
 msgid "Submitted via %s"
 msgstr ""
 
-#: includes/Admin/settings-view.php:583
+#: includes/Admin/settings-view.php:606, includes/Admin/settings-view.php:401
 msgid "All changes are ready to save."
 msgstr ""
 
-#: includes/Admin/settings-view.php:587
+#: includes/Admin/settings-view.php:610
+msgid "Save Template Settings"
+msgstr ""
+
+#: includes/Admin/settings-view.php:343
+msgid "Configure who receives notifications when a contact form is submitted."
+msgstr ""
+
+#: includes/Admin/settings-view.php:350, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1087
+msgid "Recipient Email"
+msgstr ""
+
+#: includes/Admin/settings-view.php:358
+msgid "Primary email address where submission notifications are delivered."
+msgstr ""
+
+#: includes/Admin/settings-view.php:363
+msgid "CC Addresses"
+msgstr ""
+
+#: includes/Admin/settings-view.php:367
+msgid "Comma-separated email list."
+msgstr ""
+
+#: includes/Admin/settings-view.php:371
+msgid "BCC Addresses"
+msgstr ""
+
+#: includes/Admin/settings-view.php:375
+msgid "Blind carbon copy addresses."
+msgstr ""
+
+#: includes/Admin/settings-view.php:381
+msgid "Sender Name (\"From\")"
+msgstr ""
+
+#: includes/Admin/settings-view.php:388
+msgid "Default Subject"
+msgstr ""
+
+#: includes/Admin/settings-view.php:405
 msgid "Save Email Settings"
 msgstr ""
 
-#: includes/Admin/settings-view.php:158
+#: includes/Admin/settings-view.php:163
 msgid "Anti-Spam & CAPTCHA Provider"
 msgstr ""
 
-#: includes/Admin/settings-view.php:159
+#: includes/Admin/settings-view.php:164
 msgid "Choose which validation challenge to use across your forms to stop automated bot submissions."
 msgstr ""
 
-#: includes/Admin/settings-view.php:166, includes/Integrations/Elementor/WidgetControls/ContentControls.php:54, includes/Integrations/Elementor/WidgetControls/ContentControls.php:116
+#: includes/Admin/settings-view.php:171, includes/Integrations/Elementor/WidgetControls/ContentControls.php:54, includes/Integrations/Elementor/WidgetControls/ContentControls.php:116
 msgid "None"
 msgstr ""
 
-#: includes/Admin/settings-view.php:167, includes/Admin/settings-view.php:197
+#: includes/Admin/settings-view.php:172, includes/Admin/settings-view.php:202
 msgid "Google reCAPTCHA v2"
 msgstr ""
 
-#: includes/Admin/settings-view.php:168, includes/Admin/settings-view.php:212
+#: includes/Admin/settings-view.php:173, includes/Admin/settings-view.php:217
 msgid "Cloudflare Turnstile"
 msgstr ""
 
-#: includes/Admin/settings-view.php:180
+#: includes/Admin/settings-view.php:185
 msgid "Disabled"
 msgstr ""
 
-#: includes/Admin/settings-view.php:181
+#: includes/Admin/settings-view.php:186
 msgid "No CAPTCHA challenge. Forms will still use the honeypot and IP rate limiting."
 msgstr ""
 
-#: includes/Admin/settings-view.php:183
+#: includes/Admin/settings-view.php:188
 msgid "Basic Spam Filter"
 msgstr ""
 
-#: includes/Admin/settings-view.php:198
+#: includes/Admin/settings-view.php:203
 msgid "The familiar \"I'm not a robot\" checkbox challenge. Requires Google API keys."
 msgstr ""
 
-#: includes/Admin/settings-view.php:200
+#: includes/Admin/settings-view.php:205
 msgid "Checkbox Challenge"
 msgstr ""
 
-#: includes/Admin/settings-view.php:213
+#: includes/Admin/settings-view.php:218
 msgid "Modern, privacy-first alternative. Seamless non-interactive verification."
 msgstr ""
 
-#: includes/Admin/settings-view.php:215
+#: includes/Admin/settings-view.php:220
 msgid "Recommended"
 msgstr ""
 
-#: includes/Admin/settings-view.php:224
+#: includes/Admin/settings-view.php:229
 msgid "Need reCAPTCHA v2 credentials?"
 msgstr ""
 
-#: includes/Admin/settings-view.php:225
+#: includes/Admin/settings-view.php:230
 msgid "Register your site in the Google reCAPTCHA Console and select \"Challenge (v2)\" -> \"I'm not a robot\" Checkbox."
 msgstr ""
 
-#: includes/Admin/settings-view.php:227
+#: includes/Admin/settings-view.php:232
 msgid "Open Google reCAPTCHA Console"
 msgstr ""
 
-#: includes/Admin/settings-view.php:235
+#: includes/Admin/settings-view.php:240
 msgid "reCAPTCHA Site Key"
 msgstr ""
 
-#: includes/Admin/settings-view.php:243
+#: includes/Admin/settings-view.php:248
 msgid "Public site key displayed in your form HTML."
 msgstr ""
 
-#: includes/Admin/settings-view.php:248
+#: includes/Admin/settings-view.php:253
 msgid "reCAPTCHA Secret Key"
 msgstr ""
 
-#: includes/Admin/settings-view.php:255, includes/Admin/settings-view.php:299
+#: includes/Admin/settings-view.php:260, includes/Admin/settings-view.php:304
 msgid "Toggle password visibility"
 msgstr ""
 
-#: includes/Admin/settings-view.php:259
+#: includes/Admin/settings-view.php:264
 msgid "Secret key used for secure server-side verification. Never share this key."
 msgstr ""
 
-#: includes/Admin/settings-view.php:268
+#: includes/Admin/settings-view.php:273
 msgid "Need Cloudflare Turnstile credentials?"
 msgstr ""
 
-#: includes/Admin/settings-view.php:269
+#: includes/Admin/settings-view.php:274
 msgid "Create a new widget in your Cloudflare dashboard under Turnstile -> Add Site (Managed or Non-interactive mode)."
 msgstr ""
 
-#: includes/Admin/settings-view.php:271
+#: includes/Admin/settings-view.php:276
 msgid "Open Cloudflare Turnstile Dashboard"
 msgstr ""
 
-#: includes/Admin/settings-view.php:279
+#: includes/Admin/settings-view.php:284
 msgid "Turnstile Site Key"
 msgstr ""
 
-#: includes/Admin/settings-view.php:287
+#: includes/Admin/settings-view.php:292
 msgid "Public site key provided by Cloudflare."
 msgstr ""
 
-#: includes/Admin/settings-view.php:292
+#: includes/Admin/settings-view.php:297
 msgid "Turnstile Secret Key"
 msgstr ""
 
-#: includes/Admin/settings-view.php:303
+#: includes/Admin/settings-view.php:308
 msgid "Secret key for server-side siteverify endpoint."
 msgstr ""
 
-#: includes/Admin/settings-view.php:313
+#: includes/Admin/settings-view.php:318
 msgid "Configure settings and click save to apply changes."
 msgstr ""
 
-#: includes/Admin/settings-view.php:317
+#: includes/Admin/settings-view.php:322
 msgid "Save Settings"
 msgstr ""
 
@@ -490,7 +498,7 @@ msgstr ""
 msgid "Search Submissions"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:157, includes/Admin/SettingsPage.php:253, includes/Admin/SubmissionsTable.php:133
+#: includes/Admin/SettingsPage.php:157, includes/Admin/SettingsPage.php:255, includes/Admin/SubmissionsTable.php:133
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
@@ -498,47 +506,47 @@ msgstr ""
 msgid "Security check failed."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:233
+#: includes/Admin/SettingsPage.php:235
 msgid "FormMinia for Elementor requires the Elementor plugin to build forms. Install and activate Elementor to get started."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:272
+#: includes/Admin/SettingsPage.php:274
 msgid "ID"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:273, includes/Admin/SubmissionsTable.php:38, includes/Integrations/Elementor/WidgetControls/ContentControls.php:393
+#: includes/Admin/SettingsPage.php:275, includes/Admin/SubmissionsTable.php:38, includes/Integrations/Elementor/WidgetControls/ContentControls.php:393
 msgid "Name"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:274, includes/Admin/SubmissionsTable.php:39, includes/Integrations/Elementor/WidgetControls/ContentControls.php:419
+#: includes/Admin/SettingsPage.php:276, includes/Admin/SubmissionsTable.php:39, includes/Integrations/Elementor/WidgetControls/ContentControls.php:419
 msgid "Email"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:275, includes/Integrations/Elementor/WidgetControls/ContentControls.php:445
+#: includes/Admin/SettingsPage.php:277, includes/Integrations/Elementor/WidgetControls/ContentControls.php:445
 msgid "Phone"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:276, includes/Integrations/Elementor/WidgetControls/ContentControls.php:471
+#: includes/Admin/SettingsPage.php:278, includes/Integrations/Elementor/WidgetControls/ContentControls.php:471
 msgid "Website"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:277, includes/Admin/SubmissionsTable.php:40, includes/Integrations/Elementor/WidgetControls/ContentControls.php:497, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1138
+#: includes/Admin/SettingsPage.php:279, includes/Admin/SubmissionsTable.php:40, includes/Integrations/Elementor/WidgetControls/ContentControls.php:497, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1138
 msgid "Subject"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:278, includes/Admin/SubmissionsTable.php:41, includes/Integrations/Elementor/WidgetControls/ContentControls.php:523, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1151, includes/Services/Email/SubmissionMailer.php:195
+#: includes/Admin/SettingsPage.php:280, includes/Admin/SubmissionsTable.php:41, includes/Integrations/Elementor/WidgetControls/ContentControls.php:523, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1151, includes/Services/Email/SubmissionMailer.php:195
 msgid "Message"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:279
+#: includes/Admin/SettingsPage.php:281
 msgid "Form ID"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:280
+#: includes/Admin/SettingsPage.php:282
 msgid "IP Address"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:281, includes/Admin/SubmissionsTable.php:42
+#: includes/Admin/SettingsPage.php:283, includes/Admin/SubmissionsTable.php:42
 msgid "Date"
 msgstr ""
 

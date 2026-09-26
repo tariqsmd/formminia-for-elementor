@@ -176,20 +176,22 @@ class SettingsPage
 		register_setting(Options::GROUP_GENERAL, Options::TURNSTILE_SITE_KEY, ['sanitize_callback' => 'sanitize_text_field']);
 		register_setting(Options::GROUP_GENERAL, Options::TURNSTILE_SECRET_KEY, ['sanitize_callback' => 'sanitize_text_field']);
 
-		// Email Tab
+		// Email Tab - Notification Routing only
 		register_setting(Options::GROUP_EMAIL, Options::ADMIN_EMAIL, ['sanitize_callback' => 'sanitize_email']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_SUBJECT, ['sanitize_callback' => 'sanitize_text_field']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_FROM_NAME, ['sanitize_callback' => 'sanitize_text_field']);
-		register_setting(Options::GROUP_EMAIL, Options::ENABLE_HTML_EMAIL, ['sanitize_callback' => 'sanitize_text_field']);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_ACCENT_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_LOGO_URL, ['sanitize_callback' => 'esc_url_raw']);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_FOOTER_TEXT, ['sanitize_callback' => 'sanitize_text_field']);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BG_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CONTENT_BG_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_TEXT_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
-		register_setting(Options::GROUP_EMAIL, Options::EMAIL_SHOW_FOOTER_CREDIT, ['sanitize_callback' => 'sanitize_text_field']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_CC, ['sanitize_callback' => 'FORMMINIA\Admin\SettingsPage::sanitize_email_list']);
 		register_setting(Options::GROUP_EMAIL, Options::EMAIL_BCC, ['sanitize_callback' => 'FORMMINIA\Admin\SettingsPage::sanitize_email_list']);
+
+		// Template Tab - Email template branding & colors
+		register_setting(Options::GROUP_TEMPLATE, Options::ENABLE_HTML_EMAIL, ['sanitize_callback' => 'sanitize_text_field']);
+		register_setting(Options::GROUP_TEMPLATE, Options::EMAIL_ACCENT_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
+		register_setting(Options::GROUP_TEMPLATE, Options::EMAIL_LOGO_URL, ['sanitize_callback' => 'esc_url_raw']);
+		register_setting(Options::GROUP_TEMPLATE, Options::EMAIL_FOOTER_TEXT, ['sanitize_callback' => 'sanitize_textarea_field']);
+		register_setting(Options::GROUP_TEMPLATE, Options::EMAIL_BG_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
+		register_setting(Options::GROUP_TEMPLATE, Options::EMAIL_CONTENT_BG_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
+		register_setting(Options::GROUP_TEMPLATE, Options::EMAIL_TEXT_COLOR, ['sanitize_callback' => 'sanitize_hex_color']);
+		register_setting(Options::GROUP_TEMPLATE, Options::EMAIL_SHOW_FOOTER_CREDIT, ['sanitize_callback' => 'sanitize_text_field']);
 	}
 
 	/**

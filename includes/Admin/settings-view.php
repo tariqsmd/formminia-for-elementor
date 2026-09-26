@@ -25,8 +25,13 @@ $tabs = array(
 	),
 	'email'   => array(
 		'label'    => __( 'Email Settings', 'formminia-for-elementor' ),
-		'subtitle' => __( 'Templates & Branding', 'formminia-for-elementor' ),
+		'subtitle' => __( 'Notification Routing', 'formminia-for-elementor' ),
 		'icon'     => 'dashicons-email-alt',
+	),
+	'template' => array(
+		'label'    => __( 'Template & Branding', 'formminia-for-elementor' ),
+		'subtitle' => __( 'Email Look & Colors', 'formminia-for-elementor' ),
+		'icon'     => 'dashicons-art',
 	),
 	'support' => array(
 		'label'    => __( 'Support & Guide', 'formminia-for-elementor' ),
@@ -324,76 +329,94 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 				<form method="post" action="options.php" class="formminia-form-layout">
 					<?php settings_fields( \FORMMINIA\Admin\Options::GROUP_EMAIL ); ?>
 
+					<!-- SECTION 1: RECIPIENTS & ROUTING -->
+					<section class="formminia-card">
+						<div class="formminia-card-header">
+							<div class="header-icon-wrap mail-icon">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+									<polyline points="22,6 12,13 2,6"/>
+								</svg>
+							</div>
+							<div>
+								<h2><?php esc_html_e( 'Notification Routing', 'formminia-for-elementor' ); ?></h2>
+								<p class="section-desc"><?php esc_html_e( 'Configure who receives notifications when a contact form is submitted.', 'formminia-for-elementor' ); ?></p>
+							</div>
+						</div>
+
+						<div class="formminia-card-body">
+							<div class="formminia-field-group">
+								<label for="formminia_admin_email">
+									<?php esc_html_e( 'Recipient Email', 'formminia-for-elementor' ); ?>
+									<span class="required-asterisk">*</span>
+								</label>
+								<div class="input-wrap">
+									<input type="email" id="formminia_admin_email" name="formminia_admin_email"
+										value="<?php echo esc_attr( $admin_email ); ?>"
+										class="regular-text" required />
+								</div>
+								<p class="field-hint"><?php esc_html_e( 'Primary email address where submission notifications are delivered.', 'formminia-for-elementor' ); ?></p>
+							</div>
+
+							<div class="form-row-2col">
+								<div class="formminia-field-group">
+									<label for="formminia_email_cc"><?php esc_html_e( 'CC Addresses', 'formminia-for-elementor' ); ?></label>
+									<input type="text" id="formminia_email_cc" name="formminia_email_cc"
+										value="<?php echo esc_attr( get_option( 'formminia_email_cc', '' ) ); ?>"
+										class="regular-text" placeholder="team@domain.com, lead@domain.com" />
+									<p class="field-hint"><?php esc_html_e( 'Comma-separated email list.', 'formminia-for-elementor' ); ?></p>
+								</div>
+
+								<div class="formminia-field-group">
+									<label for="formminia_email_bcc"><?php esc_html_e( 'BCC Addresses', 'formminia-for-elementor' ); ?></label>
+									<input type="text" id="formminia_email_bcc" name="formminia_email_bcc"
+										value="<?php echo esc_attr( get_option( 'formminia_email_bcc', '' ) ); ?>"
+										class="regular-text" placeholder="archive@domain.com" />
+									<p class="field-hint"><?php esc_html_e( 'Blind carbon copy addresses.', 'formminia-for-elementor' ); ?></p>
+								</div>
+							</div>
+
+							<div class="form-row-2col">
+								<div class="formminia-field-group">
+									<label for="formminia_email_from_name"><?php esc_html_e( 'Sender Name ("From")', 'formminia-for-elementor' ); ?></label>
+									<input type="text" id="formminia_email_from_name" name="formminia_email_from_name"
+										value="<?php echo esc_attr( $email_from_name ); ?>"
+										class="regular-text" />
+								</div>
+
+								<div class="formminia-field-group">
+									<label for="formminia_email_subject"><?php esc_html_e( 'Default Subject', 'formminia-for-elementor' ); ?></label>
+									<input type="text" id="formminia_email_subject" name="formminia_email_subject"
+										value="<?php echo esc_attr( $email_subject ); ?>"
+										class="regular-text" />
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- STICKY ACTION BAR -->
+					<div class="formminia-sticky-save">
+						<div class="save-status-text">
+							<span class="dashicons dashicons-saved"></span>
+							<span><?php esc_html_e( 'All changes are ready to save.', 'formminia-for-elementor' ); ?></span>
+						</div>
+						<button type="submit" class="formminia-btn-primary">
+							<span class="dashicons dashicons-yes-alt"></span>
+							<?php esc_html_e( 'Save Email Settings', 'formminia-for-elementor' ); ?>
+						</button>
+					</div>
+				</form>
+
+			<?php elseif ( 'template' === $active_tab ) : ?>
+
+				<form method="post" action="options.php" class="formminia-form-layout">
+					<?php settings_fields( \FORMMINIA\Admin\Options::GROUP_TEMPLATE ); ?>
+
 					<div class="formminia-two-col-grid">
 						<!-- LEFT COLUMN: SETTINGS -->
 						<div class="settings-col">
 
-							<!-- SECTION 1: RECIPIENTS & ROUTING -->
-							<section class="formminia-card">
-								<div class="formminia-card-header">
-									<div class="header-icon-wrap mail-icon">
-										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-											<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-											<polyline points="22,6 12,13 2,6"/>
-										</svg>
-									</div>
-									<div>
-										<h2><?php esc_html_e( 'Notification Routing', 'formminia-for-elementor' ); ?></h2>
-										<p class="section-desc"><?php esc_html_e( 'Configure who receives notifications when a contact form is submitted.', 'formminia-for-elementor' ); ?></p>
-									</div>
-								</div>
-
-								<div class="formminia-card-body">
-									<div class="formminia-field-group">
-										<label for="formminia_admin_email">
-											<?php esc_html_e( 'Recipient Email', 'formminia-for-elementor' ); ?>
-											<span class="required-asterisk">*</span>
-										</label>
-										<div class="input-wrap">
-											<input type="email" id="formminia_admin_email" name="formminia_admin_email"
-												value="<?php echo esc_attr( $admin_email ); ?>"
-												class="regular-text" required />
-										</div>
-										<p class="field-hint"><?php esc_html_e( 'Primary email address where submission notifications are delivered.', 'formminia-for-elementor' ); ?></p>
-									</div>
-
-									<div class="form-row-2col">
-										<div class="formminia-field-group">
-											<label for="formminia_email_cc"><?php esc_html_e( 'CC Addresses', 'formminia-for-elementor' ); ?></label>
-											<input type="text" id="formminia_email_cc" name="formminia_email_cc"
-												value="<?php echo esc_attr( get_option( 'formminia_email_cc', '' ) ); ?>"
-												class="regular-text" placeholder="team@domain.com, lead@domain.com" />
-											<p class="field-hint"><?php esc_html_e( 'Comma-separated email list.', 'formminia-for-elementor' ); ?></p>
-										</div>
-
-										<div class="formminia-field-group">
-											<label for="formminia_email_bcc"><?php esc_html_e( 'BCC Addresses', 'formminia-for-elementor' ); ?></label>
-											<input type="text" id="formminia_email_bcc" name="formminia_email_bcc"
-												value="<?php echo esc_attr( get_option( 'formminia_email_bcc', '' ) ); ?>"
-												class="regular-text" placeholder="archive@domain.com" />
-											<p class="field-hint"><?php esc_html_e( 'Blind carbon copy addresses.', 'formminia-for-elementor' ); ?></p>
-										</div>
-									</div>
-
-									<div class="form-row-2col">
-										<div class="formminia-field-group">
-											<label for="formminia_email_from_name"><?php esc_html_e( 'Sender Name ("From")', 'formminia-for-elementor' ); ?></label>
-											<input type="text" id="formminia_email_from_name" name="formminia_email_from_name"
-												value="<?php echo esc_attr( $email_from_name ); ?>"
-												class="regular-text" />
-										</div>
-
-										<div class="formminia-field-group">
-											<label for="formminia_email_subject"><?php esc_html_e( 'Default Subject', 'formminia-for-elementor' ); ?></label>
-											<input type="text" id="formminia_email_subject" name="formminia_email_subject"
-												value="<?php echo esc_attr( $email_subject ); ?>"
-												class="regular-text" />
-										</div>
-									</div>
-								</div>
-							</section>
-
-							<!-- SECTION 2: HTML TEMPLATE & BRANDING -->
+							<!-- SECTION: HTML TEMPLATE & BRANDING -->
 							<section class="formminia-card">
 								<div class="formminia-card-header">
 									<div class="header-icon-wrap palette-icon">
@@ -584,7 +607,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 						</div>
 						<button type="submit" class="formminia-btn-primary">
 							<span class="dashicons dashicons-yes-alt"></span>
-							<?php esc_html_e( 'Save Email Settings', 'formminia-for-elementor' ); ?>
+							<?php esc_html_e( 'Save Template Settings', 'formminia-for-elementor' ); ?>
 						</button>
 					</div>
 				</form>
