@@ -1,3 +1,4 @@
+const fs = require('fs');
 const gulp = require('gulp');
 const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
@@ -19,6 +20,17 @@ const bsConfig = {
         scroll: true
     }
 };
+
+// Read the plugin version from the main plugin file header
+// (e.g. " * Version:           1.0.0") so SVN tags always match the release version.
+function getPluginVersion() {
+    const mainFile = fs.readdirSync('.').find(function (f) {
+        return f.endsWith('.php') && /Plugin Name:/.test(fs.readFileSync(f, 'utf8'));
+    });
+    const content = fs.readFileSync(mainFile, 'utf8');
+    const match = content.match(/^\s*\*\s*Version:\s*([0-9][0-9a-zA-Z.\-]*)\s*$/m);
+    return match ? match[1] : '0.0.0';
+}
 
 // --- Tasks ---
 
@@ -62,58 +74,47 @@ gulp.task('translate', function () {
 
 // Zip the plugin for distribution
 gulp.task('zip', function () {
-    return gulp.src([
-        '**',
-        '!node_modules/**',
-        '!node_modules',
-        '!gulpfile.js',
-        '!package.json',
-        '!package-lock.json',
-        '!composer.json',
-        '!composer.lock',
-        '!vendor/**',
-        '!vendor',
-        '!README.md',
-        '!.gitignore',
-        '!.git/**',
-        '!.git',
-        '!.vscode/**',
-        '!.vscode',
-        '!dist/**',
-        '!dist',
-        '!assets/**/*.scss',
-        '!**/*.map'
-    ])
+    return gulp.src(distSources)
         .pipe(zip('formminia-for-elementor.zip'))
         .pipe(gulp.dest('dist'));
 });
 
-// Prepare an upload-ready zip of the plugin (excludes dev/build files)
-gulp.task('dist', function () {
-    return gulp.src([
-        '**',
-        '!node_modules/**',
-        '!node_modules',
-        '!gulpfile.js',
-        '!package.json',
-        '!package-lock.json',
-        '!composer.json',
-        '!composer.lock',
-        '!vendor/**',
-        '!vendor',
-        '!README.md',
-        '!.gitignore',
-        '!.git/**',
-        '!.git',
-        '!.vscode/**',
-        '!.vscode',
-        '!dist/**',
-        '!dist',
-        '!assets/**/*.scss',
-        '!**/*.map'
-    ])
-        .pipe(zip('formminia-for-elementor.zip'))
-        .pipe(gulp.dest('dist'));
+// Files that ship to WordPress.org (excludes dev/build files)
+// See: https://developer.wordpress.org/plugins/wordpress-org/how-to-use-subversion/
+const distSources = [
+    '**',
+    '!node_modules/**',
+    '!node_modules',
+    '!gulpfile.js',
+    '!package.json',
+    '!package-lock.json',
+    '!composer.json',
+    '!composer.lock',
+    '!vendor/**',
+    '!vendor',
+    '!README.md',
+    '!.gitignore',
+    '!.git/**',
+    '!.git',
+    '!.vscode/**',
+    '!.vscode',
+    '!dist/**',
+    '!dist',
+    '!assets/**/*.scss',
+    '!**/*.map'
+];
+
+// Prepare a WordPress.org SVN-ready dist layout:
+//   dist/trunk/          -> current release code (copy on every build)
+//   dist/tags/<version>/ -> named from the plugin header Version, e.g. tags/1.0.0
+//   dist/assets/         -> screenshots/banners/icons (kept empty here)
+gulp.task('dist', async function () {
+    const version = getPluginVersion();
+    console.log('Building SVN dist for v' + version);
+
+    const { pipeline } = require('stream/promises');
+    await pipeline(gulp.src(distSources), gulp.dest('dist/trunk'));
+    await pipeline(gulp.src(distSources), gulp.dest('dist/tags/' + version));
 });
 
 // --- BrowserSync / Watch tasks ---
