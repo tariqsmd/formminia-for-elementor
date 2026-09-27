@@ -43,19 +43,6 @@
     --formminia-form-padding: 2.5rem;
     --formminia-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     accent-color: var(--formminia-primary);
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 5px;
-        background: linear-gradient(90deg, #818cf8 0%, #4f46e5 60%, #3730a3 100%);
-        border-top-left-radius: inherit;
-        border-top-right-radius: inherit;
-        pointer-events: none;
-    }
 }
 
 /* Nature's Breath */

@@ -1065,15 +1065,6 @@ trait StyleControls {
 			]
 		);
 
-		$this->start_controls_tabs('tabs_button_style');
-
-		$this->start_controls_tab(
-			'tab_button_normal',
-			[
-				'label' => esc_html__('Normal', 'formminia-for-elementor'),
-			]
-		);
-
 		$this->add_group_control(
 			\Elementor\Group_Control_Text_Shadow::get_type(),
 			[
@@ -1100,105 +1091,6 @@ trait StyleControls {
 				'selector' => '{{WRAPPER}} .formminia-submit-btn',
 			]
 		);
-
-		$this->end_controls_tab();
-
-		$this->start_controls_tab(
-			'tab_button_hover',
-			[
-				'label' => esc_html__('Hover', 'formminia-for-elementor'),
-			]
-		);
-
-		$this->add_responsive_control(
-			'button_hover_scale',
-			[
-				'label' => esc_html__('Hover Scale', 'formminia-for-elementor'),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['px'],
-				'range' => [
-					'px' => [
-						'min' => 0.5,
-						'max' => 1.5,
-						'step' => 0.01,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .formminia-submit-btn:hover' => 'transform: scale({{SIZE}});',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'button_hover_translate',
-			[
-				'label' => esc_html__('Hover Offset (Y)', 'formminia-for-elementor'),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => ['px'],
-				'range' => [
-					'px' => [
-						'min' => -50,
-						'max' => 50,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .formminia-submit-btn:hover' => 'transform: translateY({{SIZE}}{{UNIT}});',
-				],
-				'condition' => [
-					'button_hover_scale[size]' => '', // Only show if scale is not set to avoid conflicts, or use a group transform
-				],
-			]
-		);
-
-		$this->add_control(
-			'button_hover_border_color',
-			[
-				'label' => esc_html__('Border Color', 'formminia-for-elementor'),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .formminia-submit-btn:hover' => 'border-color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'button_hover_animation',
-			[
-				'label' => esc_html__('Hover Animation', 'formminia-for-elementor'),
-				'type' => \Elementor\Controls_Manager::HOVER_ANIMATION,
-			]
-		);
-
-		$this->add_control(
-			'button_hover_text_color',
-			[
-				'label' => esc_html__('Text Color', 'formminia-for-elementor'),
-				'type' => \Elementor\Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .formminia-submit-btn:hover' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Background::get_type(),
-			[
-				'name' => 'button_hover_background',
-				'selector' => '{{WRAPPER}} .formminia-submit-btn:hover',
-			]
-		);
-
-		$this->add_group_control(
-			\Elementor\Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'button_hover_box_shadow',
-				'selector' => '{{WRAPPER}} .formminia-submit-btn:hover',
-			]
-		);
-
-		$this->end_controls_tab();
-
-		$this->end_controls_tabs();
 
 		$this->add_control(
 			'heading_button_advanced',
@@ -1326,7 +1218,100 @@ trait StyleControls {
 			]
 		);
 
+		$this->add_control(
+			'heading_button_hover',
+			[
+				'label' => esc_html__('Hover', 'formminia-for-elementor'),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_responsive_control(
+			'button_hover_scale',
+			[
+				'label' => esc_html__('Hover Scale', 'formminia-for-elementor'),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'range' => [
+					'px' => [
+						'min' => 0.5,
+						'max' => 1.5,
+						'step' => 0.01,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .formminia-submit-btn:hover' => 'transform: scale({{SIZE}});',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'button_hover_translate',
+			[
+				'label' => esc_html__('Hover Offset (Y)', 'formminia-for-elementor'),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'range' => [
+					'px' => [
+						'min' => -50,
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .formminia-submit-btn:hover' => 'transform: translateY({{SIZE}}{{UNIT}});',
+				],
+				'condition' => [
+					'button_hover_scale[size]' => '', // Only show if scale is not set to avoid conflicts, or use a group transform
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'button_hover_border',
+				'selector' => '{{WRAPPER}} .formminia-submit-btn:hover',
+			]
+		);
+
+		$this->add_control(
+			'button_hover_text_color',
+			[
+				'label' => esc_html__('Text Color', 'formminia-for-elementor'),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .formminia-submit-btn:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'button_hover_background',
+				'selector' => '{{WRAPPER}} .formminia-submit-btn:hover',
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'button_hover_box_shadow',
+				'selector' => '{{WRAPPER}} .formminia-submit-btn:hover',
+			]
+		);
+
+		$this->add_control(
+			'button_hover_animation',
+			[
+				'label' => esc_html__('Hover Animation', 'formminia-for-elementor'),
+				'type' => \Elementor\Controls_Manager::HOVER_ANIMATION,
+			]
+		);
+
 		$this->end_controls_section();
+
 	}
 
 	/**
