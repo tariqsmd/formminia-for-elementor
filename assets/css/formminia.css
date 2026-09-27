@@ -792,12 +792,13 @@
 }
 .formminia-skin-5 .formminia-submit-btn {
   border: none;
+  /* No !important: the Elementor "Button Hover Box Shadow" control must win. */
 }
 .formminia-skin-5 .formminia-submit-btn:hover {
-  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3) !important;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
 }
 .formminia-skin-5 .formminia-submit-btn:active {
-  box-shadow: inset 3px 3px 6px #c5cad0, inset -3px -3px 6px #ffffff !important;
+  box-shadow: inset 3px 3px 6px #c5cad0, inset -3px -3px 6px #ffffff;
 }
 .formminia-skin-5 {
   /* Flat neumorphic checkbox */

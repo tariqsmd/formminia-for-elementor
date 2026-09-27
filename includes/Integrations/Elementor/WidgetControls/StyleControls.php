@@ -1049,10 +1049,6 @@ trait StyleControls {
 			]
 		);
 
-		$this->end_controls_tab();
-
-		$this->end_controls_tabs();
-
 		$this->end_controls_section();
 	}
 
@@ -1192,6 +1188,14 @@ trait StyleControls {
 			]
 		);
 
+		$this->add_group_control(
+			\Elementor\Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'button_hover_box_shadow',
+				'selector' => '{{WRAPPER}} .formminia-submit-btn:hover',
+			]
+		);
+
 		$this->end_controls_tab();
 
 		$this->end_controls_tabs();
@@ -1321,10 +1325,6 @@ trait StyleControls {
 				],
 			]
 		);
-
-		$this->end_controls_tab();
-
-		$this->end_controls_tabs();
 
 		$this->end_controls_section();
 	}
