@@ -80,7 +80,7 @@ By default notifications go to your site's admin email. To override it globally,
 
 = 1.0.1 =
 * Elementor is no longer a required plugin dependency, so the plugin can be installed and activated on its own.
-* Added an admin notice pointing to Elementor installation while Elementor is inactive.
+* Added an admin notice that prompts to install Elementor when it is missing, or to activate it when it is installed but inactive.
 * Submission handling and the Submissions screen keep working without Elementor.
 
 = 1.0.0 =

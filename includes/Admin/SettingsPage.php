@@ -245,11 +245,17 @@ class SettingsPage
 			return;
 		}
 
-		$message = $is_formminia
-			? __('FormMinia for Elementor needs the Elementor plugin before you can build forms. The Contact Form widget becomes available as soon as Elementor is active.', 'formminia-for-elementor')
-			: __('FormMinia for Elementor is active, but Elementor is not installed. Your existing forms and submissions keep working, and the Contact Form widget becomes available as soon as Elementor is active.', 'formminia-for-elementor');
+		$is_installed = $this->is_elementor_installed();
 
-		$is_installed = function_exists('is_plugin_active') && is_plugin_active('elementor/elementor.php');
+		if ($is_formminia) {
+			$message = $is_installed
+				? __('Elementor is installed but inactive. Activate Elementor to build forms with the Contact Form widget.', 'formminia-for-elementor')
+				: __('FormMinia for Elementor needs the Elementor plugin before you can build forms. Install Elementor to get the Contact Form widget.', 'formminia-for-elementor');
+		} else {
+			$message = $is_installed
+				? __('FormMinia for Elementor is active, but Elementor is installed and inactive. Your existing forms and submissions keep working. Activate Elementor to get the Contact Form widget.', 'formminia-for-elementor')
+				: __('FormMinia for Elementor is active, but Elementor is not installed. Your existing forms and submissions keep working. Install Elementor to get the Contact Form widget.', 'formminia-for-elementor');
+		}
 
 		printf(
 			'<div class="notice notice-warning"><p>%s <a href="%s" class="button button-primary">%s</a></p></div>',
@@ -257,13 +263,13 @@ class SettingsPage
 			esc_url(
 				self_admin_url(
 					$is_installed
-						? 'plugins.php'
+						? 'plugins.php?s=elementor'
 						: 'plugin-install.php?tab=search&s=elementor'
 				)
 			),
 			esc_html(
 				$is_installed
-					? __('Go to Plugins', 'formminia-for-elementor')
+					? __('Activate Elementor', 'formminia-for-elementor')
 					: __('Install Elementor', 'formminia-for-elementor')
 			)
 		);
@@ -281,6 +287,27 @@ class SettingsPage
 		}
 
 		return (bool) did_action('elementor/loaded');
+	}
+
+	/**
+	 * Whether the Elementor plugin files are present, regardless of its state.
+	 *
+	 * This is deliberately not an active-state check: an installed but
+	 * deactivated Elementor needs an activation prompt, not an install prompt.
+	 *
+	 * @return bool
+	 */
+	protected function is_elementor_installed()
+	{
+		$plugin_file = 'elementor/elementor.php';
+
+		if (function_exists('get_plugins')) {
+			$plugins = get_plugins();
+
+			return isset($plugins[$plugin_file]);
+		}
+
+		return defined('WP_PLUGIN_DIR') && file_exists(WP_PLUGIN_DIR . '/' . $plugin_file);
 	}
 
 	/**
