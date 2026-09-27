@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-26 07:47+0000\n"
+"POT-Creation-Date: 2026-09-27 16:12+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -498,7 +498,7 @@ msgstr ""
 msgid "Search Submissions"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:157, includes/Admin/SettingsPage.php:255, includes/Admin/SubmissionsTable.php:133
+#: includes/Admin/SettingsPage.php:157, includes/Admin/SettingsPage.php:330, includes/Admin/SubmissionsTable.php:133
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
@@ -506,47 +506,67 @@ msgstr ""
 msgid "Security check failed."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:235
-msgid "FormMinia for Elementor requires the Elementor plugin to build forms. Install and activate Elementor to get started."
+#: includes/Admin/SettingsPage.php:256
+msgid "FormMinia for Elementor is active, but Elementor is installed and inactive. Your existing forms and submissions keep working. Activate Elementor to get the Contact Form widget."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:274
+#: includes/Admin/SettingsPage.php:257
+msgid "FormMinia for Elementor is active, but Elementor is not installed. Your existing forms and submissions keep working. Install Elementor to get the Contact Form widget."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:252
+msgid "Elementor is installed but inactive. Activate Elementor to build forms with the Contact Form widget."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:253
+msgid "FormMinia for Elementor needs the Elementor plugin before you can build forms. Install Elementor to get the Contact Form widget."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:272
+msgid "Activate Elementor"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:273
+msgid "Install Elementor"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:349
 msgid "ID"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:275, includes/Admin/SubmissionsTable.php:38, includes/Integrations/Elementor/WidgetControls/ContentControls.php:393
+#: includes/Admin/SettingsPage.php:350, includes/Admin/SubmissionsTable.php:38, includes/Integrations/Elementor/WidgetControls/ContentControls.php:393
 msgid "Name"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:276, includes/Admin/SubmissionsTable.php:39, includes/Integrations/Elementor/WidgetControls/ContentControls.php:419
+#: includes/Admin/SettingsPage.php:351, includes/Admin/SubmissionsTable.php:39, includes/Integrations/Elementor/WidgetControls/ContentControls.php:419
 msgid "Email"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:277, includes/Integrations/Elementor/WidgetControls/ContentControls.php:445
+#: includes/Admin/SettingsPage.php:352, includes/Integrations/Elementor/WidgetControls/ContentControls.php:445
 msgid "Phone"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:278, includes/Integrations/Elementor/WidgetControls/ContentControls.php:471
+#: includes/Admin/SettingsPage.php:353, includes/Integrations/Elementor/WidgetControls/ContentControls.php:471
 msgid "Website"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:279, includes/Admin/SubmissionsTable.php:40, includes/Integrations/Elementor/WidgetControls/ContentControls.php:497, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1138
+#: includes/Admin/SettingsPage.php:354, includes/Admin/SubmissionsTable.php:40, includes/Integrations/Elementor/WidgetControls/ContentControls.php:497, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1138
 msgid "Subject"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:280, includes/Admin/SubmissionsTable.php:41, includes/Integrations/Elementor/WidgetControls/ContentControls.php:523, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1151, includes/Services/Email/SubmissionMailer.php:195
+#: includes/Admin/SettingsPage.php:355, includes/Admin/SubmissionsTable.php:41, includes/Integrations/Elementor/WidgetControls/ContentControls.php:523, includes/Integrations/Elementor/WidgetControls/ContentControls.php:1151, includes/Services/Email/SubmissionMailer.php:195
 msgid "Message"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:281
+#: includes/Admin/SettingsPage.php:356
 msgid "Form ID"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:282
+#: includes/Admin/SettingsPage.php:357
 msgid "IP Address"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:283, includes/Admin/SubmissionsTable.php:42
+#: includes/Admin/SettingsPage.php:358, includes/Admin/SubmissionsTable.php:42
 msgid "Date"
 msgstr ""
 
@@ -566,19 +586,19 @@ msgstr ""
 msgid "Submissions deleted."
 msgstr ""
 
-#: includes/Frontend/FormController.php:132
+#: includes/Frontend/FormController.php:137
 msgid "Spam detected. Please try again."
 msgstr ""
 
-#: includes/Frontend/FormController.php:146
+#: includes/Frontend/FormController.php:151
 msgid "Too many submissions from this IP. Please try again later."
 msgstr ""
 
-#: includes/Frontend/FormController.php:209
+#: includes/Frontend/FormController.php:215
 msgid "Message sent successfully!"
 msgstr ""
 
-#: includes/Frontend/FormController.php:216
+#: includes/Frontend/FormController.php:222
 msgid "Failed to send message. Please try again."
 msgstr ""
 
@@ -1078,7 +1098,7 @@ msgstr ""
 msgid "GDPR Label"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:550, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1686
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:550, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1671
 msgid "GDPR Consent"
 msgstr ""
 
@@ -1090,7 +1110,7 @@ msgstr ""
 msgid "I consent to having this website store my submitted information so they can respond to my inquiry."
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:577, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1340
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:577, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1325
 msgid "Messages"
 msgstr ""
 
@@ -1222,7 +1242,7 @@ msgstr ""
 msgid "Subject Icon"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:943, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1067
+#: includes/Integrations/Elementor/WidgetControls/ContentControls.php:943, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1063
 msgid "Submit Button"
 msgstr ""
 
@@ -1366,15 +1386,15 @@ msgstr ""
 msgid "Field Group"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:43, includes/Integrations/Elementor/WidgetControls/StyleControls.php:120, includes/Integrations/Elementor/WidgetControls/StyleControls.php:249, includes/Integrations/Elementor/WidgetControls/StyleControls.php:374, includes/Integrations/Elementor/WidgetControls/StyleControls.php:453, includes/Integrations/Elementor/WidgetControls/StyleControls.php:545, includes/Integrations/Elementor/WidgetControls/StyleControls.php:958, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1211, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1348, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1623, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1697
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:43, includes/Integrations/Elementor/WidgetControls/StyleControls.php:120, includes/Integrations/Elementor/WidgetControls/StyleControls.php:249, includes/Integrations/Elementor/WidgetControls/StyleControls.php:374, includes/Integrations/Elementor/WidgetControls/StyleControls.php:453, includes/Integrations/Elementor/WidgetControls/StyleControls.php:545, includes/Integrations/Elementor/WidgetControls/StyleControls.php:958, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1107, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1333, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1608, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1682
 msgid "Margin"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:55, includes/Integrations/Elementor/WidgetControls/StyleControls.php:132, includes/Integrations/Elementor/WidgetControls/StyleControls.php:261, includes/Integrations/Elementor/WidgetControls/StyleControls.php:386, includes/Integrations/Elementor/WidgetControls/StyleControls.php:465, includes/Integrations/Elementor/WidgetControls/StyleControls.php:560, includes/Integrations/Elementor/WidgetControls/StyleControls.php:970, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1223, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1360, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1635, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1709
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:55, includes/Integrations/Elementor/WidgetControls/StyleControls.php:132, includes/Integrations/Elementor/WidgetControls/StyleControls.php:261, includes/Integrations/Elementor/WidgetControls/StyleControls.php:386, includes/Integrations/Elementor/WidgetControls/StyleControls.php:465, includes/Integrations/Elementor/WidgetControls/StyleControls.php:560, includes/Integrations/Elementor/WidgetControls/StyleControls.php:970, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1119, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1345, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1620, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1694
 msgid "Padding"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:67, includes/Integrations/Elementor/WidgetControls/StyleControls.php:181, includes/Integrations/Elementor/WidgetControls/StyleControls.php:273, includes/Integrations/Elementor/WidgetControls/StyleControls.php:398, includes/Integrations/Elementor/WidgetControls/StyleControls.php:477, includes/Integrations/Elementor/WidgetControls/StyleControls.php:575, includes/Integrations/Elementor/WidgetControls/StyleControls.php:982, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1235, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1372, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1647, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1721
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:67, includes/Integrations/Elementor/WidgetControls/StyleControls.php:181, includes/Integrations/Elementor/WidgetControls/StyleControls.php:273, includes/Integrations/Elementor/WidgetControls/StyleControls.php:398, includes/Integrations/Elementor/WidgetControls/StyleControls.php:477, includes/Integrations/Elementor/WidgetControls/StyleControls.php:575, includes/Integrations/Elementor/WidgetControls/StyleControls.php:982, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1131, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1357, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1632, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1706
 msgid "Border Radius"
 msgstr ""
 
@@ -1410,7 +1430,7 @@ msgstr ""
 msgid "Fields Wrapper"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:513, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1789
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:513, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1774
 msgid "Label Color"
 msgstr ""
 
@@ -1418,19 +1438,19 @@ msgstr ""
 msgid "Field Icons"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:612, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1271
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:612, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1167
 msgid "Icon Size"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:633, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1292
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:633, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1188
 msgid "Icon Spacing"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:654, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1313
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:654, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1209
 msgid "Icon Color"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:669, includes/Integrations/Elementor/WidgetControls/StyleControls.php:854, includes/Integrations/Elementor/WidgetControls/StyleControls.php:923, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1538, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1588
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:669, includes/Integrations/Elementor/WidgetControls/StyleControls.php:854, includes/Integrations/Elementor/WidgetControls/StyleControls.php:923, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1523, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1573
 msgid "Background Color"
 msgstr ""
 
@@ -1474,15 +1494,15 @@ msgstr ""
 msgid "Textarea Rows"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:847, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1077, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1515
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:847, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1500
 msgid "Normal"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:865, includes/Integrations/Elementor/WidgetControls/StyleControls.php:934, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1092, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1179, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1549, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1599, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1800
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:865, includes/Integrations/Elementor/WidgetControls/StyleControls.php:934, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1079, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1281, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1534, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1584, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1785
 msgid "Text Color"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:878, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1562
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:878, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1547
 msgid "Focus"
 msgstr ""
 
@@ -1494,11 +1514,11 @@ msgstr ""
 msgid "Focus Border Color"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:949, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1202, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1614
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:949, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1098, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1599
 msgid "Advanced Style"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1018, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1667
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1018, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1652
 msgid "Placeholder Color"
 msgstr ""
 
@@ -1506,107 +1526,107 @@ msgstr ""
 msgid "Transition Duration"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1113
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1224
 msgid "Hover"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1120
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1233
 msgid "Hover Scale"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1139
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1252
 msgid "Hover Offset (Y)"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1160, includes/Integrations/Elementor/WidgetControls/StyleControls.php:1569
-msgid "Border Color"
-msgstr ""
-
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1171
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1308
 msgid "Hover Animation"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1392
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1377
 msgid "Success Color"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1404
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1389
 msgid "Error Color"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1431
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1416
 msgid "Name Field"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1437
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1422
 msgid "Email Field"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1443
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1428
 msgid "Phone Field"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1449
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1434
 msgid "Website Field"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1455
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1440
 msgid "Subject Field"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1461
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1446
 msgid "Message Field"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1490
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1475
 msgid "Column Width"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1749
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1554
+msgid "Border Color"
+msgstr ""
+
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1734
 msgid "Label Margin"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1761
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1746
 msgid "Checkbox Margin"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1811
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1796
 msgid "Link Color"
 msgstr ""
 
-#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1822
+#: includes/Integrations/Elementor/WidgetControls/StyleControls.php:1807
 msgid "Checkbox Label Width"
 msgstr ""
 
-#: includes/Services/Captcha/RecaptchaVerifier.php:37
+#: includes/Services/Captcha/RecaptchaVerifier.php:38
 msgid "reCAPTCHA is not configured correctly."
 msgstr ""
 
-#: includes/Services/Captcha/RecaptchaVerifier.php:44
+#: includes/Services/Captcha/RecaptchaVerifier.php:45
 msgid "Please complete the reCAPTCHA."
 msgstr ""
 
-#: includes/Services/Captcha/RecaptchaVerifier.php:67
+#: includes/Services/Captcha/RecaptchaVerifier.php:68
 msgid "reCAPTCHA verification request failed."
 msgstr ""
 
-#: includes/Services/Captcha/RecaptchaVerifier.php:77
+#: includes/Services/Captcha/RecaptchaVerifier.php:78
 msgid "reCAPTCHA verification failed."
 msgstr ""
 
-#: includes/Services/Captcha/TurnstileVerifier.php:37
+#: includes/Services/Captcha/TurnstileVerifier.php:38
 msgid "Captcha is not configured correctly."
 msgstr ""
 
-#: includes/Services/Captcha/TurnstileVerifier.php:44
+#: includes/Services/Captcha/TurnstileVerifier.php:45
 msgid "Please complete the Captcha."
 msgstr ""
 
-#: includes/Services/Captcha/TurnstileVerifier.php:67
+#: includes/Services/Captcha/TurnstileVerifier.php:68
 msgid "Captcha verification request failed."
 msgstr ""
 
-#: includes/Services/Captcha/TurnstileVerifier.php:77
+#: includes/Services/Captcha/TurnstileVerifier.php:78
 msgid "Captcha verification failed."
 msgstr ""
 
