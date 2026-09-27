@@ -134,6 +134,33 @@ function stripSourceMapComments(dir) {
     }
 }
 
+// Remove empty directories from a dist tree.
+//
+// The `**` glob matches directory entries even when every file inside them is
+// excluded, so assets/scss, assets/icons and assets/images are created empty.
+// SVN tracks directories, so committing them would ship empty folders to
+// WordPress.org. Only ever called on dist/trunk and dist/tags/<version> --
+// never on dist/assets, which is a real versioned folder on the server.
+function pruneEmptyDirs(dir) {
+    if (!fs.existsSync(dir)) {
+        return 0;
+    }
+    let removed = 0;
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, entry.name);
+        if (!entry.isDirectory()) {
+            continue;
+        }
+        removed += pruneEmptyDirs(full);
+        if (fs.readdirSync(full).length === 0) {
+            fs.rmSync(full, { recursive: true, force: true });
+            console.log('  removed empty dir ' + path.relative('.', full));
+            removed++;
+        }
+    }
+    return removed;
+}
+
 // Prepare a WordPress.org SVN-ready dist layout:
 //   dist/trunk/          -> current release code (copy on every build)
 //   dist/tags/<version>/ -> named from the plugin header Version, e.g. tags/1.0.0
@@ -148,6 +175,11 @@ gulp.task('dist', async function () {
 
     stripSourceMapComments('dist/trunk');
     stripSourceMapComments(path.join('dist', 'tags', version));
+
+    const pruned = pruneEmptyDirs('dist/trunk') + pruneEmptyDirs(path.join('dist', 'tags', version));
+    if (pruned > 0) {
+        console.log('  pruned ' + pruned + ' empty director' + (pruned === 1 ? 'y' : 'ies'));
+    }
 });
 
 // --- BrowserSync / Watch tasks ---
