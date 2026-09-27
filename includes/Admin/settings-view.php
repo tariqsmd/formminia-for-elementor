@@ -719,7 +719,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 										<span class="dashicons dashicons-arrow-right-alt2 arrow-icon"></span>
 									</a>
 
-									<a href="https://wordpress.org/support/plugin/formminia-for-elementor/reviews/#new-post" target="_blank" rel="noopener noreferrer" class="support-action-card">
+									<a href="https://wordpress.org/plugins/formminia-for-elementor/#reviews" target="_blank" rel="noopener noreferrer" class="support-action-card">
 										<span class="dashicons dashicons-star-filled star-icon"></span>
 										<div>
 											<strong><?php esc_html_e( 'Leave a 5-Star Review', 'formminia-for-elementor' ); ?></strong>
