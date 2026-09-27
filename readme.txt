@@ -4,8 +4,7 @@ Tags: contact form, elementor form builder, elementor, gdpr, captcha
 Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 7.4
-Requires Plugins: elementor
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -78,6 +77,11 @@ By default notifications go to your site's admin email. To override it globally,
 2. Form settings — fields, GDPR, CAPTCHA and honeypot.
 
 == Changelog ==
+
+= 1.0.1 =
+* Elementor is no longer a required plugin dependency, so the plugin can be installed and activated on its own.
+* Added an admin notice pointing to Elementor installation while Elementor is inactive.
+* Submission handling and the Submissions screen keep working without Elementor.
 
 = 1.0.0 =
 * Initial release.

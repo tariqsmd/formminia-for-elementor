@@ -68,7 +68,7 @@ class Plugin {
 		if ( defined( 'FORMMINIA_VERSION' ) ) {
 			$this->version = FORMMINIA_VERSION;
 		} else {
-			$this->version = '1.0.0';
+			$this->version = '1.0.1';
 		}
 
 		$this->plugin_name = 'formminia';

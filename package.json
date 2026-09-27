@@ -1,6 +1,6 @@
 {
   "name": "formminia-for-elementor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A comprehensive contact form plugin for WordPress with FormMinia for Elementor branding.",
   "main": "gulpfile.js",
   "scripts": {

@@ -3,14 +3,13 @@
  * Plugin Name:       FormMinia for Elementor
  * Plugin URI:        https://wordpress.org/plugins/formminia-for-elementor/
  * Description:       A modern, feature-rich contact form plugin with multiple skins, layouts, GDPR support, and Elementor integration.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Muhammad Tariq
  * Author URI:        https://profiles.wordpress.org/mtariqsmd/
  * License:           GPLv2 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Requires at least: 6.8
  * Requires PHP:      7.4
- * Requires Plugins:  elementor
  * Text Domain:       formminia-for-elementor
  * Domain Path:       /languages
  */
@@ -23,7 +22,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Plugin Constants
  */
-define( 'FORMMINIA_VERSION', '1.0.0' );
+define( 'FORMMINIA_VERSION', '1.0.1' );
 define( 'FORMMINIA_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'FORMMINIA_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 

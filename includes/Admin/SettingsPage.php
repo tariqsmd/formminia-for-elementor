@@ -217,22 +217,70 @@ class SettingsPage
 	}
 
 	/**
-	 * Show an admin notice when the Elementor dependency is inactive.
+	 * Show an admin notice when Elementor is not installed or active.
 	 *
-	 * Displayed only on FormMinia for Elementor admin screens.
+	 * Elementor is an optional dependency: the plugin activates without it and
+	 * the widget is simply unavailable until Elementor is present. The notice is
+	 * shown on the screens where a user is most likely to need it.
 	 */
 	public function maybe_display_elementor_notice()
 	{
+		if ($this->is_elementor_active()) {
+			return;
+		}
+
 		$screen = function_exists('get_current_screen') ? get_current_screen() : null;
-		if (!$screen || strpos((string) $screen->id, 'formminia') === false) {
+		if (!$screen) {
 			return;
 		}
 
+		$screen_id    = (string) $screen->id;
+		$is_formminia = strpos($screen_id, 'formminia') !== false;
+
+		if (!$is_formminia && !in_array($screen_id, array('dashboard', 'plugins', 'plugins-network'), true)) {
+			return;
+		}
+
+		if (!current_user_can('activate_plugins')) {
+			return;
+		}
+
+		$message = $is_formminia
+			? __('FormMinia for Elementor needs the Elementor plugin before you can build forms. The Contact Form widget becomes available as soon as Elementor is active.', 'formminia-for-elementor')
+			: __('FormMinia for Elementor is active, but Elementor is not installed. Your existing forms and submissions keep working, and the Contact Form widget becomes available as soon as Elementor is active.', 'formminia-for-elementor');
+
+		$is_installed = function_exists('is_plugin_active') && is_plugin_active('elementor/elementor.php');
+
+		printf(
+			'<div class="notice notice-warning"><p>%s <a href="%s" class="button button-primary">%s</a></p></div>',
+			esc_html($message),
+			esc_url(
+				self_admin_url(
+					$is_installed
+						? 'plugins.php'
+						: 'plugin-install.php?tab=search&s=elementor'
+				)
+			),
+			esc_html(
+				$is_installed
+					? __('Go to Plugins', 'formminia-for-elementor')
+					: __('Install Elementor', 'formminia-for-elementor')
+			)
+		);
+	}
+
+	/**
+	 * Whether Elementor is loaded and usable.
+	 *
+	 * @return bool
+	 */
+	protected function is_elementor_active()
+	{
 		if (defined('ELEMENTOR_VERSION')) {
-			return;
+			return true;
 		}
 
-		echo '<div class="notice notice-warning is-dismissible"><p>' . esc_html__('FormMinia for Elementor requires the Elementor plugin to build forms. Install and activate Elementor to get started.', 'formminia-for-elementor') . '</p></div>';
+		return (bool) did_action('elementor/loaded');
 	}
 
 	/**
