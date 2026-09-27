@@ -618,7 +618,7 @@
   --formminia-text-light: #94a3b8;
   --formminia-primary: #818cf8;
   --formminia-secondary: #4f46e5;
-  --formminia-title-color: #818cf8;
+  --formminia-title-color: #c7d2fe;
   --formminia-title-weight: 800;
   --formminia-title-spacing: -0.025em;
   --formminia-label-color: #94a3b8;
@@ -643,6 +643,18 @@
   --formminia-form-padding: 2.5rem;
   --formminia-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   accent-color: var(--formminia-primary);
+}
+.formminia-skin-1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #818cf8 0%, #4f46e5 60%, #3730a3 100%);
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  pointer-events: none;
 }
 
 /* Nature's Breath */
@@ -849,27 +861,39 @@
 
 /* Ocean Deep */
 .formminia-skin-8 {
-  --formminia-bg: #ecfdf5;
-  --formminia-text: #0f766e;
-  --formminia-primary: #14b8a6;
-  --formminia-secondary: #0d9488;
-  --formminia-title-color: #134e4a;
+  --formminia-bg: #03121d;
+  --formminia-text: #e0f7f2;
+  --formminia-primary: #2dd4bf;
+  --formminia-secondary: #0891b2;
+  --formminia-title-color: #7ef0dd;
   --formminia-title-weight: 800;
-  --formminia-label-color: #0f766e;
-  --formminia-input-bg: #ffffff;
-  --formminia-input-border: #a7f3d0;
-  --formminia-input-focus-border: #14b8a6;
-  --formminia-input-focus-shadow: 0 0 0 3px rgba(20, 184, 166, 0.15);
+  --formminia-label-color: #9ad7d8;
+  --formminia-input-bg: rgba(255, 255, 255, 0.05);
+  --formminia-input-border: rgba(45, 212, 191, 0.25);
+  --formminia-input-color: #e0f7f2;
+  --formminia-input-focus-bg: rgba(255, 255, 255, 0.07);
+  --formminia-input-focus-border: #2dd4bf;
+  --formminia-input-focus-shadow: 0 0 0 3px rgba(45, 212, 191, 0.18);
   --formminia-field-radius: 12px;
-  --formminia-btn-bg: linear-gradient(135deg, #14b8a6 0%, #0891b2 100%);
-  --formminia-btn-color: var(--formminia-text);
-  --formminia-btn-hover-bg: linear-gradient(135deg, #0d9488 0%, #0e7490 100%);
-  --formminia-btn-hover-color: var(--formminia-text);
+  --formminia-btn-bg: linear-gradient(135deg, #2dd4bf 0%, #0891b2 100%);
+  --formminia-btn-color: #ffffff;
+  --formminia-btn-hover-bg: linear-gradient(135deg, #14b4a2 0%, #0e7490 100%);
+  --formminia-btn-hover-color: #ffffff;
   --formminia-btn-radius: 12px;
   --formminia-radius: 20px;
   --formminia-form-padding: 3rem;
-  --formminia-shadow: 0 12px 35px rgba(20, 184, 166, 0.1);
+  --formminia-shadow: 0 20px 45px rgba(2, 16, 24, 0.55);
   accent-color: var(--formminia-primary);
+  border: 1px solid rgba(45, 212, 191, 0.18);
+  position: relative;
+}
+.formminia-skin-8::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 20% 0%, rgba(45, 212, 191, 0.08) 0%, transparent 55%);
+  pointer-events: none;
 }
 
 /* Crystal White */
@@ -902,27 +926,32 @@
 /* Vibrant Coral */
 .formminia-skin-10 {
   --formminia-bg: #fff5f7;
-  --formminia-text: #be183d;
-  --formminia-primary: #ff6b9d;
+  --formminia-text: #ff1744;
+  --formminia-primary: #ff5252;
   --formminia-secondary: #ff1744;
-  --formminia-title-color: #c2185b;
-  --formminia-title-weight: 800;
-  --formminia-label-color: #f50057;
+  --formminia-title-color: #d50000;
+  --formminia-title-weight: 900;
+  --formminia-title-spacing: 3px;
+  --formminia-label-color: #ff4070;
+  --formminia-label-transform: uppercase;
+  --formminia-label-spacing: 0.08em;
   --formminia-input-bg: #ffffff;
-  --formminia-input-border: #ffb3d9;
-  --formminia-input-focus-border: #ff6b9d;
-  --formminia-input-focus-shadow: 0 0 0 3px rgba(255, 107, 157, 0.15);
-  --formminia-field-radius: 12px;
-  --formminia-btn-bg: linear-gradient(135deg, #ff6b9d 0%, #ff1744 100%);
-  --formminia-btn-color: var(--formminia-text);
-  --formminia-btn-hover-bg: linear-gradient(135deg, #ff5290 0%, #d60035 100%);
-  --formminia-btn-hover-color: var(--formminia-text);
-  --formminia-btn-radius: 12px;
-  --formminia-radius: 18px;
+  --formminia-input-border: #ff8a9a;
+  --formminia-input-focus-border: #ff1744;
+  --formminia-input-focus-shadow: 0 0 0 3px rgba(255, 82, 82, 0.18);
+  --formminia-field-radius: 4px;
+  --formminia-btn-bg: linear-gradient(135deg, #ff5252 0%, #d50000 100%);
+  --formminia-btn-color: #ffffff;
+  --formminia-btn-hover-bg: linear-gradient(135deg, #ff1744 0%, #b9003a 100%);
+  --formminia-btn-hover-color: #ffffff;
+  --formminia-btn-radius: 4px;
+  --formminia-btn-weight: 800;
+  --formminia-btn-transform: uppercase;
+  --formminia-radius: 16px;
   --formminia-form-padding: 3rem;
-  --formminia-shadow: 0 12px 35px rgba(255, 107, 157, 0.15);
+  --formminia-shadow: 0 15px 35px rgba(255, 23, 68, 0.15);
   accent-color: var(--formminia-primary);
-  border: 1px solid #ff99c8;
+  border: 3px solid #ff1744;
 }
 
 /* Platinum Luxury */
@@ -957,15 +986,15 @@
 
 /* Midnight Glow */
 .formminia-skin-12 {
-  --formminia-bg: #0a0a0f;
+  --formminia-bg: #0a0a1a;
   --formminia-text: #e0e7ff;
   --formminia-primary: #22d3ee;
-  --formminia-secondary: #818cf8;
-  --formminia-title-color: #22d3ee;
+  --formminia-secondary: #a855f7;
+  --formminia-title-color: #67e8f9;
   --formminia-title-weight: 800;
   --formminia-title-size: 2.25rem;
   --formminia-title-spacing: 0.1em;
-  --formminia-label-color: #818cf8;
+  --formminia-label-color: #c084fc;
   --formminia-label-size: 0.85rem;
   --formminia-label-transform: uppercase;
   --formminia-input-bg: rgba(255, 255, 255, 0.03);
@@ -976,7 +1005,7 @@
   --formminia-input-focus-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
   --formminia-field-radius: 12px;
   --formminia-field-padding: 1.1rem 1.5rem;
-  --formminia-btn-bg: linear-gradient(135deg, #22d3ee 0%, #818cf8 100%);
+  --formminia-btn-bg: linear-gradient(135deg, #22d3ee 0%, #a855f7 100%);
   --formminia-btn-color: #ffffff;
   --formminia-btn-hover-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
   --formminia-btn-radius: 50px;
@@ -996,7 +1025,7 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(circle at top right, rgba(129, 140, 248, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 .formminia-skin-12 .formminia-form-title {
@@ -1322,19 +1351,20 @@
 
 /* Soft Clay */
 .formminia-skin-21 {
-  --formminia-bg: #f0f4f9;
-  --formminia-text: #4a5568;
-  --formminia-primary: #667eea;
-  --formminia-secondary: #764ba2;
-  --formminia-title-color: #2d3748;
+  --formminia-bg: #f5eee4;
+  /* Warm clay */
+  --formminia-text: #5c4634;
+  --formminia-primary: #c0653a;
+  --formminia-secondary: #a34f2c;
+  --formminia-title-color: #8a4528;
   --formminia-title-weight: 800;
-  --formminia-label-color: #4a5568;
-  --formminia-input-bg: #f0f4f9;
+  --formminia-label-color: #7d6652;
+  --formminia-input-bg: #f5eee4;
   --formminia-input-border: none;
-  --formminia-input-focus-bg: #f0f4f9;
+  --formminia-input-focus-bg: #f5eee4;
   --formminia-field-radius: 20px;
   --formminia-field-padding: 1.2rem 1.5rem;
-  --formminia-btn-bg: #667eea;
+  --formminia-btn-bg: #c0653a;
   --formminia-btn-color: #ffffff;
   --formminia-btn-radius: 30px;
   --formminia-btn-weight: 700;
@@ -1342,24 +1372,24 @@
   --formminia-form-padding: 4rem;
   accent-color: var(--formminia-primary);
   background: var(--formminia-bg);
-  box-shadow: 20px 20px 60px #ccd1d9, -20px -20px 60px #ffffff;
+  box-shadow: 20px 20px 60px #dbcbb6, -20px -20px 60px #ffffff;
   border: none;
 }
 .formminia-skin-21 .formminia-input,
 .formminia-skin-21 .formminia-textarea {
-  box-shadow: inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff;
+  box-shadow: inset 6px 6px 12px #dbc9b3, inset -6px -6px 12px #fffaf2;
   transition: all 0.3s ease;
 }
 .formminia-skin-21 .formminia-input:focus,
 .formminia-skin-21 .formminia-textarea:focus {
-  box-shadow: inset 2px 2px 5px #d1d9e6, inset -5px -5px 10px #ffffff;
+  box-shadow: inset 2px 2px 5px #dbc9b3, inset -5px -5px 10px #fffaf2;
   transform: scale(0.99);
 }
 .formminia-skin-21 .formminia-submit-btn {
-  box-shadow: 8px 8px 15px #ccd1d9, -8px -8px 15px #ffffff;
+  box-shadow: 8px 8px 15px #dbcbb6, -8px -8px 15px #ffffff;
 }
 .formminia-skin-21 .formminia-submit-btn:hover {
-  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.1), 4px 4px 10px #ccd1d9;
+  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.1), 4px 4px 10px #dbcbb6;
 }
 
 /* Pop Brutalist */
@@ -1368,7 +1398,7 @@
   /* Bright Yellow */
   --formminia-text: #000000;
   --formminia-primary: #000000;
-  --formminia-secondary: #ff00ff;
+  --formminia-secondary: #0055ff;
   --formminia-title-color: #000000;
   --formminia-title-weight: 900;
   --formminia-title-size: 2.5rem;
@@ -1381,31 +1411,31 @@
   --formminia-input-color: #000000;
   --formminia-input-focus-bg: #ffffff;
   --formminia-input-focus-border: #000000;
-  --formminia-input-focus-shadow: 4px 4px 0px #000000;
+  --formminia-input-focus-shadow: 4px 4px 0px #0055ff;
   --formminia-field-radius: 0;
   --formminia-field-border-width: 3px;
-  --formminia-btn-bg: #00ff00;
-  /* Neon Green */
-  --formminia-btn-color: #000000;
+  --formminia-btn-bg: #0055ff;
+  /* Pop Blue */
+  --formminia-btn-color: #ffffff;
   --formminia-btn-radius: 0;
   --formminia-btn-weight: 900;
   --formminia-btn-transform: uppercase;
   --formminia-btn-padding: 1.25rem 2.5rem;
   --formminia-radius: 0;
   --formminia-form-padding: 3.5rem;
-  --formminia-shadow: 8px 8px 0px #000000;
+  --formminia-shadow: 8px 8px 0px #0055ff;
   accent-color: var(--formminia-primary);
   border: 3px solid #000000;
   background: var(--formminia-bg);
 }
 .formminia-skin-22 .formminia-submit-btn {
   border: 3px solid #000000;
-  box-shadow: 4px 4px 0px #000000;
+  box-shadow: 4px 4px 0px #0055ff;
   transition: all 0.1s;
 }
 .formminia-skin-22 .formminia-submit-btn:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #000000;
+  box-shadow: 6px 6px 0px #0055ff;
 }
 .formminia-skin-22 .formminia-submit-btn:active {
   transform: translate(2px, 2px);
@@ -1488,57 +1518,57 @@
 
 /* Royal Executive */
 .formminia-skin-24 {
-  --formminia-bg: #ffffff;
-  --formminia-text: #1e293b;
-  --formminia-primary: #b48c5a;
-  /* Muted Gold */
-  --formminia-secondary: #64748b;
-  --formminia-title-color: #1e293b;
-  --formminia-title-weight: 300;
-  --formminia-title-size: 2.5rem;
-  --formminia-title-spacing: 0.15em;
-  --formminia-label-color: #64748b;
+  --formminia-bg: #0e1428;
+  --formminia-text: #e9e6f2;
+  --formminia-primary: #d4af37;
+  --formminia-secondary: #8b8680;
+  --formminia-title-color: #d4af37;
+  --formminia-title-weight: 200;
+  --formminia-title-size: 2.75rem;
+  --formminia-title-spacing: 0.2em;
+  --formminia-label-color: #b8b3c6;
   --formminia-label-transform: uppercase;
-  --formminia-label-size: 0.75rem;
-  --formminia-input-bg: #fcfcfc;
-  --formminia-input-border: rgba(180, 140, 90, 0.3);
-  --formminia-input-color: #1e293b;
-  --formminia-input-focus-border: #b48c5a;
+  --formminia-label-spacing: 0.15em;
+  --formminia-input-bg: rgba(255, 255, 255, 0.04);
+  --formminia-input-border: rgba(212, 175, 55, 0.25);
+  --formminia-input-color: #e9e6f2;
+  --formminia-input-focus-border: #d4af37;
+  --formminia-input-focus-shadow: 0 0 0 2px rgba(212, 175, 55, 0.12);
   --formminia-field-radius: 0;
   --formminia-field-border-width: 0 0 1px 0;
-  --formminia-btn-bg: #b48c5a;
-  --formminia-btn-color: #ffffff;
+  --formminia-btn-bg: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  --formminia-btn-color: #0e1428;
   --formminia-btn-radius: 0;
-  --formminia-btn-weight: 600;
+  --formminia-btn-weight: 700;
   --formminia-btn-transform: uppercase;
-  --formminia-btn-spacing: 3px;
+  --formminia-btn-spacing: 4px;
   --formminia-radius: 0;
-  --formminia-form-padding: 5rem;
-  --formminia-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
+  --formminia-form-padding: 4.5rem;
+  --formminia-shadow: 0 0 60px rgba(212, 175, 55, 0.08), 0 25px 60px -12px rgba(0, 0, 0, 0.4);
   accent-color: var(--formminia-primary);
-  border: 1px solid rgba(180, 140, 90, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.3);
   position: relative;
 }
 .formminia-skin-24::before {
   content: "";
   position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  border: 1px solid rgba(180, 140, 90, 0.1);
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  border: 1px solid rgba(212, 175, 55, 0.15);
   pointer-events: none;
 }
 .formminia-skin-24 .formminia-submit-btn {
-  border: 1px solid #b48c5a;
+  border: 1px solid #d4af37;
   background: transparent;
-  color: #b48c5a;
+  color: #d4af37;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .formminia-skin-24 .formminia-submit-btn:hover {
-  background: #b48c5a;
-  color: #ffffff;
-  box-shadow: 0 0 40px rgba(180, 140, 90, 0.2);
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: #0e1428;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.25);
 }
 
 /* Organic Flow */
@@ -1640,34 +1670,34 @@
 /* Dynamic Stream */
 .formminia-skin-27 {
   --formminia-bg: #ffffff;
-  --formminia-text: #0f1419;
-  --formminia-primary: #1d9bf0;
-  --formminia-secondary: #536471;
-  --formminia-title-color: #0f1419;
-  --formminia-title-weight: 700;
+  --formminia-text: #1c1430;
+  --formminia-primary: #8b5cf6;
+  --formminia-secondary: #7c3aed;
+  --formminia-title-color: #5b21b6;
+  --formminia-title-weight: 800;
   --formminia-title-size: 1.75rem;
-  --formminia-label-color: #536471;
+  --formminia-label-color: #6d5fa8;
   --formminia-label-size: 0.9rem;
   --formminia-input-bg: #ffffff;
-  --formminia-input-border: #cfd9de;
-  --formminia-input-color: #0f1419;
+  --formminia-input-border: #ddd6fe;
+  --formminia-input-color: #1c1430;
   --formminia-input-focus-bg: #ffffff;
-  --formminia-input-focus-border: #1d9bf0;
+  --formminia-input-focus-border: #8b5cf6;
   --formminia-field-radius: 4px;
-  --formminia-btn-bg: #0f1419;
+  --formminia-btn-bg: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
   --formminia-btn-color: #ffffff;
-  --formminia-btn-hover-bg: #272c30;
+  --formminia-btn-hover-bg: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
   --formminia-btn-radius: 9999px;
   --formminia-btn-weight: 700;
   --formminia-btn-padding: 0.75rem 2rem;
   --formminia-radius: 16px;
   --formminia-form-padding: 2.5rem;
-  --formminia-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  --formminia-shadow: 0 8px 30px rgba(139, 92, 246, 0.12);
   accent-color: var(--formminia-primary);
-  border: 1px solid #eff3f4;
+  border: 1px solid #ede9fe;
 }
 .formminia-skin-27 .formminia-input:focus {
-  box-shadow: 0 0 0 1px #1d9bf0 !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15) !important;
 }
 .formminia-skin-27 .formminia-submit-btn {
   width: 100%;
@@ -1676,29 +1706,44 @@
 
 /* Corporate Network */
 .formminia-skin-28 {
-  --formminia-bg: #ffffff;
-  --formminia-text: rgba(0, 0, 0, 0.9);
-  --formminia-primary: #0077b5;
-  --formminia-secondary: rgba(0, 0, 0, 0.6);
-  --formminia-title-color: rgba(0, 0, 0, 0.9);
-  --formminia-title-weight: 600;
-  --formminia-label-color: rgba(0, 0, 0, 0.6);
-  --formminia-label-weight: 400;
-  --formminia-input-bg: #ffffff;
-  --formminia-input-border: rgba(0, 0, 0, 0.6);
-  --formminia-input-focus-border: #0077b5;
-  --formminia-input-focus-shadow: 0 0 0 1px #0077b5;
-  --formminia-field-radius: 4px;
-  --formminia-btn-bg: #0077b5;
-  --formminia-btn-color: #ffffff;
-  --formminia-btn-hover-bg: #004182;
+  --formminia-bg: #0b2a4a;
+  --formminia-text: #ffffff;
+  --formminia-primary: #ffffff;
+  --formminia-secondary: rgba(255, 255, 255, 0.6);
+  --formminia-title-color: #ffffff;
+  --formminia-title-weight: 700;
+  --formminia-title-size: 2rem;
+  --formminia-label-color: rgba(255, 255, 255, 0.7);
+  --formminia-label-weight: 500;
+  --formminia-label-transform: uppercase;
+  --formminia-label-spacing: 0.1em;
+  --formminia-input-bg: rgba(255, 255, 255, 0.1);
+  --formminia-input-border: rgba(255, 255, 255, 0.2);
+  --formminia-input-color: #ffffff;
+  --formminia-input-focus-bg: rgba(255, 255, 255, 0.15);
+  --formminia-input-focus-border: #ffffff;
+  --formminia-input-focus-shadow: 0 0 0 1px #ffffff;
+  --formminia-field-radius: 8px;
+  --formminia-btn-bg: #ffffff;
+  --formminia-btn-color: #0b2a4a;
+  --formminia-btn-hover-bg: #dbeafe;
   --formminia-btn-radius: 1.6rem;
-  --formminia-btn-weight: 600;
-  --formminia-radius: 8px;
-  --formminia-form-padding: 2rem;
-  --formminia-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 4px 4px rgba(0, 0, 0, 0.05);
+  --formminia-btn-weight: 700;
+  --formminia-radius: 12px;
+  --formminia-form-padding: 3rem;
+  --formminia-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
   accent-color: var(--formminia-primary);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  position: relative;
+  background-color: var(--formminia-bg);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.formminia-skin-28::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 42, 74, 0.35) 0%, rgba(11, 42, 74, 0.1) 100%);
+  pointer-events: none;
 }
 .formminia-skin-28 .formminia-submit-btn {
   width: 100%;
@@ -1844,28 +1889,30 @@
 
 /* Frosted Glass */
 .formminia-skin-33 {
-  --formminia-bg: rgba(255, 255, 255, 0.4);
-  --formminia-text: #1e293b;
-  --formminia-primary: #6366f1;
-  --formminia-secondary: #a855f7;
-  --formminia-title-color: #1e293b;
+  --formminia-bg: rgba(245, 243, 255, 0.55);
+  --formminia-text: #4c1d95;
+  --formminia-primary: #a855f7;
+  --formminia-secondary: #d946ef;
+  --formminia-title-color: #6d28d9;
   --formminia-title-weight: 800;
-  --formminia-label-color: #475569;
+  --formminia-label-color: #7c3aed;
   --formminia-input-bg: rgba(255, 255, 255, 0.5);
-  --formminia-input-border: rgba(255, 255, 255, 0.3);
-  --formminia-input-focus-bg: rgba(255, 255, 255, 0.8);
+  --formminia-input-border: rgba(139, 92, 246, 0.25);
+  --formminia-input-color: #4c1d95;
+  --formminia-input-focus-bg: rgba(255, 255, 255, 0.85);
+  --formminia-input-focus-border: #a855f7;
   --formminia-field-radius: 12px;
-  --formminia-btn-bg: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --formminia-btn-bg: linear-gradient(135deg, #a855f7 0%, #d946ef 100%);
   --formminia-btn-color: #ffffff;
   --formminia-btn-radius: 12px;
   --formminia-btn-weight: 600;
   --formminia-radius: 24px;
   --formminia-form-padding: 3.5rem;
-  --formminia-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  --formminia-shadow: 0 8px 32px 0 rgba(88, 28, 135, 0.15);
   accent-color: var(--formminia-primary);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(168, 85, 247, 0.25);
 }
 .formminia-skin-33 .formminia-input,
 .formminia-skin-33 .formminia-textarea {
@@ -2010,16 +2057,17 @@
 .formminia-skin-37 {
   --formminia-bg: #ffffff;
   --formminia-text: #1e293b;
-  --formminia-primary: #f43f5e;
-  --formminia-secondary: #fb923c;
-  --formminia-title-color: #1e293b;
+  --formminia-primary: #8b5cf6;
+  --formminia-secondary: #3b82f6;
+  --formminia-title-color: #312e81;
   --formminia-title-weight: 800;
-  --formminia-label-color: #64748b;
+  --formminia-label-color: #475569;
   --formminia-input-bg: #ffffff;
   --formminia-input-border: #e2e8f0;
-  --formminia-input-focus-border: #f43f5e;
+  --formminia-input-focus-border: #8b5cf6;
+  --formminia-input-focus-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
   --formminia-field-radius: 12px;
-  --formminia-btn-bg: linear-gradient(to right, #f43f5e, #fb923c);
+  --formminia-btn-bg: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
   --formminia-btn-color: #ffffff;
   --formminia-btn-radius: 12px;
   --formminia-btn-weight: 700;
@@ -2038,7 +2086,7 @@
   left: -4px;
   right: -4px;
   bottom: -4px;
-  background: linear-gradient(135deg, #f43f5e, #fb923c, #8b5cf6, #3b82f6);
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6, #60a5fa, #a5b4fc);
   background-size: 300% 300%;
   animation: formminia-aura-rotate 6s linear infinite;
   border-radius: 24px;

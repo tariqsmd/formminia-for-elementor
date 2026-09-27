@@ -76,8 +76,6 @@ By default notifications go to your site's admin email. To override it globally,
 
 1. The FormMinia for Elementor widget in the editor.
 2. Form settings — fields, GDPR, CAPTCHA and honeypot.
-3. Email settings — recipients and HTML template customization.
-4. The submissions screen with search, CSV export and delete.
 
 == Changelog ==
 

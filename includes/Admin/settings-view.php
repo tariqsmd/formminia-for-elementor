@@ -100,7 +100,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 				<span class="dashicons dashicons-list-view"></span>
 				<?php esc_html_e( 'View Submissions', 'formminia-for-elementor' ); ?>
 			</a>
-			<a href="https://wordpress.org/support/plugin/formminia-for-elementor/" target="_blank" rel="noopener noreferrer" class="formminia-btn-secondary">
+			<a href="https://wordpress.org/plugins/formminia-for-elementor/#description" target="_blank" rel="noopener noreferrer" class="formminia-btn-secondary">
 				<span class="dashicons dashicons-editor-help"></span>
 				<?php esc_html_e( 'Documentation', 'formminia-for-elementor' ); ?>
 			</a>
