@@ -54,6 +54,9 @@ wp-config.php
 /tmp
 /out-tsc
 
+# generated source maps (rebuilt by `npx gulp styles`, never shipped to SVN)
+*.css.map
+
 # Runtime data
 pids
 *.pid

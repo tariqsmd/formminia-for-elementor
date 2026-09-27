@@ -74,7 +74,7 @@ class Plugin {
 		$this->plugin_name = 'formminia';
 
 		$this->load_dependencies();
-		$this->set_locale();
+		$this->register_integrations();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 	}
@@ -90,10 +90,12 @@ class Plugin {
 	/**
 	 * Register Elementor integration.
 	 *
-	 * Since WordPress 4.6, WordPress.org plugin translations are loaded
-	 * automatically, so no explicit load_plugin_textdomain() call is needed.
+	 * Translations need no explicit load_plugin_textdomain() call: this plugin
+	 * is distributed through the WordPress.org plugin directory and requires
+	 * WordPress 6.8, so the directory loads the translations for the
+	 * "formminia-for-elementor" text domain automatically.
 	 */
-	protected function set_locale() {
+	protected function register_integrations() {
 		// Register Elementor integration (namespaced).
 		new \FORMMINIA\Integrations\Elementor\Integration();
 	}
