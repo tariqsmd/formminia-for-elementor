@@ -104,14 +104,15 @@ class FormValidator {
 	 */
 	protected function resolve_required_fields(FormSubmission $submission)
 	{
-		$widget_id = isset($submission->raw['formminia_form_id']) ? sanitize_text_field(wp_unslash($submission->raw['formminia_form_id'])) : '';
+		// $submission->raw is already unslashed and sanitized.
+		$widget_id = isset($submission->raw['formminia_form_id']) ? sanitize_text_field($submission->raw['formminia_form_id']) : '';
 		$post_id = isset($submission->raw['formminia_post_id']) ? absint($submission->raw['formminia_post_id']) : 0;
 
 		$settings = (new ElementorWidgetSettings())->get($widget_id, $post_id);
 
 		if (empty($settings)) {
 			// Widget could not be resolved; fall back to the client-declared list.
-			return isset($submission->raw['formminia_required_fields']) ? explode(',', sanitize_text_field(wp_unslash($submission->raw['formminia_required_fields']))) : [];
+			return isset($submission->raw['formminia_required_fields']) ? explode(',', sanitize_text_field($submission->raw['formminia_required_fields'])) : [];
 		}
 
 		$show_defaults = array(

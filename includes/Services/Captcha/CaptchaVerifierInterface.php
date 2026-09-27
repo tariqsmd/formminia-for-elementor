@@ -17,7 +17,9 @@ interface CaptchaVerifierInterface {
 	 * Verify captcha for a submission.
 	 *
 	 * @param FormSubmission      $submission Submission data.
-	 * @param array<string,mixed> $request    Raw request data (typically $_POST).
+	 * @param array<string,mixed> $request    Sanitized, already-unslashed payload
+	 *                                       (FormSubmission::$raw). Implementations
+	 *                                       must not unslash it again.
 	 *
 	 * @return true|\WP_Error
 	 */

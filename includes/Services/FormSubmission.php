@@ -52,20 +52,26 @@ class FormSubmission
 	public $raw;
 
 	/**
-	 * @param array<string, mixed> $data
+	 * Build a submission from a request payload.
+	 *
+	 * The payload MUST already be unslashed by the caller. WordPress slashes
+	 * request data exactly once, so unslashing here as well would strip
+	 * legitimate backslashes from visitor input.
+	 *
+	 * @param array<string, mixed> $data Unslashed request payload.
 	 *
 	 * @return self
 	 */
 	public static function from_post_array(array $data)
 	{
 		$instance = new self();
-		$instance->name = isset($data['formminia_name']) ? sanitize_text_field(wp_unslash($data['formminia_name'])) : '';
-		$instance->email = isset($data['formminia_email']) ? sanitize_email(wp_unslash($data['formminia_email'])) : '';
-		$instance->phone = isset($data['formminia_phone']) ? sanitize_text_field(wp_unslash($data['formminia_phone'])) : '';
-		$instance->website = isset($data['formminia_website']) ? esc_url_raw(wp_unslash($data['formminia_website'])) : '';
-		$instance->subject = isset($data['formminia_subject']) ? sanitize_text_field(wp_unslash($data['formminia_subject'])) : '';
-		$instance->message = isset($data['formminia_message']) ? sanitize_textarea_field(wp_unslash($data['formminia_message'])) : '';
-		$instance->gdpr_enabled = isset($data['formminia_gdpr_enabled']) && sanitize_text_field(wp_unslash($data['formminia_gdpr_enabled'])) === 'yes';
+		$instance->name = isset($data['formminia_name']) ? sanitize_text_field($data['formminia_name']) : '';
+		$instance->email = isset($data['formminia_email']) ? sanitize_email($data['formminia_email']) : '';
+		$instance->phone = isset($data['formminia_phone']) ? sanitize_text_field($data['formminia_phone']) : '';
+		$instance->website = isset($data['formminia_website']) ? esc_url_raw($data['formminia_website']) : '';
+		$instance->subject = isset($data['formminia_subject']) ? sanitize_text_field($data['formminia_subject']) : '';
+		$instance->message = isset($data['formminia_message']) ? sanitize_textarea_field($data['formminia_message']) : '';
+		$instance->gdpr_enabled = isset($data['formminia_gdpr_enabled']) && sanitize_text_field($data['formminia_gdpr_enabled']) === 'yes';
 		$instance->gdpr_accepted = isset($data['formminia_gdpr']);
 		// The raw payload is sanitized recursively so it is safe to expose to
 		// logging and extension hooks. Keys are preserved as-is; only values
@@ -78,6 +84,8 @@ class FormSubmission
 	/**
 	 * Recursively sanitize a request payload before storing/exposing it.
 	 *
+	 * Values arrive unslashed, so they are sanitized but never unslashed again.
+	 *
 	 * @param mixed $value Value to sanitize.
 	 *
 	 * @return mixed
@@ -89,7 +97,7 @@ class FormSubmission
 		}
 
 		if (is_scalar($value) || $value === null) {
-			return sanitize_text_field(wp_unslash((string) $value));
+			return sanitize_text_field((string) $value);
 		}
 
 		return $value;

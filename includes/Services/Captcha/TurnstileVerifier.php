@@ -29,7 +29,8 @@ class TurnstileVerifier implements CaptchaVerifierInterface {
 	public function verify( FormSubmission $submission, array $request ) {
 		unset( $submission ); // Unused for now, kept for future extension.
 
-		$response = isset( $request['cf-turnstile-response'] ) ? sanitize_text_field( wp_unslash( $request['cf-turnstile-response'] ) ) : '';
+		// $request is already unslashed and sanitized by the caller.
+		$response = isset( $request['cf-turnstile-response'] ) ? sanitize_text_field( $request['cf-turnstile-response'] ) : '';
 
 		if ( $this->secret_key === '' ) {
 			return new \WP_Error(

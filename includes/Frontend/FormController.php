@@ -125,8 +125,13 @@ class FormController
 			);
 		}
 
+		// Unslash the request exactly once, here. Everything read below is
+		// therefore already unslashed and downstream sanitizers must not
+		// unslash again.
+		$data = wp_unslash( $_POST ); // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified immediately above.
+
 		// Simple honeypot field to prevent basic spam bots.
-		if (!empty($_POST['formminia_hp'])) {
+		if (!empty($data['formminia_hp'])) {
 			wp_send_json_error(
 				array(
 					'message' => esc_html__('Spam detected. Please try again.', 'formminia-for-elementor'),
@@ -151,9 +156,8 @@ class FormController
 			set_transient($key, $count + 1, 5 * MINUTE_IN_SECONDS);
 		}
 
-		// Nonce verified above; each value is sanitized by FormSubmission and
-		// the captcha verifiers. Unslash here so raw values are never slashed.
-		$data = wp_unslash( $_POST ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
+		// Nonce verified and request unslashed above; each value is sanitized
+		// by FormSubmission before it is stored or handed to third parties.
 		$submission = FormSubmission::from_post_array($data);
 		$validation = $this->validator->validate($submission);
 
@@ -168,13 +172,15 @@ class FormController
 		// Only verify CAPTCHA when the submitting widget actually has
 		// "Show CAPTCHA" enabled. The setting is read from the saved
 		// Elementor document data, never from client input.
-		$widget_id = isset($data['formminia_form_id']) ? sanitize_text_field(wp_unslash($data['formminia_form_id'])) : '';
+		$widget_id = isset($data['formminia_form_id']) ? sanitize_text_field($data['formminia_form_id']) : '';
 		$post_id = isset($data['formminia_post_id']) ? absint($data['formminia_post_id']) : 0;
 		$widget_settings = (new ElementorWidgetSettings())->get($widget_id, $post_id);
 		$show_captcha = isset($widget_settings['show_captcha']) && $widget_settings['show_captcha'] === 'yes';
 
 		if ($show_captcha) {
-			$captcha_result = $this->captcha_verifier->verify($submission, $data);
+			// Hand over the sanitized payload, never the raw request, so
+			// unsanitized user input never reaches the captcha provider.
+			$captcha_result = $this->captcha_verifier->verify($submission, $submission->raw);
 
 			if (is_wp_error($captcha_result)) {
 				wp_send_json_error(
