@@ -135,7 +135,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 					<strong><?php esc_html_e( '50+ Preset Skins', 'formminia-for-elementor' ); ?></strong>
 				</div>
 				<p><?php esc_html_e( 'Edit any page with Elementor, search for the "Contact Form" widget, and choose from 50 built-in skins.', 'formminia-for-elementor' ); ?></p>
-				<a href="https://github.com/tariqsmd/mtforms/issues" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+				<a href="https://github.com/tariqsmd/formminia-for-elementor/issues" target="_blank" rel="noopener noreferrer" class="sidebar-link">
 					<span class="dashicons dashicons-external"></span>
 					<?php esc_html_e( 'Request a Skin / Feature', 'formminia-for-elementor' ); ?>
 				</a>
@@ -710,7 +710,7 @@ $turnstile_docs_url = 'https://dash.cloudflare.com/?to=/:account/turnstile';
 							</div>
 							<div class="formminia-card-body">
 								<div class="support-action-list">
-									<a href="https://github.com/tariqsmd/mtforms/issues" target="_blank" rel="noopener noreferrer" class="support-action-card">
+									<a href="https://github.com/tariqsmd/formminia-for-elementor/issues" target="_blank" rel="noopener noreferrer" class="support-action-card">
 										<span class="dashicons dashicons-warning"></span>
 										<div>
 											<strong><?php esc_html_e( 'Report an Issue / Bug', 'formminia-for-elementor' ); ?></strong>
